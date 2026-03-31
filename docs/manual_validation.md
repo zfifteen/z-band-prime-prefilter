@@ -84,3 +84,9 @@ python3 benchmarks/python/rsa_sweep_benchmark.py \
   --public-exponent 65537 \
   --output-dir benchmarks/output/python/rsa-sweep
 ```
+
+## 8. Run the exact raw composite Z gap-edge study
+
+```bash
+python3 benchmarks/python/raw_z_gap_edge_study.py
+```
