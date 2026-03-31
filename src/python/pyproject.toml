@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "geodesic-prime-prefilter"
 version = "0.1.0"
-description = "Deterministic geodesic prime prefilter locked to the sweet-spot band."
+description = "Deterministic geodesic prime prefilter locked to the fixed-point band."
 requires-python = ">=3.11"
 dependencies = ["sympy>=1.13"]
 

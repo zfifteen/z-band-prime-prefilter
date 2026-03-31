@@ -11,7 +11,7 @@ from typing import Sequence
 from sympy import isprime
 
 
-SWEET_SPOT_V = math.e ** 2 / 2.0
+FIXED_POINT_V = math.e ** 2 / 2.0
 FIXED_POINT_TOLERANCE = 1e-12
 
 DEFAULT_NAMESPACE = "cdl-prime-geodesic"
@@ -201,7 +201,7 @@ def get_cached_wheel_prime_table(
 
 
 class CDLPrimeGeodesicPrefilter:
-    """Deterministic CDL accelerator locked to the sweet-spot prime band."""
+    """Deterministic CDL accelerator locked to the fixed-point prime band."""
 
     def __init__(
         self,
@@ -231,7 +231,7 @@ class CDLPrimeGeodesicPrefilter:
         self.bit_length = bit_length
         self.namespace = namespace
         self.mr_bases = tuple(mr_bases)
-        self.v = SWEET_SPOT_V
+        self.v = FIXED_POINT_V
         self.primary_prime_limit = primary_prime_limit
         self.primary_chunk_size = primary_chunk_size
         self.tail_prime_limit = tail_prime_limit
@@ -328,7 +328,7 @@ class CDLPrimeGeodesicPrefilter:
         the gated prime tables, so the candidate advances to Miller-Rabin. It is not
         a primality proof by itself. After `generate_prime()` returns, the surviving
         candidate has also passed fixed-base Miller-Rabin and final `sympy.isprime`
-        confirmation on the same deterministic path, and the sweet-spot closed form
+        confirmation on the same deterministic path, and the fixed-point closed form
         locks confirmed primes to `Z = 1.0`.
         """
         return float(self._proxy(n)["z_hat"])
@@ -419,7 +419,7 @@ __all__ = [
     "DEFAULT_MR_BASES",
     "DEFAULT_NAMESPACE",
     "FIXED_POINT_TOLERANCE",
-    "SWEET_SPOT_V",
+    "FIXED_POINT_V",
     "WheelPrimeTable",
     "deterministic_odd_candidate",
     "generate_prime",

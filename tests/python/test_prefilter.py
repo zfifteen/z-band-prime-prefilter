@@ -121,7 +121,7 @@ def test_generate_prime_validates_public_exponent_up_front():
 
 
 def test_generate_rsa_prime_hits_exact_small_scale_fixed_point():
-    """A generated small RSA prime should satisfy the exact sweet-spot fixed point."""
+    """A generated small RSA prime should satisfy the exact fixed-point condition."""
     prime = prefilter.generate_rsa_prime(bit_length=32, namespace="unit:rsa")
 
     assert isprime(prime) is True

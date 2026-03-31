@@ -5,7 +5,7 @@ from .prefilter import (
     DEFAULT_MR_BASES,
     DEFAULT_NAMESPACE,
     FIXED_POINT_TOLERANCE,
-    SWEET_SPOT_V,
+    FIXED_POINT_V,
     generate_prime,
     generate_rsa_prime,
 )
@@ -16,7 +16,7 @@ __all__ = [
     "DEFAULT_MR_BASES",
     "DEFAULT_NAMESPACE",
     "FIXED_POINT_TOLERANCE",
-    "SWEET_SPOT_V",
+    "FIXED_POINT_V",
     "generate_prime",
     "generate_rsa_prime",
 ]

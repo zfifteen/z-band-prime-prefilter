@@ -4,7 +4,7 @@ This contract defines the deterministic behavior each implementation must satisf
 
 ## Core Invariants
 
-- The sweet-spot traversal rate is fixed at `v = e^2 / 2`.
+- The fixed-point traversal rate is fixed at `v = e^2 / 2`.
 - Confirmed primes lie on the fixed-point band `Z = 1.0`.
 - The production prefilter rejects a candidate only when it has found a concrete factor in one of the gated prime tables.
 - Survivor status is not a primality proof. Survivors advance to fixed-base Miller-Rabin and then final confirmation in the production Python path.
@@ -22,7 +22,7 @@ This contract defines the deterministic behavior each implementation must satisf
 - `prefilter_decisions_*.json`
   reject/survive decisions plus factor provenance
 - `fixed_points_small_n.json`
-  exact calibration checks for the sweet-spot band
+  exact calibration checks for the fixed-point band
 - `generate_prime_*.json`
   deterministic prime-generation outputs
 

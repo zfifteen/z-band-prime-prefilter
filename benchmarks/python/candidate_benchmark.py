@@ -37,7 +37,7 @@ DEFAULT_PROXY_TAIL_CHUNK_SIZE = 256
 DEFAULT_PROXY_DEEP_TAIL_PRIME_LIMIT = 1000003
 DEFAULT_PROXY_DEEP_TAIL_CHUNK_SIZE = 256
 DEFAULT_PROXY_DEEP_TAIL_MIN_BITS = 4096
-SWEET_SPOT_V = math.e ** 2 / 2.0
+FIXED_POINT_V = math.e ** 2 / 2.0
 FIXED_POINT_TOLERANCE = 1e-12
 LOG_FLOAT_MIN = math.log(sys.float_info.min)
 
@@ -56,8 +56,8 @@ def exact_divisor_count(n: int) -> int:
     return count
 
 
-def exact_z_normalize(n: int, v: float = SWEET_SPOT_V) -> float:
-    """Apply the exact sweet-spot normalization used in the calibration corpus."""
+def exact_z_normalize(n: int, v: float = FIXED_POINT_V) -> float:
+    """Apply the exact fixed-point normalization used in the calibration corpus."""
     if n <= 1:
         return 0.0
 
@@ -385,7 +385,7 @@ def run_exact_calibration(
 
     for n in candidates:
         start_ns = time.perf_counter_ns()
-        z_value = exact_z_normalize(n, v=SWEET_SPOT_V)
+        z_value = exact_z_normalize(n, v=FIXED_POINT_V)
         z_durations_ns.append(time.perf_counter_ns() - start_ns)
 
         divisor_count = exact_divisor_count(n)
@@ -440,7 +440,7 @@ def run_exact_calibration(
         "bit_length": max(n.bit_length() for n in candidates),
         "prime_count": prime_count,
         "composite_count": composite_count,
-        "sweet_spot_v": SWEET_SPOT_V,
+        "fixed_point_v": FIXED_POINT_V,
         "prime_kappa_mean": prime_mean,
         "composite_kappa_mean": composite_mean,
         "separation_ratio": separation_ratio,
@@ -724,13 +724,13 @@ def build_report_markdown(results: Dict) -> str:
         "",
         f"Date: {results['experiment_date']}",
         "",
-        "This report benchmarks the exact sweet-spot calibration path where the current implementation is executable,",
+        "This report benchmarks the exact fixed-point calibration path where the current implementation is executable,",
         "a deterministic CDL proxy backed by bit-length-gated interval-split chunked prime tables,",
         "and fixed-base Miller-Rabin on deterministic cryptographic-scale odd candidates.",
         "",
         "## Configuration",
         "",
-        f"- `sweet_spot_v`: {SWEET_SPOT_V:.12f}",
+        f"- `fixed_point_v`: {FIXED_POINT_V:.12f}",
         f"- `exact_bits`: {results['configuration']['exact_bits']}",
         f"- `exact_count`: {results['configuration']['exact_count']}",
         f"- `crypto_bits`: {results['configuration']['crypto_bits']}",
@@ -749,10 +749,10 @@ def build_report_markdown(results: Dict) -> str:
         "",
         "## Headline Findings",
         "",
-        f"- Sweet-spot Z-space hit the fixed-point band for `{calibration['numeric_fixed_points']}` of `{calibration['prime_count']}` calibration primes within numeric tolerance, with `{calibration['numeric_false_fixed_points']}` fixed-point composites.",
+        f"- The exact fixed-point path hit the fixed-point band for `{calibration['numeric_fixed_points']}` of `{calibration['prime_count']}` calibration primes within numeric tolerance, with `{calibration['numeric_false_fixed_points']}` fixed-point composites.",
         f"- The deterministic proxy hit `{proxy_calibration['fixed_points']}` fixed points on the same calibration corpus with `{proxy_calibration['false_fixed_points']}` composite fixed points and calibration accuracy `{proxy_metrics['accuracy']:.2%}`.",
         f"- On the same `{calibration['bit_length']}`-bit calibration corpus, fixed-base Miller-Rabin matched exact primality with accuracy `{mr_small['accuracy']:.2%}`.",
-        f"- Mean runtime on the calibration corpus was `{calibration['z_timing_ms']['mean']:.6f}` ms per candidate for exact sweet-spot `z_normalize`, `{proxy_calibration['timing_ms']['mean']:.6f}` ms for the deterministic proxy, and `{mr_small['timing_ms']['mean']:.6f}` ms for Miller-Rabin.",
+        f"- Mean runtime on the calibration corpus was `{calibration['z_timing_ms']['mean']:.6f}` ms per candidate for exact fixed-point `z_normalize`, `{proxy_calibration['timing_ms']['mean']:.6f}` ms for the deterministic proxy, and `{mr_small['timing_ms']['mean']:.6f}` ms for Miller-Rabin.",
         f"- On the `{crypto['bit_length']}`-bit control corpus, Miller-Rabin averaged `{crypto['timing_ms']['mean']:.6f}` ms per candidate and passed `{crypto['miller_rabin_pass_count']}` of `{crypto['candidate_count']}` odd candidates; first pass index: `{first_pass_text}`.",
         f"- The deterministic proxy rejected `{proxy_crypto['rejected_by_proxy']}` of `{proxy_crypto['candidate_count']}` cryptographic candidates before Miller-Rabin (`{proxy_crypto['rejection_rate']:.2%}`), cut the end-to-end pipeline to `{proxy_crypto['pipeline_timing_ms']['mean']:.6f}` ms per candidate, and delivered a measured `{proxy_speedup:.2f}x` speedup over Miller-Rabin alone on this corpus.",
     ]

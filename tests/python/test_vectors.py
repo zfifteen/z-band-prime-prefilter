@@ -89,18 +89,18 @@ def test_prefilter_decision_vectors_match_proxy_behavior():
 
 
 def test_fixed_point_vectors_match_exact_small_n_contract():
-    """The small-n fixed-point vectors must match the exact sweet-spot closed form."""
+    """The small-n fixed-point vectors must match the exact fixed-point closed form."""
     module = load_candidate_benchmark()
     payload = load_json("fixed_points_small_n.json")
 
-    assert math.isclose(payload["sweet_spot_v"], prefilter.SWEET_SPOT_V, rel_tol=0.0, abs_tol=0.0)
+    assert math.isclose(payload["fixed_point_v"], prefilter.FIXED_POINT_V, rel_tol=0.0, abs_tol=0.0)
     for entry in payload["values"]:
         n = int(entry["n_hex"], 16)
         divisor_count = module.exact_divisor_count(n)
         z_value = module.exact_z_normalize(n)
         assert divisor_count == entry["divisor_count"]
         assert (divisor_count == 2) is entry["is_prime"]
-        assert math.isclose(z_value, entry["z_at_sweet_spot"], rel_tol=1e-15, abs_tol=1e-15)
+        assert math.isclose(z_value, entry["z_at_fixed_point"], rel_tol=1e-15, abs_tol=1e-15)
 
 
 def test_generate_prime_vectors_match_public_api():
