@@ -1,0 +1,40 @@
+{
+  "family": "candidate_stream",
+  "namespace": "vector:candidate32",
+  "bit_length": 32,
+  "count": 8,
+  "candidates": [
+    {
+      "index": 0,
+      "candidate_hex": "0xdb7b2583"
+    },
+    {
+      "index": 1,
+      "candidate_hex": "0xa460f805"
+    },
+    {
+      "index": 2,
+      "candidate_hex": "0xf34aeb57"
+    },
+    {
+      "index": 3,
+      "candidate_hex": "0xf9124ce3"
+    },
+    {
+      "index": 4,
+      "candidate_hex": "0xb49c8ec3"
+    },
+    {
+      "index": 5,
+      "candidate_hex": "0xed63d185"
+    },
+    {
+      "index": 6,
+      "candidate_hex": "0xb4fac9cb"
+    },
+    {
+      "index": 7,
+      "candidate_hex": "0x8a817343"
+    }
+  ]
+}

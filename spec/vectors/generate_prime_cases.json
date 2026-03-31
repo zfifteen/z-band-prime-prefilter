@@ -1,0 +1,28 @@
+{
+  "family": "generate_prime",
+  "cases": [
+    {
+      "bit_length": 32,
+      "namespace": "vector:prime32",
+      "public_exponent": 65537,
+      "excluded_values_hex": [],
+      "expected_prime_hex": "0x9f055cc9"
+    },
+    {
+      "bit_length": 32,
+      "namespace": "vector:prime32",
+      "public_exponent": 65537,
+      "excluded_values_hex": [
+        "0x9f055cc9"
+      ],
+      "expected_prime_hex": "0xdd587517"
+    },
+    {
+      "bit_length": 64,
+      "namespace": "vector:prime64",
+      "public_exponent": 65537,
+      "excluded_values_hex": [],
+      "expected_prime_hex": "0xdfb0964a82e420a5"
+    }
+  ]
+}
