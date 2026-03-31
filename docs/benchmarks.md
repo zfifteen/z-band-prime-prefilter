@@ -61,3 +61,12 @@ python3 benchmarks/python/rsa_keygen_benchmark.py \
   --bonus-rsa-keypair-count 50 \
   --public-exponent 65537
 ```
+
+RSA sweep benchmark:
+
+```bash
+python3 benchmarks/python/rsa_sweep_benchmark.py \
+  --max-rsa-bits 4096 \
+  --public-exponent 65537 \
+  --output-dir benchmarks/output/python/rsa-sweep
+```

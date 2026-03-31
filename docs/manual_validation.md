@@ -75,3 +75,12 @@ python3 benchmarks/python/rsa_keygen_benchmark.py \
   --public-exponent 65537 \
   --output-dir benchmarks/output/python
 ```
+
+## 7. Run the deterministic RSA sweep up to 4096 bits
+
+```bash
+python3 benchmarks/python/rsa_sweep_benchmark.py \
+  --max-rsa-bits 4096 \
+  --public-exponent 65537 \
+  --output-dir benchmarks/output/python/rsa-sweep
+```
