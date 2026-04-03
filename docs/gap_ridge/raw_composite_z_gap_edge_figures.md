@@ -10,9 +10,9 @@ The figures are generated from:
 ## Main Result
 
 Across the tested regimes, the exact raw composite field
-\[
+$$
 Z(n) = n^{1 - d(n)/2}
-\]
+$$
 does not place the strongest within-gap composite near the midpoint of a prime gap.
 
 It places that peak on a near-edge ridge, and that ridge is carried predominantly by `d(n) = 4` composites.

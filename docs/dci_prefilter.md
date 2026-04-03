@@ -4,15 +4,15 @@ Most cryptographic prime candidates are composite.
 
 That is the practical starting point. Prime generation spends most of its work on numbers that will never survive the full probable-prime path. A useful prefilter therefore does not need to prove primality early. It needs to remove composite work early, deterministically, and without breaking the final confirmation path.
 
-In this repository, that front end is the Z-Band prefilter. It is the deterministic production filter built from the fixed-point locus implied by the **Divisor Normalization Identity** (DNI) \(Z(n) = n^{1 - d(n)/2}\) at
+In this repository, that front end is the Z-Band prefilter. It is the deterministic production filter built from the fixed-point locus implied by the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ at
 
 $$
 v = \frac{e^{2}}{2}.
 $$
 
-Here, the normalization scaling parameter names the distinguished scalar \(v = e^2/2\) in the normalization, and the fixed-point locus names the normalized set \(Z = 1.0\) occupied by confirmed primes under the exact identity.
+Here, the normalization scaling parameter names the distinguished scalar $v = e^2/2$ in the normalization, and the fixed-point locus names the normalized set $Z = 1.0$ occupied by confirmed primes under the exact identity.
 
-At that normalization scaling parameter, confirmed primes lie on the fixed-point locus \(Z = 1.0\), while composites contract below it under exact divisor counting. The production prefilter keeps that locus as its survivor convention and uses concrete factor discovery as its rejection rule.
+At that normalization scaling parameter, confirmed primes lie on the fixed-point locus $Z = 1.0$, while composites contract below it under exact divisor counting. The production prefilter keeps that locus as its survivor convention and uses concrete factor discovery as its rejection rule.
 
 ## Why A Prefilter Matters
 
@@ -20,7 +20,7 @@ The computational problem is straightforward.
 
 When prime generation runs at cryptographic bit lengths, most odd candidates are composite. Sending every one of them through the full probable-prime path wastes work. Miller-Rabin is fast, but it still costs more than discovering an early concrete factor.
 
-The DNI gives the pipeline an invariant target. Under the exact identity, primes occupy the fixed-point locus \(Z = 1.0\). That makes it possible to organize the production path around a narrow distinction:
+The DNI gives the pipeline an invariant target. Under the exact identity, primes occupy the fixed-point locus $Z = 1.0$. That makes it possible to organize the production path around a narrow distinction:
 
 - reject when a concrete factor is found,
 - preserve the survivor locus when no such factor has yet been found.
@@ -35,7 +35,7 @@ $$
 Z(n) = n^{1 - d(n)/2}.
 $$
 
-This identity is exact under exact divisor count, and it is the mathematical source of the fixed-point locus. A prime has \(d(p) = 2\), so \(Z(p) = 1\). A composite has \(d(n) > 2\), so \(Z(n) < 1\).
+This identity is exact under exact divisor count, and it is the mathematical source of the fixed-point locus. A prime has $d(p) = 2$, so $Z(p) = 1$. A composite has $d(n) > 2$, so $Z(n) < 1$.
 
 That exact law is the derivation and the audit surface for the prefilter. It is not the runtime mechanism used for cryptographic-scale candidate loops. Exact divisor counting remains too expensive at that scale.
 

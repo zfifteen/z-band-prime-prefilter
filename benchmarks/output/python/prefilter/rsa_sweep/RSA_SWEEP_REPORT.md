@@ -2,7 +2,7 @@
 
 This report benchmarks the deterministic RSA key-generation pipeline across
 the fixed sweep schedule up to the requested RSA ceiling. Its invariant target is
-the **Divisor Curvature Identity** (DCI) \(Z(n) = n^{1 - d(n)/2}\).
+the **Divisor Curvature Identity** (DCI) $Z(n) = n^{1 - d(n)/2}$.
 
 ## Configuration
 

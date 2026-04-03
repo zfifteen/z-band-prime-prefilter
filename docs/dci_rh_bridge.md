@@ -33,7 +33,7 @@ written down exactly.
 ## Exact Dirichlet-Series Bridge
 
 Start with the divisor-count Dirichlet series on the half-plane
-\(\operatorname{Re}(s) > 1\):
+$\operatorname{Re}(s) > 1$:
 
 $$
 D(s) = \sum_{n \ge 1} \frac{d(n)}{n^s} = \zeta(s)^2.
@@ -46,7 +46,7 @@ K(s) = \sum_{n \ge 1} \frac{\kappa(n)}{n^s}
 = \frac{1}{e^2}\sum_{n \ge 1} \frac{d(n)\ln n}{n^s}.
 $$
 
-Differentiate \(D(s)\) termwise on the same half-plane:
+Differentiate $D(s)$ termwise on the same half-plane:
 
 $$
 D'(s)
@@ -59,7 +59,7 @@ $$
 K(s) = -\frac{1}{e^2}D'(s).
 $$
 
-At the normalization scaling parameter \(v = e^2/2\), the normalized load-to-divisor
+At the normalization scaling parameter $v = e^2/2$, the normalized load-to-divisor
 ratio is therefore
 
 $$
@@ -76,20 +76,20 @@ $$
 = \sum_{n \ge 1} \frac{\Lambda(n)}{n^s},
 $$
 
-where \(\Lambda(n)\) is the von Mangoldt function.
+where $\Lambda(n)$ is the von Mangoldt function.
 
 This is the exact arithmetic bridge:
 
 - the DNI begins from `d(n)` and `kappa(n)`,
-- their native Dirichlet series recover \(\zeta(s)^2\) and its logarithmic derivative,
+- their native Dirichlet series recover $\zeta(s)^2$ and its logarithmic derivative,
 - and the fixed-parameter DNI normalization lands directly on the classical
-  prime-power detector \(-\zeta'/\zeta\).
+  prime-power detector $-\zeta'/\zeta$.
 
 That bridge is already present before any spectral interpretation is added.
 
 ## Proposition
 
-On the half-plane \(\operatorname{Re}(s) > 1\),
+On the half-plane $\operatorname{Re}(s) > 1$,
 
 $$
 D(s) = \zeta(s)^2,
@@ -100,12 +100,12 @@ K(s) = -\frac{1}{e^2}D'(s),
 = \sum_{n \ge 1} \frac{\Lambda(n)}{n^s}.
 $$
 
-Since \(D(s)=\zeta(s)^2\) on that half-plane, the same identities determine
+Since $D(s)=\zeta(s)^2$ on that half-plane, the same identities determine
 the meromorphic continuation of the DNI-built objects:
 
-- \(D(s)\) continues as \(\zeta(s)^2\),
-- \(K(s)\) continues as \(-D'(s)/e^2\),
-- and the normalized ratio continues as \(-\zeta'(s)/\zeta(s)\).
+- $D(s)$ continues as $\zeta(s)^2$,
+- $K(s)$ continues as $-D'(s)/e^2$,
+- and the normalized ratio continues as $-\zeta'(s)/\zeta(s)$.
 
 So the DNI does not merely resemble an analytic prime detector.
 
@@ -129,7 +129,7 @@ Z(n) = n^{1-d(n)/2}.
 $$
 
 On the Dirichlet-series side, the same scalar is the one that cancels the
-factor \(2\) coming from differentiating
+factor $2$ coming from differentiating
 
 $$
 D(s)=\zeta(s)^2.
@@ -146,7 +146,7 @@ $$
 
 If the divisor normalization were rescaled, this scalar would change with
 it. Under the repository's fixed definition
-\(\kappa(n)=d(n)\ln n/e^2\), \(v=e^2/2\) is the exact native scalar on both
+$\kappa(n)=d(n)\ln n/e^2$, $v=e^2/2$ is the exact native scalar on both
 sides of the bridge.
 
 ## Coefficient-Side and Spectral-Side Collapse
@@ -156,14 +156,14 @@ one-dimensional invariant boundary.
 
 For the DNI:
 
-- if \(p\) is prime, then \(d(p)=2\),
-- so \(Z(p)=1\) exactly,
-- and primes lie on the fixed-point locus \(Z = 1.0\).
+- if $p$ is prime, then $d(p)=2$,
+- so $Z(p)=1$ exactly,
+- and primes lie on the fixed-point locus $Z = 1.0$.
 
 For the Riemann Hypothesis:
 
-- the nontrivial zeros of \(\zeta(s)\) are conjectured to satisfy
-  \(\operatorname{Re}(s)=1/2\),
+- the nontrivial zeros of $\zeta(s)$ are conjectured to satisfy
+  $\operatorname{Re}(s)=1/2$,
 - so the zero set collapses onto one vertical line in the complex plane.
 
 These are different objects, but they have the same formal shape:
@@ -195,16 +195,16 @@ $$
 
 That gives one direct reformulation of the RH connection.
 
-- the simple pole at \(s=1\) is the prime-number-theorem pole,
-- the trivial zeros of \(\zeta\) become trivial poles of \(R(s)\),
-- the nontrivial zeros of \(\zeta\) become nontrivial poles of \(R(s)\).
+- the simple pole at $s=1$ is the prime-number-theorem pole,
+- the trivial zeros of $\zeta$ become trivial poles of $R(s)$,
+- the nontrivial zeros of $\zeta$ become nontrivial poles of $R(s)$.
 
 So the Riemann Hypothesis can be read as a pole-placement statement for the
 continued DNI ratio:
 
 all nontrivial poles of
-\(\frac{e^2}{2}\frac{K(s)}{D(s)}\) lie on the critical line
-\(\operatorname{Re}(s)=1/2\).
+$\frac{e^2}{2}\frac{K(s)}{D(s)}$ lie on the critical line
+$\operatorname{Re}(s)=1/2$.
 
 This is a precise analytic reading, not a metaphor.
 
@@ -261,8 +261,8 @@ That is a genuine structural fit:
 The prime locus is the `d(n)=2` layer.
 
 The first composite layer adjacent to it is the `d(n)=4` layer, including
-numbers such as \(pq\) with distinct primes \(p\) and \(q\), and also prime
-cubes \(p^3\). For that layer,
+numbers such as $pq$ with distinct primes $p$ and $q$, and also prime
+cubes $p^3$. For that layer,
 
 $$
 d(n)=4
@@ -273,7 +273,7 @@ $$
 That layer is not rare decoration in the current repository. It is the
 dominant carrier of the gap-local raw-`Z` peak on the tested surface.
 
-The same divisor count belongs naturally to the \(\zeta(s)^2\) side of the
+The same divisor count belongs naturally to the $\zeta(s)^2$ side of the
 bridge because `d(n)` is exactly the coefficient sequence of that square.
 
 This gives a precise arithmetic reading of the observed ridge:
@@ -307,7 +307,7 @@ residue-conditioned subfamilies.
 That means the residue-modulated ridge orientation has a natural next analytic
 home:
 
-- the global DNI field sits beside \(\zeta(s)\),
+- the global DNI field sits beside $\zeta(s)$,
 - residue-conditioned DNI subregimes sit beside character-weighted L-series.
 
 The current repository does not need to widen its production path to use that
@@ -326,8 +326,8 @@ whose native generating functions already recover the classical zeta detector.
 
 That yields several concrete targets.
 
-1. Study the DNI divisor series \(D(s)=\zeta(s)^2\) and normalization series
-   \(K(s)=-(1/e^2)D'(s)\) as the canonical analytic envelope of the DNI field.
+1. Study the DNI divisor series $D(s)=\zeta(s)^2$ and normalization series
+   $K(s)=-(1/e^2)D'(s)$ as the canonical analytic envelope of the DNI field.
 2. Express gap-local DNI observables against short-interval prime statistics,
    especially interior peak location and `d(n)=4` carrier share.
 3. Build residue-conditioned versions of those observables and compare them to
@@ -345,7 +345,7 @@ This order keeps the arithmetic facts in front:
 
 This repository already establishes:
 
-- the exact DNI at \(v = e^2/2\),
+- the exact DNI at $v = e^2/2$,
 - the deterministic production prefilter built from that invariant,
 - and the exact raw-DNI gap-ridge observables developed in the committed notes
   and benchmark artifacts.

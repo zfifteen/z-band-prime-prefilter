@@ -2,7 +2,7 @@
 
 Date: 2026-03-31
 
-This report benchmarks the exact **Divisor Curvature Identity** (DCI) \(Z(n) = n^{1 - d(n)/2}\) calibration path where the current implementation is executable,
+This report benchmarks the exact **Divisor Curvature Identity** (DCI) $Z(n) = n^{1 - d(n)/2}$ calibration path where the current implementation is executable,
 a deterministic CDL proxy backed by bit-length-gated interval-split chunked prime tables,
 and fixed-base Miller-Rabin on deterministic cryptographic-scale odd candidates.
 

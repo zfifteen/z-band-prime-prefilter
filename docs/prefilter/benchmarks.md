@@ -1,6 +1,6 @@
 # Benchmarks
 
-The current validated production numbers come from the extracted Python implementation built around the **Divisor Normalization Identity** (DNI) \(Z(n) = n^{1 - d(n)/2}\).
+The current validated production numbers come from the extracted Python implementation built around the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$.
 
 ## End-to-End RSA Key Generation
 

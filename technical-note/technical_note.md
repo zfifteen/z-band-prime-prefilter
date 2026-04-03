@@ -11,14 +11,14 @@ bibliography: references.bib
 link-citations: true
 colorlinks: true
 abstract: |
-  The Geodesic Prime Prefilter is a deterministic cryptographic prime prefilter derived from the fixed-point traversal rate $v = e^2 / 2$ of the divisor-curvature normalization $Z(n) = n / \exp(v \cdot \kappa(n))$ with $\kappa(n) = d(n)\ln(n) / e^2$. At that rate the **Divisor Curvature Identity** (DCI) \(Z(n) = n^{1 - d(n)/2}\) holds exactly, so confirmed primes collapse to the invariant band $Z = 1.0$ and composites contract below that band. Validation in this repository shows 29/29 calibration primes on the fixed-point band, 0 composite false fixed points, and an exact-calibration curvature separation ratio of 4.54× on the tractable corpus. The same exact field now supports a separate prime-gap result surface: up to $10^6$, the gap-local raw composite $Z$ maximum lands at edge distance 2 in 43.6006 % of tested gaps against an exact within-gap baseline of 22.1859 %, is carried by a $d(n)=4$ composite in 82.9027 % of tested gaps against an exact within-gap baseline of 20.1401 %, and matches the lexicographic winner "smallest interior divisor count, then leftmost" on the tested validation surface through sampled $10^{10}$ with zero counterexamples observed. The production Python path replaces exact divisor counting with a deterministic factor-gated surrogate that preserves the fixed-point survivor convention before fixed-base Miller-Rabin and final sympy.isprime confirmation. The curated repo benchmark summary reports 91.02 % and 91.41 % candidate rejection before Miller-Rabin on 2048-bit and 4096-bit corpora, candidate-loop speedups of 2.95× and 3.33×, and end-to-end deterministic RSA key-generation speedups of 2.09× over 300 2048-bit keypairs and 2.82× over 50 4096-bit keypairs while reducing Miller-Rabin work by 90.97 % to 91.07 %. The repository therefore establishes the mathematically derived DCI, an exact raw composite gap-ridge structure in prime interiors, a deterministic production prefilter built from the same invariant, and a measured cryptographic payoff in the tested Python regime.
+  The Geodesic Prime Prefilter is a deterministic cryptographic prime prefilter derived from the fixed-point traversal rate $v = e^2 / 2$ of the divisor-curvature normalization $Z(n) = n / \exp(v \cdot \kappa(n))$ with $\kappa(n) = d(n)\ln(n) / e^2$. At that rate the **Divisor Curvature Identity** (DCI) $Z(n) = n^{1 - d(n)/2}$ holds exactly, so confirmed primes collapse to the invariant band $Z = 1.0$ and composites contract below that band. Validation in this repository shows 29/29 calibration primes on the fixed-point band, 0 composite false fixed points, and an exact-calibration curvature separation ratio of 4.54× on the tractable corpus. The same exact field now supports a separate prime-gap result surface: up to $10^6$, the gap-local raw composite $Z$ maximum lands at edge distance 2 in 43.6006 % of tested gaps against an exact within-gap baseline of 22.1859 %, is carried by a $d(n)=4$ composite in 82.9027 % of tested gaps against an exact within-gap baseline of 20.1401 %, and matches the lexicographic winner "smallest interior divisor count, then leftmost" on the tested validation surface through sampled $10^{10}$ with zero counterexamples observed. The production Python path replaces exact divisor counting with a deterministic factor-gated surrogate that preserves the fixed-point survivor convention before fixed-base Miller-Rabin and final sympy.isprime confirmation. The curated repo benchmark summary reports 91.02 % and 91.41 % candidate rejection before Miller-Rabin on 2048-bit and 4096-bit corpora, candidate-loop speedups of 2.95× and 3.33×, and end-to-end deterministic RSA key-generation speedups of 2.09× over 300 2048-bit keypairs and 2.82× over 50 4096-bit keypairs while reducing Miller-Rabin work by 90.97 % to 91.07 %. The repository therefore establishes the mathematically derived DCI, an exact raw composite gap-ridge structure in prime interiors, a deterministic production prefilter built from the same invariant, and a measured cryptographic payoff in the tested Python regime.
 ---
 
 **Keywords:** divisor count; Divisor Curvature Identity; prime gaps; divisor-count ridge; prime generation; Miller-Rabin prefilter; deterministic screening; RSA key generation
 
 # Opening Statement
 
-The Geodesic Prime Prefilter is a deterministic cryptographic prefilter derived from the **Divisor Curvature Identity** (DCI) \(Z(n) = n^{1 - d(n)/2}\) in divisor-curvature normalization.
+The Geodesic Prime Prefilter is a deterministic cryptographic prefilter derived from the **Divisor Curvature Identity** (DCI) $Z(n) = n^{1 - d(n)/2}$ in divisor-curvature normalization.
 
 At the distinguished traversal rate $v = e^2 / 2$, the exact normalization sends every prime to the invariant band $Z = 1.0$ and pushes composites below that band.
 
@@ -240,7 +240,7 @@ The benchmark harness requires the baseline and accelerated paths to produce ide
 
 The repository establishes the following results.
 
-1. The divisor-curvature normalization has a distinguished fixed-point traversal rate $v = e^2 / 2$ at which the **Divisor Curvature Identity** (DCI) \(Z(n) = n^{1 - d(n)/2}\) holds exactly.
+1. The divisor-curvature normalization has a distinguished fixed-point traversal rate $v = e^2 / 2$ at which the **Divisor Curvature Identity** (DCI) $Z(n) = n^{1 - d(n)/2}$ holds exactly.
 2. Under exact divisor counting on the tractable calibration corpus, confirmed primes lie on $Z = 1.0$, composites contract below that band, and the observed curvature separation ratio is 4.54×.
 3. On exact prime-gap interiors up to $10^6$, the raw composite DCI field forms a near-edge ridge with edge-distance-$2$ enrichment of 1.965× and $d(n)=4$ carrier enrichment of 4.116× against exact within-gap baselines.
 4. Across exact $10^6$, exact $10^7$, and sampled scales through $10^{10}$, the tested gap-local raw-$Z$ peak matches the lexicographic winner "smallest divisor count, then leftmost" with zero observed counterexamples, and the ridge orientation is residue-modulated by the left endpoint prime modulo $30$.
@@ -274,7 +274,7 @@ The strongest next steps are:
 
 # Conclusion
 
-The narrow mathematical heart of the project is the **Divisor Curvature Identity** (DCI) \(Z(n) = n^{1 - d(n)/2}\)
+The narrow mathematical heart of the project is the **Divisor Curvature Identity** (DCI) $Z(n) = n^{1 - d(n)/2}$
 
 $$
 Z(n) = n^{1 - d(n)/2}

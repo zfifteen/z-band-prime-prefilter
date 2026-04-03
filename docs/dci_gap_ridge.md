@@ -2,7 +2,7 @@
 
 Prime gaps have interior composite points.
 
-That is the observable setting for this concern. Between one prime and the next, every interior integer is composite. Once the **Divisor Normalization Identity** (DNI) \(Z(n) = n^{1 - d(n)/2}\) is evaluated exactly on those interiors, the question is no longer whether composites lie inside the gap. The question is where the strongest raw composite `Z` value tends to sit inside that gap.
+That is the observable setting for this concern. Between one prime and the next, every interior integer is composite. Once the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ is evaluated exactly on those interiors, the question is no longer whether composites lie inside the gap. The question is where the strongest raw composite `Z` value tends to sit inside that gap.
 
 The current repository result is that the strongest raw composite `Z` value is not usually centered. It forms a near-edge ridge.
 
@@ -25,7 +25,7 @@ $$
 
 restricted to composite interiors of prime gaps.
 
-For each consecutive prime gap \(p < q\) with interior composites, the study evaluates the raw composite `Z` value at every interior point and selects the single interior composite with the largest value. That point is the gap-local peak.
+For each consecutive prime gap $p < q$ with interior composites, the study evaluates the raw composite `Z` value at every interior point and selects the single interior composite with the largest value. That point is the gap-local peak.
 
 Two measurements then matter:
 

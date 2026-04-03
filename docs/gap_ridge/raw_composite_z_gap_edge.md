@@ -2,7 +2,7 @@
 
 This note records one exact-field observation on the natural number line up to `10^6`.
 
-The field under study is the **Divisor Normalization Identity** (DNI) \(Z(n) = n^{1 - d(n)/2}\) itself, evaluated with exact divisor count and restricted to composite interiors of prime gaps.
+The field under study is the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ itself, evaluated with exact divisor count and restricted to composite interiors of prime gaps.
 
 ## Finding
 
@@ -40,7 +40,7 @@ The experiment is deterministic and exact.
    - carrier baseline: each interior composite counted once when `d(n) = 4`.
 
 The implementation compares raw `Z` values through the monotone identity
-\(\ln Z(n) = (1 - d(n)/2)\ln n\) only to preserve the ordering of the exact same raw field without floating-point underflow. The quantity being studied remains raw `Z`.
+$\ln Z(n) = (1 - d(n)/2)\ln n$ only to preserve the ordering of the exact same raw field without floating-point underflow. The quantity being studied remains raw `Z`.
 
 ## Result Table
 
