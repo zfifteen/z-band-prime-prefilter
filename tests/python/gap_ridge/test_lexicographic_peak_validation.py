@@ -49,3 +49,24 @@ def test_lexicographic_peak_validation_emits_expected_artifacts(tmp_path):
 
     assert (output_dir / "lexicographic_peak_validation.json").exists()
     assert (output_dir / "lexicographic_peak_validation_summary.svg").exists()
+
+
+def test_lexicographic_peak_validation_defaults_extend_through_10e18():
+    """The validation script should expose the full configured sampled-scale ladder."""
+    module = load_module("lexicographic_peak_validation")
+    args = module.build_parser().parse_args([])
+
+    assert args.full_limits == [1_000_000, 10_000_000]
+    assert args.window_scales == [
+        100_000_000,
+        1_000_000_000,
+        10_000_000_000,
+        100_000_000_000,
+        1_000_000_000_000,
+        10_000_000_000_000,
+        100_000_000_000_000,
+        1_000_000_000_000_000,
+        10_000_000_000_000_000,
+        100_000_000_000_000_000,
+        1_000_000_000_000_000_000,
+    ]

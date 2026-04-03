@@ -99,9 +99,10 @@ the lexicographic winner:
 2. if several interior composites share that minimum divisor count, choose the
    leftmost one.
 
-This was validated directly by a counterexample search over exact `10^6`, exact
-`10^7`, and sampled larger-scale regimes through `10^10`, with zero
-counterexamples on the tested surface.
+This was validated directly on the current committed execution surface by a
+counterexample search over exact `10^6`, exact `10^7`, and sampled
+larger-scale regimes through `10^18`, with zero counterexamples on that
+surface.
 
 That does not turn the current result into a proof for all gaps. It does change
 the current best explanation of the measured ridge: on the tested surface, the
@@ -127,13 +128,16 @@ The near-edge location softens as gaps widen, but the low-divisor carrier patter
 
 The repository also includes broader regime confirmation through larger-scale windowed runs.
 
-Across the tested regimes summarized in the current figure note:
+Across the current committed execution surface summarized in the figure note:
 
-- edge-distance-`2` enrichment stays near `2x` from the exact `10^6` run through sampled `10^10` windows,
-- the `d(n) = 4` carrier enrichment strengthens with scale, rising from `4.116x` at `10^6` to about `5.76x` in even-window `10^10` runs and about `5.93x` in fixed-seed `10^10` runs,
+- edge-distance-`2` enrichment stays near `2x` from the exact `10^6` run through sampled `10^18` windows,
+- the `d(n) = 4` carrier enrichment strengthens with scale, rising from `4.116x` at `10^6` to about `7.56x` in even-window `10^18` runs and about `9.19x` in fixed-seed `10^18` runs,
 - the left edge remains the dominant side of the ridge throughout the tested regimes.
 
-This does not widen the claim beyond the current repository surface. It says that the near-edge ridge pattern seen in the exact `10^6` run continues to appear in the larger tested windows already committed to the figure note.
+This does not widen the claim beyond the current committed execution surface.
+It says that the near-edge ridge pattern seen in the exact `10^6` run
+continues to appear in the larger sampled windows already committed to the
+figure note.
 
 ## Reproduction Surface
 

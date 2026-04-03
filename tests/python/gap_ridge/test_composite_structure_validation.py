@@ -53,3 +53,24 @@ def test_validation_script_emits_expected_artifacts(tmp_path):
     assert (output_dir / "validation_summary_panel.svg").exists()
     assert (output_dir / "validation_detail_panel.svg").exists()
     assert (output_dir / "validation_gap_bin_heatmaps.svg").exists()
+
+
+def test_composite_structure_validation_defaults_extend_through_10e18():
+    """The validation script should expose the full configured sampled-scale ladder."""
+    module = load_module("composite_structure_validation")
+    args = module.build_parser().parse_args([])
+
+    assert args.full_limits == [1_000_000, 10_000_000]
+    assert args.window_scales == [
+        100_000_000,
+        1_000_000_000,
+        10_000_000_000,
+        100_000_000_000,
+        1_000_000_000_000,
+        10_000_000_000_000,
+        100_000_000_000_000,
+        1_000_000_000_000_000,
+        10_000_000_000_000_000,
+        100_000_000_000_000_000,
+        1_000_000_000_000_000_000,
+    ]

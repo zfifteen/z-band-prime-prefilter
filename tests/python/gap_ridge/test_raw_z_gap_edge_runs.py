@@ -34,10 +34,19 @@ def test_helper_defaults_match_requested_run_surface():
         100_000_000,
         1_000_000_000,
         10_000_000_000,
+        100_000_000_000,
+        1_000_000_000_000,
+        10_000_000_000_000,
+        100_000_000_000_000,
+        1_000_000_000_000_000,
+        10_000_000_000_000_000,
+        100_000_000_000_000_000,
+        1_000_000_000_000_000_000,
     )
     assert module.DEFAULT_WINDOW_SIZE == 10_000_000
     assert module.DEFAULT_WINDOW_COUNT == 10
     assert module.DEFAULT_RANDOM_SEED == 20260331
+    assert module.DEFAULT_WINDOW_SCALES[-1] == 1_000_000_000_000_000_000
 
 
 def test_gap_edge_summary_to_dict_keeps_fields_visible():
@@ -90,6 +99,32 @@ def test_seeded_window_starts_are_reproducible_and_sorted():
     assert all(2 <= start < 92 for start in first)
 
 
+def test_large_scale_window_starts_stay_ordered_and_bounded():
+    """Large configured scales should still produce deterministic bounded starts."""
+    module = load_module("raw_z_gap_edge_runs")
+
+    even = module.build_even_window_starts(1_000_000_000_000_000_000, 10_000, 4)
+    seeded_first = module.build_seeded_window_starts(
+        1_000_000_000_000_000_000,
+        10_000,
+        4,
+        20260331,
+    )
+    seeded_second = module.build_seeded_window_starts(
+        1_000_000_000_000_000_000,
+        10_000,
+        4,
+        20260331,
+    )
+
+    assert even == sorted(even)
+    assert even[0] == 2
+    assert even[-1] <= 1_000_000_000_000_000_000 - 10_000 + 2
+    assert seeded_first == seeded_second
+    assert seeded_first == sorted(seeded_first)
+    assert all(2 <= start <= 1_000_000_000_000_000_000 - 10_000 for start in seeded_first)
+
+
 def test_script_parsers_expose_expected_defaults():
     """Every thin CLI should surface the intended reproduction defaults."""
     exact = load_module("raw_z_gap_edge_run_exact")
@@ -104,6 +139,14 @@ def test_script_parsers_expose_expected_defaults():
         100_000_000,
         1_000_000_000,
         10_000_000_000,
+        100_000_000_000,
+        1_000_000_000_000,
+        10_000_000_000_000,
+        100_000_000_000_000,
+        1_000_000_000_000_000,
+        10_000_000_000_000_000,
+        100_000_000_000_000_000,
+        1_000_000_000_000_000_000,
     ]
 
 

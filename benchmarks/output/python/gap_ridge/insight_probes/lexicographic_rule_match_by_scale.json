@@ -2,31 +2,92 @@
   {
     "scale": 1000000,
     "mode": "exact",
-    "gaps": 70327,
-    "lex_match_rate": 1.0
+    "gap_count": 70327,
+    "match_rate": 1.0,
+    "min_log_score_margin": 1.0000625039197075e-06
   },
   {
     "scale": 10000000,
     "mode": "exact",
-    "gaps": 605597,
-    "lex_match_rate": 1.0
+    "gap_count": 605597,
+    "match_rate": 1.0,
+    "min_log_score_margin": 1.00001734892885e-07
   },
   {
     "scale": 100000000,
     "mode": "even-window",
-    "gaps": 444133,
-    "lex_match_rate": 1.0
+    "gap_count": 444133,
+    "match_rate": 1.0,
+    "min_log_score_margin": 1.0000015038258425e-08
   },
   {
     "scale": 1000000000,
     "mode": "even-window",
-    "gaps": 411157,
-    "lex_match_rate": 1.0
+    "gap_count": 411157,
+    "match_rate": 1.0,
+    "min_log_score_margin": 1.000000082740371e-09
   },
   {
     "scale": 10000000000,
     "mode": "even-window",
-    "gaps": 384721,
-    "lex_match_rate": 1.0
+    "gap_count": 384721,
+    "match_rate": 1.0,
+    "min_log_score_margin": 9.99982319171977e-11
+  },
+  {
+    "scale": 100000000000,
+    "mode": "even-window",
+    "gap_count": 362773,
+    "match_rate": 1.0,
+    "min_log_score_margin": 9.99733629214461e-12
+  },
+  {
+    "scale": 1000000000000,
+    "mode": "even-window",
+    "gap_count": 344454,
+    "match_rate": 1.0,
+    "min_log_score_margin": 9.983125437429408e-13
+  },
+  {
+    "scale": 10000000000000,
+    "mode": "even-window",
+    "gap_count": 328342,
+    "match_rate": 1.0,
+    "min_log_score_margin": 9.947598300641403e-14
+  },
+  {
+    "scale": 100000000000000,
+    "mode": "even-window",
+    "gap_count": 315617,
+    "match_rate": 1.0,
+    "min_log_score_margin": 7.105427357601002e-15
+  },
+  {
+    "scale": 1000000000000000,
+    "mode": "even-window",
+    "gap_count": 303475,
+    "match_rate": 1.0,
+    "min_log_score_margin": 0.0
+  },
+  {
+    "scale": 10000000000000000,
+    "mode": "even-window",
+    "gap_count": 293408,
+    "match_rate": 1.0,
+    "min_log_score_margin": 0.0
+  },
+  {
+    "scale": 100000000000000000,
+    "mode": "even-window",
+    "gap_count": 283989,
+    "match_rate": 1.0,
+    "min_log_score_margin": 0.0
+  },
+  {
+    "scale": 1000000000000000000,
+    "mode": "even-window",
+    "gap_count": 275466,
+    "match_rate": 1.0,
+    "min_log_score_margin": 0.0
   }
 ]

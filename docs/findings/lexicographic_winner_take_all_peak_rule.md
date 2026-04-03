@@ -46,6 +46,16 @@ The validation run found zero counterexamples in:
 - sampled `10^8`: `444,133 / 444,133`
 - sampled `10^9`: `411,157 / 411,157`
 - sampled `10^10`: `384,721 / 384,721`
+- sampled `10^11`: `362,773 / 362,773`
+- sampled `10^12`: `344,454 / 344,454`
+- sampled `10^13`: `328,342 / 328,342`
+- sampled `10^14`: `315,617 / 315,617`
+- sampled `10^15`: `303,475 / 303,475`
+- sampled `10^16`: `293,408 / 293,408`
+- sampled `10^17`: `283,989 / 283,989`
+- sampled `10^18`: `275,466 / 275,466`
+
+That list is the current committed execution surface.
 
 The smallest observed winning margin in log-score remained positive in every
 tested regime, though it shrank with scale as expected.

@@ -11,7 +11,7 @@ bibliography: references.bib
 link-citations: true
 colorlinks: true
 abstract: |
-  The Z-Band Prime Prefilter is a deterministic cryptographic prime prefilter derived from the normalization scaling parameter $v = e^2 / 2$ of the divisor normalization $Z(n) = n / \exp(v \cdot \kappa(n))$ with $\kappa(n) = d(n)\ln(n) / e^2$. At that rate the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ holds exactly, so confirmed primes collapse to the fixed-point locus $Z = 1.0$ and composites contract below that locus. Validation in this repository shows 29/29 calibration primes on the fixed-point locus, 0 composite false fixed points, and an exact-calibration normalization-load separation ratio of 4.54× on the tractable corpus. The same exact field now supports a separate prime-gap result surface: up to $10^6$, the gap-local raw composite $Z$ maximum lands at edge distance 2 in 43.6006 % of tested gaps against an exact within-gap baseline of 22.1859 %, is carried by a $d(n)=4$ composite in 82.9027 % of tested gaps against an exact within-gap baseline of 20.1401 %, and matches the lexicographic winner "smallest interior divisor count, then leftmost" on the tested validation surface through sampled $10^{10}$ with zero counterexamples observed. The production Python path replaces exact divisor counting with a deterministic factor-gated surrogate that preserves the fixed-point survivor convention before fixed-base Miller-Rabin and final sympy.isprime confirmation. The curated repo benchmark summary reports 91.02 % and 91.41 % candidate rejection before Miller-Rabin on 2048-bit and 4096-bit corpora, candidate-loop speedups of 2.95× and 3.33×, and end-to-end deterministic RSA key-generation speedups of 2.09× over 300 2048-bit keypairs and 2.82× over 50 4096-bit keypairs while reducing Miller-Rabin work by 90.97 % to 91.07 %. The repository therefore establishes the mathematically derived DNI, an exact raw composite gap-ridge structure in prime interiors, a deterministic production prefilter built from the same invariant, and a measured cryptographic payoff in the tested Python regime.
+  The Z-Band Prime Prefilter is a deterministic cryptographic prime prefilter derived from the normalization scaling parameter $v = e^2 / 2$ of the divisor normalization $Z(n) = n / \exp(v \cdot \kappa(n))$ with $\kappa(n) = d(n)\ln(n) / e^2$. At that rate the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ holds exactly, so confirmed primes collapse to the fixed-point locus $Z = 1.0$ and composites contract below that locus. Validation in this repository shows 29/29 calibration primes on the fixed-point locus, 0 composite false fixed points, and an exact-calibration normalization-load separation ratio of 4.54× on the tractable corpus. The same exact field now supports a separate prime-gap result surface: up to $10^6$, the gap-local raw composite $Z$ maximum lands at edge distance 2 in 43.6006 % of tested gaps against an exact within-gap baseline of 22.1859 %, is carried by a $d(n)=4$ composite in 82.9027 % of tested gaps against an exact within-gap baseline of 20.1401 %, and matches the lexicographic winner "smallest interior divisor count, then leftmost" on the current committed execution surface through sampled $10^{18}$ with zero counterexamples observed. The production Python path replaces exact divisor counting with a deterministic factor-gated surrogate that preserves the fixed-point survivor convention before fixed-base Miller-Rabin and final sympy.isprime confirmation. The curated repo benchmark summary reports 91.02 % and 91.41 % candidate rejection before Miller-Rabin on 2048-bit and 4096-bit corpora, candidate-loop speedups of 2.95× and 3.33×, and end-to-end deterministic RSA key-generation speedups of 2.09× over 300 2048-bit keypairs and 2.82× over 50 4096-bit keypairs while reducing Miller-Rabin work by 90.97 % to 91.07 %. The repository therefore establishes the mathematically derived DNI, an exact raw composite gap-ridge structure in prime interiors, a deterministic production prefilter built from the same invariant, and a measured cryptographic payoff in the tested Python regime.
 ---
 
 **Keywords:** divisor count; Divisor Normalization Identity; prime gaps; divisor-count ridge; prime generation; Miller-Rabin prefilter; deterministic screening; RSA key generation
@@ -163,21 +163,28 @@ The strongest tested reading is therefore local and arithmetic:
 - the peak carrier is usually the first composite divisor layer $d(n)=4$,
 - and the field does not build a midpoint ridge on the tested surface.
 
+That broader rendered surface now extends through sampled $10^{18}$. Across
+the regenerated even-window and fixed-seed campaigns, edge-distance-2
+enrichment stays near $2\times$, while the $d(n)=4$ carrier enrichment rises
+to about $7.56\times$ in evenly spaced $10^{18}$ windows and about $9.19\times$
+in fixed-seed $10^{18}$ windows.
+
 The repository also now supports a sharper tested ordering law for that peak.
-Across exact $10^6$, exact $10^7$, and sampled regimes through $10^{10}$, the
-gap-local raw-$Z$ maximum matches the lexicographic winner
+Across the current committed execution surface of exact $10^6$, exact $10^7$,
+and sampled regimes through $10^{18}$, the gap-local raw-$Z$ maximum matches
+the lexicographic winner
 
 1. smallest interior divisor count $d(n)$,
 2. then leftmost position among those minima,
 
-with zero counterexamples observed on the tested validation surface.
+with zero counterexamples observed on that surface.
 
 The same gap-ridge program also shows residue-conditioned orientation. The
 global left-edge dominance remains intact, but the right-edge share depends
 materially on the left endpoint prime modulo $30$. At exact $10^7$, the global
 right-edge share is $16.02\%$, while residues $13$ and $23 \pmod{30}$ lift that
 share to $24.08\%$ and $19.96\%$, and residues $11$ and $17 \pmod{30}$ suppress
-it to $9.95\%$ and $9.45\%$. The same modulation persists on sampled $10^{10}$
+it to $9.95\%$ and $9.45\%$. The same modulation persists on sampled $10^{18}$
 windows.
 
 This exact raw composite field concern is distinct from the production
@@ -243,7 +250,7 @@ The repository establishes the following results.
 1. The divisor normalization has a distinguished normalization scaling parameter $v = e^2 / 2$ at which the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ holds exactly.
 2. Under exact divisor counting on the tractable calibration corpus, confirmed primes lie on $Z = 1.0$, composites contract below that locus, and the observed normalization-load separation ratio is 4.54×.
 3. On exact prime-gap interiors up to $10^6$, the raw composite DNI field forms a near-edge ridge with edge-distance-$2$ enrichment of 1.965× and $d(n)=4$ carrier enrichment of 4.116× against exact within-gap baselines.
-4. Across exact $10^6$, exact $10^7$, and sampled scales through $10^{10}$, the tested gap-local raw-$Z$ peak matches the lexicographic winner "smallest divisor count, then leftmost" with zero observed counterexamples, and the ridge orientation is residue-modulated by the left endpoint prime modulo $30$.
+4. Across the current committed execution surface of exact $10^6$, exact $10^7$, and sampled scales through $10^{18}$, the tested gap-local raw-$Z$ peak matches the lexicographic winner "smallest divisor count, then leftmost" with zero observed counterexamples, and the ridge orientation is residue-modulated by the left endpoint prime modulo $30$ on the separately committed orientation surface.
 5. The production Python path converts the DNI into a deterministic factor-gated prefilter with one narrow survivor convention and one narrow rejection rule.
 6. On the committed cryptographic candidate corpora, the prefilter removes about 91 % of candidates before Miller-Rabin and yields about threefold candidate-loop speedup in the curated summary surface.
 7. On deterministic RSA key generation, the current Python implementation achieves 2.09× speedup at 2048 bits and 2.82× speedup at 4096 bits while cutting Miller-Rabin work by 90.97 % to 91.07 %.
@@ -253,7 +260,7 @@ That is the mathematically derived DNI, an exact prime-gap field result surface 
 
 # Limits and Scope
 
-The current note is strong on the tested Python regime. The DNI is exact, but the executable exact divisor-count path is only practical on the small calibration regime for arbitrary candidates and on the tested finite interval regimes for the raw composite field studies. The production prefilter rejects only when one of the gated prime tables finds a concrete factor. The gap-ridge findings remain empirical repository results on the tested surface rather than proofs for every possible prime gap. The validated implementation surface is Python. Java and Apple-Silicon C ports are planned in the repo architecture but are not yet parity-complete. The benchmark settings do not exhaust the performance envelope across all bit sizes, machines, or table configurations.
+The current note is strong on the tested Python regime. The DNI is exact, and the executable exact divisor-count path has now been upgraded to support $10^{18}$-class interval analysis in code, but the committed finite interval regimes for the raw composite field studies still stop where the artifact surface has actually been run and recorded. The production prefilter rejects only when one of the gated prime tables finds a concrete factor. The configured band ladder now extends through $10^{18}$, which is the project proof bar, but the gap-ridge findings remain empirical repository results on the committed execution surface rather than proofs for every possible prime gap. The validated implementation surface is Python. Java and Apple-Silicon C ports are planned in the repo architecture but are not yet parity-complete. The benchmark settings do not exhaust the performance envelope across all bit sizes, machines, or table configurations.
 
 # Practical Interpretation
 

@@ -6,10 +6,10 @@ while gap centers form a high-complexity graveyard.
 
 ## Finding
 
-That broad claim is falsified on the tested surface.
+That broad claim is falsified on the current committed execution surface.
 
-Across exact `10^6`, exact `10^7`, and sampled larger-scale regimes, the
-literal edge zone is not globally simpler than the center zone.
+Across exact `10^6`, exact `10^7`, and sampled larger-scale regimes through
+`10^18`, the literal edge zone is not globally simpler than the center zone.
 
 Instead, the tested edge zone shows:
 

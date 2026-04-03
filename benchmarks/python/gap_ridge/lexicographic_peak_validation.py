@@ -27,12 +27,14 @@ for entry in (SOURCE_DIR, SCRIPT_DIR):
         sys.path.insert(0, str(entry))
 
 from z_band_prime_composite_field import divisor_counts_segment
-from raw_z_gap_edge_runs import build_even_window_starts
+from z_band_prime_gap_ridge.runs import (
+    DEFAULT_FULL_LIMITS,
+    DEFAULT_WINDOW_SCALES,
+    build_even_window_starts,
+)
 
 
 DEFAULT_OUTPUT_DIR = Path("benchmarks/output/python/gap_ridge/lexicographic_peak_validation")
-DEFAULT_FULL_LIMITS = (1_000_000, 10_000_000)
-DEFAULT_WINDOW_SCALES = (100_000_000, 1_000_000_000, 10_000_000_000)
 DEFAULT_WINDOW_SIZE = 2_000_000
 DEFAULT_WINDOW_COUNT = 4
 

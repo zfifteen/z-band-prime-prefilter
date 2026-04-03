@@ -12,7 +12,19 @@ from z_band_prime_composite_field import divisor_counts_segment
 
 
 DEFAULT_FULL_LIMITS = (1_000_000, 10_000_000)
-DEFAULT_WINDOW_SCALES = (100_000_000, 1_000_000_000, 10_000_000_000)
+DEFAULT_WINDOW_SCALES = (
+    100_000_000,
+    1_000_000_000,
+    10_000_000_000,
+    100_000_000_000,
+    1_000_000_000_000,
+    10_000_000_000_000,
+    100_000_000_000_000,
+    1_000_000_000_000_000,
+    10_000_000_000_000_000,
+    100_000_000_000_000_000,
+    1_000_000_000_000_000_000,
+)
 DEFAULT_WINDOW_SIZE = 10_000_000
 DEFAULT_WINDOW_COUNT = 10
 DEFAULT_RANDOM_SEED = 20260331
@@ -74,8 +86,9 @@ def build_even_window_starts(
         return [2]
 
     max_start_offset = scale - window_size
+    denominator = window_count - 1
     return [
-        2 + round(index * max_start_offset / (window_count - 1))
+        2 + ((index * max_start_offset) + denominator // 2) // denominator
         for index in range(window_count)
     ]
 

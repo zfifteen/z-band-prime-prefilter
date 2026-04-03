@@ -43,10 +43,12 @@ That stronger claim was tested with a deterministic validation harness that
 compared edge zones to center zones across:
 
 - exact `10^6` and `10^7` full runs,
-- evenly spaced sampled windows at `10^8`, `10^9`, and `10^10`,
+- evenly spaced sampled windows at `10^8`, `10^9`, `10^10`, `10^11`, `10^12`, `10^13`, `10^14`, `10^15`, `10^16`, `10^17`, and `10^18`,
 - all composite interiors,
 - odd-composite-only controls,
 - exact gap-size bins.
+
+That is the current committed execution surface for this note.
 
 The artifacts are:
 

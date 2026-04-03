@@ -17,8 +17,13 @@ Measured values:
 - `10^6`: has interior `d(n)=4` = `0.83119`, peak carrier `d(n)=4` = `0.82903`
 - `10^7`: has interior `d(n)=4` = `0.82616`, peak carrier `d(n)=4` = `0.82546`
 - `10^8` sampled: has interior `d(n)=4` = `0.82554`, peak carrier `d(n)=4` = `0.82498`
-- `10^9` sampled: has interior `d(n)=4` = `0.82518`, peak carrier `d(n)=4` = `0.82465`
 - `10^10` sampled: has interior `d(n)=4` = `0.82577`, peak carrier `d(n)=4` = `0.82522`
+- `10^12` sampled: has interior `d(n)=4` = `0.82695`, peak carrier `d(n)=4` = `0.82627`
+- `10^15` sampled: has interior `d(n)=4` = `0.82699`, peak carrier `d(n)=4` = `0.82631`
+- `10^18` sampled: has interior `d(n)=4` = `0.82805`, peak carrier `d(n)=4` = `0.82730`
+
+That is the current committed execution surface for this note through sampled
+`10^18`.
 
 ## Visual Evidence
 
@@ -42,8 +47,10 @@ The exception rate is tiny:
 - `10^6`: `0.216%`
 - `10^7`: `0.0698%`
 - `10^8`: `0.0558%`
-- `10^9`: `0.0528%`
 - `10^10`: `0.0548%`
+- `10^12`: `0.0689%`
+- `10^15`: `0.0679%`
+- `10^18`: `0.0748%`
 
 ## Plain Reading
 

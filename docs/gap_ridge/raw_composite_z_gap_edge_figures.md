@@ -17,10 +17,10 @@ does not place the strongest within-gap composite near the midpoint of a prime g
 
 It places that peak on a near-edge ridge, and that ridge is carried predominantly by `d(n) = 4` composites.
 
-The strongest supported statement from the current runs is:
+The strongest supported statement from the current committed runs is:
 
-- edge-distance-`2` enrichment stays near `2x` from the exact `10^6` run through sampled `10^10` windows,
-- the `d(n) = 4` carrier enrichment strengthens with scale, rising from `4.116x` at `10^6` to about `5.76x` in even-window `10^10` runs and about `5.93x` in fixed-seed `10^10` runs,
+- edge-distance-`2` enrichment stays near `2x` from the exact `10^6` run through sampled `10^18` windows,
+- the `d(n) = 4` carrier enrichment strengthens with scale, rising from `4.116x` at `10^6` to about `7.56x` in even-window `10^18` runs and about `9.19x` in fixed-seed `10^18` runs,
 - the left edge remains the dominant side of the ridge throughout the tested regimes.
 
 On the tested surface, a stronger empirical statement also holds: the exact
@@ -66,8 +66,8 @@ This figure resolves the carrier effect over gap size and divisor count. The dom
 ## Lexicographic Validation
 
 This figure records the direct counterexample search for the lexicographic peak
-rule. On the tested surface, the match rate is `100%` in every evaluated
-regime.
+rule. On the current committed execution surface, the match rate is `100%` in
+every evaluated regime from exact `10^6` through sampled `10^18`.
 
 ![Lexicographic peak validation summary](../../benchmarks/output/python/gap_ridge/lexicographic_peak_validation/lexicographic_peak_validation_summary.svg)
 

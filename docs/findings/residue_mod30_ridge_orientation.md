@@ -31,13 +31,16 @@ At exact `10^7`:
 - `p ≡ 11 (mod 30)`: right-edge share `9.95%`, lift `0.62x`
 - `p ≡ 17 (mod 30)`: right-edge share `9.45%`, lift `0.59x`
 
-At sampled `10^10`:
+At sampled `10^18`:
 
-- global right-edge share: `16.14%`
-- `p ≡ 13 (mod 30)`: right-edge share `22.57%`, lift `1.40x`
-- `p ≡ 23 (mod 30)`: right-edge share `19.79%`, lift `1.23x`
-- `p ≡ 11 (mod 30)`: right-edge share `10.96%`, lift `0.68x`
-- `p ≡ 17 (mod 30)`: right-edge share `10.65%`, lift `0.66x`
+- global right-edge share: `15.93%`
+- `p ≡ 13 (mod 30)`: right-edge share `21.82%`, lift `1.37x`
+- `p ≡ 23 (mod 30)`: right-edge share `19.43%`, lift `1.22x`
+- `p ≡ 11 (mod 30)`: right-edge share `11.09%`, lift `0.70x`
+- `p ≡ 17 (mod 30)`: right-edge share `11.19%`, lift `0.70x`
+
+That is the current committed execution surface for this note through sampled
+`10^18`.
 
 ## Plain Reading
 
