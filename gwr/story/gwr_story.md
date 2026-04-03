@@ -140,7 +140,7 @@ exactly where the real mathematical question lives.
 
 The exact theorem that survives is narrower and cleaner.
 
-If $a < b$ are composite integers and $d(a) \le d(b)$, then $Z(a) > Z(b)$.
+If $a < b$ are composite integers and $d(a) \leq d(b)$, then $Z(a) > Z(b)$.
 
 This is the Lexicographic Raw-Z Dominance Theorem. It is a directional
 dominance result, not an unrestricted global ordering law. Earlier composite
@@ -193,5 +193,5 @@ The central open question is whether prime-gap interiors satisfy a deeper
 structural condition that forces that rule to hold, and whether that condition
 can be stated and proved cleanly.
 
-For the formal statement and the legacy-name notes, see
-[`gwr/findings/gap_winner_rule.md`](../findings/gap_winner_rule.md).
+See [gap_winner_rule.md](../findings/gap_winner_rule.md) for the formal
+statement and legacy-name notes.
