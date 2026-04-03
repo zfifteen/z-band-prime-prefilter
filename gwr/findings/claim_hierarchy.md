@@ -5,7 +5,7 @@ repo so theorem-backed statements and empirical statements do not get mixed.
 
 ## 1. Primary Theorem
 
-**Global raw-`Z` ordering theorem**
+**Lexicographic Raw-`Z` Dominance Theorem**
 
 This is the deepest exact claim.
 
@@ -20,7 +20,7 @@ This claim is global. It is not specific to prime gaps.
 
 Primary note:
 
-- [`global_raw_z_ordering_theorem.md`](./global_raw_z_ordering_theorem.md)
+- [`lexicographic_raw_z_dominance_theorem.md`](./lexicographic_raw_z_dominance_theorem.md)
 
 ## 2. Immediate Corollary
 
@@ -82,4 +82,4 @@ prior theorem has yet been identified in the literature search done so far.`
 
 Use this sentence when a compact overview is needed:
 
-`The Gap Winner Rule is the prime-gap corollary of a global raw-`Z` ordering theorem on composite integers.`
+`The Gap Winner Rule is the prime-gap corollary of the Lexicographic Raw-`Z` Dominance Theorem on composite integers.`

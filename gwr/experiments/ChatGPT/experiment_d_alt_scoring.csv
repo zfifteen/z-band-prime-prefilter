@@ -1,0 +1,7 @@
+score_function_name,range_description,gap_count,counterexample_count,match_rate,max_gap,min_score_margin,runtime_seconds
+log(n),"exact up to 1,000,000",70327,0,1.0,114,1.0000625039197075e-06,1.2637062599999354
+log(n),"4 even windows at scale 10^9 (window size 2,000,000)",411157,0,1.0,192,1.000000082740371e-09,8.671771547000162
+log(n+1),"exact up to 1,000,000",70327,0,1.0,114,1.000061503830807e-06,1.2305415529999664
+log(n+1),"4 even windows at scale 10^9 (window size 2,000,000)",411157,0,1.0,192,1.000000082740371e-09,8.706330310999647
+log(n) + n^(-1/2),"exact up to 1,000,000",70327,0,1.0,114,9.995624559167027e-07,1.2861351619999368
+log(n) + n^(-1/2),"4 even windows at scale 10^9 (window size 2,000,000)",411157,0,1.0,192,9.99982319171977e-10,8.811996979000014

@@ -1,0 +1,19 @@
+{
+  "scale": 1000000,
+  "gap_count": 70327,
+  "observed_edge2_share": 0.43600608585607237,
+  "baseline_edge2_share": 0.22185858570959013,
+  "edge2_enrichment": 1.9652432402449296,
+  "observed_d4_share": 0.8290272583787166,
+  "baseline_d4_share": 0.20140064321856735,
+  "d4_enrichment": 4.11630889122348,
+  "left_share": 0.7455742460221536,
+  "right_share": 0.16018030059578825,
+  "center_share": 0.0942454533820581,
+  "window_mode": "exact",
+  "window_size": 999999,
+  "sampled_gap_count": 70327,
+  "approximate_gap_count": 70327,
+  "seed": null,
+  "runtime_seconds": 0.5911191740000277
+}
