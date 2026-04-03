@@ -1,8 +1,8 @@
-# DCI Gap Ridge
+# DNI Gap Ridge
 
 Prime gaps have interior composite points.
 
-That is the observable setting for this concern. Between one prime and the next, every interior integer is composite. Once the **Divisor Curvature Identity** (DCI) \(Z(n) = n^{1 - d(n)/2}\) is evaluated exactly on those interiors, the question is no longer whether composites lie inside the gap. The question is where the strongest raw composite `Z` value tends to sit inside that gap.
+That is the observable setting for this concern. Between one prime and the next, every interior integer is composite. Once the **Divisor Normalization Identity** (DNI) \(Z(n) = n^{1 - d(n)/2}\) is evaluated exactly on those interiors, the question is no longer whether composites lie inside the gap. The question is where the strongest raw composite `Z` value tends to sit inside that gap.
 
 The current repository result is that the strongest raw composite `Z` value is not usually centered. It forms a near-edge ridge.
 
@@ -13,11 +13,11 @@ Up to `10^6` on the natural number line:
 - the gap-local raw-`Z` maximum is carried by a `d(n) = 4` composite in `82.9027%` of tested gaps versus an exact within-gap baseline of `20.1401%`,
 - the resulting carrier enrichment is `4.116x`.
 
-This is the gap-ridge concern of the DCI. It is the study of where the strongest exact raw composite `Z` value appears inside prime gaps and what kind of composite carries that peak.
+This is the gap-ridge concern of the DNI. It is the study of where the strongest exact raw composite `Z` value appears inside prime gaps and what kind of composite carries that peak.
 
 ## What Is Being Measured
 
-The field under study is the exact raw DCI field itself,
+The field under study is the exact raw DNI field itself,
 
 $$
 Z(n) = n^{1 - d(n)/2},
@@ -38,7 +38,7 @@ The edge-distance question tells us whether the field rises toward the boundary 
 
 The gap-ridge result is not the same concern as the production prefilter.
 
-The prefilter concern asks how the fixed-point band is used operationally to remove composite work before Miller-Rabin. The gap-ridge concern asks what geometric structure the exact raw composite field shows inside prime gaps once exact divisor count is available.
+The prefilter concern asks how the fixed-point locus is used operationally to remove composite work before Miller-Rabin. The gap-ridge concern asks what structure the exact raw composite field shows inside prime gaps once exact divisor count is available.
 
 It is also narrower than the full exact raw composite field concern. The broader field concern studies the exact raw composite `Z` field itself. The gap-ridge concern studies one specific structure within that field: the location and carrier of the within-gap maximum.
 
@@ -50,7 +50,7 @@ The method in this repository is deterministic and exact.
 2. Compute exact divisor count `d(n)` on that interval.
 3. Identify every consecutive prime gap `p < q` with `q - p >= 4`.
 4. Restrict attention to the composite interior points `p < n < q`.
-5. Evaluate the raw DCI field `Z(n) = n^{1 - d(n)/2}` on those interiors.
+5. Evaluate the raw DNI field `Z(n) = n^{1 - d(n)/2}` on those interiors.
 6. Within each gap, select the single composite with the largest raw `Z`.
 7. Compare the observed peak position and observed peak carrier against exact within-gap baselines induced by the same interior.
 

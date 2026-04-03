@@ -1,18 +1,18 @@
-# DCI Prefilter
+# Z-Band Prefilter
 
 Most cryptographic prime candidates are composite.
 
 That is the practical starting point. Prime generation spends most of its work on numbers that will never survive the full probable-prime path. A useful prefilter therefore does not need to prove primality early. It needs to remove composite work early, deterministically, and without breaking the final confirmation path.
 
-In this repository, that front end is the DCI prefilter. It is the deterministic production filter built from the fixed-point band implied by the **Divisor Curvature Identity** (DCI) \(Z(n) = n^{1 - d(n)/2}\) at
+In this repository, that front end is the Z-Band prefilter. It is the deterministic production filter built from the fixed-point locus implied by the **Divisor Normalization Identity** (DNI) \(Z(n) = n^{1 - d(n)/2}\) at
 
 $$
 v = \frac{e^{2}}{2}.
 $$
 
-Here, the fixed-point rate names the distinguished scalar \(v = e^2/2\) in the normalization, and the fixed-point band names the normalized locus \(Z = 1.0\) occupied by confirmed primes under the exact identity.
+Here, the normalization scaling parameter names the distinguished scalar \(v = e^2/2\) in the normalization, and the fixed-point locus names the normalized set \(Z = 1.0\) occupied by confirmed primes under the exact identity.
 
-At that fixed-point rate, confirmed primes lie on the fixed-point band \(Z = 1.0\), while composites contract below it under exact divisor counting. The production prefilter keeps that band as its survivor convention and uses concrete factor discovery as its rejection rule.
+At that normalization scaling parameter, confirmed primes lie on the fixed-point locus \(Z = 1.0\), while composites contract below it under exact divisor counting. The production prefilter keeps that locus as its survivor convention and uses concrete factor discovery as its rejection rule.
 
 ## Why A Prefilter Matters
 
@@ -20,26 +20,26 @@ The computational problem is straightforward.
 
 When prime generation runs at cryptographic bit lengths, most odd candidates are composite. Sending every one of them through the full probable-prime path wastes work. Miller-Rabin is fast, but it still costs more than discovering an early concrete factor.
 
-The DCI gives the pipeline an invariant target. Under the exact identity, primes occupy the fixed-point band \(Z = 1.0\). That makes it possible to organize the production path around a narrow distinction:
+The DNI gives the pipeline an invariant target. Under the exact identity, primes occupy the fixed-point locus \(Z = 1.0\). That makes it possible to organize the production path around a narrow distinction:
 
 - reject when a concrete factor is found,
-- preserve the survivor band when no such factor has yet been found.
+- preserve the survivor locus when no such factor has yet been found.
 
 This is the role of the prefilter. It is not a replacement for the final probable-prime path. It is the deterministic front end that reduces how much composite work reaches that path.
 
-## Relation To The Exact DCI
+## Relation To The Exact DNI
 
-The exact DCI is
+The exact DNI is
 
 $$
 Z(n) = n^{1 - d(n)/2}.
 $$
 
-This identity is exact under exact divisor count, and it is the mathematical source of the invariant band. A prime has \(d(p) = 2\), so \(Z(p) = 1\). A composite has \(d(n) > 2\), so \(Z(n) < 1\).
+This identity is exact under exact divisor count, and it is the mathematical source of the fixed-point locus. A prime has \(d(p) = 2\), so \(Z(p) = 1\). A composite has \(d(n) > 2\), so \(Z(n) < 1\).
 
 That exact law is the derivation and the audit surface for the prefilter. It is not the runtime mechanism used for cryptographic-scale candidate loops. Exact divisor counting remains too expensive at that scale.
 
-The production path in this repository therefore does something narrower. It keeps the fixed-point band as the invariant survivor target, but it does not attempt to compute exact divisor count for each cryptographic candidate. Instead it uses deterministic factor-gated discovery to decide whether a candidate can already be pushed below the band.
+The production path in this repository therefore does something narrower. It keeps the fixed-point locus as the invariant survivor target, but it does not attempt to compute exact divisor count for each cryptographic candidate. Instead it uses deterministic factor-gated discovery to decide whether a candidate can already be pushed below the locus.
 
 ## Deterministic Production Path
 
@@ -48,7 +48,7 @@ The runtime path is intentionally straight.
 1. Generate deterministic odd candidates from the SHA-256 namespace/index stream.
 2. Scan each candidate against the gated prime tables.
 3. Reject immediately only when a concrete factor is found.
-4. Keep survivors on the band convention `proxy_z = 1.0`.
+4. Keep survivors on the locus convention `proxy_z = 1.0`.
 5. Run fixed-base Miller-Rabin on survivors.
 6. Apply final `sympy.isprime` confirmation in the current Python path.
 
@@ -64,7 +64,7 @@ This is a single deterministic execution path. It does not widen into alternate 
 
 ## Survivor Semantics
 
-The production prefilter uses the fixed-point band as a survivor convention.
+The production prefilter uses the fixed-point locus as a survivor convention.
 
 That convention is narrow. In this repository, `proxy_z() == 1.0` means the candidate survived the gated factor tables used by the prefilter. It does not by itself prove primality.
 
@@ -82,7 +82,7 @@ The contract is deliberately narrow.
 
 The repository commits to the following production behavior:
 
-- the fixed-point rate is fixed at `v = e^2 / 2`,
+- the normalization scaling parameter is fixed at `v = e^2 / 2`,
 - candidate generation uses the deterministic SHA-256 namespace/index stream,
 - the prefilter rejects only when it has found a concrete factor in one of the gated prime tables,
 - survivor status is not a primality proof,
@@ -122,7 +122,7 @@ The same production path also yields measured end-to-end RSA key-generation gain
   speedup `2.82x`
   Miller-Rabin reduction `91.07%`
 
-The calibration surface remains aligned with the fixed-point band:
+The calibration surface remains aligned with the fixed-point locus:
 
 - `29/29` calibration primes stayed on `Z = 1.0`
 - `0` composite false fixed points

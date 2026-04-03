@@ -1,4 +1,4 @@
-# Essay 1: How DCI Began
+# Essay 1: How DNI Began
 
 There is now one exact expression in this project that does something I still
 find hard to look at without stopping.
@@ -7,8 +7,8 @@ It sends every prime to the same exact value.
 
 Not approximately. Not asymptotically. Exactly.
 
-Under the Divisor Curvature Identity, every prime lands on `Z = 1`, while every
-composite falls strictly below that band.
+Under the Divisor Normalization Identity, every prime lands on `Z = 1`, while every
+composite falls strictly below that locus.
 
 That would already be unusual enough if it were the whole story.
 
@@ -61,7 +61,7 @@ It can be divided evenly by `1`, `2`, `3`, `4`, `6`, and `12`.
 
 The first number is sparse in this sense. The next two are not.
 
-That simple difference is what led me to the Divisor Curvature Identity.
+That simple difference is what led me to the Divisor Normalization Identity.
 
 ## Start With Divisor Count
 
@@ -196,8 +196,8 @@ That question led to the normalization
 This expression has a clear plain-language reading.
 
 - `n` is the observed number itself
-- `κ(n)` is the divisor-curvature load carried by that number
-- `v` is a fixed-point rate
+- `κ(n)` is the divisor-normalization load carried by that number
+- `v` is a normalization scaling parameter
 - `exp(v × κ(n))` is the exponential cost of carrying that load
 - `Z(n)` is what remains after that cost is applied
 
@@ -206,7 +206,7 @@ because `v` had not yet been fixed.
 
 ## The Fixed Rate
 
-The decisive step was to ask whether there is a special fixed-point rate that
+The decisive step was to ask whether there is a special normalization scaling parameter that
 makes the whole construction collapse into something exact and simple.
 
 There is.
@@ -231,11 +231,11 @@ So the whole expression collapses to:
 
 `Z(n) = n^(1 - d(n)/2)`
 
-That is the Divisor Curvature Identity.
+That is the Divisor Normalization Identity.
 
 ## What Fell Out Immediately
 
-Once the expression reached that form, the prime band appeared at once.
+Once the expression reached that form, the prime locus appeared at once.
 
 If `n` is prime, then `d(n) = 2`, so:
 
@@ -248,7 +248,7 @@ negative, and:
 
 `Z(n) < 1`
 
-Every composite falls below the prime band.
+Every composite falls below the prime locus.
 
 That gave a clean fixed-point picture:
 
@@ -263,7 +263,7 @@ It came from following a simple arithmetic fact step by step:
 - divisor count can be centered on the prime condition
 - divisor structure should be measured on logarithmic scale
 - the resulting load can be normalized
-- at one fixed-point rate, the whole construction collapses exactly
+- at one normalization scaling parameter, the whole construction collapses exactly
 
 ## Why This Mattered To Me
 
@@ -293,7 +293,7 @@ What began as one derivation has now split into five distinct concerns.
 The first is the invariant concern.
 
 That is the exact fixed-point law itself: why `Z(n) = n^(1 - d(n)/2)` holds,
-why `v = e²/2` is the fixed rate, and why primes land exactly on `Z = 1`.
+why `v = e²/2` is the normalization scaling parameter, and why primes land exactly on `Z = 1`.
 
 The second is the prefilter concern.
 
@@ -302,7 +302,7 @@ deterministic prime prefilter that removes composite work before Miller-Rabin.
 
 The third is the composite-field concern.
 
-That is the exact raw field over the integers: what the full DCI landscape
+That is the exact raw field over the integers: what the full DNI landscape
 looks like when you evaluate it directly rather than only using it as a
 prefilter.
 
@@ -314,7 +314,7 @@ dominates so much of that picture.
 
 The fifth is the RH bridge concern.
 
-That is the analytic bridge from DCI into zeta-function territory: the fact
+That is the analytic bridge from DNI into zeta-function territory: the fact
 that the native generating objects built from divisor count and curvature
 reconstruct the classical prime detector `-ζ′/ζ`.
 

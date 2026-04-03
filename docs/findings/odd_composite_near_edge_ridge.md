@@ -5,7 +5,7 @@ prime-edge insulation claim was tested and rejected.
 
 ## Finding
 
-Inside prime gaps, the exact raw DCI field has a strong odd-composite
+Inside prime gaps, the exact raw DNI field has a strong odd-composite
 near-edge ridge, and that ridge is usually carried by semiprime-class
 `d(n)=4` composites.
 
@@ -21,7 +21,7 @@ result is therefore best kept under a narrower name.
 
 - [Broad prime-edge insulation is falsified](./broad_prime_edge_insulation_falsified.md)
 - [Original gap-ridge note](../gap_ridge/odd_composite_near_edge_ridge_note.md)
-- [DCI gap-ridge overview](../dci_gap_ridge.md)
+- [DNI gap-ridge overview](../dci_gap_ridge.md)
 
 ## Plain Reading
 

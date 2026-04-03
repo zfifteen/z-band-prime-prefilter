@@ -2,7 +2,7 @@
 
 This note records one exact-field observation on the natural number line up to `10^6`.
 
-The field under study is the **Divisor Curvature Identity** (DCI) \(Z(n) = n^{1 - d(n)/2}\) itself, evaluated with exact divisor count and restricted to composite interiors of prime gaps.
+The field under study is the **Divisor Normalization Identity** (DNI) \(Z(n) = n^{1 - d(n)/2}\) itself, evaluated with exact divisor count and restricted to composite interiors of prime gaps.
 
 ## Finding
 
