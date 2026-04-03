@@ -1,6 +1,6 @@
-# Z-Band Prime Prefilter
+# Prime Gap Structure
 
-![Z-Band Prime Prefilter hero](docs/assets/z-band-prime-prefilter-hero.jpg)
+![Prime Gap Structure hero](docs/assets/prime-gap-structure-hero.jpg)
 
 This repository now carries two linked results from the same divisor-normalized
 arithmetic program.
@@ -194,7 +194,7 @@ $$
 
 where $v$ is the normalization scaling parameter.
 
-For the Z-Band Prime Prefilter, the distinguished value is
+For the prime-gap structure program in this repository, the distinguished value is
 
 $$
 v = \frac{e^{2}}{2}
