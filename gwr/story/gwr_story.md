@@ -2,20 +2,26 @@
 
 ## How a geometric-looking score collapsed to a simple arithmetic law
 
-I began with a score inside prime gaps, not with a winner rule.
+Take two consecutive prime numbers, like `11` and `17`.
+The numbers in between, `12, 13, 14, 15, 16`, are the interior of the gap.
+In a prime gap, every interior number is composite.
 
-Take two consecutive primes `p < q`. Between them sits a block of composite
- integers. For each interior composite `n`, assign the raw-`Z` score
+I wanted to compare those interior composites using one numerical score.
+The score was designed to favor numbers with fewer divisors, while also taking
+into account how large the number is. A number with fewer divisors is, in that
+limited sense, arithmetically simpler than one with many divisors.
+
+To make that comparison precise, I used the quantity
 
 `Z(n) = (1 - d(n)/2) ln(n)`,
 
-where `d(n)` is the divisor count of `n`.
+where `d(n)` means the number of positive divisors of `n`, and `ln(n)` is the
+natural logarithm of `n`. In the project notes, I call this the raw-`Z` score.
 
-At first glance this does not look like a lexicographic rule. It looks like a
-mixed object. One part depends on divisor structure. The other part depends on
-the size of the integer. When I first looked at the score across prime-gap
- interiors, the visual effect was a left-leaning ridge, not an obvious discrete
-selection law.
+At the beginning, I was not looking for a simple winner rule.
+I was only trying to understand a repeated visual pattern: when I plotted this
+score across the interior of many prime gaps, the peak kept leaning toward the
+left side of the gap.
 
 That is where the story starts.
 
