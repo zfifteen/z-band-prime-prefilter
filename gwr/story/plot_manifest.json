@@ -1,0 +1,36 @@
+{
+  "surfaces": {
+    "exact_1e6_gap_count": 70327,
+    "even_window_1e9_gap_count": 411157
+  },
+  "figures": [
+    {
+      "file": "figure_01_exemplar_gap_profiles.png",
+      "path": "gwr/story/plots/figure_01_exemplar_gap_profiles.png"
+    },
+    {
+      "file": "figure_02_match_rate_surface.png",
+      "path": "gwr/story/plots/figure_02_match_rate_surface.png"
+    },
+    {
+      "file": "figure_03_divisor_enrichment.png",
+      "path": "gwr/story/plots/figure_03_divisor_enrichment.png"
+    },
+    {
+      "file": "figure_04_normalized_position.png",
+      "path": "gwr/story/plots/figure_04_normalized_position.png"
+    },
+    {
+      "file": "figure_05_edge_distance.png",
+      "path": "gwr/story/plots/figure_05_edge_distance.png"
+    },
+    {
+      "file": "figure_06_counterexample_pair.png",
+      "path": "gwr/story/plots/figure_06_counterexample_pair.png"
+    },
+    {
+      "file": "figure_07_winner_heatmap.png",
+      "path": "gwr/story/plots/figure_07_winner_heatmap.png"
+    }
+  ]
+}
