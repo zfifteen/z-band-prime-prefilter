@@ -2,18 +2,121 @@
 
 ![Z-Band Prime Prefilter hero](docs/assets/z-band-prime-prefilter-hero.jpg)
 
-Deterministic cryptographic prime prefiltering whose production path is a bounded small-factor screen in front of fixed-base Miller-Rabin. The invariant target for that surrogate is the prime fixed point implied by the exact **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ at normalization scaling parameter $v = e^{2}/2$.
+This repository now carries two linked results from the same divisor-normalized
+arithmetic program.
 
-This repository presents the Z-Band Prime Prefilter as a deterministic cryptographic primitive. It gives the mathematical basis of the method, centered on the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$, a production Python implementation, and the validation vectors and benchmarks needed to reproduce the result.
+The executable artifact is a deterministic cryptographic prime prefilter whose
+invariant target is the exact **Divisor Normalization Identity** (DNI)
 
-## Empirical Findings Without Located Prior Art
+$$
+Z_{\mathrm{raw}}(n) = n^{1 - d(n)/2}
+$$
 
-The exact DNI is elementary. The stronger novelty surface in this repository is empirical. We have not yet located prior literature for the following exact measured results under the raw DNI field:
+at normalization scaling parameter
 
-- Inside prime gaps up to `10^6`, the gap-local raw-`Z` maximum lands at edge distance `2` in `43.6006%` of tested gaps against an exact within-gap baseline of `22.1859%` (`1.965x` enrichment), and the same peak is carried by a `d(n) = 4` composite in `82.9027%` of tested gaps against a baseline of `20.1401%` (`4.116x` enrichment). See the [gap-edge study](docs/gap_ridge/raw_composite_z_gap_edge.md) and the [figure pack](docs/gap_ridge/raw_composite_z_gap_edge_figures.md).
-- On the current committed validation surface, the gap-local raw-`Z` peak matches the lexicographic winner "minimize interior divisor count, then take the leftmost carrier" across exact `10^6`, exact `10^7`, and sampled regimes through `10^18`, with zero observed counterexamples. See the [finding note](docs/findings/lexicographic_winner_take_all_peak_rule.md), the [validation summary](benchmarks/output/python/gap_ridge/lexicographic_peak_validation/lexicographic_peak_validation_summary.svg), and the [validation data](benchmarks/output/python/gap_ridge/lexicographic_peak_validation/lexicographic_peak_validation.json).
-- Most observed `d(n)=4` peak-carrier dominance is availability-driven almost one-for-one: when a gap contains an interior `d(n)=4` composite, the raw-`Z` peak is usually carried by that class, with a thin odd-square exception family whose observed rate stays below `0.216%` on the tested surface. See the [finding note](docs/findings/d4_availability_driven_carrier_dominance.md) and the [availability-vs-peak artifact](benchmarks/output/python/gap_ridge/insight_probes/d4_availability_vs_peak_share.svg).
-- The near-edge ridge is residue-modulated by the left endpoint prime modulo `30`: some residue classes make right-edge wins materially more common, while others reinforce strong left-edge dominance. See the [finding note](docs/findings/residue_mod30_ridge_orientation.md) and the [supporting probe](benchmarks/output/python/gap_ridge/insight_probes/residue_mod30_right_edge_share.svg).
+$$
+v = \frac{e^{2}}{2}.
+$$
+
+The stronger finding now carried by the repository is empirical and
+structural. Inside prime gaps, the implemented log-score
+
+$$
+L(n) = \ln Z_{\mathrm{raw}}(n) = \left(1 - \frac{d(n)}{2}\right)\ln(n)
+$$
+
+matches a simpler arithmetic winner law on the current tested surface, and its
+strongest documented closure consequence stays exact on deterministic decade
+bands through $10^{18}$.
+
+## Current Headline Results
+
+- **Gap Winner Rule (GWR).** Inside a prime gap, the implemented log-score
+  winner matches the arithmetic rule “minimize interior divisor count, then
+  take the leftmost carrier.” The current repo notes report zero observed
+  counterexamples on exact runs at $10^6$ and $2 \times 10^7$, on additional
+  sampled revalidation through $10^{12}$, and on earlier committed sampled
+  validation surfaces through $10^{18}$. See the
+  [story](gwr/story/README.md) and the
+  [formal statement](gwr/findings/gap_winner_rule.md).
+- **No-Later-Simpler-Composite condition.** Once the implemented winner
+  appears inside a tested prime gap, the next prime arrives before any later
+  interior composite with strictly smaller divisor count. The dedicated closure
+  study reports zero observed violations on a deterministic even-band ladder at
+  every decade from $10^8$ through $10^{18}$. See the
+  [theorem candidate note](gwr/findings/no_later_simpler_composite_theorem.md)
+  and the
+  [findings summary](gwr/findings/closure_constraint_findings.md).
+- **Deterministic prefilter performance.** The current production Python path
+  rejects about $91\%$ of tested odd candidates before Miller-Rabin and
+  produced $2.09\times$ and $2.82\times$ end-to-end deterministic RSA
+  key-generation speedups on the curated $2048$-bit and $4096$-bit benchmark
+  corpora. See [docs/prefilter/benchmarks.md](docs/prefilter/benchmarks.md).
+
+## Gap Winner Rule
+
+The exact DNI is elementary. The stronger novelty surface in this repository is
+empirical. The central observed law is that the log-score argmax inside a prime
+gap collapses to a simpler arithmetic choice:
+
+1. minimize the interior divisor count $d(n)$,
+2. among ties, take the leftmost interior carrier.
+
+That is the Gap Winner Rule.
+
+On the current tested surface, the log-score winner and the arithmetic winner
+are the same carrier. This one law compresses several separate-looking observed
+features on the prime-gap interior surface:
+
+- frequent $d(n)=4$ winners,
+- strong left-half winner dominance,
+- frequent edge-distance $2$ winners.
+
+Those are not separate committed rules in the current reading. They are
+consequences of the same winner law when it holds.
+
+See [gwr/story/README.md](gwr/story/README.md) for the plain-language write-up,
+[gwr/findings/gap_winner_rule.md](gwr/findings/gap_winner_rule.md) for the
+formal statement, and
+[gwr/findings/lexicographic_raw_z_dominance_theorem.md](gwr/findings/lexicographic_raw_z_dominance_theorem.md)
+for the surviving directional dominance theorem that sits beneath the gap-local
+collapse.
+
+## No-Later-Simpler-Composite Theorem Candidate
+
+The strongest closure consequence currently documented in the repository is
+this:
+
+once the implemented winner appears inside a prime gap, the next prime arrives
+before any later interior composite with strictly smaller divisor count can
+appear.
+
+In symbols, if $w$ is the implemented log-score winner in the gap $(p, q)$ and
+
+$$
+T_{<}(w) = \min \{\, n > w : d(n) < d(w) \,\},
+$$
+
+then the closure condition is
+
+$$
+q \le T_{<}(w).
+$$
+
+This is an exact corollary of GWR on any gap where GWR holds. The separate
+question is whether it can stand on its own as a direct prime-gap theorem.
+
+The current documented surface for this closure condition includes a
+deterministic even-band ladder at every decade from $10^8$ through $10^{18}$.
+That ladder reports zero observed violations. The common $d(w)=4$ case is
+especially concrete: the first later strictly simpler threat is then the next
+prime square after $w$, so the condition becomes a direct bound on where the
+gap must close.
+
+See
+[gwr/findings/no_later_simpler_composite_theorem.md](gwr/findings/no_later_simpler_composite_theorem.md)
+and
+[gwr/findings/closure_constraint_findings.md](gwr/findings/closure_constraint_findings.md).
 
 ## Scope At A Glance
 
@@ -172,11 +275,24 @@ Empirically, this extracted Python path produced:
 ### Exact Raw Composite Z Field
 
 - This is a separate exact-field concern from the production prefilter.
-- Up to `10^6` on the natural number line, the strongest exact raw composite `Z` value inside a prime gap lands at edge distance `2` in `43.6006%` of gaps versus an exact within-gap baseline of `22.1859%`, and is carried by a `d(n) = 4` composite in `82.9027%` of gaps versus a baseline of `20.1401%`.
-- Regenerated higher-band runs now extend the broader raw-field artifact surface through sampled `10^18`: edge-distance-`2` enrichment stays near `2x`, and `d(n) = 4` carrier enrichment rises to about `7.56x` in evenly spaced `10^18` windows and about `9.19x` in fixed-seed `10^18` windows.
-- Later repository notes narrow and sharpen that result: the broader "prime-edge insulation" picture is explicitly falsified, while the surviving committed winner rule is that the gap-local raw-`Z` peak matches the lexicographic choice "minimize interior divisor count, then take the leftmost carrier" on exact `10^6`, exact `10^7`, and sampled regimes through `10^18`.
+- Up to $10^6$ on the natural number line, the strongest exact raw composite
+  $Z$ value inside a prime gap lands at edge-distance $2$ in $43.6006\%$ of
+  gaps versus an exact within-gap baseline of $22.1859\%$, and is carried by a
+  $d(n)=4$ composite in $82.9027\%$ of gaps versus a baseline of $20.1401\%$.
+- Later repository notes sharpen that ridge picture into the current winner
+  law: on the documented validation surfaces, the implemented log-score winner
+  matches the arithmetic choice “minimize interior divisor count, then take the
+  leftmost carrier,” with zero observed counterexamples on the current
+  revalidation ladder and on earlier committed sampled surfaces through
+  $10^{18}$.
+- The dedicated closure study then strengthens the right-edge reading further:
+  on the current documented even-band ladder through $10^{18}$, once the
+  winner appears, no later strictly simpler composite is observed before the
+  next prime closes the gap.
 
-See [docs/gap_ridge/raw_composite_z_gap_edge.md](docs/gap_ridge/raw_composite_z_gap_edge.md) for the exact method and measured table.
+See [docs/gap_ridge/raw_composite_z_gap_edge.md](docs/gap_ridge/raw_composite_z_gap_edge.md),
+[gwr/findings/gap_winner_rule.md](gwr/findings/gap_winner_rule.md), and
+[gwr/findings/no_later_simpler_composite_theorem.md](gwr/findings/no_later_simpler_composite_theorem.md).
 
 See [docs/prefilter/benchmarks.md](docs/prefilter/benchmarks.md) for the curated benchmark summary and [docs/prefilter/manual_validation.md](docs/prefilter/manual_validation.md) for the exact reproduction commands.
 
