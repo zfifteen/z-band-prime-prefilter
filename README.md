@@ -2,9 +2,17 @@
 
 ![Z-Band Prime Prefilter hero](docs/assets/z-band-prime-prefilter-hero.jpg)
 
-Deterministic cryptographic prime prefiltering derived from the prime locus implied by the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ at normalization scaling parameter $v = e^{2}/2$.
+Deterministic cryptographic prime prefiltering whose production path is a bounded small-factor screen in front of fixed-base Miller-Rabin. The invariant target for that surrogate is the prime fixed point implied by the exact **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ at normalization scaling parameter $v = e^{2}/2$.
 
 This repository presents the Z-Band Prime Prefilter as a deterministic cryptographic primitive. It gives the mathematical basis of the method, centered on the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$, a production Python implementation, and the validation vectors and benchmarks needed to reproduce the result.
+
+## Scope At A Glance
+
+- The exact DNI is an arithmetic identity under exact divisor count.
+- The production prefilter does not compute exact divisor count on cryptographic-size candidates at runtime.
+- In the production path, `proxy_z = 1.0` means only that the candidate survived the current gated factor tables and therefore advances to Miller-Rabin. It is not a primality proof by itself.
+- The reported `~91%` Miller-Rabin reduction is the measured consequence of the current covered odd-prime table depth on the tested deterministic streams, not a runtime evaluation of exact DNI. See [docs/prefilter/benchmarks.md](docs/prefilter/benchmarks.md) and the table-depth sweep discussed there.
+- The gap-ridge notes study the exact raw composite `Z` field inside prime gaps. That is a separate empirical concern from the production prefilter.
 
 ## Terminology
 
@@ -92,7 +100,7 @@ Under the exact DNI, the entire prime class collapses to the fixed-point locus $
 
 ## Why This Becomes a Prefilter
 
-This effect is the practical core of the method. Cryptographic prime generation spends most of its time on candidates that are composite and never need a full probable-prime path. Standard Miller-Rabin pipelines are fast, but they do not provide a structural invariant of this kind. The DNI locus does.
+This fixed-point separation is the practical core of the method. Cryptographic prime generation spends most of its time on candidates that are composite and never need a full probable-prime path. The exact DNI provides the invariant target. The production implementation below is the bounded deterministic surrogate calibrated against that target rather than a runtime exact-divisor evaluator.
 
 Because confirmed primes live at $Z = 1.0$ under the DNI and composites contract below it, the prefilter creates a clean structural separation in normalized space. That separation makes it possible to reject many candidates before paying the full cost of the survivor regime.
 
@@ -115,11 +123,13 @@ So the logic flows in one direction:
 - the locus creates a usable structural separation
 - the production filter exploits that separation to reduce Miller-Rabin work
 
+The current measured rejection rate comes from the covered prime-table depth of this implementation. The repository includes deterministic table-depth sweeps to show that dependence directly rather than attributing the `~91%` figure to runtime exact DNI evaluation.
+
 Empirically, this extracted Python path produced:
 
 - $2.09\times$ end-to-end speedup across $300$ deterministic $2048$-bit RSA keypairs
 - $2.82\times$ end-to-end speedup across $50$ deterministic $4096$-bit RSA keypairs
-- $90.97\,\%$ to $91.07\,\%$ Miller-Rabin reduction while preserving the prime locus
+- $90.97\,\%$ to $91.07\,\%$ Miller-Rabin reduction in the current covered-table configuration
 
 ## Empirical Results
 
@@ -152,7 +162,9 @@ Empirically, this extracted Python path produced:
 
 ### Exact Raw Composite Z Field
 
+- This is a separate exact-field concern from the production prefilter.
 - Up to `10^6` on the natural number line, the strongest exact raw composite `Z` value inside a prime gap lands at edge distance `2` in `43.6006%` of gaps versus an exact within-gap baseline of `22.1859%`, and is carried by a `d(n) = 4` composite in `82.9027%` of gaps versus a baseline of `20.1401%`.
+- Later repository notes narrow and sharpen that result: the broader "prime-edge insulation" picture is explicitly falsified, while the surviving tested winner rule is that the gap-local raw-`Z` peak matches the lexicographic choice "minimize interior divisor count, then take the leftmost carrier" on exact `10^7` and sampled regimes through `10^10`.
 
 See [docs/gap_ridge/raw_composite_z_gap_edge.md](docs/gap_ridge/raw_composite_z_gap_edge.md) for the exact method and measured table.
 
