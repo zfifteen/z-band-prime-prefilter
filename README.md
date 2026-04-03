@@ -2,7 +2,7 @@
 
 ![Prime Gap Structure hero](docs/assets/prime-gap-structure-hero.jpg)
 
-This repository now carries two linked results from the same divisor-normalized
+This repository carries two linked results from the same divisor-normalized
 arithmetic program.
 
 The executable artifact is a deterministic cryptographic prime prefilter whose
@@ -18,27 +18,36 @@ $$
 v = \frac{e^{2}}{2}.
 $$
 
-The stronger finding now carried by the repository is empirical and
-structural. Inside prime gaps, the implemented log-score
+The headline mathematical result now carried by the repository is the
+committed theorem statement
+[Gap Winner Rule — Hierarchical Local-Dominator Law](gwr/findings/gwr_hierarchical_local_dominator_theorem.md).
+Inside a prime gap, the implemented log-score
 
 $$
 L(n) = \ln Z_{\mathrm{raw}}(n) = \left(1 - \frac{d(n)}{2}\right)\ln(n)
 $$
 
-matches a simpler arithmetic winner law on the current tested surface, and its
-strongest documented closure consequence stays exact on deterministic decade
-bands through $10^{18}$.
+is maximized exactly at the leftmost interior carrier of the smallest divisor
+class present in the gap. The same theorem statement records the two flank
+conditions used throughout the repo: every earlier composite is beaten by a
+later admissible composite, and no later strictly simpler composite appears
+before the gap closes.
 
 ## Current Headline Results
 
-- **Gap Winner Rule (GWR).** Inside a prime gap, the implemented log-score
-  winner matches the arithmetic rule “minimize interior divisor count, then
-  take the leftmost carrier.” The current repo notes report zero observed
-  counterexamples on exact runs at $10^6$ and $2 \times 10^7$, on additional
-  sampled revalidation through $10^{12}$, and on earlier committed sampled
-  validation surfaces through $10^{18}$. See the
-  [story](gwr/story/README.md) and the
-  [formal statement](gwr/findings/gap_winner_rule.md).
+- **Formal theorem statement.** The current headline theorem is
+  [gwr/findings/gwr_hierarchical_local_dominator_theorem.md](gwr/findings/gwr_hierarchical_local_dominator_theorem.md).
+  It states the winner law directly in hierarchical first-arrival and
+  local-dominator form.
+- **Exact full left-flank scan through $2 \times 10^7$.** The committed
+  artifact
+  [output/gwr_proof/earlier_spoiler_local_dominator_scan_2e7.json](output/gwr_proof/earlier_spoiler_local_dominator_scan_2e7.json)
+  reports `1,163,198` gaps, `3,349,874` earlier candidates, and `0`
+  unresolved.
+- **Square-adjacent stress test at $10^{12}$.** The matched pre-square and
+  post-square artifact
+  [output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json](output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json)
+  reports `137,771` gaps, `649,769` earlier candidates, and `0` unresolved.
 - **No-Later-Simpler-Composite condition.** Once the implemented winner
   appears inside a tested prime gap, the next prime arrives before any later
   interior composite with strictly smaller divisor count. The dedicated closure
@@ -64,18 +73,21 @@ bands through $10^{18}$.
 
 ## Gap Winner Rule
 
-The exact DNI is elementary. The stronger novelty surface in this repository is
-empirical. The central observed law is that the log-score argmax inside a prime
-gap collapses to a simpler arithmetic choice:
+The central winner law in this repository is that the log-score argmax inside a
+prime gap collapses to a simpler arithmetic choice:
 
 1. minimize the interior divisor count $d(n)$,
 2. among ties, take the leftmost interior carrier.
 
 That is the Gap Winner Rule.
 
-On the current tested surface, the log-score winner and the arithmetic winner
-are the same carrier. This one law compresses several separate-looking observed
-features on the prime-gap interior surface:
+The formal theorem file expresses this as a hierarchical local-dominator law.
+The executed artifacts in this repo then show zero unresolved earlier spoilers
+on the full exact surface through $2 \times 10^7$ and on the matched
+square-adjacent windows at $10^{12}$.
+
+This one law compresses several separate-looking features on the prime-gap
+interior surface:
 
 - frequent $d(n)=4$ winners,
 - strong left-half winner dominance,
@@ -93,8 +105,10 @@ semiprime-only slogan is false; a thin prime-cube exception family survives
 inside the broader $d=4$ class.
 
 See [gwr/story/README.md](gwr/story/README.md) for the plain-language write-up,
+[gwr/findings/gwr_hierarchical_local_dominator_theorem.md](gwr/findings/gwr_hierarchical_local_dominator_theorem.md)
+for the current committed theorem statement,
 [gwr/findings/gap_winner_rule.md](gwr/findings/gap_winner_rule.md) for the
-formal statement, and
+winner-law note, and
 [gwr/findings/lexicographic_raw_z_dominance_theorem.md](gwr/findings/lexicographic_raw_z_dominance_theorem.md)
 for the surviving directional dominance theorem that sits beneath the gap-local
 collapse. See
