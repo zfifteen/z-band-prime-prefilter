@@ -4,7 +4,7 @@
 
 Let (d(n)) denote the divisor function, and define the raw-(Z) score by
 [
-Z(n)=n^{,1-d(n)/2}.
+Z(n)=n^{1-d(n)/2}.
 ]
 Since the logarithm is strictly increasing, maximizing (Z(n)) is equivalent to maximizing
 [
