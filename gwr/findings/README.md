@@ -38,9 +38,8 @@ refer directly to an older artifact whose title or filename already uses it.
   early-arrival decomposition developed from the exact $10^6$ and exploratory
   near-$10^{12}$ session probes.
 - [`what_counts_as_gwr_proof.md`](./what_counts_as_gwr_proof.md):
-  Exact proof standard for when it is technically correct to say that the full
-  `Gap Winner Rule` is proven rather than strongly evidenced on a tested
-  surface.
+  Retired note recording the former script-first proof gate and why the repo no
+  longer treats that gate as mandatory.
 - [`current_spoiler_bound_no_finite_remainder.md`](./current_spoiler_bound_no_finite_remainder.md):
   Exact executed result showing that the current earlier-spoiler reduction does
   not by itself yield the finite remainder bound required by Route `B3`.
@@ -48,6 +47,10 @@ refer directly to an older artifact whose title or filename already uses it.
   Executed result for the current exact-small-surface plus fixed large-prime
   reducer, including the full exact scan through $396739$ and the closed
   divisor-class table through $D = 32768$.
+- [`earlier_spoiler_local_dominator_findings.md`](./earlier_spoiler_local_dominator_findings.md):
+  Exact prime-gap admissibility result showing that every earlier spoiler
+  candidate on the tested exact surfaces has a later interior dominator, with
+  the required offset shrinking sharply as the earlier divisor class rises.
 
 ## Legacy Inputs
 

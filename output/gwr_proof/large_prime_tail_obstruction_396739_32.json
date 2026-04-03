@@ -1,0 +1,328 @@
+{
+  "proof_note_target": "universal tail obstruction for the fixed large-prime class reducer",
+  "prime_threshold": 396739,
+  "fixed_large_prime_factor": 1.000240704655167,
+  "family": {
+    "parameter": "k >= 2",
+    "divisor_count": "D = 2^k",
+    "witness_value": "a_k = product of the first k primes",
+    "exact_divisor_identity": "d(a_k) = 2^k",
+    "elementary_upper_bound": "a_k < 2^(k(k+1)/2)",
+    "elementary_source": "Bertrand gives p_i < 2^i, so primorial(k) < product_{i=1}^k 2^i"
+  },
+  "exact_first_witness_k": 18,
+  "eventual_cutoff_k": 20,
+  "eventual_tail_statement": "For every k >= eventual_cutoff_k, the elementary upper bound already lies below the fixed large-prime reducer threshold. So the class family D = 2^k remains unresolved forever under this reducer.",
+  "witness_rows": [
+    {
+      "k": 2,
+      "divisor_count": 4,
+      "primorial": 6,
+      "log_primorial": 1.791759469228055,
+      "log_threshold": 0.00024067569044926006,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 2.0794415416798357,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 3,
+      "divisor_count": 8,
+      "primorial": 30,
+      "log_primorial": 3.401197381662155,
+      "log_threshold": 0.0012033784522463003,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 4.1588830833596715,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 4,
+      "divisor_count": 16,
+      "primorial": 210,
+      "log_primorial": 5.3471075307174685,
+      "log_threshold": 0.0031287839758403807,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 6.931471805599453,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 5,
+      "divisor_count": 32,
+      "primorial": 2310,
+      "log_primorial": 7.745002803515839,
+      "log_threshold": 0.006979595023028542,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 10.39720770839918,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 6,
+      "divisor_count": 64,
+      "primorial": 30030,
+      "log_primorial": 10.309952160977376,
+      "log_threshold": 0.014681217117404863,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 14.556090791758852,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 7,
+      "divisor_count": 128,
+      "primorial": 510510,
+      "log_primorial": 13.143165505033593,
+      "log_threshold": 0.03008446130615751,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 19.408121055678468,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 8,
+      "divisor_count": 256,
+      "primorial": 9699690,
+      "log_primorial": 16.087604484200035,
+      "log_threshold": 0.06089094968366279,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 24.95329850015803,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 9,
+      "divisor_count": 512,
+      "primorial": 223092870,
+      "log_primorial": 19.223098700129185,
+      "log_threshold": 0.12250392643867337,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 31.191623125197538,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 10,
+      "divisor_count": 1024,
+      "primorial": 6469693230,
+      "log_primorial": 22.59039453011566,
+      "log_threshold": 0.24572987994869452,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 38.12309493079699,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 11,
+      "divisor_count": 2048,
+      "primorial": 200560490130,
+      "log_primorial": 26.024381734600805,
+      "log_threshold": 0.4921817869687368,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 45.747713916956386,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 12,
+      "divisor_count": 4096,
+      "primorial": 7420738134810,
+      "log_primorial": 29.63529964724503,
+      "log_threshold": 0.9850856010088214,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 54.06548008367573,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 13,
+      "divisor_count": 8192,
+      "primorial": 304250263527210,
+      "log_primorial": 33.348871713949336,
+      "log_threshold": 1.9708932290889907,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 63.07639343095502,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 14,
+      "divisor_count": 16384,
+      "primorial": 13082761331670030,
+      "log_primorial": 37.1100718296429,
+      "log_threshold": 3.942508485249329,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 72.78045395879425,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 15,
+      "divisor_count": 32768,
+      "primorial": 614889782588491410,
+      "log_primorial": 40.960219431352954,
+      "log_threshold": 7.885738997570006,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 83.17766166719343,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 16,
+      "divisor_count": 65536,
+      "primorial": 32589158477190044730,
+      "log_primorial": 44.93051134490508,
+      "log_threshold": 15.77220002221136,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 94.26801655615256,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 17,
+      "divisor_count": 131072,
+      "primorial": 1922760350154212639070,
+      "log_primorial": 49.0080487888108,
+      "log_threshold": 31.545122071494067,
+      "exact_witness_resolves_against_reducer": false,
+      "bound_log_upper": 106.05151862567163,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 18,
+      "divisor_count": 262144,
+      "primorial": 117288381359406970983270,
+      "log_primorial": 53.11892265298411,
+      "log_threshold": 63.09096617005948,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 118.52816787575064,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 19,
+      "divisor_count": 524288,
+      "primorial": 7858321551080267055879090,
+      "log_primorial": 57.32361527237508,
+      "log_threshold": 126.18265436719031,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 131.6979643063896,
+      "bound_witness_resolves_against_reducer": false
+    },
+    {
+      "k": 20,
+      "divisor_count": 1048576,
+      "primorial": 557940830126698960967415390,
+      "log_primorial": 61.586295149416394,
+      "log_threshold": 252.36603076145195,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 145.5609079175885,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 21,
+      "divisor_count": 2097152,
+      "primorial": 40729680599249024150621323470,
+      "log_primorial": 65.87675459056479,
+      "log_threshold": 504.7327835499753,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 160.11699870934737,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 22,
+      "divisor_count": 4194304,
+      "primorial": 3217644767340672907899084554130,
+      "log_primorial": 70.2462024430318,
+      "log_threshold": 1009.4662891270219,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 175.36623668166615,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 23,
+      "divisor_count": 8388608,
+      "primorial": 267064515689275851355624017992790,
+      "log_primorial": 74.6650430508284,
+      "log_threshold": 2018.9333002811152,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 191.3086218345449,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 24,
+      "divisor_count": 16777216,
+      "primorial": 23768741896345550770650537601358310,
+      "log_primorial": 79.15367942056054,
+      "log_threshold": 4037.8673225893017,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 207.94415416798358,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 25,
+      "divisor_count": 33554432,
+      "primorial": 2305567963945518424753102147331756070,
+      "log_primorial": 83.72839039906393,
+      "log_threshold": 8075.735367205674,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 225.2728336819822,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 26,
+      "divisor_count": 67108864,
+      "primorial": 232862364358497360900063316880507363070,
+      "log_primorial": 88.34351091590518,
+      "log_threshold": 16151.471456438421,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 243.2946603765408,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 27,
+      "divisor_count": 134217728,
+      "primorial": 23984823528925228172706521638692258396210,
+      "log_primorial": 92.97823990413482,
+      "log_threshold": 32302.943634903913,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 262.0096342516593,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 28,
+      "divisor_count": 268435456,
+      "primorial": 2566376117594999414479597815340071648394470,
+      "log_primorial": 97.65106873859673,
+      "log_threshold": 64605.8879918349,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 281.4177553073378,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 29,
+      "divisor_count": 536870912,
+      "primorial": 279734996817854936178276161872067809674997230,
+      "log_primorial": 102.34241662082587,
+      "log_threshold": 129211.77670569686,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 301.5190235435762,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 30,
+      "divisor_count": 1073741824,
+      "primorial": 31610054640417607788145206291543662493274686990,
+      "log_primorial": 107.06980443953822,
+      "log_threshold": 258423.5541334208,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 322.3134389603746,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 31,
+      "divisor_count": 2147483648,
+      "primorial": 4014476939333036189094441199026045136645885247730,
+      "log_primorial": 111.9139915259968,
+      "log_threshold": 516847.10898886865,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 343.8010015577329,
+      "bound_witness_resolves_against_reducer": true
+    },
+    {
+      "k": 32,
+      "divisor_count": 4294967296,
+      "primorial": 525896479052627740771371797072411912900610967452630,
+      "log_primorial": 116.78918884919796,
+      "log_threshold": 1033694.2186997645,
+      "exact_witness_resolves_against_reducer": true,
+      "bound_log_upper": 365.9817113356511,
+      "bound_witness_resolves_against_reducer": true
+    }
+  ]
+}

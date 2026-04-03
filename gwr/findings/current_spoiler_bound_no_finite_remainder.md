@@ -1,7 +1,8 @@
 # Current Class-Only Spoiler Bound Leaves An Infinite Family
 
 This note records the exact result of the first executed class-only test for
-the spoiler inequality used in
+the spoiler inequality used in the repo's former finite-reduction proof route,
+now retained only as historical context in
 [`what_counts_as_gwr_proof.md`](./what_counts_as_gwr_proof.md).
 
 The question is narrow:
@@ -84,12 +85,12 @@ and these grow without bound as $m$ grows.
 That means this inequality by itself does **not** produce a finite class-level
 bound.
 
-This is weaker than a `Route B3` failure statement.
+This is weaker than a failure of the whole former finite-reduction route.
 
 The script does **not** build an actual prime gap or an actual later winner
 value $w$.
 
-So it does **not** prove that Route `B3` is impossible.
+So it does **not** prove that the whole finite-reduction route is impossible.
 
 It says something narrower:
 
@@ -102,4 +103,4 @@ The executed proof-pursuit script is
 [`finite_remainder_attempt.py`](../experiments/proof/finite_remainder_attempt.py).
 
 It emits a deterministic JSON artifact containing the obstruction family and
-the `Route B3` status.
+the status of that narrow class-only route.

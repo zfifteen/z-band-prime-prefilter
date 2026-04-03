@@ -1,0 +1,36 @@
+{
+  "windows": [
+    {
+      "gap_count": 68838,
+      "earlier_candidate_count": 325282,
+      "unresolved_count": 0,
+      "median_offset": 1,
+      "99th_percentile_offset": 14,
+      "worst_offset": 41,
+      "window": [
+        1000004000009,
+        1000006000009
+      ]
+    },
+    {
+      "gap_count": 68933,
+      "earlier_candidate_count": 324487,
+      "unresolved_count": 0,
+      "median_offset": 1,
+      "99th_percentile_offset": 14,
+      "worst_offset": 42,
+      "window": [
+        1000006000009,
+        1000008000009
+      ]
+    }
+  ],
+  "overall": {
+    "gap_count": 137771,
+    "earlier_candidate_count": 649769,
+    "unresolved_count": 0,
+    "median_offset": 1,
+    "99th_percentile_offset": 14,
+    "worst_offset": 42
+  }
+}

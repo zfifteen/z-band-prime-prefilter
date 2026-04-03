@@ -59,4 +59,7 @@ def test_large_prime_reducer_emits_json(tmp_path, capsys):
     assert payload["large_prime_table"]["row_count"] == 29
 
     stdout_payload = json.loads(capsys.readouterr().out)
-    assert stdout_payload["proof_note_target"] == "Route B exact base surface plus fixed large-prime reducer"
+    assert (
+        stdout_payload["proof_note_target"]
+        == "former finite-reduction route: exact base surface plus fixed large-prime reducer"
+    )

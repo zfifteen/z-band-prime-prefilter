@@ -1,0 +1,479 @@
+{
+  "interval": {
+    "lo": 2,
+    "hi": 200000001
+  },
+  "chunk_size": 5000000,
+  "pair": {
+    "earlier_divisor_count": 16,
+    "first_descent_divisor_count": 15
+  },
+  "pair_count": 80,
+  "exact_failure_count": 0,
+  "min_earlier_value": 3968,
+  "max_offset": 4,
+  "chunk_summary": [
+    {
+      "chunk_lo": 2,
+      "chunk_hi": 5000002,
+      "pair_count": 17,
+      "exact_failure_count": 0,
+      "min_earlier_value": 3968,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 5000002,
+      "chunk_hi": 10000002,
+      "pair_count": 8,
+      "exact_failure_count": 0,
+      "min_earlier_value": 5895183,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 10000002,
+      "chunk_hi": 15000002,
+      "pair_count": 8,
+      "exact_failure_count": 0,
+      "min_earlier_value": 10837263,
+      "max_offset": 3
+    },
+    {
+      "chunk_lo": 15000002,
+      "chunk_hi": 20000002,
+      "pair_count": 6,
+      "exact_failure_count": 0,
+      "min_earlier_value": 17606413,
+      "max_offset": 3
+    },
+    {
+      "chunk_lo": 20000002,
+      "chunk_hi": 25000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 24245774,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 25000002,
+      "chunk_hi": 30000002,
+      "pair_count": 3,
+      "exact_failure_count": 0,
+      "min_earlier_value": 25361294,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 30000002,
+      "chunk_hi": 35000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 35000002,
+      "chunk_hi": 40000002,
+      "pair_count": 2,
+      "exact_failure_count": 0,
+      "min_earlier_value": 39891854,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 40000002,
+      "chunk_hi": 45000002,
+      "pair_count": 2,
+      "exact_failure_count": 0,
+      "min_earlier_value": 40094222,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 45000002,
+      "chunk_hi": 50000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 47499663,
+      "max_offset": 1
+    },
+    {
+      "chunk_lo": 50000002,
+      "chunk_hi": 55000002,
+      "pair_count": 2,
+      "exact_failure_count": 0,
+      "min_earlier_value": 51093902,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 55000002,
+      "chunk_hi": 60000002,
+      "pair_count": 4,
+      "exact_failure_count": 0,
+      "min_earlier_value": 55413134,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 60000002,
+      "chunk_hi": 65000002,
+      "pair_count": 5,
+      "exact_failure_count": 0,
+      "min_earlier_value": 62299445,
+      "max_offset": 4
+    },
+    {
+      "chunk_lo": 65000002,
+      "chunk_hi": 70000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 68095502,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 70000002,
+      "chunk_hi": 75000002,
+      "pair_count": 4,
+      "exact_failure_count": 0,
+      "min_earlier_value": 71301134,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 75000002,
+      "chunk_hi": 80000002,
+      "pair_count": 2,
+      "exact_failure_count": 0,
+      "min_earlier_value": 75968654,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 80000002,
+      "chunk_hi": 85000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 80604482,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 85000002,
+      "chunk_hi": 90000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 90000002,
+      "chunk_hi": 95000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 91374479,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 95000002,
+      "chunk_hi": 100000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 100000002,
+      "chunk_hi": 105000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 101646723,
+      "max_offset": 1
+    },
+    {
+      "chunk_lo": 105000002,
+      "chunk_hi": 110000002,
+      "pair_count": 2,
+      "exact_failure_count": 0,
+      "min_earlier_value": 107412494,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 110000002,
+      "chunk_hi": 115000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 115000002,
+      "chunk_hi": 120000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 116035982,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 120000002,
+      "chunk_hi": 125000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 123387662,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 125000002,
+      "chunk_hi": 130000002,
+      "pair_count": 2,
+      "exact_failure_count": 0,
+      "min_earlier_value": 125708943,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 130000002,
+      "chunk_hi": 135000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 130599182,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 135000002,
+      "chunk_hi": 140000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 140000002,
+      "chunk_hi": 145000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 145000002,
+      "chunk_hi": 150000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 150000002,
+      "chunk_hi": 155000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 155000002,
+      "chunk_hi": 160000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 155850253,
+      "max_offset": 3
+    },
+    {
+      "chunk_lo": 160000002,
+      "chunk_hi": 165000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 162919694,
+      "max_offset": 2
+    },
+    {
+      "chunk_lo": 165000002,
+      "chunk_hi": 170000002,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 165585423,
+      "max_offset": 1
+    },
+    {
+      "chunk_lo": 170000002,
+      "chunk_hi": 175000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 175000002,
+      "chunk_hi": 180000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 180000002,
+      "chunk_hi": 185000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 185000002,
+      "chunk_hi": 190000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 190000002,
+      "chunk_hi": 195000002,
+      "pair_count": 0,
+      "exact_failure_count": 0,
+      "min_earlier_value": null,
+      "max_offset": 0
+    },
+    {
+      "chunk_lo": 195000002,
+      "chunk_hi": 200000001,
+      "pair_count": 1,
+      "exact_failure_count": 0,
+      "min_earlier_value": 195888014,
+      "max_offset": 2
+    }
+  ],
+  "top_examples": [
+    {
+      "left_prime": 62299439,
+      "right_prime": 62299493,
+      "earlier_value": 62299445,
+      "first_descent_value": 62299449,
+      "offset": 4
+    },
+    {
+      "left_prime": 14047499,
+      "right_prime": 14047519,
+      "earlier_value": 14047501,
+      "first_descent_value": 14047504,
+      "offset": 3
+    },
+    {
+      "left_prime": 17606411,
+      "right_prime": 17606423,
+      "earlier_value": 17606413,
+      "first_descent_value": 17606416,
+      "offset": 3
+    },
+    {
+      "left_prime": 62299439,
+      "right_prime": 62299493,
+      "earlier_value": 62299446,
+      "first_descent_value": 62299449,
+      "offset": 3
+    },
+    {
+      "left_prime": 155850251,
+      "right_prime": 155850257,
+      "earlier_value": 155850253,
+      "first_descent_value": 155850256,
+      "offset": 3
+    },
+    {
+      "left_prime": 26893,
+      "right_prime": 26903,
+      "earlier_value": 26894,
+      "first_descent_value": 26896,
+      "offset": 2
+    },
+    {
+      "left_prime": 913933,
+      "right_prime": 913943,
+      "earlier_value": 913934,
+      "first_descent_value": 913936,
+      "offset": 2
+    },
+    {
+      "left_prime": 1008013,
+      "right_prime": 1008017,
+      "earlier_value": 1008014,
+      "first_descent_value": 1008016,
+      "offset": 2
+    },
+    {
+      "left_prime": 3400333,
+      "right_prime": 3400361,
+      "earlier_value": 3400334,
+      "first_descent_value": 3400336,
+      "offset": 2
+    },
+    {
+      "left_prime": 6370571,
+      "right_prime": 6370583,
+      "earlier_value": 6370574,
+      "first_descent_value": 6370576,
+      "offset": 2
+    },
+    {
+      "left_prime": 6615181,
+      "right_prime": 6615199,
+      "earlier_value": 6615182,
+      "first_descent_value": 6615184,
+      "offset": 2
+    },
+    {
+      "left_prime": 9560461,
+      "right_prime": 9560483,
+      "earlier_value": 9560462,
+      "first_descent_value": 9560464,
+      "offset": 2
+    },
+    {
+      "left_prime": 13675201,
+      "right_prime": 13675217,
+      "earlier_value": 13675202,
+      "first_descent_value": 13675204,
+      "offset": 2
+    },
+    {
+      "left_prime": 14047499,
+      "right_prime": 14047519,
+      "earlier_value": 14047502,
+      "first_descent_value": 14047504,
+      "offset": 2
+    },
+    {
+      "left_prime": 14961421,
+      "right_prime": 14961467,
+      "earlier_value": 14961422,
+      "first_descent_value": 14961424,
+      "offset": 2
+    },
+    {
+      "left_prime": 17606411,
+      "right_prime": 17606423,
+      "earlier_value": 17606414,
+      "first_descent_value": 17606416,
+      "offset": 2
+    },
+    {
+      "left_prime": 18905101,
+      "right_prime": 18905111,
+      "earlier_value": 18905102,
+      "first_descent_value": 18905104,
+      "offset": 2
+    },
+    {
+      "left_prime": 24245773,
+      "right_prime": 24245779,
+      "earlier_value": 24245774,
+      "first_descent_value": 24245776,
+      "offset": 2
+    },
+    {
+      "left_prime": 25361293,
+      "right_prime": 25361311,
+      "earlier_value": 25361294,
+      "first_descent_value": 25361296,
+      "offset": 2
+    },
+    {
+      "left_prime": 27164941,
+      "right_prime": 27164953,
+      "earlier_value": 27164942,
+      "first_descent_value": 27164944,
+      "offset": 2
+    }
+  ]
+}

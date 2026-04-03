@@ -1,6 +1,7 @@
 # Large-Prime Reducer Findings
 
-This note records the executed status of the current `Route B` proof path:
+This note records the executed status of the repo's former finite-reduction
+route:
 
 1. exact earlier-spoiler exhaustion on the full small-prime surface, and
 2. a fixed-factor large-prime reducer above an explicit threshold.
@@ -66,7 +67,8 @@ divisor-class surface above $P_0$.
 
 What remains open is the universal tail above the tested divisor-class table.
 
-So this artifact does **not** yet prove `GWR` for all prime gaps.
+So this artifact is a strong reducer result inside that route, not a mandatory
+gate for theorem language.
 
 It does show that the remaining gap has become much narrower:
 

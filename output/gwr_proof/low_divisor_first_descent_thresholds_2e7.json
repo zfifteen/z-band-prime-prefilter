@@ -1,0 +1,235 @@
+{
+  "interval": {
+    "lo": 2,
+    "hi": 20000001
+  },
+  "target_classes": [
+    4,
+    6,
+    8,
+    12,
+    16
+  ],
+  "pair_summary": [
+    {
+      "earlier_divisor_count": 4,
+      "first_descent_divisor_count": 3,
+      "count": 1429,
+      "min_earlier_value": 8,
+      "max_offset": 90,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 6,
+      "first_descent_divisor_count": 3,
+      "count": 67,
+      "min_earlier_value": 3475,
+      "max_offset": 10,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 6,
+      "first_descent_divisor_count": 4,
+      "count": 133340,
+      "min_earlier_value": 20,
+      "max_offset": 27,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 8,
+      "first_descent_divisor_count": 3,
+      "count": 266,
+      "min_earlier_value": 24,
+      "max_offset": 12,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 8,
+      "first_descent_divisor_count": 4,
+      "count": 787360,
+      "min_earlier_value": 54,
+      "max_offset": 30,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 8,
+      "first_descent_divisor_count": 6,
+      "count": 141123,
+      "min_earlier_value": 152,
+      "max_offset": 24,
+      "automatic_threshold": 4,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 12,
+      "first_descent_divisor_count": 3,
+      "count": 19,
+      "min_earlier_value": 185759,
+      "max_offset": 7,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 12,
+      "first_descent_divisor_count": 4,
+      "count": 166955,
+      "min_earlier_value": 84,
+      "max_offset": 9,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 12,
+      "first_descent_divisor_count": 6,
+      "count": 22854,
+      "min_earlier_value": 774,
+      "max_offset": 8,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 12,
+      "first_descent_divisor_count": 8,
+      "count": 171060,
+      "min_earlier_value": 350,
+      "max_offset": 10,
+      "automatic_threshold": 3,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 12,
+      "first_descent_divisor_count": 9,
+      "count": 12,
+      "min_earlier_value": 224,
+      "max_offset": 5,
+      "automatic_threshold": 6,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 12,
+      "first_descent_divisor_count": 10,
+      "count": 3335,
+      "min_earlier_value": 1071,
+      "max_offset": 7,
+      "automatic_threshold": 16,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 3,
+      "count": 31,
+      "min_earlier_value": 120,
+      "max_offset": 4,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 4,
+      "count": 272126,
+      "min_earlier_value": 264,
+      "max_offset": 9,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 6,
+      "count": 47274,
+      "min_earlier_value": 930,
+      "max_offset": 7,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 7,
+      "count": 1,
+      "min_earlier_value": 728,
+      "max_offset": 1,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 8,
+      "count": 261507,
+      "min_earlier_value": 384,
+      "max_offset": 8,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 9,
+      "count": 60,
+      "min_earlier_value": 440,
+      "max_offset": 4,
+      "automatic_threshold": 2,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 10,
+      "count": 7396,
+      "min_earlier_value": 3320,
+      "max_offset": 6,
+      "automatic_threshold": 3,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 12,
+      "count": 88426,
+      "min_earlier_value": 1664,
+      "max_offset": 8,
+      "automatic_threshold": 6,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 14,
+      "count": 1786,
+      "min_earlier_value": 8127,
+      "max_offset": 6,
+      "automatic_threshold": 64,
+      "all_observed_values_above_threshold": true,
+      "exact_failure_count": 0
+    },
+    {
+      "earlier_divisor_count": 16,
+      "first_descent_divisor_count": 15,
+      "count": 39,
+      "min_earlier_value": 3968,
+      "max_offset": 3,
+      "automatic_threshold": 8192,
+      "all_observed_values_above_threshold": false,
+      "exact_failure_count": 0
+    }
+  ]
+}

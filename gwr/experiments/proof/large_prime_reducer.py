@@ -213,7 +213,7 @@ def analyze_reducer(prime_threshold: int, max_divisor_class: int) -> dict[str, o
     )
 
     return {
-        "proof_note_target": "Route B exact base surface plus fixed large-prime reducer",
+        "proof_note_target": "former finite-reduction route: exact base surface plus fixed large-prime reducer",
         "small_prime_surface": {
             "interval": exact_surface["interval"],
             "gap_count": exact_surface["gap_count"],

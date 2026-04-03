@@ -1,0 +1,67 @@
+{
+  "interval": {
+    "lo": 2,
+    "hi": 20000001
+  },
+  "target_classes": [
+    4,
+    6,
+    8,
+    12,
+    16
+  ],
+  "max_offset_by_class": {
+    "4": 90,
+    "6": 27,
+    "8": 30,
+    "12": 10,
+    "16": 9
+  },
+  "extremal_examples": [
+    {
+      "left_prime": 15436943,
+      "right_prime": 15437053,
+      "earlier_value": 15436951,
+      "earlier_divisor_count": 4,
+      "dominator_value": 15437041,
+      "dominator_divisor_count": 3,
+      "offset": 90
+    },
+    {
+      "left_prime": 4552363,
+      "right_prime": 4552393,
+      "earlier_value": 4552364,
+      "earlier_divisor_count": 6,
+      "dominator_value": 4552391,
+      "dominator_divisor_count": 4,
+      "offset": 27
+    },
+    {
+      "left_prime": 13850741,
+      "right_prime": 13850789,
+      "earlier_value": 13850743,
+      "earlier_divisor_count": 8,
+      "dominator_value": 13850773,
+      "dominator_divisor_count": 4,
+      "offset": 30
+    },
+    {
+      "left_prime": 16949147,
+      "right_prime": 16949167,
+      "earlier_value": 16949148,
+      "earlier_divisor_count": 12,
+      "dominator_value": 16949158,
+      "dominator_divisor_count": 8,
+      "offset": 10
+    },
+    {
+      "left_prime": 14146009,
+      "right_prime": 14146031,
+      "earlier_value": 14146010,
+      "earlier_divisor_count": 16,
+      "dominator_value": 14146019,
+      "dominator_divisor_count": 4,
+      "offset": 9
+    }
+  ]
+}

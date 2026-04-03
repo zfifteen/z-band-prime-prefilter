@@ -111,7 +111,7 @@ def analyze_current_reduction(max_m: int) -> dict[str, object]:
             "Each witness remains unresolved because D - delta = 1 and a < 2^(delta - 2).",
             "The witness values a = 3 * 2^(m - 1) grow without bound as m grows.",
             "So the inequality alone leaves unresolved class instances at arbitrarily large values.",
-            "By itself, this does not settle whether actual prime-gap admissibility closes Route B3.",
+            "By itself, this does not settle whether actual prime-gap admissibility closes the whole finite-reduction route.",
         ],
         "witness_rows": [row.to_dict() for row in witnesses],
     }

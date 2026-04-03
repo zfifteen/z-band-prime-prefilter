@@ -1,0 +1,436 @@
+{
+  "interval": {
+    "lo": 2,
+    "hi": 20000001
+  },
+  "hard_classes": [
+    4,
+    6,
+    8,
+    12,
+    16
+  ],
+  "earlier_candidate_count": 3349874,
+  "unresolved_candidate_count": 0,
+  "hard_class_summary": [
+    {
+      "earlier_divisor_count": 4,
+      "count": 1429,
+      "min_offset": 1,
+      "max_offset": 90
+    },
+    {
+      "earlier_divisor_count": 6,
+      "count": 133407,
+      "min_offset": 1,
+      "max_offset": 27
+    },
+    {
+      "earlier_divisor_count": 8,
+      "count": 928749,
+      "min_offset": 1,
+      "max_offset": 30
+    },
+    {
+      "earlier_divisor_count": 12,
+      "count": 364235,
+      "min_offset": 1,
+      "max_offset": 10
+    },
+    {
+      "earlier_divisor_count": 16,
+      "count": 678646,
+      "min_offset": 1,
+      "max_offset": 9
+    }
+  ],
+  "examples": [
+    {
+      "left_prime": 7,
+      "right_prime": 11,
+      "earlier_value": 8,
+      "earlier_divisor_count": 4,
+      "dominator_value": 9,
+      "dominator_divisor_count": 3,
+      "offset": 1
+    },
+    {
+      "left_prime": 19,
+      "right_prime": 23,
+      "earlier_value": 20,
+      "earlier_divisor_count": 6,
+      "dominator_value": 21,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 23,
+      "right_prime": 29,
+      "earlier_value": 24,
+      "earlier_divisor_count": 8,
+      "dominator_value": 25,
+      "dominator_divisor_count": 3,
+      "offset": 1
+    },
+    {
+      "left_prime": 31,
+      "right_prime": 37,
+      "earlier_value": 32,
+      "earlier_divisor_count": 6,
+      "dominator_value": 33,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 43,
+      "right_prime": 47,
+      "earlier_value": 44,
+      "earlier_divisor_count": 6,
+      "dominator_value": 46,
+      "dominator_divisor_count": 4,
+      "offset": 2
+    },
+    {
+      "left_prime": 43,
+      "right_prime": 47,
+      "earlier_value": 45,
+      "earlier_divisor_count": 6,
+      "dominator_value": 46,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 53,
+      "right_prime": 59,
+      "earlier_value": 54,
+      "earlier_divisor_count": 8,
+      "dominator_value": 55,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 67,
+      "right_prime": 71,
+      "earlier_value": 68,
+      "earlier_divisor_count": 6,
+      "dominator_value": 69,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 83,
+      "right_prime": 89,
+      "earlier_value": 84,
+      "earlier_divisor_count": 12,
+      "dominator_value": 85,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 89,
+      "right_prime": 97,
+      "earlier_value": 90,
+      "earlier_divisor_count": 12,
+      "dominator_value": 91,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 103,
+      "right_prime": 107,
+      "earlier_value": 104,
+      "earlier_divisor_count": 8,
+      "dominator_value": 106,
+      "dominator_divisor_count": 4,
+      "offset": 2
+    },
+    {
+      "left_prime": 103,
+      "right_prime": 107,
+      "earlier_value": 105,
+      "earlier_divisor_count": 8,
+      "dominator_value": 106,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 109,
+      "right_prime": 113,
+      "earlier_value": 110,
+      "earlier_divisor_count": 8,
+      "dominator_value": 111,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "earlier_value": 114,
+      "earlier_divisor_count": 8,
+      "dominator_value": 115,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "earlier_value": 115,
+      "earlier_divisor_count": 4,
+      "dominator_value": 121,
+      "dominator_divisor_count": 3,
+      "offset": 6
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "earlier_value": 116,
+      "earlier_divisor_count": 6,
+      "dominator_value": 118,
+      "dominator_divisor_count": 4,
+      "offset": 2
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "earlier_value": 117,
+      "earlier_divisor_count": 6,
+      "dominator_value": 118,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "earlier_value": 118,
+      "earlier_divisor_count": 4,
+      "dominator_value": 121,
+      "dominator_divisor_count": 3,
+      "offset": 3
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "earlier_value": 119,
+      "earlier_divisor_count": 4,
+      "dominator_value": 121,
+      "dominator_divisor_count": 3,
+      "offset": 2
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "earlier_value": 120,
+      "earlier_divisor_count": 16,
+      "dominator_value": 121,
+      "dominator_divisor_count": 3,
+      "offset": 1
+    },
+    {
+      "left_prime": 127,
+      "right_prime": 131,
+      "earlier_value": 128,
+      "earlier_divisor_count": 8,
+      "dominator_value": 129,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 131,
+      "right_prime": 137,
+      "earlier_value": 132,
+      "earlier_divisor_count": 12,
+      "dominator_value": 133,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 139,
+      "right_prime": 149,
+      "earlier_value": 140,
+      "earlier_divisor_count": 12,
+      "dominator_value": 141,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 151,
+      "right_prime": 157,
+      "earlier_value": 152,
+      "earlier_divisor_count": 8,
+      "dominator_value": 153,
+      "dominator_divisor_count": 6,
+      "offset": 1
+    },
+    {
+      "left_prime": 151,
+      "right_prime": 157,
+      "earlier_value": 153,
+      "earlier_divisor_count": 6,
+      "dominator_value": 155,
+      "dominator_divisor_count": 4,
+      "offset": 2
+    },
+    {
+      "left_prime": 151,
+      "right_prime": 157,
+      "earlier_value": 154,
+      "earlier_divisor_count": 8,
+      "dominator_value": 155,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 163,
+      "right_prime": 167,
+      "earlier_value": 164,
+      "earlier_divisor_count": 6,
+      "dominator_value": 166,
+      "dominator_divisor_count": 4,
+      "offset": 2
+    },
+    {
+      "left_prime": 163,
+      "right_prime": 167,
+      "earlier_value": 165,
+      "earlier_divisor_count": 8,
+      "dominator_value": 166,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 167,
+      "right_prime": 173,
+      "earlier_value": 168,
+      "earlier_divisor_count": 16,
+      "dominator_value": 169,
+      "dominator_divisor_count": 3,
+      "offset": 1
+    },
+    {
+      "left_prime": 173,
+      "right_prime": 179,
+      "earlier_value": 174,
+      "earlier_divisor_count": 8,
+      "dominator_value": 175,
+      "dominator_divisor_count": 6,
+      "offset": 1
+    },
+    {
+      "left_prime": 173,
+      "right_prime": 179,
+      "earlier_value": 175,
+      "earlier_divisor_count": 6,
+      "dominator_value": 177,
+      "dominator_divisor_count": 4,
+      "offset": 2
+    },
+    {
+      "left_prime": 181,
+      "right_prime": 191,
+      "earlier_value": 182,
+      "earlier_divisor_count": 8,
+      "dominator_value": 183,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 199,
+      "right_prime": 211,
+      "earlier_value": 200,
+      "earlier_divisor_count": 12,
+      "dominator_value": 201,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 211,
+      "right_prime": 223,
+      "earlier_value": 212,
+      "earlier_divisor_count": 6,
+      "dominator_value": 213,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 223,
+      "right_prime": 227,
+      "earlier_value": 224,
+      "earlier_divisor_count": 12,
+      "dominator_value": 225,
+      "dominator_divisor_count": 9,
+      "offset": 1
+    },
+    {
+      "left_prime": 233,
+      "right_prime": 239,
+      "earlier_value": 234,
+      "earlier_divisor_count": 12,
+      "dominator_value": 235,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 241,
+      "right_prime": 251,
+      "earlier_value": 242,
+      "earlier_divisor_count": 6,
+      "dominator_value": 247,
+      "dominator_divisor_count": 4,
+      "offset": 5
+    },
+    {
+      "left_prime": 241,
+      "right_prime": 251,
+      "earlier_value": 243,
+      "earlier_divisor_count": 6,
+      "dominator_value": 247,
+      "dominator_divisor_count": 4,
+      "offset": 4
+    },
+    {
+      "left_prime": 241,
+      "right_prime": 251,
+      "earlier_value": 244,
+      "earlier_divisor_count": 6,
+      "dominator_value": 247,
+      "dominator_divisor_count": 4,
+      "offset": 3
+    },
+    {
+      "left_prime": 241,
+      "right_prime": 251,
+      "earlier_value": 245,
+      "earlier_divisor_count": 6,
+      "dominator_value": 247,
+      "dominator_divisor_count": 4,
+      "offset": 2
+    },
+    {
+      "left_prime": 241,
+      "right_prime": 251,
+      "earlier_value": 246,
+      "earlier_divisor_count": 8,
+      "dominator_value": 247,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 257,
+      "right_prime": 263,
+      "earlier_value": 258,
+      "earlier_divisor_count": 8,
+      "dominator_value": 259,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    },
+    {
+      "left_prime": 263,
+      "right_prime": 269,
+      "earlier_value": 264,
+      "earlier_divisor_count": 16,
+      "dominator_value": 265,
+      "dominator_divisor_count": 4,
+      "offset": 1
+    }
+  ]
+}
