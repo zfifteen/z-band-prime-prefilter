@@ -68,3 +68,8 @@ They target the exact missing universal step identified in the findings notes:
   - records the worst realized case for each exact gap size,
   - and tests directly whether large gap length is where the current margin
     surface tightens.
+- [`asymptotic_bridge_load_scan.py`](./asymptotic_bridge_load_scan.py):
+  exact normalized bridge extractor that
+  - rewrites the no-early-spoiler inequality as a dimensionless load,
+  - records the maximum realized bridge load on the exact surface,
+  - and emits pair and gap-size frontiers in that normalized coordinate.

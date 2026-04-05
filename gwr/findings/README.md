@@ -63,6 +63,9 @@ refer directly to an older artifact whose title or filename already uses it.
   Exact large-gap companion note recording the worst realized no-early-spoiler
   margin in the largest gaps and for each exact gap size on the current
   surface.
+- [`asymptotic_bridge_load_findings.md`](./asymptotic_bridge_load_findings.md):
+  Exact normalized bridge surface for the no-early-spoiler condition, using
+  the dimensionless load actual-excess divided by critical-excess.
 
 ## Legacy Inputs
 

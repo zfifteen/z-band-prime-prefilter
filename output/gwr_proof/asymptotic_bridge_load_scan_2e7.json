@@ -1,0 +1,5503 @@
+{
+  "interval": {
+    "lo": 2,
+    "hi": 20000001
+  },
+  "decision_surface": "Exact normalized bridge load actual_excess / critical_excess for the no-early-spoiler inequality against the true GWR carrier.",
+  "gap_count": 1163198,
+  "earlier_candidate_count": 3349874,
+  "bridge_failure_count": 0,
+  "max_bridge_load": 0.05664166714743768,
+  "max_bridge_load_case": {
+    "left_prime": 7,
+    "right_prime": 11,
+    "gap": 4,
+    "winner_value": 9,
+    "winner_divisor_count": 3,
+    "winner_offset": 2,
+    "earlier_value": 8,
+    "earlier_divisor_count": 4,
+    "earlier_offset": 1,
+    "delta": 1,
+    "critical_ratio": 2.0,
+    "actual_log_ratio": 1.0566416671474377,
+    "critical_ratio_margin": 0.9433583328525623,
+    "critical_excess": 1.0,
+    "actual_excess": 0.05664166714743768,
+    "bridge_load": 0.05664166714743768,
+    "log_score_margin": 0.980829253011726
+  },
+  "top_bridge_load_cases": [
+    {
+      "left_prime": 7,
+      "right_prime": 11,
+      "gap": 4,
+      "winner_value": 9,
+      "winner_divisor_count": 3,
+      "winner_offset": 2,
+      "earlier_value": 8,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 1,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0566416671474377,
+      "critical_ratio_margin": 0.9433583328525623,
+      "critical_excess": 1.0,
+      "actual_excess": 0.05664166714743768,
+      "bridge_load": 0.05664166714743768,
+      "log_score_margin": 0.980829253011726
+    },
+    {
+      "left_prime": 19,
+      "right_prime": 23,
+      "gap": 4,
+      "winner_value": 21,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 20,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0162865569130282,
+      "critical_ratio_margin": 0.9837134430869718,
+      "critical_excess": 1.0,
+      "actual_excess": 0.01628655691302816,
+      "bridge_load": 0.01628655691302816,
+      "log_score_margin": 2.9469421093845587
+    },
+    {
+      "left_prime": 43,
+      "right_prime": 47,
+      "gap": 4,
+      "winner_value": 46,
+      "winner_divisor_count": 4,
+      "winner_offset": 3,
+      "earlier_value": 44,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.011746705866008,
+      "critical_ratio_margin": 0.9882532941339921,
+      "critical_excess": 1.0,
+      "actual_excess": 0.0117467058660079,
+      "bridge_load": 0.0117467058660079,
+      "log_score_margin": 3.739737871347427
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "gap": 14,
+      "winner_value": 121,
+      "winner_divisor_count": 3,
+      "winner_offset": 8,
+      "earlier_value": 115,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0107184709617827,
+      "critical_ratio_margin": 0.9892815290382173,
+      "critical_excess": 1.0,
+      "actual_excess": 0.010718470961782689,
+      "bridge_load": 0.010718470961782689,
+      "log_score_margin": 2.3470368555648795
+    },
+    {
+      "left_prime": 31,
+      "right_prime": 37,
+      "gap": 6,
+      "winner_value": 33,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 32,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0088788238716906,
+      "critical_ratio_margin": 0.9911211761283094,
+      "critical_excess": 1.0,
+      "actual_excess": 0.008878823871690589,
+      "bridge_load": 0.008878823871690589,
+      "log_score_margin": 3.434964244132973
+    },
+    {
+      "left_prime": 43,
+      "right_prime": 47,
+      "gap": 4,
+      "winner_value": 46,
+      "winner_divisor_count": 4,
+      "winner_offset": 3,
+      "earlier_value": 45,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0057737996940468,
+      "critical_ratio_margin": 0.9942262003059532,
+      "critical_excess": 1.0,
+      "actual_excess": 0.005773799694046788,
+      "bridge_load": 0.005773799694046788,
+      "log_score_margin": 3.784683583051544
+    },
+    {
+      "left_prime": 79,
+      "right_prime": 83,
+      "gap": 4,
+      "winner_value": 82,
+      "winner_divisor_count": 4,
+      "winner_offset": 3,
+      "earlier_value": 81,
+      "earlier_divisor_count": 5,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 1.5,
+      "actual_log_ratio": 1.0027921798978532,
+      "critical_ratio_margin": 0.4972078201021468,
+      "critical_excess": 0.5,
+      "actual_excess": 0.0027921798978531864,
+      "bridge_load": 0.005584359795706373,
+      "log_score_margin": 2.184954484744405
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "gap": 14,
+      "winner_value": 121,
+      "winner_divisor_count": 3,
+      "winner_offset": 8,
+      "earlier_value": 118,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 5,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0052625405172089,
+      "critical_ratio_margin": 0.9947374594827911,
+      "critical_excess": 1.0,
+      "actual_excess": 0.005262540517208869,
+      "bridge_load": 0.005262540517208869,
+      "log_score_margin": 2.3727893516672944
+    },
+    {
+      "left_prime": 241,
+      "right_prime": 251,
+      "gap": 10,
+      "winner_value": 247,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 242,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0037257865713864,
+      "critical_ratio_margin": 0.9962742134286136,
+      "critical_excess": 1.0,
+      "actual_excess": 0.003725786571386447,
+      "bridge_load": 0.003725786571386447,
+      "log_score_margin": 5.468487115685396
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "gap": 14,
+      "winner_value": 121,
+      "winner_divisor_count": 3,
+      "winner_offset": 8,
+      "earlier_value": 119,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 6,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0034874705600798,
+      "critical_ratio_margin": 0.9965125294399202,
+      "critical_excess": 1.0,
+      "actual_excess": 0.0034874705600798084,
+      "bridge_load": 0.0034874705600798084,
+      "log_score_margin": 2.381228220313159
+    },
+    {
+      "left_prime": 67,
+      "right_prime": 71,
+      "gap": 4,
+      "winner_value": 69,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 68,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.003459834758269,
+      "critical_ratio_margin": 0.996540165241731,
+      "critical_excess": 1.0,
+      "actual_excess": 0.0034598347582690536,
+      "bridge_load": 0.0034598347582690536,
+      "log_score_margin": 4.204908905754954
+    },
+    {
+      "left_prime": 241,
+      "right_prime": 251,
+      "gap": 10,
+      "winner_value": 247,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 243,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0029722757438337,
+      "critical_ratio_margin": 0.9970277242561663,
+      "critical_excess": 1.0,
+      "actual_excess": 0.002972275743833741,
+      "bridge_load": 0.002972275743833741,
+      "log_score_margin": 5.476734550053119
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "gap": 14,
+      "winner_value": 121,
+      "winner_divisor_count": 3,
+      "winner_offset": 8,
+      "earlier_value": 116,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 3,
+      "delta": 3,
+      "critical_ratio": 4.0,
+      "actual_log_ratio": 1.0088775752207944,
+      "critical_ratio_margin": 2.9911224247792054,
+      "critical_excess": 3.0,
+      "actual_excess": 0.008877575220794354,
+      "bridge_load": 0.0029591917402647847,
+      "log_score_margin": 7.109285109414358
+    },
+    {
+      "left_prime": 151,
+      "right_prime": 157,
+      "gap": 6,
+      "winner_value": 155,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 153,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0025817226511398,
+      "critical_ratio_margin": 0.9974182773488602,
+      "critical_excess": 1.0,
+      "actual_excess": 0.0025817226511397617,
+      "bridge_load": 0.0025817226511397617,
+      "log_score_margin": 5.017450725865624
+    },
+    {
+      "left_prime": 23,
+      "right_prime": 29,
+      "gap": 6,
+      "winner_value": 25,
+      "winner_divisor_count": 3,
+      "winner_offset": 2,
+      "earlier_value": 24,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 5,
+      "critical_ratio": 6.0,
+      "actual_log_ratio": 1.0128449663534445,
+      "critical_ratio_margin": 4.987155033646555,
+      "critical_excess": 5.0,
+      "actual_excess": 0.012844966353444454,
+      "bridge_load": 0.002568993270688891,
+      "log_score_margin": 7.924723578609737
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "gap": 14,
+      "winner_value": 121,
+      "winner_divisor_count": 3,
+      "winner_offset": 8,
+      "earlier_value": 114,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 5,
+      "critical_ratio": 6.0,
+      "actual_log_ratio": 1.012582263570997,
+      "critical_ratio_margin": 4.987417736429003,
+      "critical_excess": 5.0,
+      "actual_excess": 0.012582263570996899,
+      "bridge_load": 0.00251645271419938,
+      "log_score_margin": 11.810700072385115
+    },
+    {
+      "left_prime": 163,
+      "right_prime": 167,
+      "gap": 4,
+      "winner_value": 166,
+      "winner_divisor_count": 4,
+      "winner_offset": 3,
+      "earlier_value": 164,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.002376799609145,
+      "critical_ratio_margin": 0.997623200390855,
+      "critical_excess": 1.0,
+      "actual_excess": 0.0023767996091450527,
+      "bridge_load": 0.0023767996091450527,
+      "log_score_margin": 5.087745067291854
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "gap": 14,
+      "winner_value": 121,
+      "winner_divisor_count": 3,
+      "winner_offset": 8,
+      "earlier_value": 117,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 4,
+      "delta": 3,
+      "critical_ratio": 4.0,
+      "actual_log_ratio": 1.0070590892435374,
+      "critical_ratio_margin": 2.9929409107564626,
+      "critical_excess": 3.0,
+      "actual_excess": 0.007059089243537375,
+      "bridge_load": 0.0023530297478457918,
+      "log_score_margin": 7.126452596797142
+    },
+    {
+      "left_prime": 53,
+      "right_prime": 59,
+      "gap": 6,
+      "winner_value": 55,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 54,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0045999528837426,
+      "critical_ratio_margin": 1.9954000471162574,
+      "critical_excess": 2.0,
+      "actual_excess": 0.004599952883742597,
+      "bridge_load": 0.0022999764418712987,
+      "log_score_margin": 7.959618954460352
+    },
+    {
+      "left_prime": 439,
+      "right_prime": 443,
+      "gap": 4,
+      "winner_value": 442,
+      "winner_divisor_count": 8,
+      "winner_offset": 3,
+      "earlier_value": 441,
+      "earlier_divisor_count": 9,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 1.1666666666666667,
+      "actual_log_ratio": 1.0003719806106184,
+      "critical_ratio_margin": 0.16629468605604836,
+      "critical_excess": 0.16666666666666674,
+      "actual_excess": 0.00037198061061838317,
+      "bridge_load": 0.002231883663710298,
+      "log_score_margin": 3.037727417830869
+    }
+  ],
+  "pair_summary": [
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 4,
+      "candidate_count": 1429,
+      "max_bridge_load": 0.05664166714743768,
+      "min_critical_ratio_margin": 0.9433583328525623
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 6,
+      "candidate_count": 133116,
+      "max_bridge_load": 0.01628655691302816,
+      "min_critical_ratio_margin": 0.9837134430869718
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 5,
+      "candidate_count": 8,
+      "max_bridge_load": 0.005584359795706373,
+      "min_critical_ratio_margin": 0.4972078201021468
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 6,
+      "candidate_count": 291,
+      "max_bridge_load": 0.0029591917402647847,
+      "min_critical_ratio_margin": 2.9911224247792054
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 8,
+      "candidate_count": 1435,
+      "max_bridge_load": 0.002568993270688891,
+      "min_critical_ratio_margin": 4.987155033646555
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 8,
+      "candidate_count": 890959,
+      "max_bridge_load": 0.0022999764418712987,
+      "min_critical_ratio_margin": 1.9954000471162574
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 9,
+      "candidate_count": 31,
+      "max_bridge_load": 0.002231883663710298,
+      "min_critical_ratio_margin": 0.16629468605604836
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 10,
+      "candidate_count": 24194,
+      "max_bridge_load": 0.0018783251562937882,
+      "min_critical_ratio_margin": 2.9943650245311186
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 8,
+      "candidate_count": 36355,
+      "max_bridge_load": 0.0007738036183106978,
+      "min_critical_ratio_margin": 0.49961309819084465
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 10,
+      "candidate_count": 23,
+      "max_bridge_load": 0.0007609040319099338,
+      "min_critical_ratio_margin": 6.9946736717766305
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 12,
+      "candidate_count": 26703,
+      "max_bridge_load": 0.0007305654333619182,
+      "min_critical_ratio_margin": 0.6661796230444255
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 12,
+      "candidate_count": 326907,
+      "max_bridge_load": 0.0006677356672754042,
+      "min_critical_ratio_margin": 3.9973290573308984
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 10,
+      "candidate_count": 2052,
+      "max_bridge_load": 0.0005798645481487342,
+      "min_critical_ratio_margin": 0.333140045150617
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 16,
+      "candidate_count": 47100,
+      "max_bridge_load": 0.0005588125939678389,
+      "min_critical_ratio_margin": 1.3325882498747097
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 9,
+      "candidate_count": 281,
+      "max_bridge_load": 0.00032751217581274974,
+      "min_critical_ratio_margin": 2.499181219560468
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 7,
+      "candidate_count": 2,
+      "max_bridge_load": 0.00027708974002719583,
+      "min_critical_ratio_margin": 1.4995843653899592
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 14,
+      "candidate_count": 504,
+      "max_bridge_load": 0.00026266053770385156,
+      "min_critical_ratio_margin": 0.9997373394622961
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 16,
+      "candidate_count": 7731,
+      "max_bridge_load": 0.00020250191589410443,
+      "min_critical_ratio_margin": 0.39991899923364227
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 20,
+      "candidate_count": 1688,
+      "max_bridge_load": 0.00014747692245377562,
+      "min_critical_ratio_margin": 3.499483830771412
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 16,
+      "candidate_count": 598141,
+      "max_bridge_load": 0.00014549736523398563,
+      "min_critical_ratio_margin": 5.999127015808596
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 10,
+      "candidate_count": 662,
+      "max_bridge_load": 0.00014221062496244663,
+      "min_critical_ratio_margin": 0.9998577893750376
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 12,
+      "candidate_count": 580,
+      "max_bridge_load": 0.0001346476952900725,
+      "min_critical_ratio_margin": 8.99878817074239
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 16,
+      "candidate_count": 895,
+      "max_bridge_load": 0.00013334110669677585,
+      "min_critical_ratio_margin": 12.998266565612942
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 11,
+      "candidate_count": 1,
+      "max_bridge_load": 0.00012058475194841125,
+      "min_critical_ratio_margin": 3.4995779533681803
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 18,
+      "candidate_count": 26882,
+      "max_bridge_load": 0.00010232007560733487,
+      "min_critical_ratio_margin": 6.999283759470749
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 12,
+      "candidate_count": 9745,
+      "max_bridge_load": 6.318990358996264e-05,
+      "min_critical_ratio_margin": 1.499905215144615
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 12,
+      "candidate_count": 299,
+      "max_bridge_load": 5.729223859418653e-05,
+      "min_critical_ratio_margin": 0.24998567694035145
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 18,
+      "candidate_count": 44,
+      "max_bridge_load": 4.080560557967831e-05,
+      "min_critical_ratio_margin": 14.999387915916305
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 16,
+      "candidate_count": 870,
+      "max_bridge_load": 3.8197824281382964e-05,
+      "min_critical_ratio_margin": 0.749971351631789
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 24,
+      "candidate_count": 303800,
+      "max_bridge_load": 3.645698958276711e-05,
+      "min_critical_ratio_margin": 9.999635430104172
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 16,
+      "candidate_count": 23753,
+      "max_bridge_load": 3.3636299293160474e-05,
+      "min_critical_ratio_margin": 2.499915909251767
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 20,
+      "candidate_count": 4578,
+      "max_bridge_load": 3.288261126310754e-05,
+      "min_critical_ratio_margin": 1.9999342347774738
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 20,
+      "candidate_count": 54127,
+      "max_bridge_load": 2.97738335442721e-05,
+      "min_critical_ratio_margin": 7.999761809331646
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 15,
+      "candidate_count": 1,
+      "max_bridge_load": 2.5565595314821124e-05,
+      "min_critical_ratio_margin": 0.2999923303214056
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 14,
+      "candidate_count": 65,
+      "max_bridge_load": 2.3747604197543744e-05,
+      "min_critical_ratio_margin": 0.19999525047916045
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 24,
+      "candidate_count": 425,
+      "max_bridge_load": 2.244128809386361e-05,
+      "min_critical_ratio_margin": 20.99952873295003
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 15,
+      "candidate_count": 80,
+      "max_bridge_load": 2.2102347356293834e-05,
+      "min_critical_ratio_margin": 5.49987843708954
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 24,
+      "candidate_count": 24935,
+      "max_bridge_load": 1.914168626854229e-05,
+      "min_critical_ratio_margin": 2.6666156221699504
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 20,
+      "candidate_count": 66,
+      "max_bridge_load": 1.8679340172215763e-05,
+      "min_critical_ratio_margin": 16.999682451217073
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 14,
+      "candidate_count": 6020,
+      "max_bridge_load": 1.8620291930204756e-05,
+      "min_critical_ratio_margin": 4.999906898540349
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 28,
+      "candidate_count": 1050,
+      "max_bridge_load": 1.7357359798864103e-05,
+      "min_critical_ratio_margin": 3.333275475467337
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 20,
+      "candidate_count": 718,
+      "max_bridge_load": 1.6328194252457344e-05,
+      "min_critical_ratio_margin": 0.28570962051592796
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 30,
+      "candidate_count": 7922,
+      "max_bridge_load": 1.6227299922182243e-05,
+      "min_critical_ratio_margin": 12.99978904510101
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 18,
+      "candidate_count": 2273,
+      "max_bridge_load": 1.1982838238200344e-05,
+      "min_critical_ratio_margin": 1.6666466952696029
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 32,
+      "candidate_count": 236526,
+      "max_bridge_load": 1.1946009594230946e-05,
+      "min_critical_ratio_margin": 13.99983275586568
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 28,
+      "candidate_count": 404,
+      "max_bridge_load": 1.1540541479660892e-05,
+      "min_critical_ratio_margin": 5.499936527021862
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 18,
+      "candidate_count": 614,
+      "max_bridge_load": 1.1047289856680464e-05,
+      "min_critical_ratio_margin": 2.99996685813043
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 12,
+      "candidate_count": 1,
+      "max_bridge_load": 1.0320491427166326e-05,
+      "min_critical_ratio_margin": 0.4285670055036741
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 32,
+      "candidate_count": 18130,
+      "max_bridge_load": 1.0103179511611327e-05,
+      "min_critical_ratio_margin": 3.9999595872819533
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 30,
+      "candidate_count": 234,
+      "max_bridge_load": 9.635083892955976e-06,
+      "min_critical_ratio_margin": 5.999942189496642
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 24,
+      "candidate_count": 2660,
+      "max_bridge_load": 7.916092886010398e-06,
+      "min_critical_ratio_margin": 1.199990500688537
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 22,
+      "candidate_count": 455,
+      "max_bridge_load": 7.620394404852762e-06,
+      "min_critical_ratio_margin": 8.999931416450357
+    },
+    {
+      "winner_divisor_count": 15,
+      "earlier_divisor_count": 16,
+      "candidate_count": 2,
+      "max_bridge_load": 7.283861261475627e-06,
+      "min_critical_ratio_margin": 0.07692251662605676
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 30,
+      "candidate_count": 582,
+      "max_bridge_load": 6.978479750487729e-06,
+      "min_critical_ratio_margin": 3.666641078907582
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 36,
+      "candidate_count": 48507,
+      "max_bridge_load": 6.945570104138765e-06,
+      "min_critical_ratio_margin": 15.999888870878333
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 40,
+      "candidate_count": 42895,
+      "max_bridge_load": 6.87359747719718e-06,
+      "min_critical_ratio_margin": 17.99987627524541
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 18,
+      "candidate_count": 199,
+      "max_bridge_load": 6.716484025985161e-06,
+      "min_critical_ratio_margin": 0.5999959701095845
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 13,
+      "candidate_count": 1,
+      "max_bridge_load": 6.5218051908091625e-06,
+      "min_critical_ratio_margin": 4.499970651876641
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 36,
+      "candidate_count": 3957,
+      "max_bridge_load": 6.380680130353105e-06,
+      "min_critical_ratio_margin": 4.666636890159392
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 32,
+      "candidate_count": 381,
+      "max_bridge_load": 6.092980649773717e-06,
+      "min_critical_ratio_margin": 28.999823303561158
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 28,
+      "candidate_count": 16,
+      "max_bridge_load": 6.064567487591432e-06,
+      "min_critical_ratio_margin": 24.99984838581281
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 24,
+      "candidate_count": 9192,
+      "max_bridge_load": 5.504720339357918e-06,
+      "min_critical_ratio_margin": 4.499975228758473
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 18,
+      "candidate_count": 262,
+      "max_bridge_load": 5.309065718384079e-06,
+      "min_critical_ratio_margin": 0.14285638441918302
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 28,
+      "candidate_count": 12305,
+      "max_bridge_load": 4.8065733089242e-06,
+      "min_critical_ratio_margin": 11.999942321120294
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 24,
+      "candidate_count": 3250,
+      "max_bridge_load": 4.185923675625869e-06,
+      "min_critical_ratio_margin": 0.5714261794721853
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 28,
+      "candidate_count": 114,
+      "max_bridge_load": 3.465509857830673e-06,
+      "min_critical_ratio_margin": 1.5999944551842276
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 36,
+      "candidate_count": 1160,
+      "max_bridge_load": 3.3905736437726355e-06,
+      "min_critical_ratio_margin": 7.499974570697672
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 24,
+      "candidate_count": 137,
+      "max_bridge_load": 3.136842237960734e-06,
+      "min_critical_ratio_margin": 0.22222152514616944
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 32,
+      "candidate_count": 2218,
+      "max_bridge_load": 2.7348987215181086e-06,
+      "min_critical_ratio_margin": 1.142854017258604
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 32,
+      "candidate_count": 9169,
+      "max_bridge_load": 2.6436055497159627e-06,
+      "min_critical_ratio_margin": 6.499982816563927
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 20,
+      "candidate_count": 478,
+      "max_bridge_load": 2.6253500218231807e-06,
+      "min_critical_ratio_margin": 0.7999978997199826
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 42,
+      "candidate_count": 1806,
+      "max_bridge_load": 2.2938393422021696e-06,
+      "min_critical_ratio_margin": 18.9999564170525
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 40,
+      "candidate_count": 75,
+      "max_bridge_load": 2.1655724453793055e-06,
+      "min_critical_ratio_margin": 36.99991987381952
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 48,
+      "candidate_count": 138257,
+      "max_bridge_load": 2.1287557432661783e-06,
+      "min_critical_ratio_margin": 21.999953167373647
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 16,
+      "candidate_count": 148,
+      "max_bridge_load": 1.8736895635029774e-06,
+      "min_critical_ratio_margin": 0.16666635438507282
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 24,
+      "candidate_count": 303,
+      "max_bridge_load": 1.790075522986204e-06,
+      "min_critical_ratio_margin": 1.7499968673678348
+    },
+    {
+      "winner_divisor_count": 18,
+      "earlier_divisor_count": 24,
+      "candidate_count": 50,
+      "max_bridge_load": 1.7742050992808345e-06,
+      "min_critical_ratio_margin": 0.37499933467308777
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 18,
+      "candidate_count": 24,
+      "max_bridge_load": 1.7072040188192972e-06,
+      "min_critical_ratio_margin": 0.9999982927959812
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 21,
+      "candidate_count": 33,
+      "max_bridge_load": 1.69643775390703e-06,
+      "min_critical_ratio_margin": 8.499985580279091
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 27,
+      "candidate_count": 179,
+      "max_bridge_load": 1.5501839997935833e-06,
+      "min_critical_ratio_margin": 11.499982172884003
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 40,
+      "candidate_count": 1436,
+      "max_bridge_load": 1.5449848984474937e-06,
+      "min_critical_ratio_margin": 8.499986867628364
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 27,
+      "candidate_count": 7,
+      "max_bridge_load": 1.522142031650343e-06,
+      "min_critical_ratio_margin": 0.7857130897455467
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 14,
+      "candidate_count": 9,
+      "max_bridge_load": 1.3920475114433244e-06,
+      "min_critical_ratio_margin": 10.999984687477374
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 56,
+      "candidate_count": 8467,
+      "max_bridge_load": 1.2986936016077768e-06,
+      "min_critical_ratio_margin": 25.999966233966358
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 54,
+      "candidate_count": 63,
+      "max_bridge_load": 1.2969362458055873e-06,
+      "min_critical_ratio_margin": 11.99998443676505
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 48,
+      "candidate_count": 4119,
+      "max_bridge_load": 1.2504484085645068e-06,
+      "min_critical_ratio_margin": 10.49998687029171
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 40,
+      "candidate_count": 3301,
+      "max_bridge_load": 1.110184909502987e-06,
+      "min_critical_ratio_margin": 5.333327412347149
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 24,
+      "candidate_count": 2,
+      "max_bridge_load": 1.0320346998919187e-06,
+      "min_critical_ratio_margin": 2.1428549313542145
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 20,
+      "candidate_count": 27,
+      "max_bridge_load": 1.0272309019399017e-06,
+      "min_critical_ratio_margin": 1.2499987159613726
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 32,
+      "candidate_count": 37,
+      "max_bridge_load": 1.0182772872309915e-06,
+      "min_critical_ratio_margin": 1.4999984725840692
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 32,
+      "candidate_count": 403,
+      "max_bridge_load": 1.0057100999771864e-06,
+      "min_critical_ratio_margin": 0.3636359979235999
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 32,
+      "candidate_count": 2482,
+      "max_bridge_load": 9.232558410010583e-07,
+      "min_critical_ratio_margin": 1.999998153488318
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 24,
+      "candidate_count": 40,
+      "max_bridge_load": 9.164447883236449e-07,
+      "min_critical_ratio_margin": 0.833332569629343
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 64,
+      "candidate_count": 55003,
+      "max_bridge_load": 8.337020323434529e-07,
+      "min_critical_ratio_margin": 29.99997498893903
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 60,
+      "candidate_count": 11917,
+      "max_bridge_load": 8.315891895332201e-07,
+      "min_critical_ratio_margin": 27.999976715502694
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 14,
+      "candidate_count": 158,
+      "max_bridge_load": 8.146147864040998e-07,
+      "min_critical_ratio_margin": 1.9999983707704272
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 54,
+      "candidate_count": 2751,
+      "max_bridge_load": 8.138944976732177e-07,
+      "min_critical_ratio_margin": 24.99997965263756
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 30,
+      "candidate_count": 14,
+      "max_bridge_load": 8.100409398967999e-07,
+      "min_critical_ratio_margin": 26.99997812889462
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 30,
+      "candidate_count": 61,
+      "max_bridge_load": 8.02131537636086e-07,
+      "min_critical_ratio_margin": 0.9999991978684624
+    },
+    {
+      "winner_divisor_count": 30,
+      "earlier_divisor_count": 32,
+      "candidate_count": 7,
+      "max_bridge_load": 7.646652071535701e-07,
+      "min_critical_ratio_margin": 0.07142851680962803
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 64,
+      "candidate_count": 1814,
+      "max_bridge_load": 7.50617316456127e-07,
+      "min_critical_ratio_margin": 14.499989116048912
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 56,
+      "candidate_count": 24,
+      "max_bridge_load": 6.814031594568322e-07,
+      "min_critical_ratio_margin": 52.999963885632546
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 36,
+      "candidate_count": 22,
+      "max_bridge_load": 6.679843778112372e-07,
+      "min_critical_ratio_margin": 0.1333332442687496
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 60,
+      "candidate_count": 850,
+      "max_bridge_load": 6.484952455032555e-07,
+      "min_critical_ratio_margin": 8.66666104637454
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 72,
+      "candidate_count": 667,
+      "max_bridge_load": 6.41831727079343e-07,
+      "min_critical_ratio_margin": 16.499989409776504
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 48,
+      "candidate_count": 10649,
+      "max_bridge_load": 6.352540693144171e-07,
+      "min_critical_ratio_margin": 6.666662431639538
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 48,
+      "candidate_count": 1022,
+      "max_bridge_load": 6.198136015961309e-07,
+      "min_critical_ratio_margin": 2.285712868997482
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 48,
+      "candidate_count": 189,
+      "max_bridge_load": 6.017528424489487e-07,
+      "min_critical_ratio_margin": 44.99997292112209
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 56,
+      "candidate_count": 626,
+      "max_bridge_load": 5.767810164758469e-07,
+      "min_critical_ratio_margin": 7.999995385751868
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 60,
+      "candidate_count": 382,
+      "max_bridge_load": 5.412363200746134e-07,
+      "min_critical_ratio_margin": 13.499992693309679
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 28,
+      "candidate_count": 158,
+      "max_bridge_load": 5.37233344403513e-07,
+      "min_critical_ratio_margin": 0.8571423966571334
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 50,
+      "candidate_count": 469,
+      "max_bridge_load": 5.238341043349762e-07,
+      "min_critical_ratio_margin": 22.9999879518156
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 32,
+      "candidate_count": 7,
+      "max_bridge_load": 4.954670829074907e-07,
+      "min_critical_ratio_margin": 3.285712657751013
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 44,
+      "candidate_count": 760,
+      "max_bridge_load": 4.924038005449383e-07,
+      "min_critical_ratio_margin": 19.99999015192399
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 9,
+      "candidate_count": 19,
+      "max_bridge_load": 4.869057714055695e-07,
+      "min_critical_ratio_margin": 0.7499996348206714
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 30,
+      "candidate_count": 46,
+      "max_bridge_load": 4.692327960754818e-07,
+      "min_critical_ratio_margin": 1.7999991553809669
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 28,
+      "candidate_count": 20,
+      "max_bridge_load": 4.662551097434074e-07,
+      "min_critical_ratio_margin": 0.18181809704452556
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 32,
+      "candidate_count": 168,
+      "max_bridge_load": 4.6191138847184726e-07,
+      "min_critical_ratio_margin": 0.6666663587257411
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 36,
+      "candidate_count": 350,
+      "max_bridge_load": 4.525319699522079e-07,
+      "min_critical_ratio_margin": 2.3999989139232722
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 26,
+      "candidate_count": 141,
+      "max_bridge_load": 4.471361775585078e-07,
+      "min_critical_ratio_margin": 10.999995081502046
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 60,
+      "candidate_count": 27,
+      "max_bridge_load": 4.082713630874461e-07,
+      "min_critical_ratio_margin": 56.9999767285323
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 72,
+      "candidate_count": 29306,
+      "max_bridge_load": 3.6377255918651485e-07,
+      "min_critical_ratio_margin": 33.999987631732985
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 40,
+      "candidate_count": 430,
+      "max_bridge_load": 3.6270182903382536e-07,
+      "min_critical_ratio_margin": 1.7142850925111504
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 15,
+      "candidate_count": 5,
+      "max_bridge_load": 3.4729379767068417e-07,
+      "min_critical_ratio_margin": 2.2499992185889552
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 36,
+      "candidate_count": 39,
+      "max_bridge_load": 3.470441901034003e-07,
+      "min_critical_ratio_margin": 3.2499988721063824
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 70,
+      "candidate_count": 191,
+      "max_bridge_load": 3.450921519654315e-07,
+      "min_critical_ratio_margin": 32.99998861195898
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 22,
+      "candidate_count": 7,
+      "max_bridge_load": 3.2428219642888223e-07,
+      "min_critical_ratio_margin": 0.9999996757178036
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 48,
+      "candidate_count": 878,
+      "max_bridge_load": 3.1496630396402975e-07,
+      "min_critical_ratio_margin": 3.5999988661213056
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 36,
+      "candidate_count": 52,
+      "max_bridge_load": 3.0987536556254813e-07,
+      "min_critical_ratio_margin": 32.99998977411293
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 32,
+      "candidate_count": 296,
+      "max_bridge_load": 3.095495741754142e-07,
+      "min_critical_ratio_margin": 2.749999148738671
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 42,
+      "candidate_count": 2,
+      "max_bridge_load": 2.9786974404412166e-07,
+      "min_critical_ratio_margin": 38.99998838307998
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 60,
+      "candidate_count": 11,
+      "max_bridge_load": 2.6508040832595727e-07,
+      "min_critical_ratio_margin": 6.249998343247448
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 96,
+      "candidate_count": 32283,
+      "max_bridge_load": 2.6436321504361027e-07,
+      "min_critical_ratio_margin": 45.99998783929211
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 22,
+      "candidate_count": 24,
+      "max_bridge_load": 2.6096654085324846e-07,
+      "min_critical_ratio_margin": 2.333332724411405
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 72,
+      "candidate_count": 133,
+      "max_bridge_load": 2.5507243600619844e-07,
+      "min_critical_ratio_margin": 3.9999989797102558
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 45,
+      "candidate_count": 65,
+      "max_bridge_load": 2.518127272011492e-07,
+      "min_critical_ratio_margin": 20.499994837839093
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 64,
+      "candidate_count": 3716,
+      "max_bridge_load": 2.4042583214787883e-07,
+      "min_critical_ratio_margin": 9.3333310893589
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 40,
+      "candidate_count": 313,
+      "max_bridge_load": 2.3386921978372858e-07,
+      "min_critical_ratio_margin": 2.799999345166184
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 96,
+      "candidate_count": 902,
+      "max_bridge_load": 2.3386023473292994e-07,
+      "min_critical_ratio_margin": 22.499994738144718
+    },
+    {
+      "winner_divisor_count": 28,
+      "earlier_divisor_count": 32,
+      "candidate_count": 12,
+      "max_bridge_load": 2.278328371518869e-07,
+      "min_critical_ratio_margin": 0.15384611879494803
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 50,
+      "candidate_count": 18,
+      "max_bridge_load": 2.1707213814326953e-07,
+      "min_critical_ratio_margin": 10.99999761220648
+    },
+    {
+      "winner_divisor_count": 18,
+      "earlier_divisor_count": 20,
+      "candidate_count": 4,
+      "max_bridge_load": 2.1197088884150617e-07,
+      "min_critical_ratio_margin": 0.1249999735036389
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 36,
+      "candidate_count": 417,
+      "max_bridge_load": 2.1008983035475385e-07,
+      "min_critical_ratio_margin": 1.4285711284430993
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 80,
+      "candidate_count": 15549,
+      "max_bridge_load": 2.0711081867647906e-07,
+      "min_critical_ratio_margin": 37.99999212978889
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 22,
+      "candidate_count": 12,
+      "max_bridge_load": 2.0298763825365993e-07,
+      "min_critical_ratio_margin": 0.4285713415767265
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 42,
+      "candidate_count": 137,
+      "max_bridge_load": 2.0120902348185655e-07,
+      "min_critical_ratio_margin": 5.6666655264822
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 28,
+      "candidate_count": 5,
+      "max_bridge_load": 1.7994970263890409e-07,
+      "min_critical_ratio_margin": 0.4444443644667988
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 60,
+      "candidate_count": 74,
+      "max_bridge_load": 1.709193627034851e-07,
+      "min_critical_ratio_margin": 3.1428566056820033
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 56,
+      "candidate_count": 286,
+      "max_bridge_load": 1.5190720038305016e-07,
+      "min_critical_ratio_margin": 12.499998101159996
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 64,
+      "candidate_count": 191,
+      "max_bridge_load": 1.470658062397607e-07,
+      "min_critical_ratio_margin": 60.99999102898582
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 27,
+      "candidate_count": 18,
+      "max_bridge_load": 1.4153859060222746e-07,
+      "min_critical_ratio_margin": 3.1666662184611303
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 48,
+      "candidate_count": 102,
+      "max_bridge_load": 1.4133801743791235e-07,
+      "min_critical_ratio_margin": 1.0909089367221627
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 21,
+      "candidate_count": 4,
+      "max_bridge_load": 1.4052013532260224e-07,
+      "min_critical_ratio_margin": 2.1666663622063735
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 54,
+      "candidate_count": 220,
+      "max_bridge_load": 1.4013851111433664e-07,
+      "min_critical_ratio_margin": 7.666665592271414
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 22,
+      "candidate_count": 11,
+      "max_bridge_load": 1.364925999447486e-07,
+      "min_critical_ratio_margin": 3.9999994540296004
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 80,
+      "candidate_count": 71,
+      "max_bridge_load": 1.3360045449800628e-07,
+      "min_critical_ratio_margin": 4.5714279606836365
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 80,
+      "candidate_count": 72,
+      "max_bridge_load": 1.2926451367598104e-07,
+      "min_critical_ratio_margin": 76.99999004663245
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 80,
+      "candidate_count": 2,
+      "max_bridge_load": 1.258080478511248e-07,
+      "min_critical_ratio_margin": 10.142855866804085
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 54,
+      "candidate_count": 10,
+      "max_bridge_load": 1.2548381724558305e-07,
+      "min_critical_ratio_margin": 50.99999360032532
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 52,
+      "candidate_count": 3,
+      "max_bridge_load": 1.2183710227129137e-07,
+      "min_critical_ratio_margin": 2.5714282581331656
+    },
+    {
+      "winner_divisor_count": 18,
+      "earlier_divisor_count": 36,
+      "candidate_count": 3,
+      "max_bridge_load": 1.2125268848232432e-07,
+      "min_critical_ratio_margin": 1.1249998635907255
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 72,
+      "candidate_count": 2138,
+      "max_bridge_load": 1.1921842688056294e-07,
+      "min_critical_ratio_margin": 10.666665395003445
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 64,
+      "candidate_count": 305,
+      "max_bridge_load": 1.1238386662023221e-07,
+      "min_critical_ratio_margin": 3.4285710432553147
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 40,
+      "candidate_count": 49,
+      "max_bridge_load": 1.0390924373715471e-07,
+      "min_critical_ratio_margin": 0.7272726517023682
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 30,
+      "candidate_count": 2,
+      "max_bridge_load": 1.0080088452824043e-07,
+      "min_critical_ratio_margin": 2.499999747997789
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 42,
+      "candidate_count": 9,
+      "max_bridge_load": 9.983413429281995e-08,
+      "min_critical_ratio_margin": 2.999999700497597
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 40,
+      "candidate_count": 21,
+      "max_bridge_load": 9.883872304309685e-08,
+      "min_critical_ratio_margin": 3.7499996293547886
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 40,
+      "candidate_count": 11,
+      "max_bridge_load": 9.51858354136803e-08,
+      "min_critical_ratio_margin": 1.1111110053490718
+    },
+    {
+      "winner_divisor_count": 22,
+      "earlier_divisor_count": 24,
+      "candidate_count": 1,
+      "max_bridge_load": 9.219603525068002e-08,
+      "min_critical_ratio_margin": 0.09999999078039656
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 80,
+      "candidate_count": 975,
+      "max_bridge_load": 9.129146394393217e-08,
+      "min_critical_ratio_margin": 11.999998904502434
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 80,
+      "candidate_count": 558,
+      "max_bridge_load": 9.058156706391334e-08,
+      "min_critical_ratio_margin": 18.49999832424101
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 36,
+      "candidate_count": 27,
+      "max_bridge_load": 8.810806917392e-08,
+      "min_critical_ratio_margin": 0.5454544973955986
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 84,
+      "candidate_count": 2423,
+      "max_bridge_load": 8.704882566434868e-08,
+      "min_critical_ratio_margin": 39.99999651804697
+    },
+    {
+      "winner_divisor_count": 15,
+      "earlier_divisor_count": 32,
+      "candidate_count": 2,
+      "max_bridge_load": 8.616632495099286e-08,
+      "min_critical_ratio_margin": 1.3076921950132672
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 16,
+      "candidate_count": 6,
+      "max_bridge_load": 8.334616818927998e-08,
+      "min_critical_ratio_margin": 0.9999999166538318
+    },
+    {
+      "winner_divisor_count": 15,
+      "earlier_divisor_count": 24,
+      "candidate_count": 1,
+      "max_bridge_load": 8.137927001408387e-08,
+      "min_critical_ratio_margin": 0.6923076359681977
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 42,
+      "candidate_count": 14,
+      "max_bridge_load": 8.12006876268393e-08,
+      "min_critical_ratio_margin": 1.8571427063415802
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 36,
+      "candidate_count": 9,
+      "max_bridge_load": 8.040054149722146e-08,
+      "min_critical_ratio_margin": 1.8333331859323407
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 15,
+      "candidate_count": 11,
+      "max_bridge_load": 7.928696937093654e-08,
+      "min_critical_ratio_margin": 1.1666665741652023
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 60,
+      "candidate_count": 52,
+      "max_bridge_load": 7.682952107845864e-08,
+      "min_critical_ratio_margin": 4.799999631218299
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 26,
+      "candidate_count": 4,
+      "max_bridge_load": 7.610036787397689e-08,
+      "min_critical_ratio_margin": 4.99999961949816
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 14,
+      "candidate_count": 4,
+      "max_bridge_load": 7.516348876634993e-08,
+      "min_critical_ratio_margin": 0.4999999624182556
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 108,
+      "candidate_count": 2796,
+      "max_bridge_load": 7.447576251433492e-08,
+      "min_critical_ratio_margin": 51.999996127260346
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 140,
+      "candidate_count": 190,
+      "max_bridge_load": 7.362761927593866e-08,
+      "min_critical_ratio_margin": 67.99999499332189
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 52,
+      "candidate_count": 202,
+      "max_bridge_load": 7.343664549612032e-08,
+      "min_critical_ratio_margin": 23.999998237520508
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 30,
+      "candidate_count": 6,
+      "max_bridge_load": 7.318452821536425e-08,
+      "min_critical_ratio_margin": 0.2727272527678559
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 44,
+      "candidate_count": 3,
+      "max_bridge_load": 6.797405542500786e-08,
+      "min_critical_ratio_margin": 40.99999721306373
+    },
+    {
+      "winner_divisor_count": 18,
+      "earlier_divisor_count": 32,
+      "candidate_count": 35,
+      "max_bridge_load": 6.192779114907612e-08,
+      "min_critical_ratio_margin": 0.8749999458131827
+    },
+    {
+      "winner_divisor_count": 40,
+      "earlier_divisor_count": 48,
+      "candidate_count": 2,
+      "max_bridge_load": 6.17378115852496e-08,
+      "min_critical_ratio_margin": 0.21052630279203965
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 72,
+      "candidate_count": 42,
+      "max_bridge_load": 6.118392042928118e-08,
+      "min_critical_ratio_margin": 68.9999957783095
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 64,
+      "candidate_count": 358,
+      "max_bridge_load": 6.104549541077539e-08,
+      "min_critical_ratio_margin": 5.1999996825634245
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 144,
+      "candidate_count": 6748,
+      "max_bridge_load": 6.093938121105274e-08,
+      "min_critical_ratio_margin": 69.99999573424331
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 56,
+      "candidate_count": 78,
+      "max_bridge_load": 5.90495867647256e-08,
+      "min_critical_ratio_margin": 2.857142688429752
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 40,
+      "candidate_count": 23,
+      "max_bridge_load": 5.6956491190085514e-08,
+      "min_critical_ratio_margin": 0.26666665147826896
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 18,
+      "candidate_count": 3,
+      "max_bridge_load": 5.539866432258124e-08,
+      "min_critical_ratio_margin": 0.3333333148671118
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 90,
+      "candidate_count": 900,
+      "max_bridge_load": 5.3786913517410406e-08,
+      "min_critical_ratio_margin": 42.99999768716272
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 36,
+      "candidate_count": 14,
+      "max_bridge_load": 5.225150387366817e-08,
+      "min_critical_ratio_margin": 0.8888888424431076
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 100,
+      "candidate_count": 1,
+      "max_bridge_load": 5.056932852263364e-08,
+      "min_critical_ratio_margin": 8.79999955498991
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 100,
+      "candidate_count": 26,
+      "max_bridge_load": 4.8722381845368425e-08,
+      "min_critical_ratio_margin": 23.499998855024028
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 48,
+      "candidate_count": 32,
+      "max_bridge_load": 4.752839330435243e-08,
+      "min_critical_ratio_margin": 0.533333307984857
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 33,
+      "candidate_count": 6,
+      "max_bridge_load": 4.5707505351481165e-08,
+      "min_critical_ratio_margin": 14.499999337241173
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 96,
+      "candidate_count": 1900,
+      "max_bridge_load": 4.520262054058028e-08,
+      "min_critical_ratio_margin": 14.666666003694898
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 42,
+      "candidate_count": 50,
+      "max_bridge_load": 4.385527874184447e-08,
+      "min_critical_ratio_margin": 8.999999605302492
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 50,
+      "candidate_count": 24,
+      "max_bridge_load": 4.301502652483334e-08,
+      "min_critical_ratio_margin": 6.999999698894815
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 64,
+      "candidate_count": 30,
+      "max_bridge_load": 4.2227794827542904e-08,
+      "min_critical_ratio_margin": 1.8181817414040096
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 84,
+      "candidate_count": 154,
+      "max_bridge_load": 4.0457545752144824e-08,
+      "min_critical_ratio_margin": 12.66666615420442
+    },
+    {
+      "winner_divisor_count": 36,
+      "earlier_divisor_count": 48,
+      "candidate_count": 1,
+      "max_bridge_load": 4.045705148669753e-08,
+      "min_critical_ratio_margin": 0.35294116219162897
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 25,
+      "candidate_count": 5,
+      "max_bridge_load": 4.0211774185582355e-08,
+      "min_critical_ratio_margin": 10.499999577776371
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 45,
+      "candidate_count": 7,
+      "max_bridge_load": 3.787904807835103e-08,
+      "min_critical_ratio_margin": 6.166666433079204
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 120,
+      "candidate_count": 5567,
+      "max_bridge_load": 3.772952814541413e-08,
+      "min_critical_ratio_margin": 57.999997811687365
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 44,
+      "candidate_count": 69,
+      "max_bridge_load": 3.7396328626352705e-08,
+      "min_critical_ratio_margin": 5.999999775622028
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 26,
+      "candidate_count": 11,
+      "max_bridge_load": 3.517643339575235e-08,
+      "min_critical_ratio_margin": 2.9999998944707
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 56,
+      "candidate_count": 54,
+      "max_bridge_load": 3.500897137843527e-08,
+      "min_critical_ratio_margin": 4.399999845960526
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 80,
+      "candidate_count": 77,
+      "max_bridge_load": 3.355182318251003e-08,
+      "min_critical_ratio_margin": 6.799999771847602
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 72,
+      "candidate_count": 109,
+      "max_bridge_load": 3.330208782810947e-08,
+      "min_critical_ratio_margin": 5.999999800187473
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 96,
+      "candidate_count": 101,
+      "max_bridge_load": 3.1568940684984246e-08,
+      "min_critical_ratio_margin": 92.99999706408852
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 54,
+      "candidate_count": 12,
+      "max_bridge_load": 3.154106256598679e-08,
+      "min_critical_ratio_margin": 4.199999867527538
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 75,
+      "candidate_count": 11,
+      "max_bridge_load": 3.137626812513166e-08,
+      "min_critical_ratio_margin": 35.49999888614248
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 100,
+      "candidate_count": 41,
+      "max_bridge_load": 3.0539946687499854e-08,
+      "min_critical_ratio_margin": 15.33333286505415
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 66,
+      "candidate_count": 131,
+      "max_bridge_load": 3.051755139633054e-08,
+      "min_critical_ratio_margin": 30.999999053955907
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 48,
+      "candidate_count": 114,
+      "max_bridge_load": 3.039751210976467e-08,
+      "min_critical_ratio_margin": 4.749999855611818
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 45,
+      "candidate_count": 5,
+      "max_bridge_load": 3.0164266655355986e-08,
+      "min_critical_ratio_margin": 2.0714285089454476
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 84,
+      "candidate_count": 77,
+      "max_bridge_load": 3.0107296291376066e-08,
+      "min_critical_ratio_margin": 19.499999412907723
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 56,
+      "candidate_count": 8,
+      "max_bridge_load": 2.9793344374917652e-08,
+      "min_critical_ratio_margin": 1.454545411209681
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 84,
+      "candidate_count": 6,
+      "max_bridge_load": 2.9451898004083257e-08,
+      "min_critical_ratio_margin": 80.99999761439626
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 54,
+      "candidate_count": 17,
+      "max_bridge_load": 2.863092055835786e-08,
+      "min_critical_ratio_margin": 2.7142856365732158
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 42,
+      "candidate_count": 3,
+      "max_bridge_load": 2.860681474419696e-08,
+      "min_critical_ratio_margin": 0.8181817947762424
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 112,
+      "candidate_count": 2595,
+      "max_bridge_load": 2.8436198955210328e-08,
+      "min_critical_ratio_margin": 53.999998464445255
+    },
+    {
+      "winner_divisor_count": 15,
+      "earlier_divisor_count": 40,
+      "candidate_count": 1,
+      "max_bridge_load": 2.826320061544152e-08,
+      "min_critical_ratio_margin": 1.923076868724614
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 90,
+      "candidate_count": 1,
+      "max_bridge_load": 2.7417270313593554e-08,
+      "min_critical_ratio_margin": 86.99999761469748
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 64,
+      "candidate_count": 11,
+      "max_bridge_load": 2.7220076817546783e-08,
+      "min_critical_ratio_margin": 1.0666666376319183
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 40,
+      "candidate_count": 1,
+      "max_bridge_load": 2.5901077877459178e-08,
+      "min_critical_ratio_margin": 4.428571313866655
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 112,
+      "candidate_count": 86,
+      "max_bridge_load": 2.5403566051579136e-08,
+      "min_critical_ratio_margin": 26.4999993268055
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 128,
+      "candidate_count": 6795,
+      "max_bridge_load": 2.5359718601055787e-08,
+      "min_critical_ratio_margin": 61.99999842769745
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 42,
+      "candidate_count": 1,
+      "max_bridge_load": 2.507723562139575e-08,
+      "min_critical_ratio_margin": 0.3333333249742547
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 48,
+      "candidate_count": 38,
+      "max_bridge_load": 2.498358662807375e-08,
+      "min_critical_ratio_margin": 1.5555555166921984
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 28,
+      "candidate_count": 2,
+      "max_bridge_load": 2.3150765946253514e-08,
+      "min_critical_ratio_margin": 2.2499999479107764
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 66,
+      "candidate_count": 1,
+      "max_bridge_load": 2.299134232791394e-08,
+      "min_critical_ratio_margin": 5.399999875846752
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 20,
+      "candidate_count": 3,
+      "max_bridge_load": 2.2649404129992945e-08,
+      "min_critical_ratio_margin": 0.49999998867529794
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 90,
+      "candidate_count": 4,
+      "max_bridge_load": 2.1844934749992714e-08,
+      "min_critical_ratio_margin": 7.79999982960951
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 100,
+      "candidate_count": 556,
+      "max_bridge_load": 2.1805708188179136e-08,
+      "min_critical_ratio_margin": 47.999998953326006
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 108,
+      "candidate_count": 53,
+      "max_bridge_load": 2.1294156799511962e-08,
+      "min_critical_ratio_margin": 25.499999456999003
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 126,
+      "candidate_count": 198,
+      "max_bridge_load": 2.087749156068125e-08,
+      "min_critical_ratio_margin": 60.99999872647302
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 128,
+      "candidate_count": 202,
+      "max_bridge_load": 1.8997711149206567e-08,
+      "min_critical_ratio_margin": 30.49999942056981
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 88,
+      "candidate_count": 15,
+      "max_bridge_load": 1.899262872718501e-08,
+      "min_critical_ratio_margin": 20.499999610651113
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 88,
+      "candidate_count": 408,
+      "max_bridge_load": 1.8602658524713434e-08,
+      "min_critical_ratio_margin": 41.999999218688345
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 99,
+      "candidate_count": 5,
+      "max_bridge_load": 1.7902233856740456e-08,
+      "min_critical_ratio_margin": 47.49999914964389
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 63,
+      "candidate_count": 1,
+      "max_bridge_load": 1.7830304796265494e-08,
+      "min_critical_ratio_margin": 9.166666503222206
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 66,
+      "candidate_count": 4,
+      "max_bridge_load": 1.74134198616116e-08,
+      "min_critical_ratio_margin": 14.999999738798703
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 70,
+      "candidate_count": 10,
+      "max_bridge_load": 1.6712654496431334e-08,
+      "min_critical_ratio_margin": 15.999999732597528
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 54,
+      "candidate_count": 1,
+      "max_bridge_load": 1.6684318711786735e-08,
+      "min_critical_ratio_margin": 1.36363634088502
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 128,
+      "candidate_count": 68,
+      "max_bridge_load": 1.6637258193341608e-08,
+      "min_critical_ratio_margin": 124.99999792034272
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 34,
+      "candidate_count": 14,
+      "max_bridge_load": 1.581495422027975e-08,
+      "min_critical_ratio_margin": 14.999999762775687
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 44,
+      "candidate_count": 6,
+      "max_bridge_load": 1.55555650305228e-08,
+      "min_critical_ratio_margin": 3.199999950222192
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 126,
+      "candidate_count": 4,
+      "max_bridge_load": 1.5347011594890603e-08,
+      "min_critical_ratio_margin": 29.999999539589652
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 120,
+      "candidate_count": 327,
+      "max_bridge_load": 1.4808866180945503e-08,
+      "min_critical_ratio_margin": 18.6666663902345
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 81,
+      "candidate_count": 21,
+      "max_bridge_load": 1.431148508792355e-08,
+      "min_critical_ratio_margin": 38.499999449007824
+    },
+    {
+      "winner_divisor_count": 30,
+      "earlier_divisor_count": 48,
+      "candidate_count": 1,
+      "max_bridge_load": 1.4235387239362279e-08,
+      "min_critical_ratio_margin": 0.6428571337058224
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 48,
+      "candidate_count": 2,
+      "max_bridge_load": 1.3777338757027845e-08,
+      "min_critical_ratio_margin": 5.571428494669112
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 112,
+      "candidate_count": 169,
+      "max_bridge_load": 1.367036247022459e-08,
+      "min_critical_ratio_margin": 17.333333096380382
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 112,
+      "candidate_count": 2,
+      "max_bridge_load": 1.3420438390217745e-08,
+      "min_critical_ratio_margin": 12.749999828889411
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 54,
+      "candidate_count": 1,
+      "max_bridge_load": 1.3241879122628073e-08,
+      "min_critical_ratio_margin": 1.8888888638764505
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 98,
+      "candidate_count": 16,
+      "max_bridge_load": 1.3172306314259838e-08,
+      "min_critical_ratio_margin": 46.999999380901606
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 72,
+      "candidate_count": 10,
+      "max_bridge_load": 1.2774398198743139e-08,
+      "min_critical_ratio_margin": 7.749999900998414
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 90,
+      "candidate_count": 21,
+      "max_bridge_load": 1.216746100699392e-08,
+      "min_critical_ratio_margin": 20.99999974448332
+    },
+    {
+      "winner_divisor_count": 36,
+      "earlier_divisor_count": 56,
+      "candidate_count": 1,
+      "max_bridge_load": 1.2137114691057607e-08,
+      "min_critical_ratio_margin": 0.5882352869781677
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 108,
+      "candidate_count": 170,
+      "max_bridge_load": 1.1815675917681289e-08,
+      "min_critical_ratio_margin": 16.666666469738736
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 78,
+      "candidate_count": 41,
+      "max_bridge_load": 1.1675853185189944e-08,
+      "min_critical_ratio_margin": 36.999999567993434
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 23,
+      "candidate_count": 1,
+      "max_bridge_load": 1.1520359333161423e-08,
+      "min_critical_ratio_margin": 9.499999890556586
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 120,
+      "candidate_count": 155,
+      "max_bridge_load": 1.1372472616643424e-08,
+      "min_critical_ratio_margin": 28.49999967588453
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 22,
+      "candidate_count": 2,
+      "max_bridge_load": 1.1119953519393052e-08,
+      "min_critical_ratio_margin": 18.999999788720885
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 38,
+      "candidate_count": 1,
+      "max_bridge_load": 1.083252079148167e-08,
+      "min_critical_ratio_margin": 4.999999945837396
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 96,
+      "candidate_count": 91,
+      "max_bridge_load": 1.0777226366887049e-08,
+      "min_critical_ratio_margin": 5.714285652701564
+    },
+    {
+      "winner_divisor_count": 28,
+      "earlier_divisor_count": 48,
+      "candidate_count": 4,
+      "max_bridge_load": 1.0685899276552392e-08,
+      "min_critical_ratio_margin": 0.7692307610108466
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 120,
+      "candidate_count": 14,
+      "max_bridge_load": 1.0675875656758122e-08,
+      "min_critical_ratio_margin": 10.799999884700544
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 70,
+      "candidate_count": 21,
+      "max_bridge_load": 1.0596909586383624e-08,
+      "min_critical_ratio_margin": 10.333333223831936
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 90,
+      "candidate_count": 64,
+      "max_bridge_load": 1.0339907710531532e-08,
+      "min_critical_ratio_margin": 13.666666525354595
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 50,
+      "candidate_count": 4,
+      "max_bridge_load": 1.0220232163839136e-08,
+      "min_critical_ratio_margin": 2.4285714037508646
+    },
+    {
+      "winner_divisor_count": 18,
+      "earlier_divisor_count": 48,
+      "candidate_count": 7,
+      "max_bridge_load": 1.0146972802734429e-08,
+      "min_critical_ratio_margin": 1.874999980974426
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 72,
+      "candidate_count": 4,
+      "max_bridge_load": 1.0084945522359885e-08,
+      "min_critical_ratio_margin": 4.83333328458943
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 45,
+      "candidate_count": 1,
+      "max_bridge_load": 1.005961479358884e-08,
+      "min_critical_ratio_margin": 9.749999901918756
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 48,
+      "candidate_count": 18,
+      "max_bridge_load": 9.889815633101762e-09,
+      "min_critical_ratio_margin": 2.8333333053121894
+    },
+    {
+      "winner_divisor_count": 18,
+      "earlier_divisor_count": 40,
+      "candidate_count": 1,
+      "max_bridge_load": 9.844323497790438e-09,
+      "min_critical_ratio_margin": 1.3749999864640552
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 70,
+      "candidate_count": 1,
+      "max_bridge_load": 9.776524877015069e-09,
+      "min_critical_ratio_margin": 5.7999999432961555
+    },
+    {
+      "winner_divisor_count": 48,
+      "earlier_divisor_count": 64,
+      "candidate_count": 1,
+      "max_bridge_load": 9.763444885901862e-09,
+      "min_critical_ratio_margin": 0.3478260835605409
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 44,
+      "candidate_count": 1,
+      "max_bridge_load": 9.721277116625517e-09,
+      "min_critical_ratio_margin": 0.39999999611148906
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 104,
+      "candidate_count": 86,
+      "max_bridge_load": 9.671495320162648e-09,
+      "min_critical_ratio_margin": 49.999999516425234
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 55,
+      "candidate_count": 1,
+      "max_bridge_load": 9.540637957665778e-09,
+      "min_critical_ratio_margin": 12.249999883127185
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 180,
+      "candidate_count": 620,
+      "max_bridge_load": 9.531883875636315e-09,
+      "min_critical_ratio_margin": 87.99999916119422
+    },
+    {
+      "winner_divisor_count": 30,
+      "earlier_divisor_count": 64,
+      "candidate_count": 2,
+      "max_bridge_load": 9.473746101332715e-09,
+      "min_critical_ratio_margin": 1.2142857027818799
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 162,
+      "candidate_count": 142,
+      "max_bridge_load": 9.423296168692208e-09,
+      "min_critical_ratio_margin": 78.9999992555596
+    },
+    {
+      "winner_divisor_count": 22,
+      "earlier_divisor_count": 32,
+      "candidate_count": 2,
+      "max_bridge_load": 9.219602858934195e-09,
+      "min_critical_ratio_margin": 0.49999999539019857
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 108,
+      "candidate_count": 3,
+      "max_bridge_load": 9.17736937370665e-09,
+      "min_critical_ratio_margin": 9.599999911897253
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 120,
+      "candidate_count": 37,
+      "max_bridge_load": 9.068724903031255e-09,
+      "min_critical_ratio_margin": 116.99999893895918
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 144,
+      "candidate_count": 342,
+      "max_bridge_load": 8.902711528764186e-09,
+      "min_critical_ratio_margin": 22.666666464871874
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 160,
+      "candidate_count": 2392,
+      "max_bridge_load": 8.878817581444054e-09,
+      "min_critical_ratio_margin": 77.99999930745223
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 60,
+      "candidate_count": 7,
+      "max_bridge_load": 8.80529686201707e-09,
+      "min_critical_ratio_margin": 1.6363636219549687
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 64,
+      "candidate_count": 20,
+      "max_bridge_load": 8.612478821021986e-09,
+      "min_critical_ratio_margin": 2.444444423391719
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 44,
+      "candidate_count": 7,
+      "max_bridge_load": 8.52555737118621e-09,
+      "min_critical_ratio_margin": 1.9999999829488853
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 56,
+      "candidate_count": 1,
+      "max_bridge_load": 8.485314950679168e-09,
+      "min_critical_ratio_margin": 0.7999999932117481
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 34,
+      "candidate_count": 2,
+      "max_bridge_load": 8.398507837899144e-09,
+      "min_critical_ratio_margin": 4.333333296939799
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 50,
+      "candidate_count": 3,
+      "max_bridge_load": 8.283736971224554e-09,
+      "min_critical_ratio_margin": 3.7999999685217993
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 144,
+      "candidate_count": 158,
+      "max_bridge_load": 8.257479988027828e-09,
+      "min_critical_ratio_margin": 34.49999971511694
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 112,
+      "candidate_count": 8,
+      "max_bridge_load": 8.194063487917033e-09,
+      "min_critical_ratio_margin": 6.857142800954993
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 96,
+      "candidate_count": 106,
+      "max_bridge_load": 7.959990629598696e-09,
+      "min_critical_ratio_margin": 8.39999993313608
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 96,
+      "candidate_count": 8,
+      "max_bridge_load": 7.903650282052039e-09,
+      "min_critical_ratio_margin": 10.74999991503576
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 72,
+      "candidate_count": 8,
+      "max_bridge_load": 7.628982982380943e-09,
+      "min_critical_ratio_margin": 2.181818165173128
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 45,
+      "candidate_count": 1,
+      "max_bridge_load": 7.59676987982516e-09,
+      "min_critical_ratio_margin": 0.43333333004139973
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 35,
+      "candidate_count": 2,
+      "max_bridge_load": 7.343621725056899e-09,
+      "min_critical_ratio_margin": 15.499999886173864
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 26,
+      "candidate_count": 2,
+      "max_bridge_load": 7.211314922983548e-09,
+      "min_critical_ratio_margin": 0.714285709134775
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 60,
+      "candidate_count": 2,
+      "max_bridge_load": 7.1448302036663284e-09,
+      "min_critical_ratio_margin": 0.9333333266648252
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 192,
+      "candidate_count": 3085,
+      "max_bridge_load": 6.930578735022816e-09,
+      "min_critical_ratio_margin": 93.9999993485256
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 80,
+      "candidate_count": 4,
+      "max_bridge_load": 6.6730645136609775e-09,
+      "min_critical_ratio_margin": 2.545454528468563
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 80,
+      "candidate_count": 2,
+      "max_bridge_load": 6.397341723030081e-09,
+      "min_critical_ratio_margin": 3.3333333120088606
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 168,
+      "candidate_count": 840,
+      "max_bridge_load": 6.391320091056542e-09,
+      "min_critical_ratio_margin": 81.99999947591175
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 105,
+      "candidate_count": 5,
+      "max_bridge_load": 6.263923861452987e-09,
+      "min_critical_ratio_margin": 50.499999683671845
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 210,
+      "candidate_count": 25,
+      "max_bridge_load": 5.982797558339066e-09,
+      "min_critical_ratio_margin": 102.99999938377185
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 108,
+      "candidate_count": 7,
+      "max_bridge_load": 5.964503408081735e-09,
+      "min_critical_ratio_margin": 6.571428532233263
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 44,
+      "candidate_count": 15,
+      "max_bridge_load": 5.959548059720239e-09,
+      "min_critical_ratio_margin": 9.499999943384294
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 104,
+      "candidate_count": 6,
+      "max_bridge_load": 5.954069334790368e-09,
+      "min_critical_ratio_margin": 15.99999990473489
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 120,
+      "candidate_count": 14,
+      "max_bridge_load": 5.8241005437190765e-09,
+      "min_critical_ratio_margin": 7.428571385306682
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 84,
+      "candidate_count": 17,
+      "max_bridge_load": 5.735918191036089e-09,
+      "min_critical_ratio_margin": 7.1999999587013885
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 180,
+      "candidate_count": 23,
+      "max_bridge_load": 5.66216223843484e-09,
+      "min_critical_ratio_margin": 43.499999753695946
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 98,
+      "candidate_count": 1,
+      "max_bridge_load": 5.491430480712248e-09,
+      "min_critical_ratio_margin": 14.999999917628543
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 27,
+      "candidate_count": 1,
+      "max_bridge_load": 5.426917581985435e-09,
+      "min_critical_ratio_margin": 1.4999999918596236
+    },
+    {
+      "winner_divisor_count": 28,
+      "earlier_divisor_count": 64,
+      "candidate_count": 3,
+      "max_bridge_load": 5.404290422580023e-09,
+      "min_critical_ratio_margin": 1.384615377132521
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 30,
+      "candidate_count": 1,
+      "max_bridge_load": 5.332948601240635e-09,
+      "min_critical_ratio_margin": 2.999999984001154
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 96,
+      "candidate_count": 11,
+      "max_bridge_load": 4.966320928575149e-09,
+      "min_critical_ratio_margin": 3.2727272564738588
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 150,
+      "candidate_count": 88,
+      "max_bridge_load": 4.897853827231041e-09,
+      "min_critical_ratio_margin": 72.99999964245667
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 27,
+      "candidate_count": 3,
+      "max_bridge_load": 4.759813326551293e-09,
+      "min_critical_ratio_margin": 5.24999997501098
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 160,
+      "candidate_count": 84,
+      "max_bridge_load": 4.757532163317997e-09,
+      "min_critical_ratio_margin": 38.499999816835015
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 64,
+      "candidate_count": 5,
+      "max_bridge_load": 4.653241312269074e-09,
+      "min_critical_ratio_margin": 4.166666647278161
+    },
+    {
+      "winner_divisor_count": 15,
+      "earlier_divisor_count": 80,
+      "candidate_count": 2,
+      "max_bridge_load": 4.4429004031343314e-09,
+      "min_critical_ratio_margin": 4.999999977785498
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 140,
+      "candidate_count": 10,
+      "max_bridge_load": 4.4309514001532306e-09,
+      "min_critical_ratio_margin": 33.499999851563125
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 132,
+      "candidate_count": 129,
+      "max_bridge_load": 4.304619449085889e-09,
+      "min_critical_ratio_margin": 63.999999724504356
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 144,
+      "candidate_count": 34,
+      "max_bridge_load": 4.289213935956924e-09,
+      "min_critical_ratio_margin": 140.99999939522084
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 63,
+      "candidate_count": 22,
+      "max_bridge_load": 4.2802860690833085e-09,
+      "min_critical_ratio_margin": 29.49999987373156
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 84,
+      "candidate_count": 9,
+      "max_bridge_load": 4.200693799341463e-09,
+      "min_critical_ratio_margin": 4.857142836739487
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 30,
+      "candidate_count": 1,
+      "max_bridge_load": 4.167066691707077e-09,
+      "min_critical_ratio_margin": 1.3333333277772446
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 52,
+      "candidate_count": 2,
+      "max_bridge_load": 4.152051533508157e-09,
+      "min_critical_ratio_margin": 11.499999952251407
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 200,
+      "candidate_count": 187,
+      "max_bridge_load": 4.095362964850797e-09,
+      "min_critical_ratio_margin": 97.99999959865443
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 64,
+      "candidate_count": 36,
+      "max_bridge_load": 4.022225943258574e-09,
+      "min_critical_ratio_margin": 6.749999972849975
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 110,
+      "candidate_count": 1,
+      "max_bridge_load": 4.010702214785056e-09,
+      "min_critical_ratio_margin": 25.999999895721743
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 144,
+      "candidate_count": 1,
+      "max_bridge_load": 3.825304401444257e-09,
+      "min_critical_ratio_margin": 10.833333291892536
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 64,
+      "candidate_count": 2,
+      "max_bridge_load": 3.775347295393255e-09,
+      "min_critical_ratio_margin": 7.857142827479414
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 168,
+      "candidate_count": 53,
+      "max_bridge_load": 3.7418301623848295e-09,
+      "min_critical_ratio_margin": 26.66666656688453
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 240,
+      "candidate_count": 738,
+      "max_bridge_load": 3.597168143392058e-09,
+      "min_critical_ratio_margin": 117.99999957553416
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 128,
+      "candidate_count": 315,
+      "max_bridge_load": 3.5496145689428714e-09,
+      "min_critical_ratio_margin": 19.999999929007707
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 39,
+      "candidate_count": 1,
+      "max_bridge_load": 3.4519664967750227e-09,
+      "min_critical_ratio_margin": 17.499999939590587
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 52,
+      "candidate_count": 15,
+      "max_bridge_load": 3.3446481947666225e-09,
+      "min_critical_ratio_margin": 7.333333308805914
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 104,
+      "candidate_count": 2,
+      "max_bridge_load": 3.332630579663197e-09,
+      "min_critical_ratio_margin": 24.49999991835055
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 88,
+      "candidate_count": 2,
+      "max_bridge_load": 3.2793037112948613e-09,
+      "min_critical_ratio_margin": 5.142857125992153
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 72,
+      "candidate_count": 4,
+      "max_bridge_load": 3.2587699461982513e-09,
+      "min_critical_ratio_margin": 2.8888888794746643
+    },
+    {
+      "winner_divisor_count": 48,
+      "earlier_divisor_count": 96,
+      "candidate_count": 1,
+      "max_bridge_load": 3.2525441506781046e-09,
+      "min_critical_ratio_margin": 1.0434782574756063
+    },
+    {
+      "winner_divisor_count": 14,
+      "earlier_divisor_count": 40,
+      "candidate_count": 2,
+      "max_bridge_load": 3.2339922534801575e-09,
+      "min_critical_ratio_margin": 2.1666666596596835
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 42,
+      "candidate_count": 1,
+      "max_bridge_load": 3.139234145360154e-09,
+      "min_critical_ratio_margin": 1.2222222183853806
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 88,
+      "candidate_count": 3,
+      "max_bridge_load": 3.0916646728098692e-09,
+      "min_critical_ratio_margin": 7.599999976503348
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 66,
+      "candidate_count": 12,
+      "max_bridge_load": 3.009936828515324e-09,
+      "min_critical_ratio_margin": 9.66666663757061
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 68,
+      "candidate_count": 14,
+      "max_bridge_load": 2.8875827562391265e-09,
+      "min_critical_ratio_margin": 31.999999907597353
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 168,
+      "candidate_count": 23,
+      "max_bridge_load": 2.82605555966422e-09,
+      "min_critical_ratio_margin": 40.49999988554475
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 180,
+      "candidate_count": 33,
+      "max_bridge_load": 2.6285287047731115e-09,
+      "min_critical_ratio_margin": 28.66666659131551
+    },
+    {
+      "winner_divisor_count": 18,
+      "earlier_divisor_count": 64,
+      "candidate_count": 4,
+      "max_bridge_load": 2.623204687285144e-09,
+      "min_critical_ratio_margin": 2.8749999924582865
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 240,
+      "candidate_count": 21,
+      "max_bridge_load": 2.5918767986555533e-09,
+      "min_critical_ratio_margin": 58.49999984837521
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 78,
+      "candidate_count": 3,
+      "max_bridge_load": 2.5833306851710507e-09,
+      "min_critical_ratio_margin": 17.999999953500048
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 198,
+      "candidate_count": 12,
+      "max_bridge_load": 2.5388862375579493e-09,
+      "min_critical_ratio_margin": 96.99999975372803
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 81,
+      "candidate_count": 1,
+      "max_bridge_load": 2.5299505897654247e-09,
+      "min_critical_ratio_margin": 18.749999952563428
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 168,
+      "candidate_count": 10,
+      "max_bridge_load": 2.462776530857506e-09,
+      "min_critical_ratio_margin": 164.99999959364186
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 110,
+      "candidate_count": 12,
+      "max_bridge_load": 2.4485551741307446e-09,
+      "min_critical_ratio_margin": 52.999999870226574
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 126,
+      "candidate_count": 22,
+      "max_bridge_load": 2.400221129195323e-09,
+      "min_critical_ratio_margin": 19.66666661946232
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 176,
+      "candidate_count": 64,
+      "max_bridge_load": 2.3426935275404443e-09,
+      "min_critical_ratio_margin": 85.99999979852835
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 52,
+      "candidate_count": 1,
+      "max_bridge_load": 2.3177975649879556e-09,
+      "min_critical_ratio_margin": 3.99999999072881
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 98,
+      "candidate_count": 2,
+      "max_bridge_load": 2.276134170031696e-09,
+      "min_critical_ratio_margin": 22.999999947648913
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 72,
+      "candidate_count": 2,
+      "max_bridge_load": 2.2652767994735253e-09,
+      "min_critical_ratio_margin": 1.3333333303129644
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 192,
+      "candidate_count": 68,
+      "max_bridge_load": 2.235580619072309e-09,
+      "min_critical_ratio_margin": 46.4999998960455
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 90,
+      "candidate_count": 1,
+      "max_bridge_load": 2.1500084471391537e-09,
+      "min_critical_ratio_margin": 1.9333333291766501
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 216,
+      "candidate_count": 594,
+      "max_bridge_load": 2.0709374802032484e-09,
+      "min_critical_ratio_margin": 105.99999978048062
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 160,
+      "candidate_count": 103,
+      "max_bridge_load": 1.9871971962696254e-09,
+      "min_critical_ratio_margin": 25.333333282991003
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 88,
+      "candidate_count": 29,
+      "max_bridge_load": 1.9790449112822015e-09,
+      "min_critical_ratio_margin": 13.333333306946068
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 80,
+      "candidate_count": 4,
+      "max_bridge_load": 1.973030754649179e-09,
+      "min_critical_ratio_margin": 8.74999998273598
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 288,
+      "candidate_count": 427,
+      "max_bridge_load": 1.967640742045708e-09,
+      "min_critical_ratio_margin": 141.999999720595
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 100,
+      "candidate_count": 3,
+      "max_bridge_load": 1.9025170694294445e-09,
+      "min_critical_ratio_margin": 96.99999981545585
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 112,
+      "candidate_count": 9,
+      "max_bridge_load": 1.88261202183071e-09,
+      "min_critical_ratio_margin": 9.999999981173879
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 60,
+      "candidate_count": 1,
+      "max_bridge_load": 1.86576154526108e-09,
+      "min_critical_ratio_margin": 2.2222222180760856
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 112,
+      "candidate_count": 8,
+      "max_bridge_load": 1.7593346718307733e-09,
+      "min_critical_ratio_margin": 108.99999980823252
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 128,
+      "candidate_count": 6,
+      "max_bridge_load": 1.7394592710662238e-09,
+      "min_critical_ratio_margin": 7.999999986084326
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 144,
+      "candidate_count": 6,
+      "max_bridge_load": 1.6842331869437732e-09,
+      "min_critical_ratio_margin": 9.14285712745844
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 210,
+      "candidate_count": 3,
+      "max_bridge_load": 1.6717809141388395e-09,
+      "min_critical_ratio_margin": 50.99999991473917
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 66,
+      "candidate_count": 1,
+      "max_bridge_load": 1.6530543890246959e-09,
+      "min_critical_ratio_margin": 2.555555551331083
+    },
+    {
+      "winner_divisor_count": 28,
+      "earlier_divisor_count": 96,
+      "candidate_count": 1,
+      "max_bridge_load": 1.6438072210601217e-09,
+      "min_critical_ratio_margin": 2.6153846110854273
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 96,
+      "candidate_count": 4,
+      "max_bridge_load": 1.6337315710794536e-09,
+      "min_critical_ratio_margin": 4.222222215324244
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 144,
+      "candidate_count": 13,
+      "max_bridge_load": 1.56560720616717e-09,
+      "min_critical_ratio_margin": 13.199999979333985
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 160,
+      "candidate_count": 37,
+      "max_bridge_load": 1.5519183970468656e-09,
+      "min_critical_ratio_margin": 156.9999997563488
+    },
+    {
+      "winner_divisor_count": 32,
+      "earlier_divisor_count": 96,
+      "candidate_count": 1,
+      "max_bridge_load": 1.5449751894491826e-09,
+      "min_critical_ratio_margin": 2.1333333300373862
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 84,
+      "candidate_count": 1,
+      "max_bridge_load": 1.5234098353171059e-09,
+      "min_critical_ratio_margin": 2.7272727231179728
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 160,
+      "candidate_count": 5,
+      "max_bridge_load": 1.4783745098982706e-09,
+      "min_critical_ratio_margin": 14.799999978120058
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 128,
+      "candidate_count": 11,
+      "max_bridge_load": 1.454637310987858e-09,
+      "min_critical_ratio_margin": 11.599999983126207
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 42,
+      "candidate_count": 1,
+      "max_bridge_load": 1.4060830277884406e-09,
+      "min_critical_ratio_margin": 3.999999994375668
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 192,
+      "candidate_count": 110,
+      "max_bridge_load": 1.3515076594093562e-09,
+      "min_critical_ratio_margin": 30.666666625220433
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 300,
+      "candidate_count": 23,
+      "max_bridge_load": 1.3343421607876733e-09,
+      "min_critical_ratio_margin": 147.99999980251735
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 252,
+      "candidate_count": 83,
+      "max_bridge_load": 1.3107273008896508e-09,
+      "min_critical_ratio_margin": 123.99999983746982
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 132,
+      "candidate_count": 5,
+      "max_bridge_load": 1.2937002439334792e-09,
+      "min_critical_ratio_margin": 31.49999995924844
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 128,
+      "candidate_count": 1,
+      "max_bridge_load": 1.276649798696529e-09,
+      "min_critical_ratio_margin": 4.7272727212376555
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 160,
+      "candidate_count": 4,
+      "max_bridge_load": 1.2749814722508763e-09,
+      "min_critical_ratio_margin": 10.285714272600192
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 162,
+      "candidate_count": 5,
+      "max_bridge_load": 1.2712126849743153e-09,
+      "min_critical_ratio_margin": 38.999999950422705
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 90,
+      "candidate_count": 1,
+      "max_bridge_load": 1.2097654469780876e-09,
+      "min_critical_ratio_margin": 5.285714279319811
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 108,
+      "candidate_count": 1,
+      "max_bridge_load": 1.192462726446173e-09,
+      "min_critical_ratio_margin": 3.8181818136287786
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 224,
+      "candidate_count": 267,
+      "max_bridge_load": 1.1808114667873197e-09,
+      "min_critical_ratio_margin": 109.99999987011074
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 66,
+      "candidate_count": 2,
+      "max_bridge_load": 1.1738908334280041e-09,
+      "min_critical_ratio_margin": 3.571428567236104
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 140,
+      "candidate_count": 5,
+      "max_bridge_load": 1.1458285431587e-09,
+      "min_critical_ratio_margin": 21.999999974791773
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 200,
+      "candidate_count": 4,
+      "max_bridge_load": 1.1094870726614102e-09,
+      "min_critical_ratio_margin": 48.499999946189874
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 38,
+      "candidate_count": 2,
+      "max_bridge_load": 1.099971159908531e-09,
+      "min_critical_ratio_margin": 16.99999998130049
+    },
+    {
+      "winner_divisor_count": 18,
+      "earlier_divisor_count": 96,
+      "candidate_count": 2,
+      "max_bridge_load": 1.0614042750125334e-09,
+      "min_critical_ratio_margin": 4.874999994825654
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 256,
+      "candidate_count": 323,
+      "max_bridge_load": 1.0567942799514952e-09,
+      "min_critical_ratio_margin": 125.99999986684392
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 224,
+      "candidate_count": 8,
+      "max_bridge_load": 1.0010483774242098e-09,
+      "min_critical_ratio_margin": 220.9999997787683
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 192,
+      "candidate_count": 4,
+      "max_bridge_load": 9.904914912952891e-10,
+      "min_critical_ratio_margin": 17.999999982171154
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 176,
+      "candidate_count": 3,
+      "max_bridge_load": 9.857840713657559e-10,
+      "min_critical_ratio_margin": 42.499999958104176
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 216,
+      "candidate_count": 10,
+      "max_bridge_load": 9.519628767813109e-10,
+      "min_critical_ratio_margin": 52.49999995002195
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 162,
+      "candidate_count": 9,
+      "max_bridge_load": 9.464202149251316e-10,
+      "min_critical_ratio_margin": 25.666666642375215
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 156,
+      "candidate_count": 24,
+      "max_bridge_load": 9.258244609552204e-10,
+      "min_critical_ratio_margin": 75.99999992963734
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 150,
+      "candidate_count": 5,
+      "max_bridge_load": 8.680059581898447e-10,
+      "min_critical_ratio_margin": 23.66666664612386
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 63,
+      "candidate_count": 1,
+      "max_bridge_load": 8.600639888387824e-10,
+      "min_critical_ratio_margin": 14.249999987744088
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 56,
+      "candidate_count": 1,
+      "max_bridge_load": 8.342444416435367e-10,
+      "min_critical_ratio_margin": 5.749999995203094
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 154,
+      "candidate_count": 2,
+      "max_bridge_load": 8.247440774766801e-10,
+      "min_critical_ratio_margin": 74.9999999381442
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 288,
+      "candidate_count": 6,
+      "max_bridge_load": 8.233721569011126e-10,
+      "min_critical_ratio_margin": 70.49999994195227
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 192,
+      "candidate_count": 39,
+      "max_bridge_load": 8.216088738220812e-10,
+      "min_critical_ratio_margin": 188.99999984471592
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 168,
+      "candidate_count": 1,
+      "max_bridge_load": 7.846057279664729e-10,
+      "min_critical_ratio_margin": 15.599999987760151
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 120,
+      "candidate_count": 1,
+      "max_bridge_load": 7.400630108733708e-10,
+      "min_critical_ratio_margin": 5.555555551444094
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 216,
+      "candidate_count": 18,
+      "max_bridge_load": 7.39672797370835e-10,
+      "min_critical_ratio_margin": 34.666666641024676
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 108,
+      "candidate_count": 1,
+      "max_bridge_load": 6.976653631224917e-10,
+      "min_critical_ratio_margin": 12.249999991453599
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 180,
+      "candidate_count": 5,
+      "max_bridge_load": 6.92521207987193e-10,
+      "min_critical_ratio_margin": 176.99999987742373
+    },
+    {
+      "winner_divisor_count": 24,
+      "earlier_divisor_count": 162,
+      "candidate_count": 1,
+      "max_bridge_load": 6.879855815479568e-10,
+      "min_critical_ratio_margin": 6.272727268411726
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 54,
+      "candidate_count": 1,
+      "max_bridge_load": 6.873712911990217e-10,
+      "min_critical_ratio_margin": 5.499999996219458
+    },
+    {
+      "winner_divisor_count": 12,
+      "earlier_divisor_count": 198,
+      "candidate_count": 1,
+      "max_bridge_load": 6.599387225461576e-10,
+      "min_critical_ratio_margin": 18.59999998772514
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 200,
+      "candidate_count": 7,
+      "max_bridge_load": 6.505680091861699e-10,
+      "min_critical_ratio_margin": 31.999999979181823
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 76,
+      "candidate_count": 2,
+      "max_bridge_load": 6.501951076308564e-10,
+      "min_critical_ratio_margin": 35.999999976592974
+    },
+    {
+      "winner_divisor_count": 20,
+      "earlier_divisor_count": 108,
+      "candidate_count": 1,
+      "max_bridge_load": 6.412917015600912e-10,
+      "min_critical_ratio_margin": 4.888888885753685
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 150,
+      "candidate_count": 4,
+      "max_bridge_load": 6.333913085379252e-10,
+      "min_critical_ratio_margin": 35.999999977197916
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 320,
+      "candidate_count": 99,
+      "max_bridge_load": 6.16333840504164e-10,
+      "min_critical_ratio_margin": 157.99999990261927
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 192,
+      "candidate_count": 2,
+      "max_bridge_load": 5.928867144708053e-10,
+      "min_critical_ratio_margin": 12.571428563975138
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 224,
+      "candidate_count": 8,
+      "max_bridge_load": 5.824822377744234e-10,
+      "min_critical_ratio_margin": 54.49999996825472
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 132,
+      "candidate_count": 7,
+      "max_bridge_load": 5.659232867274002e-10,
+      "min_critical_ratio_margin": 20.66666665497092
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 336,
+      "candidate_count": 56,
+      "max_bridge_load": 5.446125826083804e-10,
+      "min_critical_ratio_margin": 165.99999990959432
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 400,
+      "candidate_count": 9,
+      "max_bridge_load": 5.312980526908566e-10,
+      "min_critical_ratio_margin": 197.99999989480298
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 180,
+      "candidate_count": 1,
+      "max_bridge_load": 5.117194121014938e-10,
+      "min_critical_ratio_margin": 11.714285708291285
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 182,
+      "candidate_count": 1,
+      "max_bridge_load": 5.011462630645237e-10,
+      "min_critical_ratio_margin": 88.99999995539798
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 81,
+      "candidate_count": 3,
+      "max_bridge_load": 4.81774291693592e-10,
+      "min_critical_ratio_margin": 12.16666666080508
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 77,
+      "candidate_count": 1,
+      "max_bridge_load": 4.786798050783907e-10,
+      "min_critical_ratio_margin": 36.49999998252819
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 130,
+      "candidate_count": 4,
+      "max_bridge_load": 4.662704754926449e-10,
+      "min_critical_ratio_margin": 62.99999997062496
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 102,
+      "candidate_count": 4,
+      "max_bridge_load": 4.645281936888068e-10,
+      "min_critical_ratio_margin": 48.99999997723812
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 216,
+      "candidate_count": 2,
+      "max_bridge_load": 4.4600678914312103e-10,
+      "min_critical_ratio_margin": 212.99999990500055
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 156,
+      "candidate_count": 1,
+      "max_bridge_load": 4.4581613175883935e-10,
+      "min_critical_ratio_margin": 24.66666665566987
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 135,
+      "candidate_count": 10,
+      "max_bridge_load": 4.4469546620137524e-10,
+      "min_critical_ratio_margin": 65.49999997087245
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 320,
+      "candidate_count": 2,
+      "max_bridge_load": 4.3841033846418467e-10,
+      "min_critical_ratio_margin": 78.49999996558479
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 270,
+      "candidate_count": 26,
+      "max_bridge_load": 4.269455599418613e-10,
+      "min_critical_ratio_margin": 132.99999994321624
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 256,
+      "candidate_count": 9,
+      "max_bridge_load": 4.17752804793281e-10,
+      "min_critical_ratio_margin": 62.499999973890446
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 128,
+      "candidate_count": 1,
+      "max_bridge_load": 3.8213149405603456e-10,
+      "min_critical_ratio_margin": 14.749999994363561
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 264,
+      "candidate_count": 16,
+      "max_bridge_load": 3.7841924124174616e-10,
+      "min_critical_ratio_margin": 129.9999999508055
+    },
+    {
+      "winner_divisor_count": 9,
+      "earlier_divisor_count": 84,
+      "candidate_count": 1,
+      "max_bridge_load": 3.765632457704745e-10,
+      "min_critical_ratio_margin": 10.714285710251108
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 240,
+      "candidate_count": 21,
+      "max_bridge_load": 3.682619956106629e-10,
+      "min_critical_ratio_margin": 38.6666666524272
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 224,
+      "candidate_count": 4,
+      "max_bridge_load": 3.4238949330066426e-10,
+      "min_critical_ratio_margin": 35.99999998767398
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 162,
+      "candidate_count": 1,
+      "max_bridge_load": 3.367694718480259e-10,
+      "min_critical_ratio_margin": 158.99999994645364
+    },
+    {
+      "winner_divisor_count": 16,
+      "earlier_divisor_count": 288,
+      "candidate_count": 1,
+      "max_bridge_load": 3.340956661650594e-10,
+      "min_critical_ratio_margin": 19.428571422080424
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 324,
+      "candidate_count": 22,
+      "max_bridge_load": 3.3385395975527034e-10,
+      "min_critical_ratio_margin": 159.99999994658336
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 140,
+      "candidate_count": 1,
+      "max_bridge_load": 3.281173451351974e-10,
+      "min_critical_ratio_margin": 136.9999999550479
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 280,
+      "candidate_count": 26,
+      "max_bridge_load": 3.2805873315795367e-10,
+      "min_critical_ratio_margin": 137.99999995472788
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 360,
+      "candidate_count": 42,
+      "max_bridge_load": 3.1556299396273066e-10,
+      "min_critical_ratio_margin": 177.99999994382978
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 256,
+      "candidate_count": 9,
+      "max_bridge_load": 3.104530557360779e-10,
+      "min_critical_ratio_margin": 41.333333320501275
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 280,
+      "candidate_count": 2,
+      "max_bridge_load": 2.768810322947542e-10,
+      "min_critical_ratio_margin": 68.49999998103365
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 220,
+      "candidate_count": 9,
+      "max_bridge_load": 2.5879659937689113e-10,
+      "min_critical_ratio_margin": 107.99999997204996
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 432,
+      "candidate_count": 7,
+      "max_bridge_load": 2.531519531903281e-10,
+      "min_critical_ratio_margin": 213.9999999458255
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 270,
+      "candidate_count": 1,
+      "max_bridge_load": 2.0686022928265746e-10,
+      "min_critical_ratio_margin": 65.99999998634722
+    },
+    {
+      "winner_divisor_count": 10,
+      "earlier_divisor_count": 144,
+      "candidate_count": 1,
+      "max_bridge_load": 2.029305015901003e-10,
+      "min_critical_ratio_margin": 16.749999996600913
+    },
+    {
+      "winner_divisor_count": 5,
+      "earlier_divisor_count": 80,
+      "candidate_count": 1,
+      "max_bridge_load": 2.0239231623975228e-10,
+      "min_critical_ratio_margin": 24.999999994940193
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 384,
+      "candidate_count": 45,
+      "max_bridge_load": 1.9508127277321674e-10,
+      "min_critical_ratio_margin": 189.99999996293457
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 288,
+      "candidate_count": 5,
+      "max_bridge_load": 1.913372983862262e-10,
+      "min_critical_ratio_margin": 46.66666665773759
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 208,
+      "candidate_count": 9,
+      "max_bridge_load": 1.7167886720080654e-10,
+      "min_critical_ratio_margin": 101.99999998248876
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 114,
+      "candidate_count": 1,
+      "max_bridge_load": 1.7142986401499652e-10,
+      "min_critical_ratio_margin": 17.666666663638075
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 189,
+      "candidate_count": 3,
+      "max_bridge_load": 1.7044047374660344e-10,
+      "min_critical_ratio_margin": 92.49999998423425
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 196,
+      "candidate_count": 7,
+      "max_bridge_load": 1.6538057266239173e-10,
+      "min_critical_ratio_margin": 95.99999998412346
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 320,
+      "candidate_count": 2,
+      "max_bridge_load": 1.5281918038704353e-10,
+      "min_critical_ratio_margin": 51.999999992053404
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 252,
+      "candidate_count": 2,
+      "max_bridge_load": 1.486859597192603e-10,
+      "min_critical_ratio_margin": 40.6666666606201
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 176,
+      "candidate_count": 1,
+      "max_bridge_load": 1.4120419119681823e-10,
+      "min_critical_ratio_margin": 27.999999996046284
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 70,
+      "candidate_count": 1,
+      "max_bridge_load": 1.412004642562426e-10,
+      "min_critical_ratio_margin": 66.99999999053956
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 51,
+      "candidate_count": 1,
+      "max_bridge_load": 1.340799150193803e-10,
+      "min_critical_ratio_margin": 23.499999996849123
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 256,
+      "candidate_count": 9,
+      "max_bridge_load": 1.332188430715609e-10,
+      "min_critical_ratio_margin": 252.99999996629563
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 420,
+      "candidate_count": 1,
+      "max_bridge_load": 1.246095894209746e-10,
+      "min_critical_ratio_margin": 103.49999998710291
+    },
+    {
+      "winner_divisor_count": 6,
+      "earlier_divisor_count": 336,
+      "candidate_count": 1,
+      "max_bridge_load": 1.1446712130347088e-10,
+      "min_critical_ratio_margin": 82.49999999055646
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 136,
+      "candidate_count": 1,
+      "max_bridge_load": 1.0706339182212676e-10,
+      "min_critical_ratio_margin": 65.99999999293382
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 220,
+      "candidate_count": 1,
+      "max_bridge_load": 1.0101917415779917e-10,
+      "min_critical_ratio_margin": 35.33333332976399
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 250,
+      "candidate_count": 3,
+      "max_bridge_load": 9.576343692736269e-11,
+      "min_critical_ratio_margin": 122.99999998822109
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 243,
+      "candidate_count": 2,
+      "max_bridge_load": 9.509156270400446e-11,
+      "min_critical_ratio_margin": 119.49999998863656
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 114,
+      "candidate_count": 1,
+      "max_bridge_load": 9.465468812793047e-11,
+      "min_critical_ratio_margin": 54.999999994793995
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 210,
+      "candidate_count": 1,
+      "max_bridge_load": 9.086149654451382e-11,
+      "min_critical_ratio_margin": 33.66666666360766
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 378,
+      "candidate_count": 1,
+      "max_bridge_load": 8.68570824295414e-11,
+      "min_critical_ratio_margin": 186.99999998375773
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 288,
+      "candidate_count": 6,
+      "max_bridge_load": 6.6517950601832e-11,
+      "min_critical_ratio_margin": 284.9999999810424
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 240,
+      "candidate_count": 8,
+      "max_bridge_load": 6.324105608623233e-11,
+      "min_critical_ratio_margin": 236.99999998501187
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 448,
+      "candidate_count": 5,
+      "max_bridge_load": 6.16172658441928e-11,
+      "min_critical_ratio_margin": 221.99999998632097
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 117,
+      "candidate_count": 1,
+      "max_bridge_load": 6.136481293607473e-11,
+      "min_critical_ratio_margin": 56.499999996532885
+    },
+    {
+      "winner_divisor_count": 8,
+      "earlier_divisor_count": 384,
+      "candidate_count": 1,
+      "max_bridge_load": 5.5465809250496805e-11,
+      "min_critical_ratio_margin": 62.66666666319081
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 294,
+      "candidate_count": 1,
+      "max_bridge_load": 5.5015255186723495e-11,
+      "min_critical_ratio_margin": 144.9999999920228
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 132,
+      "candidate_count": 1,
+      "max_bridge_load": 3.689125490879189e-11,
+      "min_critical_ratio_margin": 128.99999999524104
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 480,
+      "candidate_count": 4,
+      "max_bridge_load": 3.61032091244304e-11,
+      "min_critical_ratio_margin": 237.99999999140744
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 280,
+      "candidate_count": 1,
+      "max_bridge_load": 3.420928442246337e-11,
+      "min_critical_ratio_margin": 276.99999999052403
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 234,
+      "candidate_count": 1,
+      "max_bridge_load": 2.9775163976909343e-11,
+      "min_critical_ratio_margin": 114.99999999657585
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 252,
+      "candidate_count": 1,
+      "max_bridge_load": 2.7074885840668312e-11,
+      "min_critical_ratio_margin": 248.99999999325834
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 320,
+      "candidate_count": 3,
+      "max_bridge_load": 2.6769140006652878e-11,
+      "min_critical_ratio_margin": 316.9999999915142
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 330,
+      "candidate_count": 1,
+      "max_bridge_load": 2.563008700978663e-11,
+      "min_critical_ratio_margin": 162.9999999958223
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 260,
+      "candidate_count": 1,
+      "max_bridge_load": 2.5606948853007516e-11,
+      "min_critical_ratio_margin": 127.99999999672231
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 420,
+      "candidate_count": 1,
+      "max_bridge_load": 2.503537014449856e-11,
+      "min_critical_ratio_margin": 207.99999999479263
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 352,
+      "candidate_count": 1,
+      "max_bridge_load": 1.868722673410913e-11,
+      "min_critical_ratio_margin": 173.99999999674841
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 392,
+      "candidate_count": 1,
+      "max_bridge_load": 1.717966662399774e-11,
+      "min_critical_ratio_margin": 193.99999999666716
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 400,
+      "candidate_count": 1,
+      "max_bridge_load": 1.6539294423248158e-11,
+      "min_critical_ratio_margin": 396.9999999934339
+    },
+    {
+      "winner_divisor_count": 4,
+      "earlier_divisor_count": 450,
+      "candidate_count": 1,
+      "max_bridge_load": 1.539852450830729e-11,
+      "min_critical_ratio_margin": 222.99999999656612
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 360,
+      "candidate_count": 2,
+      "max_bridge_load": 1.0284958070390834e-11,
+      "min_critical_ratio_margin": 356.99999999632826
+    },
+    {
+      "winner_divisor_count": 3,
+      "earlier_divisor_count": 512,
+      "candidate_count": 1,
+      "max_bridge_load": 6.8150872415391466e-12,
+      "min_critical_ratio_margin": 508.99999999653113
+    }
+  ],
+  "gap_size_frontier": [
+    {
+      "left_prime": 7,
+      "right_prime": 11,
+      "gap": 4,
+      "winner_value": 9,
+      "winner_divisor_count": 3,
+      "winner_offset": 2,
+      "earlier_value": 8,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 1,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0566416671474377,
+      "critical_ratio_margin": 0.9433583328525623,
+      "critical_excess": 1.0,
+      "actual_excess": 0.05664166714743768,
+      "bridge_load": 0.05664166714743768,
+      "log_score_margin": 0.980829253011726
+    },
+    {
+      "left_prime": 31,
+      "right_prime": 37,
+      "gap": 6,
+      "winner_value": 33,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 32,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0088788238716906,
+      "critical_ratio_margin": 0.9911211761283094,
+      "critical_excess": 1.0,
+      "actual_excess": 0.008878823871690589,
+      "bridge_load": 0.008878823871690589,
+      "log_score_margin": 3.434964244132973
+    },
+    {
+      "left_prime": 89,
+      "right_prime": 97,
+      "gap": 8,
+      "winner_value": 91,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 90,
+      "earlier_divisor_count": 12,
+      "earlier_offset": 1,
+      "delta": 8,
+      "critical_ratio": 5.0,
+      "actual_log_ratio": 1.0024556230143338,
+      "critical_ratio_margin": 3.9975443769856662,
+      "critical_excess": 4.0,
+      "actual_excess": 0.0024556230143337743,
+      "bridge_load": 0.0006139057535834436,
+      "log_score_margin": 17.988188845134474
+    },
+    {
+      "left_prime": 241,
+      "right_prime": 251,
+      "gap": 10,
+      "winner_value": 247,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 242,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0037257865713864,
+      "critical_ratio_margin": 0.9962742134286136,
+      "critical_excess": 1.0,
+      "actual_excess": 0.003725786571386447,
+      "bridge_load": 0.003725786571386447,
+      "log_score_margin": 5.468487115685396
+    },
+    {
+      "left_prime": 211,
+      "right_prime": 223,
+      "gap": 12,
+      "winner_value": 213,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 212,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0008785242682758,
+      "critical_ratio_margin": 0.9991214757317242,
+      "critical_excess": 1.0,
+      "actual_excess": 0.0008785242682758376,
+      "bridge_load": 0.0008785242682758376,
+      "log_score_margin": 5.351880383634599
+    },
+    {
+      "left_prime": 113,
+      "right_prime": 127,
+      "gap": 14,
+      "winner_value": 121,
+      "winner_divisor_count": 3,
+      "winner_offset": 8,
+      "earlier_value": 115,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0107184709617827,
+      "critical_ratio_margin": 0.9892815290382173,
+      "critical_excess": 1.0,
+      "actual_excess": 0.010718470961782689,
+      "bridge_load": 0.010718470961782689,
+      "log_score_margin": 2.3470368555648795
+    },
+    {
+      "left_prime": 3121,
+      "right_prime": 3137,
+      "gap": 16,
+      "winner_value": 3127,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 3123,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.000159074420342,
+      "critical_ratio_margin": 0.9998409255796581,
+      "critical_excess": 1.0,
+      "actual_excess": 0.00015907442034190922,
+      "bridge_load": 0.00015907442034190922,
+      "log_score_margin": 8.045269357108316
+    },
+    {
+      "left_prime": 523,
+      "right_prime": 541,
+      "gap": 18,
+      "winner_value": 529,
+      "winner_divisor_count": 3,
+      "winner_offset": 6,
+      "earlier_value": 526,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 3,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0009077327533793,
+      "critical_ratio_margin": 0.9990922672466207,
+      "critical_excess": 1.0,
+      "actual_excess": 0.0009077327533792978,
+      "bridge_load": 0.0009077327533792978,
+      "log_score_margin": 3.1298069968085604
+    },
+    {
+      "left_prime": 11867,
+      "right_prime": 11887,
+      "gap": 20,
+      "winner_value": 11881,
+      "winner_divisor_count": 3,
+      "winner_offset": 14,
+      "earlier_value": 11873,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 6,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000717937752215,
+      "critical_ratio_margin": 0.9999282062247785,
+      "critical_excess": 1.0,
+      "actual_excess": 7.179377522148478e-05,
+      "bridge_load": 7.179377522148478e-05,
+      "log_score_margin": 4.6906743114366485
+    },
+    {
+      "left_prime": 3469,
+      "right_prime": 3491,
+      "gap": 22,
+      "winner_value": 3481,
+      "winner_divisor_count": 3,
+      "winner_offset": 12,
+      "earlier_value": 3473,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 4,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0002822149924038,
+      "critical_ratio_margin": 0.9997177850075962,
+      "critical_excess": 1.0,
+      "actual_excess": 0.0002822149924037731,
+      "bridge_load": 0.0002822149924037731,
+      "log_score_margin": 4.075236608838355
+    },
+    {
+      "left_prime": 1669,
+      "right_prime": 1693,
+      "gap": 24,
+      "winner_value": 1681,
+      "winner_divisor_count": 3,
+      "winner_offset": 12,
+      "earlier_value": 1671,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.000803997046322,
+      "critical_ratio_margin": 0.9991960029536779,
+      "critical_excess": 1.0,
+      "actual_excess": 0.000803997046322058,
+      "bridge_load": 0.000803997046322058,
+      "log_score_margin": 3.7076054618910854
+    },
+    {
+      "left_prime": 39581,
+      "right_prime": 39607,
+      "gap": 26,
+      "winner_value": 39601,
+      "winner_divisor_count": 3,
+      "winner_offset": 20,
+      "earlier_value": 39583,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.000042946405732,
+      "critical_ratio_margin": 0.9999570535942679,
+      "critical_excess": 1.0,
+      "actual_excess": 4.294640573210273e-05,
+      "bridge_load": 4.294640573210273e-05,
+      "log_score_margin": 5.292850187416198
+    },
+    {
+      "left_prime": 8971,
+      "right_prime": 8999,
+      "gap": 28,
+      "winner_value": 8977,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 8972,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.000061210991834,
+      "critical_ratio_margin": 0.9999387890081659,
+      "critical_excess": 1.0,
+      "actual_excess": 6.121099183409306e-05,
+      "bridge_load": 6.121099183409306e-05,
+      "log_score_margin": 9.101306761523508
+    },
+    {
+      "left_prime": 17627,
+      "right_prime": 17657,
+      "gap": 30,
+      "winner_value": 17635,
+      "winner_divisor_count": 4,
+      "winner_offset": 8,
+      "earlier_value": 17629,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000348041243685,
+      "critical_ratio_margin": 0.9999651958756315,
+      "critical_excess": 1.0,
+      "actual_excess": 3.480412436851488e-05,
+      "bridge_load": 3.480412436851488e-05,
+      "log_score_margin": 9.776960261901333
+    },
+    {
+      "left_prime": 5591,
+      "right_prime": 5623,
+      "gap": 32,
+      "winner_value": 5594,
+      "winner_divisor_count": 4,
+      "winner_offset": 3,
+      "earlier_value": 5593,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000207177336708,
+      "critical_ratio_margin": 1.9999792822663292,
+      "critical_excess": 2.0,
+      "actual_excess": 2.0717733670849725e-05,
+      "bridge_load": 1.0358866835424863e-05,
+      "log_score_margin": 17.258363410702856
+    },
+    {
+      "left_prime": 1327,
+      "right_prime": 1361,
+      "gap": 34,
+      "winner_value": 1329,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 1328,
+      "earlier_divisor_count": 10,
+      "earlier_offset": 1,
+      "delta": 6,
+      "critical_ratio": 4.0,
+      "actual_log_ratio": 1.0001046702459722,
+      "critical_ratio_margin": 2.999895329754028,
+      "critical_excess": 3.0,
+      "actual_excess": 0.00010467024597216046,
+      "bridge_load": 3.4890081990720155e-05,
+      "log_score_margin": 21.57353526143227
+    },
+    {
+      "left_prime": 78941,
+      "right_prime": 78977,
+      "gap": 36,
+      "winner_value": 78961,
+      "winner_divisor_count": 3,
+      "winner_offset": 20,
+      "earlier_value": 78943,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000202178870035,
+      "critical_ratio_margin": 0.9999797821129965,
+      "critical_excess": 1.0,
+      "actual_excess": 2.0217887003459722e-05,
+      "bridge_load": 2.0217887003459722e-05,
+      "log_score_margin": 5.6381266827079735
+    },
+    {
+      "left_prime": 30593,
+      "right_prime": 30631,
+      "gap": 38,
+      "winner_value": 30598,
+      "winner_divisor_count": 4,
+      "winner_offset": 5,
+      "earlier_value": 30594,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000126577232804,
+      "critical_ratio_margin": 1.9999873422767196,
+      "critical_excess": 2.0,
+      "actual_excess": 1.265772328040704e-05,
+      "bridge_load": 6.32886164020352e-06,
+      "log_score_margin": 20.656987644522307
+    },
+    {
+      "left_prime": 62989,
+      "right_prime": 63029,
+      "gap": 40,
+      "winner_value": 63001,
+      "winner_divisor_count": 3,
+      "winner_offset": 12,
+      "earlier_value": 62993,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 4,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000114915134573,
+      "critical_ratio_margin": 0.9999885084865427,
+      "critical_excess": 1.0,
+      "actual_excess": 1.1491513457251301e-05,
+      "bridge_load": 1.1491513457251301e-05,
+      "log_score_margin": 5.525325948957478
+    },
+    {
+      "left_prime": 52391,
+      "right_prime": 52433,
+      "gap": 42,
+      "winner_value": 52397,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 52393,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000070255338809,
+      "critical_ratio_margin": 0.9999929744661191,
+      "critical_excess": 1.0,
+      "actual_excess": 7.025533880877788e-06,
+      "bridge_load": 7.025533880877788e-06,
+      "log_score_margin": 10.866451930436678
+    },
+    {
+      "left_prime": 183203,
+      "right_prime": 183247,
+      "gap": 44,
+      "winner_value": 183215,
+      "winner_divisor_count": 4,
+      "winner_offset": 12,
+      "earlier_value": 183205,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000045040887435,
+      "critical_ratio_margin": 1.9999954959112565,
+      "critical_excess": 2.0,
+      "actual_excess": 4.504088743528811e-06,
+      "bridge_load": 2.2520443717644056e-06,
+      "log_score_margin": 24.236667464678828
+    },
+    {
+      "left_prime": 103723,
+      "right_prime": 103769,
+      "gap": 46,
+      "winner_value": 103729,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 103724,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000041736643357,
+      "critical_ratio_margin": 0.9999958263356643,
+      "critical_excess": 1.0,
+      "actual_excess": 4.173664335693772e-06,
+      "bridge_load": 4.173664335693772e-06,
+      "log_score_margin": 11.549440600587758
+    },
+    {
+      "left_prime": 157579,
+      "right_prime": 157627,
+      "gap": 48,
+      "winner_value": 157609,
+      "winner_divisor_count": 3,
+      "winner_offset": 30,
+      "earlier_value": 157582,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 3,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.000014315588756,
+      "critical_ratio_margin": 0.999985684411244,
+      "critical_excess": 1.0,
+      "actual_excess": 1.4315588755975384e-05,
+      "bridge_load": 1.4315588755975384e-05,
+      "log_score_margin": 5.983764955997932
+    },
+    {
+      "left_prime": 380657,
+      "right_prime": 380707,
+      "gap": 50,
+      "winner_value": 380689,
+      "winner_divisor_count": 3,
+      "winner_offset": 32,
+      "earlier_value": 380659,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.000006133048917,
+      "critical_ratio_margin": 0.999993866951083,
+      "critical_excess": 1.0,
+      "actual_excess": 6.133048916945327e-06,
+      "bridge_load": 6.133048916945327e-06,
+      "log_score_margin": 6.424790216316702
+    },
+    {
+      "left_prime": 19609,
+      "right_prime": 19661,
+      "gap": 52,
+      "winner_value": 19613,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 19611,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000103176821633,
+      "critical_ratio_margin": 0.9999896823178367,
+      "critical_excess": 1.0,
+      "actual_excess": 1.0317682163307751e-05,
+      "bridge_load": 1.0317682163307751e-05,
+      "log_score_margin": 9.883743933900165
+    },
+    {
+      "left_prime": 121789,
+      "right_prime": 121843,
+      "gap": 54,
+      "winner_value": 121801,
+      "winner_divisor_count": 3,
+      "winner_offset": 12,
+      "earlier_value": 121791,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.000007011449169,
+      "critical_ratio_margin": 0.999992988550831,
+      "critical_excess": 1.0,
+      "actual_excess": 7.01144916903651e-06,
+      "bridge_load": 7.01144916903651e-06,
+      "log_score_margin": 5.854989817699771
+    },
+    {
+      "left_prime": 82073,
+      "right_prime": 82129,
+      "gap": 56,
+      "winner_value": 82078,
+      "winner_divisor_count": 4,
+      "winner_offset": 5,
+      "earlier_value": 82074,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000043069992628,
+      "critical_ratio_margin": 1.9999956930007372,
+      "critical_excess": 2.0,
+      "actual_excess": 4.306999262793099e-06,
+      "bridge_load": 2.1534996313965493e-06,
+      "log_score_margin": 22.630704381316505
+    },
+    {
+      "left_prime": 58831,
+      "right_prime": 58889,
+      "gap": 58,
+      "winner_value": 58837,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 58833,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000061904849868,
+      "critical_ratio_margin": 1.9999938095150132,
+      "critical_excess": 2.0,
+      "actual_excess": 6.19048498684549e-06,
+      "bridge_load": 3.095242493422745e-06,
+      "log_score_margin": 21.964848415155288
+    },
+    {
+      "left_prime": 1203361,
+      "right_prime": 1203421,
+      "gap": 60,
+      "winner_value": 1203409,
+      "winner_divisor_count": 3,
+      "winner_offset": 48,
+      "earlier_value": 1203367,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 6,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.000002492848645,
+      "critical_ratio_margin": 0.9999975071513549,
+      "critical_excess": 1.0,
+      "actual_excess": 2.4928486450637166e-06,
+      "bridge_load": 2.4928486450637166e-06,
+      "log_score_margin": 7.000299558813687
+    },
+    {
+      "left_prime": 190409,
+      "right_prime": 190471,
+      "gap": 62,
+      "winner_value": 190415,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 190411,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000017279816107,
+      "critical_ratio_margin": 1.9999982720183893,
+      "critical_excess": 2.0,
+      "actual_excess": 1.7279816106885448e-06,
+      "bridge_load": 8.639908053442724e-07,
+      "log_score_margin": 24.313859338590632
+    },
+    {
+      "left_prime": 89689,
+      "right_prime": 89753,
+      "gap": 64,
+      "winner_value": 89693,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 89690,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000029329752367,
+      "critical_ratio_margin": 1.9999970670247633,
+      "critical_excess": 2.0,
+      "actual_excess": 2.9329752366802353e-06,
+      "bridge_load": 1.4664876183401176e-06,
+      "log_score_margin": 22.808195670238504
+    },
+    {
+      "left_prime": 259033,
+      "right_prime": 259099,
+      "gap": 66,
+      "winner_value": 259081,
+      "winner_divisor_count": 3,
+      "winner_offset": 48,
+      "earlier_value": 259034,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 1,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000145552392912,
+      "critical_ratio_margin": 0.9999854447607088,
+      "critical_excess": 1.0,
+      "actual_excess": 1.4555239291169642e-05,
+      "bridge_load": 1.4555239291169642e-05,
+      "log_score_margin": 6.232266589646732
+    },
+    {
+      "left_prime": 1646033,
+      "right_prime": 1646101,
+      "gap": 68,
+      "winner_value": 1646089,
+      "winner_divisor_count": 3,
+      "winner_offset": 56,
+      "earlier_value": 1646035,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000022918711673,
+      "critical_ratio_margin": 0.9999977081288327,
+      "critical_excess": 1.0,
+      "actual_excess": 2.2918711672925696e-06,
+      "bridge_load": 2.2918711672925696e-06,
+      "log_score_margin": 7.156923559046948
+    },
+    {
+      "left_prime": 175141,
+      "right_prime": 175211,
+      "gap": 70,
+      "winner_value": 175151,
+      "winner_divisor_count": 4,
+      "winner_offset": 10,
+      "earlier_value": 175143,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000037831991495,
+      "critical_ratio_margin": 1.9999962168008505,
+      "critical_excess": 2.0,
+      "actual_excess": 3.7831991495096418e-06,
+      "bridge_load": 1.8915995747548209e-06,
+      "log_score_margin": 24.14667044824872
+    },
+    {
+      "left_prime": 31397,
+      "right_prime": 31469,
+      "gap": 72,
+      "winner_value": 31399,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 31398,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000030758275926,
+      "critical_ratio_margin": 1.9999969241724074,
+      "critical_excess": 2.0,
+      "actual_excess": 3.0758275926245915e-06,
+      "bridge_load": 1.5379137963122957e-06,
+      "log_score_margin": 20.70896710254533
+    },
+    {
+      "left_prime": 886667,
+      "right_prime": 886741,
+      "gap": 74,
+      "winner_value": 886679,
+      "winner_divisor_count": 4,
+      "winner_offset": 12,
+      "earlier_value": 886671,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 4,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000006588039827,
+      "critical_ratio_margin": 0.9999993411960173,
+      "critical_excess": 1.0,
+      "actual_excess": 6.588039827004621e-07,
+      "bridge_load": 6.588039827004621e-07,
+      "log_score_margin": 13.695220256824282
+    },
+    {
+      "left_prime": 3806347,
+      "right_prime": 3806423,
+      "gap": 76,
+      "winner_value": 3806401,
+      "winner_divisor_count": 3,
+      "winner_offset": 54,
+      "earlier_value": 3806349,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.000000901605643,
+      "critical_ratio_margin": 0.999999098394357,
+      "critical_excess": 1.0,
+      "actual_excess": 9.016056430333208e-07,
+      "bridge_load": 9.016056430333208e-07,
+      "log_score_margin": 7.5760836793312
+    },
+    {
+      "left_prime": 3500593,
+      "right_prime": 3500671,
+      "gap": 78,
+      "winner_value": 3500641,
+      "winner_divisor_count": 3,
+      "winner_offset": 48,
+      "earlier_value": 3500594,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 1,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000008910145832,
+      "critical_ratio_margin": 0.9999991089854168,
+      "critical_excess": 1.0,
+      "actual_excess": 8.910145832263794e-07,
+      "bridge_load": 8.910145832263794e-07,
+      "log_score_margin": 7.534214900071428
+    },
+    {
+      "left_prime": 1122287,
+      "right_prime": 1122367,
+      "gap": 80,
+      "winner_value": 1122299,
+      "winner_divisor_count": 4,
+      "winner_offset": 12,
+      "earlier_value": 1122291,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 4,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.00000051168693,
+      "critical_ratio_margin": 0.9999994883130701,
+      "critical_excess": 1.0,
+      "actual_excess": 5.116869299381932e-07,
+      "bridge_load": 5.116869299381932e-07,
+      "log_score_margin": 13.930875561475407
+    },
+    {
+      "left_prime": 1885069,
+      "right_prime": 1885151,
+      "gap": 82,
+      "winner_value": 1885129,
+      "winner_divisor_count": 3,
+      "winner_offset": 60,
+      "earlier_value": 1885071,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 2,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000021293227828,
+      "critical_ratio_margin": 0.9999978706772172,
+      "critical_excess": 1.0,
+      "actual_excess": 2.129322782762344e-06,
+      "bridge_load": 2.129322782762344e-06,
+      "log_score_margin": 7.224722638169433
+    },
+    {
+      "left_prime": 461717,
+      "right_prime": 461801,
+      "gap": 84,
+      "winner_value": 461722,
+      "winner_divisor_count": 4,
+      "winner_offset": 5,
+      "earlier_value": 461719,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000004981661346,
+      "critical_ratio_margin": 0.9999995018338654,
+      "critical_excess": 1.0,
+      "actual_excess": 4.981661345659916e-07,
+      "bridge_load": 4.981661345659916e-07,
+      "log_score_margin": 13.04270526247442
+    },
+    {
+      "left_prime": 1215923,
+      "right_prime": 1216009,
+      "gap": 86,
+      "winner_value": 1215934,
+      "winner_divisor_count": 4,
+      "winner_offset": 11,
+      "earlier_value": 1215926,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 3,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000004695823548,
+      "critical_ratio_margin": 1.9999995304176452,
+      "critical_excess": 2.0,
+      "actual_excess": 4.695823547784528e-07,
+      "bridge_load": 2.347911773892264e-07,
+      "log_score_margin": 28.02202638946055
+    },
+    {
+      "left_prime": 3323311,
+      "right_prime": 3323399,
+      "gap": 88,
+      "winner_value": 3323329,
+      "winner_divisor_count": 3,
+      "winner_offset": 18,
+      "earlier_value": 3323315,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 4,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000002805353951,
+      "critical_ratio_margin": 0.9999997194646049,
+      "critical_excess": 1.0,
+      "actual_excess": 2.8053539513628323e-07,
+      "bridge_load": 2.8053539513628323e-07,
+      "log_score_margin": 7.508234562026383
+    },
+    {
+      "left_prime": 818723,
+      "right_prime": 818813,
+      "gap": 90,
+      "winner_value": 818731,
+      "winner_divisor_count": 4,
+      "winner_offset": 8,
+      "earlier_value": 818725,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000005382423922,
+      "critical_ratio_margin": 0.9999994617576078,
+      "critical_excess": 1.0,
+      "actual_excess": 5.382423922117852e-07,
+      "bridge_load": 5.382423922117852e-07,
+      "log_score_margin": 13.61549620267308
+    },
+    {
+      "left_prime": 927869,
+      "right_prime": 927961,
+      "gap": 92,
+      "winner_value": 927877,
+      "winner_divisor_count": 4,
+      "winner_offset": 8,
+      "earlier_value": 927874,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 5,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.000000235301248,
+      "critical_ratio_margin": 1.999999764698752,
+      "critical_excess": 2.0,
+      "actual_excess": 2.3530124804160835e-07,
+      "bridge_load": 1.1765062402080417e-07,
+      "log_score_margin": 27.481299220183402
+    },
+    {
+      "left_prime": 2294533,
+      "right_prime": 2294627,
+      "gap": 94,
+      "winner_value": 2294539,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 2294534,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000001487835126,
+      "critical_ratio_margin": 1.9999998512164874,
+      "critical_excess": 2.0,
+      "actual_excess": 1.4878351262126444e-07,
+      "bridge_load": 7.439175631063222e-08,
+      "log_score_margin": 29.292078482411444
+    },
+    {
+      "left_prime": 360653,
+      "right_prime": 360749,
+      "gap": 96,
+      "winner_value": 360659,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 360655,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000008667669702,
+      "critical_ratio_margin": 1.9999991332330298,
+      "critical_excess": 2.0,
+      "actual_excess": 8.667669701978298e-07,
+      "bridge_load": 4.333834850989149e-07,
+      "log_score_margin": 25.591343112515013
+    },
+    {
+      "left_prime": 4049609,
+      "right_prime": 4049707,
+      "gap": 98,
+      "winner_value": 4049621,
+      "winner_divisor_count": 4,
+      "winner_offset": 12,
+      "earlier_value": 4049611,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000001623076515,
+      "critical_ratio_margin": 1.9999998376923485,
+      "critical_excess": 2.0,
+      "actual_excess": 1.6230765154112703e-07,
+      "bridge_load": 8.115382577056351e-08,
+      "log_score_margin": 30.428260300804
+    },
+    {
+      "left_prime": 838249,
+      "right_prime": 838349,
+      "gap": 100,
+      "winner_value": 838259,
+      "winner_divisor_count": 4,
+      "winner_offset": 10,
+      "earlier_value": 838251,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000006997275688,
+      "critical_ratio_margin": 0.9999993002724312,
+      "critical_excess": 1.0,
+      "actual_excess": 6.997275687758986e-07,
+      "bridge_load": 6.997275687758986e-07,
+      "log_score_margin": 13.639063313654
+    },
+    {
+      "left_prime": 4044077,
+      "right_prime": 4044179,
+      "gap": 102,
+      "winner_value": 4044121,
+      "winner_divisor_count": 3,
+      "winner_offset": 44,
+      "earlier_value": 4044081,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 4,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000006501743686,
+      "critical_ratio_margin": 0.9999993498256314,
+      "critical_excess": 1.0,
+      "actual_excess": 6.501743685660699e-07,
+      "bridge_load": 6.501743685660699e-07,
+      "log_score_margin": 7.606377498822845
+    },
+    {
+      "left_prime": 1388483,
+      "right_prime": 1388587,
+      "gap": 104,
+      "winner_value": 1388489,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 1388485,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000002036828237,
+      "critical_ratio_margin": 1.9999997963171763,
+      "critical_excess": 2.0,
+      "actual_excess": 2.0368282371840962e-07,
+      "bridge_load": 1.0184141185920481e-07,
+      "log_score_margin": 28.28744468445798
+    },
+    {
+      "left_prime": 1098847,
+      "right_prime": 1098953,
+      "gap": 106,
+      "winner_value": 1098853,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 1098849,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000002616984287,
+      "critical_ratio_margin": 1.9999997383015713,
+      "critical_excess": 2.0,
+      "actual_excess": 2.6169842870515936e-07,
+      "bridge_load": 1.3084921435257968e-07,
+      "log_score_margin": 27.8195440124573
+    },
+    {
+      "left_prime": 7950001,
+      "right_prime": 7950109,
+      "gap": 108,
+      "winner_value": 7950011,
+      "winner_divisor_count": 4,
+      "winner_offset": 10,
+      "earlier_value": 7950004,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 3,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000000554169477,
+      "critical_ratio_margin": 0.9999999445830523,
+      "critical_excess": 1.0,
+      "actual_excess": 5.541694769739536e-08,
+      "bridge_load": 5.541694769739536e-08,
+      "log_score_margin": 15.888682109272727
+    },
+    {
+      "left_prime": 15436943,
+      "right_prime": 15437053,
+      "gap": 110,
+      "winner_value": 15437041,
+      "winner_divisor_count": 3,
+      "winner_offset": 98,
+      "earlier_value": 15436951,
+      "earlier_divisor_count": 4,
+      "earlier_offset": 8,
+      "delta": 1,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000003522265062,
+      "critical_ratio_margin": 0.9999996477734938,
+      "critical_excess": 1.0,
+      "actual_excess": 3.5222650618393914e-07,
+      "bridge_load": 3.5222650618393914e-07,
+      "log_score_margin": 8.276134389408604
+    },
+    {
+      "left_prime": 16102459,
+      "right_prime": 16102571,
+      "gap": 112,
+      "winner_value": 16102469,
+      "winner_divisor_count": 4,
+      "winner_offset": 10,
+      "earlier_value": 16102462,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 3,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000000261964197,
+      "critical_ratio_margin": 1.9999999738035803,
+      "critical_excess": 2.0,
+      "actual_excess": 2.619641970014186e-08,
+      "bridge_load": 1.309820985007093e-08,
+      "log_score_margin": 33.18896504032075
+    },
+    {
+      "left_prime": 492113,
+      "right_prime": 492227,
+      "gap": 114,
+      "winner_value": 492117,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 492114,
+      "earlier_divisor_count": 16,
+      "earlier_offset": 1,
+      "delta": 12,
+      "critical_ratio": 7.0,
+      "actual_log_ratio": 1.0000004651238574,
+      "critical_ratio_margin": 5.999999534876142,
+      "critical_excess": 6.0,
+      "actual_excess": 4.6512385742936146e-07,
+      "bridge_load": 7.752064290489358e-08,
+      "log_score_margin": 78.63878795957928
+    },
+    {
+      "left_prime": 5845193,
+      "right_prime": 5845309,
+      "gap": 116,
+      "winner_value": 5845199,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 5845195,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000000439199537,
+      "critical_ratio_margin": 1.9999999560800463,
+      "critical_excess": 2.0,
+      "actual_excess": 4.3919953673920986e-08,
+      "bridge_load": 2.1959976836960493e-08,
+      "log_score_margin": 31.162260344036557
+    },
+    {
+      "left_prime": 6158563,
+      "right_prime": 6158681,
+      "gap": 118,
+      "winner_value": 6158566,
+      "winner_divisor_count": 4,
+      "winner_offset": 3,
+      "earlier_value": 6158564,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000000207729558,
+      "critical_ratio_margin": 0.9999999792270442,
+      "critical_excess": 1.0,
+      "actual_excess": 2.0772955799941428e-08,
+      "bridge_load": 2.0772955799941428e-08,
+      "log_score_margin": 15.633353866699645
+    },
+    {
+      "left_prime": 7160227,
+      "right_prime": 7160347,
+      "gap": 120,
+      "winner_value": 7160233,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 7160229,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000000353927607,
+      "critical_ratio_margin": 0.9999999646072393,
+      "critical_excess": 1.0,
+      "actual_excess": 3.53927607221749e-08,
+      "bridge_load": 3.53927607221749e-08,
+      "log_score_margin": 15.784051963024403
+    },
+    {
+      "left_prime": 6613631,
+      "right_prime": 6613753,
+      "gap": 122,
+      "winner_value": 6613637,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 6613633,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000000385116106,
+      "critical_ratio_margin": 1.9999999614883894,
+      "critical_excess": 2.0,
+      "actual_excess": 3.851161056722674e-08,
+      "bridge_load": 1.925580528361337e-08,
+      "log_score_margin": 31.409286760441496
+    },
+    {
+      "left_prime": 9707989,
+      "right_prime": 9708113,
+      "gap": 124,
+      "winner_value": 9707998,
+      "winner_divisor_count": 4,
+      "winner_offset": 9,
+      "earlier_value": 9707990,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.00000005122076,
+      "critical_ratio_margin": 1.99999994877924,
+      "critical_excess": 2.0,
+      "actual_excess": 5.122076007779697e-08,
+      "bridge_load": 2.5610380038898484e-08,
+      "log_score_margin": 32.17691880743648
+    },
+    {
+      "left_prime": 4738651,
+      "right_prime": 4738777,
+      "gap": 126,
+      "winner_value": 4738659,
+      "winner_divisor_count": 4,
+      "winner_offset": 8,
+      "earlier_value": 4738652,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 1,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000000961022029,
+      "critical_ratio_margin": 0.9999999038977971,
+      "critical_excess": 1.0,
+      "actual_excess": 9.610220286226934e-08,
+      "bridge_load": 9.610220286226934e-08,
+      "log_score_margin": 15.371261787827356
+    },
+    {
+      "left_prime": 3851459,
+      "right_prime": 3851587,
+      "gap": 128,
+      "winner_value": 3851473,
+      "winner_divisor_count": 4,
+      "winner_offset": 14,
+      "earlier_value": 3851461,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000002054671258,
+      "critical_ratio_margin": 1.9999997945328742,
+      "critical_excess": 2.0,
+      "actual_excess": 2.054671257578633e-07,
+      "bridge_load": 1.0273356287893165e-07,
+      "log_score_margin": 30.32792311390193
+    },
+    {
+      "left_prime": 5518687,
+      "right_prime": 5518817,
+      "gap": 130,
+      "winner_value": 5518691,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 5518689,
+      "earlier_divisor_count": 24,
+      "earlier_offset": 2,
+      "delta": 20,
+      "critical_ratio": 11.0,
+      "actual_log_ratio": 1.0000000233453359,
+      "critical_ratio_margin": 9.999999976654664,
+      "critical_excess": 10.0,
+      "actual_excess": 2.3345335886659768e-08,
+      "bridge_load": 2.3345335886659767e-09,
+      "log_score_margin": 155.23650853805202
+    },
+    {
+      "left_prime": 5888741,
+      "right_prime": 5888873,
+      "gap": 132,
+      "winner_value": 5888747,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 5888743,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.000000043574402,
+      "critical_ratio_margin": 1.999999956425598,
+      "critical_excess": 2.0,
+      "actual_excess": 4.3574402086576924e-08,
+      "bridge_load": 2.1787201043288462e-08,
+      "log_score_margin": 31.177105561314917
+    },
+    {
+      "left_prime": 12703367,
+      "right_prime": 12703501,
+      "gap": 134,
+      "winner_value": 12703373,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 12703369,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 2,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.000000019249849,
+      "critical_ratio_margin": 1.999999980750151,
+      "critical_excess": 2.0,
+      "actual_excess": 1.9249849048108558e-08,
+      "bridge_load": 9.624924524054279e-09,
+      "log_score_margin": 32.71475526880299
+    },
+    {
+      "left_prime": 6371401,
+      "right_prime": 6371537,
+      "gap": 136,
+      "winner_value": 6371407,
+      "winner_divisor_count": 4,
+      "winner_offset": 6,
+      "earlier_value": 6371402,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000000500887083,
+      "critical_ratio_margin": 1.9999999499112917,
+      "critical_excess": 2.0,
+      "actual_excess": 5.008870829215084e-08,
+      "bridge_load": 2.504435414607542e-08,
+      "log_score_margin": 31.334659410289063
+    },
+    {
+      "left_prime": 14087179,
+      "right_prime": 14087317,
+      "gap": 138,
+      "winner_value": 14087189,
+      "winner_divisor_count": 4,
+      "winner_offset": 10,
+      "earlier_value": 14087183,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 4,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000000258747819,
+      "critical_ratio_margin": 0.9999999741252181,
+      "critical_excess": 1.0,
+      "actual_excess": 2.5874781872659014e-08,
+      "bridge_load": 2.5874781872659014e-08,
+      "log_score_margin": 16.460775508939726
+    },
+    {
+      "left_prime": 8917523,
+      "right_prime": 8917663,
+      "gap": 140,
+      "winner_value": 8917531,
+      "winner_divisor_count": 4,
+      "winner_offset": 8,
+      "earlier_value": 8917525,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000000420427397,
+      "critical_ratio_margin": 0.9999999579572603,
+      "critical_excess": 1.0,
+      "actual_excess": 4.204273973407169e-08,
+      "bridge_load": 4.204273973407169e-08,
+      "log_score_margin": 16.00352832685536
+    },
+    {
+      "left_prime": 10343761,
+      "right_prime": 10343903,
+      "gap": 142,
+      "winner_value": 10343765,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 10343763,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 2,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000000119709311,
+      "critical_ratio_margin": 0.9999999880290689,
+      "critical_excess": 1.0,
+      "actual_excess": 1.1970931135252272e-08,
+      "bridge_load": 1.1970931135252272e-08,
+      "log_score_margin": 16.15189409398519
+    },
+    {
+      "left_prime": 11981443,
+      "right_prime": 11981587,
+      "gap": 144,
+      "winner_value": 11981446,
+      "winner_divisor_count": 4,
+      "winner_offset": 3,
+      "earlier_value": 11981444,
+      "earlier_divisor_count": 12,
+      "earlier_offset": 1,
+      "delta": 8,
+      "critical_ratio": 5.0,
+      "actual_log_ratio": 1.0000000102414939,
+      "critical_ratio_margin": 3.999999989758506,
+      "critical_excess": 4.0,
+      "actual_excess": 1.0241493875184915e-08,
+      "bridge_load": 2.5603734687962287e-09,
+      "log_score_margin": 65.19547854352169
+    },
+    {
+      "left_prime": 6034247,
+      "right_prime": 6034393,
+      "gap": 146,
+      "winner_value": 6034249,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 6034248,
+      "earlier_divisor_count": 96,
+      "earlier_offset": 1,
+      "delta": 92,
+      "critical_ratio": 47.0,
+      "actual_log_ratio": 1.0000000106143037,
+      "critical_ratio_margin": 45.9999999893857,
+      "critical_excess": 46.0,
+      "actual_excess": 1.0614303658229574e-08,
+      "bridge_load": 2.307457317006429e-10,
+      "log_score_margin": 718.1962425555013
+    },
+    {
+      "left_prime": 2010733,
+      "right_prime": 2010881,
+      "gap": 148,
+      "winner_value": 2010737,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 2010734,
+      "earlier_divisor_count": 8,
+      "earlier_offset": 1,
+      "delta": 4,
+      "critical_ratio": 3.0,
+      "actual_log_ratio": 1.0000001027966305,
+      "critical_ratio_margin": 1.9999998972033695,
+      "critical_excess": 2.0,
+      "actual_excess": 1.0279663054113541e-07,
+      "bridge_load": 5.139831527056771e-08,
+      "log_score_margin": 29.028019283018168
+    },
+    {
+      "left_prime": 13626257,
+      "right_prime": 13626407,
+      "gap": 150,
+      "winner_value": 13626269,
+      "winner_divisor_count": 4,
+      "winner_offset": 12,
+      "earlier_value": 13626263,
+      "earlier_divisor_count": 6,
+      "earlier_offset": 6,
+      "delta": 2,
+      "critical_ratio": 2.0,
+      "actual_log_ratio": 1.0000000268041882,
+      "critical_ratio_margin": 0.9999999731958118,
+      "critical_excess": 1.0,
+      "actual_excess": 2.680418820233399e-08,
+      "bridge_load": 2.680418820233399e-08,
+      "log_score_margin": 16.427509151139105
+    },
+    {
+      "left_prime": 8421251,
+      "right_prime": 8421403,
+      "gap": 152,
+      "winner_value": 8421253,
+      "winner_divisor_count": 4,
+      "winner_offset": 2,
+      "earlier_value": 8421252,
+      "earlier_divisor_count": 48,
+      "earlier_offset": 1,
+      "delta": 44,
+      "critical_ratio": 23.0,
+      "actual_log_ratio": 1.0000000074467061,
+      "critical_ratio_margin": 21.999999992553295,
+      "critical_excess": 22.0,
+      "actual_excess": 7.446706140612491e-09,
+      "bridge_load": 3.384866427551132e-10,
+      "log_score_margin": 350.8179193937839
+    },
+    {
+      "left_prime": 4652353,
+      "right_prime": 4652507,
+      "gap": 154,
+      "winner_value": 4652357,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 4652355,
+      "earlier_divisor_count": 16,
+      "earlier_offset": 2,
+      "delta": 12,
+      "critical_ratio": 7.0,
+      "actual_log_ratio": 1.0000000280005836,
+      "critical_ratio_margin": 5.999999971999417,
+      "critical_excess": 6.0,
+      "actual_excess": 2.8000583629506082e-08,
+      "bridge_load": 4.666763938251013e-09,
+      "log_score_margin": 92.11730417594893
+    },
+    {
+      "left_prime": 17983717,
+      "right_prime": 17983873,
+      "gap": 156,
+      "winner_value": 17983721,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 17983718,
+      "earlier_divisor_count": 16,
+      "earlier_offset": 1,
+      "delta": 12,
+      "critical_ratio": 7.0,
+      "actual_log_ratio": 1.0000000099860986,
+      "critical_ratio_margin": 5.999999990013901,
+      "critical_excess": 6.0,
+      "actual_excess": 9.986098614689354e-09,
+      "bridge_load": 1.6643497691148923e-09,
+      "log_score_margin": 100.22986393886822
+    },
+    {
+      "left_prime": 17051707,
+      "right_prime": 17051887,
+      "gap": 180,
+      "winner_value": 17051711,
+      "winner_divisor_count": 4,
+      "winner_offset": 4,
+      "earlier_value": 17051708,
+      "earlier_divisor_count": 12,
+      "earlier_offset": 1,
+      "delta": 8,
+      "critical_ratio": 5.0,
+      "actual_log_ratio": 1.0000000105655757,
+      "critical_ratio_margin": 3.999999989434424,
+      "critical_excess": 4.0,
+      "actual_excess": 1.056557574763417e-08,
+      "bridge_load": 2.6413939369085426e-09,
+      "log_score_margin": 66.60704355458297
+    }
+  ]
+}
