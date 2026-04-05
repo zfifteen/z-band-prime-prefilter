@@ -51,6 +51,10 @@ refer directly to an older artifact whose title or filename already uses it.
   Exact prime-gap admissibility result showing that every earlier spoiler
   candidate on the tested exact surfaces has a later interior dominator, with
   the required offset shrinking sharply as the earlier divisor class rises.
+- [`no_early_spoiler_margin_findings.md`](./no_early_spoiler_margin_findings.md):
+  Exact margin scan against the actual `GWR` carrier, recording the tightest
+  direct log-score and critical-ratio slack for the no-early-spoiler
+  condition.
 
 ## Legacy Inputs
 
