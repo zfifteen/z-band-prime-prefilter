@@ -18,15 +18,11 @@ The ordered dominance theorem is already proved in
 
 for composite integers $a < b$, if $d(a) \le d(b)$, then
 
-$$
-L(a) > L(b),
-$$
+$$L(a) > L(b).$$
 
 where
 
-$$
-L(n) = \left(1 - \frac{d(n)}{2}\right)\ln(n).
-$$
+$$L(n) = \left(1 - \frac{d(n)}{2}\right)\ln(n).$$
 
 So inside a prime gap, once the leftmost minimum-divisor carrier $w$ appears,
 every later candidate is already eliminated.
@@ -35,35 +31,23 @@ The only missing universal step is the earlier side:
 
 for every earlier interior candidate $k < w$ with
 
-$$
-\delta = d(k) - d_{\min} \ge 1,
-$$
+$$\delta = d(k) - d_{\min} \ge 1.$$
 
 prove
 
-$$
-L(k) < L(w).
-$$
+$$L(k) < L(w).$$
 
 Equivalently,
 
-$$
-\frac{\ln w}{\ln k} < 1 + \frac{\delta}{d_{\min} - 2}.
-$$
+$$\frac{\ln w}{\ln k} < 1 + \frac{\delta}{d_{\min} - 2}.$$
 
 ## 2. Normalized Bridge Load
 
 Define the dimensionless bridge quantity
 
-$$
-B(k,w)
-=
-\frac{\frac{\ln w}{\ln k} - 1}{\frac{\delta}{d_{\min} - 2}}.
-$$
+$$B(k,w) = \frac{\frac{\ln w}{\ln k} - 1}{\frac{\delta}{d_{\min} - 2}}.$$
 
-$$
-B(k,w) < 1.
-$$
+$$B(k,w) < 1.$$
 
 This is equivalent to $L(k) < L(w)$.
 
@@ -76,39 +60,19 @@ Let $g(p) = q - p$ denote the prime gap.
 
 For any earlier candidate $k$ and winner $w$ in the gap interior,
 
-$$
-w - k \le g(p).
-$$
+$$w - k \le g(p).$$
 
 Since
 
-$$
-\ln\!\left(1 + x\right) \le x \qquad (x > -1),
-$$
+$$\ln(1 + x) \le x \text{ for } x > -1.$$
 
 one has
 
-$$
-\ln\frac{w}{k}
-=
-\ln\left(1 + \frac{w - k}{k}\right)
-\le
-\frac{w - k}{k}
-\le
-\frac{g(p)}{p+1}
-<
-\frac{g(p)}{p}.
-$$
+$$\ln\frac{w}{k} = \ln\left(1 + \frac{w - k}{k}\right) \le \frac{w - k}{k} \le \frac{g(p)}{p+1} < \frac{g(p)}{p}.$$
 
 Because $\ln k > \ln p$, it follows that
 
-$$
-\frac{\ln w}{\ln k} - 1
-=
-\frac{\ln(w/k)}{\ln k}
-<
-\frac{g(p)}{p \ln p}.
-$$
+$$\frac{\ln w}{\ln k} - 1 = \frac{\ln(w/k)}{\ln k} < \frac{g(p)}{p \ln p}.$$
 
 So the bridge numerator is controlled purely by gap geometry.
 
@@ -116,50 +80,26 @@ So the bridge numerator is controlled purely by gap geometry.
 
 For every earlier candidate,
 
-$$
-\delta \ge 1.
-$$
+$$\delta \ge 1.$$
 
 So
 
-$$
-\frac{\delta}{d_{\min} - 2}
-\ge
-\frac{1}{d_{\min} - 2}.
-$$
+$$\frac{\delta}{d_{\min} - 2} \ge \frac{1}{d_{\min} - 2}.$$
 
 Now use any explicit maximal-order upper bound for the divisor function, for
 example a Nicolas-Robin style majoration of the form
 
-$$
-d(n)
-\le
-\exp\!\left(
-c \frac{\ln n}{\ln\ln n}
-\right)
-$$
+$$d(n) \le \exp\left(c \frac{\ln n}{\ln\ln n}\right)$$
 
 for all sufficiently large $n$, with an effective absolute constant $c > 0$.
 
 Since $w$ lies in the gap interior near $p$, this gives
 
-$$
-d_{\min} - 2
-\le
-\exp\!\left(
-c \frac{\ln p}{\ln\ln p}
-\right)
-$$
+$$d_{\min} - 2 \le \exp\left(c \frac{\ln p}{\ln\ln p}\right)$$
 
 for all sufficiently large $p$, hence
 
-$$
-\frac{\delta}{d_{\min} - 2}
-\ge
-\exp\!\left(
--c \frac{\ln p}{\ln\ln p}
-\right).
-$$
+$$\frac{\delta}{d_{\min} - 2} \ge \exp\left(-c \frac{\ln p}{\ln\ln p}\right).$$
 
 So the bridge denominator is bounded below by a subpolynomial term.
 
@@ -167,52 +107,27 @@ So the bridge denominator is bounded below by a subpolynomial term.
 
 Combine the numerator and denominator bounds:
 
-$$
-B(k,w)
-<
-\frac{g(p)}{p \ln p}
-\cdot
-\exp\!\left(
-c \frac{\ln p}{\ln\ln p}
-\right).
-$$
+$$B(k,w) < \frac{g(p)}{p \ln p} \cdot \exp\left(c \frac{\ln p}{\ln\ln p}\right).$$
 
 Now assume any proved prime-gap upper bound of the form
 
-$$
-g(p) \le p^\theta
-$$
+$$g(p) \le p^\theta$$
 
 for all sufficiently large $p$, with some fixed $\theta < 1$.
 
 Then
 
-$$
-B(k,w)
-<
-p^{\theta - 1}
-(\ln p)^{-1}
-\exp\!\left(
-c \frac{\ln p}{\ln\ln p}
-\right)
-=
-p^{\theta - 1 + o(1)}.
-$$
+$$B(k,w) < p^{\theta - 1} (\ln p)^{-1} \exp\left(c \frac{\ln p}{\ln\ln p}\right) = p^{\theta - 1 + o(1)}.$$
 
 Because $\theta < 1$, the exponent $\theta - 1 + o(1)$ is eventually
 negative. Therefore
 
-$$
-B(k,w) \to 0
-\qquad\text{as } p \to \infty.
-$$
+$$B(k,w) \to 0 \text{ as } p \to \infty.$$
 
 So there exists an effective threshold $N_{\mathrm{bridge}}$ such that for all
 prime gaps with left endpoint $p \ge N_{\mathrm{bridge}}$,
 
-$$
-B(k,w) < 1
-$$
+$$B(k,w) < 1.$$
 
 for every earlier candidate $k$.
 
