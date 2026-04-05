@@ -79,3 +79,9 @@ They target the exact missing universal step identified in the findings notes:
     no-early-spoiler load,
   - isolates the exact remaining dependence on explicit literature constants,
   - and states the remaining finite verification obligation precisely.
+- [`proof_bridge_certificate.py`](./proof_bridge_certificate.py):
+  explicit-constant certificate helper that
+  - loads the exact finite bridge artifact,
+  - computes the bridge threshold implied by one chosen gap bound and divisor
+    majoration,
+  - and reports whether the verified finite base already closes that bridge.
