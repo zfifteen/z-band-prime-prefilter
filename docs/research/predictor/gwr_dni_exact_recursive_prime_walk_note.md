@@ -197,6 +197,11 @@ Its contract is narrow:
 - if no mismatch appears on a finite surface, the scan emits the exact frontier
   certificates that any proof of the cutoff law must explain.
 
+The proof-facing reduction and branch-obstruction notes now live in:
+
+- [`../../../gwr/experiments/proof/dni_cutoff_theorem_reduction.md`](../../../gwr/experiments/proof/dni_cutoff_theorem_reduction.md)
+- [`../../../gwr/experiments/proof/dni_cutoff_branch_reduction.md`](../../../gwr/experiments/proof/dni_cutoff_branch_reduction.md)
+
 ## 4. Exactness on the Verified Surface
 
 ### 4.1 Transition Surface
