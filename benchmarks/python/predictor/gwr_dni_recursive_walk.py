@@ -5,8 +5,10 @@ The walk starts from one known prime gap and advances step by step:
 
     1. From the current right prime, compute divisor counts at offsets
        1..cutoff (12 prefix + bounded extension stopping at the first
-       prime).  The piecewise cutoff bounds by first_open_offset are
-       {2: 44, 4: 60, 6: 60}.
+       prime).  bounded  (dynamic log-squared cutoff, empirically calibrated through p<=10^6)
+       Uses C(q) = max(64, ceil(0.5 * log(q)^2)) as the scan cutoff.
+       This replaces the falsified fixed map {2:44, 4:60, 6:60}.
+       The open question is whether A=0.5 is sufficient at all scales.
 
     2. Take the lexicographic minimum (smallest divisor count, then
        smallest offset) over composites in that window.  This gives
@@ -40,6 +42,8 @@ from z_band_prime_predictor import W_d
 DEFAULT_OUTPUT_DIR = ROOT / "output"
 DEFAULT_START_GAP_INDEX = 4
 DEFAULT_STEPS = 100
+# FALSIFIED: fixed cutoff map, retained for reference only.
+# Use dynamic_cutoff(q) instead.
 EXTENDED_CUTOFF_MAP = {2: 44, 4: 60, 6: 60}
 PREFIX_LEN = 12
 EXACT_SCAN_BLOCK = 64
@@ -80,6 +84,18 @@ def first_open_offset(residue: int) -> int:
     raise RuntimeError(f"no wheel-open offset found for residue {residue}")
 
 
+def dynamic_cutoff(q: int) -> int:
+    """Return the dynamic log-squared cutoff for prime q.
+
+    This replaces the falsified fixed map {2:44, 4:60, 6:60}.
+    The bound is C(q) = ceil(A * log(q)^2) with A=0.5 for conservative
+    headroom above the empirically observed A~0.32 through p<=10^6.
+    Minimum value is 64 to cover all observed violations at small scale.
+    """
+    import math
+    return max(64, math.ceil(0.5 * math.log(q) ** 2))
+
+
 def predict_next_gap_bounded(current_right_prime: int) -> tuple[int, int]:
     """Predict the next-gap lex-min by the bounded cutoff rule.
 
@@ -96,8 +112,7 @@ def predict_next_gap_bounded(current_right_prime: int) -> tuple[int, int]:
         stopping at the first prime (d=2, marking the gap boundary).
     """
     rp = current_right_prime
-    foo = first_open_offset(rp % 30)
-    cutoff = EXTENDED_CUTOFF_MAP.get(foo, 60)
+    cutoff = dynamic_cutoff(rp)
 
     # Stage 1: offsets 1..12
     prefix_hi = rp + PREFIX_LEN + 1
