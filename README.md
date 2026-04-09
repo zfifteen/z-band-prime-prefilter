@@ -102,6 +102,26 @@ within that setting.
 - **Ridge** names a measured concentration of local maxima in the exact raw
   composite Z-field inside prime gaps.
 
+## Novel Structures in This Repository
+
+Five structures introduced here do not appear under these names in the
+literature:
+
+- **Divisor Normalization Identity (DNI):** `Z(n) = n^(1 - d(n)/2)` is an
+  exact arithmetic identity collapsing all primes to `Z = 1.0`.
+- **Gap Winner Rule (GWR):** inside any prime gap, the log-score argmax is
+  exactly the leftmost carrier of the minimum interior divisor class.
+- **No-Later-Simpler-Composite (NLSC) condition:** once the GWR winner
+  appears, no later interior composite with strictly smaller divisor count
+  precedes the next prime. Zero violations observed through `10^18`.
+- **Dominant d=4 arrival reduction:** under square exclusion, the GWR winner
+  is exactly the first interior `d=4` carrier. Exact on full scans through
+  `2x10^7`.
+- **Dynamic cutoff conjecture:** `C(q) = max(64, ceil(0.5 * log(q)^2))` bounds
+  the GWR winner offset for the bounded walker. Empirically calibrated through
+  `p <= 10^6`. The fixed map `{2:44, 4:60, 6:60}` is falsified at
+  `q = 24,098,209`.
+
 ## Divisor Normalization Identity
 
 The divisor normalization load signal becomes useful when it is passed through the Z-transform:
