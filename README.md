@@ -35,6 +35,16 @@ before the gap closes.
 
 ## Current Headline Results
 
+- **Exact DNI/GWR recursive prime walk.** The repository now carries an exact
+  deterministic no-skip sequential prime walk on the tested surface. The
+  extended DNI transition rule is exact on the combined $10^6 + 10^7$
+  next-gap surface with `743,075 / 743,075` exact transitions, and the
+  recursive walk records `664,578 / 664,578` exact consecutive next-prime
+  recoveries from prime `11` through prime `10,000,121` with `0` skipped
+  gaps. The sampled decade ladder from $10^2$ through $10^18$ also stayed at
+  exact hit rate `1.0` with `0` skipped gaps across `860` measured recursive
+  steps. See
+  [docs/research/predictor/gwr_dni_exact_recursive_prime_walk_note.md](docs/research/predictor/gwr_dni_exact_recursive_prime_walk_note.md).
 - **Formal theorem statement.** The current headline theorem is
   [gwr/findings/gwr_hierarchical_local_dominator_theorem.md](gwr/findings/gwr_hierarchical_local_dominator_theorem.md).
   It states the winner law directly in hierarchical first-arrival and
@@ -91,6 +101,36 @@ before the gap closes.
   produced $2.09\times$ and $2.82\times$ end-to-end deterministic RSA
   key-generation speedups on the curated $2048$-bit and $4096$-bit benchmark
   corpora. See [docs/prefilter/benchmarks.md](docs/prefilter/benchmarks.md).
+
+## Exact Recursive Prime Walk
+
+The newest predictor result in this repository is not a loose heuristic and
+not a skip-prone gap jumper. On the current verified surface, it is an exact
+deterministic sequential generator:
+
+1. read the bounded DNI structure to the right of one known prime,
+2. recover the immediate next gap minimum divisor class and its first carrier,
+3. recover the immediate next prime exactly,
+4. repeat with zero skipped gaps.
+
+The exact transition law is documented in
+[docs/research/predictor/gwr_dni_exact_recursive_prime_walk_note.md](docs/research/predictor/gwr_dni_exact_recursive_prime_walk_note.md).
+The strongest verified numbers are:
+
+- exact next-gap transition rate `1.0` on `743,075` rows from the combined
+  $10^6 + 10^7$ surface;
+- exact recursive walk `664,578 / 664,578` from prime `11` through prime
+  `10,000,121`, with `0` skipped gaps;
+- sampled decade sweep from $10^2$ through $10^{18}$ at exact hit rate `1.0`
+  with `0` skipped gaps across `860` measured recursive steps;
+- largest observed next-gap peak offset in that sampled decade sweep: `32`,
+  still well inside the current tested continuation bound.
+
+This is a significant change in status for the predictor program. The repo now
+has an implemented and verified DNI/GWR next-prime walk on the tested surface,
+not merely a witness recovery rule waiting on a seed.
+
+![Exact DNI recursive-walk performance](docs/research/predictor/figures/gwr_dni_recursive_gap_scaling_performance.png)
 
 ## Gap Winner Rule
 
