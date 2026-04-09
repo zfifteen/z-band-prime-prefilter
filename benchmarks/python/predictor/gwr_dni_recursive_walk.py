@@ -42,6 +42,7 @@ DEFAULT_START_GAP_INDEX = 4
 DEFAULT_STEPS = 100
 EXTENDED_CUTOFF_MAP = {2: 44, 4: 60, 6: 60}
 PREFIX_LEN = 12
+EXACT_SCAN_BLOCK = 64
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -79,8 +80,8 @@ def first_open_offset(residue: int) -> int:
     raise RuntimeError(f"no wheel-open offset found for residue {residue}")
 
 
-def predict_next_gap(current_right_prime: int) -> tuple[int, int]:
-    """Predict (next_dmin, next_peak_offset) using the extended DNI lex-min rule.
+def predict_next_gap_bounded(current_right_prime: int) -> tuple[int, int]:
+    """Predict the next-gap lex-min by the bounded cutoff rule.
 
     Returns the predicted divisor class and its first-carrier offset from
     current_right_prime.
@@ -145,6 +146,99 @@ def predict_next_gap(current_right_prime: int) -> tuple[int, int]:
     return best_d, best_offset
 
 
+def predict_next_gap(current_right_prime: int) -> tuple[int, int]:
+    """Backward-compatible alias for the bounded transition rule."""
+    return predict_next_gap_bounded(current_right_prime)
+
+
+def exact_next_gap_profile(
+    current_right_prime: int,
+    scan_block: int = EXACT_SCAN_BLOCK,
+) -> dict[str, object]:
+    """Return the exact next-gap lex-min profile by scanning to the prime boundary.
+
+    This is the unconditional reference mechanism for the next-gap transition:
+    scan exact divisor counts to the right of the known prime until the first
+    prime boundary is encountered, then take the lexicographic minimum over the
+    composite interior.
+    """
+    if scan_block < 1:
+        raise ValueError("scan_block must be positive")
+
+    next_start = current_right_prime + 1
+    base_offset = 1
+    best_d: int | None = None
+    best_offset: int | None = None
+    divisor_ladder: list[int] = []
+
+    while True:
+        counts = divisor_counts_segment(next_start, next_start + scan_block)
+        for index in range(len(counts)):
+            d = int(counts[index])
+            offset = base_offset + index
+            if d == 2:
+                if best_d is None or best_offset is None:
+                    raise ValueError(
+                        f"empty next gap from prime {current_right_prime}"
+                    )
+                return {
+                    "current_right_prime": current_right_prime,
+                    "next_prime": current_right_prime + offset,
+                    "gap_boundary_offset": offset,
+                    "gap_width": offset,
+                    "next_dmin": best_d,
+                    "next_peak_offset": best_offset,
+                    "divisor_ladder": divisor_ladder,
+                }
+
+            divisor_ladder.append(d)
+            if best_d is None or d < best_d or (d == best_d and offset < best_offset):
+                best_d = d
+                best_offset = offset
+
+        next_start += scan_block
+        base_offset += scan_block
+
+
+def predict_next_gap_exact(current_right_prime: int) -> tuple[int, int, int]:
+    """Return the exact next-gap lex-min and the prime-boundary offset."""
+    profile = exact_next_gap_profile(current_right_prime)
+    return (
+        int(profile["next_dmin"]),
+        int(profile["next_peak_offset"]),
+        int(profile["gap_boundary_offset"]),
+    )
+
+
+def compare_transition_rules(current_right_prime: int) -> dict[str, object]:
+    """Compare the bounded cutoff rule against the exact next-gap oracle."""
+    first_open = first_open_offset(current_right_prime % 30)
+    cutoff = EXTENDED_CUTOFF_MAP[first_open]
+    bounded_dmin, bounded_peak_offset = predict_next_gap_bounded(current_right_prime)
+    exact_profile = exact_next_gap_profile(current_right_prime)
+    exact_peak_offset = int(exact_profile["next_peak_offset"])
+
+    return {
+        "current_right_prime": current_right_prime,
+        "first_open_offset": first_open,
+        "cutoff": cutoff,
+        "bounded_next_dmin": bounded_dmin,
+        "bounded_next_peak_offset": bounded_peak_offset,
+        "exact_next_dmin": int(exact_profile["next_dmin"]),
+        "exact_next_peak_offset": exact_peak_offset,
+        "exact_gap_boundary_offset": int(exact_profile["gap_boundary_offset"]),
+        "exact_next_prime": int(exact_profile["next_prime"]),
+        "exact_gap_width": int(exact_profile["gap_width"]),
+        "matches_cutoff_rule": (
+            bounded_dmin == int(exact_profile["next_dmin"])
+            and bounded_peak_offset == exact_peak_offset
+        ),
+        "cutoff_utilization": exact_peak_offset / cutoff,
+        "overshoot_margin": max(0, exact_peak_offset - cutoff),
+        "exact_divisor_ladder": list(exact_profile["divisor_ladder"]),
+    }
+
+
 def dni_recursive_step(
     current_gap_index: int,
     current_left_prime: int,
@@ -158,7 +252,7 @@ def dni_recursive_step(
     if current_right_prime <= current_left_prime:
         raise ValueError("current_right_prime must exceed current_left_prime")
 
-    predicted_dmin, predicted_peak_offset = predict_next_gap(current_right_prime)
+    predicted_dmin, predicted_peak_offset = predict_next_gap_bounded(current_right_prime)
 
     # Recover the next prime via W_d witness
     witness = W_d(current_right_prime + 1, predicted_dmin)

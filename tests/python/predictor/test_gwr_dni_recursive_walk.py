@@ -21,7 +21,7 @@ def load_module():
 
 
 def test_predict_next_gap_small_primes():
-    """predict_next_gap should recover exact (dmin, peak_offset) for small primes."""
+    """The bounded next-gap rule should recover the known small-gap lex-min."""
     module = load_module()
     # Gap (7, 11): interior = {8, 9, 10}, d = {4, 3, 4}, min = 3 at offset 2
     d, off = module.predict_next_gap(7)
@@ -38,6 +38,43 @@ def test_predict_next_gap_small_primes():
     d, off = module.predict_next_gap(23)
     assert d == 3
     assert off == 2
+
+
+def test_predict_next_gap_exact_small_primes():
+    """The exact next-gap oracle should return the lex-min and boundary offset."""
+    module = load_module()
+
+    d, off, boundary = module.predict_next_gap_exact(7)
+    assert d == 3
+    assert off == 2
+    assert boundary == 4
+
+    d, off, boundary = module.predict_next_gap_exact(11)
+    assert d == 6
+    assert off == 1
+    assert boundary == 2
+
+    d, off, boundary = module.predict_next_gap_exact(23)
+    assert d == 3
+    assert off == 2
+    assert boundary == 6
+
+
+def test_compare_transition_rules_small_prime():
+    """The bounded rule should match the exact oracle on a known small gap."""
+    module = load_module()
+    comparison = module.compare_transition_rules(23)
+
+    assert comparison["first_open_offset"] == 6
+    assert comparison["cutoff"] == 60
+    assert comparison["bounded_next_dmin"] == 3
+    assert comparison["bounded_next_peak_offset"] == 2
+    assert comparison["exact_next_dmin"] == 3
+    assert comparison["exact_next_peak_offset"] == 2
+    assert comparison["exact_gap_boundary_offset"] == 6
+    assert comparison["exact_next_prime"] == 29
+    assert comparison["matches_cutoff_rule"] is True
+    assert comparison["overshoot_margin"] == 0
 
 
 def test_walk_100_steps_exact():
