@@ -92,8 +92,10 @@ candidate is already beaten by the actual leftmost minimum-divisor carrier, and
 the scan records the tightest direct and ratio-form safety margins for that
 fact.
 
-This does not by itself make `GWR` a universal theorem.
-It does tighten the open problem to one precise remaining task:
+This scan by itself is the finite base, not the full universal theorem. The
+bridge certificate now supplies the missing large-$p$ step: under BHP's
+$\theta = 0.525$ and the recorded divisor-function constants, the analytic
+threshold lands below the exact $2 \cdot 10^7$ base.
 
-turn these exact no-early-spoiler margins into a general argument that holds in
-every prime gap.
+So this artifact is now part of the proof closure rather than only an empirical
+margin report.

@@ -6,8 +6,9 @@ Rule`.
 ## Proof Pursuit
 
 - [`proof/`](./proof/):
-  scripts that target the remaining universal proof step rather than only the
-  tested-surface validation surface.
+  scripts and artifacts for the universal bridge closure, including the
+  committed explicit-constant certificate against the $2 \cdot 10^7$ finite
+  base.
 
 ## Current Validation Entry Points
 

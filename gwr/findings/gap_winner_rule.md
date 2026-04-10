@@ -22,7 +22,10 @@ argmax, is exactly the interior integer selected by this arithmetic order:
 2. among interiors with that minimum, choose the leftmost one.
 
 Equivalently, the log-score winner and the lexicographic winner are the same
-carrier on every tested gap.
+carrier. The repo now closes this statement conditionally for all prime gaps
+under BHP's $\theta = 0.525$ and the explicit divisor-function majoration
+constants recorded in
+[`gwr_universal_bridge_closure.md`](./gwr_universal_bridge_closure.md).
 
 ## Legacy Name
 
@@ -35,9 +38,9 @@ Going forward:
 - retain the legacy name where existing titles, figure labels, or filenames
   already depend on it.
 
-## Current Tested Surface
+## Current Proof Surface
 
-The current repo validation surface includes:
+The historical validation surface includes:
 
 - the committed legacy validation summary in
   [`benchmarks/output/python/gap_ridge/lexicographic_peak_validation/lexicographic_peak_validation.json`](../../benchmarks/output/python/gap_ridge/lexicographic_peak_validation/lexicographic_peak_validation.json)
@@ -46,10 +49,16 @@ The current repo validation surface includes:
 
 On those current surfaces, the repo reports zero counterexamples.
 
-## Immediate Consequences On The Tested Surface
+The current proof closure uses the exact finite bridge-load base
+[`asymptotic_bridge_load_scan_2e7.json`](../../output/gwr_proof/asymptotic_bridge_load_scan_2e7.json)
+and the explicit certificate
+[`proof_bridge_certificate_2e7.json`](../../output/gwr_proof/proof_bridge_certificate_2e7.json).
+The finite base records `1,163,198` gaps, `3,349,874` earlier candidates, and
+`0` bridge failures through $p < 20{,}000{,}001$.
 
-On the tested surface, `GWR` compresses several observed features into one
-selection law:
+## Immediate Consequences
+
+`GWR` compresses several observed features into one selection law:
 
 - $d(n)=4$ winner dominance,
 - left-half winner dominance,

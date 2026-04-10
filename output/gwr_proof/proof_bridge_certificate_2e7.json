@@ -1,0 +1,54 @@
+{
+  "certificate": "gwr_no_early_spoiler_bridge_closure_2e7",
+  "decision_surface": "Explicit BHP/Robin bridge constants evaluated against the exact no-early-spoiler bridge-load finite base.",
+  "verified_hi_exclusive": 20000001,
+  "finite_base_artifact": "output/gwr_proof/asymptotic_bridge_load_scan_2e7.json",
+  "finite_base": {
+    "earlier_candidate_count": 3349874,
+    "bridge_failure_count": 0,
+    "max_bridge_load": 0.05664166714743768
+  },
+  "closure_cases": [
+    {
+      "label": "robin_theoretical_constant_A1",
+      "theta": 0.525,
+      "c": 1.23454532490299,
+      "gap_constant": 1.0,
+      "raw_explicit_n0": 102,
+      "bridge_upper_bound_at_raw_n0": 0.9999394277103317,
+      "bridge_upper_bound_at_verified_base": 0.031648361493335574,
+      "finite_base_covers_bridge": true
+    },
+    {
+      "label": "conservative_divisor_constant_A1",
+      "theta": 0.525,
+      "c": 1.5379,
+      "gap_constant": 1.0,
+      "raw_explicit_n0": 3544,
+      "bridge_upper_bound_at_raw_n0": 0.9999649723577171,
+      "bridge_upper_bound_at_verified_base": 0.19282881270321034,
+      "finite_base_covers_bridge": true
+    },
+    {
+      "label": "robin_theoretical_constant_A10",
+      "theta": 0.525,
+      "c": 1.23454532490299,
+      "gap_constant": 10.0,
+      "raw_explicit_n0": 220725,
+      "bridge_upper_bound_at_raw_n0": 0.9999990788206324,
+      "bridge_upper_bound_at_verified_base": 0.3164836149333558,
+      "finite_base_covers_bridge": true
+    },
+    {
+      "label": "conservative_divisor_constant_A10",
+      "theta": 0.525,
+      "c": 1.5379,
+      "gap_constant": 10.0,
+      "raw_explicit_n0": 727330778,
+      "bridge_upper_bound_at_raw_n0": 0.9999999998942813,
+      "bridge_upper_bound_at_verified_base": 1.9282881270321035,
+      "finite_base_covers_bridge": false
+    }
+  ],
+  "headline_result": "For A=1, both c=ln(2)*exp(gamma) and c=1.5379 have raw explicit thresholds below the verified finite base, so the bridge closes under the stated constants. The A=10 robustness case closes under c=ln(2)*exp(gamma) but not under c=1.5379 with the current finite base."
+}

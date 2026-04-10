@@ -7,12 +7,12 @@ The current scripts in this folder are research instruments.
 They are not part of the validation registry, and none of them by itself is a
 mandatory proof gate for `GWR`.
 
-They target the exact missing universal step identified in the findings notes:
+They target the exact universal bridge step identified in the findings notes:
 
 - the ordered-dominance theorem already proves that the `GWR` candidate beats
   every later interior composite,
-- the remaining proof task is to eliminate every earlier higher-divisor
-  spoiler.
+- the no-early-spoiler bridge certificate now eliminates every earlier
+  higher-divisor spoiler under the recorded BHP/Robin constants.
 
 ## Current Entry Point
 
@@ -77,14 +77,18 @@ They target the exact missing universal step identified in the findings notes:
   theorem-facing bridge note that
   - derives a non-empirical large-$p$ upper bound for the normalized
     no-early-spoiler load,
-  - isolates the exact remaining dependence on explicit literature constants,
-  - and states the remaining finite verification obligation precisely.
+  - records the exact dependence on explicit literature constants,
+  - and records that the evaluated thresholds land below the committed finite
+    base for the headline $A=1$ closure.
 - [`proof_bridge_certificate.py`](./proof_bridge_certificate.py):
   explicit-constant certificate helper that
   - loads the exact finite bridge artifact,
   - computes the bridge threshold implied by one chosen gap bound and divisor
   majoration,
   - and reports whether the verified finite base already closes that bridge.
+- [`../../../output/gwr_proof/proof_bridge_certificate_2e7.json`](../../../output/gwr_proof/proof_bridge_certificate_2e7.json):
+  committed certificate artifact recording the evaluated constants and closure
+  status for the $2 \cdot 10^7$ finite base.
 - [`dni_cutoff_branch_frontier.py`](./dni_cutoff_branch_frontier.py):
   exact branch-frontier extractor that
   - compares the bounded DNI cutoff rule to the exact unbounded next-gap

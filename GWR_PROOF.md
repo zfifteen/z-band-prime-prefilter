@@ -111,11 +111,12 @@ no earlier composite \(k < w\) satisfies \(L(k) \ge L(w)\).
 - **3,349,874** earlier candidates checked
 - **0** failures
 
-Artifact:
-`output/gwr_proof/earlier_spoiler_local_dominator_scan_2e7.json`
+Artifacts:
+`output/gwr_proof/no_early_spoiler_margin_scan_2e7.json`
+`output/gwr_proof/asymptotic_bridge_load_scan_2e7.json`
 
 Script:
-[`gwr/experiments/proof/earlier_spoiler_local_dominator_scan.py`](gwr/experiments/proof/earlier_spoiler_local_dominator_scan.py)
+[`gwr/experiments/proof/no_early_spoiler_margin_scan.py`](gwr/experiments/proof/no_early_spoiler_margin_scan.py)
 
 ---
 
@@ -124,7 +125,9 @@ Script:
 **Claim.** The explicit analytic threshold \(N_0\) falls strictly below
 the verified finite base, closing the gap between Components 2 and 3.
 
-**Computation** (executed against
+**Computation** (recorded in
+[`output/gwr_proof/proof_bridge_certificate_2e7.json`](output/gwr_proof/proof_bridge_certificate_2e7.json)
+and executed against
 [`gwr/experiments/proof/proof_bridge_certificate.py`](gwr/experiments/proof/proof_bridge_certificate.py)):
 
 | Constant set | \(c\) | \(N_0\) | \(B\) at \(N_0\) | \(B\) at \(p = 2 \times 10^7\) |
@@ -135,8 +138,10 @@ the verified finite base, closing the gap between Components 2 and 3.
 Both \(N_0\) values are strictly below 20,000,000. The bridge bound is
 monotonically decreasing above \(N_0\) and tends to zero.
 
-Even at a gap constant of \(A = 10\), \(N_0\) reaches only 220,725, still
-well within the exact scan.
+At a gap constant of \(A = 10\), the Robin theoretical constant gives
+\(N_0 = 220{,}725\), still within the exact scan. Under the conservative
+\(c = 1.5379\) constant, \(A = 10\) gives \(N_0 = 727{,}330{,}778\), which is
+outside the current finite base. The headline closure above uses \(A = 1\).
 
 ---
 
@@ -160,7 +165,9 @@ on BHP (2001) \(\theta = 0.525\) and Robin (1984) divisor majoration.**
 | GWR theorem statement | [`gwr/findings/gwr_hierarchical_local_dominator_theorem.md`](gwr/findings/gwr_hierarchical_local_dominator_theorem.md) |
 | Dominance theorem (later side) | [`gwr/findings/lexicographic_raw_z_dominance_theorem.md`](gwr/findings/lexicographic_raw_z_dominance_theorem.md) |
 | Bridge lemma (earlier side) | [`gwr/experiments/proof/proof_bridge_universal_lemma.md`](gwr/experiments/proof/proof_bridge_universal_lemma.md) |
-| Finite scan artifact | `output/gwr_proof/earlier_spoiler_local_dominator_scan_2e7.json` |
+| Finite no-early-spoiler artifact | `output/gwr_proof/no_early_spoiler_margin_scan_2e7.json` |
+| Bridge-load finite base | `output/gwr_proof/asymptotic_bridge_load_scan_2e7.json` |
+| Certificate artifact | `output/gwr_proof/proof_bridge_certificate_2e7.json` |
 | Certificate script | [`gwr/experiments/proof/proof_bridge_certificate.py`](gwr/experiments/proof/proof_bridge_certificate.py) |
 | BHP prime-gap bound | Baker, Harman, Pintz (2001). *Proc. London Math. Soc.* 83(3), 532-562 |
 | Robin divisor majoration | Robin (1984). *J. Math. Pures Appl.* 63, 187-213 |

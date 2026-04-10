@@ -59,17 +59,20 @@ That identity is the main discovery.
 
 The surprise was that the winner collapsed completely.
 
-On the tested prime-gap surface, the implemented log-score winner is exactly
-the same as the integer selected by the simple rule:
+On the tested prime-gap surface, and now under the recorded BHP/Robin bridge
+closure, the implemented log-score winner is exactly the same as the integer
+selected by the simple rule:
 
 1. choose the smallest interior divisor count $d(n)$,
 2. among ties, choose the leftmost interior integer.
 
 That is the Gap Winner Rule (GWR).
 
-The important point is that GWR is not a loose summary on the tested surface.
-It is an exact identity on the current validation ladder, from exact runs at
-$10^6$ and $2 \times 10^7$ through sampled higher-scale windows out to $10^{12}$.
+The important point is that GWR is not a loose summary. It was first an exact
+identity on the validation ladder, from exact runs at $10^6$ and
+$2 \times 10^7$ through sampled higher-scale windows out to $10^{12}$. The
+new bridge certificate turns the exact finite scan into the base case for a
+conditional universal theorem.
 
 ![GWR validation surface: every reported tested regime remains at match rate 1.0](./plots/figure_02_match_rate_surface.png)
 
@@ -78,8 +81,8 @@ line stays at match rate $1.0$ throughout. The anchor table beneath it keeps
 the gap counts readable without overloading the chart.
 
 So the headline is not “the log-score often agrees with a simpler rule.” The
-headline is: on the tested surface, the log-score winner and the rule winner
-are the same point.
+headline is: the log-score winner and the rule winner are the same point under
+the recorded BHP/Robin bridge constants.
 
 ## One winner law explains several separate-looking phenomena
 
@@ -166,9 +169,9 @@ question is no longer about proving a score identity from nothing. The question
 becomes: why do prime-gap interiors appear always to place the winner inside
 that ordered-dominance regime?
 
-## The remaining open question is now sharper
+## The proof bridge now lands
 
-The open problem is no longer vague.
+The former open problem now has a certificate for the main bridge.
 
 It is not:
 
@@ -176,8 +179,14 @@ It is not:
 
 It is:
 
-“Why do prime-gap interiors seem always to arrange themselves so that the
-minimum-divisor leftmost carrier dominates the log-score competition?”
+“Why do prime-gap interiors arrange themselves so that the minimum-divisor
+leftmost carrier dominates the log-score competition?”
+
+The answer now has a two-part proof shape: ordered dominance eliminates every
+later candidate after the leftmost minimum-divisor carrier, and the
+no-early-spoiler bridge eliminates every earlier higher-divisor candidate. The
+committed certificate puts the analytic bridge threshold below the exact
+finite base through $p < 20{,}000{,}001$.
 
 The heatmap below shows where the winners actually live on the tested prime-gap
 surface.
@@ -192,19 +201,15 @@ where the discrete law wins.
 That is why GWR matters.
 
 It does not merely say that a geometric-looking score often peaks near the left
-edge. On the tested surface, it says that the implemented log-score winner,
-equivalently the raw-$Z$ winner, is governed by a simpler arithmetic law than
-the formula first suggests.
+edge. Under the recorded BHP/Robin bridge constants, it says that the
+implemented log-score winner, equivalently the raw-$Z$ winner, is governed by a
+simpler arithmetic law than the formula first suggests.
 
 The strongest supported statement at this stage is therefore:
 
-The Gap Winner Rule is an exact winner law on the tested prime-gap surface, and
-it compresses several previously separate-looking observations into one
-selection rule.
-
-The central open question is whether prime-gap interiors satisfy a deeper
-structural condition that forces that rule to hold, and whether that condition
-can be stated and proved cleanly.
+The Gap Winner Rule is a conditional universal winner law under the recorded
+BHP/Robin bridge constants, and it compresses several previously
+separate-looking observations into one selection rule.
 
 See [gap_winner_rule.md](../findings/gap_winner_rule.md) for the formal
 statement and legacy-name notes.

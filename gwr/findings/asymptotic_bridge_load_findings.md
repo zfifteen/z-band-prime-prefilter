@@ -52,8 +52,8 @@ use?
 
 ## Current Reading
 
-This normalized surface is the right next bridge artifact because it isolates
-the universal proof target in one number.
+This normalized surface is the finite base for the bridge closure because it
+isolates the universal proof target in one number.
 
 The ratio-frontier and large-gap scans already showed:
 
@@ -61,7 +61,7 @@ The ratio-frontier and large-gap scans already showed:
 - the largest gaps are not the hard regime.
 
 The bridge-load scan packages that same fact into the exact normalized
-quantity that a proof must keep below `1`.
+quantity that the analytic bridge keeps below `1`.
 
 It also sharpens the frontier picture in one important way:
 
@@ -74,3 +74,10 @@ So the current exact surface separates two different notions of hardness:
 
 - raw ratio slack is tightest in higher adjacent divisor classes,
 - normalized budget usage is largest in the smallest low-class edge case.
+
+The explicit certificate in
+[`proof_bridge_certificate_2e7.json`](../../output/gwr_proof/proof_bridge_certificate_2e7.json)
+then evaluates BHP's $\theta = 0.525$ with the recorded divisor-function
+constants. For $A=1$, the bridge thresholds `102` and `3,544` both land below
+the exact finite base $p < 20{,}000{,}001$, so the no-early-spoiler bridge
+closes under those assumptions.

@@ -19,7 +19,8 @@ The story should move in this order:
 3. present the surprise: the winner collapses to a simple arithmetic rule,
 4. show that this one rule explains several separate-looking phenomena,
 5. show the theorem temptation and the correction,
-6. end on the open mathematical question.
+6. end on the bridge certificate that closes the main mathematical question
+   under the recorded constants.
 
 ## Section Plan
 
@@ -77,8 +78,9 @@ State `GWR` cleanly and early as the central surprise.
 
 ### Main claim
 
-On the tested prime-gap surface, the raw-$Z$ winner is always the same as the
-minimum-divisor leftmost winner.
+On the tested prime-gap surface, and under the recorded BHP/Robin bridge
+closure, the raw-$Z$ winner is always the same as the minimum-divisor leftmost
+winner.
 
 ### Points to cover
 
@@ -160,22 +162,24 @@ plus no larger divisor count implies larger raw-$Z$.
 - optional theorem-support plot or schematic,
 - possibly none if prose is clearer.
 
-## 7. The Remaining Open Question
+## 7. The Bridge Certificate
 
 ### Purpose
 
-End with the frontier, not with overclaim.
+End with the proof closure, not only the validation surface.
 
 ### Main claim
 
-The open mathematical question is why prime-gap interiors appear always to sit
-inside the regime where the lexicographic winner dominates.
+The no-early-spoiler bridge certificate turns the exact finite scan into the
+base case for a conditional universal theorem.
 
 ### Points to cover
 
-- GWR remains empirically exact on the tested surface,
+- GWR was empirically exact on the tested surface,
 - the unrestricted global theorem is false,
-- so the prime-gap interior structure itself now becomes the central problem.
+- the ordered dominance theorem handles the later side,
+- the bridge certificate handles the earlier side under the recorded
+  BHP/Robin constants.
 
 ### Figure needs
 

@@ -26,6 +26,11 @@ That created the wrong operational target:
 
 The repo no longer uses this file as a mandatory proof bar.
 
+The current proof-status note is
+[`gwr_universal_bridge_closure.md`](./gwr_universal_bridge_closure.md), backed
+by the committed certificate artifact
+[`../../output/gwr_proof/proof_bridge_certificate_2e7.json`](../../output/gwr_proof/proof_bridge_certificate_2e7.json).
+
 In particular:
 
 - `Route B` style finite-remainder reduction is optional, not required,
@@ -39,14 +44,14 @@ They do not replace the proof itself.
 
 ## Direct Mathematical Target
 
-The direct mathematical target remains the same:
+The direct mathematical target that replaced this retired gate was:
 
 - the ordered-dominance theorem already handles later candidates,
 - the remaining structural question is the elimination of earlier
   higher-divisor spoilers inside prime gaps.
 
-That question may be resolved by a direct argument, by a finite-reduction
-argument, or by some other correct theorem path.
+That question is now addressed by the no-early-spoiler bridge certificate under
+the recorded BHP/Robin constants.
 
 No single proof style is imposed by this repo.
 

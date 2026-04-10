@@ -11,6 +11,10 @@ refer directly to an older artifact whose title or filename already uses it.
   under the new name.
 - [`claim_hierarchy.md`](./claim_hierarchy.md): Claim structure separating the
   formal theorem, the prime-gap corollary, and empirical consequences.
+- [`gwr_universal_bridge_closure.md`](./gwr_universal_bridge_closure.md):
+  Headline proof result closing the no-early-spoiler bridge below the exact
+  finite base under BHP's $\theta = 0.525$ and explicit Robin-style
+  divisor-function majoration constants.
 - [`lexicographic_raw_z_dominance_theorem.md`](./lexicographic_raw_z_dominance_theorem.md):
   Narrow exact dominance theorem that survives the stress tests.
 - [`prime_gap_exclusion_consequences.md`](./prime_gap_exclusion_consequences.md):

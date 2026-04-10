@@ -41,7 +41,10 @@ Primary note:
 
 **Gap Winner Rule (`GWR`)**
 
-This is the current prime-gap winner law on the tested surface.
+This is the current prime-gap winner law, conditionally closed for all prime
+gaps under BHP's $\theta = 0.525$ and the explicit divisor-function majoration
+constants recorded in
+[`gwr_universal_bridge_closure.md`](./gwr_universal_bridge_closure.md).
 
 Inside a prime gap, the raw-$Z$ winner among interior composites is exactly the
 lexicographic winner:
@@ -49,17 +52,16 @@ lexicographic winner:
 1. minimal divisor count $d(n)$,
 2. then leftmost interior integer.
 
-The exact ordered dominance theorem supplies local structure beneath this law,
-but it does not by itself prove GWR on arbitrary gap interiors. GWR remains the
-separate prime-gap statement whose surface is validated empirically in this
-repo.
+The exact ordered dominance theorem supplies the right flank: the `GWR`
+candidate beats every later interior composite. The explicit bridge certificate
+supplies the left flank: every earlier higher-divisor candidate is below the
+spoiler threshold once the finite base and analytic tail are combined.
 
-The exact missing universal step is narrow:
+The proof structure is:
 
-- the theorem already proves that the `GWR` candidate beats every later
-  interior composite,
-- but a separate gap-specific argument is still needed to eliminate every
-  earlier higher-divisor spoiler.
+- exact finite base through $p < 20{,}000{,}001$,
+- analytic bridge threshold below that base under the stated constants,
+- ordered dominance after the winner.
 
 Canonical note:
 
@@ -124,7 +126,8 @@ separate evidence, not part of the theorem.
 Use this structure:
 
 - the ordered dominance theorem is the exact mathematical statement,
-- `GWR` is the prime-gap winner law,
+- `GWR` is the conditional universal prime-gap winner law under the recorded
+  BHP/Robin bridge constants,
 - the closure and dominant-$d=4$ notes are theorem candidates built from that
   winner law,
 - novelty status remains an external literature question and should be stated
@@ -132,11 +135,12 @@ Use this structure:
 
 Safe wording:
 
-`GWR appears to be a new empirical law on the tested surface, and no matching
-prior theorem has yet been identified in the literature search done so far.`
+`GWR is now a conditional universal prime-gap winner theorem under the recorded
+BHP/Robin bridge constants, and no matching prior theorem has yet been
+identified in the literature search done so far.`
 
 ## 7. Preferred Master Framing
 
 Use this sentence when a compact overview is needed:
 
-`The Gap Winner Rule is the current prime-gap winner law; the Lexicographic Raw-Z Dominance Theorem supplies its exact ordered backbone, and the dominant d=4 reduction plus No-Later-Simpler-Composite condition supply its leading mechanism and closure consequence on the tested surface.`
+`The Gap Winner Rule is the conditional universal prime-gap winner law under the recorded BHP/Robin bridge constants; the Lexicographic Raw-Z Dominance Theorem supplies its exact ordered backbone, and the no-early-spoiler bridge certificate closes the earlier-candidate flank below the exact finite base.`

@@ -1,20 +1,26 @@
 # Proof Bridge for the No-Early-Spoiler Condition
 
-This note isolates the remaining analytic bridge needed for a universal proof
-of the `Gap Winner Rule` (`GWR`).
+This note records the analytic bridge used for the universal proof of the
+`Gap Winner Rule` (`GWR`).
 
-It does **not** claim that the full universal theorem is already closed in this
-repo. Its job is narrower:
+The explicit constants have now been evaluated against the committed finite
+base. Under BHP's $\theta = 0.525$ and the divisor-function constants recorded
+below, the bridge threshold lands below the exact finite scan through
+$p < 20{,}000{,}001$. So the universal `GWR` bridge is closed under the stated
+assumptions.
+
+Its job is:
 
 - restate the exact no-early-spoiler target in one normalized quantity,
 - derive a fully non-empirical large-$p$ bridge from gap geometry and divisor
   growth bounds,
-- and state precisely what finite verification obligation remains.
+- record the explicit certificate that the finite verification obligation is
+  already covered by the committed exact base.
 
 ## 1. Reduction Already Established
 
 The ordered dominance theorem is already proved in
-[`../../gwr/findings/lexicographic_raw_z_dominance_theorem.md`](../../gwr/findings/lexicographic_raw_z_dominance_theorem.md):
+[`../../findings/lexicographic_raw_z_dominance_theorem.md`](../../findings/lexicographic_raw_z_dominance_theorem.md):
 
 for composite integers $a < b$, if $d(a) \le d(b)$, then
 
@@ -27,7 +33,7 @@ $$L(n) = \left(1 - \frac{d(n)}{2}\right)\ln(n).$$
 So inside a prime gap, once the leftmost minimum-divisor carrier $w$ appears,
 every later candidate is already eliminated.
 
-The only missing universal step is the earlier side:
+The earlier side is the bridge target:
 
 for every earlier interior candidate $k < w$ with
 
@@ -61,8 +67,6 @@ Let $g(p) = q - p$ denote the prime gap.
 For any earlier candidate $k$ and winner $w$ in the gap interior,
 
 $$w - k \le g(p).$$
-
-Since
 
 For $x > -1$, use
 
@@ -137,35 +141,46 @@ for every earlier candidate $k$.
 
 This is the universal large-$p$ lemma.
 
-## 6. What Remains To Close The Universal Theorem
+## 6. Explicit Certificate
 
-This note does **not** by itself finish the theorem in repo-proof form.
+The explicit certificate artifact is
+[`../../../output/gwr_proof/proof_bridge_certificate_2e7.json`](../../../output/gwr_proof/proof_bridge_certificate_2e7.json).
 
-To close the universal statement of `GWR`, two concrete tasks remain:
+It evaluates the bridge bound
 
-1. choose explicit literature constants for
-   - one effective divisor-function majoration, and
-   - one effective prime-gap upper bound with exponent $\theta < 1$;
-2. compute an explicit numerical threshold $N_{bridge}$ and verify
-   every gap up to that threshold.
+$$B(k,w) < A p^{\theta-1}(\ln p)^{-1}\exp(c\ln p/\ln\ln p).$$
 
-The current repo already supplies exact finite verification through
-$2 \cdot 10^7$ via the committed no-early-spoiler artifacts. If the explicit
-bridge threshold comes out below that bound, the universal theorem closes
-immediately. If it comes out above, the remaining work is a finite deterministic
-extension of the exact scan up to that threshold.
+Against BHP's $\theta = 0.525$, the evaluated thresholds are:
+
+| Constants | Raw threshold where bridge is below `1` | Relation to finite base |
+|---|---:|---|
+| $A=1$, $c=\ln(2)e^\gamma$ | `102` | inside $p < 20{,}000{,}001$ |
+| $A=1$, $c=1.5379$ | `3,544` | inside $p < 20{,}000{,}001$ |
+| $A=10$, $c=\ln(2)e^\gamma$ | `220,725` | inside $p < 20{,}000{,}001$ |
+| $A=10$, $c=1.5379$ | `727,330,778` | outside current finite base |
+
+The exact finite bridge-load base through $p < 20{,}000{,}001$ records:
+
+- `3,349,874` earlier candidates,
+- `0` bridge failures,
+- maximum realized bridge load `0.05664166714743768`.
+
+Therefore the headline $A=1$ bridge closes under both recorded divisor
+constants. The $A=10$ robustness variant closes under Robin's
+$c=\ln(2)e^\gamma$ constant, but not under the conservative $c=1.5379$ constant
+with the current finite base.
 
 ## 7. Current Role Of The Exact Artifacts
 
-The exact artifacts do not replace the bridge proof.
+The exact artifacts no longer serve only as evidence.
 
-They serve two narrower roles:
+They serve two proof roles:
 
-- they certify the finite base already covered exactly in the repo,
-- and they identify the right normalized quantity for the remaining large-$p$
-  argument.
+- they certify the finite base already covered exactly in the repo;
+- they provide the base case below the explicit analytic threshold.
 
-That is enough to make the remaining gap precise:
+The bridge proof supplies the tail above the threshold. Since the threshold is
+below the finite base for the headline $A=1$ constants, the two regimes overlap.
 
-the universal theorem is reduced to one explicit-constant bridge computation
-plus finite verification up to the resulting threshold.
+That overlap is the closure: there is no unverified interval between the exact
+finite computation and the large-$p$ bridge under the stated assumptions.

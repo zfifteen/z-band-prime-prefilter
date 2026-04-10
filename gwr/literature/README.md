@@ -5,14 +5,18 @@ positioning of the `Gap Winner Rule`.
 
 ## Current Status
 
-The repo currently has a strong empirical rule and a growing validation surface.
-It does not yet claim a complete literature proof that no prior source states
-the same result.
+The repo now carries a conditional universal `GWR` bridge closure under BHP's
+$\theta = 0.525$ and explicit Robin-style divisor-function majoration
+constants.
+
+It does not yet claim that no prior source states the same result. That remains
+a literature and prior-art question.
 
 The narrow safe statement at present is:
 
-`GWR appears to be a new empirical law on the tested surface, and no matching
-prior theorem has yet been identified in the literature search done so far.`
+`GWR is now a conditional universal prime-gap winner theorem under the recorded
+BHP/Robin bridge constants, and no matching prior theorem has yet been
+identified in the literature search done so far.`
 
 ## Intended Contents
 

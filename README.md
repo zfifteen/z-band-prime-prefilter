@@ -33,6 +33,15 @@ conditions used throughout the repo: every earlier composite is beaten by a
 later admissible composite, and no later strictly simpler composite appears
 before the gap closes.
 
+The no-early-spoiler bridge has now been closed below the repo's exact finite
+base under BHP's $\theta = 0.525$ and explicit Robin-style divisor-function
+majoration constants. The analytic bridge thresholds are `102` under
+$c=\ln(2)e^\gamma$ and `3,544` under conservative `c = 1.5379`, while the exact
+finite base runs through $p < 20{,}000{,}001$. The committed bridge artifact
+records `1,163,198` gaps, `3,349,874` earlier candidates, and `0` bridge
+failures. See
+[gwr/findings/gwr_universal_bridge_closure.md](gwr/findings/gwr_universal_bridge_closure.md).
+
 For the current headline results, see
 [docs/current_headline_results.md](docs/current_headline_results.md).
 
@@ -110,7 +119,10 @@ literature:
 - **Divisor Normalization Identity (DNI):** `Z(n) = n^(1 - d(n)/2)` is an
   exact arithmetic identity collapsing all primes to `Z = 1.0`.
 - **Gap Winner Rule (GWR):** inside any prime gap, the log-score argmax is
-  exactly the leftmost carrier of the minimum interior divisor class.
+  exactly the leftmost carrier of the minimum interior divisor class,
+  conditionally closed for all prime gaps under the explicit BHP/Robin bridge
+  constants recorded in
+  [gwr/findings/gwr_universal_bridge_closure.md](gwr/findings/gwr_universal_bridge_closure.md).
 - **No-Later-Simpler-Composite (NLSC) condition:** once the GWR winner
   appears, no later interior composite with strictly smaller divisor count
   precedes the next prime. Zero violations observed through `10^18`.
@@ -187,17 +199,18 @@ The executed artifacts in this repo then show zero unresolved earlier spoilers
 on the full exact surface through $2 \times 10^7$ and on the matched
 square-adjacent windows at $10^{12}$.
 
-The newer no-early-spoiler artifacts sharpen that same picture against the
-actual winner itself. On the full exact through-$2 \times 10^7$ surface, the
-repo records zero exact earlier spoilers against the true `GWR` carrier,
-identifies the tightest realized winner/earlier divisor-class frontier, shows
-that the largest gaps are not the hard regime, and packages the remaining
-universal target as a normalized bridge load.
+The newer no-early-spoiler artifacts close the left flank against the actual
+winner itself. On the full exact through-$2 \times 10^7$ surface, the repo
+records zero exact earlier spoilers against the true `GWR` carrier, identifies
+the tightest realized winner/earlier divisor-class frontier, shows that the
+largest gaps are not the hard regime, and packages the universal target as a
+normalized bridge load. The explicit bridge certificate then puts the analytic
+threshold below that finite base under the stated BHP/Robin constants.
 
 See [gwr/story/README.md](gwr/story/README.md),
 [gwr/findings/gwr_hierarchical_local_dominator_theorem.md](gwr/findings/gwr_hierarchical_local_dominator_theorem.md),
 [gwr/findings/gap_winner_rule.md](gwr/findings/gap_winner_rule.md), and
-[gwr/findings/lexicographic_raw_z_dominance_theorem.md](gwr/findings/lexicographic_raw_z_dominance_theorem.md).
+[gwr/findings/gwr_universal_bridge_closure.md](gwr/findings/gwr_universal_bridge_closure.md).
 
 ## Exact Recursive Prime Walk
 

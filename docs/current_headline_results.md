@@ -1,5 +1,15 @@
 # Current Headline Results
 
+- **Conditional universal GWR bridge closure.** The no-early-spoiler bridge now
+  closes below the repo's exact finite base under BHP's $\theta = 0.525$ and
+  the explicit divisor-function majoration constants checked by
+  [../gwr/experiments/proof/proof_bridge_certificate.py](../gwr/experiments/proof/proof_bridge_certificate.py).
+  The analytic thresholds are `102` for $c=\ln(2)e^\gamma$ and `3,544` for
+  the conservative `c = 1.5379`, both far below the exact base
+  $p < 20{,}000{,}001$. The finite bridge artifact records `1,163,198` gaps,
+  `3,349,874` earlier candidates, `0` bridge failures, and maximum realized
+  bridge load `0.05664166714743768`. See
+  [../gwr/findings/gwr_universal_bridge_closure.md](../gwr/findings/gwr_universal_bridge_closure.md).
 - **Unconditional exact DNI/GWR next-prime oracle.** The repository now
   carries an exact next-prime walker in unbounded form. Given a known prime
   `q`, the oracle scans divisor counts to the right until the first prime
@@ -52,16 +62,17 @@
   post-square artifact
   [../output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json](../output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json)
   reports `137,771` gaps, `649,769` earlier candidates, and `0` unresolved.
-- **Current proof bridge status.** The note
+- **Proof bridge certificate.** The note
   [../gwr/experiments/proof/proof_bridge_universal_lemma.md](../gwr/experiments/proof/proof_bridge_universal_lemma.md)
-  isolates the remaining large-$p$ bridge as an explicit-constant task, and
+  derives the large-$p$ bridge as an explicit-constant task, and
   the helper
   [../gwr/experiments/proof/proof_bridge_certificate.py](../gwr/experiments/proof/proof_bridge_certificate.py)
   checks concrete gap-bound and divisor-growth parameter choices against the
   exact finite base already committed in the repo. The current proof-facing
-  status is therefore: exact finite base through $2 \times 10^7$, explicit
-  normalized bridge target identified, universal closure still dependent on
-  chosen effective constants.
+  status is therefore: the universal bridge is closed for $A=1$ under both
+  recorded divisor constants; the $A=10$ robustness variant closes under
+  $c=\ln(2)e^\gamma$ but not under conservative `c = 1.5379` with the current
+  $2 \times 10^7$ finite base.
 - **No-Later-Simpler-Composite condition.** Once the implemented winner
   appears inside a tested prime gap, the next prime arrives before any later
   interior composite with strictly smaller divisor count. The dedicated closure

@@ -24,10 +24,10 @@ gaps.
 
 That is where the actual prime-gap result begins. Inside tested prime gaps, the
 score winner and the leftmost carrier of the smallest divisor class present in
-the gap land on the same integer. This is not a vague tendency. It is an exact
-identity on the tested surfaces. The local gap pictures already show the
-collapse directly, and the broader validation surface shows that it stays exact
-as the scale grows.
+the gap land on the same integer. This is not a vague tendency. The local gap
+pictures show the collapse directly, the broader validation surface shows that
+it stays exact as the scale grows, and the bridge certificate now closes the
+universal statement under the recorded BHP/Robin constants.
 
 ![Exemplar prime gaps where the score winner and the arithmetic winner coincide](./plots/exemplar_gap_profiles.png)
 
@@ -46,8 +46,10 @@ into a complete winner law.
 
 ---
 
-That is the actual open question. Not why the score leans left in a loose
-sense, but why prime gaps seem to enforce exactly the local structure needed
-for the collapse to be complete.
+That was the actual open question. Not why the score leans left in a loose
+sense, but why prime gaps enforce exactly the local structure needed for the
+collapse to be complete. The current answer is the bridge closure: ordered
+dominance handles the right flank, and the no-early-spoiler certificate handles
+the left flank under the recorded constants.
 
 ![Schematic of what prime gaps still have to explain](./plots/open_question_schematic.png)

@@ -219,7 +219,9 @@ If such a candidate really beat the winner, `GWR` would fail on that gap.
 
 **Plain language:** A spoiler that appears before the winner inside the gap.
 
-**In this repo:** This is the main unresolved direction in the proof program.
+**In this repo:** This was the hard direction in the proof program. The
+explicit bridge certificate now closes it under the recorded BHP/Robin
+constants.
 
 The right side is easier because later simpler candidates are ruled out by the
 winner law and the dominance theorem. The difficult side is the earlier
@@ -271,12 +273,13 @@ Below `1` is safe. At or above `1` would be dangerous.
 
 ### Bridge
 
-**Plain language:** The missing argument that would connect the current exact
-evidence to a full theorem.
+**Plain language:** The argument connecting the exact finite base to the
+large-scale theorem.
 
-**In this repo:** “Bridge” often means the remaining no-early-spoiler argument
-needed to turn the current finite and asymptotic evidence into a universal
-proof.
+**In this repo:** “Bridge” often means the no-early-spoiler argument that turns
+the exact finite base into a universal proof. The committed certificate now
+records that the bridge threshold falls below the finite base under the stated
+BHP/Robin constants.
 
 ### Bridge Load
 
@@ -563,9 +566,11 @@ surface.
 
 ### Empirical
 
-**Plain language:** Measured by computation, not yet proved universally.
+**Plain language:** Measured by computation rather than proved from a theorem.
 
-**In this repo:** Much of the `GWR` surface is empirical in this sense.
+**In this repo:** Older `GWR` validation surfaces were empirical in this sense.
+The current headline `GWR` bridge closure is conditional theorem evidence, not
+only a measured surface.
 
 ### Theorem Candidate
 
@@ -604,6 +609,6 @@ When a note feels unreadable, try this translation rule:
 
 If you want only one sentence to keep in your head, use this one:
 
-`GWR` is trying to say that prime gaps do not allow arbitrary composite
-interiors. They seem to allow only very specific low-divisor arrival patterns,
-and those patterns may also constrain where the next prime can appear.
+`GWR` says, under the recorded BHP/Robin bridge constants, that prime gaps do
+not allow arbitrary composite interiors: the raw-$Z$ winner is the leftmost
+carrier of the minimum divisor class in the gap.

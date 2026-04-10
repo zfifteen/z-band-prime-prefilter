@@ -138,11 +138,13 @@ In the current repo, those scans already serve three exact jobs:
 
 - they establish the finite base,
 - they measure the tight spoiler and ratio frontiers,
-- they normalize the remaining asymptotic bridge target into one bridge-load
-  quantity.
+- they normalize the asymptotic bridge target into one bridge-load quantity.
 
 That is why the proof-facing artifacts now converge on explicit bridge
-constants rather than on ever-larger blind enumeration. The key files are
+constants rather than on ever-larger blind enumeration. The bridge has now been
+certified below the exact finite base under the recorded BHP/Robin constants.
+The key files are
+[gwr/findings/gwr_universal_bridge_closure.md](../../gwr/findings/gwr_universal_bridge_closure.md),
 [gwr/findings/no_early_spoiler_margin_findings.md](../../gwr/findings/no_early_spoiler_margin_findings.md),
 [gwr/findings/no_early_spoiler_ratio_frontier_findings.md](../../gwr/findings/no_early_spoiler_ratio_frontier_findings.md),
 [gwr/findings/asymptotic_bridge_load_findings.md](../../gwr/findings/asymptotic_bridge_load_findings.md),
@@ -152,9 +154,9 @@ and
 So the horizon picture points to the same conclusion as the current executed
 `GWR` artifacts:
 
-- extend exact computation to strengthen the base and expose the hard frontier,
-- but expect universal closure to come from a normalized local law with
-  explicit constants, not from scale escalation by itself.
+- exact computation supplies the finite base and exposes the hard frontier,
+- universal closure comes from a normalized local law with explicit constants,
+  not from scale escalation by itself.
 
 ## Project-Level Synthesis
 
@@ -163,7 +165,7 @@ These three anchors now line up cleanly:
 - the Meissel-Mertens constant anchors where reciprocal-prime thresholds sit,
 - `FIXED_POINT_V = e^{2}/2` anchors the `DCI` prime fixed-point band,
 - the bridge-load threshold $B(k, w) < 1$ anchors the current `GWR`
-  no-early-spoiler closure target.
+  no-early-spoiler closure certificate.
 
 The shared lesson is that this project advances fastest when it finds the right
 invariant boundary and then measures ratios against that boundary.

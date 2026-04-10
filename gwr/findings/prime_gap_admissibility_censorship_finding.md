@@ -176,10 +176,15 @@ Taken together, they suggest something sharper:
 the hard part of the problem is probably not that actual prime gaps are full of
 near-failure patterns that slowly get worse with scale.
 
-The checked files instead support this reading:
+Before the explicit bridge certificate, the checked files supported this
+reading:
 
 many divisor-count patterns remain unresolved on paper, but only a small part
 of them seem able to occur inside actual gaps between consecutive primes.
+
+The bridge certificate now supplies the large-$p$ inequality route for the
+headline `GWR` theorem under the recorded BHP/Robin constants. This note remains
+useful as the local-pattern reading of why the exact frontier was so thin.
 
 That is the central claim of this note.
 
@@ -198,7 +203,8 @@ consecutive primes.
 
 ## Consequences For The Proof Program
 
-If this reading is right, then the main open problem should be posed less as:
+Before the bridge certificate, this reading suggested posing the main problem
+less as:
 
 "what inequality eventually defeats the infinite tail?"
 
@@ -209,7 +215,7 @@ actually contain?"
 
 That changes the research posture in several concrete ways.
 
-### 1. The remaining hard part should be searched as a small-pattern problem
+### 1. The hard local frontier should be searched as a small-pattern problem
 
 The current hardest checked cases already point toward:
 
@@ -238,10 +244,11 @@ They suggest a very thin family of local hard cases.
 The score law already has a strong ordered backbone in the
 [theorem on score order when divisor count does not increase](./lexicographic_raw_z_dominance_theorem.md).
 
-What remains open is not that score comparison is completely mysterious.
+The remaining local-pattern question is not that score comparison is completely
+mysterious.
 
-What remains open may be that actual prime-gap interiors obey stricter local
-rules than divisor-count algebra alone can see.
+It is whether actual prime-gap interiors obey stricter local rules than
+divisor-count algebra alone can see.
 
 If so, the deeper theorem would say which divisor-count patterns consecutive
 primes are allowed to leave behind before the winner and before the gap ends.

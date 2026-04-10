@@ -24,6 +24,23 @@ winner:
 
 Any gap where the raw-$Z$ argmax differs from that winner is a counterexample.
 
+## Current Headline Status
+
+The no-early-spoiler bridge is now closed below the repo's exact finite base
+under BHP's $\theta = 0.525$ and explicit Robin-style divisor-function
+majoration constants.
+
+The exact finite bridge artifact through $p < 20{,}000{,}001$ records
+`1,163,198` gaps, `3,349,874` earlier candidates, `0` bridge failures, and
+maximum realized bridge load `0.05664166714743768`. The analytic bridge
+threshold is `102` under $c=\ln(2)e^\gamma$ and `3,544` under conservative
+`c = 1.5379`, both inside that finite base.
+
+See
+[`findings/gwr_universal_bridge_closure.md`](./findings/gwr_universal_bridge_closure.md)
+and
+[`experiments/proof/proof_bridge_certificate.py`](./experiments/proof/proof_bridge_certificate.py).
+
 ## Subtree Layout
 
 - [`findings/`](./findings/README.md): Statements of the rule and synthesized
@@ -35,7 +52,8 @@ Any gap where the raw-$Z$ argmax differs from that winner is a counterexample.
 
 ## Current Source Of Truth
 
-The current executable validation path remains in the existing gap-ridge code:
+The historical executable validation path remains in the existing gap-ridge
+code:
 
 - [`benchmarks/python/gap_ridge/lexicographic_rule_revalidation.py`](../benchmarks/python/gap_ridge/lexicographic_rule_revalidation.py)
 - [`benchmarks/python/gap_ridge/lexicographic_peak_validation.py`](../benchmarks/python/gap_ridge/lexicographic_peak_validation.py)
