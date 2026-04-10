@@ -11,6 +11,7 @@ Current findings from this session:
 - [Broad prime-edge insulation is falsified](./broad_prime_edge_insulation_falsified.md)
 - [Odd-Composite Near-Edge Ridge](./odd_composite_near_edge_ridge.md)
 - [d(n)=4 carrier dominance is availability-driven](./d4_availability_driven_carrier_dominance.md)
+- [Fixed-table rejection is a number-theory boundary](./fixed_table_rejection_boundary.md)
 - [Lexicographic winner-take-all peak rule](./lexicographic_winner_take_all_peak_rule.md)
 - [Meissel-Mertens constant as a computational horizon anchor](./meissel_mertens_horizon_anchor.md)
 - [Residue-modulated ridge orientation](./residue_mod30_ridge_orientation.md)
