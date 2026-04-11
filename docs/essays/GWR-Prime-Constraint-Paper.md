@@ -21,21 +21,22 @@ $$L(n) = \left(1 - \frac{d(n)}{2}\right)\ln n,$$
 
 which interior number wins?
 
-The main claim studied in this repository is that the winner is always the
-first interior number with the smallest divisor count that appears in the gap.
+The Gap Winner Rule (GWR) theorem says that the winner is always the first
+interior number with the smallest divisor count that appears in the gap, under
+the recorded BHP/Robin assumptions.
 
-If that claim is true for every prime gap, then it does more than identify one
-special composite inside the gap. It also puts a limit on where the next prime
-can be. In the common case where the winning interior number has exactly four
-divisors, the next prime must arrive before the next prime square after that
-winner.
+Because GWR is conditionally proved for every prime gap, it does more than
+identify one special composite inside the gap. It also puts a limit on where the
+next prime can be. In the common case where the winning interior number has
+exactly four divisors, the next prime must arrive before the next prime square
+after that winner.
 
 This paper explains that statement in ordinary English. It separates three
 things clearly:
 
-- what follows exactly if the main claim is true,
+- what follows exactly from GWR,
 - what has already been checked by computation in this repository,
-- and what part of the proof is still missing.
+- and how the conditional proof closes under the recorded BHP/Robin assumptions.
 
 ---
 
@@ -122,25 +123,24 @@ $$w = \min\{n : p < n < q,\ d(n) = d_{\min}(p,q)\}.$$
 This is the first interior number that reaches the smallest divisor count
 present in the gap.
 
-The main claim studied in this repository is:
+The main theorem studied in this repository is:
 
 > the number `w` is always the score winner inside the gap.
 
-In other words, the first interior number with the smallest divisor count seems
-to be exactly the number that maximizes `L(n)` across the gap.
+In other words, the first interior number with the smallest divisor count is
+the number that maximizes `L(n)` across the gap under the conditional GWR proof.
 
-In earlier drafts this claim was given a project-specific name.
-In this paper I will call it simply **the main claim**.
+This theorem is the **Gap Winner Rule (GWR)**.
 
 ---
 
-## 3. What Follows Exactly If The Main Claim Is True
+## 3. What Follows Exactly From GWR
 
-This section assumes the main claim is true and asks what follows from it.
+This section states direct consequences of GWR.
 
-Nothing here says the main claim is already proved for every gap.
-It says: **if the main claim is true for a given gap, then the following
-statements are immediate.**
+Under the recorded BHP/Robin assumptions, GWR is conditionally proved for every
+prime gap with composite interior. The following statements are immediate
+corollaries of that theorem.
 
 ### 3.1 Nothing Earlier Can Be Equally Simple Or Simpler
 
@@ -210,14 +210,14 @@ $$T_{<}(w) = \min\{n > w : d(n) < d(w)\}.$$
 This is the first later integer whose divisor count is strictly smaller than
 the winner's divisor count.
 
-If the main claim is true on the gap `(p, q)`, then the next prime must
+By GWR on the gap `(p, q)`, the next prime must
 satisfy
 
 $$q \le T_{<}(w).$$
 
 This is the key shift in viewpoint.
 
-The main claim is not only saying which interior composite comes out on top.
+GWR is not only saying which interior composite comes out on top.
 It is also saying where the next prime is allowed to be.
 
 Once the winning interior number is fixed, the right endpoint prime has to
@@ -258,11 +258,11 @@ next prime is allowed to be.
 
 ## 6. What The Repository Has Actually Checked
 
-This section is not a proof.
-It is a summary of what the repository has already checked by exact scans and
-checked runs at large scale.
+This section records the finite base and stress surface behind the proof chain.
+It is not the whole proof by itself; the universal closure also uses the
+analytic bridge and certificate.
 
-### 6.1 The Main Claim
+### 6.1 The Finite Winner Surface
 
 The repository reports zero counterexamples in its current set of validation
 runs,
@@ -271,8 +271,8 @@ which includes:
 - exact runs at `10^6` and `10^7`,
 - and deterministic sampled windows up to `10^18`.
 
-In total, the cases checked so far contain more than `4.6` million tested
-gaps with no observed counterexample to the main claim.
+In total, the cases checked so far contain more than `4.6` million tested gaps
+with no observed counterexample to GWR.
 
 ### 6.2 Earlier Interior Candidates
 
@@ -345,15 +345,16 @@ In the common case where the winner has four divisors, the repository records:
 So in the checked large-scale runs, the next prime is arriving far earlier than
 the next prime-square threat.
 
-Again, that is not a proof.
-But it is strong evidence that this common case is not close to
-failure in the ranges checked so far.
+That is not a standalone proof of the dominant $d=4$ mechanism. It is strong
+evidence that this common case is not close to failure in the ranges checked so
+far.
 
 ---
 
-## 7. What Is Already Proved
+## 7. How The Proof Closes
 
-One important part of the argument is already proved in the repository notes.
+The later side of the argument is elementary and already proved in the
+repository notes.
 
 For composite numbers `a < b`, if
 
@@ -377,20 +378,25 @@ least as large as the winner's divisor count.
 So this proved ordering result already forces the winner to beat every
 later interior competitor.
 
-That means the only part still missing for a full proof is the earlier side:
+The earlier side is closed by the committed bridge chain:
 
-> show that no earlier interior number with more divisors can beat the winner.
+- exact finite scan through $p < 20{,}000{,}001$;
+- zero earlier spoilers across `1,163,198` prime gaps and `3,349,874` earlier
+  candidates;
+- analytic BHP/Robin bridge for the large-$p$ tail;
+- certificate thresholds `102` and `3,544`, both below the exact finite base.
 
-That is the exact missing step.
+Together, these pieces prove GWR conditionally for all prime gaps under the
+recorded BHP/Robin assumptions.
 
 ---
 
-## 8. What The Current Evidence Suggests About The Missing Step
+## 8. What The Current Evidence Suggests About The Bridge Geometry
 
 Here is where the project becomes more interesting than it first appears.
 
-At the level of divisor counts alone, the current comparison inequality still
-leaves infinitely many unresolved patterns.
+At the level of divisor counts alone, the comparison inequality leaves many
+formal patterns to consider.
 
 But when the repository looks at **actual** interiors of gaps between
 consecutive primes, those patterns do not show up as a broad hard region.
@@ -404,9 +410,8 @@ Instead, the checked data show:
 
 That contrast suggests something important.
 
-The missing theorem may not be only a better inequality.
-
-It may also need to explain which divisor-count patterns can actually happen
+The bridge is not only a better inequality. It also tracks which divisor-count
+patterns can actually happen
 inside a real gap between consecutive primes.
 
 In other words:
@@ -414,17 +419,16 @@ In other words:
 - many patterns may be possible on paper,
 - but far fewer may be possible inside actual prime gaps.
 
-That is not yet a theorem.
-It is an interpretation of the current evidence.
-
-But it is an interpretation strongly suggested by the current repository
-files.
+That is now the geometric reading of the conditional proof surface: the exact
+finite base is not merely a validation table, but the overlap region where the
+analytic bridge lands.
 
 ---
 
 ## 9. Why This Matters
 
-If the main claim is true for every prime gap, then the result would say
+Because GWR is conditionally proved for every prime gap under the recorded
+BHP/Robin assumptions, the result says
 something unusual about primes.
 
 It would say that the interior composite structure of a gap is not just a by-
@@ -441,20 +445,19 @@ In the common case where the winner has four divisors, that would mean:
 That is a local statement about prime placement derived from the structure of
 the composite interior.
 
-Even if the full proof is not finished, that is already why this project is
-worth taking seriously.
+That is why this project is worth taking seriously.
 
-It is not only proposing a pattern.
-It is proposing a pattern with exact local consequences, strong checked
-evidence, and one clearly identified missing step.
+It is not only proposing a pattern. It carries a conditional theorem with exact
+local consequences, a finite base, and an explicit analytic bridge.
 
 ---
 
-## 10. What Still Needs To Be Proved
+## 10. What Still Needs Work
 
-The remaining tasks are now fairly clear.
+The remaining tasks are now narrower than proving GWR itself.
 
-1. Show that no earlier interior number with more divisors can beat the winner.
+1. Strengthen or replace the conditional BHP/Robin bridge if an unconditional
+   GWR proof is desired.
 
 2. Explain why the common case where the winner has four divisors stays so far away from the next
    prime-square threat in the checked high-scale runs.
@@ -462,9 +465,9 @@ The remaining tasks are now fairly clear.
 3. Explain why the hardest checked cases seem to live in tiny local patterns
    rather than in the largest gaps.
 
-4. Decide whether the right missing theorem is only a comparison argument, or
-   whether it must also describe which divisor-count patterns can actually
-   occur inside real prime gaps.
+4. Decide whether the next independent theorem should target only a sharper
+   comparison argument, or whether it should also describe which divisor-count
+   patterns can actually occur inside real prime gaps.
 
 Those are hard problems.
 
@@ -476,23 +479,23 @@ But they are much narrower than “explain all prime gaps at once.”
 
 This paper has tried to say one thing plainly.
 
-Inside a gap between consecutive primes, the winning interior composite seems
-to be the first number in the gap with the smallest divisor count present.
+Inside a gap between consecutive primes, GWR says the winning interior composite
+is the first number in the gap with the smallest divisor count present.
 
-If that is true for every prime gap, then the claim does more than identify one
-special composite.
+Because that is conditionally proved for every prime gap under the recorded
+BHP/Robin assumptions, the theorem does more than identify one special
+composite.
 
 It also tells us something about where the next prime can be.
 
 In the common case where the winner has four divisors, the next prime must
 arrive before the next prime square after that winner.
 
-The repository has checked this picture on exact finite ranges and on
-checked runs at large scale, and it has found no counterexample on those
-tested cases.
+The repository has checked this picture on exact finite ranges and checked runs
+at large scale, and those artifacts now feed the finite side of the proof chain.
 
-The later side of the argument is already proved.
-The earlier side is the only part still missing.
+The later side is elementary. The earlier side is closed by the exact finite
+base plus the BHP/Robin bridge certificate.
 
 That is the state of the project in the simplest honest language I know.
 

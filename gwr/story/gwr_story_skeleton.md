@@ -171,11 +171,11 @@ End with the proof closure, not only the validation surface.
 ### Main claim
 
 The no-early-spoiler bridge certificate turns the exact finite scan into the
-base case for a conditional universal theorem.
+base case for the conditionally proven universal GWR theorem.
 
 ### Points to cover
 
-- GWR was empirically exact on the tested surface,
+- GWR was empirically exact on the tested surface before proof closure,
 - the unrestricted global theorem is false,
 - the ordered dominance theorem handles the later side,
 - the bridge certificate handles the earlier side under the recorded

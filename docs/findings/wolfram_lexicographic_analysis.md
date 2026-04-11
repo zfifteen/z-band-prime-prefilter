@@ -302,9 +302,9 @@ For analytic number theory, the report points to an unexpectedly rigid interacti
 [
 \Bigl(1-\frac{d(n)}2\Bigr)\log n.
 ]
-The empirical identity says that this coupling is so asymmetric that one obtains a deterministic local law, at least on a very large tested surface.
+The current GWR proof status says that this coupling is so asymmetric that one obtains a deterministic local law under the recorded BHP/Robin bridge constants, with the tested surface serving as the finite base and audit record.
 
-For the fine-scale geometry of the integers, the broader lesson is that prime-free intervals may have canonical internal landmarks. Here the landmark is the leftmost carrier of the minimum divisor count. If that phenomenon survives proof, it would amount to a new structural law for the micro-geometry of consecutive composites between primes.
+For the fine-scale geometry of the integers, the broader lesson is that prime-free intervals have canonical internal landmarks under the conditional GWR theorem. Here the landmark is the leftmost carrier of the minimum divisor count.
 
 Practical consequences should be stated modestly. The rule does not improve primality testing in the usual algorithmic sense. It does, however, give a fast surrogate for locating the raw-(Z) peak inside a gap: one can avoid evaluating all scores if one can identify the earliest minimum-(d) interior point. That may be useful in computational prime-gap studies, in exploratory sieve experiments, or in the design of diagnostics for local composite structure.
 
@@ -314,7 +314,7 @@ The most important mathematical consequence is conceptual. The uploaded artifact
 ]
 through the tested surface.
 
-That is strong evidence for a genuine structural law. It is not yet a theorem. But it is much more than an anecdotal pattern, and it deserves to be treated as a serious new conjectural regularity in the arithmetic anatomy of prime gaps.
+That finite identity is now part of the proof chain rather than only evidence for a conjecture. In the current repo framing, GWR is a conditionally proven universal theorem under the recorded BHP/Robin assumptions.
 
 [1]: https://arxiv.org/pdf/math/0606408 "arXiv:math/0606408v1  [math.NT]  16 Jun 2006"
 [2]: https://arxiv.org/abs/math/0607460 "[math/0607460] The distribution of integers with at least two divisors in a short interval"

@@ -72,7 +72,7 @@ The important point is that GWR is not a loose summary. It was first an exact
 identity on the validation ladder, from exact runs at $10^6$ and
 $2 \times 10^7$ through sampled higher-scale windows out to $10^{12}$. The
 new bridge certificate turns the exact finite scan into the base case for a
-conditional universal theorem.
+conditionally proven universal theorem.
 
 ![GWR validation surface: every reported tested regime remains at match rate 1.0](./plots/figure_02_match_rate_surface.png)
 
@@ -207,8 +207,8 @@ simpler arithmetic law than the formula first suggests.
 
 The strongest supported statement at this stage is therefore:
 
-The Gap Winner Rule is a conditional universal winner law under the recorded
-BHP/Robin bridge constants, and it compresses several previously
+The Gap Winner Rule is a conditionally proven universal winner theorem under
+the recorded BHP/Robin bridge constants, and it compresses several previously
 separate-looking observations into one selection rule.
 
 See [gap_winner_rule.md](../findings/gap_winner_rule.md) for the formal

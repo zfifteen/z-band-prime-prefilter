@@ -41,7 +41,7 @@ Primary note:
 
 **Gap Winner Rule (`GWR`)**
 
-This is the current prime-gap winner law, conditionally closed for all prime
+This is the current conditionally proven prime-gap winner theorem for all prime
 gaps under BHP's $\theta = 0.525$ and the explicit divisor-function majoration
 constants recorded in
 [`gwr_universal_bridge_closure.md`](./gwr_universal_bridge_closure.md).
@@ -126,8 +126,8 @@ separate evidence, not part of the theorem.
 Use this structure:
 
 - the ordered dominance theorem is the exact mathematical statement,
-- `GWR` is the conditional universal prime-gap winner law under the recorded
-  BHP/Robin bridge constants,
+- `GWR` is the conditionally proven universal prime-gap winner theorem under the
+  recorded BHP/Robin bridge constants,
 - the closure and dominant-$d=4$ notes are theorem candidates built from that
   winner law,
 - novelty status remains an external literature question and should be stated
@@ -143,4 +143,4 @@ identified in the literature search done so far.`
 
 Use this sentence when a compact overview is needed:
 
-`The Gap Winner Rule is the conditional universal prime-gap winner law under the recorded BHP/Robin bridge constants; the Lexicographic Raw-Z Dominance Theorem supplies its exact ordered backbone, and the no-early-spoiler bridge certificate closes the earlier-candidate flank below the exact finite base.`
+`The Gap Winner Rule is the conditionally proven universal prime-gap winner theorem under the recorded BHP/Robin bridge constants; the Lexicographic Raw-Z Dominance Theorem supplies its exact ordered backbone, and the no-early-spoiler bridge certificate closes the earlier-candidate flank below the exact finite base.`

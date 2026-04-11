@@ -23,9 +23,10 @@ The strongest supported statement from the current committed runs is:
 - the `d(n) = 4` carrier enrichment strengthens with scale, rising from `4.116x` at `10^6` to about `7.56x` in even-window `10^18` runs and about `9.19x` in fixed-seed `10^18` runs,
 - the left edge remains the dominant side of the ridge throughout the tested regimes.
 
-On the tested surface, a stronger empirical statement also holds: the exact
-raw-`Z` peak matches the lexicographic winner obtained by first minimizing
-interior divisor count and then taking the leftmost carrier of that minimum.
+The current theorem statement strengthens that tested-surface identity: under
+the recorded BHP/Robin bridge constants, GWR says the exact raw-`Z` peak matches
+the lexicographic winner obtained by first minimizing interior divisor count and
+then taking the leftmost carrier of that minimum.
 
 ## Regime Confirmation
 

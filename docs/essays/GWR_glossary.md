@@ -569,8 +569,8 @@ surface.
 **Plain language:** Measured by computation rather than proved from a theorem.
 
 **In this repo:** Older `GWR` validation surfaces were empirical in this sense.
-The current headline `GWR` bridge closure is conditional theorem evidence, not
-only a measured surface.
+The current headline `GWR` result is a conditionally proven theorem under the
+recorded BHP/Robin assumptions, not only a measured surface.
 
 ### Theorem Candidate
 

@@ -119,8 +119,8 @@ literature:
 - **Divisor Normalization Identity (DNI):** `Z(n) = n^(1 - d(n)/2)` is an
   exact arithmetic identity collapsing all primes to `Z = 1.0`.
 - **Gap Winner Rule (GWR):** inside any prime gap, the log-score argmax is
-  exactly the leftmost carrier of the minimum interior divisor class,
-  conditionally closed for all prime gaps under the explicit BHP/Robin bridge
+  exactly the leftmost carrier of the minimum interior divisor class. This is a
+  conditionally proven universal theorem under the explicit BHP/Robin bridge
   constants recorded in
   [gwr/findings/gwr_universal_bridge_closure.md](gwr/findings/gwr_universal_bridge_closure.md).
 - **No-Later-Simpler-Composite (NLSC) condition:** once the GWR winner
@@ -195,9 +195,11 @@ a prime gap collapses to a simpler arithmetic choice:
 That is the Gap Winner Rule.
 
 The formal theorem file expresses this as a hierarchical local-dominator law.
-The executed artifacts in this repo then show zero unresolved earlier spoilers
-on the full exact surface through $2 \times 10^7$ and on the matched
-square-adjacent windows at $10^{12}$.
+The repo now carries GWR as a conditionally proven universal theorem under the
+recorded BHP/Robin assumptions. The proof chain combines elementary later-side
+lexicographic raw-$Z$ dominance, the exact finite earlier-side base through
+$p < 20{,}000{,}001$, and the explicit analytic bridge certificate whose
+thresholds fall below that finite base.
 
 The newer no-early-spoiler artifacts close the left flank against the actual
 winner itself. On the full exact through-$2 \times 10^7$ surface, the repo
@@ -274,10 +276,11 @@ $$
 q \le T_{<}(w).
 $$
 
-This is an exact corollary of GWR on any gap where GWR holds. The separate
-question is whether it can stand on its own as a direct prime-gap theorem. The
-current documented surface includes a deterministic even-band ladder at every
-decade from $10^8$ through $10^{18}$ with zero observed violations.
+This is an exact corollary of the conditionally proven GWR theorem. The separate
+question is whether it can stand on its own as a direct prime-gap theorem without
+using GWR as the parent result. The current documented surface includes a
+deterministic even-band ladder at every decade from $10^8$ through $10^{18}$
+with zero observed violations.
 
 See
 [gwr/findings/no_later_simpler_composite_theorem.md](gwr/findings/no_later_simpler_composite_theorem.md)
@@ -379,11 +382,10 @@ runtime exact DNI evaluation.
   gaps versus an exact within-gap baseline of $22.1859\%$, and is carried by a
   $d(n)=4$ composite in $82.9027\%$ of gaps versus a baseline of $20.1401\%$.
 - Later repository notes sharpen that ridge picture into the current winner
-  law: on the documented validation surfaces, the implemented log-score winner
-  matches the arithmetic choice “minimize interior divisor count, then take the
-  leftmost carrier,” with zero observed counterexamples on the current
-  revalidation ladder and on earlier committed sampled surfaces through
-  $10^{18}$.
+  theorem: GWR conditionally proves that the implemented log-score winner is the
+  arithmetic choice “minimize interior divisor count, then take the leftmost
+  carrier,” under the recorded BHP/Robin bridge constants. The tested surfaces
+  remain the finite base, stress surface, and audit record for that proof chain.
 - The dedicated closure study then strengthens the right-edge reading further:
   on the current documented even-band ladder through $10^{18}$, once the
   winner appears, no later strictly simpler composite is observed before the

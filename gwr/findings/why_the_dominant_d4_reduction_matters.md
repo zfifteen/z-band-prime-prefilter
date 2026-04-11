@@ -42,7 +42,7 @@ actually true.
 
 ### 1. The dominant regime now has a visible mechanism
 
-Before this reduction, the strongest repo story was:
+Before the GWR proof closure, the strongest repo story was:
 
 - a divisor-weighted log-score is computed across each gap interior,
 - and its winner matches a simple arithmetic rule on the tested surface.
@@ -64,7 +64,8 @@ That is a local exclusion-and-arrival law, not a full gap-wide search story.
 The current repo structure is now cleaner:
 
 - the divisor-normalized field defines the score surface,
-- GWR gives the exact winner law on the tested surface,
+- GWR gives the conditional universal winner theorem under the recorded
+  BHP/Robin assumptions,
 - the dominant $d=4$ reduction explains why most of that surface collapses so
   cleanly,
 - the No-Later-Simpler-Composite condition gives the closure consequence.
@@ -77,9 +78,12 @@ project now has:
 - a dominant mechanism,
 - and a closure law.
 
-### 3. The proof program narrows
+### 3. The follow-on proof program narrows
 
-The dominant proof target is no longer “explain the whole winner rule at once.”
+The dominant proof target is no longer “prove the whole winner rule at once.”
+GWR is already conditionally proved under the recorded BHP/Robin assumptions.
+The remaining dominant-regime target is an independent local explanation of the
+largest winner class.
 
 The dominant $d=4$ regime splits into two cleaner questions:
 
@@ -87,10 +91,9 @@ The dominant $d=4$ regime splits into two cleaner questions:
 - once no interior prime square is present, why does the first interior
   $d=4$ carrier always win?
 
-That is a much better proof program.
-
-It does not solve full GWR. But it identifies the main regime and states its
-mechanism in a form that can plausibly be attacked directly.
+That is a much better follow-on proof program because it identifies the main
+regime and states its mechanism in a form that can plausibly be attacked
+directly.
 
 ### 4. The project now knows which simplifications are safe
 
@@ -161,9 +164,10 @@ bounded by consecutive primes.
 
 That is a much more recognizable target.
 
-It does not mean the proof is easy. It does mean the project is no longer
-asking number theory to explain an unfamiliar scoring rule all at once. It is
-asking for a theorem about a very concrete local ordering.
+It does not mean the follow-on proof is easy. It does mean the project is no
+longer asking number theory to explain an unfamiliar scoring rule all at once.
+GWR supplies the conditional winner theorem; the dominant-regime work asks for a
+more concrete local ordering explanation.
 
 ### 4. The project is isolating a candidate local law of gap termination
 
@@ -216,6 +220,6 @@ from a mysterious global score identity into a local arithmetic mechanism that
 already holds on the current documented exact-and-band ladder through
 $10^{18}$.
 
-That does not prove full GWR. But it does identify the dominant regime, the
-right winner class, the main exception family, and a much sharper proof target
-than the project had before.
+That does not replace the conditional GWR proof. It identifies the dominant
+regime, the right winner class, the main exception family, and a much sharper
+local follow-on proof target than the project had before.

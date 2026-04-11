@@ -1,7 +1,7 @@
 # Current Headline Results
 
-- **Conditional universal GWR bridge closure.** The no-early-spoiler bridge now
-  closes below the repo's exact finite base under BHP's $\theta = 0.525$ and
+- **Conditionally proven universal GWR theorem.** The no-early-spoiler bridge
+  now closes below the repo's exact finite base under BHP's $\theta = 0.525$ and
   the explicit divisor-function majoration constants checked by
   [../gwr/experiments/proof/proof_bridge_certificate.py](../gwr/experiments/proof/proof_bridge_certificate.py).
   The analytic thresholds are `102` for $c=\ln(2)e^\gamma$ and `3,544` for

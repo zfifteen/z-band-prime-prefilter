@@ -2,17 +2,17 @@
 
 This essay starts from one simple contrast.
 
-If we look only at divisor counts, the current comparison argument still leaves
-infinitely many unresolved patterns.
+If we look only at divisor counts, the comparison argument leaves many formal
+patterns that are not resolved by divisor algebra alone.
 
 But if we look at actual gaps between consecutive primes, the checked cases in
 this repository look much stricter.
 
 That contrast may be telling us something important.
 
-The missing step may not be only a better inequality.
-It may also be a theorem about which divisor-count patterns can actually occur
-inside a real prime gap.
+The next independent explanation may not be only a sharper inequality. It may
+also be a theorem about which divisor-count patterns can actually occur inside a
+real prime gap.
 
 ## The Basic Contrast
 
@@ -270,9 +270,8 @@ might live.
 
 This reading also fits the newer work on where the next prime can occur.
 
-If the main claim were only a statement about which composite wins after the
-fact, then it would not naturally tell us much about where the boundary primes
-can sit.
+If GWR were only a statement about which composite wins after the fact, then it
+would not naturally tell us much about where the boundary primes can sit.
 
 But once we read the gap interior as a restricted local pattern, the boundary
 statement becomes natural.
@@ -281,8 +280,9 @@ The
 [note on the local bound for the next prime](../../gwr/findings/prime_boundary_placement_finding.md)
 states the sharpest version.
 
-If the main claim holds, then the winning interior number also defines a later
-point that the next prime must beat.
+Because GWR is conditionally proved under the recorded BHP/Robin assumptions,
+the winning interior number also defines a later point that the next prime must
+beat.
 
 In the common case where the winner has four divisors:
 
@@ -299,7 +299,7 @@ So the same picture has two sides:
 
 This essay does not claim:
 
-- that the main claim is already proved for all prime gaps,
+- that GWR is unconditionally proved for all prime gaps,
 - that every unresolved divisor-count family is impossible in actual prime
   gaps,
 - that finite checked ranges settle the whole problem by themselves,

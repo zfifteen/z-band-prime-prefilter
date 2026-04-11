@@ -22,7 +22,7 @@ argmax, is exactly the interior integer selected by this arithmetic order:
 2. among interiors with that minimum, choose the leftmost one.
 
 Equivalently, the log-score winner and the lexicographic winner are the same
-carrier. The repo now closes this statement conditionally for all prime gaps
+carrier. The repo now proves this statement conditionally for all prime gaps
 under BHP's $\theta = 0.525$ and the explicit divisor-function majoration
 constants recorded in
 [`gwr_universal_bridge_closure.md`](./gwr_universal_bridge_closure.md).
