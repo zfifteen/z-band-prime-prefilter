@@ -1,21 +1,22 @@
 # Proof Bridge for the No-Early-Spoiler Condition
 
-This note records the analytic bridge used for the universal proof of the
-`Gap Winner Rule` (`GWR`).
+This note records the analytic bridge used on the earlier side of the
+`Gap Winner Rule` (`GWR`) proof surface.
 
-The explicit constants have now been evaluated against the committed finite
-base. Under BHP's $\theta = 0.525$ and the divisor-function constants recorded
-below, the bridge threshold lands below the exact finite scan through
-$p < 20{,}000{,}001$. So the universal `GWR` bridge is closed under the stated
-assumptions.
+The current explicit picture has two distinct regimes:
+
+- a bounded unconditional bridge from Dusart's explicit prime-gap bound and
+  Nicolas-Robin divisor majoration;
+- a conditional tail from BHP's fixed exponent $\theta = 0.525$ once an
+  explicit leading constant $A$ is supplied.
 
 Its job is:
 
 - restate the exact no-early-spoiler target in one normalized quantity,
 - derive a fully non-empirical large-$p$ bridge from gap geometry and divisor
   growth bounds,
-- record the explicit certificate that the finite verification obligation is
-  already covered by the committed exact base.
+- record the explicit certificate showing what is already covered
+  unconditionally and what still depends on a provisional tail assumption.
 
 ## 1. Reduction Already Established
 
@@ -92,12 +93,11 @@ So
 
 $$\frac{\delta}{d_{\min} - 2} \ge \frac{1}{d_{\min} - 2}.$$
 
-Now use any explicit maximal-order upper bound for the divisor function, for
-example a Nicolas-Robin style majoration of the form
+Now use the explicit Nicolas-Robin majoration
 
 $$d(n) \le \exp\left(c \frac{\ln n}{\ln\ln n}\right)$$
 
-for all sufficiently large $n$, with an effective absolute constant $c > 0$.
+for all $n \ge 3$, with conservative constant $c = 1.5379$.
 
 Since $w$ lies in the gap interior near $p$, this gives
 
@@ -109,7 +109,7 @@ $$\frac{\delta}{d_{\min} - 2} \ge \exp\left(-c \frac{\ln p}{\ln\ln p}\right).$$
 
 So the bridge denominator is bounded below by a subpolynomial term.
 
-## 5. Universal Large-$p$ Bridge
+## 5. Conditional Large-$p$ Tail Under Fixed-Exponent Gap Bounds
 
 Combine the numerator and denominator bounds:
 
@@ -139,25 +139,73 @@ $$B(k,w) < 1.$$
 
 for every earlier candidate $k$.
 
-This is the universal large-$p$ lemma.
+This is the large-$p$ tail lemma once a fixed-exponent gap bound with explicit
+constants is available.
 
-## 6. Explicit Certificate
+## 6. Explicit Unconditional Bounded Bridge Via Dusart (2018)
+
+Dusart (2018, Proposition 6.8) supplies the strongest explicit unconditional
+prime-gap bound currently used in this repo:
+
+$$
+g(p) \le \frac{p}{25 (\ln p)^2}, \qquad p \ge 396{,}738.
+$$
+
+Substituting into the bridge upper bound gives the explicit envelope
+
+$$
+U(p,c) = \frac{1}{25} \cdot
+\frac{\exp\left(c \frac{\ln p}{\ln\ln p}\right)}{(\ln p)^3}.
+$$
+
+Let $L = \ln p$. Then
+
+$$
+\frac{d}{dL}\ln U =
+\frac{c(\ln L - 1)}{(\ln L)^2} - \frac{3}{L}.
+$$
+
+At the Dusart threshold $p = 396{,}738$, this derivative is already positive
+for both constants used in the certificate:
+
+- conservative $c = 1.5379$: derivative `0.13353517567182743`,
+- theoretical $c = \ln 2 \cdot e^\gamma$: derivative `0.061290426084355254`.
+
+So the Dusart envelope is increasing from the start of the explicit regime. It
+does not furnish an eventual tail. Instead it stays below `1` on a bounded
+interval and then crosses the bridge threshold at explicit upper limits:
+
+- conservative $c = 1.5379$:
+  $p \le 5{,}571{,}362{,}243{,}795$,
+- theoretical $c = \ln 2 \cdot e^\gamma$:
+  $p \le 45{,}301{,}724{,}985{,}788{,}829{,}696$.
+
+So Dusart yields a large unconditional bridge window, not a universal tail.
+
+## 7. Explicit Certificate
 
 The explicit certificate artifact is
 [`../../../output/gwr_proof/proof_bridge_certificate_2e7.json`](../../../output/gwr_proof/proof_bridge_certificate_2e7.json).
 
-It evaluates the bridge bound
+The certificate script records both the provisional BHP tail and the bounded
+Dusart coverage. For the BHP form it evaluates
 
 $$B(k,w) < A p^{\theta-1}(\ln p)^{-1}\exp(c\ln p/\ln\ln p).$$
 
-Against BHP's $\theta = 0.525$, the evaluated thresholds are:
+Against BHP's $\theta = 0.525$ with provisional $A = 1$, the evaluated tail
+thresholds are:
 
 | Constants | Raw threshold where bridge is below `1` | Relation to finite base |
 |---|---:|---|
 | $A=1$, $c=\ln(2)e^\gamma$ | `102` | inside $p < 20{,}000{,}001$ |
 | $A=1$, $c=1.5379$ | `3,544` | inside $p < 20{,}000{,}001$ |
-| $A=10$, $c=\ln(2)e^\gamma$ | `220,725` | inside $p < 20{,}000{,}001$ |
-| $A=10$, $c=1.5379$ | `727,330,778` | outside current finite base |
+
+For Dusart's explicit unconditional bound, the bridge stays below `1` on:
+
+| Constants | Bounded unconditional coverage | Relation to finite base |
+|---|---:|---|
+| $c=\ln(2)e^\gamma$ | $396{,}738 \le p \le 45{,}301{,}724{,}985{,}788{,}829{,}696$ | fully covers $p < 20{,}000{,}001$ |
+| $c=1.5379$ | $396{,}738 \le p \le 5{,}571{,}362{,}243{,}795$ | fully covers $p < 20{,}000{,}001$ |
 
 The exact finite bridge-load base through $p < 20{,}000{,}001$ records:
 
@@ -165,22 +213,27 @@ The exact finite bridge-load base through $p < 20{,}000{,}001$ records:
 - `0` bridge failures,
 - maximum realized bridge load `0.05664166714743768`.
 
-Therefore the headline $A=1$ bridge closes under both recorded divisor
-constants. The $A=10$ robustness variant closes under Robin's
-$c=\ln(2)e^\gamma$ constant, but not under the conservative $c=1.5379$ constant
-with the current finite base.
+So the finite computation overlaps the start of the Dusart regime by a wide
+margin and also lies above the provisional $A = 1$ BHP thresholds.
 
-## 7. Current Role Of The Exact Artifacts
+## 8. Current Role Of The Exact Artifacts
 
 The exact artifacts no longer serve only as evidence.
 
-They serve two proof roles:
+They serve three proof roles:
 
 - they certify the finite base already covered exactly in the repo;
-- they provide the base case below the explicit analytic threshold.
+- they overlap the entire beginning of the unconditional Dusart regime;
+- they provide the base case below the provisional BHP tail threshold.
 
-The bridge proof supplies the tail above the threshold. Since the threshold is
-below the finite base for the headline $A=1$ constants, the two regimes overlap.
+The current strongest conclusion is:
 
-That overlap is the closure: there is no unverified interval between the exact
-finite computation and the large-$p$ bridge under the stated assumptions.
+- the bridge is closed unconditionally on the concrete interval
+  $396{,}738 \le p \le 5.571 \times 10^{12}$ under Dusart and conservative
+  Nicolas-Robin constants;
+- the bridge has a conditional tail to infinity under BHP's $\theta = 0.525$
+  once an explicit leading constant $A$ is supplied.
+
+So the exact finite computation, the unconditional bounded bridge, and the
+provisional BHP tail are now separated cleanly rather than merged into one
+overstated universal claim.

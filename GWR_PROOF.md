@@ -1,6 +1,6 @@
 # GWR_PROOF.md
 
-## Gap Winner Rule: Universal Proof Summary
+## Gap Winner Rule: Proof Status Summary
 
 This document assembles the four-component proof chain for the
 **Gap Winner Rule (GWR)**. Every claim points to a committed artifact.
@@ -53,47 +53,67 @@ Source:
 
 ## Component 2: Earlier Side, Analytic Bridge (Large p)
 
-**Claim.** For all sufficiently large \(p\), every composite \(k \in I\)
-with \(k < w\) satisfies \(L(k) < L(w)\).
+**Claim.** For every earlier composite \(k < w\) in the gap interior,
+\(L(k) < L(w)\) holds under explicit prime-gap bounds that make the
+dimensionless bridge quantity \(B(k,w) < 1\).
 
-**Reduction.** The condition \(L(k) < L(w)\) is equivalent to the
-dimensionless bridge quantity
+**Reduction.** The condition \(L(k) < L(w)\) is equivalent to
 
 $$
 B(k,w) = \frac{\dfrac{\ln w}{\ln k} - 1}{\dfrac{\delta}{d_{\min} - 2}} < 1,
 \qquad \delta = d(k) - d_{\min} \ge 1.
 $$
 
-**Numerator bound.** Using \(\ln(1+x) \le x\) and \(w - k \le g(p)\):
+**Numerator bound.** Gap geometry and \(\ln(1+x) \le x\) give
 
 $$
 \frac{\ln w}{\ln k} - 1 < \frac{g(p)}{p \ln p}.
 $$
 
-**Denominator bound.** The Robin (1984) divisor majoration gives
+**Denominator bound.** Nicolas-Robin (1983) explicit majoration, valid for
+all \(n \ge 3\), with conservative constant \(c = 1.5379\) yields
 
 $$
-d_{\min} - 2 \le \exp\!\left(c \frac{\ln p}{\ln \ln p}\right),
-\quad c = \ln 2 \cdot e^{\gamma} = 1.2345\ldots
+d_{\min} - 2 \le \exp\!\left(c \frac{\ln p}{\ln\ln p}\right)
+\implies \frac{\delta}{d_{\min} - 2} \ge
+\exp\!\left(-c \frac{\ln p}{\ln\ln p}\right).
 $$
 
-so
+**Explicit unconditional case (Dusart 2018).** For \(p \ge 396{,}738\),
 
 $$
-\frac{\delta}{d_{\min} - 2} \ge \exp\!\left(-c \frac{\ln p}{\ln \ln p}\right).
+g(p) \le \frac{p}{25 (\ln p)^2}.
 $$
 
-**Bridge collapse.** Under the Baker-Harman-Pintz (2001) prime-gap bound
-\(g(p) \le A \cdot p^{0.525}\):
+The resulting upper envelope is
+
+$$
+U(p,c) = \frac{1}{25} \cdot
+\frac{\exp\!\left(c \frac{\ln p}{\ln\ln p}\right)}{(\ln p)^3}.
+$$
+
+With the conservative \(c = 1.5379\), this envelope stays strictly below `1`
+on the bounded interval
+
+$$
+396{,}738 \le p \le 5{,}571{,}362{,}243{,}795.
+$$
+
+The envelope is monotonically increasing in this regime and crosses `1` at the
+stated upper limit.
+
+**Conditional asymptotic case (BHP).** Under Baker-Harman-Pintz (2001)
+\(\theta = 0.525\) with leading constant \(A\),
 
 $$
 B(k,w) < A \cdot p^{-0.475} \cdot (\ln p)^{-1}
-\cdot \exp\!\left(c \frac{\ln p}{\ln \ln p}\right)
+\cdot \exp\!\left(c \frac{\ln p}{\ln\ln p}\right)
 = A \cdot p^{-0.475 + o(1)} \to 0.
 $$
 
-The exponent \(-0.475 + o(1)\) is eventually negative, so \(B(k,w) < 1\)
-for all \(p \ge N_0\) for an explicit threshold \(N_0\).
+So the BHP bridge still gives an eventual tail once an explicit \(A\) is
+supplied. The current headline certificate records the provisional \(A = 1\)
+tail, but BHP itself does not state an explicit leading constant.
 
 Source:
 [`gwr/experiments/proof/proof_bridge_universal_lemma.md`](gwr/experiments/proof/proof_bridge_universal_lemma.md)
@@ -122,39 +142,46 @@ Script:
 
 ## Component 4: Certificate Computation
 
-**Claim.** The explicit analytic threshold \(N_0\) falls strictly below
-the verified finite base, closing the gap between Components 2 and 3.
+**Claim.** The certificate records two analytic bridge regimes: a bounded
+unconditional Dusart interval and a provisional BHP tail under explicit
+\(A\)-assumptions.
 
 **Computation** (recorded in
 [`output/gwr_proof/proof_bridge_certificate_2e7.json`](output/gwr_proof/proof_bridge_certificate_2e7.json)
 and executed against
 [`gwr/experiments/proof/proof_bridge_certificate.py`](gwr/experiments/proof/proof_bridge_certificate.py)):
 
-| Constant set | \(c\) | \(N_0\) | \(B\) at \(N_0\) | \(B\) at \(p = 2 \times 10^7\) |
+| Gap bound | Constants | Regime | Coverage | Status |
 |---|---|---|---|---|
-| Robin theoretical | 1.2345 | 102 | 0.99994 | 3.16e-02 |
-| Robin conservative | 1.5379 | 3,544 | 0.99997 | 1.93e-01 |
+| BHP (\(\theta = 0.525\)) | \(A = 1\), \(c = 1.2345\) (theo) | asymptotic | \(p \ge 102\) | conditional on explicit \(A\) |
+| BHP (\(\theta = 0.525\)) | \(A = 1\), \(c = 1.5379\) (cons) | asymptotic | \(p \ge 3{,}544\) | conditional on explicit \(A\) |
+| Dusart (2018) | \(c = 1.5379\) | explicit unconditional | \(396{,}738 \le p \le 5.571 \times 10^{12}\) | unconditional (bounded) |
 
-Both \(N_0\) values are strictly below 20,000,000. The bridge bound is
-monotonically decreasing above \(N_0\) and tends to zero.
+The exact finite bridge-load base through \(p < 20{,}000{,}001\) records:
 
-At a gap constant of \(A = 10\), the Robin theoretical constant gives
-\(N_0 = 220{,}725\), still within the exact scan. Under the conservative
-\(c = 1.5379\) constant, \(A = 10\) gives \(N_0 = 727{,}330{,}778\), which is
-outside the current finite base. The headline closure above uses \(A = 1\).
+- `3,349,874` earlier candidates,
+- `0` bridge failures,
+- maximum realized bridge load `0.05664166714743768`.
+
+So the finite scan overlaps the entire start of the Dusart regime and lies far
+above the provisional \(A = 1\) BHP thresholds.
 
 ---
 
-## Universal Closure
+## Current Strongest Claim (Unconditional Up To \(5.571 \times 10^{12}\) + Conditional Tail)
 
-- For \(p < 20{,}000{,}001\): Component 3 (exact scan, 0 failures).
-- For \(p \ge 20{,}000{,}001\): Component 2 applies, since both \(N_0\)
-  values are below this threshold and \(B(k,w) \to 0\).
+- For \(p < 20{,}000{,}001\): Component 3 (exact scan, 0 failures),
+  unconditional.
+- For \(396{,}738 \le p \le 5.571 \times 10^{12}\): Component 2 under Dusart
+  (2018) and Nicolas-Robin (1983), unconditional.
+- For \(p > 5.571 \times 10^{12}\): Component 2 under BHP \((\theta = 0.525)\)
+  with provisional \(A = 1\), conditional.
 
-The two regimes overlap. No gap remains.
-
-**The Gap Winner Rule holds universally for all prime gaps, conditional
-on BHP (2001) \(\theta = 0.525\) and Robin (1984) divisor majoration.**
+The two unconditional regimes overlap with a large margin. So the Gap Winner
+Rule holds unconditionally for all prime gaps with left endpoint
+\(p \le 5.571 \times 10^{12}\). Full universality to infinity still depends on
+an explicit leading constant for a fixed-exponent gap bound such as effective
+BHP.
 
 ---
 
@@ -170,4 +197,5 @@ on BHP (2001) \(\theta = 0.525\) and Robin (1984) divisor majoration.**
 | Certificate artifact | `output/gwr_proof/proof_bridge_certificate_2e7.json` |
 | Certificate script | [`gwr/experiments/proof/proof_bridge_certificate.py`](gwr/experiments/proof/proof_bridge_certificate.py) |
 | BHP prime-gap bound | Baker, Harman, Pintz (2001). *Proc. London Math. Soc.* 83(3), 532-562 |
-| Robin divisor majoration | Robin (1984). *J. Math. Pures Appl.* 63, 187-213 |
+| Dusart explicit gap bound | Dusart (2010/2018), Proposition 6.8: \(x < p \le x(1 + 1/(25\ln^2 x))\) for \(x \ge 396{,}738\) |
+| Nicolas-Robin divisor majoration | Nicolas, Robin (1983). *Canad. Math. Bull.* 26(4), 485-492 |

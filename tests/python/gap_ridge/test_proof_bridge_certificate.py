@@ -39,3 +39,8 @@ def test_certificate_uses_actual_artifact_schema():
     assert payload["finite_base"]["earlier_candidate_count"] == 3349874
     assert payload["finite_base"]["bridge_failure_count"] == 0
     assert payload["finite_base"]["max_bridge_load"] < 1.0
+    dusart = payload["dusart_bounded_case"]
+    assert dusart["coverage_lo_inclusive"] == 396738
+    assert dusart["coverage_hi_inclusive"] == 5571362243795
+    assert dusart["envelope_increasing_from_dusart_start"] is True
+    assert dusart["finite_base_within_coverage"] is True
