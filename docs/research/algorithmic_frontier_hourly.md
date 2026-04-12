@@ -189,3 +189,21 @@ Artifacts:
 `docs/research/algorithmic_frontier_hourly.md`; in-shell Python output with `train_rows = 9591`, `train_unique_states = 234`, `applicable = 85`, `exact = 4`, `baseline_offsets = 29844`, `saved_offsets_if_jump_on_exact_supported_states = 30`, and `saved_offset_fraction_total = 0.0010052271813429834`.
 Next step:
 Test the same transition law again only with a fixed next-gap DNI prefix if it can gain cross-scale exact support without collapsing into a near-one-state-per-gap table.
+
+## 2026-04-12 daily run
+Mechanism:
+Winner-location prediction from the locked 12-offset prefix: after the fixed prefix scan yields `delta <= 3`, no later composite can undercut that divisor class, so the lex-min state `(delta, omega)` already identifies an interior witness `W = q + omega`, and `nextprime(W - 1)` recovers the exact boundary.
+Why it could help:
+It replaces the remaining divisor-count walk to the boundary with one fast next-prime recovery call once the prefix lock holds.
+Method:
+Compared the live bounded walker against the pre-shortcut bounded scan reproduced verbatim from the earlier prefix-plus-extended-loop logic on two verified lock-triggering primes.
+What was built or tested:
+Verified the live `benchmarks/python/predictor/gwr_dni_recursive_walk.py:bounded_next_gap_profile` on `q = 229433` and `q = 1026167`, tracked its `divisor_counts_segment` calls, and compared the returned boundary against the reconstructed old bounded loop that kept counting divisors until the prime boundary.
+Result:
+For `q = 229433`, the locked prefix gives `delta = 3` at `omega = 8`. The live lock path used exactly `12` divisor-count calls plus one `nextprime` recovery and returned `229459`, while the old bounded loop used `26` divisor-count calls to reach the same boundary, eliminating `14` divisor-count operations (`53.85%`). For `q = 1026167`, the locked prefix gives `delta = 3` at `omega = 2`. The live lock path again used `12` divisor-count calls plus one `nextprime` recovery and returned `1026197`, while the old bounded loop used `30` divisor-count calls, eliminating `18` divisor-count operations (`60%`). In both cases the recovered boundary was identical.
+Status:
+ADVANCE
+Artifacts:
+`benchmarks/python/predictor/gwr_dni_recursive_walk.py`; `tests/python/predictor/test_gwr_dni_recursive_walk.py`; `docs/research/algorithmic_frontier_hourly.md`; in-shell verification output with old bounded call counts `26` and `30`, live prefix-path divisor-count calls `12` and `12`, and exact recovered boundaries `229459` and `1026197`.
+Next step:
+Derive an exact `delta = 4` sub-condition from the Z-band invariants that certifies when the same winner-location prediction can fire without any extended scan.
