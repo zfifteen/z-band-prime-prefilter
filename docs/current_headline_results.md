@@ -1,15 +1,24 @@
 # Current Headline Results
 
-- **Conditionally proven universal GWR theorem.** The no-early-spoiler bridge
-  now closes below the repo's exact finite base under BHP's $\theta = 0.525$ and
-  the explicit divisor-function majoration constants checked by
-  [../gwr/experiments/proof/proof_bridge_certificate.py](../gwr/experiments/proof/proof_bridge_certificate.py).
-  The analytic thresholds are `102` for $c=\ln(2)e^\gamma$ and `3,544` for
-  the conservative `c = 1.5379`, both far below the exact base
-  $p < 20{,}000{,}001$. The finite bridge artifact records `1,163,198` gaps,
-  `3,349,874` earlier candidates, `0` bridge failures, and maximum realized
-  bridge load `0.05664166714743768`. See
-  [../gwr/findings/gwr_universal_bridge_closure.md](../gwr/findings/gwr_universal_bridge_closure.md).
+- **Unconditional GWR through the bounded Dusart regime.** The exact parallel
+  finite scan now reaches $p < 100{,}000{,}001$, and the conservative
+  Dusart/Nicolas-Robin bridge still covers the bounded tail through
+  $p \le 5{,}571{,}362{,}243{,}795$. So `GWR` is now unconditional on that
+  full range. The exact artifact
+  [../output/gwr_proof/parallel_no_early_spoiler_1e8.json](../output/gwr_proof/parallel_no_early_spoiler_1e8.json)
+  records `4,157,943` gaps, `13,321,098` earlier candidates, `0` spoilers,
+  `0` bridge failures, and maximum realized bridge load
+  `1.6601014296568906e-07`. See
+  [../gwr/experiments/proof/parallel_no_early_spoiler_scan.py](../gwr/experiments/proof/parallel_no_early_spoiler_scan.py)
+  and
+  [../gwr/experiments/proof/proof_bridge_universal_lemma.md](../gwr/experiments/proof/proof_bridge_universal_lemma.md).
+- **Conditional asymptotic tail remains explicit about its dependency.** Beyond
+  $p > 5{,}571{,}362{,}243{,}795$, the bridge still uses BHP's
+  $\theta = 0.525$ with provisional `A = 1`. The helper
+  [../gwr/experiments/proof/proof_bridge_certificate.py](../gwr/experiments/proof/proof_bridge_certificate.py)
+  records the provisional BHP thresholds `102` for $c=\ln(2)e^\gamma$ and
+  `3,544` for conservative `c = 1.5379`, alongside the bounded unconditional
+  Dusart regime.
 - **Unconditional exact DNI/GWR next-prime oracle.** The repository now
   carries an exact next-prime walker in unbounded form. Given a known prime
   `q`, the oracle scans divisor counts to the right until the first prime
@@ -47,17 +56,14 @@
   [../output/gwr_proof/earlier_spoiler_local_dominator_scan_2e7.json](../output/gwr_proof/earlier_spoiler_local_dominator_scan_2e7.json)
   reports `1,163,198` gaps, `3,349,874` earlier candidates, and `0`
   unresolved.
-- **Exact no-early-spoiler surface through $2 \times 10^7$.** The committed
+- **Exact no-early-spoiler surface through $10^8$.** The committed aggregate
   artifact
-  [../output/gwr_proof/no_early_spoiler_margin_scan_2e7.json](../output/gwr_proof/no_early_spoiler_margin_scan_2e7.json)
-  reports `1,163,198` gaps, `3,349,874` earlier candidates before the true
-  `GWR` carrier, and `0` exact earlier spoilers. The companion artifacts
-  [../output/gwr_proof/no_early_spoiler_ratio_frontier_2e7.json](../output/gwr_proof/no_early_spoiler_ratio_frontier_2e7.json),
-  [../output/gwr_proof/large_gap_margin_scan_2e7.json](../output/gwr_proof/large_gap_margin_scan_2e7.json),
-  and
-  [../output/gwr_proof/asymptotic_bridge_load_scan_2e7.json](../output/gwr_proof/asymptotic_bridge_load_scan_2e7.json)
-  record the exact pair frontier, large-gap companion surface, and normalized
-  bridge-load surface for the same no-early-spoiler condition.
+  [../output/gwr_proof/parallel_no_early_spoiler_1e8.json](../output/gwr_proof/parallel_no_early_spoiler_1e8.json)
+  reports `4,157,943` gaps, `13,321,098` earlier candidates before the true
+  `GWR` carrier, `0` exact earlier spoilers, and maximum realized bridge load
+  `1.6601014296568906e-07`. The scanner writes deterministic per-segment JSON
+  checkpoints and aggregates them exactly with padded left-endpoint semantics,
+  so the $10^8$ surface is fully reproducible from the same code path.
 - **Square-adjacent stress test at $10^{12}$.** The matched pre-square and
   post-square artifact
   [../output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json](../output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json)
@@ -69,10 +75,10 @@
   [../gwr/experiments/proof/proof_bridge_certificate.py](../gwr/experiments/proof/proof_bridge_certificate.py)
   checks concrete gap-bound and divisor-growth parameter choices against the
   exact finite base already committed in the repo. The current proof-facing
-  status is therefore: the universal bridge is closed for $A=1$ under both
-  recorded divisor constants; the $A=10$ robustness variant closes under
-  $c=\ln(2)e^\gamma$ but not under conservative `c = 1.5379` with the current
-  $2 \times 10^7$ finite base.
+  status is therefore: the bridge is unconditional through the bounded Dusart
+  regime up to $p \le 5{,}571{,}362{,}243{,}795$, while the asymptotic tail to
+  infinity remains conditional on an explicit leading constant for a
+  fixed-exponent gap bound such as effective BHP.
 - **No-Later-Simpler-Composite condition.** Once the implemented winner
   appears inside a tested prime gap, the next prime arrives before any later
   interior composite with strictly smaller divisor count. The dedicated closure

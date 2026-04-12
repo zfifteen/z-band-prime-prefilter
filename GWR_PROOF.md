@@ -122,21 +122,21 @@ Source:
 
 ## Component 3: Earlier Side, Finite Base (Exact Scan)
 
-**Claim.** For every prime gap with left endpoint \(p < 20{,}000{,}001\),
+**Claim.** For every prime gap with left endpoint \(p < 100{,}000{,}001\),
 no earlier composite \(k < w\) satisfies \(L(k) \ge L(w)\).
 
-**Evidence.** The committed no-early-spoiler scan verified:
+**Evidence.** The committed parallel no-early-spoiler scan verified:
 
-- **1,163,198** prime gaps examined
-- **3,349,874** earlier candidates checked
+- **4,157,943** prime gaps examined
+- **13,321,098** earlier candidates checked
 - **0** failures
+- maximum realized bridge load **1.6601014296568906e-07**
 
-Artifacts:
-`output/gwr_proof/no_early_spoiler_margin_scan_2e7.json`
-`output/gwr_proof/asymptotic_bridge_load_scan_2e7.json`
+Artifact:
+`output/gwr_proof/parallel_no_early_spoiler_1e8.json`
 
 Script:
-[`gwr/experiments/proof/no_early_spoiler_margin_scan.py`](gwr/experiments/proof/no_early_spoiler_margin_scan.py)
+[`gwr/experiments/proof/parallel_no_early_spoiler_scan.py`](gwr/experiments/proof/parallel_no_early_spoiler_scan.py)
 
 ---
 
@@ -157,25 +157,26 @@ and executed against
 | BHP (\(\theta = 0.525\)) | \(A = 1\), \(c = 1.5379\) (cons) | asymptotic | \(p \ge 3{,}544\) | conditional on explicit \(A\) |
 | Dusart (2018) | \(c = 1.5379\) | explicit unconditional | \(396{,}738 \le p \le 5.571 \times 10^{12}\) | unconditional (bounded) |
 
-The exact finite bridge-load base through \(p < 20{,}000{,}001\) records:
+The exact finite bridge-load base through \(p < 100{,}000{,}001\) records:
 
-- `3,349,874` earlier candidates,
+- `13,321,098` earlier candidates,
 - `0` bridge failures,
-- maximum realized bridge load `0.05664166714743768`.
+- maximum realized bridge load `1.6601014296568906e-07`.
 
-So the finite scan overlaps the entire start of the Dusart regime and lies far
-above the provisional \(A = 1\) BHP thresholds.
+So the finite scan overlaps the entire start of the Dusart regime by a much
+larger margin and lies far above the provisional \(A = 1\) BHP thresholds.
 
 ---
 
-## Current Strongest Claim (Unconditional Up To \(5.571 \times 10^{12}\) + Conditional Tail)
+## Current Strongest Claim (Unconditional To \(p < 10^8\) + Bounded Dusart Tail To \(5.571 \times 10^{12}\) + Conditional Asymptotic Tail)
 
-- For \(p < 20{,}000{,}001\): Component 3 (exact scan, 0 failures),
+- For \(p < 100{,}000{,}001\): Component 3 (exact parallel scan,
+  `4,157,943` gaps, `13,321,098` earlier candidates, `0` failures),
   unconditional.
-- For \(396{,}738 \le p \le 5.571 \times 10^{12}\): Component 2 under Dusart
-  (2018) and Nicolas-Robin (1983), unconditional.
-- For \(p > 5.571 \times 10^{12}\): Component 2 under BHP \((\theta = 0.525)\)
-  with provisional \(A = 1\), conditional.
+- For \(100{,}000{,}001 \le p \le 5.571 \times 10^{12}\): Component 2 under
+  Dusart (2018) and Nicolas-Robin (1983), unconditional and bounded.
+- For \(p > 5.571 \times 10^{12}\): Component 2 under BHP
+  \((\theta = 0.525)\) with provisional \(A = 1\), conditional.
 
 The two unconditional regimes overlap with a large margin. So the Gap Winner
 Rule holds unconditionally for all prime gaps with left endpoint
@@ -192,8 +193,8 @@ BHP.
 | GWR theorem statement | [`gwr/findings/gwr_hierarchical_local_dominator_theorem.md`](gwr/findings/gwr_hierarchical_local_dominator_theorem.md) |
 | Dominance theorem (later side) | [`gwr/findings/lexicographic_raw_z_dominance_theorem.md`](gwr/findings/lexicographic_raw_z_dominance_theorem.md) |
 | Bridge lemma (earlier side) | [`gwr/experiments/proof/proof_bridge_universal_lemma.md`](gwr/experiments/proof/proof_bridge_universal_lemma.md) |
-| Finite no-early-spoiler artifact | `output/gwr_proof/no_early_spoiler_margin_scan_2e7.json` |
-| Bridge-load finite base | `output/gwr_proof/asymptotic_bridge_load_scan_2e7.json` |
+| Finite no-early-spoiler artifact | `output/gwr_proof/parallel_no_early_spoiler_1e8.json` |
+| Bridge-load finite base | `output/gwr_proof/parallel_no_early_spoiler_1e8.json` |
 | Certificate artifact | `output/gwr_proof/proof_bridge_certificate_2e7.json` |
 | Certificate script | [`gwr/experiments/proof/proof_bridge_certificate.py`](gwr/experiments/proof/proof_bridge_certificate.py) |
 | BHP prime-gap bound | Baker, Harman, Pintz (2001). *Proc. London Math. Soc.* 83(3), 532-562 |

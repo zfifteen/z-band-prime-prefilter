@@ -16,6 +16,20 @@ They target the exact universal bridge step identified in the findings notes:
 
 ## Current Entry Point
 
+## Latest Scan Milestone (April 2026)
+
+The parallel scanner has now been extended to $p < 100{,}000{,}001$.
+
+- Aggregate artifact:
+  [`../../../output/gwr_proof/parallel_no_early_spoiler_1e8.json`](../../../output/gwr_proof/parallel_no_early_spoiler_1e8.json)
+- Key statistics:
+  `4,157,943` gaps,
+  `13,321,098` earlier candidates,
+  `0` failures,
+  maximum bridge load `1.6601014296568906e-07`
+- Next target:
+  $p < 10^9$
+
 - [`earlier_spoiler_scan.py`](./earlier_spoiler_scan.py):
   exact interval scan that
   - identifies the `GWR` candidate in each tested prime gap,
