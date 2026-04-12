@@ -61,14 +61,17 @@
   [../output/gwr_proof/earlier_spoiler_local_dominator_scan_2e7.json](../output/gwr_proof/earlier_spoiler_local_dominator_scan_2e7.json)
   reports `1,163,198` gaps, `3,349,874` earlier candidates, and `0`
   unresolved.
-- **Exact no-early-spoiler surface through $10^9$.** The committed aggregate
-  artifact
-  [../output/gwr_proof/parallel_no_early_spoiler_1e9.json](../output/gwr_proof/parallel_no_early_spoiler_1e9.json)
-  reports `42,101,885` gaps, `149,214,917` earlier candidates before the true
-  `GWR` carrier, `0` exact earlier spoilers, and maximum realized bridge load
-  `3.749140087272451e-08`. The scanner writes deterministic per-segment JSON
-  checkpoints and aggregates them exactly with padded left-endpoint semantics,
-  so the $10^9$ surface is fully reproducible from the same code path.
+- **Exact no-early-spoiler scan now carries the finite base through
+  $5 \times 10^9$.** The new aggregate artifact
+  [../output/gwr_proof/parallel_no_early_spoiler_5e9.json](../output/gwr_proof/parallel_no_early_spoiler_5e9.json)
+  covers the left-prime tranche $10^9 < p < 5 \times 10^9$ and reports
+  `172,913,029` gaps, `660,287,089` earlier candidates before the true `GWR`
+  carrier, `0` exact earlier spoilers, `0` bridge failures, and maximum
+  realized bridge load `3.7231970839712858e-09`. That load is about `10.07x`
+  smaller than on the committed $10^9$ tranche, and together with the earlier
+  exact lower tranches the same deterministic segmented path now carries exact
+  no-early-spoiler coverage through $5 \times 10^9$ with reproducible
+  per-segment checkpoints and padded left-endpoint aggregation.
 - **Square-adjacent stress test at $10^{12}$.** The matched pre-square and
   post-square artifact
   [../output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json](../output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json)

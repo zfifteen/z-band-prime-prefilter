@@ -198,10 +198,10 @@ That is the Gap Winner Rule.
 
 The formal theorem file expresses this as a hierarchical local-dominator law.
 The current proof chain combines elementary later-side lexicographic raw-$Z$
-dominance, the exact finite earlier-side audit through $p < 10^9$, the closed
-square branch, and the local chamber reduction of the square-free branch. The
-remaining live obstruction is a finite low-class residual table rather than an
-asymptotic BHP constant.
+dominance, the exact finite earlier-side no-early-spoiler audit through
+$p < 5 \times 10^9$, the closed square branch, and the local chamber
+reduction of the square-free branch. The remaining live obstruction is a
+finite low-class residual table rather than an asymptotic BHP constant.
 
 The newer no-early-spoiler artifacts close the left flank against the actual
 winner itself on the exact base and now feed the local admissibility frontier.

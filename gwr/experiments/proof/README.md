@@ -21,16 +21,19 @@ notes:
 
 ## Latest Scan Milestone (April 2026)
 
-The parallel scanner has now been extended to $p < 1{,}000{,}000{,}001$.
+The parallel scanner has now been extended through the tranche
+$10^9 < p < 5 \times 10^9$.
 
 - Aggregate artifact:
-  [`../../../output/gwr_proof/parallel_no_early_spoiler_1e9.json`](../../../output/gwr_proof/parallel_no_early_spoiler_1e9.json)
+  [`../../../output/gwr_proof/parallel_no_early_spoiler_5e9.json`](../../../output/gwr_proof/parallel_no_early_spoiler_5e9.json)
 - Key statistics:
-  `42,101,885` gaps,
-  `149,214,917` earlier candidates,
+  `172,913,029` gaps,
+  `660,287,089` earlier candidates,
   `0` exact spoilers,
   `0` bridge failures,
-  maximum bridge load `3.749140087272451e-08`
+  maximum bridge load `3.7231970839712858e-09`
+- Load comparison:
+  about `10.07x` tighter than the committed $10^9$ tranche
 - Next target:
   $p < 10^{10}$
 
