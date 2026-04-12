@@ -216,8 +216,13 @@ See [gwr/story/README.md](gwr/story/README.md),
 
 ## Exact Recursive Prime Walk
 
-The predictor line now has an exact next-prime oracle in unbounded form. Given
-a known prime `q`, the oracle scans divisor counts to the right until the
+The most jarring combined predictor result in the repository is this: once the
+implemented winner appears inside a prime gap, the next prime arrives before
+any later interior composite with strictly smaller divisor count can appear.
+That closure law is what lets the unbounded DNI/GWR walker recover the next
+prime exactly from the ordered divisor structure of the next-gap interior.
+
+Given a known prime `q`, the oracle scans divisor counts to the right until the
 first prime boundary, takes the lexicographic minimum over the composite
 interior, and recovers the next prime by the witness map. That mechanism is
 exact by construction. No cutoff theorem is involved.
@@ -263,6 +268,10 @@ The strongest closure consequence currently documented in the repository is
 this: once the implemented winner appears inside a prime gap, the next prime
 arrives before any later interior composite with strictly smaller divisor
 count can appear.
+
+This is the closure law behind the exact recursive walk. After the winner
+appears, the gap interior does not later produce a simpler composite before
+the next prime closes the interval.
 
 In symbols, if $w$ is the implemented log-score winner in the gap $(p, q)$ and
 

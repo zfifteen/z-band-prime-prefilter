@@ -23,8 +23,9 @@
   carries an exact next-prime walker in unbounded form. Given a known prime
   `q`, the oracle scans divisor counts to the right until the first prime
   boundary, takes the lexicographic minimum over the composite interior, and
-  recovers the next prime by the witness map. That mechanism is exact by
-  construction at any scale. See
+  recovers the next prime by the witness map. In plain terms, the next prime
+  is recovered from the ordered divisor structure of the next-gap interior.
+  That mechanism is exact by construction at any scale. See
   [./research/predictor/gwr_dni_exact_recursive_prime_walk_note.md](./research/predictor/gwr_dni_exact_recursive_prime_walk_note.md).
 - **Dynamic bounded walker replaces the falsified fixed theorem.** The old
   fixed map `{2:44, 4:60, 6:60}` is false. It fails at `q = 24,098,209`,
@@ -41,7 +42,8 @@
   `664,578 / 664,578` exact consecutive next-prime recoveries from prime `11`
   through prime `10,000,121` with `0` skipped gaps, and the sampled decade
   ladder from $10^2$ through $10^18$ stayed at exact hit rate `1.0` with `0`
-  skipped gaps across `860` measured recursive steps. See
+  skipped gaps across `860` measured recursive steps. This is the current
+  verified no-skip sequential recovery surface. See
   [./research/predictor/gwr_dni_exact_recursive_prime_walk_note.md](./research/predictor/gwr_dni_exact_recursive_prime_walk_note.md).
 - **Built-in falsification instrument.** The predictor walker now ships with a
   compare mode that runs the bounded and unbounded walkers in lockstep and
@@ -83,7 +85,9 @@
   appears inside a tested prime gap, the next prime arrives before any later
   interior composite with strictly smaller divisor count. The dedicated closure
   study reports zero observed violations on a deterministic even-band ladder at
-  every decade from $10^8$ through $10^{18}$. See the
+  every decade from $10^8$ through $10^{18}$. This is the closure law behind
+  the exact recursive walk: after the winner appears, the gap does not later
+  produce a simpler composite before the next prime boundary. See the
   [../gwr/findings/no_later_simpler_composite_theorem.md](../gwr/findings/no_later_simpler_composite_theorem.md)
   and the
   [../gwr/findings/closure_constraint_findings.md](../gwr/findings/closure_constraint_findings.md).
