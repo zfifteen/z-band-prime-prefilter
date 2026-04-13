@@ -1,0 +1,153 @@
+{
+  "run_timestamp": "2026-04-12T20:56:21-04:00",
+  "residual_classes_examined": [
+    10,
+    14,
+    18,
+    20,
+    22,
+    26,
+    27,
+    28,
+    30,
+    36,
+    40,
+    42,
+    44,
+    50,
+    52,
+    54,
+    56,
+    60
+  ],
+  "results": {
+    "10": {
+      "status": "CLOSED",
+      "argument": "Use the universal worst case `D_w = 9`. Then `L(k) < L(w)` follows from `((8)/2) ln(k) > ((7)/2) ln(w)`. Because `k > p` and Bertrand gives `q < 2p`, every winner satisfies `w < q < 2p`, so it is enough that `((8)/2) ln(p) > ((7)/2) ln(2p)`, which is equivalent to `p > 2^(7)`. The committed zero-spoiler scans cover all `p < 10^9`, and the threshold prime `131` lies below that ceiling, so the class closes universally.",
+      "min_p_threshold": 131,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "14": {
+      "status": "CLOSED",
+      "argument": "Use the universal worst case `D_w = 13`. Then `L(k) < L(w)` follows from `((12)/2) ln(k) > ((11)/2) ln(w)`. Because `k > p` and Bertrand gives `q < 2p`, every winner satisfies `w < q < 2p`, so it is enough that `((12)/2) ln(p) > ((11)/2) ln(2p)`, which is equivalent to `p > 2^(11)`. The committed zero-spoiler scans cover all `p < 10^9`, and the threshold prime `2053` lies below that ceiling, so the class closes universally.",
+      "min_p_threshold": 2053,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "18": {
+      "status": "CLOSED",
+      "argument": "Use the universal worst case `D_w = 17`. Then `L(k) < L(w)` follows from `((16)/2) ln(k) > ((15)/2) ln(w)`. Because `k > p` and Bertrand gives `q < 2p`, every winner satisfies `w < q < 2p`, so it is enough that `((16)/2) ln(p) > ((15)/2) ln(2p)`, which is equivalent to `p > 2^(15)`. The committed zero-spoiler scans cover all `p < 10^9`, and the threshold prime `32771` lies below that ceiling, so the class closes universally.",
+      "min_p_threshold": 32771,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "20": {
+      "status": "CLOSED",
+      "argument": "Use the universal worst case `D_w = 19`. Then `L(k) < L(w)` follows from `((18)/2) ln(k) > ((17)/2) ln(w)`. Because `k > p` and Bertrand gives `q < 2p`, every winner satisfies `w < q < 2p`, so it is enough that `((18)/2) ln(p) > ((17)/2) ln(2p)`, which is equivalent to `p > 2^(17)`. The committed zero-spoiler scans cover all `p < 10^9`, and the threshold prime `131101` lies below that ceiling, so the class closes universally.",
+      "min_p_threshold": 131101,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "22": {
+      "status": "CLOSED",
+      "argument": "Use the universal worst case `D_w = 21`. Then `L(k) < L(w)` follows from `((20)/2) ln(k) > ((19)/2) ln(w)`. Because `k > p` and Bertrand gives `q < 2p`, every winner satisfies `w < q < 2p`, so it is enough that `((20)/2) ln(p) > ((19)/2) ln(2p)`, which is equivalent to `p > 2^(19)`. The committed zero-spoiler scans cover all `p < 10^9`, and the threshold prime `524309` lies below that ceiling, so the class closes universally.",
+      "min_p_threshold": 524309,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "26": {
+      "status": "CLOSED",
+      "argument": "Use the universal worst case `D_w = 25`. Then `L(k) < L(w)` follows from `((24)/2) ln(k) > ((23)/2) ln(w)`. Because `k > p` and Bertrand gives `q < 2p`, every winner satisfies `w < q < 2p`, so it is enough that `((24)/2) ln(p) > ((23)/2) ln(2p)`, which is equivalent to `p > 2^(23)`. The committed zero-spoiler scans cover all `p < 10^9`, and the threshold prime `8388617` lies below that ceiling, so the class closes universally.",
+      "min_p_threshold": 8388617,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "27": {
+      "status": "CLOSED",
+      "argument": "Use the universal worst case `D_w = 26`. Then `L(k) < L(w)` follows from `((25)/2) ln(k) > ((24)/2) ln(w)`. Because `k > p` and Bertrand gives `q < 2p`, every winner satisfies `w < q < 2p`, so it is enough that `((25)/2) ln(p) > ((24)/2) ln(2p)`, which is equivalent to `p > 2^(24)`. The committed zero-spoiler scans cover all `p < 10^9`, and the threshold prime `16777259` lies below that ceiling, so the class closes universally.",
+      "min_p_threshold": 16777259,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "28": {
+      "status": "CLOSED",
+      "argument": "Use the universal worst case `D_w = 27`. Then `L(k) < L(w)` follows from `((26)/2) ln(k) > ((25)/2) ln(w)`. Because `k > p` and Bertrand gives `q < 2p`, every winner satisfies `w < q < 2p`, so it is enough that `((26)/2) ln(p) > ((25)/2) ln(2p)`, which is equivalent to `p > 2^(25)`. The committed zero-spoiler scans cover all `p < 10^9`, and the threshold prime `33554467` lies below that ceiling, so the class closes universally.",
+      "min_p_threshold": 33554467,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "30": {
+      "status": "CLOSED",
+      "argument": "Use the universal worst case `D_w = 29`. Then `L(k) < L(w)` follows from `((28)/2) ln(k) > ((27)/2) ln(w)`. Because `k > p` and Bertrand gives `q < 2p`, every winner satisfies `w < q < 2p`, so it is enough that `((28)/2) ln(p) > ((27)/2) ln(2p)`, which is equivalent to `p > 2^(27)`. The committed zero-spoiler scans cover all `p < 10^9`, and the threshold prime `134217757` lies below that ceiling, so the class closes universally.",
+      "min_p_threshold": 134217757,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "36": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The hardest retained `10^9` frontier pair is `(D_w, D) = (32, 36)`, and Bertrand already closes that observed pair once `p > 2^((32-2)/(36-32))`, i.e. from prime `191` onward. Since the committed no-spoiler scans cover all `p < 10^9`, every observed frontier instance of class `36` is eliminated. The remaining gap is universal: exclude winner classes `[33, 34, 35]`. Without that exclusion, the crude worst case `D_w = 35` needs `p > 2^(33)`, whose prime cutoff `8589934609` lies above the current exact coverage ceiling.",
+      "counterexample": null
+    },
+    "40": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The hardest retained `10^9` frontier pair is `(D_w, D) = (36, 40)`, and Bertrand already closes that observed pair once `p > 2^((36-2)/(40-36))`, i.e. from prime `367` onward. Since the committed no-spoiler scans cover all `p < 10^9`, every observed frontier instance of class `40` is eliminated. The remaining gap is universal: exclude winner classes `[37, 38, 39]`. Without that exclusion, the crude worst case `D_w = 39` needs `p > 2^(37)`, whose prime cutoff `137438953481` lies above the current exact coverage ceiling.",
+      "counterexample": null
+    },
+    "42": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The hardest retained `10^9` frontier pair is `(D_w, D) = (40, 42)`, and Bertrand already closes that observed pair once `p > 2^((40-2)/(42-40))`, i.e. from prime `524309` onward. Since the committed no-spoiler scans cover all `p < 10^9`, every observed frontier instance of class `42` is eliminated. The remaining gap is universal: exclude winner classes `[41]`. Without that exclusion, the crude worst case `D_w = 41` needs `p > 2^(39)`, whose prime cutoff `549755813911` lies above the current exact coverage ceiling.",
+      "counterexample": null
+    },
+    "44": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The hardest retained `10^9` frontier pair is `(D_w, D) = (40, 44)`, and Bertrand already closes that observed pair once `p > 2^((40-2)/(44-40))`, i.e. from prime `727` onward. Since the committed no-spoiler scans cover all `p < 10^9`, every observed frontier instance of class `44` is eliminated. The remaining gap is universal: exclude winner classes `[41, 42, 43]`. Without that exclusion, the crude worst case `D_w = 43` needs `p > 2^(41)`, whose prime cutoff `2199023255579` lies above the current exact coverage ceiling.",
+      "counterexample": null
+    },
+    "50": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The hardest retained `10^9` frontier pair is `(D_w, D) = (48, 50)`, and Bertrand already closes that observed pair once `p > 2^((48-2)/(50-48))`, i.e. from prime `8388617` onward. Since the committed no-spoiler scans cover all `p < 10^9`, every observed frontier instance of class `50` is eliminated. The remaining gap is universal: exclude winner classes `[49]`. Without that exclusion, the crude worst case `D_w = 49` needs `p > 2^(47)`, whose prime cutoff `140737488355333` lies above the current exact coverage ceiling.",
+      "counterexample": null
+    },
+    "52": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The hardest retained `10^9` frontier pair is `(D_w, D) = (48, 52)`, and Bertrand already closes that observed pair once `p > 2^((48-2)/(52-48))`, i.e. from prime `2897` onward. Since the committed no-spoiler scans cover all `p < 10^9`, every observed frontier instance of class `52` is eliminated. The remaining gap is universal: exclude winner classes `[49, 50, 51]`. Without that exclusion, the crude worst case `D_w = 51` needs `p > 2^(49)`, whose prime cutoff `562949953421381` lies above the current exact coverage ceiling.",
+      "counterexample": null
+    },
+    "54": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The hardest retained `10^9` frontier pair is `(D_w, D) = (48, 54)`, and Bertrand already closes that observed pair once `p > 2^((48-2)/(54-48))`, i.e. from prime `211` onward. Since the committed no-spoiler scans cover all `p < 10^9`, every observed frontier instance of class `54` is eliminated. The remaining gap is universal: exclude winner classes `[49, 50, 51, 52, 53]`. Without that exclusion, the crude worst case `D_w = 53` needs `p > 2^(51)`, whose prime cutoff `2251799813685269` lies above the current exact coverage ceiling.",
+      "counterexample": null
+    },
+    "56": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The hardest retained `10^9` frontier pair is `(D_w, D) = (48, 56)`, and Bertrand already closes that observed pair once `p > 2^((48-2)/(56-48))`, i.e. from prime `59` onward. Since the committed no-spoiler scans cover all `p < 10^9`, every observed frontier instance of class `56` is eliminated. The remaining gap is universal: exclude winner classes `[49, 50, 51, 52, 53, 54, 55]`. Without that exclusion, the crude worst case `D_w = 55` needs `p > 2^(53)`, whose prime cutoff `9007199254740997` lies above the current exact coverage ceiling.",
+      "counterexample": null
+    },
+    "60": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The hardest retained `10^9` frontier pair is `(D_w, D) = (56, 60)`, and Bertrand already closes that observed pair once `p > 2^((56-2)/(60-56))`, i.e. from prime `11587` onward. Since the committed no-spoiler scans cover all `p < 10^9`, every observed frontier instance of class `60` is eliminated. The remaining gap is universal: exclude winner classes `[57, 58, 59]`. Without that exclusion, the crude worst case `D_w = 59` needs `p > 2^(57)`, whose prime cutoff `144115188075855881` lies above the current exact coverage ceiling.",
+      "counterexample": null
+    }
+  },
+  "all_classes_closed": false,
+  "notes": "Committed exact no-spoiler coverage is contiguous on `p < 10^9` via `earlier_spoiler_scan_2e7.json`, `parallel_no_early_spoiler_1e8.json`, and `parallel_no_early_spoiler_1e9.json`, each with `exact_spoiler_count = 0`. This run closes the nine residual classes `{10,14,18,20,22,26,27,28,30}` by the universal Bertrand worst-case bridge `p > 2^(D-3)`. The remaining nine classes stay open only because the observed hardest frontier winner class is not yet proved maximal."
+}
