@@ -243,3 +243,39 @@ Artifacts:
 `docs/research/algorithmic_frontier_hourly.md`; in-shell Python experiment output with `start_q = 100000007`, `steps = 1000`, `speedup = 1.7903689945248638`, `prime_trial_reduction_fraction = 0.55871539461343`, and `residual_prime_check_reduction_fraction = 0.7722496247051255`.
 Next step:
 Move the same clipped-divisor rule into a repo-side predictor prototype and re-measure it against the current vectorized exact walk.
+
+## 2026-04-12 22:05 run
+Mechanism:
+Current-lex-min clipped divisor classification: after the exact DNI/GWR prefix scan fixes the live minimum divisor class `delta`, classify each later interior candidate only up to `delta - 1` instead of recomputing its full divisor count.
+Why it could help:
+Once a candidate with divisor class `delta` is already known, any later value with `d(n) >= delta` cannot change the lex-min state. That can cut exact divisor work inside the pure DNI/GWR next-prime walk itself.
+Method:
+Deterministic experiment.
+What was built or tested:
+An in-shell Python repo-side prototype kept the current `12`-offset `divisor_counts_segment` prefix from `benchmarks/python/predictor/gwr_dni_recursive_walk.py:exact_next_gap_profile`, then replaced the tail's full `64`-wide block divisor-count scan with candidate-by-candidate clipped classification that stopped factor work at `delta - 1` after each lex-min update.
+Result:
+On `1,000` consecutive exact next-gap steps starting at `q = 1000000000039`, the clipped prototype matched the current `exact_next_gap_profile` with `0` mismatches and reached the same final prime `1000000027591`. Wall time fell from `1.4655225839815103 s` to `1.1192784579470754 s` (`1.3093458321975557x`). On the same chain, the current exact walk read `69,248` block slots while the clipped prototype inspected only the `27,552` actual candidates up to the true boundaries, removing `41,696` slot evaluations (`60.21256931608133%`).
+Status:
+ADVANCE
+Artifacts:
+`docs/research/algorithmic_frontier_hourly.md`; in-shell Python output with `start_q = 1000000000039`, `steps = 1000`, `speedup = 1.3093458321975557`, `segment_slots_read_by_current_exact_walk = 69248`, `candidate_visits_exact_gap_width = 27552`, and `saved_fraction = 0.6021256931608133`.
+Next step:
+Inline the same clipped-divisor tail into the exact recursive walker and re-measure the repo path on the same `10^12` chain.
+
+## 2026-04-12 23:06 run
+Mechanism:
+Current-lex-min clipped divisor classification in the exact DNI/GWR recursive walk: after the fixed 12-offset prefix sets the live minimum divisor class `delta`, classify each later candidate only up to `delta - 1` instead of reading full divisor-count blocks through the boundary.
+Why it could help:
+Once a candidate with divisor class `delta` is already known, no later value with `d(n) >= delta` can change the lex-min state. That removes unnecessary exact divisor-field work from the pure DNI/GWR next-prime walk itself.
+Method:
+sandbox prototype.
+What was built or tested:
+Patched `benchmarks/python/predictor/gwr_dni_recursive_walk.py` so the live unbounded runtime path uses `_exact_next_gap_profile_clipped(...)`, which keeps the existing 12-offset prefix scan and then switches to capped single-candidate classification; measured that path against the old `exact_next_gap_profile(...)` block scan on `1,000` consecutive steps starting at `q = 1000000000039`.
+Result:
+The patched unbounded walk matched the old exact oracle on all `1,000` steps and reached the same final prime `1000000027591`. Wall time fell from `1.5411759580019861 s` to `1.134829582995735 s` for a `1.3580681902330864x` speedup. Exact divisor-field segment reads fell from `69,248` slots to `12,000`, removing `57,248` slots or `82.67097966728281%`, and the live path made only the prefix segment read on the known long-gap anchor `q = 24098209`.
+Status:
+ADVANCE
+Artifacts:
+`benchmarks/python/predictor/gwr_dni_recursive_walk.py`; `tests/python/predictor/test_gwr_dni_recursive_walk.py`; `docs/research/algorithmic_frontier_hourly.md`; measured output with `baseline_elapsed = 1.5411759580019861`, `fast_elapsed = 1.134829582995735`, `speedup = 1.3580681902330864`, `baseline_segment_slots = 69248`, `fast_prefix_segment_slots = 12000`, and `saved_segment_fraction = 0.8267097966728281`.
+Next step:
+Thread the same clipped divisor classifier into the standalone exact boundary walk and measure the same `10^12` chain.

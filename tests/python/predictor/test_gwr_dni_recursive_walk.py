@@ -119,6 +119,29 @@ def test_compare_transition_rules_small_prime():
     assert comparison["overshoot_margin"] == 0
 
 
+def test_unbounded_runtime_path_uses_prefix_then_clipped_tail(monkeypatch):
+    """The live unbounded path should stop segment reads after the 12-offset prefix."""
+    module = load_module()
+    original = module.divisor_counts_segment
+    calls: list[tuple[int, int]] = []
+
+    def tracked_divisor_counts_segment(start: int, stop: int):
+        calls.append((start, stop))
+        return original(start, stop)
+
+    monkeypatch.setattr(module, "divisor_counts_segment", tracked_divisor_counts_segment)
+    fast = module.next_gap_profile(24098209, "unbounded")
+    fast_calls = list(calls)
+    calls.clear()
+    exact = module.exact_next_gap_profile(24098209)
+
+    assert fast["next_prime"] == exact["next_prime"]
+    assert fast["gap_boundary_offset"] == exact["gap_boundary_offset"]
+    assert fast["next_dmin"] == exact["next_dmin"]
+    assert fast["next_peak_offset"] == exact["next_peak_offset"]
+    assert fast_calls == [(24098210, 24098222)]
+
+
 def test_dynamic_cutoff_covers_known_counterexample():
     """dynamic_cutoff must cover the known falsification point q=24098209."""
     module = load_module()

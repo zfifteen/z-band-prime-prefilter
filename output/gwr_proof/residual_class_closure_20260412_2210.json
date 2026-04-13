@@ -1,0 +1,153 @@
+{
+  "run_timestamp": "2026-04-13T02:10:38Z",
+  "residual_classes_examined": [
+    10,
+    14,
+    18,
+    20,
+    22,
+    26,
+    27,
+    28,
+    30,
+    36,
+    40,
+    42,
+    44,
+    50,
+    52,
+    54,
+    56,
+    60
+  ],
+  "results": {
+    "10": {
+      "status": "CLOSED",
+      "argument": "Bertrand gives q < 2p for every left boundary prime p, so any earlier composite k and winner w in the same gap satisfy w < q < 2p < 2k. Because d(w) < 10, the worst-case comparison is d(w) = 9. Thus L(w) > ((3-10)/2) ln(2k). Therefore L(k) < L(w) whenever k > 2^(10-3) = 128. The exact no-early-spoiler audit through p < 10^9 covers the remaining finite base k <= 128, so class 10 is closed.",
+      "min_p_threshold": 128,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "14": {
+      "status": "CLOSED",
+      "argument": "Bertrand gives q < 2p for every left boundary prime p, so any earlier composite k and winner w in the same gap satisfy w < q < 2p < 2k. Because d(w) < 14, the worst-case comparison is d(w) = 13. Thus L(w) > ((3-14)/2) ln(2k). Therefore L(k) < L(w) whenever k > 2^(14-3) = 2048. The exact no-early-spoiler audit through p < 10^9 covers the remaining finite base k <= 2048, so class 14 is closed.",
+      "min_p_threshold": 2048,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "18": {
+      "status": "CLOSED",
+      "argument": "Bertrand gives q < 2p for every left boundary prime p, so any earlier composite k and winner w in the same gap satisfy w < q < 2p < 2k. Because d(w) < 18, the worst-case comparison is d(w) = 17. Thus L(w) > ((3-18)/2) ln(2k). Therefore L(k) < L(w) whenever k > 2^(18-3) = 32768. The exact no-early-spoiler audit through p < 10^9 covers the remaining finite base k <= 32768, so class 18 is closed.",
+      "min_p_threshold": 32768,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "20": {
+      "status": "CLOSED",
+      "argument": "Bertrand gives q < 2p for every left boundary prime p, so any earlier composite k and winner w in the same gap satisfy w < q < 2p < 2k. Because d(w) < 20, the worst-case comparison is d(w) = 19. Thus L(w) > ((3-20)/2) ln(2k). Therefore L(k) < L(w) whenever k > 2^(20-3) = 131072. The exact no-early-spoiler audit through p < 10^9 covers the remaining finite base k <= 131072, so class 20 is closed.",
+      "min_p_threshold": 131072,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "22": {
+      "status": "CLOSED",
+      "argument": "Bertrand gives q < 2p for every left boundary prime p, so any earlier composite k and winner w in the same gap satisfy w < q < 2p < 2k. Because d(w) < 22, the worst-case comparison is d(w) = 21. Thus L(w) > ((3-22)/2) ln(2k). Therefore L(k) < L(w) whenever k > 2^(22-3) = 524288. The exact no-early-spoiler audit through p < 10^9 covers the remaining finite base k <= 524288, so class 22 is closed.",
+      "min_p_threshold": 524288,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "26": {
+      "status": "CLOSED",
+      "argument": "Bertrand gives q < 2p for every left boundary prime p, so any earlier composite k and winner w in the same gap satisfy w < q < 2p < 2k. Because d(w) < 26, the worst-case comparison is d(w) = 25. Thus L(w) > ((3-26)/2) ln(2k). Therefore L(k) < L(w) whenever k > 2^(26-3) = 8388608. The exact no-early-spoiler audit through p < 10^9 covers the remaining finite base k <= 8388608, so class 26 is closed.",
+      "min_p_threshold": 8388608,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "27": {
+      "status": "CLOSED",
+      "argument": "Bertrand gives q < 2p for every left boundary prime p, so any earlier composite k and winner w in the same gap satisfy w < q < 2p < 2k. Because d(w) < 27, the worst-case comparison is d(w) = 26. Thus L(w) > ((3-27)/2) ln(2k). Therefore L(k) < L(w) whenever k > 2^(27-3) = 16777216. The exact no-early-spoiler audit through p < 10^9 covers the remaining finite base k <= 16777216, so class 27 is closed.",
+      "min_p_threshold": 16777216,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "28": {
+      "status": "CLOSED",
+      "argument": "Bertrand gives q < 2p for every left boundary prime p, so any earlier composite k and winner w in the same gap satisfy w < q < 2p < 2k. Because d(w) < 28, the worst-case comparison is d(w) = 27. Thus L(w) > ((3-28)/2) ln(2k). Therefore L(k) < L(w) whenever k > 2^(28-3) = 33554432. The exact no-early-spoiler audit through p < 10^9 covers the remaining finite base k <= 33554432, so class 28 is closed.",
+      "min_p_threshold": 33554432,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "30": {
+      "status": "CLOSED",
+      "argument": "Bertrand gives q < 2p for every left boundary prime p, so any earlier composite k and winner w in the same gap satisfy w < q < 2p < 2k. Because d(w) < 30, the worst-case comparison is d(w) = 29. Thus L(w) > ((3-30)/2) ln(2k). Therefore L(k) < L(w) whenever k > 2^(30-3) = 134217728. The exact no-early-spoiler audit through p < 10^9 covers the remaining finite base k <= 134217728, so class 30 is closed.",
+      "min_p_threshold": 134217728,
+      "tightest_bound": null,
+      "counterexample": null
+    },
+    "36": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The same Bertrand tail gives unconditional closure for k > 2^(36-3) = 8589934592. The exact no-early-spoiler audit through p < 5e9 closes every case with k < 5,000,000,001, so the unresolved regime is finite: 5e9 < k <= 8589934592. 1e9 retained frontier: 1514 rows; observed winner classes [30x6, 32x1508]; observed gaps [4x1489, 6x25]; max off_dom=4; max (off_w-off_k)=4; first_d4_offset is always null.",
+      "counterexample": null
+    },
+    "40": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The same Bertrand tail gives unconditional closure for k > 2^(40-3) = 137438953472. The exact no-early-spoiler audit through p < 5e9 closes every case with k < 5,000,000,001, so the unresolved regime is finite: 5e9 < k <= 137438953472. 1e9 retained frontier: 41 rows; observed winner classes [32x1, 36x40]; observed gaps [4x41]; max off_dom=2; max (off_w-off_k)=2; first_d4_offset is always null.",
+      "counterexample": null
+    },
+    "42": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The same Bertrand tail gives unconditional closure for k > 2^(42-3) = 549755813888. The exact no-early-spoiler audit through p < 5e9 closes every case with k < 5,000,000,001, so the unresolved regime is finite: 5e9 < k <= 549755813888. 1e9 retained frontier: 4 rows; observed winner classes [36x1, 40x3]; observed gaps [4x4]; max off_dom=1; max (off_w-off_k)=1; first_d4_offset is always null.",
+      "counterexample": null
+    },
+    "44": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The same Bertrand tail gives unconditional closure for k > 2^(44-3) = 2199023255552. The exact no-early-spoiler audit through p < 5e9 closes every case with k < 5,000,000,001, so the unresolved regime is finite: 5e9 < k <= 2199023255552. 1e9 retained frontier: 1 rows; observed winner classes [40x1]; observed gaps [4x1]; max off_dom=1; max (off_w-off_k)=1; first_d4_offset is always null.",
+      "counterexample": null
+    },
+    "50": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The same Bertrand tail gives unconditional closure for k > 2^(50-3) = 140737488355328. The exact no-early-spoiler audit through p < 5e9 closes every case with k < 5,000,000,001, so the unresolved regime is finite: 5e9 < k <= 140737488355328. 1e9 retained frontier: 1 rows; observed winner classes [48x1]; observed gaps [4x1]; max off_dom=2; max (off_w-off_k)=2; first_d4_offset is always null.",
+      "counterexample": null
+    },
+    "52": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The same Bertrand tail gives unconditional closure for k > 2^(52-3) = 562949953421312. The exact no-early-spoiler audit through p < 5e9 closes every case with k < 5,000,000,001, so the unresolved regime is finite: 5e9 < k <= 562949953421312. 1e9 retained frontier: 2 rows; observed winner classes [48x2]; observed gaps [4x2]; max off_dom=1; max (off_w-off_k)=1; first_d4_offset is always null.",
+      "counterexample": null
+    },
+    "54": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The same Bertrand tail gives unconditional closure for k > 2^(54-3) = 2251799813685248. The exact no-early-spoiler audit through p < 5e9 closes every case with k < 5,000,000,001, so the unresolved regime is finite: 5e9 < k <= 2251799813685248. 1e9 retained frontier: 5 rows; observed winner classes [48x5]; observed gaps [4x5]; max off_dom=2; max (off_w-off_k)=2; first_d4_offset is always null.",
+      "counterexample": null
+    },
+    "56": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The same Bertrand tail gives unconditional closure for k > 2^(56-3) = 9007199254740992. The exact no-early-spoiler audit through p < 5e9 closes every case with k < 5,000,000,001, so the unresolved regime is finite: 5e9 < k <= 9007199254740992. 1e9 retained frontier: 20 rows; observed winner classes [48x20]; observed gaps [4x20]; max off_dom=2; max (off_w-off_k)=2; first_d4_offset is always null.",
+      "counterexample": null
+    },
+    "60": {
+      "status": "OPEN",
+      "argument": null,
+      "min_p_threshold": null,
+      "tightest_bound": "The same Bertrand tail gives unconditional closure for k > 2^(60-3) = 144115188075855872. The exact no-early-spoiler audit through p < 5e9 closes every case with k < 5,000,000,001, so the unresolved regime is finite: 5e9 < k <= 144115188075855872. 1e9 retained frontier: 1 rows; observed winner classes [56x1]; observed gaps [4x1]; max off_dom=1; max (off_w-off_k)=1; first_d4_offset is always null.",
+      "counterexample": null
+    }
+  },
+  "all_classes_closed": false,
+  "notes": "Residual frontier reconstructed from the 1e9 checkpoint directory by deduplicating 52,439 retained exact cases and recomputing local fields for the 12,099 rows with residual earlier divisor classes. Every reconstructed residual row has first_d4_offset = null. Observed residual gaps are all of size at most 22, and for D >= 36 the retained frontier uses only gap sizes 4 or 6. This run closes D in {10,14,18,20,22,26,27,28,30} by combining the universal Bertrand bound w < 2k with the exact p < 1e9 audit. Classes {36,40,42,44,50,52,54,56,60} remain finite-base obligations, but no counterexample is known: the exact audits through p < 1e9 and p < 5e9 both report zero earlier spoilers."
+}

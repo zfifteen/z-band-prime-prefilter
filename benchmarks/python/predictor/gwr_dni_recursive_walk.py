@@ -28,8 +28,10 @@ import json
 import math
 import sys
 import time
+from functools import lru_cache
 from pathlib import Path
 
+import gmpy2
 from sympy import nextprime, prime
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -44,6 +46,7 @@ DEFAULT_START_GAP_INDEX = 4
 DEFAULT_STEPS = 100
 PREFIX_LEN = 12
 EXACT_SCAN_BLOCK = 64
+_TRIAL_PRIMES = [2, 3]
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -117,6 +120,107 @@ def _scan_prefix_state(current_right_prime: int) -> tuple[int, int, int | None]:
         raise ValueError(f"empty next gap from prime {rp}")
 
     return best_d, best_offset, None
+
+
+def _ensure_trial_primes(limit: int) -> None:
+    """Extend the cached trial-prime list through one inclusive limit."""
+    if limit <= _TRIAL_PRIMES[-1]:
+        return
+
+    candidate = _TRIAL_PRIMES[-1] + 2
+    while _TRIAL_PRIMES[-1] < limit:
+        root = math.isqrt(candidate)
+        composite = False
+        for prime_value in _TRIAL_PRIMES[1:]:
+            if prime_value > root:
+                break
+            if candidate % prime_value == 0:
+                composite = True
+                break
+        if not composite:
+            _TRIAL_PRIMES.append(candidate)
+        candidate += 2
+
+
+@lru_cache(maxsize=131072)
+def _divisor_count_capped(n: int, stop_at: int) -> int:
+    """Return d(n) when d(n) <= stop_at, else return stop_at + 1."""
+    if n < 1:
+        raise ValueError("n must be at least 1")
+    if stop_at < 2:
+        raise ValueError("stop_at must be at least 2")
+
+    residual = int(n)
+    divisor_count = 1
+    cube_root_limit = int(gmpy2.iroot(residual, 3)[0])
+    _ensure_trial_primes(cube_root_limit)
+
+    for prime_value in _TRIAL_PRIMES:
+        if prime_value > cube_root_limit:
+            break
+        if residual % prime_value != 0:
+            continue
+
+        exponent = 1
+        while residual % prime_value == 0:
+            residual //= prime_value
+            exponent += 1
+
+        divisor_count *= exponent
+        if divisor_count > stop_at:
+            return stop_at + 1
+
+    if residual == 1:
+        return divisor_count
+
+    residual_mpz = gmpy2.mpz(residual)
+    if gmpy2.is_prime(residual_mpz):
+        divisor_count *= 2
+    elif gmpy2.is_square(residual_mpz):
+        root = gmpy2.isqrt(residual_mpz)
+        if gmpy2.is_prime(root):
+            divisor_count *= 3
+        else:
+            divisor_count *= 4
+    else:
+        divisor_count *= 4
+
+    if divisor_count > stop_at:
+        return stop_at + 1
+    return divisor_count
+
+
+def _exact_next_gap_profile_clipped(current_right_prime: int) -> dict[str, int]:
+    """Return the exact next-gap profile with clipped tail classification."""
+    rp = current_right_prime
+    best_d, best_offset, prefix_prime_offset = _scan_prefix_state(rp)
+
+    if prefix_prime_offset is not None:
+        return {
+            "current_right_prime": rp,
+            "next_prime": rp + prefix_prime_offset,
+            "gap_boundary_offset": prefix_prime_offset,
+            "gap_width": prefix_prime_offset,
+            "next_dmin": best_d,
+            "next_peak_offset": best_offset,
+        }
+
+    offset = PREFIX_LEN + 1
+    while True:
+        d = _divisor_count_capped(rp + offset, best_d - 1)
+        if d == 2:
+            return {
+                "current_right_prime": rp,
+                "next_prime": rp + offset,
+                "gap_boundary_offset": offset,
+                "gap_width": offset,
+                "next_dmin": best_d,
+                "next_peak_offset": best_offset,
+            }
+        if d < best_d:
+            best_d = d
+            best_offset = offset
+        offset += 1
 
 
 def exact_next_gap_profile(
@@ -220,7 +324,7 @@ def next_gap_profile(current_right_prime: int, mode: str) -> dict[str, int]:
     if mode == "bounded":
         return bounded_next_gap_profile(current_right_prime)
     if mode == "unbounded":
-        exact = exact_next_gap_profile(current_right_prime)
+        exact = _exact_next_gap_profile_clipped(current_right_prime)
         return {
             "current_right_prime": int(exact["current_right_prime"]),
             "next_prime": int(exact["next_prime"]),

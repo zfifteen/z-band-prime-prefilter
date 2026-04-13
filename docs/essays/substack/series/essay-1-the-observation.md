@@ -1,32 +1,38 @@
 # Every Prime Gap Has a Winner
 
-*This is the first essay in a series about a pattern I found hiding inside prime numbers. No advanced math required. Just arithmetic, curiosity, and a willingness to run some code.*
+*Essay 1 in a series about a pattern hiding inside prime numbers. No advanced number theory required. Start with consecutive primes, count divisors, and the pattern appears.*
 
 ---
 
 ## Start with the gap
 
-Pick any two consecutive prime numbers. Say, 23 and 29.
+Take two consecutive primes: 23 and 29.
 
-Between them sit five composite integers: 24, 25, 26, 27, 28. None of them are prime. Each one has more divisors than a prime does, because that is exactly what makes them composite.
+There is no prime between them, so the interior integers
 
-Now here is the question that started all of this:
+24, 25, 26, 27, 28
 
-**Is there something special about one of those five numbers? Does one of them stand out from the rest in a consistent, lawful way?**
+are all composite.
 
-The answer, it turns out, is yes. And the rule that picks it is simpler than you might expect.
+That gives a very concrete question:
+
+**Among the composite integers inside a prime gap, is there one that stands out in a consistent way?**
+
+On the tested surface behind this project, the answer is yes.
+
+And the rule that picks the winner is simpler than it has any obvious right to be.
 
 ---
 
-## Counting divisors
+## Count divisors
 
-Every positive integer has divisors: the whole numbers that divide it evenly. The count of those divisors tells you something fundamental about the integer's structure.
+For each integer in the gap, count how many positive divisors it has.
 
-A prime number has exactly 2 divisors: 1 and itself. That is the definition of a prime.
+A prime has exactly 2 divisors: 1 and itself.
 
-A composite number has more. How many more depends on its factor structure.
+A composite has more. The exact count depends on its factor structure.
 
-Look at the five composites in the gap between 23 and 29:
+Here is the gap between 23 and 29:
 
 | Number | Divisors | Count |
 |--------|----------|-------|
@@ -36,125 +42,170 @@ Look at the five composites in the gap between 23 and 29:
 | 27 | 1, 3, 9, 27 | 4 |
 | 28 | 1, 2, 4, 7, 14, 28 | 6 |
 
-Notice anything? One of these numbers has only 3 divisors. That is 25, which is 5 squared. A prime square always has exactly 3 divisors: 1, the prime, and the square itself. So 25 is the integer in this gap with the least internal factor structure.
+One number is visibly simpler than the rest in divisor structure: 25.
 
-Now here is the rule: **the winner is the leftmost integer carrying the minimum divisor count.**
+It has only 3 divisors because it is a prime square: 5 squared. Prime squares are the unique composite integers with divisor count 3.
 
-In this gap, the minimum divisor count is 3, carried only by 25. So 25 is the winner.
+So in this gap, the smallest divisor count is 3, and 25 carries it.
+
+That makes 25 the winner.
 
 ---
 
 ## Try another gap
 
-Take the gap between 89 and 97. The interior is: 90, 91, 92, 93, 94, 95, 96.
+Now look at the gap between 89 and 97. Its interior is
+
+90, 91, 92, 93, 94, 95, 96.
 
 | Number | Divisors | Count |
 |--------|----------|-------|
-| 90 | 1,2,3,5,6,9,10,15,18,30,45,90 | 12 |
-| 91 | 1,7,13,91 | 4 |
-| 92 | 1,2,4,23,46,92 | 6 |
-| 93 | 1,3,31,93 | 4 |
-| 94 | 1,2,47,94 | 4 |
-| 95 | 1,5,19,95 | 4 |
-| 96 | 1,2,3,4,6,8,12,16,24,32,48,96 | 12 |
+| 90 | 1, 2, 3, 5, 6, 9, 10, 15, 18, 30, 45, 90 | 12 |
+| 91 | 1, 7, 13, 91 | 4 |
+| 92 | 1, 2, 4, 23, 46, 92 | 6 |
+| 93 | 1, 3, 31, 93 | 4 |
+| 94 | 1, 2, 47, 94 | 4 |
+| 95 | 1, 5, 19, 95 | 4 |
+| 96 | 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 96 | 12 |
 
-Minimum divisor count is 4. Several numbers carry it: 91, 93, 94, 95. The rule says take the leftmost. That is 91.
+This time the minimum divisor count is 4, and several integers carry it:
 
-91 is the winner of this gap.
+91, 93, 94, 95.
+
+The winner is the leftmost one.
+
+So the winner of this gap is 91.
+
+At this point the rule looks almost too plain:
+
+**Take the smallest divisor count present in the gap, then take the leftmost integer carrying it.**
+
+That is the whole selection rule.
 
 ---
 
-## What "winning" actually means
+## What "winner" means
 
-I have not told you what winning means yet. Here is the precise statement.
+The word "winner" is not decorative. It comes from an exact score.
 
-Assign each integer in the gap a score. The score is:
-
-> score = (1 minus half the divisor count) times the natural log of the number
-
-In symbols, if *d(n)* is the divisor count of *n*:
+For each interior integer `n`, define
 
 > score(n) = (1 - d(n)/2) * ln(n)
 
-For a prime, *d = 2*, so the score is (1 - 1) * ln(n) = 0. Primes score exactly zero.
+where `d(n)` is the divisor count of `n`.
 
-For composites, *d > 2*, so the score is negative. More divisors means a more negative score. Larger numbers push the score further negative too, but the divisor term is stronger.
+For primes, `d(n) = 2`, so the score is exactly 0.
 
-The **Gap Winner Rule** says: the integer with the highest score in any prime gap is always the leftmost carrier of the minimum divisor count. Every other integer in the gap scores strictly lower.
+For composites, `d(n) > 2`, so the coefficient `(1 - d(n)/2)` is negative. That makes the score negative.
 
-In the gap between 89 and 97, 91 has the highest score. Check it against 90, 92, 93, 94, 95, 96. It wins every comparison.
+So inside a prime gap, every interior number has a negative score, and the winner is the integer with the score closest to zero.
+
+In the gap from 23 to 29:
+
+- `score(25) = (1 - 3/2) * ln(25) = -0.5 * ln(25)`
+- every other interior integer has divisor count at least 4, so its score is more negative
+
+In the gap from 89 to 97:
+
+- 91, 93, 94, and 95 all have divisor count 4
+- among equal divisor counts, the leftmost integer wins automatically, because the same negative coefficient is multiplied by a smaller logarithm
+
+So the divisor rule is not a shortcut that usually works.
+
+It is the exact ordering rule on the tested surface:
+
+**the highest-scoring interior integer is the leftmost carrier of the smallest divisor count present in the gap.**
+
+This is the Gap Winner Rule.
 
 ---
 
 ## Why this is surprising
 
-There is no obvious reason this should work. The score mixes two things: divisor count (a number theory property) and logarithm (a size measure). The claim is that minimizing divisor count, then picking the leftmost tie, perfectly replicates what the score formula would select, across every prime gap.
+The score mixes two different things:
 
-It is a simplification. Instead of computing the score for every interior integer, you just need to find the integer with the fewest divisors and, among ties, the first one.
+- divisor count, which measures factor structure
+- logarithm, which measures size
 
-And it has no known exceptions.
+There is no obvious reason in advance that the winner should always be selected by such a clean lexicographic rule:
 
----
+1. minimize divisor count
+2. break ties by taking the leftmost carrier
 
-## The scan
+But that is exactly what the tested surface shows.
 
-I wrote a program to check this rule across every prime gap up to one billion. That means every consecutive prime pair (p, q) where both primes are below one billion.
-
-Results:
-
-- **42,101,885** prime gaps examined
-- **149,214,917** earlier candidates checked against the rule
-- **0** counterexamples found
-
-Not a single gap, anywhere in the first billion integers, where the rule fails.
-
-You can reproduce this yourself. The code is open source and runs in Python. The full scan artifacts are committed to the repository with exact checksums so the result is verifiable independently.
+The complicated-looking score collapses to a very simple local decision.
 
 ---
 
-## What I am not claiming
+## What I actually checked
 
-I am not claiming this is proven for all primes everywhere, to infinity.
+This is not based on a few nice examples.
 
-The proof is mostly written. The later side (why nothing after the winner can beat it) is fully closed. The branch where the winner is a prime square is fully closed. The dominant case is reduced to a local arithmetic problem with a window of 128 integers. What remains is a finite list of 18 specific divisor-count configurations that need one more structural argument.
+In the current public repository, the rule matches the exact score winner on
 
-But the empirical record is clean. Zero exceptions in the first billion.
+- exact scans through `10^6`
+- exact scans through `10^7`
+- sampled windows from `10^8` through `10^18`
 
-That is the observation. The proof is catching up to it.
+That adds up to **4,423,459 tested prime gaps** with **0 counterexamples observed**.
+
+So the strongest supported claim is:
+
+**On the current tested surface, every checked prime gap has a canonical interior winner, and the winner is exactly the leftmost carrier of the smallest divisor count present in the gap.**
+
+That is finite evidence, not an unconditional theorem for all primes. But it is already much stronger than a handful of numerical coincidences.
+
+---
+
+## Why I think this matters
+
+Prime gaps usually get described only by their length: how many integers sit between one prime and the next.
+
+This pattern says the interior has a sharper structure than that.
+
+It says each tested gap contains a distinguished composite landmark: one interior integer that sits highest under the score, and that landmark can be found by an elementary arithmetic rule.
+
+Once you see the rule, several visible features of the data start to line up:
+
+- winners are usually near the left edge of the gap
+- winners are often low-divisor composites
+- the winner is not found by a floating-point optimization first, but by a discrete divisor hierarchy
+
+So this is not just a curiosity about one formula. It is a claim that prime-gap interiors carry an unexpectedly rigid local ordering.
 
 ---
 
 ## Run it yourself
 
-Here is the core of the check in plain Python. You will need a prime sieve and a divisor counter, both standard:
+Here is a plain Python check for the first 1,000 prime gaps:
 
 ```python
-from sympy import isprime, nextprime, divisor_count
+from sympy import divisor_count, isprime, nextprime
 import math
 
+
 def gwr_winner(p, q):
-    """Return the Gap Winner Rule selection for the gap (p, q)."""
-    interior = range(p + 1, q)
-    composites = [n for n in interior if not isprime(n)]
-    if not composites:
+    interior = [n for n in range(p + 1, q) if not isprime(n)]
+    if not interior:
         return None
-    min_d = min(divisor_count(n) for n in composites)
-    return next(n for n in composites if divisor_count(n) == min_d)
+    min_d = min(divisor_count(n) for n in interior)
+    return next(n for n in interior if divisor_count(n) == min_d)
+
 
 def score(n):
     return (1 - divisor_count(n) / 2) * math.log(n)
 
+
 def verify_gap(p, q):
-    """Check that the GWR winner has the highest score in (p, q)."""
-    interior = range(p + 1, q)
-    composites = [n for n in interior if not isprime(n)]
-    if not composites:
+    interior = [n for n in range(p + 1, q) if not isprime(n)]
+    if not interior:
         return True
     winner = gwr_winner(p, q)
     winner_score = score(winner)
-    return all(score(n) <= winner_score for n in composites)
+    return all(score(n) <= winner_score for n in interior)
 
-# Check the first 1000 prime gaps
+
 p = 2
 violations = 0
 for _ in range(1000):
@@ -167,12 +218,16 @@ for _ in range(1000):
 print(f"Violations found: {violations}")
 ```
 
-Run it. You will get zero violations.
+You should get:
 
-The full repository, with the billion-scale scan artifacts and the proof documentation, is at:
+```text
+Violations found: 0
+```
 
-**https://github.com/zfifteen/prime-gap-structure**
+The full codebase and validation artifacts are in the public repository:
+
+[zfifteen/prime-gap-structure](https://github.com/zfifteen/prime-gap-structure)
 
 ---
 
-*Next essay: Why the scoring formula is not arbitrary, and what it means that every prime collapses to exactly the same value under it.*
+*Next essay: why this score is not arbitrary, and why every prime collapses to exactly the same value under the underlying normalization.*
