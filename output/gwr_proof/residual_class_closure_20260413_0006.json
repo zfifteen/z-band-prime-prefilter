@@ -1,0 +1,3179 @@
+{
+  "run_timestamp": "2026-04-13T04:06:57Z",
+  "previous_artifact": "output/gwr_proof/residual_class_closure_20260412_2303.json",
+  "exact_scan_ceiling_p": 5000000000,
+  "requested_residual_classes": [
+    10,
+    14,
+    18,
+    20,
+    22,
+    26,
+    27,
+    28,
+    30,
+    36,
+    40,
+    42,
+    44,
+    50,
+    52,
+    54,
+    56,
+    60
+  ],
+  "newly_surfaced_classes": [
+    34
+  ],
+  "results": {
+    "10": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.10408951367381225; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.25992104989487319; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.51571656651039799; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.17480210393639917; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>128; the next prime threshold is 131, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        }
+      },
+      "argument": "For every branch d<10, either the Bertrand threshold prime p>131 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 10 closes.",
+      "min_p_threshold": 131,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 152; representative gap 12 with d(w)=8, off_k=1, off_w=11, off_dom=10",
+      "frontier_summary_5e9": "retained unsupported frontier count 779; representative gap 18 with d(w)=8, off_k=1, off_w=14, off_dom=13",
+      "counterexample": null
+    },
+    "14": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.06504108943996267; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.1486983549970351; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.25992104989487319; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.41421356237309515; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.64067071201527592; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.6390158215457884; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>32; the next prime threshold is 37, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2048; the next prime threshold is 2053, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        }
+      },
+      "argument": "For every branch d<14, either the Bertrand threshold prime p>2053 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 14 closes.",
+      "min_p_threshold": 2053,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 515; representative gap 8 with d(w)=12, off_k=3, off_w=7, off_dom=4",
+      "frontier_summary_5e9": "retained unsupported frontier count 2826; representative gap 10 with d(w)=12, off_k=1, off_w=8, off_dom=7",
+      "counterexample": null
+    },
+    "18": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.04729412282062673; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.10408951367381225; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.17346046000462634; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.25992104989487319; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.37035098472012362; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.51571656651039799; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.71448796570614559; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.43802730840895121; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.17480210393639917; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.59479341998814039; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>20.1587367983179675; the next prime threshold is 23, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>128; the next prime threshold is 131, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>32768; the next prime threshold is 32771, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        }
+      },
+      "argument": "For every branch d<18, either the Bertrand threshold prime p>32771 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 18 closes.",
+      "min_p_threshold": 32771,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 9270; representative gap 6 with d(w)=16, off_k=1, off_w=5, off_dom=4",
+      "frontier_summary_5e9": "retained unsupported frontier count 35445; representative gap 8 with d(w)=16, off_k=1, off_w=6, off_dom=5",
+      "counterexample": null
+    },
+    "20": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.04161601065058385; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.09050773266525769; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.1486983549970351; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.21901365420447538; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.30551169770980957; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.41421356237309515; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.55440628177091922; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.74110112659224825; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.37841423000544205; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.97198857827389684; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>6.06286626604159284; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>11.3137084989847612; the next prime threshold is 13, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>32; the next prime threshold is 37, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>256; the next prime threshold is 257, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>131072; the next prime threshold is 131101, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        }
+      },
+      "argument": "For every branch d<20, either the Bertrand threshold prime p>131101 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 20 closes.",
+      "min_p_threshold": 131101,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 168; representative gap 6 with d(w)=18, off_k=1, off_w=5, off_dom=4",
+      "frontier_summary_5e9": "retained unsupported frontier count 693; representative gap 6 with d(w)=18, off_k=1, off_w=5, off_dom=4",
+      "counterexample": null
+    },
+    "22": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.03715504444619189; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.08005973889230611; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.13011578342932983; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.18920711500272103; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.25992104989487319; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.34590019263235616; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.45242285611432509; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.58740105196819936; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.7631825099920424; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.33305807915223351; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.82842712474619029; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.62289465705562685; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.03968419957949276; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>16; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>50.7968336629823938; the next prime threshold is 53, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>512; the next prime threshold is 521, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>524288; the next prime threshold is 524309, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        }
+      },
+      "argument": "For every branch d<22, either the Bertrand threshold prime p>524309 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 22 closes.",
+      "min_p_threshold": 524309,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 4; representative gap 4 with d(w)=20, off_k=1, off_w=2, off_dom=1",
+      "frontier_summary_5e9": "retained unsupported frontier count 10; representative gap 4 with d(w)=20, off_k=1, off_w=3, off_dom=2",
+      "counterexample": null
+    },
+    "26": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.03059554475200943; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.06504108943996267; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.10408951367381225; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.1486983549970351; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.20010271957810311; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.25992104989487319; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.33031205819812204; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.41421356237309515; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.51571656651039799; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.64067071201527592; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.79770194639108372; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.26862504439092527; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.6390158215457884; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.17480210393639917; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.38360077052942376; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>13.9288090127379842; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>32; the next prime threshold is 37, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>128; the next prime threshold is 131, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2048; the next prime threshold is 2053, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8388608; the next prime threshold is 8388617, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        }
+      },
+      "argument": "For every branch d<26, either the Bertrand threshold prime p>8388617 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 26 closes.",
+      "min_p_threshold": 8388617,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 4; representative gap 4 with d(w)=24, off_k=1, off_w=2, off_dom=1",
+      "frontier_summary_5e9": "retained unsupported frontier count 26; representative gap 6 with d(w)=24, off_k=1, off_w=4, off_dom=3",
+      "counterexample": null
+    },
+    "27": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.02930223664349207; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.06212717686269098; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.09913122255918427; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.14114030999401295; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.18920711500272103; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.24469258946402328; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.30938457517497353; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.38567433898069514; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.47682614593949935; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.58740105196819936; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.72394564249395543; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.89615502867834307; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.11892618871859062; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.41617888880889442; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.82842712474619029; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.42897593141229118; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.36203093066103076; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.94397715654779457; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8.97969638647498236; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>16; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>38.0546276800870729; the next prime threshold is 41, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>161.26989438654374; the next prime threshold is 163, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2896.30937574009886; the next prime threshold is 2897, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>16777216; the next prime threshold is 16777259, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        }
+      },
+      "argument": "For every branch d<27, either the Bertrand threshold prime p>16777259 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 27 closes.",
+      "min_p_threshold": 16777259,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 1; representative gap 6 with d(w)=24, off_k=2, off_w=3, off_dom=1",
+      "frontier_summary_5e9": null,
+      "counterexample": null
+    },
+    "28": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.02811382665606654; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.05946309435929531; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.09462353643471877; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.13431252219546264; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.17943444889736426; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.23114441334491631; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.29093919794740497; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.3607900001743769; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.44334057702995655; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.54221082540794074; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.66247579228557552; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.81144732852781321; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.24492409661874603; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.57332979601886347; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.03143313302079642; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.70349884914916139; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.75682846001088411; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>6.56268284806110369; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>10.0793683991589855; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>18.3791736799525616; the next prime threshold is 19, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>45.2548339959390447; the next prime threshold is 47, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>203.187334651929575; the next prime threshold is 211, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4096; the next prime threshold is 4099, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>33554432; the next prime threshold is 33554467, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        }
+      },
+      "argument": "For every branch d<28, either the Bertrand threshold prime p>33554467 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 28 closes.",
+      "min_p_threshold": 33554467,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 391; representative gap 4 with d(w)=24, off_k=1, off_w=3, off_dom=2",
+      "frontier_summary_5e9": "retained unsupported frontier count 2085; representative gap 6 with d(w)=24, off_k=1, off_w=5, off_dom=4",
+      "counterexample": null
+    },
+    "30": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.02600448470703864; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.05476607648164666; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.086734862526058; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.12246204830937302; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.16262940648086266; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.20808944440444721; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.25992104989487319; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.3195079107728942; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.38865114261465616; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.46973449227559883; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.56597244117508705; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.681792830507429; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.82344497711643361; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.22506295219297368; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.51984209978974638; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.9189602113628923; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.4822022531844965; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.32023895556922444; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.65685424949238058; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>12.6992084157455949; the next prime threshold is 13, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>24.2514650641663643; the next prime threshold is 29, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>64; the next prime threshold is 67, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>322.53978877308765; the next prime threshold is 331, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8192; the next prime threshold is 8209, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>134217728; the next prime threshold is 134217757, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        }
+      },
+      "argument": "For every branch d<30, either the Bertrand threshold prime p>134217757 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 30 closes.",
+      "min_p_threshold": 134217757,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 4; representative gap 4 with d(w)=28, off_k=1, off_w=2, off_dom=1",
+      "frontier_summary_5e9": "retained unsupported frontier count 23; representative gap 4 with d(w)=28, off_k=2, off_w=3, off_dom=1",
+      "counterexample": null
+    },
+    "36": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.0212266063153641; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.04427378242741375; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.06937969857106729; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.09682497969462589; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.12694241123233208; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.1601293861601627; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.19686402614609011; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.23772628530542805; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.28342589756290426; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.33483985417003437; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.39306335301004758; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.45948010568144615; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.53586096304148856; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.62450479271247095; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.72844378656321118; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.85174942457458069; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.18101546533051538; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.40605007216423328; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.69180038526471233; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.06393271467194772; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.5635948725613571; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.2601643577598507; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.2780316430915768; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>6.85795186282458236; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>9.51365692002176822; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>14.4915786282225074; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>25.3984168314911969; the next prime threshold is 29, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>55.7152360509519369; the next prime threshold is 59, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>181.019335983756179; the next prime threshold is 191, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1290.1591550923506; the next prime threshold is 1291, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>65536; the next prime threshold is 65537, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "After the committed p<5000000000 base, the only remainder was 5000000001<=p<=8589934592; exact odd-winner exhaustion found 5 tau=35 values in range and realized_winner_count=0."
+        }
+      },
+      "argument": "All branches d<36 except d=35 were already eliminated by witness or by thresholds below the committed exact base p<5000000000. For d=35, the only unresolved window was 5000000001<=p<=8589934592. Exact odd-winner exhaustion over every tau=35 carrier below 2^34 found winner_values_in_unresolved_window=5, realized_winner_count=0, and no counterexample. So the final branch is impossible and class 36 closes.",
+      "min_p_threshold": 8589934609,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 1514; representative gap 4 with d(w)=32, off_k=1, off_w=3, off_dom=2",
+      "frontier_summary_5e9": "retained unsupported frontier count 7696; representative gap 4 with d(w)=32, off_k=1, off_w=3, off_dom=2",
+      "counterexample": null
+    },
+    "40": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.01891028440525067; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.0392592260318434; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.06121302333337275; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.08496391364363709; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.11073537957272594; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.13878863475669156; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.16943076559768699; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.20302503608211664; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.24000404566258693; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.28088668976427256; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.32630024571767025; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.37700945119426943; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.4339552480158273; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.49830707687668152; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.57153446621005721; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.65550655976962147; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.7526328554728674; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.86606598307361482; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.16011947778461222; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.35429338781783537; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.59367910930201928; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.89453847488075633; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.2813414240305514; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.79231005735668614; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.48984819323749118; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.48140393888049537; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>6.96440450636899211; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>9.33223231660893404; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>13.454342644059432; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>21.5344030821177022; the next prime threshold is 23, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>40.317473596635935; the next prime threshold is 41, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>97.0058602566654571; the next prime threshold is 101, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>362.038671967512357; the next prime threshold is 367, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3250.99735443087138; the next prime threshold is 3251, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>262144; the next prime threshold is 262147, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "After the committed p<5000000000 base, the only remainder was 5000000001<=p<=137438953472; exact odd-winner exhaustion found 655 tau=39 values in range and realized_winner_count=0."
+        }
+      },
+      "argument": "All branches d<40 except d=39 were already eliminated by witness or by thresholds below the committed exact base p<5000000000. For d=39, the only unresolved window was 5000000001<=p<=137438953472. Exact odd-winner exhaustion over every tau=39 carrier below 2^38 found winner_values_in_unresolved_window=655, realized_winner_count=0, and no counterexample. So the final branch is impossible and class 40 closes.",
+      "min_p_threshold": 137438953481,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 41; representative gap 4 with d(w)=36, off_k=1, off_w=2, off_dom=1",
+      "frontier_summary_5e9": "retained unsupported frontier count 474; representative gap 4 with d(w)=36, off_k=1, off_w=3, off_dom=2",
+      "counterexample": null
+    },
+    "42": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.01793188433739057; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.03715504444619189; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.05781041208068993; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.08005973889230611; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.10408951367381225; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.13011578342932983; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.15839012754269333; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.18920711500272103; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.22291368556746827; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.25992104989487319; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.30071992035600559; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.34590019263235616; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.3961766429234026; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.45242285611432509; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.51571656651039799; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.58740105196819936; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.66916946593810378; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.7631825099920424; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.87223548490720981; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.15138117244036531; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.33305807915223351; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.55432336791217596; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.82842712474619029; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.17480210393639917; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.62289465705562685; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.21906430592658754; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.03968419957949276; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>6.21762512708367687; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>10.886320001395017; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>16; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>26.2507313922444148; the next prime threshold is 29, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>50.7968336629823938; the next prime threshold is 53, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>128; the next prime threshold is 131, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>512; the next prime threshold is 521, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5160.63662036940241; the next prime threshold is 5167, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>524288; the next prime threshold is 524309, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "witness_assisted",
+          "details": "min_n_with_tau(41)=1099511627776 and w<2p force p>549755813888, which already exceeds the Bertrand threshold 549755813888."
+        }
+      },
+      "argument": "For every branch d<42, either the Bertrand threshold prime p>549755813911 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 42 closes.",
+      "min_p_threshold": 549755813911,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 4; representative gap 4 with d(w)=40, off_k=2, off_w=3, off_dom=1",
+      "frontier_summary_5e9": "retained unsupported frontier count 7; representative gap 4 with d(w)=40, off_k=2, off_w=3, off_dom=1",
+      "counterexample": null
+    },
+    "44": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.01704974444362684; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.03526492384137758; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.05476607648164666; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.07569058622018243; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.09819567535278151; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.12246204830937302; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.1486983549970351; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.17714669390891769; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.20808944440444721; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.241857812073484; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.27884260132651884; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.3195079107728942; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.36440870264007419; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.41421356237309515; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.46973449227559883; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.53196635733597386; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.60213975517924423; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.681792830507429; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.77287025256224395; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.87786182132341262; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.14354692507258626; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.31422047456543956; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.51984209978974638; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.77134867796139028; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.08442165081588149; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.4822022531844965; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.69384184001850535; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.65685424949238058; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>7.05273003996817049; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>9.18958683997628079; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>12.6992084157455949; the next prime threshold is 13, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>19.0273138400435364; the next prime threshold is 23, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>32; the next prime threshold is 37, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>64; the next prime threshold is 67, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>168.897012578930514; the next prime threshold is 173, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>724.077343935024714; the next prime threshold is 727, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8192; the next prime threshold is 8209, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1048576; the next prime threshold is 1048583, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "witness_assisted",
+          "details": "min_n_with_tau(43)=4398046511104 and w<2p force p>2199023255552, which already exceeds the Bertrand threshold 2199023255552."
+        }
+      },
+      "argument": "For every branch d<44, either the Bertrand threshold prime p>2199023255579 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 44 closes.",
+      "min_p_threshold": 2199023255579,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 1; representative gap 4 with d(w)=40, off_k=1, off_w=2, off_dom=1",
+      "frontier_summary_5e9": "retained unsupported frontier count 4; representative gap 4 with d(w)=40, off_k=1, off_w=2, off_dom=1",
+      "counterexample": null
+    },
+    "50": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.01485709791702017; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.03059554475200943; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.04729412282062673; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.06504108943996267; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.08393561919530379; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.10408951367381225; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.12562923754815625; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.1486983549970351; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.17346046000462634; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.20010271957810311; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.22884018241506543; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.25992104989487319; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.29363316546299401; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.33031205819812204; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.37035098472012362; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.41421356237309515; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.46244979303295541; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.51571656651039799; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.57480414379857847; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.64067071201527592; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.71448796570614559; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.79770194639108372; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.89211529345119178; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.12425435372538196; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.26862504439092527; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.43802730840895121; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.6390158215457884; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.88049307507751839; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.17480210393639917; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.53946034437464707; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.59479341998814039; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.38360077052942376; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>6.46346457611658298; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>10.2933191840754557; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>13.9288090127379842; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>20.1587367983179675; the next prime threshold is 23, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>32; the next prime threshold is 37, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>57.9663145128900084; the next prime threshold is 59, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>128; the next prime threshold is 131, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>388.023441026661828; the next prime threshold is 389, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2048; the next prime threshold is 2053, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>32768; the next prime threshold is 32771, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8388608; the next prime threshold is 8388617, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "After the committed p<5000000000 base, the only remainder was 5000000001<=p<=140737488355328; exact odd-winner exhaustion found realized_winner_count=1 but realized_pair_count=0 for (D,d)=(50,49)."
+        }
+      },
+      "argument": "All branches d<50 except d=49 were already eliminated by witness or by thresholds below the committed exact base p<5000000000. For d=49, the only unresolved window was 5000000001<=p<=140737488355328. Exact odd-winner exhaustion found realized_winner_count=1 but realized_pair_count=0 for earlier tau=50 carriers before those winners, and no counterexample. So the final branch is eliminated and class 50 closes.",
+      "min_p_threshold": 140737488355333,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 1; representative gap 4 with d(w)=48, off_k=1, off_w=3, off_dom=2",
+      "frontier_summary_5e9": "retained unsupported frontier count 2; representative gap 4 with d(w)=48, off_k=2, off_w=3, off_dom=1",
+      "counterexample": null
+    },
+    "52": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.01424638696732727; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.02930223664349207; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.04523677328372955; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.06212717686269098; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.08005973889230611; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.09913122255918427; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.11945047000234621; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.14114030999401295; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.16433983264933438; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.18920711500272103; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.21592250360750764; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.24469258946402328; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.27575504893499514; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.30938457517497353; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.34590019263235616; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.38567433898069514; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.42914422387340889; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.47682614593949935; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.52933368863547048; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.58740105196819936; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.65191325597930483; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.72394564249395543; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.80481611160142474; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.89615502867834307; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.11892618871859062; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.25622827966062012; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.41617888880889442; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.60440241418646368; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.82842712474619029; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.09851928453331116; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.42897593141229118; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.84018674741917287; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.36203093066103076; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.03968419957949276; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.94397715654779457; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>7.19080778556433575; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8.97969638647498236; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>11.6758408454515692; the next prime threshold is 13, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>16; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>23.5157518764095776; the next prime threshold is 29, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>38.0546276800870729; the next prime threshold is 41, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>70.6617288751240125; the next prime threshold is 71, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>161.26989438654374; the next prime threshold is 163, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>512; the next prime threshold is 521, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2896.30937574009886; the next prime threshold is 2897, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>52015.9576708939421; the next prime threshold is 52021, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "50": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>16777216; the next prime threshold is 16777259, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "51": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "After the committed p<5000000000 base, the only remainder was 5000000001<=p<=562949953421312; exact odd-winner exhaustion found realized_winner_count=3 but realized_pair_count=0 for (D,d)=(52,51)."
+        }
+      },
+      "argument": "All branches d<52 except d=51 were already eliminated by witness or by thresholds below the committed exact base p<5000000000. For d=51, the only unresolved window was 5000000001<=p<=562949953421312. Exact odd-winner exhaustion found realized_winner_count=3 but realized_pair_count=0 for earlier tau=52 carriers before those winners, and no counterexample. So the final branch is eliminated and class 52 closes.",
+      "min_p_threshold": 562949953421381,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 2; representative gap 4 with d(w)=48, off_k=1, off_w=2, off_dom=1",
+      "frontier_summary_5e9": "retained unsupported frontier count 5; representative gap 4 with d(w)=48, off_k=1, off_w=3, off_dom=2",
+      "counterexample": null
+    },
+    "54": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.01368390032268563; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.02811382665606654; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.04335093096701903; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.05946309435929531; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.07652586208143419; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.09462353643471877; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.11385045915693692; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.13431252219546264; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.15612895507466207; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.17943444889736426; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.20438169218741664; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.23114441334491631; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.25992104989487319; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.29093919794740497; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.32446103909498802; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.3607900001743769; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.40027897930360545; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.44334057702995655; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.49045991530985233; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.54221082540794074; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.59927646223316788; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.66247579228557552; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.73279795841658091; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.81144732852781321; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.89990321416719787; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.11403608112276098; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.24492409661874603; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.39640137303369993; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.57332979601886347; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.78213123849165944; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.03143313302079642; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.33304802559417812; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.70349884914916139; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.16646404260233449; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.75682846001088411; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.52765151987110492; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>6.56268284806110369; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>10.0793683991589855; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>13.24405247815697; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>18.3791736799525616; the next prime threshold is 19, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>27.4318074512983294; the next prime threshold is 29, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>45.2548339959390447; the next prime threshold is 47, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>86.1376123284708086; the next prime threshold is 89, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>203.187334651929575; the next prime threshold is 211, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>675.588050315722057; the next prime threshold is 677, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "50": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4096; the next prime threshold is 4099, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "51": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>82570.1859259103367; the next prime threshold is 82571, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "52": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>33554432; the next prime threshold is 33554467, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "53": {
+          "status": "ELIMINATED",
+          "mechanism": "witness_assisted",
+          "details": "min_n_with_tau(53)=4503599627370496 and w<2p force p>2251799813685248, which already exceeds the Bertrand threshold 2251799813685248."
+        }
+      },
+      "argument": "For every branch d<54, either the Bertrand threshold prime p>2251799813685269 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 54 closes.",
+      "min_p_threshold": 2251799813685269,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 5; representative gap 4 with d(w)=48, off_k=1, off_w=3, off_dom=2",
+      "frontier_summary_5e9": "retained unsupported frontier count 9; representative gap 4 with d(w)=48, off_k=1, off_w=2, off_dom=1",
+      "counterexample": null
+    },
+    "56": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.01316414302491475; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.0270180507087725; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.04161601065058385; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.05701804056138027; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.07329065120427436; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.09050773266525769; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.1087515875367977; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.12811413983030984; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.1486983549970351; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.17061991471191185; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.19400920056715765; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.21901365420447538; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.24580059858957393; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.27456062731926223; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.30551169770980957; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.33890410122447223; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.37502653471368586; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.41421356237309515; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.45685484749399285; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.50340665385605488; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.55440628177091922; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.61049033194925428; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.67241800900567461; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.74110112659224825; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.81764312007572304; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.90339030602123915; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.10953215296329333; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.2345742761444396; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.37841423000544205; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.54528302497016012; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.74070196944024769; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.97198857827389684; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.24900958542494189; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.58532838455142322; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.52046313371731845; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.18735821860403856; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>6.06286626604159284; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>7.24578931411125371; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8.9002518087718947; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>11.3137084989847612; the next prime threshold is 13, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>15.0228945705873027; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>21.1121265723663143; the next prime threshold is 23, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>32; the next prime threshold is 37, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>53.8173705762377281; the next prime threshold is 59, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>105.002925568977659; the next prime threshold is 107, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "50": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>256; the next prime threshold is 257, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "51": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>891.443776815231558; the next prime threshold is 907, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "52": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5792.61875148019772; the next prime threshold is 5801, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "53": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>131072; the next prime threshold is 131101, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "54": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>67108864; the next prime threshold is 67108879, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "55": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "After the committed p<5000000000 base, the only remainder was 5000000001<=p<=9007199254740992; exact odd-winner exhaustion found 439 tau=55 values in range and realized_winner_count=0."
+        }
+      },
+      "argument": "All branches d<56 except d=55 were already eliminated by witness or by thresholds below the committed exact base p<5000000000. For d=55, the only unresolved window was 5000000001<=p<=9007199254740992. Exact odd-winner exhaustion over every tau=55 carrier below 2^54 found winner_values_in_unresolved_window=439, realized_winner_count=0, and no counterexample. So the final branch is impossible and class 56 closes.",
+      "min_p_threshold": 9007199254740997,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 20; representative gap 4 with d(w)=48, off_k=1, off_w=2, off_dom=1",
+      "frontier_summary_5e9": "retained unsupported frontier count 174; representative gap 4 with d(w)=50, off_k=1, off_w=2, off_dom=1",
+      "counterexample": null
+    },
+    "60": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.01223471607347437; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.02506421196587461; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.03853184473706439; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.05268520263895571; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.06757662504801409; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.08326379982192078; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.09981045169164737; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.11728713807222002; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.13577217209214876; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.15535269687227293; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.17612594034870188; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.19820068651684997; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.22169900724765723; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.24675830928489084; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.27353376432637999; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.30220120709323184; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.33296060817114048; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.36604025675439544; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.40170182540457877; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.44024653753875898; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.48202272273591107; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.52743513091464322; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.5769564922311472; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.63114196696555025; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.690647345766354; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.75625216037329945; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.82888928533450312; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1.90968320782083323; the next prime threshold is 2, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.10151327730643889; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.21629227171003818; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.34692092000925268; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.49666109780322376; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.66967970834006874; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>2.87136977033890162; the next prime threshold is 3, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.10881256354183888; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.39145596751014011; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>3.73213196614722964; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.14862017778476844; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>4.66611615830446702; the next prime threshold is 5, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>5.32124823279248726; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>6.16884330163176298; the next prime threshold is 7, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>7.29377990846573443; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>8.832716109390498; the next prime threshold is 11, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>11.0160756095541554; the next prime threshold is 13, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>14.2543794902454302; the next prime threshold is 17, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>19.3294311104711554; the next prime threshold is 23, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "50": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>27.8576180254759684; the next prime threshold is 29, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "51": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>43.545280005580068; the next prime threshold is 47, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "52": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>76.1092553601741457; the next prime threshold is 79, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "53": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>156.033747738172849; the next prime threshold is 157, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "54": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>406.374669303858923; the next prime threshold is 409, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "55": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>1552.09376410664731; the next prime threshold is 1553, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "56": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>11585.2375029603954; the next prime threshold is 11587, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "57": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>330280.743703641347; the next prime threshold is 330287, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "58": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives p>268435456; the next prime threshold is 268435459, which lies below the committed exact no-counterexample ceiling p<5000000000."
+        },
+        "59": {
+          "status": "ELIMINATED",
+          "mechanism": "witness_assisted",
+          "details": "min_n_with_tau(59)=288230376151711744 and w<2p force p>144115188075855872, which already exceeds the Bertrand threshold 144115188075855872."
+        }
+      },
+      "argument": "For every branch d<60, either the Bertrand threshold prime p>144115188075855881 already lies below the committed exact no-counterexample ceiling p<5000000000, or min_n_with_tau(d) forces p above that threshold automatically. Hence every branch is eliminated and class 60 closes.",
+      "min_p_threshold": 144115188075855881,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "retained unsupported frontier count 1; representative gap 4 with d(w)=56, off_k=1, off_w=2, off_dom=1",
+      "frontier_summary_5e9": "retained unsupported frontier count 6; representative gap 4 with d(w)=56, off_k=1, off_w=2, off_dom=1",
+      "counterexample": null
+    }
+  },
+  "all_requested_classes_closed": true,
+  "material_progress": true,
+  "progress_kind": "class_closed",
+  "notes": "Compared with output/gwr_proof/residual_class_closure_20260412_2303.json, this run closes the five previously open requested classes {36,40,50,52,56} by exact odd-winner branch exhaustion above the committed 5e9 base. The newer retained 5e9 frontier also surfaces unsupported class 34, but its hardest d=33 branch is already discharged below the committed exact ceiling, so it does not reopen the requested table."
+}

@@ -1,0 +1,3179 @@
+{
+  "run_timestamp": "2026-04-13T04:08:54Z",
+  "previous_artifact": "output/gwr_proof/residual_class_closure_20260412_2359.json",
+  "exact_scan_ceiling_p": 5000000000,
+  "requested_residual_classes": [
+    10,
+    14,
+    18,
+    20,
+    22,
+    26,
+    27,
+    28,
+    30,
+    36,
+    40,
+    42,
+    44,
+    50,
+    52,
+    54,
+    56,
+    60
+  ],
+  "newly_surfaced_classes": [
+    34
+  ],
+  "results": {
+    "10": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 131; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        }
+      },
+      "argument": "Let d = d(w) < 10. Since k > p and w < q < 2p by Bertrand, it is enough to show (10 - 2) ln p > (d - 2) ln(2p), equivalently p^(10 - d) > 2^(d - 2). The largest surviving threshold comes from d = 9, namely p > 2^7 = 128. The committed exact no-early-spoiler base is contiguous through p < 5e9, so the threshold prime 131 closes the finite remainder.",
+      "min_p_threshold": 131,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 152; representative gap 12, winner d 8, offsets (k,w,dom)=(1,11,10).",
+      "frontier_summary_5e9": "count 779; representative gap 18, winner d 8, offsets (k,w,dom)=(1,14,13).",
+      "counterexample": null
+    },
+    "14": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 37; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2053; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        }
+      },
+      "argument": "Let d = d(w) < 14. Again Bertrand reduces the comparison to p^(14 - d) > 2^(d - 2). The odd branch d = 13 is automatic because min_n_with_tau(13) = 4096, so any d = 13 winner satisfies w >= 4096 and w < 2p, hence p > 2048. Among the remaining classes the largest threshold is d = 12, giving p > 2^5 = 32. The threshold prime 37 lies inside the committed exact base through p < 5e9, so class 14 closes.",
+      "min_p_threshold": 37,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 515; representative gap 8, winner d 12, offsets (k,w,dom)=(3,7,4).",
+      "frontier_summary_5e9": "count 2826; representative gap 10, winner d 12, offsets (k,w,dom)=(1,8,7).",
+      "counterexample": null
+    },
+    "18": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 23; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 131; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 32771; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        }
+      },
+      "argument": "Let d = d(w) < 18. Bertrand gives the sufficient condition p^(18 - d) > 2^(d - 2). The odd branch d = 17 is automatic because min_n_with_tau(17) = 65536, so w >= 65536 and w < 2p force p > 32768. The largest remaining nonautomatic threshold is d = 16, which again gives p > 2^7 = 128. The threshold prime 131 lies inside the committed exact base through p < 5e9, so class 18 closes.",
+      "min_p_threshold": 131,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 9270; representative gap 6, winner d 16, offsets (k,w,dom)=(1,5,4).",
+      "frontier_summary_5e9": "count 35445; representative gap 8, winner d 16, offsets (k,w,dom)=(1,6,5).",
+      "counterexample": null
+    },
+    "20": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 13; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 37; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 257; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 131101; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        }
+      },
+      "argument": "Let d = d(w) < 20. Bertrand gives the sufficient condition p^(20 - d) > 2^(d - 2). The odd branch d = 19 is automatic because min_n_with_tau(19) = 262144, so w >= 262144 and w < 2p force p > 131072. The largest remaining nonautomatic threshold is d = 18, giving p > 2^8 = 256. The threshold prime 257 lies inside the committed exact base through p < 5e9, so class 20 closes.",
+      "min_p_threshold": 257,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 168; representative gap 6, winner d 18, offsets (k,w,dom)=(1,5,4).",
+      "frontier_summary_5e9": "count 693; representative gap 6, winner d 18, offsets (k,w,dom)=(1,5,4).",
+      "counterexample": null
+    },
+    "22": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 53; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 521; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 524309; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        }
+      },
+      "argument": "Let d = d(w) < 22. Bertrand reduces the comparison to p^(22 - d) > 2^(d - 2). The worst surviving threshold is d = 21, namely p > 2^19 = 524288. The threshold prime 524309 lies inside the committed exact base through p < 5e9, so the finite remainder is exhausted and class 22 closes.",
+      "min_p_threshold": 524309,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 4; representative gap 4, winner d 20, offsets (k,w,dom)=(1,2,1).",
+      "frontier_summary_5e9": "count 10; representative gap 4, winner d 20, offsets (k,w,dom)=(1,3,2).",
+      "counterexample": null
+    },
+    "26": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 37; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 131; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2053; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 8388617; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        }
+      },
+      "argument": "Let d = d(w) < 26. Bertrand reduces the comparison to p^(26 - d) > 2^(d - 2). The worst surviving threshold is d = 25, namely p > 2^23 = 8388608. The threshold prime 8388617 lies inside the committed exact base through p < 5e9, so the finite remainder is exhausted and class 26 closes.",
+      "min_p_threshold": 8388617,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 4; representative gap 4, winner d 24, offsets (k,w,dom)=(1,2,1).",
+      "frontier_summary_5e9": "count 26; representative gap 6, winner d 24, offsets (k,w,dom)=(1,4,3).",
+      "counterexample": null
+    },
+    "27": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 41; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 163; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2897; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 16777259; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        }
+      },
+      "argument": "Let d = d(w) < 27. Bertrand reduces the comparison to p^(27 - d) > 2^(d - 2). The worst surviving threshold is d = 26, namely p > 2^24 = 16777216. The threshold prime 16777259 lies inside the committed exact base through p < 5e9, so the finite remainder is exhausted and class 27 closes.",
+      "min_p_threshold": 16777259,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 1; representative gap 6, winner d 24, offsets (k,w,dom)=(2,3,1).",
+      "frontier_summary_5e9": null,
+      "counterexample": null
+    },
+    "28": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 19; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 47; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 211; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 4099; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 33554467; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        }
+      },
+      "argument": "Let d = d(w) < 28. Bertrand reduces the comparison to p^(28 - d) > 2^(d - 2). The worst surviving threshold is d = 27, namely p > 2^25 = 33554432. The threshold prime 33554467 lies inside the committed exact base through p < 5e9, so the finite remainder is exhausted and class 28 closes.",
+      "min_p_threshold": 33554467,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 391; representative gap 4, winner d 24, offsets (k,w,dom)=(1,3,2).",
+      "frontier_summary_5e9": "count 2085; representative gap 6, winner d 24, offsets (k,w,dom)=(1,5,4).",
+      "counterexample": null
+    },
+    "30": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 13; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 29; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 67; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 331; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 8209; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 134217757; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        }
+      },
+      "argument": "Let d = d(w) < 30. Bertrand reduces the comparison to p^(30 - d) > 2^(d - 2). The odd branch d = 29 is automatic because min_n_with_tau(29) = 268435456, so w >= 268435456 and w < 2p force p > 134217728. Among the remaining classes the largest nonautomatic threshold is d = 28, giving p > 2^13 = 8192. The threshold prime 8209 lies inside the committed exact base through p < 5e9, so class 30 closes.",
+      "min_p_threshold": 8209,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 4; representative gap 4, winner d 28, offsets (k,w,dom)=(1,2,1).",
+      "frontier_summary_5e9": "count 23; representative gap 4, winner d 28, offsets (k,w,dom)=(2,3,1).",
+      "counterexample": null
+    },
+    "36": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 29; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 59; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 191; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 1291; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 65537; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Committed exact base covers p < 5000000000, and exhaustive odd-carrier scan over 5000000001 <= p <= 8589934592 checks 5 tau=35 carriers and finds no realized winner gap."
+        }
+      },
+      "argument": "Every branch d < 36 is eliminated. The only non-witness branch d = 35 has 5 tau=35 carriers with 5000000000 < p <= 8589934592, and none is a realized winner gap. The committed exact no-counterexample chain closes the remainder below p < 5000000000.",
+      "min_p_threshold": null,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 1514; representative gap 4, winner d 32, offsets (k,w,dom)=(1,3,2).",
+      "frontier_summary_5e9": "count 7696; representative gap 4, winner d 32, offsets (k,w,dom)=(1,3,2).",
+      "counterexample": null
+    },
+    "40": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 23; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 41; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 101; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 367; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3251; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 262147; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Committed exact base covers p < 5000000000, and exhaustive odd-carrier scan over 5000000001 <= p <= 137438953472 checks 655 tau=39 carriers and finds no realized winner gap."
+        }
+      },
+      "argument": "Every branch d < 40 is eliminated. The only non-witness branch d = 39 has 655 tau=39 carriers with 5000000000 < p <= 137438953472, and none is a realized winner gap. The committed exact no-counterexample chain closes the remainder below p < 5000000000.",
+      "min_p_threshold": null,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 41; representative gap 4, winner d 36, offsets (k,w,dom)=(1,2,1).",
+      "frontier_summary_5e9": "count 474; representative gap 4, winner d 36, offsets (k,w,dom)=(1,3,2).",
+      "counterexample": null
+    },
+    "42": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 29; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 53; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 131; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 521; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5167; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 524309; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "witness_assisted",
+          "details": "min_n_with_tau(41) = 1099511627776 forces p > 549755813888, which already exceeds the Bertrand threshold 5.49756e+11."
+        }
+      },
+      "argument": "Let d = d(w) < 42. Bertrand reduces the comparison to p^(42 - d) > 2^(d - 2). The odd branch d = 41 is automatic because min_n_with_tau(41) = 2^40, so w >= 2^40 and w < 2p force p > 2^39. Among the remaining classes the largest nonautomatic threshold is d = 40, giving p > 2^19 = 524288. The threshold prime 524309 lies inside the committed exact base through p < 5e9, so class 42 closes.",
+      "min_p_threshold": 524309,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 4; representative gap 4, winner d 40, offsets (k,w,dom)=(2,3,1).",
+      "frontier_summary_5e9": "count 7; representative gap 4, winner d 40, offsets (k,w,dom)=(2,3,1).",
+      "counterexample": null
+    },
+    "44": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 13; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 23; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 37; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 67; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 173; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 727; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 8209; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 1048583; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "witness_assisted",
+          "details": "min_n_with_tau(43) = 4398046511104 forces p > 2199023255552, which already exceeds the Bertrand threshold 2.19902e+12."
+        }
+      },
+      "argument": "Let d = d(w) < 44. Bertrand reduces the comparison to p^(44 - d) > 2^(d - 2). The odd branch d = 43 is automatic because min_n_with_tau(43) = 2^42, so w >= 2^42 and w < 2p force p > 2^41. Among the remaining classes the largest nonautomatic threshold is d = 42, giving p > 2^20 = 1048576. The threshold prime 1048583 lies inside the committed exact base through p < 5e9, so class 44 closes.",
+      "min_p_threshold": 1048583,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 1; representative gap 4, winner d 40, offsets (k,w,dom)=(1,2,1).",
+      "frontier_summary_5e9": "count 4; representative gap 4, winner d 40, offsets (k,w,dom)=(1,2,1).",
+      "counterexample": null
+    },
+    "50": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 23; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 37; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 59; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 131; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 389; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2053; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 32771; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 8388617; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Committed exact base covers p < 5000000000, and exhaustive odd-carrier scan over 5000000001 <= p <= 140737488355328 checks 58 tau=49 carriers, finds 1 realized winner gaps, and finds 0 earlier tau=50 carriers in those gaps."
+        }
+      },
+      "argument": "Every branch d < 50 is eliminated. The only non-witness branch d = 49 has 58 tau=49 carriers with 5000000000 < p <= 140737488355328, exactly 1 realized winner gaps, and zero earlier tau=50 carriers in those gaps. The committed exact no-counterexample chain closes the remainder below p < 5000000000.",
+      "min_p_threshold": null,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 1; representative gap 4, winner d 48, offsets (k,w,dom)=(1,3,2).",
+      "frontier_summary_5e9": "count 2; representative gap 4, winner d 48, offsets (k,w,dom)=(2,3,1).",
+      "counterexample": null
+    },
+    "52": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 13; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 29; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 41; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 71; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 163; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 521; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2897; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 52021; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "50": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 16777259; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "51": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Committed exact base covers p < 5000000000, and exhaustive odd-carrier scan over 5000000001 <= p <= 562949953421312 checks 9413 tau=51 carriers, finds 3 realized winner gaps, and finds 0 earlier tau=52 carriers in those gaps."
+        }
+      },
+      "argument": "Every branch d < 52 is eliminated. The only non-witness branch d = 51 has 9413 tau=51 carriers with 5000000000 < p <= 562949953421312, exactly 3 realized winner gaps, and zero earlier tau=52 carriers in those gaps. The committed exact no-counterexample chain closes the remainder below p < 5000000000.",
+      "min_p_threshold": null,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 2; representative gap 4, winner d 48, offsets (k,w,dom)=(1,2,1).",
+      "frontier_summary_5e9": "count 5; representative gap 4, winner d 48, offsets (k,w,dom)=(1,3,2).",
+      "counterexample": null
+    },
+    "54": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 19; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 29; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 47; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 89; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 211; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 677; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "50": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 4099; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "51": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 82571; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "52": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 33554467; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "53": {
+          "status": "ELIMINATED",
+          "mechanism": "witness_assisted",
+          "details": "min_n_with_tau(53) = 4503599627370496 forces p > 2251799813685248, which already exceeds the Bertrand threshold 2.2518e+15."
+        }
+      },
+      "argument": "Let d = d(w) < 54. Bertrand reduces the comparison to p^(54 - d) > 2^(d - 2). The odd branch d = 53 is automatic because min_n_with_tau(53) = 2^52, so w >= 2^52 and w < 2p force p > 2^51. Among the remaining classes the largest nonautomatic threshold is d = 52, giving p > 2^25 = 33554432. The threshold prime 33554467 lies inside the committed exact base through p < 5e9, so class 54 closes.",
+      "min_p_threshold": 33554467,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 5; representative gap 4, winner d 48, offsets (k,w,dom)=(1,3,2).",
+      "frontier_summary_5e9": "count 9; representative gap 4, winner d 48, offsets (k,w,dom)=(1,2,1).",
+      "counterexample": null
+    },
+    "56": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 13; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 23; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 37; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 59; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 107; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "50": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 257; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "51": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 907; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "52": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5801; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "53": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 131101; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "54": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 67108879; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "55": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Committed exact base covers p < 5000000000, and exhaustive odd-carrier scan over 5000000001 <= p <= 9007199254740992 checks 439 tau=55 carriers and finds no realized winner gap."
+        }
+      },
+      "argument": "Every branch d < 56 is eliminated. The only non-witness branch d = 55 has 439 tau=55 carriers with 5000000000 < p <= 9007199254740992, and none is a realized winner gap. The committed exact no-counterexample chain closes the remainder below p < 5000000000.",
+      "min_p_threshold": null,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 20; representative gap 4, winner d 48, offsets (k,w,dom)=(1,2,1).",
+      "frontier_summary_5e9": "count 174; representative gap 4, winner d 50, offsets (k,w,dom)=(1,2,1).",
+      "counterexample": null
+    },
+    "60": {
+      "status": "CLOSED",
+      "surviving_winner_classes": [],
+      "branch_eliminations": {
+        "3": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "4": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "5": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "6": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "7": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "8": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "9": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "10": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "11": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "12": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "13": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "14": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "15": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "16": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "17": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "18": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "19": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "20": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "21": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "22": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "23": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "24": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "25": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "26": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "27": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "28": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "29": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "30": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 2; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "31": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "32": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "33": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "34": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "35": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "36": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "37": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 3; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "38": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "39": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "40": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "41": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "42": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 5; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "43": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "44": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 7; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "45": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "46": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "47": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 13; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "48": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 17; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "49": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 23; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "50": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 29; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "51": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 47; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "52": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 79; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "53": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 157; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "54": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 409; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "55": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 1553; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "56": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 11587; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "57": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 330287; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "58": {
+          "status": "ELIMINATED",
+          "mechanism": "exact_finite_base",
+          "details": "Bertrand gives the sufficient threshold p >= 268435459; the committed exact no-counterexample chain covers the finite remainder below p < 5000000000."
+        },
+        "59": {
+          "status": "ELIMINATED",
+          "mechanism": "witness_assisted",
+          "details": "min_n_with_tau(59) = 288230376151711744 forces p > 144115188075855872, which already exceeds the Bertrand threshold 1.44115e+17."
+        }
+      },
+      "argument": "Let d = d(w) < 60. Bertrand reduces the comparison to p^(60 - d) > 2^(d - 2). The odd branch d = 59 is automatic because min_n_with_tau(59) = 2^58, so w >= 2^58 and w < 2p force p > 2^57. Among the remaining classes the largest nonautomatic threshold is d = 56, giving p > 2^(54/4) = 11585.2375.... The threshold prime 11587 lies inside the committed exact base through p < 5e9, so class 60 closes.",
+      "min_p_threshold": 11587,
+      "finite_unresolved_window": {
+        "lo": null,
+        "hi": null
+      },
+      "frontier_summary_1e9": "count 1; representative gap 4, winner d 56, offsets (k,w,dom)=(1,2,1).",
+      "frontier_summary_5e9": "count 6; representative gap 4, winner d 56, offsets (k,w,dom)=(1,2,1).",
+      "counterexample": null
+    }
+  },
+  "all_requested_classes_closed": true,
+  "material_progress": true,
+  "progress_kind": "class_closed",
+  "notes": "Compared with output/gwr_proof/residual_class_closure_20260412_2359.json, the requested table is unchanged and remains fully closed. This run closes the only newly surfaced unsupported class on the retained 5e9 frontier: class 34 is discharged immediately because its hardest branch d=33 has Bertrand threshold prime 2147483659, which lies below the committed exact no-counterexample ceiling p<5000000000. So no newly surfaced unsupported class remains open on the newest retained frontier that was loaded."
+}

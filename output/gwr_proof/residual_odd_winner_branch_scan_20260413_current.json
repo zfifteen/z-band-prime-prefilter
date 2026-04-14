@@ -1,0 +1,107 @@
+{
+  "exact_scan_ceiling_p": 5000000000,
+  "open_branches": [
+    [
+      36,
+      35
+    ],
+    [
+      40,
+      39
+    ],
+    [
+      50,
+      49
+    ],
+    [
+      52,
+      51
+    ],
+    [
+      56,
+      55
+    ]
+  ],
+  "branch_reports": [
+    {
+      "earlier_divisor_count": 36,
+      "winner_divisor_count": 35,
+      "exact_scan_ceiling_p": 5000000000,
+      "unresolved_window": {
+        "lo": 5000000001,
+        "hi": 8589934592
+      },
+      "winner_limit": 17179869184,
+      "enumerated_winner_value_count": 83,
+      "winner_values_in_unresolved_window": 5,
+      "realized_winner_count": 0,
+      "realized_pair_count": 0,
+      "worst_pair": null,
+      "counterexample": null
+    },
+    {
+      "earlier_divisor_count": 40,
+      "winner_divisor_count": 39,
+      "exact_scan_ceiling_p": 5000000000,
+      "unresolved_window": {
+        "lo": 5000000001,
+        "hi": 137438953472
+      },
+      "winner_limit": 274877906944,
+      "enumerated_winner_value_count": 1167,
+      "winner_values_in_unresolved_window": 655,
+      "realized_winner_count": 0,
+      "realized_pair_count": 0,
+      "worst_pair": null,
+      "counterexample": null
+    },
+    {
+      "earlier_divisor_count": 50,
+      "winner_divisor_count": 49,
+      "exact_scan_ceiling_p": 5000000000,
+      "unresolved_window": {
+        "lo": 5000000001,
+        "hi": 140737488355328
+      },
+      "winner_limit": 281474976710656,
+      "enumerated_winner_value_count": 77,
+      "winner_values_in_unresolved_window": 58,
+      "realized_winner_count": 1,
+      "realized_pair_count": 0,
+      "worst_pair": null,
+      "counterexample": null
+    },
+    {
+      "earlier_divisor_count": 52,
+      "winner_divisor_count": 51,
+      "exact_scan_ceiling_p": 5000000000,
+      "unresolved_window": {
+        "lo": 5000000001,
+        "hi": 562949953421312
+      },
+      "winner_limit": 1125899906842624,
+      "enumerated_winner_value_count": 12959,
+      "winner_values_in_unresolved_window": 9413,
+      "realized_winner_count": 3,
+      "realized_pair_count": 0,
+      "worst_pair": null,
+      "counterexample": null
+    },
+    {
+      "earlier_divisor_count": 56,
+      "winner_divisor_count": 55,
+      "exact_scan_ceiling_p": 5000000000,
+      "unresolved_window": {
+        "lo": 5000000001,
+        "hi": 9007199254740992
+      },
+      "winner_limit": 18014398509481984,
+      "enumerated_winner_value_count": 535,
+      "winner_values_in_unresolved_window": 439,
+      "realized_winner_count": 0,
+      "realized_pair_count": 0,
+      "worst_pair": null,
+      "counterexample": null
+    }
+  ]
+}
