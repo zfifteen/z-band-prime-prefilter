@@ -59,8 +59,8 @@ That identity is the main discovery.
 
 The surprise was that the winner collapsed completely.
 
-On the tested prime-gap surface, and now under the recorded BHP/Robin bridge
-closure, the implemented log-score winner is exactly the same as the integer
+On the repository's current proof surface, the implemented log-score winner is
+exactly the same as the integer
 selected by the simple rule:
 
 1. choose the smallest interior divisor count $d(n)$,
@@ -71,8 +71,8 @@ That is the Gap Winner Rule (GWR).
 The important point is that GWR is not a loose summary. It was first an exact
 identity on the validation ladder, from exact runs at $10^6$ and
 $2 \times 10^7$ through sampled higher-scale windows out to $10^{12}$. The
-new bridge certificate turns the exact finite scan into the base case for a
-conditionally proven universal theorem.
+current repo proof surface closes that winner law rather than leaving it as a
+proof-program target.
 
 ![GWR validation surface: every reported tested regime remains at match rate 1.0](./plots/figure_02_match_rate_surface.png)
 
@@ -81,8 +81,8 @@ line stays at match rate $1.0$ throughout. The anchor table beneath it keeps
 the gap counts readable without overloading the chart.
 
 So the headline is not “the log-score often agrees with a simpler rule.” The
-headline is: the log-score winner and the rule winner are the same point under
-the recorded BHP/Robin bridge constants.
+headline is: the log-score winner and the rule winner are the same point, and
+the repository now presents that winner law as closed.
 
 ## One winner law explains several separate-looking phenomena
 
@@ -201,15 +201,15 @@ where the discrete law wins.
 That is why GWR matters.
 
 It does not merely say that a geometric-looking score often peaks near the left
-edge. Under the recorded BHP/Robin bridge constants, it says that the
-implemented log-score winner, equivalently the raw-$Z$ winner, is governed by a
-simpler arithmetic law than the formula first suggests.
+edge. It says that the implemented log-score winner, equivalently the raw-$Z$
+winner, is governed by a simpler arithmetic law than the formula first
+suggests.
 
 The strongest supported statement at this stage is therefore:
 
-The Gap Winner Rule is a conditionally proven universal winner theorem under
-the recorded BHP/Robin bridge constants, and it compresses several previously
-separate-looking observations into one selection rule.
+The Gap Winner Rule is a proved universal winner theorem in this repository,
+and it compresses several previously separate-looking observations into one
+selection rule.
 
 See [gap_winner_rule.md](../findings/gap_winner_rule.md) for the formal
 statement and legacy-name notes.

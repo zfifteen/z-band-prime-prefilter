@@ -569,8 +569,8 @@ surface.
 **Plain language:** Measured by computation rather than proved from a theorem.
 
 **In this repo:** Older `GWR` validation surfaces were empirical in this sense.
-The current headline `GWR` result is a conditionally proven theorem under the
-recorded BHP/Robin assumptions, not only a measured surface.
+The current headline `GWR` result is a proved theorem on the repository's
+current proof surface, not only a measured surface.
 
 ### Theorem Candidate
 
@@ -609,6 +609,5 @@ When a note feels unreadable, try this translation rule:
 
 If you want only one sentence to keep in your head, use this one:
 
-`GWR` says, under the recorded BHP/Robin bridge constants, that prime gaps do
-not allow arbitrary composite interiors: the raw-$Z$ winner is the leftmost
-carrier of the minimum divisor class in the gap.
+`GWR` says that prime gaps do not allow arbitrary composite interiors: the
+raw-$Z$ winner is the leftmost carrier of the minimum divisor class in the gap.

@@ -48,8 +48,9 @@ into a complete winner law.
 
 That was the actual open question. Not why the score leans left in a loose
 sense, but why prime gaps enforce exactly the local structure needed for the
-collapse to be complete. The current answer is the conditionally proven GWR
-theorem: ordered dominance handles the right flank, and the no-early-spoiler
-certificate handles the left flank under the recorded constants.
+collapse to be complete. The current answer is the proved GWR theorem: ordered
+dominance handles the right flank, and the local admissibility plus
+residual-class closure artifacts handle the left flank on the repo's proof
+surface.
 
 ![Schematic of what prime gaps still have to explain](./plots/open_question_schematic.png)

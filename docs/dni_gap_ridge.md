@@ -89,9 +89,8 @@ The strongest supported reading of this table is that the raw composite field do
 
 ## Lexicographic Peak Rule
 
-The current repository now promotes the lexicographic peak rule to the
-conditionally proven Gap Winner Rule theorem under the recorded BHP/Robin
-bridge constants.
+The current repository now promotes the lexicographic peak rule to the proved
+Gap Winner Rule theorem on the repo's current proof surface.
 
 Across the tested regimes, the exact raw-$Z$ peak inside each prime gap matches
 the lexicographic winner:
@@ -102,12 +101,13 @@ the lexicographic winner:
 
 This was first validated directly on the committed execution surface by a
 counterexample search over exact $10^6$, exact $10^7$, and sampled larger-scale
-regimes through $10^{18}$, with zero counterexamples on that surface. The later
-proof closure now combines that finite base with the elementary later-side
-dominance theorem and the BHP/Robin analytic bridge.
+regimes through $10^{18}$, with zero counterexamples on that surface. The
+current closed proof surface combines that finite base with the elementary
+later-side dominance theorem, the local admissibility route, and the residual-
+class closure artifacts.
 
 So the current best explanation of the measured ridge is no longer only
-empirical: under the recorded bridge assumptions, the observed near-edge
+empirical: under the closed repo proof surface, the observed near-edge
 low-divisor ridge is the gap-local expression of GWR.
 
 ## Gap-Size Structure

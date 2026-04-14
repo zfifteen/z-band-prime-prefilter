@@ -36,12 +36,11 @@ before the gap closes.
 The live earlier-side proof route is now the local admissibility program in
 [gwr/findings/prime_gap_admissibility_theorem.md](gwr/findings/prime_gap_admissibility_theorem.md).
 That route closes the square branch directly, fixes the square-free branch in a
-deterministic chamber model with $W = 30030$ and $K = 128$, and records the
-remaining obstruction as a finite low-class residual table rather than an
-asymptotic BHP tail. The exact finite audit through
-$p < 1{,}000{,}000{,}001$ still records `42,101,885` gaps,
-`149,214,917` earlier candidates, `0` exact spoilers, and maximum realized
-bridge load `3.749140087272451e-08`. See
+deterministic chamber model with $W = 30030$ and $K = 128$, and now closes the
+formerly finite low-class remainder through the committed residual-class
+closure artifacts. The exact finite audit through
+$p < 5{,}000{,}000{,}000$ records zero exact earlier spoilers on the committed
+aggregate surface. See
 [GWR_PROOF.md](GWR_PROOF.md) and
 [docs/current_headline_results.md](docs/current_headline_results.md).
 
@@ -122,9 +121,10 @@ literature:
 - **Divisor Normalization Identity (DNI):** `Z(n) = n^(1 - d(n)/2)` is an
   exact arithmetic identity collapsing all primes to `Z = 1.0`.
 - **Gap Winner Rule (GWR):** inside any prime gap, the log-score argmax is
-  exactly the leftmost carrier of the minimum interior divisor class. The live
-  proof route is now the local admissibility program recorded in
-  [gwr/findings/prime_gap_admissibility_theorem.md](gwr/findings/prime_gap_admissibility_theorem.md).
+  exactly the leftmost carrier of the minimum interior divisor class. On the
+  repository's current proof surface, this is a proved universal prime-gap
+  winner theorem summarized in [GWR_PROOF.md](GWR_PROOF.md) and recorded in
+  [gwr/findings/gwr_hierarchical_local_dominator_theorem.md](gwr/findings/gwr_hierarchical_local_dominator_theorem.md).
 - **No-Later-Simpler-Composite (NLSC) condition:** once the GWR winner
   appears, no later interior composite with strictly smaller divisor count
   precedes the next prime. Zero violations observed through `10^18`.
@@ -197,20 +197,15 @@ a prime gap collapses to a simpler arithmetic choice:
 That is the Gap Winner Rule.
 
 The formal theorem file expresses this as a hierarchical local-dominator law.
-The current proof chain combines elementary later-side lexicographic raw-$Z$
-dominance, the exact finite earlier-side no-early-spoiler audit through
-$p < 5 \times 10^9$, the closed square branch, and the local chamber
-reduction of the square-free branch. The remaining live obstruction is a
-finite low-class residual table rather than an asymptotic BHP constant.
-
-The newer no-early-spoiler artifacts close the left flank against the actual
-winner itself on the exact base and now feed the local admissibility frontier.
-On the full exact through-$2 \times 10^7$ surface, the repo records zero exact
-earlier spoilers against the true `GWR` carrier, identifies the tightest
-realized winner/earlier divisor-class frontier, and packages the remaining
-left-side burden as a finite local chamber problem.
+The proof is closed on the repository's current proof surface: ordered
+dominance closes the later side, the local admissibility theorem closes the
+earlier side, the residual-class closure artifacts discharge the former
+low-class remainder, and the exact no-early-spoiler audits through
+$p < 5 \times 10^9$ plus the square-adjacent stress surface at $10^{12}$
+remain clean.
 
 See [gwr/story/README.md](gwr/story/README.md),
+[GWR_PROOF.md](GWR_PROOF.md),
 [gwr/findings/gwr_hierarchical_local_dominator_theorem.md](gwr/findings/gwr_hierarchical_local_dominator_theorem.md),
 [gwr/findings/gap_winner_rule.md](gwr/findings/gap_winner_rule.md), and
 [gwr/findings/prime_gap_admissibility_theorem.md](gwr/findings/prime_gap_admissibility_theorem.md).
@@ -286,7 +281,7 @@ $$
 q \le T_{<}(w).
 $$
 
-This is an exact corollary of the conditionally proven GWR theorem. The separate
+This is an exact corollary of the proved GWR theorem. The separate
 question is whether it can stand on its own as a direct prime-gap theorem without
 using GWR as the parent result. The current documented surface includes a
 deterministic even-band ladder at every decade from $10^8$ through $10^{18}$

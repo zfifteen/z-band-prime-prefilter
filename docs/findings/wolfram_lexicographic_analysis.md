@@ -302,7 +302,7 @@ For analytic number theory, the report points to an unexpectedly rigid interacti
 [
 \Bigl(1-\frac{d(n)}2\Bigr)\log n.
 ]
-The current GWR proof status says that this coupling is so asymmetric that one obtains a deterministic local law under the recorded BHP/Robin bridge constants, with the tested surface serving as the finite base and audit record.
+The current GWR proof status says that this coupling is so asymmetric that one obtains a deterministic local law, with the tested surface serving as the finite base and audit record.
 
 For the fine-scale geometry of the integers, the broader lesson is that prime-free intervals have canonical internal landmarks under the conditional GWR theorem. Here the landmark is the leftmost carrier of the minimum divisor count.
 
@@ -314,7 +314,7 @@ The most important mathematical consequence is conceptual. The uploaded artifact
 ]
 through the tested surface.
 
-That finite identity is now part of the proof chain rather than only evidence for a conjecture. In the current repo framing, GWR is a conditionally proven universal theorem under the recorded BHP/Robin assumptions.
+That finite identity is now part of the proof chain rather than only evidence for a conjecture. In the current repo framing, GWR is a proved universal theorem.
 
 [1]: https://arxiv.org/pdf/math/0606408 "arXiv:math/0606408v1  [math.NT]  16 Jun 2006"
 [2]: https://arxiv.org/abs/math/0607460 "[math/0607460] The distribution of integers with at least two divisors in a short interval"

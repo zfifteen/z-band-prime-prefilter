@@ -35,40 +35,39 @@ Going forward:
 - retain the legacy name where existing titles, figure labels, or filenames
   already depend on it.
 
-## Current Proof Surface
+## Closed Proof Surface
 
-The historical validation surface includes:
+The live proof-facing surface is now closed.
 
-- the committed legacy validation summary in
-  [`benchmarks/output/python/gap_ridge/lexicographic_peak_validation/lexicographic_peak_validation.json`](../../benchmarks/output/python/gap_ridge/lexicographic_peak_validation/lexicographic_peak_validation.json)
-- the extended revalidation summary in
-  [`output/lexicographic_rule_revalidation_summary.json`](../../output/lexicographic_rule_revalidation_summary.json)
+The canonical proof documents are:
 
-On those current surfaces, the repo reports zero counterexamples.
+- [gwr_hierarchical_local_dominator_theorem.md](./gwr_hierarchical_local_dominator_theorem.md)
+- [lexicographic_raw_z_dominance_theorem.md](./lexicographic_raw_z_dominance_theorem.md)
+- [prime_gap_admissibility_theorem.md](./prime_gap_admissibility_theorem.md)
+- [../../GWR_PROOF.md](../../GWR_PROOF.md)
 
-The current proof program is local rather than asymptotic.
+The closure artifacts that discharged the former low-class remainder are:
 
-- the later side is closed by
-  [`lexicographic_raw_z_dominance_theorem.md`](./lexicographic_raw_z_dominance_theorem.md);
-- the square branch is closed in
-  [`prime_gap_admissibility_theorem.md`](./prime_gap_admissibility_theorem.md);
-- the square-free branch is reduced there to a fixed early window
-  $K = 128$ plus a finite low-class residual table;
-- the deterministic admissibility artifacts are
-  [`../../output/gwr_proof/prime_gap_admissibility_frontier_2e7.json`](../../output/gwr_proof/prime_gap_admissibility_frontier_2e7.json)
-  and
-  [`../../output/gwr_proof/prime_gap_admissibility_frontier_1e9_checkpoints.json`](../../output/gwr_proof/prime_gap_admissibility_frontier_1e9_checkpoints.json).
+- [../../output/gwr_proof/residual_class_closure_20260413_0008.json](../../output/gwr_proof/residual_class_closure_20260413_0008.json)
+- [../../output/gwr_proof/residual_class_closure_20260413_1104.json](../../output/gwr_proof/residual_class_closure_20260413_1104.json)
 
-The older BHP bridge notes remain part of the repo history, but they are no
-longer the live proof-critical route.
+The exact audit surface behind that closure includes:
+
+- [../../output/gwr_proof/parallel_no_early_spoiler_5e9.json](../../output/gwr_proof/parallel_no_early_spoiler_5e9.json)
+- [../../output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json](../../output/gwr_proof/earlier_spoiler_local_dominator_scan_square_adjacent_1e12.json)
+
+The historical validation summaries remain useful as audit record:
+
+- [../../benchmarks/output/python/gap_ridge/lexicographic_peak_validation/lexicographic_peak_validation.json](../../benchmarks/output/python/gap_ridge/lexicographic_peak_validation/lexicographic_peak_validation.json)
+- [../../output/lexicographic_rule_revalidation_summary.json](../../output/lexicographic_rule_revalidation_summary.json)
 
 ## Immediate Consequences
 
-`GWR` compresses several observed features into one selection law:
+`GWR` compresses several observed features into one exact winner law:
 
 - $d(n)=4$ winner dominance,
 - left-half winner dominance,
 - frequent edge-distance $2$ winners.
 
 Those observations are not separate rules in the current interpretation. They
-are consequences of the same winner law when it holds.
+are consequences of the proved winner law.

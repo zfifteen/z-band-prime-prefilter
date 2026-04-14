@@ -170,8 +170,8 @@ End with the proof closure, not only the validation surface.
 
 ### Main claim
 
-The no-early-spoiler bridge certificate turns the exact finite scan into the
-base case for the conditionally proven universal GWR theorem.
+The exact finite scan becomes the base case for the proved universal GWR
+theorem.
 
 ### Points to cover
 

@@ -6,9 +6,9 @@ Rule`.
 ## Proof Pursuit
 
 - [`proof/`](./proof/):
-  scripts and artifacts for the conditionally proven universal GWR theorem,
-  including the committed explicit-constant certificate against the
-  $2 \cdot 10^7$ finite base.
+  scripts and artifacts behind the proved GWR theorem, including the
+  admissibility frontier, residual-class closure runs, and the older bridge
+  certificate retained as historical comparison.
 
 ## Current Validation Entry Points
 

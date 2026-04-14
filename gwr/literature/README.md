@@ -5,26 +5,24 @@ positioning of the `Gap Winner Rule`.
 
 ## Current Status
 
-The repo now carries a conditionally proven universal `GWR` theorem under BHP's
-$\theta = 0.525$ and explicit Robin-style divisor-function majoration constants.
+The repo now carries a proved universal `GWR` theorem on its current proof
+surface.
 
-It does not yet claim that no prior source states the same result. That remains
-a literature and prior-art question.
+It still does not claim that no prior source states the same result. That
+remains a literature and prior-art question.
 
-The narrow safe statement at present is:
+The safe current statement is:
 
-`GWR is now a conditional universal prime-gap winner theorem under the recorded
-BHP/Robin bridge constants, and no matching prior theorem has yet been
-identified in the literature search done so far.`
+`GWR is a proved universal prime-gap winner theorem in this repository, and no matching prior theorem has yet been identified in the literature search done so far.`
 
 ## Intended Contents
 
 - novelty search memos,
 - candidate prior-art notes,
 - citations that are safe to use in reports,
-- explicit boundaries between observed results and broader theoretical claims.
+- explicit boundaries between proved repo claims and broader novelty claims.
 
 ## Existing Inputs
 
-- [`docs/findings/wolfram_lexicographic_analysis.md`](../../docs/findings/wolfram_lexicographic_analysis.md)
-- [`docs/findings/lexicographic_winner_take_all_peak_rule/`](../../docs/findings/lexicographic_winner_take_all_peak_rule/)
+- [../../docs/findings/wolfram_lexicographic_analysis.md](../../docs/findings/wolfram_lexicographic_analysis.md)
+- [../../docs/findings/lexicographic_winner_take_all_peak_rule/](../../docs/findings/lexicographic_winner_take_all_peak_rule/)
