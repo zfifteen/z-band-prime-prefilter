@@ -35,7 +35,7 @@ The formula derived here does not fit either category. Its correctness is not ci
 
 This paper documents:
 
-1. The mathematical foundations: PNT, DNI, GWR, and the No-Later-Simpler-Composite theorem.
+1. The mathematical foundations: PNT, DNI, GWR, and the No-Later-Simpler-Composite closure corollary.
 2. The formula construction, step by step.
 3. The zero-residual property and its proof sketch.
 4. The closure ceiling and its empirical support.
@@ -81,7 +81,7 @@ giving L(a) > L(b). QED.
 
 where d_min(p,q) = min{ d(n) : p < n < q, n composite }.
 
-**Empirical status.** Zero counterexamples on the full tested surface: exact scan to 2*10^7, deterministic even-band windows at every decade from 10^8 through 10^18.
+**Repo status.** `GWR` is the proved universal winner theorem on the repository's current proof surface. The measured validation ladder reports zero counterexamples on the full tested surface: exact scan to `2 * 10^7`, deterministic even-band windows at every decade from `10^8` through `10^18`.
 
 ### 2.4 The Dominant d=4 Regime
 
@@ -96,19 +96,19 @@ The dominant regime reduces GWR to a local rule: **no interior prime square, the
 
 The d=4 composites are exactly the semiprimes (n = p*q, distinct primes) and prime cubes (n = p^3). Prime-cube winners are rare (approximately 1.56*10^-5 of d=4 winners) but do occur; the first example is 6859 = 19^3 in gap (6857, 6863).
 
-### 2.5 The No-Later-Simpler-Composite Theorem Candidate
+### 2.5 The No-Later-Simpler-Composite Closure Corollary
 
 **Definition.** For a composite w, define the **threat horizon**
 
     T_<(w) = min{ n > w : d(n) < d(w) }.
 
-**Theorem Candidate.** For every prime gap (p, q) with GWR winner w:
+**Corollary.** For every prime gap (p, q) with GWR winner w:
 
     q <= T_<(w).
 
 That is, the right prime closes the gap before any later strictly simpler composite can appear in the interior.
 
-**Status.** Exact corollary of GWR on any gap where GWR holds. Independently: zero violations on the full tested surface through 10^18.
+**Status.** Exact corollary of proved `GWR`. The measured closure surface reports zero violations on the full tested surface through `10^18`.
 
 **d=4 specialization.** When d(w) = 4, the only divisor class simpler than d=4 among composites is d=3, which occurs exactly at prime squares. So:
 
@@ -387,11 +387,11 @@ print(f"d=4 gaps tested: {count}, violations: {len(v)}")  # Expected: 0
 1. Gap Winner Rule. zfifteen/prime-gap-structure, gwr/findings/gap_winner_rule.md.
    https://github.com/zfifteen/prime-gap-structure/blob/main/gwr/findings/gap_winner_rule.md
 
-2. No-Later-Simpler-Composite Theorem. zfifteen/prime-gap-structure, gwr/findings/no_later_simpler_composite_theorem.md.
-   https://github.com/zfifteen/prime-gap-structure/blob/main/gwr/findings/no_later_simpler_composite_theorem.md
-
-3. Closure Constraint Findings. zfifteen/prime-gap-structure, gwr/findings/closure_constraint_findings.md.
+2. Closure Constraint Findings. zfifteen/prime-gap-structure, gwr/findings/closure_constraint_findings.md.
    https://github.com/zfifteen/prime-gap-structure/blob/main/gwr/findings/closure_constraint_findings.md
+
+3. GWR Claim Hierarchy. zfifteen/prime-gap-structure, gwr/findings/claim_hierarchy.md.
+   https://github.com/zfifteen/prime-gap-structure/blob/main/gwr/findings/claim_hierarchy.md
 
 4. Dominant d=4 Arrival Reduction. zfifteen/prime-gap-structure, gwr/findings/dominant_d4_arrival_reduction_findings.md.
    https://github.com/zfifteen/prime-gap-structure/blob/main/gwr/findings/dominant_d4_arrival_reduction_findings.md

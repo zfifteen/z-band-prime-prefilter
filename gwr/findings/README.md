@@ -6,6 +6,20 @@ notes, and exact consequence notes.
 Use `GWR` in new documents. Retain the legacy name only when a note needs to
 refer directly to an older artifact whose title or filename already uses it.
 
+## Proof-Status Precedence
+
+The live proof-status anchors for this surface are:
+
+- [../../README.md](../../README.md)
+- [../../GWR_PROOF.md](../../GWR_PROOF.md)
+- [../../docs/current_headline_results.md](../../docs/current_headline_results.md)
+- [gap_winner_rule.md](./gap_winner_rule.md)
+- [claim_hierarchy.md](./claim_hierarchy.md)
+
+Explanatory notes in this directory may expand consequences, measurements, and
+interpretations, but they must not restate weaker or older proof-status
+language than those anchors.
+
 ## Primary Surface
 
 - [gap_winner_rule.md](./gap_winner_rule.md): Canonical statement of the rule
@@ -27,13 +41,10 @@ refer directly to an older artifact whose title or filename already uses it.
 - [prime_boundary_placement_finding.md](./prime_boundary_placement_finding.md):
   Boundary-placement reading of the winner law.
 - [closure_constraint_findings.md](./closure_constraint_findings.md):
-  Closure consequences behind the exact recursive walk.
-- [no_later_simpler_composite_theorem.md](./no_later_simpler_composite_theorem.md):
-  Direct closure-law framing.
+  Measured closure surface and recursive-walk consequence of the proved winner
+  law.
 - [dominant_d4_arrival_reduction_findings.md](./dominant_d4_arrival_reduction_findings.md):
   Dominant `d=4` regime and its exact validation surface.
-- [square_exclusion_first_d4_theorem.md](./square_exclusion_first_d4_theorem.md):
-  Direct prime-gap framing of the dominant square-exclusion regime.
 - [why_the_dominant_d4_reduction_matters.md](./why_the_dominant_d4_reduction_matters.md):
   Implications of the dominant `d=4` regime.
 - [gap_anatomy_decomposition.md](./gap_anatomy_decomposition.md):
@@ -41,8 +52,8 @@ refer directly to an older artifact whose title or filename already uses it.
 
 ## Historical Archive
 
-Bridge-era and proof-progress notes that no longer belong on the visible proof
-surface now live in:
+Bridge-era, proof-progress, and superseded standalone-framing notes that no
+longer belong on the visible proof surface now live in:
 
 - [../archive/pre-proof/README.md](../archive/pre-proof/README.md)
 

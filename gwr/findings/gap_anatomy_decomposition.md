@@ -32,10 +32,8 @@ The repo already documents:
   [`closure_constraint_findings.md`](./closure_constraint_findings.md),
 - the dominant `d=4` reduction in
   [`dominant_d4_arrival_reduction_findings.md`](./dominant_d4_arrival_reduction_findings.md),
-- and the theorem-candidate forms in
-  [`no_later_simpler_composite_theorem.md`](./no_later_simpler_composite_theorem.md)
-  and
-  [`square_exclusion_first_d4_theorem.md`](./square_exclusion_first_d4_theorem.md).
+- and the current claim structure in
+  [`claim_hierarchy.md`](./claim_hierarchy.md).
 
 ### New session probe surface
 
@@ -285,7 +283,7 @@ The natural local objects are:
 - the first-arrival offset of that class,
 - and the later strictly simpler threat horizon.
 
-That is a sharper basis for theorem candidates than the raw score alone.
+That is a sharper basis for local consequence notes than the raw score alone.
 
 ### 2. The dominant `d=4` regime may mostly reduce to three local objects
 
@@ -341,6 +339,6 @@ The leading picture is:
   layer is absent,
 - and the dominant `NLCT` margin is controlled mainly by square phase.
 
-That does not yet prove any new prime-distribution theorem.
+That is not a separate prime-distribution theorem on its own.
 It does identify a cleaner set of local observables and a narrower mechanism
 than the repo had before.

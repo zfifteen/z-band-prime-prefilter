@@ -280,7 +280,7 @@ The
 [note on the local bound for the next prime](../../gwr/findings/prime_boundary_placement_finding.md)
 states the sharpest version.
 
-Because GWR is conditionally proved under the recorded BHP/Robin assumptions,
+Because GWR is proved on the repository's current proof surface,
 the winning interior number also defines a later point that the next prime must
 beat.
 
@@ -299,7 +299,7 @@ So the same picture has two sides:
 
 This essay does not claim:
 
-- that GWR is unconditionally proved for all prime gaps,
+- that this essay replaces the repository's main proof summary,
 - that every unresolved divisor-count family is impossible in actual prime
   gaps,
 - that finite checked ranges settle the whole problem by themselves,

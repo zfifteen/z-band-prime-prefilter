@@ -75,7 +75,7 @@ I now have everything needed for a thorough Z-Framework analysis. Let me compose
 
 The Z-Framework maps as:
 
-- **a** = current state of the work (conditional universal theorem with zero failures across verified surface)
+- **a** = current state of the work (proved universal theorem with zero failures across the verified proof surface)
 - **b** = rate of change (velocity of the proof chain closing: finite base closed, analytic bridge closed, NLSC observed at 10^18, prefilter benchmarks validated)
 - **c** = invariant domain limit (the closed proof surface carried by the repo's theorem, admissibility, and residual-class closure artifacts)
 
@@ -199,7 +199,19 @@ The theorem's operational consequence is a sieve-mode prefilter for prime candid
 
 ## State of the Proof
 
-The proof is conditional on two named, accepted results: BHP theta = 0.525 and Robin 1984 divisor majoration. The two-sided closure (right flank unconditional, left flank closed under BHP/Robin above N0 = 3,544) overlaps cleanly with the finite base at $p < 20{,}000{,}001$. The No-Later-Simpler-Composite observation holds at exact hit rate 1.0 through $10^{18}$ on deterministic ladders. The recursive next-prime oracle runs at exact rate 1.0 across 743,075/743,075 rows from the combined next-gap surface and 664,578/664,578 consecutive recoveries from prime 11 through prime 10,000,121. The sampled decade ladder from $10^2$ through $10^{18}$ held exact hit rate 1.0 across all 860 measured steps with no skipped gaps. The mathematics is self-contained, the proof chain is reproducible, and the falsification instruments are committed alongside the theorem claims.
+On the current repository surface, the proof is presented as closed. The
+later side is exact, the earlier side is closed by local admissibility plus
+the residual-class closure artifacts, and the exact audit surface extends
+through $p < 5 \times 10^9$ with the square-adjacent stress surface retained
+at $10^{12}$. The No-Later-Simpler-Composite observation holds at exact hit
+rate `1.0` through $10^{18}$ on deterministic ladders. The recursive
+next-prime oracle runs at exact rate `1.0` across `743,075 / 743,075` rows
+from the combined next-gap surface and `664,578 / 664,578` consecutive
+recoveries from prime `11` through prime `10,000,121`. The sampled decade
+ladder from $10^2$ through $10^{18}$ held exact hit rate `1.0` across all
+`860` measured steps with no skipped gaps. The mathematics is self-contained,
+the proof chain is reproducible, and the falsification instruments are
+committed alongside the theorem claims.
 
 ***
 
@@ -208,9 +220,9 @@ The proof is conditional on two named, accepted results: BHP theta = 0.525 and R
 All findings drawn directly from `github.com/zfifteen/prime-gap-structure`:
 
 - `gwr/findings/gap_winner_rule.md`
-- `gwr/findings/gwr_universal_bridge_closure.md`
+- `GWR_PROOF.md`
 - `gwr/findings/gap_anatomy_decomposition.md`
-- `gwr/findings/square_exclusion_first_d4_theorem.md`
+- `gwr/findings/dominant_d4_arrival_reduction_findings.md`
 - `gwr/findings/prime_gap_admissibility_censorship_finding.md`
 - `gwr/findings/large_prime_reducer_findings.md`
 - `docs/dni_gap_ridge.md`

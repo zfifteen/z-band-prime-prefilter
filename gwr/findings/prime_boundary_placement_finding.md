@@ -27,7 +27,8 @@ the composite interior itself.
 
 The strongest supported claim is:
 
-`GWR`, if true as a prime-gap law, is not only a statement about which
+`GWR`, as a proved prime-gap winner law on the current proof surface, is not
+only a statement about which
 composite wins inside a gap. It is also a local boundary-placement constraint
 on where the consecutive primes bounding that gap are allowed to occur.
 
@@ -97,15 +98,15 @@ divisor profile, not only by abstract gap length.
 ## The Dominant `d=4` Square-Phase Clock
 
 The note
-[`square_exclusion_first_d4_theorem.md`](./square_exclusion_first_d4_theorem.md)
+[`dominant_d4_arrival_reduction_findings.md`](./dominant_d4_arrival_reduction_findings.md)
 records the dominant reduction:
 
 - if the winner has `d(w)=4`, then the gap contains no interior prime square,
 - and the winner is the first interior carrier with `d(n)=4`.
 
 The note
-[`no_later_simpler_composite_theorem.md`](./no_later_simpler_composite_theorem.md)
-then records the closure consequence:
+[`closure_constraint_findings.md`](./closure_constraint_findings.md)
+then records the measured closure consequence:
 
 $$q \le T_{<}(w).$$
 
@@ -152,7 +153,7 @@ Interpretation:
 - very small `U_square` means the prime uses only a tiny fraction of the
   available square-phase budget.
 
-Under the dominant `d=4` specialization of `No-Later-Simpler-Composite`,
+Under the dominant `d=4` specialization of that closure consequence,
 
 $$U_{\square}(w, q) \le 1.$$
 
@@ -194,7 +195,7 @@ So the current tested dominant surface shows a striking split:
 - and the resulting mean boundary utilization drops from about `2e-3` at the
   exact $10^6$ surface to about `6e-9` at the even-band $10^{18}$ surface.
 
-That does **not** prove a pointwise asymptotic law. It does show that, on the
+That does **not** state a separate pointwise asymptotic law. It does show that, on the
 current documented surface, the following prime is arriving extremely early
 relative to the available square-threat horizon.
 

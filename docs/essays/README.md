@@ -11,6 +11,10 @@ Current essays:
 - [01_genesis_of_dni.md](./01_genesis_of_dni.md)
 - [02_prime_gap_admissibility_censorship.md](./02_prime_gap_admissibility_censorship.md)
 
+Archived superseded proof-status paper:
+
+- [../archive/superseded-status/README.md](../archive/superseded-status/README.md)
+
 Archived pre-proof GWR drafts:
 
 - [../archive/pre-proof-gwr/README.md](../archive/pre-proof-gwr/README.md)

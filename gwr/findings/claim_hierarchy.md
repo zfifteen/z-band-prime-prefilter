@@ -62,8 +62,6 @@ The visible proof chain is:
 These follow from the proved winner law or are presented as direct consequence
 notes in the repo:
 
-- [no_later_simpler_composite_theorem.md](./no_later_simpler_composite_theorem.md)
-- [square_exclusion_first_d4_theorem.md](./square_exclusion_first_d4_theorem.md)
 - [prime_gap_exclusion_consequences.md](./prime_gap_exclusion_consequences.md)
 - [prime_boundary_placement_finding.md](./prime_boundary_placement_finding.md)
 
@@ -71,6 +69,8 @@ notes in the repo:
 
 These are measured consequences of the proved law on the committed surfaces:
 
+- [closure_constraint_findings.md](./closure_constraint_findings.md)
+- [dominant_d4_arrival_reduction_findings.md](./dominant_d4_arrival_reduction_findings.md)
 - $d(n)=4$ winner dominance,
 - left-half winner dominance,
 - frequent edge-distance-`2` winners,

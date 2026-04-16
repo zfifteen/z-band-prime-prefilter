@@ -282,9 +282,10 @@ deterministic even-band ladder at every decade from $10^8$ through $10^{18}$
 with zero observed violations.
 
 See
-[gwr/findings/no_later_simpler_composite_theorem.md](gwr/findings/no_later_simpler_composite_theorem.md)
+[gwr/findings/closure_constraint_findings.md](gwr/findings/closure_constraint_findings.md),
+[gwr/findings/claim_hierarchy.md](gwr/findings/claim_hierarchy.md),
 and
-[gwr/findings/closure_constraint_findings.md](gwr/findings/closure_constraint_findings.md).
+[docs/current_headline_results.md](docs/current_headline_results.md).
 
 ## Dominant d=4 Reduction
 
@@ -299,7 +300,7 @@ prime-cube exception family survives inside the broader `d=4` class.
 See
 [gwr/findings/dominant_d4_arrival_reduction_findings.md](gwr/findings/dominant_d4_arrival_reduction_findings.md)
 and
-[gwr/findings/square_exclusion_first_d4_theorem.md](gwr/findings/square_exclusion_first_d4_theorem.md).
+[gwr/findings/claim_hierarchy.md](gwr/findings/claim_hierarchy.md).
 
 ## Deterministic Filter Performance
 
@@ -401,7 +402,7 @@ runtime exact DNI evaluation.
 
 See [docs/gap_ridge/raw_composite_z_gap_edge.md](docs/gap_ridge/raw_composite_z_gap_edge.md),
 [gwr/findings/gap_winner_rule.md](gwr/findings/gap_winner_rule.md), and
-[gwr/findings/no_later_simpler_composite_theorem.md](gwr/findings/no_later_simpler_composite_theorem.md).
+[gwr/findings/closure_constraint_findings.md](gwr/findings/closure_constraint_findings.md).
 
 See [docs/prefilter/benchmarks.md](docs/prefilter/benchmarks.md) for the curated benchmark summary and [docs/prefilter/manual_validation.md](docs/prefilter/manual_validation.md) for the exact reproduction commands.
 

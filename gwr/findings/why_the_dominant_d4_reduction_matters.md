@@ -64,8 +64,7 @@ That is a local exclusion-and-arrival law, not a full gap-wide search story.
 The current repo structure is now cleaner:
 
 - the divisor-normalized field defines the score surface,
-- GWR gives the conditional universal winner theorem under the recorded
-  BHP/Robin assumptions,
+- GWR gives the proved universal winner theorem on the current proof surface,
 - the dominant $d=4$ reduction explains why most of that surface collapses so
   cleanly,
 - the No-Later-Simpler-Composite condition gives the closure consequence.
@@ -78,10 +77,10 @@ project now has:
 - a dominant mechanism,
 - and a closure law.
 
-### 3. The follow-on proof program narrows
+### 3. The follow-on explanation narrows
 
 The dominant proof target is no longer “prove the whole winner rule at once.”
-GWR is already conditionally proved under the recorded BHP/Robin assumptions.
+GWR is already closed on the current proof surface.
 The remaining dominant-regime target is an independent local explanation of the
 largest winner class.
 
@@ -112,8 +111,8 @@ So the project can now state, with precision:
 - the right low-complexity winner class is $d=4$,
 - not “semiprimes” as a factorization type.
 
-That is an important calibration point for every future theorem candidate and
-story artifact.
+That is an important calibration point for every future explanatory and
+story-facing artifact.
 
 ## What It Suggests For Number Theory
 
@@ -164,10 +163,10 @@ bounded by consecutive primes.
 
 That is a much more recognizable target.
 
-It does not mean the follow-on proof is easy. It does mean the project is no
-longer asking number theory to explain an unfamiliar scoring rule all at once.
-GWR supplies the conditional winner theorem; the dominant-regime work asks for a
-more concrete local ordering explanation.
+It does not mean the follow-on explanation is easy. It does mean the project is
+no longer asking number theory to explain an unfamiliar scoring rule all at
+once. GWR supplies the proved winner theorem; the dominant-regime work asks for
+a more concrete local ordering explanation.
 
 ### 4. The project is isolating a candidate local law of gap termination
 
@@ -179,7 +178,7 @@ points toward this picture:
 - and the next prime closes the gap before a later strictly simpler threat can
   appear.
 
-That is not yet a global prime-distribution theorem.
+That is not a separate global prime-distribution theorem on its own.
 
 But it is a real candidate for a local theorem about prime-gap interiors and
 gap termination. It says that the right endpoint of the gap may be constrained
@@ -207,11 +206,12 @@ On that current surface:
 So the next step is not “start the $10^{18}$ test.” The $10^{18}$ test is now
 part of the documented record.
 
-The next step is to decide which formal target comes next:
+The next step is to decide which explanatory or analytic target comes next:
 
-- a theorem candidate for the dominant $d=4$ reduction itself,
-- a tighter exclusion theorem for prime-square absence in $d=4$ winner gaps,
-- or a proof path connecting the dominant reduction to the full GWR surface.
+- a tighter exclusion account for prime-square absence in $d=4$ winner gaps,
+- a clearer local arrival account for first-`d=4` dominance,
+- or a stronger bridge from the dominant reduction into the rest of the proved
+  `GWR` surface.
 
 ## Safe Summary
 
@@ -220,6 +220,6 @@ from a mysterious global score identity into a local arithmetic mechanism that
 already holds on the current documented exact-and-band ladder through
 $10^{18}$.
 
-That does not replace the conditional GWR proof. It identifies the dominant
+That does not replace the main `GWR` proof summary. It identifies the dominant
 regime, the right winner class, the main exception family, and a much sharper
-local follow-on proof target than the project had before.
+local follow-on explanation target than the project had before.

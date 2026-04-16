@@ -220,8 +220,8 @@ If such a candidate really beat the winner, `GWR` would fail on that gap.
 **Plain language:** A spoiler that appears before the winner inside the gap.
 
 **In this repo:** This was the hard direction in the proof program. The
-explicit bridge certificate now closes it under the recorded BHP/Robin
-constants.
+explicit bridge certificate and closure artifacts now close it on the current
+proof surface.
 
 The right side is easier because later simpler candidates are ruled out by the
 winner law and the dominance theorem. The difficult side is the earlier
@@ -278,8 +278,8 @@ large-scale theorem.
 
 **In this repo:** “Bridge” often means the no-early-spoiler argument that turns
 the exact finite base into a universal proof. The committed certificate now
-records that the bridge threshold falls below the finite base under the stated
-BHP/Robin constants.
+records that the bridge threshold falls below the finite base on the repo's
+current closed proof surface.
 
 ### Bridge Load
 
@@ -572,13 +572,14 @@ surface.
 The current headline `GWR` result is a proved theorem on the repository's
 current proof surface, not only a measured surface.
 
-### Theorem Candidate
+### Historical Standalone Candidate Note
 
-**Plain language:** A formal claim the repo takes seriously but has not yet
-proved.
+**Plain language:** A historical note that framed one consequence as a
+standalone theorem rather than as a corollary or measured surface.
 
-**In this repo:** Terms like `No-Later-Simpler-Composite Theorem` are currently
-theorem candidates unless explicitly marked as exact corollaries.
+**In this repo:** The visible proof-facing surface now avoids this framing.
+Older standalone notes for `No-Later-Simpler-Composite` and the dominant
+square-exclusion reduction are archived rather than used as live status docs.
 
 ### Finding
 

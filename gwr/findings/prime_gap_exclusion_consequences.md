@@ -204,8 +204,8 @@ all divisor classes $d(n) < \delta$ until the next prime closes the gap.
 Since low-divisor classes such as $d(n) = 3$ and $d(n) = 4$ recur regularly,
 that avoidance condition becomes more restrictive as $r$ grows.
 
-This does not yet prove a global law for winner offsets. But it gives a clean
-candidate mechanism for why
+This is not itself a separate global law for winner offsets. But it gives a
+clean mechanism for why
 
 - left-edge winners are common,
 - edge-distance $2$ is enriched,
@@ -227,9 +227,10 @@ the winner is free of strictly smaller divisor classes.
 The tested surfaces show strong left-edge concentration and strong enrichment in
 low-divisor winner classes, especially $d(n) = 4$.
 
-### Speculative distribution consequence
+### Broader distribution reading
 
-If GWR holds broadly, then prime gaps may be governed by a forbidden-prefix
+Because `GWR` is proved on the repo's current proof surface, one broader
+distribution reading is that prime gaps may be governed by a forbidden-prefix
 principle: later winners require increasingly restrictive exclusion of low-
 divisor composites near the left side of the gap.
 
@@ -237,8 +238,8 @@ divisor composites near the left side of the gap.
 
 The safest way to state the intuition is:
 
-The Gap Winner Rule does not yet give a global prime-counting law, but it does
-impose exact local exclusion constraints on prime-gap interiors. In that sense,
-it says not only which interior composite wins, but also which earlier equally
-simple or simpler composites could not occur before it, and which strictly
-simpler composites could not occur after it before the gap closed.
+The Gap Winner Rule does not give a global prime-counting law by itself, but it
+does impose exact local exclusion constraints on prime-gap interiors. In that
+sense, it says not only which interior composite wins, but also which earlier
+equally simple or simpler composites could not occur before it, and which
+strictly simpler composites could not occur after it before the gap closed.

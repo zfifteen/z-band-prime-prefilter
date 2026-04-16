@@ -1,6 +1,6 @@
 # Dominant $d=4$ Arrival-Reduction Findings
 
-This note records the current empirical status of the dominant-case reduction
+This note records the current measured status of the dominant-case reduction
 behind the Gap Winner Rule.
 
 ## Statement Tested
@@ -137,17 +137,17 @@ full gap-wide score search. It can be described as:
 
 That is a much cleaner internal explanation of why GWR looks so rigid.
 
-### 2. The proof program gets narrower
+### 2. The explanatory program gets narrower
 
-The main proof target for the dominant regime now splits naturally into two
-questions:
+The main follow-on explanation for the dominant regime now splits naturally
+into two questions:
 
 - why do prime gaps with $d=4$ winners avoid interior prime squares?
 - once no interior prime square is present, why does the first interior
   $d=4$ carrier always win?
 
-That is a more focused program than trying to prove the full winner rule all at
-once.
+That is a more focused program than treating the dominant regime as a full
+gap-wide score search.
 
 ### 3. The right class is $d=4$, not semiprimes
 
@@ -188,14 +188,9 @@ prime-cube family is on a full surface.
 ## Scope
 
 This note documents the dominant $d=4$ arrival reduction only. It does not
-claim:
-
-- a proof of full GWR,
-- a proof of the No-Later-Simpler-Composite theorem candidate,
-- or a proof that every non-$d=4$ winner class admits an equally simple local
-  reduction.
-
-What it does support is narrower and still strong:
+replace the main `GWR` proof summary, and it does not claim that every
+non-`d=4` winner class admits an equally simple local reduction. What it does
+support is narrower and still strong:
 
 On the current documented surface, the dominant $d=4$ GWR regime is exactly
 captured by a local rule: no interior prime square, then first interior

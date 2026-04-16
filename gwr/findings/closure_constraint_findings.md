@@ -1,7 +1,7 @@
 # Closure-Constraint Findings
 
-This note records the first empirical results for the closure-constraint
-reading of the Gap Winner Rule.
+This note records the current measured closure surface for the
+closure-constraint reading of the Gap Winner Rule.
 
 ## Statement Tested
 
@@ -154,39 +154,31 @@ These findings support the closure reading of GWR:
 - the gap appears to be locally terminated before a strictly simpler late
   challenger can enter the interior.
 
-This is the empirical form of the intuition that GWR constrains what
-consecutive primes are allowed to leave behind after the winner.
+This is the measured form of the exact `GWR` corollary tracked by the
+recursive-walk surface: once the winner is fixed, the gap closes before any
+later strictly simpler interior composite appears.
 
-## Proof-Status Note For The $d=4$ Case
+## Status Note For The $d=4$ Case
 
-The $d=4$ specialization has a clearer proof path than the general statement.
 When $d(w)=4$, the first later strictly simpler threat is the next prime
-square, so the closure law reduces to comparing:
+square, so this measured closure surface reduces to comparing:
 
 - the distance from the winner to the next prime square, and
 - the distance from the winner to the next prime.
 
-That makes the $d=4$ case a concrete analytic target for combining a
-pointwise lower bound on the next-prime-square threat with a pointwise upper
-bound on prime-gap length.
-
-The current data strengthen that picture, but they do not yet prove it. In
-particular, a large mean threat distance does not by itself prove the theorem,
-because the theorem is pointwise rather than average. What the current surface
-does show is that the $d=4$ margins stay positive and large on every tested
-regime, including the even-band ladder through $10^{18}$.
+That makes the $d=4$ case a concrete analytic observable on the tested surface.
+What this note adds is margin data, not a competing proof-status claim. The
+repo's proof-facing status remains the closed `GWR` surface summarized in
+`GWR_PROOF.md` and `claim_hierarchy.md`. What the present measurements show is
+that the $d=4$ margins stay positive and large on every tested regime,
+including the even-band ladder through $10^{18}$.
 
 ## Scope
 
-This note documents the current closure-constraint runs only. It does not claim:
-
-- a proof of the full closure statement for all winner classes,
-- a full asymptotic prime-distribution theorem,
-- or a proof that the zero-violation surface will persist beyond the documented
-  regimes above.
-
-The $d=4$ threat summary is exact for the dominant $d=4$ winner class because
-the next lower divisor class is $d=3$, which occurs at prime squares. More
-general threat summaries for other winner classes, and any unconditional
-standalone proof of the No-Later-Simpler-Composite theorem candidate, remain
-open follow-on work.
+This note documents the current closure-constraint runs only. It does not
+replace the main proof summary, and it does not claim a separate asymptotic
+prime-distribution theorem beyond the proved winner law. The $d=4$ threat
+summary is exact for the dominant $d=4$ winner class because the next lower
+divisor class is $d=3$, which occurs at prime squares. More general threat
+summaries for other winner classes remain follow-on measurement work rather
+than headline proof-status claims.
