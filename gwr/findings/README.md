@@ -72,6 +72,12 @@ language than those anchors.
 - [gap_type_long_horizon_controller_findings.md](./gap_type_long_horizon_controller_findings.md):
   Deterministic long-horizon controller search showing the current frontier
   between local-window fidelity and stationary-walk concentration.
+- [gap_type_engine_v1_freeze.md](./gap_type_engine_v1_freeze.md):
+  Frozen `v1.0` definition of the hierarchical gap-type engine, including the
+  reference operating profiles and the current frontier boundary.
+- [gap_type_engine_v1_rulebook.md](./gap_type_engine_v1_rulebook.md):
+  Minimal readable rulebook for the frozen `v1.0` engine on the persistent
+  `14`-state reduced surface.
 - [mersenne_prime_gap_type_probe_findings.md](./mersenne_prime_gap_type_probe_findings.md):
   Exact tractable test of whether known Mersenne primes carry distinctive
   adjacent gap types.
