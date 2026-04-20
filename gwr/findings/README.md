@@ -52,6 +52,9 @@ language than those anchors.
 - [gap_type_catalog_through_1e18.md](./gap_type_catalog_through_1e18.md):
   Deterministic catalog of the distinct exact gap types visible on the exact
   `10^6` baseline plus sampled decade windows through `10^18`.
+- [gap_type_sequence_grammar_findings.md](./gap_type_sequence_grammar_findings.md):
+  Measured transition-grammar reading of the gap-type stream, including the
+  reduced `open_family|d_bucket` probe.
 - [mersenne_prime_gap_type_probe_findings.md](./mersenne_prime_gap_type_probe_findings.md):
   Exact tractable test of whether known Mersenne primes carry distinctive
   adjacent gap types.
