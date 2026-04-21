@@ -6,7 +6,7 @@
     15
   ],
   "window_steps": 2048,
-  "parity_probe_source_commit": "863cfb8568d50cca3db486c0d994b98f24d56d8f",
+  "parity_probe_source_commit": "0ba1f7cbff2797717af9c51f056b4670e90cd944",
   "candidate_count": 10,
   "baseline_files": {
     "parity_summary_json": "output/gwr_winner_parity_next_opening_probe_summary.json",
@@ -1678,5 +1678,5 @@
     }
   ],
   "history_seed_present": false,
-  "runtime_seconds": 44.81089533306658
+  "runtime_seconds": 43.95249054103624
 }
