@@ -160,6 +160,6 @@
     "reset_signature_gain": 0.7611220736173557,
     "distinct_reset_phases": 1
   },
-  "history_seed_present": false,
-  "runtime_seconds": 38.2825426250929
+  "history_seed_present": true,
+  "runtime_seconds": 37.68694954190869
 }
