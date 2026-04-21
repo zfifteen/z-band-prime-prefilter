@@ -61,11 +61,11 @@ def prepare_task_branch(
     ensure_clean_worktree()
     run_git("fetch", "origin")
     remote_branch = f"origin/{branch_name}"
+    local_exists = subprocess.run(
+        ["git", "show-ref", "--verify", "--quiet", f"refs/heads/{branch_name}"],
+        cwd=ROOT,
+    ).returncode == 0
     if remote_branch_exists(remote_branch):
-        local_exists = subprocess.run(
-            ["git", "show-ref", "--verify", "--quiet", f"refs/heads/{branch_name}"],
-            cwd=ROOT,
-        ).returncode == 0
         if local_exists:
             run_git("checkout", branch_name)
         else:
@@ -73,6 +73,10 @@ def prepare_task_branch(
         starting_head = run_git("rev-parse", "HEAD")
         run_git("merge", "--ff-only", remote_branch)
         return starting_head, run_git("rev-parse", "HEAD")
+
+    if local_exists:
+        run_git("checkout", branch_name)
+        return run_git("rev-parse", "HEAD"), run_git("rev-parse", "HEAD")
 
     run_git("checkout", "-b", branch_name, first_launch_base_branch)
     return None, run_git("rev-parse", "HEAD")

@@ -311,7 +311,12 @@ def write_candidates_csv(candidate_rows: list[dict[str, object]], csv_path: Path
         "beats_parity_alone",
     ]
     with csv_path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=fieldnames,
+            lineterminator="\n",
+            extrasaction="ignore",
+        )
         writer.writeheader()
         writer.writerows(candidate_rows)
 
