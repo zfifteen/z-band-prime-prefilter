@@ -1,6 +1,6 @@
 {
   "compression_source_commit": "6a1f24c3f4b6585d0d70cafb43967f16db3fdd1d",
-  "hidden_state_source_commit": "da9c68df629401549a63d7a4e643884d0e789ae9",
+  "hidden_state_source_commit": "0ed0651496c3cdfc80ff0a51fcc0275816b067dd",
   "base_model_id": "hidden_state_augmented_rotor",
   "rule_count": 8,
   "rules": [
@@ -160,6 +160,6 @@
     "reset_signature_gain": 0.7611220736173557,
     "distinct_reset_phases": 1
   },
-  "history_seed_present": true,
-  "runtime_seconds": 37.202802749932744
+  "history_seed_present": false,
+  "runtime_seconds": 37.91426600003615
 }
