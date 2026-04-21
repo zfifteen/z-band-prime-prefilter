@@ -705,6 +705,10 @@ def main(argv: list[str] | None = None) -> int:
         branch_name=TASK_BRANCH,
         first_launch_base_branch=FIRST_LAUNCH_BASE_BRANCH,
     )
+    run_git("checkout", TASK_BRANCH)
+    current_branch = run_git("branch", "--show-current")
+    if current_branch != TASK_BRANCH:
+        raise RuntimeError(f"phase reset hunter expected branch `{TASK_BRANCH}`, but is on `{current_branch}`")
     compression_summary, hidden_state_summary, blocked_reason = load_upstream_summaries()
     compression_source_commit = None
     hidden_state_source_commit = None
