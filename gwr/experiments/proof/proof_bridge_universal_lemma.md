@@ -142,7 +142,63 @@ for every earlier candidate $k$.
 This is the large-$p$ tail lemma once a fixed-exponent gap bound with explicit
 constants is available.
 
-## 6. Explicit Unconditional Bounded Bridge Via Dusart (2018)
+## 6. Monotone Envelope And Explicit $A$ Budgets
+
+For the conditional bridge envelope
+
+$$E_{\theta,c,A}(p) = A p^{\theta - 1} (\ln p)^{-1}\exp\left(c \frac{\ln p}{\ln\ln p}\right),$$
+
+let $L = \ln p$. Then
+
+$$\frac{d}{dL}\ln E_{\theta,c,A} = \theta - 1 - \frac{1}{L} + \frac{c(\ln L - 1)}{(\ln L)^2}.$$
+
+The factor
+
+$$f(u) = \frac{u - 1}{u^2}$$
+
+has global maximum $1/4$ on $u > 0$, attained at $u = 2$. So for every
+$p > e^e$,
+
+$$\frac{d}{dL}\ln E_{\theta,c,A} < \theta - 1 + \frac{c}{4}.$$
+
+Hence a sufficient monotone-tail condition is
+
+$$\theta < 1 - \frac{c}{4}.$$
+
+For the conservative Nicolas-Robin constant $c = 1.5379$, this ceiling is
+
+$$\theta < 0.615525.$$
+
+So BHP's fixed exponent $\theta = 0.525$ lies safely inside the monotone
+regime. In that regime the bridge envelope is strictly decreasing for all
+$p > e^e$, so the missing large-$p$ step reduces to a one-point budget on the
+leading constant:
+
+$$A < A_{\max}(P_0; \theta, c) := P_0^{1-\theta}\ln P_0 \exp\left(-c \frac{\ln P_0}{\ln\ln P_0}\right).$$
+
+If an explicit gap bound $g(p) \le A p^\theta$ is available from some handoff
+point $p \ge P_0 > e^e$, then $B(k,w) < 1$ for all larger $p$ whenever
+$A < A_{\max}(P_0; \theta, c)$.
+
+For BHP's $\theta = 0.525$, the certificate script now reports these concrete
+budgets:
+
+| Handoff point $P_0$ | Conservative $c = 1.5379$ | Theoretical $c = \ln 2 \cdot e^\gamma$ |
+|---|---:|---:|
+| exact bridge-load base $P_0 = 20{,}000{,}000$ | $A < 5.185946985729438$ | $A < 31.597212393146396$ |
+| exact no-spoiler audit $P_0 = 5{,}000{,}000{,}000$ | $A < 14.246224287129907$ | $A < 126.17003339952021$ |
+| end of Dusart bridge window $P_0 = 5{,}571{,}362{,}243{,}795$ | $A < 52.627783539395274$ | $A < 733.5315973776145$ |
+
+So the open constant question is narrower than "find some explicit $A$." On
+the repo's current proof surface it is enough to supply any explicit
+$g(p) \le A p^{0.525}$ theorem with:
+
+- $A < 14.246224287129907$ once the exact no-spoiler audit through
+  $p < 5 \cdot 10^9$ is taken as the finite base, or
+- $A < 52.627783539395274$ if the handoff is postponed to the conservative
+  end of Dusart's unconditional bridge window.
+
+## 7. Explicit Unconditional Bounded Bridge Via Dusart (2018)
 
 Dusart (2018, Proposition 6.8) supplies the strongest explicit unconditional
 prime-gap bound currently used in this repo:
@@ -182,7 +238,7 @@ interval and then crosses the bridge threshold at explicit upper limits:
 
 So Dusart yields a large unconditional bridge window, not a universal tail.
 
-## 7. Explicit Certificate
+## 8. Explicit Certificate
 
 The explicit certificate artifact is
 [`../../../output/gwr_proof/proof_bridge_certificate_2e7.json`](../../../output/gwr_proof/proof_bridge_certificate_2e7.json).
@@ -216,7 +272,7 @@ The exact finite bridge-load base through $p < 20{,}000{,}001$ records:
 So the finite computation overlaps the start of the Dusart regime by a wide
 margin and also lies above the provisional $A = 1$ BHP thresholds.
 
-## 8. Current Role Of The Exact Artifacts
+## 9. Current Role Of The Exact Artifacts
 
 The exact artifacts no longer serve only as evidence.
 

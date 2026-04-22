@@ -39,6 +39,19 @@ def test_certificate_uses_actual_artifact_schema():
     assert payload["finite_base"]["earlier_candidate_count"] == 3349874
     assert payload["finite_base"]["bridge_failure_count"] == 0
     assert payload["finite_base"]["max_bridge_load"] < 1.0
+    tail = payload["conditional_tail_analysis"]
+    assert abs(tail["monotone_theta_ceiling_for_p_gt_exp_e"] - 0.615525) < 1e-12
+    assert tail["envelope_decreasing_for_all_p_gt_exp_e"] is True
+    assert len(tail["budget_points"]) == 3
+    verified_base_budget = tail["budget_points"][0]
+    audit_budget = tail["budget_points"][1]
+    dusart_budget = tail["budget_points"][2]
+    assert verified_base_budget["p"] == 20_000_000
+    assert abs(verified_base_budget["max_gap_constant"] - 5.185946985729438) < 1e-12
+    assert audit_budget["p"] == 5_000_000_000
+    assert abs(audit_budget["max_gap_constant"] - 14.246224287129907) < 1e-12
+    assert dusart_budget["p"] == 5571362243795
+    assert abs(dusart_budget["max_gap_constant"] - 52.627783539395274) < 1e-12
     dusart = payload["dusart_bounded_case"]
     assert dusart["coverage_lo_inclusive"] == 396738
     assert dusart["coverage_hi_inclusive"] == 5571362243795

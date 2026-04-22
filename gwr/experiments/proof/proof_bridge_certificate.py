@@ -75,6 +75,33 @@ def bridge_upper_bound(
     )
 
 
+def bridge_log_envelope_derivative(
+    p: float,
+    theta: float,
+    c: float,
+) -> float:
+    """Return d/d(log p) of the conditional bridge-envelope logarithm."""
+    if p <= math.e**math.e:
+        raise ValueError("p must exceed e^e so log log p is positive")
+    log_p = math.log(p)
+    log_log_p = math.log(log_p)
+    return theta - 1.0 - 1.0 / log_p + c * (log_log_p - 1.0) / (log_log_p**2)
+
+
+def monotone_theta_ceiling(c: float) -> float:
+    """Return the sufficient theta ceiling for monotone bridge-envelope decay."""
+    return 1.0 - c / 4.0
+
+
+def gap_constant_budget(
+    p: float,
+    theta: float,
+    c: float,
+) -> float:
+    """Return the largest A with bridge_upper_bound(p, theta, c, A) = 1."""
+    return 1.0 / bridge_upper_bound(p, theta, c, 1.0)
+
+
 def compute_explicit_n0(
     theta: float,
     c: float,
@@ -194,8 +221,34 @@ def build_report(
     gap_constant: float,
     verified_hi: int,
     artifact_path: Path,
+    budget_points: list[int] | None = None,
 ) -> dict[str, object]:
     """Return the certificate payload."""
+    dusart_case = build_dusart_bounded_case(c, verified_hi)
+    requested_budget_points = budget_points
+    if requested_budget_points is None:
+        requested_budget_points = [
+            verified_hi - 1,
+            5_000_000_000,
+            int(dusart_case["coverage_hi_inclusive"]),
+        ]
+
+    budget_rows = []
+    for point in sorted(set(requested_budget_points)):
+        budget_rows.append(
+            {
+                "p": point,
+                "bridge_upper_bound_at_A_equals_1": bridge_upper_bound(
+                    point,
+                    theta,
+                    c,
+                    1.0,
+                ),
+                "max_gap_constant": gap_constant_budget(point, theta, c),
+                "log_envelope_derivative": bridge_log_envelope_derivative(point, theta, c),
+            }
+        )
+
     n0 = compute_explicit_n0(
         theta=theta,
         c=c,
@@ -226,7 +279,12 @@ def build_report(
         ),
         "finite_base": finite_base,
         "finite_base_covers_bridge": finite_base_covers_bridge,
-        "dusart_bounded_case": build_dusart_bounded_case(c, verified_hi),
+        "conditional_tail_analysis": {
+            "monotone_theta_ceiling_for_p_gt_exp_e": monotone_theta_ceiling(c),
+            "envelope_decreasing_for_all_p_gt_exp_e": theta < monotone_theta_ceiling(c),
+            "budget_points": budget_rows,
+        },
+        "dusart_bounded_case": dusart_case,
     }
 
 
@@ -234,10 +292,19 @@ def print_human_summary(report: dict[str, object]) -> None:
     """Print a compact human-readable summary."""
     params = report["parameters"]
     finite_base = report["finite_base"]
+    tail = report["conditional_tail_analysis"]
     dusart = report["dusart_bounded_case"]
     print(
         "Conditional BHP tail parameters: "
         f"theta={params['theta']}, c={params['c']}, A={params['gap_constant']}"
+    )
+    print(
+        "Conditional BHP monotone-theta ceiling for p > e^e: "
+        f"{float(tail['monotone_theta_ceiling_for_p_gt_exp_e']):.6f}"
+    )
+    print(
+        "Conditional BHP envelope decreasing for all p > e^e: "
+        f"{bool(tail['envelope_decreasing_for_all_p_gt_exp_e'])}"
     )
     print(f"Conditional BHP tail N0 from chosen constants: {int(report['explicit_n0']):,}")
     print(
@@ -248,6 +315,13 @@ def print_human_summary(report: dict[str, object]) -> None:
         "Conditional BHP bridge upper bound at verified base: "
         f"{float(report['bridge_upper_bound_at_verified_base']):.6e}"
     )
+    print("Conditional BHP gap-constant budgets:")
+    for row in tail["budget_points"]:
+        print(
+            f"  p >= {int(row['p']):,}: "
+            f"A < {float(row['max_gap_constant']):.6f} "
+            f"(unit-A bridge upper bound {float(row['bridge_upper_bound_at_A_equals_1']):.6e})"
+        )
     print()
     print("Dusart bounded unconditional regime:")
     print(
@@ -297,13 +371,25 @@ def print_human_summary(report: dict[str, object]) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     """Run the certificate helper."""
-    args = build_parser().parse_args(argv)
+    parser = build_parser()
+    parser.add_argument(
+        "--budget-at",
+        action="append",
+        type=int,
+        default=None,
+        help=(
+            "Additional handoff point p where the largest admissible gap "
+            "constant A should be reported."
+        ),
+    )
+    args = parser.parse_args(argv)
     report = build_report(
         theta=args.theta,
         c=args.c,
         gap_constant=args.gap_constant,
         verified_hi=args.verified_hi,
         artifact_path=args.artifact,
+        budget_points=args.budget_at,
     )
     print_human_summary(report)
     print()
