@@ -122,6 +122,18 @@ def _scan_prefix_state(current_right_prime: int) -> tuple[int, int, int | None]:
     return best_d, best_offset, None
 
 
+def _bounded_tail_has_no_square(current_right_prime: int, cutoff: int) -> bool:
+    """Return whether the bounded tail [q+13, q+cutoff] contains no square."""
+    lo = current_right_prime + PREFIX_LEN + 1
+    hi = current_right_prime + cutoff
+    if hi < lo:
+        return True
+
+    s_lo = math.isqrt(lo - 1) + 1
+    s_hi = math.isqrt(hi)
+    return s_hi < s_lo
+
+
 def _ensure_trial_primes(limit: int) -> None:
     """Extend the cached trial-prime list through one inclusive limit."""
     if limit <= _TRIAL_PRIMES[-1]:
@@ -279,7 +291,7 @@ def bounded_next_gap_profile(current_right_prime: int) -> dict[str, int]:
             "next_peak_offset": best_offset,
         }
 
-    if best_d <= 3:
+    if best_d <= 3 or (best_d == 4 and _bounded_tail_has_no_square(rp, cutoff)):
         next_prime_value = int(nextprime(rp + best_offset - 1))
         gap_boundary_offset = next_prime_value - rp
         if gap_boundary_offset > cutoff:
@@ -349,6 +361,9 @@ def predict_next_gap_bounded(current_right_prime: int) -> tuple[int, int]:
         return best_d, best_offset
 
     cutoff = dynamic_cutoff(rp)
+    if best_d == 4 and _bounded_tail_has_no_square(rp, cutoff):
+        return best_d, best_offset
+
     counts = divisor_counts_segment(rp + PREFIX_LEN + 1, rp + cutoff + 1)
     for index, raw_d in enumerate(counts):
         d = int(raw_d)

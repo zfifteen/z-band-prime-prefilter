@@ -100,6 +100,48 @@ def test_bounded_profile_uses_prefix_lock_witness_without_extended_scan(monkeypa
         assert calls == expected_calls
 
 
+def test_bounded_profile_uses_d4_empty_range_witness_without_extended_scan(monkeypatch):
+    """A square-empty bounded tail should recover the d=4 witness without tail scan."""
+    module = load_module()
+    original = module.divisor_counts_segment
+    calls: list[tuple[int, int]] = []
+
+    def tracked_divisor_counts_segment(start: int, stop: int):
+        calls.append((start, stop))
+        return original(start, stop)
+
+    monkeypatch.setattr(module, "divisor_counts_segment", tracked_divisor_counts_segment)
+    profile = module.bounded_next_gap_profile(1000003)
+
+    assert profile["next_dmin"] == 4
+    assert profile["next_peak_offset"] == 4
+    assert profile["gap_boundary_offset"] == 30
+    assert profile["next_prime"] == 1000033
+    assert calls == [(1000004, 1000016)]
+
+
+def test_bounded_profile_d4_empty_range_still_honors_cutoff_failure(monkeypatch):
+    """The d=4 empty-range witness path must still fail when the boundary exceeds cutoff."""
+    module = load_module()
+    original = module.divisor_counts_segment
+    calls: list[tuple[int, int]] = []
+
+    def tracked_divisor_counts_segment(start: int, stop: int):
+        calls.append((start, stop))
+        return original(start, stop)
+
+    monkeypatch.setattr(module, "divisor_counts_segment", tracked_divisor_counts_segment)
+
+    try:
+        module.bounded_next_gap_profile(31397)
+    except RuntimeError as exc:
+        assert "missed the next prime boundary" in str(exc)
+    else:
+        raise AssertionError("bounded_next_gap_profile(31397) should fail by cutoff")
+
+    assert calls == [(31398, 31410)]
+
+
 def test_compare_transition_rules_small_prime():
     """The bounded rule should match the exact oracle on a known small gap."""
     module = load_module()
@@ -141,6 +183,24 @@ def test_unbounded_runtime_path_uses_prefix_then_clipped_tail(monkeypatch):
     assert fast["next_dmin"] == exact["next_dmin"]
     assert fast["next_peak_offset"] == exact["next_peak_offset"]
     assert fast_calls == [(24098210, 24098222)]
+
+
+def test_predict_next_gap_bounded_uses_d4_empty_range_without_extended_scan(monkeypatch):
+    """The bounded lex-min predictor should stop after the prefix on d=4 empty tails."""
+    module = load_module()
+    original = module.divisor_counts_segment
+    calls: list[tuple[int, int]] = []
+
+    def tracked_divisor_counts_segment(start: int, stop: int):
+        calls.append((start, stop))
+        return original(start, stop)
+
+    monkeypatch.setattr(module, "divisor_counts_segment", tracked_divisor_counts_segment)
+    d, off = module.predict_next_gap_bounded(1000003)
+
+    assert d == 4
+    assert off == 4
+    assert calls == [(1000004, 1000016)]
 
 
 def test_dynamic_cutoff_covers_known_counterexample():
