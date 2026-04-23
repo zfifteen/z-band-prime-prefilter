@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scan the non-floor d=4 square-threat closure frontier exactly."""
+"""Scan the live d=4 branch for exact r^2-4 closure obstructions."""
 
 from __future__ import annotations
 
@@ -25,10 +25,10 @@ from z_band_prime_composite_field import divisor_counts_segment
 
 
 DEFAULT_OUTPUT_DIR = ROOT / "output"
-DEFAULT_MAX_N = 1_000_000_000
+DEFAULT_MAX_N = 100_000_000
 DEFAULT_CHUNK_SIZE = 2_000_000
 DEFAULT_BUFFER = 10_000
-DEFAULT_FRONTIER_SIZE = 50
+DEFAULT_FRONTIER_SIZE = 25
 DEFAULT_PRIME_BUFFER = 100_000
 CSV_FIELDS = [
     "p",
@@ -42,15 +42,19 @@ CSV_FIELDS = [
     "q_offset",
     "closure_utilization",
     "log_score_w",
+    "r2_minus_4",
+    "r2_minus_4_factors",
     "r2_minus_2",
     "r2_minus_2_factors",
+    "r2_minus_1",
+    "r2_minus_1_factors",
 ]
 
 
 def build_parser() -> argparse.ArgumentParser:
     """Build the CLI parser."""
     parser = argparse.ArgumentParser(
-        description="Scan the non-floor d=4 square-threat closure frontier exactly.",
+        description="Scan the live d=4 branch for exact r^2-4 closure obstructions.",
     )
     parser.add_argument(
         "--output-dir",
@@ -80,7 +84,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--frontier-size",
         type=int,
         default=DEFAULT_FRONTIER_SIZE,
-        help="Number of smallest non-floor rows to retain.",
+        help="Number of smallest obstruction rows to retain.",
     )
     parser.add_argument(
         "--prime-buffer",
@@ -135,7 +139,7 @@ def factor_string(n: int) -> str:
 
 
 def _row_sort_key(row: dict[str, object]) -> tuple[int, float, int]:
-    """Return the frontier ordering key."""
+    """Return the obstruction frontier ordering key."""
     return (
         int(row["margin"]),
         -float(row["closure_utilization"]),
@@ -148,14 +152,14 @@ def retain_frontier(
     candidate_row: dict[str, object],
     frontier_size: int,
 ) -> None:
-    """Retain only the smallest non-floor rows."""
+    """Retain the smallest obstruction rows only."""
     frontier_rows.append(candidate_row)
     frontier_rows.sort(key=_row_sort_key)
     if len(frontier_rows) > frontier_size:
         del frontier_rows[frontier_size:]
 
 
-def scan_nonfloor_frontier(
+def scan_r2_minus_4_obstruction(
     *,
     max_n: int,
     chunk_size: int,
@@ -163,15 +167,18 @@ def scan_nonfloor_frontier(
     frontier_size: int,
     prime_buffer: int,
 ) -> tuple[dict[str, object], list[dict[str, object]]]:
-    """Run the exact segmented non-floor scan."""
+    """Run the exact segmented r^2-4 obstruction scan."""
     started = time.perf_counter()
     prime_lookup = build_prime_lookup(max_n=max_n, prime_buffer=prime_buffer)
     frontier_rows: list[dict[str, object]] = []
     scanned_gap_count = 0
     d4_gap_count = 0
     earliest_d4_semiprime_gap_count = 0
-    filtered_r2_minus_2_composite_count = 0
-    nonfloor_count = 0
+    floor_gap_count = 0
+    composite_r2_minus_2_count = 0
+    r2_minus_4_prime_count = 0
+    r2_minus_4_composite_count = 0
+    observed_margin_4_count = 0
     terminal_margin_counts: dict[int, int] = {}
 
     chunk_lo = 2
@@ -226,15 +233,21 @@ def scan_nonfloor_frontier(
             r, s_plus_w = next_prime_square_after(winner_n, prime_lookup)
             r2_minus_2 = s_plus_w - 2
             if gmpy2.is_prime(r2_minus_2):
+                floor_gap_count += 1
                 continue
 
-            filtered_r2_minus_2_composite_count += 1
+            composite_r2_minus_2_count += 1
+            r2_minus_4 = s_plus_w - 4
             margin = int(s_plus_w - int(right_prime))
-            if margin <= 2:
-                continue
-
-            nonfloor_count += 1
             terminal_margin_counts[margin] = terminal_margin_counts.get(margin, 0) + 1
+            if margin == 4:
+                observed_margin_4_count += 1
+
+            if gmpy2.is_prime(r2_minus_4):
+                r2_minus_4_prime_count += 1
+            else:
+                r2_minus_4_composite_count += 1
+
             winner_offset = int(winner_n - left_prime)
             q_offset = int(right_prime - left_prime)
             square_threat_distance = int(s_plus_w - winner_n)
@@ -250,18 +263,24 @@ def scan_nonfloor_frontier(
                 "q_offset": q_offset,
                 "closure_utilization": float(q_offset - winner_offset) / float(square_threat_distance),
                 "log_score_w": float(log_score(winner_n, 4)),
+                "r2_minus_4": int(r2_minus_4),
+                "r2_minus_4_factors": "",
                 "r2_minus_2": int(r2_minus_2),
                 "r2_minus_2_factors": "",
+                "r2_minus_1": int(s_plus_w - 1),
+                "r2_minus_1_factors": "",
             }
             retain_frontier(frontier_rows, row, frontier_size)
 
         chunk_lo = chunk_hi_exclusive
 
     if not frontier_rows:
-        raise RuntimeError("non-floor scan produced no rows")
+        raise RuntimeError("r^2-4 obstruction scan produced no rows")
 
     for row in frontier_rows:
+        row["r2_minus_4_factors"] = factor_string(int(row["r2_minus_4"]))
         row["r2_minus_2_factors"] = factor_string(int(row["r2_minus_2"]))
+        row["r2_minus_1_factors"] = factor_string(int(row["r2_minus_1"]))
 
     summary = {
         "parameters": {
@@ -274,8 +293,11 @@ def scan_nonfloor_frontier(
         "scanned_gap_count": scanned_gap_count,
         "d4_gap_count": d4_gap_count,
         "earliest_d4_semiprime_gap_count": earliest_d4_semiprime_gap_count,
-        "filtered_r2_minus_2_composite_count": filtered_r2_minus_2_composite_count,
-        "nonfloor_count": nonfloor_count,
+        "floor_gap_count": floor_gap_count,
+        "composite_r2_minus_2_count": composite_r2_minus_2_count,
+        "r2_minus_4_prime_count": r2_minus_4_prime_count,
+        "r2_minus_4_composite_count": r2_minus_4_composite_count,
+        "observed_margin_4_count": observed_margin_4_count,
         "terminal_margin_counts": {
             str(margin): count for margin, count in sorted(terminal_margin_counts.items())
         },
@@ -296,11 +318,11 @@ def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Run the non-floor scan and write artifacts."""
+    """Run the obstruction scan and write artifacts."""
     args = build_parser().parse_args(argv)
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    summary, frontier_rows = scan_nonfloor_frontier(
+    summary, frontier_rows = scan_r2_minus_4_obstruction(
         max_n=args.max_n,
         chunk_size=args.chunk_size,
         buffer=args.buffer,
@@ -308,14 +330,15 @@ def main(argv: list[str] | None = None) -> int:
         prime_buffer=args.prime_buffer,
     )
 
-    summary_path = args.output_dir / "d4_square_threat_nonfloor_frontier_summary.json"
-    frontier_path = args.output_dir / "d4_square_threat_nonfloor_frontier.csv"
+    summary_path = args.output_dir / "d4_square_threat_r2_minus_4_obstruction_summary.json"
+    frontier_path = args.output_dir / "d4_square_threat_r2_minus_4_obstruction.csv"
     summary_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     write_csv(frontier_path, frontier_rows)
 
     print(
-        "d4-square-threat-nonfloor-frontier:"
+        "d4-square-threat-r2-minus-4-obstruction:"
         f" rows={len(frontier_rows)}"
+        f" observed_margin_4_count={summary['observed_margin_4_count']}"
         f" global_min_margin={summary['global_min_margin']}"
         f" runtime_seconds={summary['runtime_seconds']:.3f}"
     )

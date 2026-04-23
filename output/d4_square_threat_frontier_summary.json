@@ -46,7 +46,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 5.258202292025089
+      "runtime_seconds": 4.830193916801363
     },
     {
       "scale": 100000000,
@@ -74,7 +74,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 10.044601125176996
+      "runtime_seconds": 9.2049751249142
     },
     {
       "scale": 100000000,
@@ -102,7 +102,7 @@
         "log_score_w": -18.40199332677815
       },
       "max_closure_utilization": 0.9473684210526315,
-      "runtime_seconds": 8.71631766599603
+      "runtime_seconds": 8.197996709030122
     },
     {
       "scale": 1000000000,
@@ -130,7 +130,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 10.044897167012095
+      "runtime_seconds": 9.561606124974787
     },
     {
       "scale": 1000000000,
@@ -158,7 +158,7 @@
         "log_score_w": -20.72226772199537
       },
       "max_closure_utilization": 0.9090909090909091,
-      "runtime_seconds": 8.215214208001271
+      "runtime_seconds": 7.380393332801759
     },
     {
       "scale": 10000000000,
@@ -186,7 +186,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 10.215516875032336
+      "runtime_seconds": 9.349036167142913
     },
     {
       "scale": 10000000000,
@@ -214,7 +214,7 @@
         "log_score_w": -23.025670917639214
       },
       "max_closure_utilization": 0.48484848484848486,
-      "runtime_seconds": 7.982394749997184
+      "runtime_seconds": 7.464803249808028
     },
     {
       "scale": 100000000000,
@@ -242,7 +242,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 9.954777542036027
+      "runtime_seconds": 9.476549624931067
     },
     {
       "scale": 100000000000,
@@ -270,7 +270,7 @@
         "log_score_w": -25.328436022524503
       },
       "max_closure_utilization": 2.7009873484733357e-05,
-      "runtime_seconds": 7.797581499908119
+      "runtime_seconds": 7.477434749947861
     },
     {
       "scale": 1000000000000,
@@ -298,7 +298,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 9.341411583125591
+      "runtime_seconds": 9.432109375018626
     },
     {
       "scale": 1000000000000,
@@ -326,7 +326,7 @@
         "log_score_w": -27.63102111589555
       },
       "max_closure_utilization": 4.6504057479015045e-05,
-      "runtime_seconds": 7.503105292096734
+      "runtime_seconds": 7.621533708181232
     },
     {
       "scale": 10000000000000,
@@ -354,7 +354,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 9.41774008399807
+      "runtime_seconds": 9.330904416972771
     },
     {
       "scale": 10000000000000,
@@ -382,7 +382,7 @@
         "log_score_w": -29.933606208909993
       },
       "max_closure_utilization": 8.00073699542526e-06,
-      "runtime_seconds": 7.8873017081059515
+      "runtime_seconds": 7.666114707943052
     },
     {
       "scale": 100000000000000,
@@ -410,7 +410,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 9.651133542181924
+      "runtime_seconds": 9.36445637489669
     },
     {
       "scale": 100000000000000,
@@ -438,7 +438,7 @@
         "log_score_w": -32.23619130191626
       },
       "max_closure_utilization": 9.331173268071597e-07,
-      "runtime_seconds": 7.77605149988085
+      "runtime_seconds": 7.772253375034779
     },
     {
       "scale": 1000000000000000,
@@ -466,7 +466,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 9.14333570888266
+      "runtime_seconds": 9.504797082860023
     },
     {
       "scale": 1000000000000000,
@@ -494,7 +494,7 @@
         "log_score_w": -34.53877639491065
       },
       "max_closure_utilization": 1.6858580099150614e-05,
-      "runtime_seconds": 8.030511250020936
+      "runtime_seconds": 7.941541875014082
     },
     {
       "scale": 10000000000000000,
@@ -522,7 +522,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 9.076162833021954
+      "runtime_seconds": 9.273286999901757
     },
     {
       "scale": 10000000000000000,
@@ -550,7 +550,7 @@
         "log_score_w": -36.84136148790472
       },
       "max_closure_utilization": 3.046062001002657e-07,
-      "runtime_seconds": 10.374427958158776
+      "runtime_seconds": 8.479313625022769
     },
     {
       "scale": 100000000000000000,
@@ -578,7 +578,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 10.833366707898676
+      "runtime_seconds": 9.211457750061527
     },
     {
       "scale": 100000000000000000,
@@ -606,7 +606,7 @@
         "log_score_w": -39.14394658089878
       },
       "max_closure_utilization": 7.072784017439633e-07,
-      "runtime_seconds": 9.785098792053759
+      "runtime_seconds": 8.617656791815534
     },
     {
       "scale": 1000000000000000000,
@@ -634,7 +634,7 @@
         "log_score_w": -3.044522437723423
       },
       "max_closure_utilization": 0.9574468085106383,
-      "runtime_seconds": 10.44470537500456
+      "runtime_seconds": 9.245331708109006
     },
     {
       "scale": 1000000000000000000,
@@ -662,7 +662,7 @@
         "log_score_w": -41.44653167389282
       },
       "max_closure_utilization": 2.98535667410309e-08,
-      "runtime_seconds": 10.872760582948104
+      "runtime_seconds": 9.384138708002865
     }
   ],
   "global_min_margin": 2,
@@ -7887,5 +7887,5 @@
       "log_score_w": -13.52082132594517
     }
   ],
-  "runtime_seconds": 208.3761253328994
+  "runtime_seconds": 195.79625666700304
 }
