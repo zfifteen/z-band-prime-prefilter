@@ -1,0 +1,943 @@
+{
+  "sample_power_range": [
+    12,
+    18
+  ],
+  "surface_groups": {
+    "baseline_1e6": {
+      "transition_count": 58304,
+      "raw_square_phase_utilization_quantiles": {
+        "min": 2.811278850749206e-05,
+        "q25": 0.0009363295880149813,
+        "q50": 0.002331002331002331,
+        "q75": 0.006282335550628234,
+        "max": 0.9574468085106383
+      },
+      "root_normalized_square_load_quantiles": {
+        "min": 0.02494093968511149,
+        "q25": 0.5809987103475603,
+        "q50": 1.3686908213554876,
+        "q75": 3.4154624267389684,
+        "max": 755.1360466694672
+      },
+      "overall_root_load_bands": {
+        "lt1": {
+          "count": 23459,
+          "next_triad_share": 0.5858732256276908
+        },
+        "1to3": {
+          "count": 18565,
+          "next_triad_share": 0.5755992458928091
+        },
+        "3to10": {
+          "count": 11030,
+          "next_triad_share": 0.5728014505893019
+        },
+        "ge10": {
+          "count": 5250,
+          "next_triad_share": 0.556
+        }
+      },
+      "width_open_suite": {
+        "baseline_keys": [
+          "current_gap_width",
+          "current_first_open_offset"
+        ],
+        "baseline_log_loss": 0.676303162082455,
+        "candidate_models": [
+          {
+            "model_id": "add_current_winner_parity",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity"
+            ],
+            "log_loss": 0.6753341770882892,
+            "gain_over_baseline": 0.0009689849941657558
+          },
+          {
+            "model_id": "add_current_carrier_family",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_carrier_family"
+            ],
+            "log_loss": 0.6752967592098598,
+            "gain_over_baseline": 0.0010064028725952356
+          },
+          {
+            "model_id": "add_previous_reduced_state",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "previous_state"
+            ],
+            "log_loss": 0.6693436835141257,
+            "gain_over_baseline": 0.006959478568329347
+          },
+          {
+            "model_id": "add_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "root_load_band"
+            ],
+            "log_loss": 0.6742698652669646,
+            "gain_over_baseline": 0.0020332968154903597
+          },
+          {
+            "model_id": "add_previous_reduced_state_and_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.6571799715134446,
+            "gain_over_baseline": 0.01912319056901035
+          },
+          {
+            "model_id": "add_current_winner_parity_and_previous_reduced_state",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state"
+            ],
+            "log_loss": 0.6643087075559455,
+            "gain_over_baseline": 0.01199445452650949
+          },
+          {
+            "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.6470092686582627,
+            "gain_over_baseline": 0.029293893424192308
+          }
+        ],
+        "ranking": [
+          {
+            "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.6470092686582627,
+            "gain_over_baseline": 0.029293893424192308
+          },
+          {
+            "model_id": "add_previous_reduced_state_and_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.6571799715134446,
+            "gain_over_baseline": 0.01912319056901035
+          },
+          {
+            "model_id": "add_current_winner_parity_and_previous_reduced_state",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state"
+            ],
+            "log_loss": 0.6643087075559455,
+            "gain_over_baseline": 0.01199445452650949
+          },
+          {
+            "model_id": "add_previous_reduced_state",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "previous_state"
+            ],
+            "log_loss": 0.6693436835141257,
+            "gain_over_baseline": 0.006959478568329347
+          },
+          {
+            "model_id": "add_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "root_load_band"
+            ],
+            "log_loss": 0.6742698652669646,
+            "gain_over_baseline": 0.0020332968154903597
+          },
+          {
+            "model_id": "add_current_carrier_family",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_carrier_family"
+            ],
+            "log_loss": 0.6752967592098598,
+            "gain_over_baseline": 0.0010064028725952356
+          },
+          {
+            "model_id": "add_current_winner_parity",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity"
+            ],
+            "log_loss": 0.6753341770882892,
+            "gain_over_baseline": 0.0009689849941657558
+          }
+        ],
+        "best_model": {
+          "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+          "context_keys": [
+            "current_gap_width",
+            "current_first_open_offset",
+            "current_winner_parity",
+            "previous_state",
+            "root_load_band"
+          ],
+          "log_loss": 0.6470092686582627,
+          "gain_over_baseline": 0.029293893424192308
+        }
+      },
+      "local_geometry_suite": {
+        "baseline_keys": [
+          "current_carrier_family",
+          "current_peak_offset",
+          "current_first_open_offset"
+        ],
+        "baseline_log_loss": 0.6803705821660273,
+        "candidate_models": [
+          {
+            "model_id": "add_current_winner_parity",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity"
+            ],
+            "log_loss": 0.6803705821660273,
+            "gain_over_baseline": 0.0
+          },
+          {
+            "model_id": "add_previous_reduced_state",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "previous_state"
+            ],
+            "log_loss": 0.6766896597100232,
+            "gain_over_baseline": 0.0036809224560041542
+          },
+          {
+            "model_id": "add_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "root_load_band"
+            ],
+            "log_loss": 0.6791259278536507,
+            "gain_over_baseline": 0.0012446543123766363
+          },
+          {
+            "model_id": "add_previous_reduced_state_and_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.6681670680770211,
+            "gain_over_baseline": 0.012203514089006218
+          },
+          {
+            "model_id": "add_current_winner_parity_and_previous_reduced_state",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state"
+            ],
+            "log_loss": 0.6766896597100232,
+            "gain_over_baseline": 0.0036809224560041542
+          },
+          {
+            "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.6681670680770211,
+            "gain_over_baseline": 0.012203514089006218
+          }
+        ],
+        "ranking": [
+          {
+            "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.6681670680770211,
+            "gain_over_baseline": 0.012203514089006218
+          },
+          {
+            "model_id": "add_previous_reduced_state_and_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.6681670680770211,
+            "gain_over_baseline": 0.012203514089006218
+          },
+          {
+            "model_id": "add_current_winner_parity_and_previous_reduced_state",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state"
+            ],
+            "log_loss": 0.6766896597100232,
+            "gain_over_baseline": 0.0036809224560041542
+          },
+          {
+            "model_id": "add_previous_reduced_state",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "previous_state"
+            ],
+            "log_loss": 0.6766896597100232,
+            "gain_over_baseline": 0.0036809224560041542
+          },
+          {
+            "model_id": "add_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "root_load_band"
+            ],
+            "log_loss": 0.6791259278536507,
+            "gain_over_baseline": 0.0012446543123766363
+          },
+          {
+            "model_id": "add_current_winner_parity",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity"
+            ],
+            "log_loss": 0.6803705821660273,
+            "gain_over_baseline": 0.0
+          }
+        ],
+        "best_model": {
+          "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+          "context_keys": [
+            "current_carrier_family",
+            "current_peak_offset",
+            "current_first_open_offset",
+            "current_winner_parity",
+            "previous_state",
+            "root_load_band"
+          ],
+          "log_loss": 0.6681670680770211,
+          "gain_over_baseline": 0.012203514089006218
+        }
+      },
+      "previous_family_by_root_load_band": {
+        "even_semiprime": {
+          "lt1": {
+            "count": 4000,
+            "next_triad_share": 0.59125
+          },
+          "1to3": {
+            "count": 2984,
+            "next_triad_share": 0.5914879356568364
+          },
+          "3to10": {
+            "count": 1824,
+            "next_triad_share": 0.6025219298245614
+          },
+          "ge10": {
+            "count": 839,
+            "next_triad_share": 0.5756853396901073
+          }
+        },
+        "higher_divisor_even": {
+          "lt1": {
+            "count": 4200,
+            "next_triad_share": 0.5961904761904762
+          },
+          "1to3": {
+            "count": 3574,
+            "next_triad_share": 0.5747062115277001
+          },
+          "3to10": {
+            "count": 2127,
+            "next_triad_share": 0.5552421250587682
+          },
+          "ge10": {
+            "count": 1014,
+            "next_triad_share": 0.5631163708086785
+          }
+        },
+        "higher_divisor_odd": {
+          "lt1": {
+            "count": 1677,
+            "next_triad_share": 0.5754323196183662
+          },
+          "1to3": {
+            "count": 1299,
+            "next_triad_share": 0.573518090839107
+          },
+          "3to10": {
+            "count": 793,
+            "next_triad_share": 0.5939470365699874
+          },
+          "ge10": {
+            "count": 386,
+            "next_triad_share": 0.5414507772020726
+          }
+        },
+        "odd_semiprime": {
+          "lt1": {
+            "count": 13511,
+            "next_triad_share": 0.5828584116645696
+          },
+          "1to3": {
+            "count": 10665,
+            "next_triad_share": 0.5716830754805439
+          },
+          "3to10": {
+            "count": 6277,
+            "next_triad_share": 0.5671499123785247
+          },
+          "ge10": {
+            "count": 3009,
+            "next_triad_share": 0.550016616816218
+          }
+        },
+        "prime_cube": {
+          "lt1": {
+            "count": 1,
+            "next_triad_share": 1.0
+          },
+          "1to3": {
+            "count": 2,
+            "next_triad_share": 0.5
+          },
+          "3to10": {
+            "count": 1,
+            "next_triad_share": 0.0
+          },
+          "ge10": {
+            "count": 2,
+            "next_triad_share": 0.5
+          }
+        },
+        "prime_square": {
+          "lt1": {
+            "count": 70,
+            "next_triad_share": 0.4857142857142857
+          },
+          "1to3": {
+            "count": 41,
+            "next_triad_share": 0.5853658536585366
+          },
+          "3to10": {
+            "count": 8,
+            "next_triad_share": 0.875
+          },
+          "ge10": {
+            "count": 0,
+            "next_triad_share": 0.0
+          }
+        }
+      }
+    },
+    "sampled_windows_1e12_1e18": {
+      "transition_count": 1421,
+      "raw_square_phase_utilization_quantiles": {
+        "min": 1.4285717977551974e-10,
+        "q25": 1.4474118719761304e-08,
+        "q50": 7.942038368622722e-08,
+        "q75": 8.736040997763892e-07,
+        "max": 1.935637387036369e-05
+      },
+      "root_normalized_square_load_quantiles": {
+        "min": 0.02631630506653032,
+        "q25": 1.0171271881418464,
+        "q50": 3.0000015325722225,
+        "q75": 8.64570419298491,
+        "max": 205.93193014320306
+      },
+      "overall_root_load_bands": {
+        "lt1": {
+          "count": 318,
+          "next_triad_share": 0.6855345911949685
+        },
+        "1to3": {
+          "count": 392,
+          "next_triad_share": 0.7040816326530612
+        },
+        "3to10": {
+          "count": 384,
+          "next_triad_share": 0.6432291666666666
+        },
+        "ge10": {
+          "count": 327,
+          "next_triad_share": 0.7003058103975535
+        }
+      },
+      "width_open_suite": {
+        "baseline_keys": [
+          "current_gap_width",
+          "current_first_open_offset"
+        ],
+        "baseline_log_loss": 0.5879827964063584,
+        "candidate_models": [
+          {
+            "model_id": "add_current_winner_parity",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity"
+            ],
+            "log_loss": 0.5717634062089,
+            "gain_over_baseline": 0.01621939019745844
+          },
+          {
+            "model_id": "add_current_carrier_family",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_carrier_family"
+            ],
+            "log_loss": 0.5717634062089,
+            "gain_over_baseline": 0.01621939019745844
+          },
+          {
+            "model_id": "add_previous_reduced_state",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "previous_state"
+            ],
+            "log_loss": 0.4932412701375018,
+            "gain_over_baseline": 0.09474152626885662
+          },
+          {
+            "model_id": "add_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "root_load_band"
+            ],
+            "log_loss": 0.5434826495137212,
+            "gain_over_baseline": 0.04450014689263726
+          },
+          {
+            "model_id": "add_previous_reduced_state_and_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.4511078293360766,
+            "gain_over_baseline": 0.1368749670702818
+          },
+          {
+            "model_id": "add_current_winner_parity_and_previous_reduced_state",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state"
+            ],
+            "log_loss": 0.4809181059042525,
+            "gain_over_baseline": 0.10706469050210593
+          },
+          {
+            "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.44474617260013266,
+            "gain_over_baseline": 0.14323662380622576
+          }
+        ],
+        "ranking": [
+          {
+            "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.44474617260013266,
+            "gain_over_baseline": 0.14323662380622576
+          },
+          {
+            "model_id": "add_previous_reduced_state_and_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.4511078293360766,
+            "gain_over_baseline": 0.1368749670702818
+          },
+          {
+            "model_id": "add_current_winner_parity_and_previous_reduced_state",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state"
+            ],
+            "log_loss": 0.4809181059042525,
+            "gain_over_baseline": 0.10706469050210593
+          },
+          {
+            "model_id": "add_previous_reduced_state",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "previous_state"
+            ],
+            "log_loss": 0.4932412701375018,
+            "gain_over_baseline": 0.09474152626885662
+          },
+          {
+            "model_id": "add_root_load_band",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "root_load_band"
+            ],
+            "log_loss": 0.5434826495137212,
+            "gain_over_baseline": 0.04450014689263726
+          },
+          {
+            "model_id": "add_current_carrier_family",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_carrier_family"
+            ],
+            "log_loss": 0.5717634062089,
+            "gain_over_baseline": 0.01621939019745844
+          },
+          {
+            "model_id": "add_current_winner_parity",
+            "context_keys": [
+              "current_gap_width",
+              "current_first_open_offset",
+              "current_winner_parity"
+            ],
+            "log_loss": 0.5717634062089,
+            "gain_over_baseline": 0.01621939019745844
+          }
+        ],
+        "best_model": {
+          "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+          "context_keys": [
+            "current_gap_width",
+            "current_first_open_offset",
+            "current_winner_parity",
+            "previous_state",
+            "root_load_band"
+          ],
+          "log_loss": 0.44474617260013266,
+          "gain_over_baseline": 0.14323662380622576
+        }
+      },
+      "local_geometry_suite": {
+        "baseline_keys": [
+          "current_carrier_family",
+          "current_peak_offset",
+          "current_first_open_offset"
+        ],
+        "baseline_log_loss": 0.6018863946522867,
+        "candidate_models": [
+          {
+            "model_id": "add_current_winner_parity",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity"
+            ],
+            "log_loss": 0.6018863946522867,
+            "gain_over_baseline": 0.0
+          },
+          {
+            "model_id": "add_previous_reduced_state",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "previous_state"
+            ],
+            "log_loss": 0.5430762132410516,
+            "gain_over_baseline": 0.05881018141123506
+          },
+          {
+            "model_id": "add_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "root_load_band"
+            ],
+            "log_loss": 0.5706720578313058,
+            "gain_over_baseline": 0.031214336820980848
+          },
+          {
+            "model_id": "add_previous_reduced_state_and_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.4800075115797756,
+            "gain_over_baseline": 0.12187888307251105
+          },
+          {
+            "model_id": "add_current_winner_parity_and_previous_reduced_state",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state"
+            ],
+            "log_loss": 0.5430762132410516,
+            "gain_over_baseline": 0.05881018141123506
+          },
+          {
+            "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.4800075115797756,
+            "gain_over_baseline": 0.12187888307251105
+          }
+        ],
+        "ranking": [
+          {
+            "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.4800075115797756,
+            "gain_over_baseline": 0.12187888307251105
+          },
+          {
+            "model_id": "add_previous_reduced_state_and_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "previous_state",
+              "root_load_band"
+            ],
+            "log_loss": 0.4800075115797756,
+            "gain_over_baseline": 0.12187888307251105
+          },
+          {
+            "model_id": "add_current_winner_parity_and_previous_reduced_state",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity",
+              "previous_state"
+            ],
+            "log_loss": 0.5430762132410516,
+            "gain_over_baseline": 0.05881018141123506
+          },
+          {
+            "model_id": "add_previous_reduced_state",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "previous_state"
+            ],
+            "log_loss": 0.5430762132410516,
+            "gain_over_baseline": 0.05881018141123506
+          },
+          {
+            "model_id": "add_root_load_band",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "root_load_band"
+            ],
+            "log_loss": 0.5706720578313058,
+            "gain_over_baseline": 0.031214336820980848
+          },
+          {
+            "model_id": "add_current_winner_parity",
+            "context_keys": [
+              "current_carrier_family",
+              "current_peak_offset",
+              "current_first_open_offset",
+              "current_winner_parity"
+            ],
+            "log_loss": 0.6018863946522867,
+            "gain_over_baseline": 0.0
+          }
+        ],
+        "best_model": {
+          "model_id": "add_current_winner_parity_previous_state_and_root_load_band",
+          "context_keys": [
+            "current_carrier_family",
+            "current_peak_offset",
+            "current_first_open_offset",
+            "current_winner_parity",
+            "previous_state",
+            "root_load_band"
+          ],
+          "log_loss": 0.4800075115797756,
+          "gain_over_baseline": 0.12187888307251105
+        }
+      },
+      "previous_family_by_root_load_band": {
+        "even_semiprime": {
+          "lt1": {
+            "count": 36,
+            "next_triad_share": 0.75
+          },
+          "1to3": {
+            "count": 47,
+            "next_triad_share": 0.5319148936170213
+          },
+          "3to10": {
+            "count": 51,
+            "next_triad_share": 0.7254901960784313
+          },
+          "ge10": {
+            "count": 34,
+            "next_triad_share": 0.6470588235294118
+          }
+        },
+        "higher_divisor_even": {
+          "lt1": {
+            "count": 35,
+            "next_triad_share": 0.6285714285714286
+          },
+          "1to3": {
+            "count": 37,
+            "next_triad_share": 0.7027027027027027
+          },
+          "3to10": {
+            "count": 43,
+            "next_triad_share": 0.6744186046511628
+          },
+          "ge10": {
+            "count": 38,
+            "next_triad_share": 0.7631578947368421
+          }
+        },
+        "higher_divisor_odd": {
+          "lt1": {
+            "count": 28,
+            "next_triad_share": 0.7857142857142857
+          },
+          "1to3": {
+            "count": 36,
+            "next_triad_share": 0.6944444444444444
+          },
+          "3to10": {
+            "count": 36,
+            "next_triad_share": 0.4444444444444444
+          },
+          "ge10": {
+            "count": 36,
+            "next_triad_share": 0.6388888888888888
+          }
+        },
+        "odd_semiprime": {
+          "lt1": {
+            "count": 219,
+            "next_triad_share": 0.6712328767123288
+          },
+          "1to3": {
+            "count": 272,
+            "next_triad_share": 0.7352941176470589
+          },
+          "3to10": {
+            "count": 254,
+            "next_triad_share": 0.6496062992125984
+          },
+          "ge10": {
+            "count": 219,
+            "next_triad_share": 0.7077625570776256
+          }
+        }
+      }
+    }
+  },
+  "cross_regime_comparison": {
+    "raw_square_phase_median_ratio_sampled_to_baseline": 3.4071344601391475e-05,
+    "root_normalized_load_median_ratio_sampled_to_baseline": 2.191876708577004,
+    "local_geometry_incremental_root_load_gain_after_previous_state": {
+      "baseline_1e6": 0.008522591633002063,
+      "sampled_windows_1e12_1e18": 0.06306870166127598
+    }
+  },
+  "runtime_seconds": 1.3502694161143154
+}
