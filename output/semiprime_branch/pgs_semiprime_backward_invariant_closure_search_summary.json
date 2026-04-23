@@ -1,0 +1,101 @@
+{
+  "max_n": 5000,
+  "case_count": 980,
+  "max_steps": 24,
+  "fixed_entry_law": "layered_hybrid_exact_shape_entry_switch",
+  "entry_lane_count": 89,
+  "invariant_law_summaries": {
+    "containing_gap_mod_n": {
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_factor_case": null,
+      "median_steps_on_factor_reach": null,
+      "failure_reason_counts": {
+        "no_entry_candidate": 158,
+        "entry_not_lane": 733,
+        "terminal_prime_miss": 89
+      }
+    },
+    "containing_gap_mod_entry": {
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_factor_case": null,
+      "median_steps_on_factor_reach": null,
+      "failure_reason_counts": {
+        "no_entry_candidate": 158,
+        "entry_not_lane": 733,
+        "terminal_prime_miss": 89
+      }
+    },
+    "prev_plus_containing_mod_n": {
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_factor_case": null,
+      "median_steps_on_factor_reach": null,
+      "failure_reason_counts": {
+        "no_entry_candidate": 158,
+        "entry_not_lane": 733,
+        "terminal_prime_miss": 89
+      }
+    },
+    "prev_plus_containing_mod_entry": {
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_factor_case": null,
+      "median_steps_on_factor_reach": null,
+      "failure_reason_counts": {
+        "no_entry_candidate": 158,
+        "entry_not_lane": 733,
+        "terminal_prime_miss": 89
+      }
+    },
+    "left_offset_mod_n": {
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_factor_case": null,
+      "median_steps_on_factor_reach": null,
+      "failure_reason_counts": {
+        "no_entry_candidate": 158,
+        "entry_not_lane": 733,
+        "terminal_prime_miss": 89
+      }
+    },
+    "left_offset_mod_entry": {
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_factor_case": null,
+      "median_steps_on_factor_reach": null,
+      "failure_reason_counts": {
+        "no_entry_candidate": 158,
+        "entry_not_lane": 733,
+        "terminal_prime_miss": 89
+      }
+    },
+    "right_offset_mod_n": {
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_factor_case": null,
+      "median_steps_on_factor_reach": null,
+      "failure_reason_counts": {
+        "no_entry_candidate": 158,
+        "entry_not_lane": 733,
+        "terminal_prime_miss": 89
+      }
+    },
+    "containing_winner_mod_n": {
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_factor_case": null,
+      "median_steps_on_factor_reach": null,
+      "failure_reason_counts": {
+        "no_entry_candidate": 158,
+        "entry_not_lane": 733,
+        "invariant_undefined": 7,
+        "terminal_prime_miss": 82
+      }
+    }
+  },
+  "best_law": "containing_gap_mod_n",
+  "best_factor_reach_count": 0,
+  "searched_family_falsified": true
+}
