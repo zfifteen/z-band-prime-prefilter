@@ -9,6 +9,487 @@
   "ring_outer": 64,
   "late_cutoff": 100000,
   "phase_modulus": 210,
+  "matched_control_analysis": {
+    "scope": "late_record_regime_only",
+    "late_cutoff": 100000,
+    "late_record_count": 9,
+    "matching_rule": {
+      "candidate_controls": "non_record_gaps_only",
+      "phase_condition": "q mod 210",
+      "scale_condition": "int(log(q) / 0.25)",
+      "ranking": [
+        "absolute_gap_size_difference",
+        "absolute_prime_start_difference",
+        "index"
+      ]
+    },
+    "strict_equal_magnitude_matching": {
+      "available": false,
+      "all_late_records_missing_exact_match": true,
+      "statement": "Strict equal-magnitude matching is unavailable on the tested late-record surface; every late record has zero same-gap same-phase same-scale non-record controls."
+    },
+    "per_record_control_pool_sizes": [
+      {
+        "gap_start": 155921,
+        "control_pool_size": 61
+      },
+      {
+        "gap_start": 360653,
+        "control_pool_size": 156
+      },
+      {
+        "gap_start": 370261,
+        "control_pool_size": 177
+      },
+      {
+        "gap_start": 492113,
+        "control_pool_size": 202
+      },
+      {
+        "gap_start": 1349533,
+        "control_pool_size": 508
+      },
+      {
+        "gap_start": 1357201,
+        "control_pool_size": 497
+      },
+      {
+        "gap_start": 2010733,
+        "control_pool_size": 780
+      },
+      {
+        "gap_start": 4652353,
+        "control_pool_size": 1630
+      },
+      {
+        "gap_start": 17051707,
+        "control_pool_size": 5230
+      }
+    ],
+    "k_values": [
+      1,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "primary_k": 32,
+    "record_pooled_profile": [
+      1.264782417836089,
+      0.9156675917201649,
+      0.8715862134947406,
+      1.1066921519076829,
+      1.4465957140915853,
+      0.9000666359587269,
+      1.0402883690477862,
+      1.021703488310409,
+      8.976368274574778,
+      0.8588546375204859,
+      0.6274200989219142,
+      1.004856842625606,
+      1.5932036196335362,
+      0.6105077992681014,
+      0.9073936789880563,
+      0.8060464055290346,
+      1.3498112036868837
+    ],
+    "record_pooled_profile_summary": {
+      "adjacent_mean": 0.9402790629154474,
+      "four_step_mean": 1.5198996668625608,
+      "four_step_to_adjacent_ratio": 1.6164346594615546,
+      "pre_five_mean": 1.103069271863238,
+      "post_five_mean": 0.9389685995939286
+    },
+    "matched_control_sweep": {
+      "1": {
+        "pooled_profile": [
+          0.9649103112878604,
+          0.99910957348894,
+          0.8734867285238551,
+          1.0115861395719699,
+          0.7047167483004525,
+          0.8496563590664208,
+          0.8744096716072398,
+          0.975448049320613,
+          5.641359332468159,
+          1.100385118531655,
+          0.8422565324921113,
+          1.034640941454309,
+          1.1782366552213999,
+          0.5348233692400589,
+          0.921665885782804,
+          1.080555513519339,
+          1.306656977060359
+        ],
+        "pooled_profile_summary": {
+          "adjacent_mean": 1.0379165839261342,
+          "four_step_mean": 0.9414767017609262,
+          "four_step_to_adjacent_ratio": 0.9070832052799425,
+          "pre_five_mean": 0.8831633935733392,
+          "post_five_mean": 0.9380685233879069
+        },
+        "delta_ratio": 0.7093514541816122,
+        "effect_survives_control": true,
+        "mean_per_record_delta_ratio": 1.0534463200484874,
+        "positive_share": 0.5555555555555556,
+        "mean_control_count_used": 1.0
+      },
+      "4": {
+        "pooled_profile": [
+          0.966145385862689,
+          1.147700783509805,
+          0.8965108826012358,
+          1.0198755352732338,
+          0.7780562696510456,
+          0.7664997367764957,
+          0.9354922590962862,
+          1.0297746392400697,
+          4.725929493266926,
+          1.0998378418546504,
+          0.874530634382005,
+          0.9578029331445964,
+          0.9734810588519935,
+          0.8851777020067919,
+          0.738321344333609,
+          1.0238131405335706,
+          1.090822158727582
+        ],
+        "pooled_profile_summary": {
+          "adjacent_mean": 1.0648062405473602,
+          "four_step_mean": 0.8757686642515196,
+          "four_step_to_adjacent_ratio": 0.8224676292292704,
+          "pre_five_mean": 0.9059396880074262,
+          "post_five_mean": 0.9581660340480074
+        },
+        "delta_ratio": 0.7939670302322842,
+        "effect_survives_control": true,
+        "mean_per_record_delta_ratio": 1.2586757303963012,
+        "positive_share": 0.7777777777777778,
+        "mean_control_count_used": 4.0
+      },
+      "8": {
+        "pooled_profile": [
+          0.9431904829584785,
+          1.0014135898827758,
+          1.0431305623779972,
+          1.0036107737111537,
+          0.7049192562549875,
+          0.8819989298741346,
+          0.8568052107031643,
+          1.0908327245491012,
+          4.260825733936112,
+          1.0937505053011478,
+          1.0253195496419238,
+          1.0370517934868517,
+          1.0036339066166131,
+          0.868100507789656,
+          0.8604728885437481,
+          0.973288211893132,
+          1.0639099661614244
+        ],
+        "pooled_profile_summary": {
+          "adjacent_mean": 1.0922916149251245,
+          "four_step_mean": 0.8542765814358003,
+          "four_step_to_adjacent_ratio": 0.7820957057281449,
+          "pre_five_mean": 0.9076333790185082,
+          "post_five_mean": 1.0055712525672384
+        },
+        "delta_ratio": 0.8343389537334097,
+        "effect_survives_control": true,
+        "mean_per_record_delta_ratio": 1.416027205472825,
+        "positive_share": 0.8888888888888888,
+        "mean_control_count_used": 8.0
+      },
+      "16": {
+        "pooled_profile": [
+          1.0593653085352015,
+          0.994306073283008,
+          1.050429573239387,
+          0.9901647721366866,
+          0.893056729724493,
+          0.9265610849719168,
+          0.8467968992479864,
+          1.030546809725678,
+          3.704908562455251,
+          1.0069502372291153,
+          0.9831606935468421,
+          1.053274082890194,
+          1.0143034265791506,
+          1.0132613596822215,
+          0.9098385388386949,
+          0.9894940103604822,
+          0.9569041082084444
+        ],
+        "pooled_profile_summary": {
+          "adjacent_mean": 1.0187485234773965,
+          "four_step_mean": 0.9536800781518218,
+          "four_step_to_adjacent_ratio": 0.9361290408515439,
+          "pre_five_mean": 0.9374252591613521,
+          "post_five_mean": 1.0141899599855049
+        },
+        "delta_ratio": 0.6803056186100107,
+        "effect_survives_control": true,
+        "mean_per_record_delta_ratio": 1.2256210082917092,
+        "positive_share": 0.7777777777777778,
+        "mean_control_count_used": 16.0
+      },
+      "32": {
+        "pooled_profile": [
+          1.0496227015994404,
+          1.0375790603109183,
+          1.0573376754398625,
+          0.9802800098304516,
+          0.954486889141714,
+          1.0108977832253982,
+          0.9540143924560256,
+          0.9703534854593168,
+          3.1262332802526287,
+          0.9540985929243208,
+          0.9579226146576111,
+          1.0304140312587657,
+          0.9870930413670158,
+          1.036984399749142,
+          0.9104142159890749,
+          1.0524898079838165,
+          0.9633175750459001
+        ],
+        "pooled_profile_summary": {
+          "adjacent_mean": 0.9622260391918187,
+          "four_step_mean": 0.9707899652543649,
+          "four_step_to_adjacent_ratio": 1.008900118801336,
+          "pre_five_mean": 0.9740065120225813,
+          "post_five_mean": 0.993302535991371
+        },
+        "delta_ratio": 0.6075345406602186,
+        "effect_survives_control": true,
+        "mean_per_record_delta_ratio": 1.1541267584379697,
+        "positive_share": 0.7777777777777778,
+        "mean_control_count_used": 32.0
+      },
+      "64": {
+        "pooled_profile": [
+          1.0434228132008692,
+          0.9765868862505864,
+          1.0292184926099133,
+          0.9760405761821287,
+          0.9456052354967258,
+          1.0332249683074428,
+          0.9442944900249888,
+          0.9708388757392884,
+          2.5659623985939,
+          0.9617083193837644,
+          0.9542552366950238,
+          1.0368442371165452,
+          0.9974561991529632,
+          0.9718122815194962,
+          0.9744211205793625,
+          1.0208355470901733,
+          0.9741095390623968
+        ],
+        "pooled_profile_summary": {
+          "adjacent_mean": 0.9662735975615264,
+          "four_step_mean": 0.9715307173248445,
+          "four_step_to_adjacent_ratio": 1.0054406120342985,
+          "pre_five_mean": 0.9740008291501148,
+          "post_five_mean": 0.9844152547735586
+        },
+        "delta_ratio": 0.6109940474272562,
+        "effect_survives_control": true,
+        "mean_per_record_delta_ratio": 1.180746554436645,
+        "positive_share": 0.6666666666666666,
+        "mean_control_count_used": 63.666666666666664
+      }
+    },
+    "primary_verdict": {
+      "record_ratio": 1.6164346594615546,
+      "matched_control_ratio": 1.008900118801336,
+      "delta_ratio": 0.6075345406602186,
+      "effect_survives_control": true
+    },
+    "per_record_delta_table": [
+      {
+        "gap_start": 155921,
+        "gap_end": 156007,
+        "phase": 101,
+        "log_scale_bucket": 47,
+        "record_gap": 86,
+        "control_pool_size": 61,
+        "exact_equal_gap_match_count": 0,
+        "record_profile_summary": {
+          "adjacent_mean": 1.3617021276595744,
+          "four_step_mean": 1.7872340425531914,
+          "four_step_to_adjacent_ratio": 1.3125,
+          "pre_five_mean": 1.0212765957446808,
+          "post_five_mean": 0.9191489361702129
+        },
+        "primary_k_control_count_used": 32,
+        "primary_k_matched_control_ratio": 0.6568393299393751,
+        "primary_k_mean_gap_size_difference": 70.75,
+        "primary_k_delta_ratio": 0.6556606700606249
+      },
+      {
+        "gap_start": 360653,
+        "gap_end": 360749,
+        "phase": 83,
+        "log_scale_bucket": 51,
+        "record_gap": 96,
+        "control_pool_size": 156,
+        "exact_equal_gap_match_count": 0,
+        "record_profile_summary": {
+          "adjacent_mean": 0.8582375478927203,
+          "four_step_mean": 1.4303959131545338,
+          "four_step_to_adjacent_ratio": 1.6666666666666665,
+          "pre_five_mean": 0.9154533844189017,
+          "post_five_mean": 0.972669220945083
+        },
+        "primary_k_control_count_used": 32,
+        "primary_k_matched_control_ratio": 0.9280456571233734,
+        "primary_k_mean_gap_size_difference": 66.5625,
+        "primary_k_delta_ratio": 0.7386210095432931
+      },
+      {
+        "gap_start": 370261,
+        "gap_end": 370373,
+        "phase": 31,
+        "log_scale_bucket": 51,
+        "record_gap": 112,
+        "control_pool_size": 177,
+        "exact_equal_gap_match_count": 0,
+        "record_profile_summary": {
+          "adjacent_mean": 0.9619631901840491,
+          "four_step_mean": 0.48098159509202454,
+          "four_step_to_adjacent_ratio": 0.5,
+          "pre_five_mean": 0.7420858895705521,
+          "post_five_mean": 0.6871165644171779
+        },
+        "primary_k_control_count_used": 32,
+        "primary_k_matched_control_ratio": 1.2349719524357718,
+        "primary_k_mean_gap_size_difference": 81.125,
+        "primary_k_delta_ratio": -0.7349719524357718
+      },
+      {
+        "gap_start": 492113,
+        "gap_end": 492227,
+        "phase": 83,
+        "log_scale_bucket": 52,
+        "record_gap": 114,
+        "control_pool_size": 202,
+        "exact_equal_gap_match_count": 0,
+        "record_profile_summary": {
+          "adjacent_mean": 1.3112947658402203,
+          "four_step_mean": 1.3112947658402203,
+          "four_step_to_adjacent_ratio": 1.0,
+          "pre_five_mean": 0.8022038567493113,
+          "post_five_mean": 1.018181818181818
+        },
+        "primary_k_control_count_used": 32,
+        "primary_k_matched_control_ratio": 0.9427735835392513,
+        "primary_k_mean_gap_size_difference": 79.1875,
+        "primary_k_delta_ratio": 0.057226416460748664
+      },
+      {
+        "gap_start": 1349533,
+        "gap_end": 1349651,
+        "phase": 73,
+        "log_scale_bucket": 56,
+        "record_gap": 118,
+        "control_pool_size": 508,
+        "exact_equal_gap_match_count": 0,
+        "record_profile_summary": {
+          "adjacent_mean": 0.6991260923845193,
+          "four_step_mean": 1.8177278401997503,
+          "four_step_to_adjacent_ratio": 2.6,
+          "pre_five_mean": 1.7617977528089888,
+          "post_five_mean": 0.6991260923845193
+        },
+        "primary_k_control_count_used": 32,
+        "primary_k_matched_control_ratio": 0.9278101143064141,
+        "primary_k_mean_gap_size_difference": 67.75,
+        "primary_k_delta_ratio": 1.672189885693586
+      },
+      {
+        "gap_start": 1357201,
+        "gap_end": 1357333,
+        "phase": 181,
+        "log_scale_bucket": 56,
+        "record_gap": 132,
+        "control_pool_size": 497,
+        "exact_equal_gap_match_count": 0,
+        "record_profile_summary": {
+          "adjacent_mean": 0.4357976653696498,
+          "four_step_mean": 3.4863813229571985,
+          "four_step_to_adjacent_ratio": 8.0,
+          "pre_five_mean": 1.5979247730220494,
+          "post_five_mean": 1.3654993514915694
+        },
+        "primary_k_control_count_used": 32,
+        "primary_k_matched_control_ratio": 1.6871421713556543,
+        "primary_k_mean_gap_size_difference": 85.3125,
+        "primary_k_delta_ratio": 6.312857828644345
+      },
+      {
+        "gap_start": 2010733,
+        "gap_end": 2010881,
+        "phase": 193,
+        "log_scale_bucket": 58,
+        "record_gap": 148,
+        "control_pool_size": 780,
+        "exact_equal_gap_match_count": 0,
+        "record_profile_summary": {
+          "adjacent_mean": 0.4291187739463601,
+          "four_step_mean": 1.2873563218390804,
+          "four_step_to_adjacent_ratio": 3.0000000000000004,
+          "pre_five_mean": 0.8010217113665389,
+          "post_five_mean": 0.6865900383141762
+        },
+        "primary_k_control_count_used": 32,
+        "primary_k_matched_control_ratio": 1.0596171947935755,
+        "primary_k_mean_gap_size_difference": 97.0625,
+        "primary_k_delta_ratio": 1.940382805206425
+      },
+      {
+        "gap_start": 4652353,
+        "gap_end": 4652507,
+        "phase": 13,
+        "log_scale_bucket": 61,
+        "record_gap": 154,
+        "control_pool_size": 1630,
+        "exact_equal_gap_match_count": 0,
+        "record_profile_summary": {
+          "adjacent_mean": 1.3706293706293706,
+          "four_step_mean": 0.9137529137529137,
+          "four_step_to_adjacent_ratio": 0.6666666666666666,
+          "pre_five_mean": 1.0442890442890442,
+          "post_five_mean": 0.7832167832167831
+        },
+        "primary_k_control_count_used": 32,
+        "primary_k_matched_control_ratio": 1.1545531916464957,
+        "primary_k_mean_gap_size_difference": 93.625,
+        "primary_k_delta_ratio": -0.4878865249798291
+      },
+      {
+        "gap_start": 17051707,
+        "gap_end": 17051887,
+        "phase": 127,
+        "log_scale_bucket": 66,
+        "record_gap": 180,
+        "control_pool_size": 5230,
+        "exact_equal_gap_match_count": 0,
+        "record_profile_summary": {
+          "adjacent_mean": 1.0346420323325636,
+          "four_step_mean": 1.163972286374134,
+          "four_step_to_adjacent_ratio": 1.125,
+          "pre_five_mean": 1.241570438799076,
+          "post_five_mean": 1.3191685912240185
+        },
+        "primary_k_control_count_used": 32,
+        "primary_k_matched_control_ratio": 0.8919393122516949,
+        "primary_k_mean_gap_size_difference": 95.625,
+        "primary_k_delta_ratio": 0.23306068774830513
+      }
+    ]
+  },
   "scale_summaries": {
     "5000000": {
       "max_n": 5000000,
@@ -891,6 +1372,463 @@
           "pre_five_mean": 0.8010217113665389,
           "post_five_mean": 0.6865900383141762
         }
+      },
+      "matched_control_analysis": {
+        "scope": "late_record_regime_only",
+        "late_cutoff": 100000,
+        "late_record_count": 8,
+        "matching_rule": {
+          "candidate_controls": "non_record_gaps_only",
+          "phase_condition": "q mod 210",
+          "scale_condition": "int(log(q) / 0.25)",
+          "ranking": [
+            "absolute_gap_size_difference",
+            "absolute_prime_start_difference",
+            "index"
+          ]
+        },
+        "strict_equal_magnitude_matching": {
+          "available": false,
+          "all_late_records_missing_exact_match": true,
+          "statement": "Strict equal-magnitude matching is unavailable on the tested late-record surface; every late record has zero same-gap same-phase same-scale non-record controls."
+        },
+        "per_record_control_pool_sizes": [
+          {
+            "gap_start": 155921,
+            "control_pool_size": 61
+          },
+          {
+            "gap_start": 360653,
+            "control_pool_size": 156
+          },
+          {
+            "gap_start": 370261,
+            "control_pool_size": 177
+          },
+          {
+            "gap_start": 492113,
+            "control_pool_size": 202
+          },
+          {
+            "gap_start": 1349533,
+            "control_pool_size": 508
+          },
+          {
+            "gap_start": 1357201,
+            "control_pool_size": 497
+          },
+          {
+            "gap_start": 2010733,
+            "control_pool_size": 780
+          },
+          {
+            "gap_start": 4652353,
+            "control_pool_size": 1110
+          }
+        ],
+        "k_values": [
+          1,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "primary_k": 32,
+        "record_pooled_profile": [
+          1.3743813748000113,
+          0.6583015603156706,
+          0.9643682084263869,
+          0.9217030357922172,
+          1.4819236425562667,
+          0.9479098384327826,
+          1.0894930064027781,
+          0.9877536067972472,
+          8.643448950928958,
+          0.8692137766793688,
+          0.5603510754903868,
+          0.7586394675842916,
+          1.6468575362909614,
+          0.6221561471558289,
+          0.7783236625336187,
+          0.8098045156889861,
+          1.3407085048405847
+        ],
+        "record_pooled_profile_summary": {
+          "adjacent_mean": 0.928483691738308,
+          "four_step_mean": 1.564390589423614,
+          "four_step_to_adjacent_ratio": 1.6848875250514745,
+          "pre_five_mean": 1.0857566259962583,
+          "post_five_mean": 0.8914436006401676
+        },
+        "matched_control_sweep": {
+          "1": {
+            "pooled_profile": [
+              1.1635938196987359,
+              1.0240569025303747,
+              0.9210602490694081,
+              0.7974451927743091,
+              0.8115619998202268,
+              0.8454551802287408,
+              0.8951829338646107,
+              0.879446474839299,
+              5.32647391491723,
+              1.2384409920813115,
+              0.717538087071215,
+              0.7903288991630001,
+              1.129136678312697,
+              0.6761739308254211,
+              1.0764167149888006,
+              0.8490153749260213,
+              1.0103666326608407
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 1.0589437334603053,
+              "four_step_mean": 0.9703493390664619,
+              "four_step_to_adjacent_ratio": 0.9163370143337607,
+              "pre_five_mean": 0.8458183563054373,
+              "post_five_mean": 0.9103237174907288
+            },
+            "delta_ratio": 0.7685505107177139,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.1134359335839599,
+            "positive_share": 0.625,
+            "mean_control_count_used": 1.0
+          },
+          "4": {
+            "pooled_profile": [
+              1.0688434106115776,
+              1.0466499523684367,
+              0.9227141068215714,
+              0.8881816799157297,
+              0.8353026182892769,
+              0.7237389216204532,
+              0.9087487545100756,
+              1.0326044275798008,
+              4.521644002599299,
+              1.1773714666795756,
+              0.8670196310637066,
+              0.8530788545659282,
+              1.004332824570935,
+              0.8173671641159228,
+              0.7927512070249698,
+              0.9813824245555605,
+              0.996386684437086
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 1.1049879471296882,
+              "four_step_mean": 0.919817721430106,
+              "four_step_to_adjacent_ratio": 0.8324233072581655,
+              "pre_five_mean": 0.8777152803830672,
+              "post_five_mean": 0.9438339881992137
+            },
+            "delta_ratio": 0.852464217793309,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.4177268878292446,
+            "positive_share": 0.75,
+            "mean_control_count_used": 4.0
+          },
+          "8": {
+            "pooled_profile": [
+              0.9580336100622826,
+              0.962231923364654,
+              0.9994038145577326,
+              0.955085867729363,
+              0.7284852264710103,
+              0.8632771433565886,
+              0.8732521300469609,
+              1.0416446612543555,
+              3.958933285900796,
+              1.1643246038986657,
+              0.9491601943519403,
+              0.9798282424269126,
+              1.02634746007769,
+              0.8178373983318582,
+              0.8757793780214899,
+              0.9167358091361982,
+              1.0422214988766647
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 1.1029846325765105,
+              "four_step_mean": 0.8774163432743503,
+              "four_step_to_adjacent_ratio": 0.7954928086575012,
+              "pre_five_mean": 0.8923490057716557,
+              "post_five_mean": 0.9874995798174133
+            },
+            "delta_ratio": 0.8893947163939734,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.533303638075068,
+            "positive_share": 0.75,
+            "mean_control_count_used": 8.0
+          },
+          "16": {
+            "pooled_profile": [
+              1.0421378884416361,
+              0.9875240298729957,
+              1.0082738415229286,
+              0.9875126326523646,
+              0.9045208735107613,
+              0.914253636123321,
+              0.8489254696206175,
+              1.0359286174651376,
+              3.394224020261532,
+              1.0468360298936352,
+              0.9323584356094832,
+              1.012285123303026,
+              1.0784770487585607,
+              1.0497034808350212,
+              0.8962799009043679,
+              0.9211405514257002,
+              0.8993341476468507
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 1.0413823236793864,
+              "four_step_mean": 0.991498961134661,
+              "four_step_to_adjacent_ratio": 0.9520988964278951,
+              "pre_five_mean": 0.9382282458744404,
+              "post_five_mean": 1.0239320236799452
+            },
+            "delta_ratio": 0.7327886286235794,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.3398692196462798,
+            "positive_share": 0.75,
+            "mean_control_count_used": 16.0
+          },
+          "32": {
+            "pooled_profile": [
+              1.018118474766073,
+              1.016726608340787,
+              1.0396421338749389,
+              0.9782850105618482,
+              0.9495708377385398,
+              1.0074556999630198,
+              0.9145076813009966,
+              0.9862459043620708,
+              2.8216570123028037,
+              0.9693518926459235,
+              0.915127786288853,
+              1.0052693877324967,
+              1.0237223724775693,
+              1.0464786993820197,
+              0.8857925547495455,
+              0.9952955502089353,
+              0.9446381389749567
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 0.9777988985039971,
+              "four_step_mean": 0.9866466051080545,
+              "four_step_to_adjacent_ratio": 1.0090485953886776,
+              "pre_five_mean": 0.967213026785295,
+              "post_five_mean": 0.9919900277053724
+            },
+            "delta_ratio": 0.6758389296627969,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.285218462293752,
+            "positive_share": 0.75,
+            "mean_control_count_used": 32.0
+          },
+          "64": {
+            "pooled_profile": [
+              1.0175375936139373,
+              0.9639725683373978,
+              1.0205621655176063,
+              1.00297499145484,
+              0.938718475696352,
+              1.0196885723130285,
+              0.933126692380761,
+              0.9622305121874049,
+              2.2692620729555255,
+              0.982306180276784,
+              0.9375737230445716,
+              1.0274669911574048,
+              1.026515639833118,
+              0.9672066078011361,
+              0.9527344776015267,
+              0.9870533454701522,
+              0.939551252681803
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 0.9722683462320945,
+              "four_step_mean": 0.9826170577647351,
+              "four_step_to_adjacent_ratio": 1.0106438840395717,
+              "pre_five_mean": 0.9713478488064773,
+              "post_five_mean": 0.9882138284226029
+            },
+            "delta_ratio": 0.6742436410119028,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.3086925947023422,
+            "positive_share": 0.625,
+            "mean_control_count_used": 63.625
+          }
+        },
+        "primary_verdict": {
+          "record_ratio": 1.6848875250514745,
+          "matched_control_ratio": 1.0090485953886776,
+          "delta_ratio": 0.6758389296627969,
+          "effect_survives_control": true
+        },
+        "per_record_delta_table": [
+          {
+            "gap_start": 155921,
+            "gap_end": 156007,
+            "phase": 101,
+            "log_scale_bucket": 47,
+            "record_gap": 86,
+            "control_pool_size": 61,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 1.3617021276595744,
+              "four_step_mean": 1.7872340425531914,
+              "four_step_to_adjacent_ratio": 1.3125,
+              "pre_five_mean": 1.0212765957446808,
+              "post_five_mean": 0.9191489361702129
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 0.6568393299393751,
+            "primary_k_mean_gap_size_difference": 70.75,
+            "primary_k_delta_ratio": 0.6556606700606249
+          },
+          {
+            "gap_start": 360653,
+            "gap_end": 360749,
+            "phase": 83,
+            "log_scale_bucket": 51,
+            "record_gap": 96,
+            "control_pool_size": 156,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.8582375478927203,
+              "four_step_mean": 1.4303959131545338,
+              "four_step_to_adjacent_ratio": 1.6666666666666665,
+              "pre_five_mean": 0.9154533844189017,
+              "post_five_mean": 0.972669220945083
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 0.9280456571233734,
+            "primary_k_mean_gap_size_difference": 66.5625,
+            "primary_k_delta_ratio": 0.7386210095432931
+          },
+          {
+            "gap_start": 370261,
+            "gap_end": 370373,
+            "phase": 31,
+            "log_scale_bucket": 51,
+            "record_gap": 112,
+            "control_pool_size": 177,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.9619631901840491,
+              "four_step_mean": 0.48098159509202454,
+              "four_step_to_adjacent_ratio": 0.5,
+              "pre_five_mean": 0.7420858895705521,
+              "post_five_mean": 0.6871165644171779
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 1.2349719524357718,
+            "primary_k_mean_gap_size_difference": 81.125,
+            "primary_k_delta_ratio": -0.7349719524357718
+          },
+          {
+            "gap_start": 492113,
+            "gap_end": 492227,
+            "phase": 83,
+            "log_scale_bucket": 52,
+            "record_gap": 114,
+            "control_pool_size": 202,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 1.3112947658402203,
+              "four_step_mean": 1.3112947658402203,
+              "four_step_to_adjacent_ratio": 1.0,
+              "pre_five_mean": 0.8022038567493113,
+              "post_five_mean": 1.018181818181818
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 0.9427735835392513,
+            "primary_k_mean_gap_size_difference": 79.1875,
+            "primary_k_delta_ratio": 0.057226416460748664
+          },
+          {
+            "gap_start": 1349533,
+            "gap_end": 1349651,
+            "phase": 73,
+            "log_scale_bucket": 56,
+            "record_gap": 118,
+            "control_pool_size": 508,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.6991260923845193,
+              "four_step_mean": 1.8177278401997503,
+              "four_step_to_adjacent_ratio": 2.6,
+              "pre_five_mean": 1.7617977528089888,
+              "post_five_mean": 0.6991260923845193
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 0.9278101143064141,
+            "primary_k_mean_gap_size_difference": 67.75,
+            "primary_k_delta_ratio": 1.672189885693586
+          },
+          {
+            "gap_start": 1357201,
+            "gap_end": 1357333,
+            "phase": 181,
+            "log_scale_bucket": 56,
+            "record_gap": 132,
+            "control_pool_size": 497,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.4357976653696498,
+              "four_step_mean": 3.4863813229571985,
+              "four_step_to_adjacent_ratio": 8.0,
+              "pre_five_mean": 1.5979247730220494,
+              "post_five_mean": 1.3654993514915694
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 1.6871421713556543,
+            "primary_k_mean_gap_size_difference": 85.3125,
+            "primary_k_delta_ratio": 6.312857828644345
+          },
+          {
+            "gap_start": 2010733,
+            "gap_end": 2010881,
+            "phase": 193,
+            "log_scale_bucket": 58,
+            "record_gap": 148,
+            "control_pool_size": 780,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.4291187739463601,
+              "four_step_mean": 1.2873563218390804,
+              "four_step_to_adjacent_ratio": 3.0000000000000004,
+              "pre_five_mean": 0.8010217113665389,
+              "post_five_mean": 0.6865900383141762
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 1.0596171947935755,
+            "primary_k_mean_gap_size_difference": 97.0625,
+            "primary_k_delta_ratio": 1.940382805206425
+          },
+          {
+            "gap_start": 4652353,
+            "gap_end": 4652507,
+            "phase": 13,
+            "log_scale_bucket": 61,
+            "record_gap": 154,
+            "control_pool_size": 1110,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 1.3706293706293706,
+              "four_step_mean": 0.9137529137529137,
+              "four_step_to_adjacent_ratio": 0.6666666666666666,
+              "pre_five_mean": 1.0442890442890442,
+              "post_five_mean": 0.7832167832167831
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 1.0268856314899024,
+            "primary_k_mean_gap_size_difference": 98.5625,
+            "primary_k_delta_ratio": -0.3602189648232358
+          }
+        ]
       },
       "record_events": [
         {
@@ -2780,6 +3718,487 @@
           "pre_five_mean": 0.8010217113665389,
           "post_five_mean": 0.6865900383141762
         }
+      },
+      "matched_control_analysis": {
+        "scope": "late_record_regime_only",
+        "late_cutoff": 100000,
+        "late_record_count": 9,
+        "matching_rule": {
+          "candidate_controls": "non_record_gaps_only",
+          "phase_condition": "q mod 210",
+          "scale_condition": "int(log(q) / 0.25)",
+          "ranking": [
+            "absolute_gap_size_difference",
+            "absolute_prime_start_difference",
+            "index"
+          ]
+        },
+        "strict_equal_magnitude_matching": {
+          "available": false,
+          "all_late_records_missing_exact_match": true,
+          "statement": "Strict equal-magnitude matching is unavailable on the tested late-record surface; every late record has zero same-gap same-phase same-scale non-record controls."
+        },
+        "per_record_control_pool_sizes": [
+          {
+            "gap_start": 155921,
+            "control_pool_size": 61
+          },
+          {
+            "gap_start": 360653,
+            "control_pool_size": 156
+          },
+          {
+            "gap_start": 370261,
+            "control_pool_size": 177
+          },
+          {
+            "gap_start": 492113,
+            "control_pool_size": 202
+          },
+          {
+            "gap_start": 1349533,
+            "control_pool_size": 508
+          },
+          {
+            "gap_start": 1357201,
+            "control_pool_size": 497
+          },
+          {
+            "gap_start": 2010733,
+            "control_pool_size": 780
+          },
+          {
+            "gap_start": 4652353,
+            "control_pool_size": 1630
+          },
+          {
+            "gap_start": 17051707,
+            "control_pool_size": 5230
+          }
+        ],
+        "k_values": [
+          1,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "primary_k": 32,
+        "record_pooled_profile": [
+          1.264782417836089,
+          0.9156675917201649,
+          0.8715862134947406,
+          1.1066921519076829,
+          1.4465957140915853,
+          0.9000666359587269,
+          1.0402883690477862,
+          1.021703488310409,
+          8.976368274574778,
+          0.8588546375204859,
+          0.6274200989219142,
+          1.004856842625606,
+          1.5932036196335362,
+          0.6105077992681014,
+          0.9073936789880563,
+          0.8060464055290346,
+          1.3498112036868837
+        ],
+        "record_pooled_profile_summary": {
+          "adjacent_mean": 0.9402790629154474,
+          "four_step_mean": 1.5198996668625608,
+          "four_step_to_adjacent_ratio": 1.6164346594615546,
+          "pre_five_mean": 1.103069271863238,
+          "post_five_mean": 0.9389685995939286
+        },
+        "matched_control_sweep": {
+          "1": {
+            "pooled_profile": [
+              0.9649103112878604,
+              0.99910957348894,
+              0.8734867285238551,
+              1.0115861395719699,
+              0.7047167483004525,
+              0.8496563590664208,
+              0.8744096716072398,
+              0.975448049320613,
+              5.641359332468159,
+              1.100385118531655,
+              0.8422565324921113,
+              1.034640941454309,
+              1.1782366552213999,
+              0.5348233692400589,
+              0.921665885782804,
+              1.080555513519339,
+              1.306656977060359
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 1.0379165839261342,
+              "four_step_mean": 0.9414767017609262,
+              "four_step_to_adjacent_ratio": 0.9070832052799425,
+              "pre_five_mean": 0.8831633935733392,
+              "post_five_mean": 0.9380685233879069
+            },
+            "delta_ratio": 0.7093514541816122,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.0534463200484874,
+            "positive_share": 0.5555555555555556,
+            "mean_control_count_used": 1.0
+          },
+          "4": {
+            "pooled_profile": [
+              0.966145385862689,
+              1.147700783509805,
+              0.8965108826012358,
+              1.0198755352732338,
+              0.7780562696510456,
+              0.7664997367764957,
+              0.9354922590962862,
+              1.0297746392400697,
+              4.725929493266926,
+              1.0998378418546504,
+              0.874530634382005,
+              0.9578029331445964,
+              0.9734810588519935,
+              0.8851777020067919,
+              0.738321344333609,
+              1.0238131405335706,
+              1.090822158727582
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 1.0648062405473602,
+              "four_step_mean": 0.8757686642515196,
+              "four_step_to_adjacent_ratio": 0.8224676292292704,
+              "pre_five_mean": 0.9059396880074262,
+              "post_five_mean": 0.9581660340480074
+            },
+            "delta_ratio": 0.7939670302322842,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.2586757303963012,
+            "positive_share": 0.7777777777777778,
+            "mean_control_count_used": 4.0
+          },
+          "8": {
+            "pooled_profile": [
+              0.9431904829584785,
+              1.0014135898827758,
+              1.0431305623779972,
+              1.0036107737111537,
+              0.7049192562549875,
+              0.8819989298741346,
+              0.8568052107031643,
+              1.0908327245491012,
+              4.260825733936112,
+              1.0937505053011478,
+              1.0253195496419238,
+              1.0370517934868517,
+              1.0036339066166131,
+              0.868100507789656,
+              0.8604728885437481,
+              0.973288211893132,
+              1.0639099661614244
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 1.0922916149251245,
+              "four_step_mean": 0.8542765814358003,
+              "four_step_to_adjacent_ratio": 0.7820957057281449,
+              "pre_five_mean": 0.9076333790185082,
+              "post_five_mean": 1.0055712525672384
+            },
+            "delta_ratio": 0.8343389537334097,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.416027205472825,
+            "positive_share": 0.8888888888888888,
+            "mean_control_count_used": 8.0
+          },
+          "16": {
+            "pooled_profile": [
+              1.0593653085352015,
+              0.994306073283008,
+              1.050429573239387,
+              0.9901647721366866,
+              0.893056729724493,
+              0.9265610849719168,
+              0.8467968992479864,
+              1.030546809725678,
+              3.704908562455251,
+              1.0069502372291153,
+              0.9831606935468421,
+              1.053274082890194,
+              1.0143034265791506,
+              1.0132613596822215,
+              0.9098385388386949,
+              0.9894940103604822,
+              0.9569041082084444
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 1.0187485234773965,
+              "four_step_mean": 0.9536800781518218,
+              "four_step_to_adjacent_ratio": 0.9361290408515439,
+              "pre_five_mean": 0.9374252591613521,
+              "post_five_mean": 1.0141899599855049
+            },
+            "delta_ratio": 0.6803056186100107,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.2256210082917092,
+            "positive_share": 0.7777777777777778,
+            "mean_control_count_used": 16.0
+          },
+          "32": {
+            "pooled_profile": [
+              1.0496227015994404,
+              1.0375790603109183,
+              1.0573376754398625,
+              0.9802800098304516,
+              0.954486889141714,
+              1.0108977832253982,
+              0.9540143924560256,
+              0.9703534854593168,
+              3.1262332802526287,
+              0.9540985929243208,
+              0.9579226146576111,
+              1.0304140312587657,
+              0.9870930413670158,
+              1.036984399749142,
+              0.9104142159890749,
+              1.0524898079838165,
+              0.9633175750459001
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 0.9622260391918187,
+              "four_step_mean": 0.9707899652543649,
+              "four_step_to_adjacent_ratio": 1.008900118801336,
+              "pre_five_mean": 0.9740065120225813,
+              "post_five_mean": 0.993302535991371
+            },
+            "delta_ratio": 0.6075345406602186,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.1541267584379697,
+            "positive_share": 0.7777777777777778,
+            "mean_control_count_used": 32.0
+          },
+          "64": {
+            "pooled_profile": [
+              1.0434228132008692,
+              0.9765868862505864,
+              1.0292184926099133,
+              0.9760405761821287,
+              0.9456052354967258,
+              1.0332249683074428,
+              0.9442944900249888,
+              0.9708388757392884,
+              2.5659623985939,
+              0.9617083193837644,
+              0.9542552366950238,
+              1.0368442371165452,
+              0.9974561991529632,
+              0.9718122815194962,
+              0.9744211205793625,
+              1.0208355470901733,
+              0.9741095390623968
+            ],
+            "pooled_profile_summary": {
+              "adjacent_mean": 0.9662735975615264,
+              "four_step_mean": 0.9715307173248445,
+              "four_step_to_adjacent_ratio": 1.0054406120342985,
+              "pre_five_mean": 0.9740008291501148,
+              "post_five_mean": 0.9844152547735586
+            },
+            "delta_ratio": 0.6109940474272562,
+            "effect_survives_control": true,
+            "mean_per_record_delta_ratio": 1.180746554436645,
+            "positive_share": 0.6666666666666666,
+            "mean_control_count_used": 63.666666666666664
+          }
+        },
+        "primary_verdict": {
+          "record_ratio": 1.6164346594615546,
+          "matched_control_ratio": 1.008900118801336,
+          "delta_ratio": 0.6075345406602186,
+          "effect_survives_control": true
+        },
+        "per_record_delta_table": [
+          {
+            "gap_start": 155921,
+            "gap_end": 156007,
+            "phase": 101,
+            "log_scale_bucket": 47,
+            "record_gap": 86,
+            "control_pool_size": 61,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 1.3617021276595744,
+              "four_step_mean": 1.7872340425531914,
+              "four_step_to_adjacent_ratio": 1.3125,
+              "pre_five_mean": 1.0212765957446808,
+              "post_five_mean": 0.9191489361702129
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 0.6568393299393751,
+            "primary_k_mean_gap_size_difference": 70.75,
+            "primary_k_delta_ratio": 0.6556606700606249
+          },
+          {
+            "gap_start": 360653,
+            "gap_end": 360749,
+            "phase": 83,
+            "log_scale_bucket": 51,
+            "record_gap": 96,
+            "control_pool_size": 156,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.8582375478927203,
+              "four_step_mean": 1.4303959131545338,
+              "four_step_to_adjacent_ratio": 1.6666666666666665,
+              "pre_five_mean": 0.9154533844189017,
+              "post_five_mean": 0.972669220945083
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 0.9280456571233734,
+            "primary_k_mean_gap_size_difference": 66.5625,
+            "primary_k_delta_ratio": 0.7386210095432931
+          },
+          {
+            "gap_start": 370261,
+            "gap_end": 370373,
+            "phase": 31,
+            "log_scale_bucket": 51,
+            "record_gap": 112,
+            "control_pool_size": 177,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.9619631901840491,
+              "four_step_mean": 0.48098159509202454,
+              "four_step_to_adjacent_ratio": 0.5,
+              "pre_five_mean": 0.7420858895705521,
+              "post_five_mean": 0.6871165644171779
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 1.2349719524357718,
+            "primary_k_mean_gap_size_difference": 81.125,
+            "primary_k_delta_ratio": -0.7349719524357718
+          },
+          {
+            "gap_start": 492113,
+            "gap_end": 492227,
+            "phase": 83,
+            "log_scale_bucket": 52,
+            "record_gap": 114,
+            "control_pool_size": 202,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 1.3112947658402203,
+              "four_step_mean": 1.3112947658402203,
+              "four_step_to_adjacent_ratio": 1.0,
+              "pre_five_mean": 0.8022038567493113,
+              "post_five_mean": 1.018181818181818
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 0.9427735835392513,
+            "primary_k_mean_gap_size_difference": 79.1875,
+            "primary_k_delta_ratio": 0.057226416460748664
+          },
+          {
+            "gap_start": 1349533,
+            "gap_end": 1349651,
+            "phase": 73,
+            "log_scale_bucket": 56,
+            "record_gap": 118,
+            "control_pool_size": 508,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.6991260923845193,
+              "four_step_mean": 1.8177278401997503,
+              "four_step_to_adjacent_ratio": 2.6,
+              "pre_five_mean": 1.7617977528089888,
+              "post_five_mean": 0.6991260923845193
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 0.9278101143064141,
+            "primary_k_mean_gap_size_difference": 67.75,
+            "primary_k_delta_ratio": 1.672189885693586
+          },
+          {
+            "gap_start": 1357201,
+            "gap_end": 1357333,
+            "phase": 181,
+            "log_scale_bucket": 56,
+            "record_gap": 132,
+            "control_pool_size": 497,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.4357976653696498,
+              "four_step_mean": 3.4863813229571985,
+              "four_step_to_adjacent_ratio": 8.0,
+              "pre_five_mean": 1.5979247730220494,
+              "post_five_mean": 1.3654993514915694
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 1.6871421713556543,
+            "primary_k_mean_gap_size_difference": 85.3125,
+            "primary_k_delta_ratio": 6.312857828644345
+          },
+          {
+            "gap_start": 2010733,
+            "gap_end": 2010881,
+            "phase": 193,
+            "log_scale_bucket": 58,
+            "record_gap": 148,
+            "control_pool_size": 780,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 0.4291187739463601,
+              "four_step_mean": 1.2873563218390804,
+              "four_step_to_adjacent_ratio": 3.0000000000000004,
+              "pre_five_mean": 0.8010217113665389,
+              "post_five_mean": 0.6865900383141762
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 1.0596171947935755,
+            "primary_k_mean_gap_size_difference": 97.0625,
+            "primary_k_delta_ratio": 1.940382805206425
+          },
+          {
+            "gap_start": 4652353,
+            "gap_end": 4652507,
+            "phase": 13,
+            "log_scale_bucket": 61,
+            "record_gap": 154,
+            "control_pool_size": 1630,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 1.3706293706293706,
+              "four_step_mean": 0.9137529137529137,
+              "four_step_to_adjacent_ratio": 0.6666666666666666,
+              "pre_five_mean": 1.0442890442890442,
+              "post_five_mean": 0.7832167832167831
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 1.1545531916464957,
+            "primary_k_mean_gap_size_difference": 93.625,
+            "primary_k_delta_ratio": -0.4878865249798291
+          },
+          {
+            "gap_start": 17051707,
+            "gap_end": 17051887,
+            "phase": 127,
+            "log_scale_bucket": 66,
+            "record_gap": 180,
+            "control_pool_size": 5230,
+            "exact_equal_gap_match_count": 0,
+            "record_profile_summary": {
+              "adjacent_mean": 1.0346420323325636,
+              "four_step_mean": 1.163972286374134,
+              "four_step_to_adjacent_ratio": 1.125,
+              "pre_five_mean": 1.241570438799076,
+              "post_five_mean": 1.3191685912240185
+            },
+            "primary_k_control_count_used": 32,
+            "primary_k_matched_control_ratio": 0.8919393122516949,
+            "primary_k_mean_gap_size_difference": 95.625,
+            "primary_k_delta_ratio": 0.23306068774830513
+          }
+        ]
       },
       "record_events": [
         {
