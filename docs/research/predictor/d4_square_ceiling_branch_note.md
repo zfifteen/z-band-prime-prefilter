@@ -1,5 +1,10 @@
 # Closing The `d=4` Square-Ceiling Branch
 
+Update:
+the previously open `r^2 - 4` obstruction is now closed by the residue split
+recorded in [docs/findings/d4_square_residue_dead_zone.md](../../findings/d4_square_residue_dead_zone.md).
+This note remains useful as the exact pre-closure surface report.
+
 The strongest new fact about the current `d=4` closure program is this:
 
 on the live earliest-`d=4` semiprime branch, the exact floor package sits at

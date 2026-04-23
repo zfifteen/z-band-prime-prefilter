@@ -1,0 +1,265 @@
+{
+  "sample_power_range": [
+    12,
+    18
+  ],
+  "min_stratum_count": 8,
+  "surface_groups": {
+    "baseline_1e6": {
+      "display_label": "exact <=1e6",
+      "transition_count": 58304,
+      "all_d4": {
+        "transition_count": 58304,
+        "tail_quintile": {
+          "tail_count": 11660,
+          "low_utilization_range": [
+            2.811278850749206e-05,
+            0.0007446016381236039
+          ],
+          "high_utilization_range": [
+            0.008255933952528379,
+            0.9574468085106383
+          ],
+          "low_next_triad_share": 0.5962264150943396,
+          "high_next_triad_share": 0.5574614065180102,
+          "low_next_d_le4_share": 0.7585763293310464,
+          "high_next_d_le4_share": 0.7292452830188679,
+          "low_next_family_distribution": {
+            "odd_semiprime": 0.5962264150943396,
+            "higher_divisor_even": 0.16963979416809605,
+            "even_semiprime": 0.16226415094339622,
+            "higher_divisor_odd": 0.07178387650085763,
+            "prime_cube": 8.576329331046312e-05
+          },
+          "high_next_family_distribution": {
+            "odd_semiprime": 0.5574614065180102,
+            "higher_divisor_even": 0.2023156089193825,
+            "even_semiprime": 0.16097770154373928,
+            "higher_divisor_odd": 0.06843910806174958,
+            "prime_square": 0.010634648370497428,
+            "prime_cube": 0.00017152658662092623
+          }
+        },
+        "matched_base_scheme": {
+          "stratum_keys": [
+            "current_carrier_family",
+            "current_peak_offset",
+            "current_first_open_offset"
+          ],
+          "matched_strata_count": 38,
+          "matched_total_weight_per_side": 29119,
+          "low_next_triad_share": 0.587588859507538,
+          "high_next_triad_share": 0.5673271746969333,
+          "lift": 0.02026168481060476,
+          "positive_lift_strata_count": 24,
+          "negative_lift_strata_count": 12,
+          "equal_lift_strata_count": 2
+        },
+        "matched_gap_width_confirmatory_scheme": {
+          "stratum_keys": [
+            "current_carrier_family",
+            "current_peak_offset",
+            "current_first_open_offset",
+            "current_gap_width"
+          ],
+          "matched_strata_count": 357,
+          "matched_total_weight_per_side": 28617,
+          "low_next_triad_share": 0.5866093580738722,
+          "high_next_triad_share": 0.5692071146521298,
+          "lift": 0.01740224342174232,
+          "positive_lift_strata_count": 176,
+          "negative_lift_strata_count": 130,
+          "equal_lift_strata_count": 51
+        }
+      },
+      "odd_semiprime_only": {
+        "transition_count": 45267,
+        "tail_quintile": {
+          "tail_count": 9053,
+          "low_utilization_range": [
+            5.600672080649678e-05,
+            0.000782472613458529
+          ],
+          "high_utilization_range": [
+            0.008368200836820083,
+            0.9523809523809523
+          ],
+          "low_next_triad_share": 0.5890864906660775,
+          "high_next_triad_share": 0.5570529106373577,
+          "low_next_d_le4_share": 0.7626201259251078,
+          "high_next_d_le4_share": 0.7299237821716558,
+          "low_next_family_distribution": {
+            "odd_semiprime": 0.5890864906660775,
+            "even_semiprime": 0.17353363525903015,
+            "higher_divisor_even": 0.166132773666188,
+            "higher_divisor_odd": 0.0712471004087043
+          },
+          "high_next_family_distribution": {
+            "odd_semiprime": 0.5570529106373577,
+            "higher_divisor_even": 0.20258477852645532,
+            "even_semiprime": 0.1621561913177952,
+            "higher_divisor_odd": 0.06749143930188888,
+            "prime_square": 0.01049375897492544,
+            "prime_cube": 0.00022092124157737766
+          }
+        },
+        "matched_base_scheme": {
+          "stratum_keys": [
+            "current_peak_offset",
+            "current_first_open_offset"
+          ],
+          "matched_strata_count": 23,
+          "matched_total_weight_per_side": 22617,
+          "low_next_triad_share": 0.5822611310076491,
+          "high_next_triad_share": 0.56382367245877,
+          "lift": 0.01843745854887916,
+          "positive_lift_strata_count": 13,
+          "negative_lift_strata_count": 9,
+          "equal_lift_strata_count": 1
+        },
+        "matched_gap_width_confirmatory_scheme": {
+          "stratum_keys": [
+            "current_peak_offset",
+            "current_first_open_offset",
+            "current_gap_width"
+          ],
+          "matched_strata_count": 230,
+          "matched_total_weight_per_side": 22282,
+          "low_next_triad_share": 0.5799748676061395,
+          "high_next_triad_share": 0.5663315680818598,
+          "lift": 0.013643299524279688,
+          "positive_lift_strata_count": 113,
+          "negative_lift_strata_count": 85,
+          "equal_lift_strata_count": 32
+        }
+      }
+    },
+    "sampled_windows_1e12_1e18": {
+      "display_label": "sampled windows 10^12..10^18",
+      "transition_count": 1426,
+      "all_d4": {
+        "transition_count": 1426,
+        "tail_quintile": {
+          "tail_count": 285,
+          "low_utilization_range": [
+            1.4285714242857143e-10,
+            9.285759288483408e-09
+          ],
+          "high_utilization_range": [
+            1.2437324030372893e-06,
+            1.935637387036369e-05
+          ],
+          "low_next_triad_share": 0.7192982456140351,
+          "high_next_triad_share": 0.6526315789473685,
+          "low_next_d_le4_share": 0.8175438596491228,
+          "high_next_d_le4_share": 0.7614035087719299,
+          "low_next_family_distribution": {
+            "odd_semiprime": 0.7192982456140351,
+            "higher_divisor_odd": 0.11228070175438597,
+            "even_semiprime": 0.09824561403508772,
+            "higher_divisor_even": 0.07017543859649122
+          },
+          "high_next_family_distribution": {
+            "odd_semiprime": 0.6526315789473685,
+            "higher_divisor_even": 0.15087719298245614,
+            "even_semiprime": 0.10877192982456141,
+            "higher_divisor_odd": 0.08771929824561403
+          }
+        },
+        "matched_base_scheme": {
+          "stratum_keys": [
+            "current_carrier_family",
+            "current_peak_offset",
+            "current_first_open_offset"
+          ],
+          "matched_strata_count": 34,
+          "matched_total_weight_per_side": 652,
+          "low_next_triad_share": 0.6993865030674846,
+          "high_next_triad_share": 0.6595092024539877,
+          "lift": 0.03987730061349693,
+          "positive_lift_strata_count": 15,
+          "negative_lift_strata_count": 11,
+          "equal_lift_strata_count": 8
+        },
+        "matched_gap_width_confirmatory_scheme": {
+          "stratum_keys": [
+            "current_carrier_family",
+            "current_peak_offset",
+            "current_first_open_offset",
+            "current_gap_width"
+          ],
+          "matched_strata_count": 25,
+          "matched_total_weight_per_side": 134,
+          "low_next_triad_share": 0.7164179104477612,
+          "high_next_triad_share": 0.6567164179104478,
+          "lift": 0.05970149253731343,
+          "positive_lift_strata_count": 10,
+          "negative_lift_strata_count": 9,
+          "equal_lift_strata_count": 6
+        }
+      },
+      "odd_semiprime_only": {
+        "transition_count": 1214,
+        "tail_quintile": {
+          "tail_count": 242,
+          "low_utilization_range": [
+            1.4285714242857143e-10,
+            7.571431655164522e-09
+          ],
+          "high_utilization_range": [
+            1.2436433538810852e-06,
+            1.935637387036369e-05
+          ],
+          "low_next_triad_share": 0.7148760330578512,
+          "high_next_triad_share": 0.6528925619834711,
+          "low_next_d_le4_share": 0.8223140495867769,
+          "high_next_d_le4_share": 0.7768595041322314,
+          "low_next_family_distribution": {
+            "odd_semiprime": 0.7148760330578512,
+            "higher_divisor_odd": 0.1115702479338843,
+            "even_semiprime": 0.10743801652892562,
+            "higher_divisor_even": 0.06611570247933884
+          },
+          "high_next_family_distribution": {
+            "odd_semiprime": 0.6528925619834711,
+            "higher_divisor_even": 0.13636363636363635,
+            "even_semiprime": 0.12396694214876033,
+            "higher_divisor_odd": 0.08677685950413223
+          }
+        },
+        "matched_base_scheme": {
+          "stratum_keys": [
+            "current_peak_offset",
+            "current_first_open_offset"
+          ],
+          "matched_strata_count": 25,
+          "matched_total_weight_per_side": 572,
+          "low_next_triad_share": 0.6975524475524476,
+          "high_next_triad_share": 0.6520979020979021,
+          "lift": 0.045454545454545456,
+          "positive_lift_strata_count": 13,
+          "negative_lift_strata_count": 9,
+          "equal_lift_strata_count": 3
+        },
+        "matched_gap_width_confirmatory_scheme": {
+          "stratum_keys": [
+            "current_peak_offset",
+            "current_first_open_offset",
+            "current_gap_width"
+          ],
+          "matched_strata_count": 25,
+          "matched_total_weight_per_side": 134,
+          "low_next_triad_share": 0.7164179104477612,
+          "high_next_triad_share": 0.6567164179104478,
+          "lift": 0.05970149253731343,
+          "positive_lift_strata_count": 10,
+          "negative_lift_strata_count": 9,
+          "equal_lift_strata_count": 6
+        }
+      }
+    }
+  },
+  "detail_csv": "/Users/velocityworks/IdeaProjects/prime-gap-structure/output/gwr_dni_gap_type_catalog_details.csv",
+  "transition_count": 60717,
+  "runtime_seconds": 0.9871442317962646
+}
