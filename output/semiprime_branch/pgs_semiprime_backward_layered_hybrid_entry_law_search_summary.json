@@ -1,0 +1,37 @@
+{
+  "max_n": 5000,
+  "case_count": 980,
+  "max_steps": 24,
+  "law_summaries": {
+    "baseline_hybrid_exact_shape_entry_switch": {
+      "lane_success_count": 88,
+      "lane_success_recall": 0.08979591836734693,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 734
+      }
+    },
+    "layered_hybrid_exact_shape_entry_switch": {
+      "lane_success_count": 89,
+      "lane_success_recall": 0.09081632653061225,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 733
+      }
+    }
+  },
+  "best_law": "layered_hybrid_exact_shape_entry_switch",
+  "best_lane_success_count": 89,
+  "best_factor_reach_count": 0,
+  "baseline_best_lane_success_count": 88,
+  "improvement_over_baseline": 1,
+  "searched_family_falsified": false
+}
