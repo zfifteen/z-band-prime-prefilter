@@ -1,0 +1,74 @@
+{
+  "max_n": 5000,
+  "case_count": 980,
+  "max_steps": 24,
+  "law_summaries": {
+    "prime_left_boundary_control": {
+      "lane_success_count": 0,
+      "lane_success_recall": 0.0,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": null,
+      "median_steps_on_lane_success": null,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 980
+      }
+    },
+    "odd_prev_winner_large_offset": {
+      "lane_success_count": 31,
+      "lane_success_recall": 0.03163265306122449,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 39
+      }
+    },
+    "odd_prev_d4_large_offset": {
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    },
+    "odd_prev_dmin_large_offset": {
+      "lane_success_count": 31,
+      "lane_success_recall": 0.03163265306122449,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 39
+      }
+    },
+    "odd_prev_small_gap_d4_large_offset": {
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    }
+  },
+  "best_law": "odd_prev_d4_large_offset",
+  "best_lane_success_count": 32,
+  "best_factor_reach_count": 0,
+  "searched_family_falsified": false
+}
