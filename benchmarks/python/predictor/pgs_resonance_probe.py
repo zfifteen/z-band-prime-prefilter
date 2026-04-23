@@ -26,6 +26,9 @@ DEFAULT_RING_OUTER = 64
 DEFAULT_LATE_CUTOFF = 100_000
 DEFAULT_PHASE_MODULUS = 210
 DEFAULT_COMPARISON_FLOOR = 5_000_000
+LOG_SCALE_BUCKET_WIDTH = 0.25
+MATCHED_CONTROL_K_VALUES = (1, 4, 8, 16, 32, 64)
+PRIMARY_MATCHED_CONTROL_K = 32
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -102,6 +105,11 @@ def comparison_scales(max_n: int, comparison_floor: int) -> list[int]:
     return sorted({comparison_floor, max_n})
 
 
+def log_scale_bucket(value: int) -> int:
+    """Return the deterministic log-scale bucket for one prime start."""
+    return int(math.log(value) / LOG_SCALE_BUCKET_WIDTH)
+
+
 def ring_baseline(
     gaps: list[int],
     index: int,
@@ -130,6 +138,20 @@ def normalized_profile(
 def mean_profile(rows: list[list[float]]) -> list[float]:
     """Return the columnwise mean of aligned profile rows."""
     return [sum(column) / len(column) for column in zip(*rows)]
+
+
+def cached_profile(
+    profile_cache: dict[int, list[float]],
+    gaps: list[int],
+    index: int,
+    window_radius: int,
+    ring_inner: int,
+    ring_outer: int,
+) -> list[float]:
+    """Return one cached normalized profile."""
+    if index not in profile_cache:
+        profile_cache[index] = normalized_profile(gaps, index, window_radius, ring_inner, ring_outer)
+    return profile_cache[index]
 
 
 def phase_profile_rows(
@@ -231,6 +253,249 @@ def event_rows(
     return rows
 
 
+def build_matched_control_analysis(
+    primes: list[int],
+    gaps: list[int],
+    record_indices_all: list[int],
+    late_record_indices: list[int],
+    window_radius: int,
+    ring_inner: int,
+    ring_outer: int,
+    late_cutoff: int,
+    phase_modulus: int,
+) -> dict[str, object]:
+    """Return the late-record matched-control analysis."""
+    if not late_record_indices:
+        raise ValueError(
+            f"no late record gaps found at or above late_cutoff={late_cutoff}"
+        )
+
+    record_index_set = set(record_indices_all)
+    late_control_indices = [
+        index
+        for index in range(ring_outer, len(gaps) - ring_outer)
+        if index not in record_index_set and primes[index] >= late_cutoff
+    ]
+    if not late_control_indices:
+        raise ValueError(
+            f"no non-record control gaps found at or above late_cutoff={late_cutoff}"
+        )
+
+    control_buckets: dict[tuple[int, int], list[int]] = {}
+    for index in late_control_indices:
+        key = (primes[index] % phase_modulus, log_scale_bucket(primes[index]))
+        control_buckets.setdefault(key, []).append(index)
+
+    profile_cache: dict[int, list[float]] = {}
+    record_profiles: list[list[float]] = []
+    control_profiles_by_k = {
+        str(k): []
+        for k in MATCHED_CONTROL_K_VALUES
+    }
+    deltas_by_k = {
+        str(k): []
+        for k in MATCHED_CONTROL_K_VALUES
+    }
+    control_count_used_by_k = {
+        str(k): []
+        for k in MATCHED_CONTROL_K_VALUES
+    }
+    per_record_delta_table: list[dict[str, object]] = []
+    exact_equal_gap_match_counts: list[int] = []
+
+    for index in late_record_indices:
+        gap_start = primes[index]
+        phase = gap_start % phase_modulus
+        bucket = log_scale_bucket(gap_start)
+        key = (phase, bucket)
+        control_pool = control_buckets.get(key, [])
+        if not control_pool:
+            raise ValueError(
+                "late record gap at "
+                f"q={gap_start} has empty same-phase same-scale non-record control pool"
+            )
+
+        ranked_controls = sorted(
+            control_pool,
+            key=lambda candidate: (
+                abs(gaps[candidate] - gaps[index]),
+                abs(primes[candidate] - gap_start),
+                candidate,
+            ),
+        )
+        exact_equal_gap_match_count = sum(
+            1 for candidate in control_pool if gaps[candidate] == gaps[index]
+        )
+        exact_equal_gap_match_counts.append(exact_equal_gap_match_count)
+
+        record_profile = cached_profile(
+            profile_cache,
+            gaps,
+            index,
+            window_radius,
+            ring_inner,
+            ring_outer,
+        )
+        record_profiles.append(record_profile)
+        record_profile_stats = profile_summary(record_profile, window_radius)
+
+        matched_control_by_k: dict[str, dict[str, object]] = {}
+        for k in MATCHED_CONTROL_K_VALUES:
+            chosen_controls = ranked_controls[:min(k, len(ranked_controls))]
+            chosen_profiles = [
+                cached_profile(
+                    profile_cache,
+                    gaps,
+                    candidate,
+                    window_radius,
+                    ring_inner,
+                    ring_outer,
+                )
+                for candidate in chosen_controls
+            ]
+            matched_control_profile = mean_profile(chosen_profiles)
+            matched_control_profile_stats = profile_summary(
+                matched_control_profile,
+                window_radius,
+            )
+            delta_ratio = (
+                record_profile_stats["four_step_to_adjacent_ratio"]
+                - matched_control_profile_stats["four_step_to_adjacent_ratio"]
+            )
+            key_k = str(k)
+            control_profiles_by_k[key_k].append(matched_control_profile)
+            deltas_by_k[key_k].append(delta_ratio)
+            control_count_used_by_k[key_k].append(len(chosen_controls))
+            matched_control_by_k[key_k] = {
+                "control_count_used": len(chosen_controls),
+                "matched_control_profile": matched_control_profile,
+                "matched_control_profile_summary": matched_control_profile_stats,
+                "mean_control_gap_size": sum(gaps[candidate] for candidate in chosen_controls)
+                / len(chosen_controls),
+                "mean_gap_size_difference": (
+                    sum(abs(gaps[candidate] - gaps[index]) for candidate in chosen_controls)
+                    / len(chosen_controls)
+                ),
+                "delta_ratio": delta_ratio,
+            }
+
+        primary_key = str(PRIMARY_MATCHED_CONTROL_K)
+        per_record_delta_table.append(
+            {
+                "gap_start": gap_start,
+                "gap_end": primes[index + 1],
+                "phase": phase,
+                "log_scale_bucket": bucket,
+                "record_gap": gaps[index],
+                "control_pool_size": len(control_pool),
+                "exact_equal_gap_match_count": exact_equal_gap_match_count,
+                "record_profile_summary": record_profile_stats,
+                "primary_k_control_count_used": matched_control_by_k[primary_key]["control_count_used"],
+                "primary_k_matched_control_ratio": (
+                    matched_control_by_k[primary_key]["matched_control_profile_summary"][
+                        "four_step_to_adjacent_ratio"
+                    ]
+                ),
+                "primary_k_mean_gap_size_difference": (
+                    matched_control_by_k[primary_key]["mean_gap_size_difference"]
+                ),
+                "primary_k_delta_ratio": matched_control_by_k[primary_key]["delta_ratio"],
+            }
+        )
+
+    record_pooled_profile = mean_profile(record_profiles)
+    record_pooled_profile_summary = profile_summary(record_pooled_profile, window_radius)
+
+    matched_control_sweep: dict[str, dict[str, object]] = {}
+    for k in MATCHED_CONTROL_K_VALUES:
+        key = str(k)
+        pooled_profile = mean_profile(control_profiles_by_k[key])
+        pooled_profile_summary = profile_summary(pooled_profile, window_radius)
+        matched_control_sweep[key] = {
+            "pooled_profile": pooled_profile,
+            "pooled_profile_summary": pooled_profile_summary,
+            "delta_ratio": (
+                record_pooled_profile_summary["four_step_to_adjacent_ratio"]
+                - pooled_profile_summary["four_step_to_adjacent_ratio"]
+            ),
+            "effect_survives_control": (
+                record_pooled_profile_summary["four_step_to_adjacent_ratio"]
+                > pooled_profile_summary["four_step_to_adjacent_ratio"]
+            ),
+            "mean_per_record_delta_ratio": sum(deltas_by_k[key]) / len(deltas_by_k[key]),
+            "positive_share": (
+                sum(delta > 0.0 for delta in deltas_by_k[key]) / len(deltas_by_k[key])
+            ),
+            "mean_control_count_used": (
+                sum(control_count_used_by_k[key]) / len(control_count_used_by_k[key])
+            ),
+        }
+
+    primary_key = str(PRIMARY_MATCHED_CONTROL_K)
+    primary_record_ratio = record_pooled_profile_summary["four_step_to_adjacent_ratio"]
+    primary_control_ratio = matched_control_sweep[primary_key]["pooled_profile_summary"][
+        "four_step_to_adjacent_ratio"
+    ]
+    exact_equal_unavailable = any(count == 0 for count in exact_equal_gap_match_counts)
+    all_exact_equal_missing = all(count == 0 for count in exact_equal_gap_match_counts)
+    if all_exact_equal_missing:
+        strict_statement = (
+            "Strict equal-magnitude matching is unavailable on the tested late-record "
+            "surface; every late record has zero same-gap same-phase same-scale "
+            "non-record controls."
+        )
+    elif exact_equal_unavailable:
+        strict_statement = (
+            "Strict equal-magnitude matching is unavailable on the tested late-record "
+            "surface because at least one late record has zero same-gap same-phase "
+            "same-scale non-record controls."
+        )
+    else:
+        strict_statement = (
+            "Strict equal-magnitude matching is available on the tested late-record surface."
+        )
+
+    return {
+        "scope": "late_record_regime_only",
+        "late_cutoff": late_cutoff,
+        "late_record_count": len(late_record_indices),
+        "matching_rule": {
+            "candidate_controls": "non_record_gaps_only",
+            "phase_condition": f"q mod {phase_modulus}",
+            "scale_condition": f"int(log(q) / {LOG_SCALE_BUCKET_WIDTH})",
+            "ranking": [
+                "absolute_gap_size_difference",
+                "absolute_prime_start_difference",
+                "index",
+            ],
+        },
+        "strict_equal_magnitude_matching": {
+            "available": not exact_equal_unavailable,
+            "all_late_records_missing_exact_match": all_exact_equal_missing,
+            "statement": strict_statement,
+        },
+        "per_record_control_pool_sizes": [
+            {
+                "gap_start": row["gap_start"],
+                "control_pool_size": row["control_pool_size"],
+            }
+            for row in per_record_delta_table
+        ],
+        "k_values": list(MATCHED_CONTROL_K_VALUES),
+        "primary_k": PRIMARY_MATCHED_CONTROL_K,
+        "record_pooled_profile": record_pooled_profile,
+        "record_pooled_profile_summary": record_pooled_profile_summary,
+        "matched_control_sweep": matched_control_sweep,
+        "primary_verdict": {
+            "record_ratio": primary_record_ratio,
+            "matched_control_ratio": primary_control_ratio,
+            "delta_ratio": primary_record_ratio - primary_control_ratio,
+            "effect_survives_control": primary_record_ratio > primary_control_ratio,
+        },
+        "per_record_delta_table": per_record_delta_table,
+    }
+
+
 def analyze_scale(
     primes_full: list[int],
     scale_max_n: int,
@@ -241,6 +506,11 @@ def analyze_scale(
     phase_modulus: int,
 ) -> dict[str, object]:
     """Return one full phase-conditioned resonance summary."""
+    if scale_max_n <= late_cutoff:
+        raise ValueError(
+            f"scale_max_n={scale_max_n} must exceed late_cutoff={late_cutoff}"
+        )
+
     prime_count = bisect_right(primes_full, scale_max_n)
     primes = primes_full[:prime_count]
     gaps = [right - left for left, right in zip(primes, primes[1:])]
@@ -273,6 +543,17 @@ def analyze_scale(
         normalized_profile(gaps, index, window_radius, ring_inner, ring_outer)
         for index in late_record_indices
     ]
+    matched_control_analysis = build_matched_control_analysis(
+        primes,
+        gaps,
+        record_indices_all,
+        late_record_indices,
+        window_radius,
+        ring_inner,
+        ring_outer,
+        late_cutoff,
+        phase_modulus,
+    )
 
     phase_rows = phase_profile_rows(
         primes,
@@ -328,6 +609,7 @@ def analyze_scale(
             for phase, profile in sorted(phase_profiles.items())
         },
         "phase_summary": phase_summaries(phase_profiles, phase_counts, window_radius),
+        "matched_control_analysis": matched_control_analysis,
         "record_events": event_rows(
             primes,
             gaps,
@@ -423,7 +705,7 @@ def plot_phase_offset_heatmap(
         [f"{phase} (n={scale_summary['phase_counts'][str(phase)]})" for phase in phases]
     )
     axis.set_xlabel("Gap offset k")
-    axis.set_ylabel("Entry phase q mod 210")
+    axis.set_ylabel(f"Entry phase q mod {scale_summary['phase_modulus']}")
     axis.set_title("Signed anomaly kernel R(k, phi) on the primary exact surface")
     figure.colorbar(image, ax=axis, label="Normalized gap anomaly")
     figure.tight_layout()
@@ -463,7 +745,7 @@ def plot_phase_harmonic_heatmap(
         [f"{phase} (n={scale_summary['phase_counts'][str(phase)]})" for phase in phases]
     )
     axis.set_xlabel("Symmetric harmonic index k")
-    axis.set_ylabel("Entry phase q mod 210")
+    axis.set_ylabel(f"Entry phase q mod {scale_summary['phase_modulus']}")
     axis.set_title("Phase-conditioned harmonic amplitudes A(k, phi)")
     figure.colorbar(image, ax=axis, label="Symmetric anomaly amplitude")
     figure.tight_layout()
@@ -510,7 +792,9 @@ def plot_cross_scale_dominant_harmonic(
     axis.set_yticks(range(len(phase_union)))
     axis.set_yticklabels([str(phase) for phase in phase_union])
     axis.set_xlabel("Exact surface upper bound")
-    axis.set_ylabel("Entry phase q mod 210")
+    axis.set_ylabel(
+        f"Entry phase q mod {next(iter(scale_summaries.values()))['phase_modulus']}"
+    )
     axis.set_title("Dominant harmonic index by phase across exact scales")
     figure.colorbar(image, ax=axis, label="Dominant k")
 
@@ -532,9 +816,60 @@ def plot_cross_scale_dominant_harmonic(
     figure.savefig(output_path, dpi=170)
 
 
+def plot_matched_control_profiles(
+    control_profile: list[float],
+    late_record_profile: list[float],
+    matched_control_profile: list[float],
+    output_path: Path,
+    max_n: int,
+    primary_k: int,
+) -> None:
+    """Render the pooled late-record versus matched-control profile comparison."""
+    window_radius = (len(control_profile) - 1) // 2
+    offsets = list(range(-window_radius, window_radius + 1))
+    figure, axis = plt.subplots(figsize=(10.5, 6.0))
+    axis.plot(
+        offsets,
+        control_profile,
+        color="#1d4ed8",
+        linewidth=1.8,
+        alpha=0.85,
+        label="All non-record windows",
+    )
+    axis.plot(
+        offsets,
+        late_record_profile,
+        color="#047857",
+        linewidth=2.4,
+        marker="o",
+        label="Late record gaps",
+    )
+    axis.plot(
+        offsets,
+        matched_control_profile,
+        color="#7c3aed",
+        linewidth=2.2,
+        marker="o",
+        label=f"Matched controls (K={primary_k})",
+    )
+    axis.axhline(1.0, color="#334155", linewidth=1.0, linestyle="--")
+    axis.axvline(0, color="#7c2d12", linewidth=1.0, linestyle=":")
+    axis.set_xlabel("Gap offset relative to the focal gap")
+    axis.set_ylabel("Gap size / surrounding-ring baseline")
+    axis.set_title(f"Late record gaps versus matched controls to {max_n:,}")
+    axis.grid(alpha=0.18)
+    axis.legend(frameon=False)
+    figure.tight_layout()
+    figure.savefig(output_path, dpi=170)
+
+
 def main(argv: list[str] | None = None) -> int:
     """Run the probe and write the artifact set."""
     args = build_parser().parse_args(argv)
+    if args.max_n <= args.late_cutoff:
+        raise ValueError(
+            f"max_n={args.max_n} must exceed late_cutoff={args.late_cutoff}"
+        )
     if args.window_radius < 5:
         raise ValueError("window_radius must be at least 5")
     if args.ring_inner <= args.window_radius:
@@ -570,6 +905,7 @@ def main(argv: list[str] | None = None) -> int:
         "ring_outer": args.ring_outer,
         "late_cutoff": args.late_cutoff,
         "phase_modulus": args.phase_modulus,
+        "matched_control_analysis": primary_summary["matched_control_analysis"],
         "scale_summaries": scale_summaries,
     }
 
@@ -578,6 +914,7 @@ def main(argv: list[str] | None = None) -> int:
     phase_offset_path = args.output_dir / "pgs_resonance_phase_offset_heatmap.png"
     phase_harmonic_path = args.output_dir / "pgs_resonance_phase_harmonic_heatmap.png"
     cross_scale_path = args.output_dir / "pgs_resonance_cross_scale_dominant_harmonic.png"
+    matched_control_profile_path = args.output_dir / "pgs_resonance_matched_control_profile.png"
 
     summary_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     plot_profiles(
@@ -590,6 +927,16 @@ def main(argv: list[str] | None = None) -> int:
     plot_phase_offset_heatmap(primary_summary, args.window_radius, phase_offset_path)
     plot_phase_harmonic_heatmap(primary_summary, args.window_radius, phase_harmonic_path)
     plot_cross_scale_dominant_harmonic(scales, scale_summaries, cross_scale_path)
+    plot_matched_control_profiles(
+        primary_summary["profiles"]["control"],
+        primary_summary["profiles"]["late_records"],
+        primary_summary["matched_control_analysis"]["matched_control_sweep"][
+            str(PRIMARY_MATCHED_CONTROL_K)
+        ]["pooled_profile"],
+        matched_control_profile_path,
+        args.max_n,
+        PRIMARY_MATCHED_CONTROL_K,
+    )
     return 0
 
 
