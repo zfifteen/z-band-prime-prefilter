@@ -1,0 +1,892 @@
+{
+  "max_n": 5000,
+  "case_count": 980,
+  "max_steps": 24,
+  "memory_fields": [
+    "prev_role_1",
+    "prev_role_2",
+    "prev_offset_class_1",
+    "prev_offset_class_2",
+    "prev_gap_width_1",
+    "prev_gap_width_2",
+    "prev_gap_change_1",
+    "prev_repeated_same_role",
+    "prev_role_flip"
+  ],
+  "entry_laws": {
+    "winner_large_offset": [
+      "winner",
+      "role_prev",
+      "large_offset",
+      "small_n"
+    ],
+    "small_gap_d4_large_offset": [
+      "role_prev",
+      "small_gap",
+      "d4",
+      "large_offset",
+      "small_n"
+    ]
+  },
+  "continuation_laws": {
+    "repeat_role_repeat_offset": [
+      "same_role",
+      "same_offset_class",
+      "winner",
+      "large_offset",
+      "small_n"
+    ],
+    "same_gap_change_repeat_offset": [
+      "same_gap_change",
+      "same_offset_class",
+      "winner",
+      "large_offset",
+      "small_n"
+    ],
+    "repeat_role_gap_change": [
+      "same_role",
+      "same_gap_change",
+      "d4",
+      "large_offset",
+      "small_n"
+    ],
+    "match_two_role_chain": [
+      "repeat_previous_role_pattern",
+      "d4",
+      "large_offset",
+      "small_n"
+    ],
+    "flip_after_repeat": [
+      "flip_after_repeat",
+      "d4",
+      "large_offset",
+      "small_n"
+    ]
+  },
+  "closure_laws": {
+    "same_role_p_left": [
+      "same_role",
+      "p_left_first",
+      "small_n"
+    ],
+    "after_repeated_same_role_p_left": [
+      "after_repeated_same_role",
+      "p_left_first",
+      "small_n"
+    ],
+    "after_role_flip_p_left": [
+      "after_role_flip",
+      "p_left_first",
+      "small_n"
+    ],
+    "after_repeated_same_offset_p_left": [
+      "after_repeated_same_offset",
+      "p_left_first",
+      "small_n"
+    ],
+    "after_narrowing_p_prev": [
+      "after_narrowing",
+      "p_prev_first",
+      "small_n"
+    ]
+  },
+  "law_count": 50,
+  "law_summaries": {
+    "winner_large_offset__repeat_role_repeat_offset__same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 63,
+      "lane_success_recall": 0.06428571428571428,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759
+      }
+    },
+    "winner_large_offset__repeat_role_repeat_offset__after_repeated_same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 29,
+      "lane_success_recall": 0.02959183673469388,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 34
+      }
+    },
+    "winner_large_offset__repeat_role_repeat_offset__after_role_flip_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 28,
+      "lane_success_recall": 0.02857142857142857,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 35
+      }
+    },
+    "winner_large_offset__repeat_role_repeat_offset__after_repeated_same_offset_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 29,
+      "lane_success_recall": 0.02959183673469388,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 34
+      }
+    },
+    "winner_large_offset__repeat_role_repeat_offset__after_narrowing_p_prev": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 29,
+      "lane_success_recall": 0.02959183673469388,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 34
+      }
+    },
+    "winner_large_offset__same_gap_change_repeat_offset__same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 63,
+      "lane_success_recall": 0.06428571428571428,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759
+      }
+    },
+    "winner_large_offset__same_gap_change_repeat_offset__after_repeated_same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 29,
+      "lane_success_recall": 0.02959183673469388,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 34
+      }
+    },
+    "winner_large_offset__same_gap_change_repeat_offset__after_role_flip_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 28,
+      "lane_success_recall": 0.02857142857142857,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 35
+      }
+    },
+    "winner_large_offset__same_gap_change_repeat_offset__after_repeated_same_offset_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 29,
+      "lane_success_recall": 0.02959183673469388,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 34
+      }
+    },
+    "winner_large_offset__same_gap_change_repeat_offset__after_narrowing_p_prev": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 29,
+      "lane_success_recall": 0.02959183673469388,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 34
+      }
+    },
+    "winner_large_offset__repeat_role_gap_change__same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 63,
+      "lane_success_recall": 0.06428571428571428,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759
+      }
+    },
+    "winner_large_offset__repeat_role_gap_change__after_repeated_same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 31,
+      "lane_success_recall": 0.03163265306122449,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 32
+      }
+    },
+    "winner_large_offset__repeat_role_gap_change__after_role_flip_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 28,
+      "lane_success_recall": 0.02857142857142857,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 35
+      }
+    },
+    "winner_large_offset__repeat_role_gap_change__after_repeated_same_offset_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 28,
+      "lane_success_recall": 0.02857142857142857,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 35
+      }
+    },
+    "winner_large_offset__repeat_role_gap_change__after_narrowing_p_prev": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 30,
+      "lane_success_recall": 0.030612244897959183,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 33
+      }
+    },
+    "winner_large_offset__match_two_role_chain__same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 63,
+      "lane_success_recall": 0.06428571428571428,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759
+      }
+    },
+    "winner_large_offset__match_two_role_chain__after_repeated_same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 31,
+      "lane_success_recall": 0.03163265306122449,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 32
+      }
+    },
+    "winner_large_offset__match_two_role_chain__after_role_flip_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 28,
+      "lane_success_recall": 0.02857142857142857,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 35
+      }
+    },
+    "winner_large_offset__match_two_role_chain__after_repeated_same_offset_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 28,
+      "lane_success_recall": 0.02857142857142857,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 35
+      }
+    },
+    "winner_large_offset__match_two_role_chain__after_narrowing_p_prev": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 30,
+      "lane_success_recall": 0.030612244897959183,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 33
+      }
+    },
+    "winner_large_offset__flip_after_repeat__same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 63,
+      "lane_success_recall": 0.06428571428571428,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759
+      }
+    },
+    "winner_large_offset__flip_after_repeat__after_repeated_same_role_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 31,
+      "lane_success_recall": 0.03163265306122449,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 32
+      }
+    },
+    "winner_large_offset__flip_after_repeat__after_role_flip_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 28,
+      "lane_success_recall": 0.02857142857142857,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 35
+      }
+    },
+    "winner_large_offset__flip_after_repeat__after_repeated_same_offset_p_left": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 28,
+      "lane_success_recall": 0.02857142857142857,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 35
+      }
+    },
+    "winner_large_offset__flip_after_repeat__after_narrowing_p_prev": {
+      "entry_law": "winner_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 30,
+      "lane_success_recall": 0.030612244897959183,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 759,
+        "lane_broken": 33
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_repeat_offset__same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 70,
+      "lane_success_recall": 0.07142857142857142,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_repeat_offset__after_repeated_same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 33,
+      "lane_success_recall": 0.0336734693877551,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 37
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_repeat_offset__after_role_flip_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_repeat_offset__after_repeated_same_offset_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 33,
+      "lane_success_recall": 0.0336734693877551,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 37
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_repeat_offset__after_narrowing_p_prev": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_repeat_offset",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 33,
+      "lane_success_recall": 0.0336734693877551,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 37
+      }
+    },
+    "small_gap_d4_large_offset__same_gap_change_repeat_offset__same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 70,
+      "lane_success_recall": 0.07142857142857142,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752
+      }
+    },
+    "small_gap_d4_large_offset__same_gap_change_repeat_offset__after_repeated_same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 33,
+      "lane_success_recall": 0.0336734693877551,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 37
+      }
+    },
+    "small_gap_d4_large_offset__same_gap_change_repeat_offset__after_role_flip_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    },
+    "small_gap_d4_large_offset__same_gap_change_repeat_offset__after_repeated_same_offset_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 33,
+      "lane_success_recall": 0.0336734693877551,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 37
+      }
+    },
+    "small_gap_d4_large_offset__same_gap_change_repeat_offset__after_narrowing_p_prev": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "same_gap_change_repeat_offset",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 33,
+      "lane_success_recall": 0.0336734693877551,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 37
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_gap_change__same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 70,
+      "lane_success_recall": 0.07142857142857142,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_gap_change__after_repeated_same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 35,
+      "lane_success_recall": 0.03571428571428571,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 35
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_gap_change__after_role_flip_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_gap_change__after_repeated_same_offset_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    },
+    "small_gap_d4_large_offset__repeat_role_gap_change__after_narrowing_p_prev": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "repeat_role_gap_change",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 34,
+      "lane_success_recall": 0.03469387755102041,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 36
+      }
+    },
+    "small_gap_d4_large_offset__match_two_role_chain__same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 70,
+      "lane_success_recall": 0.07142857142857142,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752
+      }
+    },
+    "small_gap_d4_large_offset__match_two_role_chain__after_repeated_same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 35,
+      "lane_success_recall": 0.03571428571428571,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 35
+      }
+    },
+    "small_gap_d4_large_offset__match_two_role_chain__after_role_flip_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    },
+    "small_gap_d4_large_offset__match_two_role_chain__after_repeated_same_offset_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    },
+    "small_gap_d4_large_offset__match_two_role_chain__after_narrowing_p_prev": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "match_two_role_chain",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 34,
+      "lane_success_recall": 0.03469387755102041,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 36
+      }
+    },
+    "small_gap_d4_large_offset__flip_after_repeat__same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "same_role_p_left",
+      "lane_success_count": 70,
+      "lane_success_recall": 0.07142857142857142,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752
+      }
+    },
+    "small_gap_d4_large_offset__flip_after_repeat__after_repeated_same_role_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "after_repeated_same_role_p_left",
+      "lane_success_count": 35,
+      "lane_success_recall": 0.03571428571428571,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 35
+      }
+    },
+    "small_gap_d4_large_offset__flip_after_repeat__after_role_flip_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "after_role_flip_p_left",
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    },
+    "small_gap_d4_large_offset__flip_after_repeat__after_repeated_same_offset_p_left": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "after_repeated_same_offset_p_left",
+      "lane_success_count": 32,
+      "lane_success_recall": 0.0326530612244898,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 38
+      }
+    },
+    "small_gap_d4_large_offset__flip_after_repeat__after_narrowing_p_prev": {
+      "entry_law": "small_gap_d4_large_offset",
+      "continuation_law": "flip_after_repeat",
+      "closure_law": "after_narrowing_p_prev",
+      "lane_success_count": 34,
+      "lane_success_recall": 0.03469387755102041,
+      "factor_reach_count": 0,
+      "factor_reach_recall": 0.0,
+      "first_lane_case": 39,
+      "median_steps_on_lane_success": 2.0,
+      "failure_reason_counts": {
+        "terminal_prime_nominee": 158,
+        "not_odd_semiprime_lane": 752,
+        "lane_broken": 36
+      }
+    }
+  },
+  "best_law": "small_gap_d4_large_offset__repeat_role_repeat_offset__same_role_p_left",
+  "best_lane_success_count": 70,
+  "best_factor_reach_count": 0,
+  "baseline_best_lane_success_count": 70,
+  "improvement_over_baseline": 0,
+  "searched_family_falsified": false
+}
