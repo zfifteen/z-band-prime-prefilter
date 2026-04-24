@@ -17,6 +17,8 @@ from z_band_prime_predictor import (
     UndefinedNLSCSelectorBranchError,
     audit_d4_square_margin_collisions,
     audit_nlsc_branch_targets,
+    d4_square_residue_state_key,
+    first_wheel_open_even_offset_after,
     oracle_nlsc_selector_row,
     select_d4_nlsc_boundary_prime,
     validate_d4_nlsc_selector,
@@ -116,6 +118,52 @@ def test_d4_square_margin_audit_reports_reduced_state_collision():
     assert collision.observed_margins == (8, 42)
     assert collision.row_count == 2
     assert collision.example_current_primes == (13, 73)
+
+
+def test_d4_square_residue_state_key_splits_the_known_reduced_collision():
+    """The square-residue key separates q=13 and q=73 by S_+(w) mod 30."""
+    row_13 = oracle_nlsc_selector_row(13)
+    row_73 = oracle_nlsc_selector_row(73)
+
+    try:
+        first_wheel_open_even_offset_after(2)
+    except ValueError as exc:
+        assert "must be odd" in str(exc)
+    else:
+        raise AssertionError("even current prime should not have an even wheel offset")
+
+    assert first_wheel_open_even_offset_after(13) == 4
+    assert d4_square_residue_state_key(row_13) == (13, 4, 1, 25)
+    assert d4_square_residue_state_key(row_73) == (13, 4, 1, 1)
+    assert audit_d4_square_margin_collisions(
+        (13, 73),
+        d4_square_residue_state_key,
+    ) == []
+
+
+def test_d4_square_residue_state_key_reports_next_collision_family():
+    """The square-residue key still fails on q=53 and q=83."""
+    row_53 = oracle_nlsc_selector_row(53)
+    row_83 = oracle_nlsc_selector_row(83)
+
+    assert row_53.threat_horizon == 121
+    assert row_83.threat_horizon == 121
+    assert row_53.square_ceiling_margin == 62
+    assert row_83.square_ceiling_margin == 32
+    assert d4_square_residue_state_key(row_53) == (23, 6, 2, 1)
+    assert d4_square_residue_state_key(row_83) == (23, 6, 2, 1)
+
+    collisions = audit_d4_square_margin_collisions(
+        (53, 83),
+        d4_square_residue_state_key,
+    )
+
+    assert len(collisions) == 1
+    collision = collisions[0]
+    assert collision.state_key == (23, 6, 2, 1)
+    assert collision.observed_margins == (32, 62)
+    assert collision.row_count == 2
+    assert collision.example_current_primes == (53, 83)
 
 
 def test_nlsc_selector_reports_unresolved_non_d4_branch():

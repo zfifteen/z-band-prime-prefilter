@@ -56,6 +56,27 @@ groups both rows under `(q mod 30, d(w), w-q) = (13, 4, 1)` and reports two
 different square-ceiling margins: `8` and `42`. Therefore this reduced key is
 not a $d=4$ margin selector.
 
+The square-residue state key now adds the first wheel-open offset and the
+square ceiling residue:
+
+$$K_4(q,w)=\left(q\bmod 30,\ o(q),\ w-q,\ S_{+}(w)\bmod 30\right).$$
+
+This key separates the previous `q in {13, 73}` collision:
+
+| $q$ | $w$ | $q^+$ | $S_{+}(w)$ | $K_4(q,w)$ | $M_{\square}$ |
+|---:|---:|---:|---:|---|---:|
+| $13$ | $14$ | $17$ | $25$ | `(13, 4, 1, 25)` | $8$ |
+| $73$ | $74$ | $79$ | $121$ | `(13, 4, 1, 1)` | $42$ |
+
+It does not close the branch. The next pinned collision is:
+
+| $q$ | $w$ | $q^+$ | $S_{+}(w)$ | $K_4(q,w)$ | $M_{\square}$ |
+|---:|---:|---:|---:|---|---:|
+| $53$ | $55$ | $59$ | $121$ | `(23, 6, 2, 1)` | $62$ |
+| $83$ | $85$ | $89$ | $121$ | `(23, 6, 2, 1)` | $32$ |
+
+So square residue is a real state ingredient, but not an exact selector.
+
 ## Validated Rows
 
 The focused tests validate the first dominant branch examples and one non-floor
@@ -94,8 +115,10 @@ $$B_4(q,S,w)=q^+.$$
 
 The current code proves only that the validation row is inside the NLSC horizon.
 It does not yet derive $M_{\square}=S_{+}(w)-q^+$ from rulebook state. The
-next highest-leverage step is to split the live $d=4$ rows by square-ceiling
-margin state and prove or report the first unresolved collision family.
+current highest-leverage blocker is the pinned square-residue collision
+`q in {53, 83}`. The next step is to identify the smallest additional
+rulebook state ingredient that separates margins `62` and `32`, or prove that
+this pair requires a later Milestone 3 state refinement.
 
 The nearest existing branch fact is the square-residue dead zone recorded in
 [`../findings/d4_square_residue_dead_zone.md`](../findings/d4_square_residue_dead_zone.md):

@@ -141,6 +141,7 @@ class GPED4SquareMarginCollision:
 NLSCSelector = Callable[[int, GPENLSCSelectorState, int, int], int]
 NLSCStateFactory = Callable[[GPENLSCSelectorRow], GPENLSCSelectorState]
 D4SquareMarginStateKey = Callable[[GPENLSCSelectorRow], tuple[Hashable, ...]]
+WHEEL_OPEN_RESIDUES_MOD30 = frozenset({1, 7, 11, 13, 17, 19, 23, 29})
 
 
 def oracle_nlsc_selector_row(current_prime: int) -> GPENLSCSelectorRow:
@@ -222,6 +223,38 @@ def validate_d4_nlsc_selector(
             )
         )
     return rows
+
+
+def d4_square_residue_state_key(row: GPENLSCSelectorRow) -> tuple[int, int, int, int]:
+    """Return the current square-residue candidate key for d=4 margins."""
+    if row.winner_divisor_class != 4:
+        raise UndefinedNLSCSelectorBranchError(
+            f"square-residue state row q={row.current_prime} has d(w)={row.winner_divisor_class}"
+        )
+    if row.threat_horizon is None:
+        raise InsufficientBoundarySelectorStateError(
+            f"square-residue state row q={row.current_prime} has no S_+(w)"
+        )
+
+    return (
+        row.current_prime % 30,
+        first_wheel_open_even_offset_after(row.current_prime),
+        row.winner - row.current_prime,
+        row.threat_horizon % 30,
+    )
+
+
+def first_wheel_open_even_offset_after(current_prime: int) -> int:
+    """Return the first even offset after q that is open modulo 30."""
+    if current_prime < 2:
+        raise ValueError("current_prime must be at least 2")
+    if current_prime % 2 == 0:
+        raise ValueError("current_prime must be odd to have an even wheel-open offset")
+
+    for offset in (2, 4, 6):
+        if (current_prime + offset) % 30 in WHEEL_OPEN_RESIDUES_MOD30:
+            return offset
+    raise ValueError("no wheel-open even offset found")
 
 
 def audit_nlsc_branch_targets(current_primes: Iterable[int]) -> list[GPENLSCBranchTarget]:
@@ -307,8 +340,11 @@ __all__ = [
     "NLSCSelector",
     "NLSCStateFactory",
     "UndefinedNLSCSelectorBranchError",
+    "WHEEL_OPEN_RESIDUES_MOD30",
     "audit_d4_square_margin_collisions",
     "audit_nlsc_branch_targets",
+    "d4_square_residue_state_key",
+    "first_wheel_open_even_offset_after",
     "oracle_nlsc_selector_row",
     "select_d4_nlsc_boundary_prime",
     "validate_d4_nlsc_selector",
