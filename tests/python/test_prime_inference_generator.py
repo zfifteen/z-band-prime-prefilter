@@ -54,6 +54,25 @@ RESOLVED_BOUNDARY_LOCK_SEPARATOR_PROBE_PATH = (
 HIGHER_DIVISOR_PRESSURE_LOCK_HARDENING_PATH = (
     MODULE_DIR / "higher_divisor_pressure_lock_hardening.py"
 )
+HIGHER_DIVISOR_PRESSURE_LOCK_ACTIVATION_PROFILE_PATH = (
+    MODULE_DIR / "higher_divisor_pressure_lock_activation_profile.py"
+)
+LOCK_NEAR_MISS_PROFILE_PATH = MODULE_DIR / "lock_near_miss_profile.py"
+PREVIOUS_CHAMBER_RESET_LOCK_PROBE_PATH = (
+    MODULE_DIR / "previous_chamber_reset_lock_probe.py"
+)
+PREVIOUS_TO_CURRENT_CARRIER_SHIFT_LOCK_HARDENING_PATH = (
+    MODULE_DIR / "previous_to_current_carrier_shift_lock_hardening.py"
+)
+BOUNDARY_LAW_005_FAMILY_INTEGRATION_MATRIX_PATH = (
+    MODULE_DIR / "boundary_law_005_family_integration_matrix.py"
+)
+BOUNDARY_LAW_005B_FAILURE_AUTOPSY_PATH = (
+    MODULE_DIR / "boundary_law_005b_failure_autopsy.py"
+)
+ABSORPTION_LOCK_ACTION_POPULATION_AUDIT_PATH = (
+    MODULE_DIR / "absorption_lock_action_population_audit.py"
+)
 
 
 def load_module(path: Path, name: str):
@@ -864,6 +883,61 @@ def test_composite_exclusion_probe_integrates_hd_locked_absorption_flag(tmp_path
     assert absorption_report["marginal_rejection_count"] > 0
 
 
+def test_composite_exclusion_probe_integrates_previous_carrier_shift_flag(tmp_path):
+    """Previous-carrier shift locked absorption should be explicit and attributed."""
+    module = load_module(
+        COMPOSITE_EXCLUSION_PROBE_PATH,
+        "composite_exclusion_boundary_probe_with_previous_carrier_shift",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--candidate-bound",
+                "64",
+                "--enable-single-hole-positive-witness-closure",
+                "--witness-bound",
+                "97",
+                "--enable-carrier-locked-pressure-ceiling",
+                "--carrier-lock-predicate",
+                "unresolved_alternatives_before_threat",
+                "--enable-previous-carrier-shift-locked-absorption",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    summary_path = tmp_path / "composite_exclusion_boundary_probe_summary.json"
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["previous_carrier_shift_locked_absorption_enabled"] is True
+    assert summary["locked_absorption_mode"] == "then"
+    assert summary["boundary_law_005_status"] == "not_approved"
+    assert summary["true_boundary_rejected_count"] == 0
+    assert summary["unique_resolved_survivor_count"] > 0
+    assert summary["previous_carrier_shift_locked_absorption_applied_count"] > 0
+    assert summary["previous_carrier_shift_locked_absorption_correct_count"] > 0
+    assert summary["previous_carrier_shift_locked_absorption_wrong_count"] == 0
+    assert (
+        summary["previous_carrier_shift_false_resolved_survivor_absorbed_count"]
+        == 0
+    )
+
+    rule_reports = {
+        report["rule_family"]: report for report in summary["rule_family_reports"]
+    }
+    absorption_report = rule_reports[
+        "previous_carrier_shift_locked_absorption_rejection"
+    ]
+    assert absorption_report["true_boundary_rejected_count"] == 0
+    assert absorption_report["marginal_rejection_count"] > 0
+
+
 def test_composite_exclusion_eliminator_source_has_no_forbidden_helpers():
     """The eliminator body should not call classical boundary helpers."""
     source = COMPOSITE_EXCLUSION_PROBE_PATH.read_text(encoding="utf-8")
@@ -1613,4 +1687,528 @@ def test_higher_divisor_pressure_lock_hardening_reports_surface_matrix(tmp_path)
         "selection_abstain_count",
         "selection_accuracy_when_made",
         "passes_zero_wrong_gate",
+    } <= set(record)
+
+
+def test_higher_divisor_pressure_lock_activation_profile_reports_regime(tmp_path):
+    """Activation profile should report firing regimes without generation output."""
+    module = load_module(
+        HIGHER_DIVISOR_PRESSURE_LOCK_ACTIVATION_PROFILE_PATH,
+        "higher_divisor_pressure_lock_activation_profile",
+    )
+
+    assert (
+        module.main(
+            [
+                "--surfaces",
+                "11..500",
+                "1000..2000",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--near-miss-limit",
+                "20",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    activations_path = (
+        tmp_path / "higher_divisor_pressure_lock_activation_records.jsonl"
+    )
+    near_misses_path = (
+        tmp_path / "higher_divisor_pressure_lock_near_miss_records.jsonl"
+    )
+    summary_path = (
+        tmp_path / "higher_divisor_pressure_lock_activation_profile_summary.json"
+    )
+    assert activations_path.exists()
+    assert near_misses_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in activations_path.read_bytes()
+    assert b"\r\n" not in near_misses_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    activations = [
+        json.loads(line)
+        for line in activations_path.read_text(encoding="utf-8").splitlines()
+    ]
+    near_misses = [
+        json.loads(line)
+        for line in near_misses_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+
+    assert summary["mode"] == "offline_higher_divisor_pressure_lock_activation_profile"
+    assert summary["boundary_law_005_status"] == (
+        "candidate_not_approved_for_generation"
+    )
+    assert summary["prime_emission_status"] == "forbidden"
+    assert summary["wrong_count"] == 0
+    assert summary["activation_count"] == len(activations)
+    assert summary["safe_abstain_count"] > 0
+    assert {
+        "activation_by_gap_width",
+        "activation_by_carrier_family",
+        "activation_by_first_open_offset",
+        "activation_by_previous_gap_width_class",
+        "activation_by_pressure_signature",
+    } <= set(summary)
+
+    if activations:
+        activation = activations[0]
+        assert {
+            "anchor_p",
+            "resolved_candidate_offset",
+            "actual_boundary_offset_label",
+            "carrier_offset",
+            "carrier_divisor_count",
+            "carrier_family",
+            "higher_divisor_pressure_signature",
+            "higher_divisor_pressure_offsets",
+            "previous_gap_width",
+            "previous_chamber_type",
+            "first_open_offset",
+            "single_hole_closure_used",
+            "locked_absorption_count",
+            "unique_resolved_after_absorption_bool",
+        } <= set(activation)
+
+    assert near_misses
+    near_miss = near_misses[0]
+    assert {
+        "anchor_p",
+        "resolved_candidate_offset",
+        "actual_boundary_offset_label",
+        "why_lock_did_not_fire",
+        "missing_pressure_component",
+        "candidate_had_resolved_boundary_bool",
+        "candidate_had_false_resolved_survivor_bool",
+    } <= set(near_miss)
+
+
+def test_lock_near_miss_profile_reports_adjacent_candidates(tmp_path):
+    """Near-miss profile should classify abstentions without emission output."""
+    module = load_module(
+        LOCK_NEAR_MISS_PROFILE_PATH,
+        "lock_near_miss_profile",
+    )
+
+    assert (
+        module.main(
+            [
+                "--surfaces",
+                "11..500",
+                "1000..2000",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    records_path = tmp_path / "lock_near_miss_profile_records.jsonl"
+    summary_path = tmp_path / "lock_near_miss_profile_summary.json"
+    assert records_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in records_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    records = [
+        json.loads(line)
+        for line in records_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+
+    assert summary["mode"] == "offline_higher_divisor_pressure_lock_near_miss_profile"
+    assert summary["boundary_law_005_status"] == (
+        "candidate_not_approved_for_generation"
+    )
+    assert summary["prime_emission_status"] == "forbidden"
+    assert summary["near_miss_count"] == len(records)
+    assert summary["near_miss_count"] > 0
+    assert "near_miss_reason_counts" in summary
+    assert "top_pressure_substitute_counts" in summary
+    assert "candidate_adjacent_lock_families" in summary
+    assert "best_next_lock_family_candidate" in summary
+
+    record = records[0]
+    assert {
+        "anchor_p",
+        "actual_boundary_offset_label",
+        "resolved_candidate_offset",
+        "later_unresolved_candidate_offsets",
+        "false_resolved_survivor_offsets",
+        "near_miss_reason_tags",
+        "pressure_substitute_tags",
+        "pressure_signature",
+        "carrier_offset",
+        "carrier_divisor_count",
+        "carrier_family",
+        "first_open_offset",
+        "higher_divisor_before_candidate_offsets",
+        "higher_divisor_after_unresolved_offsets",
+        "square_pressure_between_candidate_and_later_unresolved",
+        "semiprime_pressure_between_candidate_and_later_unresolved",
+        "previous_gap_width_class",
+    } <= set(record)
+
+
+def test_previous_chamber_reset_lock_probe_reports_zero_wrong_candidates(tmp_path):
+    """Previous-chamber probe should report predicate gates without emission."""
+    module = load_module(
+        PREVIOUS_CHAMBER_RESET_LOCK_PROBE_PATH,
+        "previous_chamber_reset_lock_probe",
+    )
+
+    assert (
+        module.main(
+            [
+                "--surfaces",
+                "11..500",
+                "1000..2000",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    records_path = tmp_path / "previous_chamber_reset_lock_records.jsonl"
+    summary_path = tmp_path / "previous_chamber_reset_lock_summary.json"
+    assert records_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in records_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    records = [
+        json.loads(line)
+        for line in records_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+
+    assert summary["mode"] == "offline_previous_chamber_reset_lock_probe"
+    assert summary["boundary_law_005_status"] == (
+        "candidate_not_approved_for_generation"
+    )
+    assert summary["prime_emission_status"] == "forbidden"
+    assert summary["candidate_count"] == len(records)
+    assert "predicate_reports" in summary
+    assert "zero_wrong_lock_candidates" in summary
+    assert "best_lock_candidate" in summary
+    assert "lock_wrong_count" in summary
+
+    report = summary["predicate_reports"][0]
+    assert {
+        "predicate_name",
+        "eligible_for_pure_generation",
+        "lock_true_selected",
+        "lock_false_selected",
+        "lock_wrong_count",
+        "lock_abstain_count",
+        "selection_accuracy_when_made",
+        "passes_zero_wrong_gate",
+        "first_false_examples",
+    } <= set(report)
+
+    if records:
+        record = records[0]
+        assert {
+            "anchor_p",
+            "previous_left_prime",
+            "previous_right_prime",
+            "previous_gap_width",
+            "previous_gwr_carrier_offset",
+            "previous_gwr_carrier_d",
+            "previous_gwr_carrier_family",
+            "previous_first_open_offset",
+            "previous_square_pressure",
+            "previous_higher_divisor_pressure",
+            "previous_semiprime_state",
+            "resolved_candidate_offset",
+            "resolved_candidate_is_true_label",
+            "later_unresolved_count",
+            "absorbs_all_later_unresolved_bool",
+            "current_carrier_offset",
+            "current_carrier_d",
+            "current_carrier_family",
+            "current_first_open_offset",
+            "previous_to_current_transition_signature",
+            "reset_lock_signature",
+        } <= set(record)
+
+
+def test_previous_to_current_carrier_shift_lock_hardening_reports_matrix(tmp_path):
+    """Carrier shift hardening should report staged zero-wrong rows."""
+    module = load_module(
+        PREVIOUS_TO_CURRENT_CARRIER_SHIFT_LOCK_HARDENING_PATH,
+        "previous_to_current_carrier_shift_lock_hardening",
+    )
+
+    assert (
+        module.main(
+            [
+                "--surfaces",
+                "11..500",
+                "1000..2000",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    rows_path = (
+        tmp_path / "previous_to_current_carrier_shift_lock_hardening_rows.jsonl"
+    )
+    summary_path = (
+        tmp_path / "previous_to_current_carrier_shift_lock_hardening_summary.json"
+    )
+    assert rows_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in rows_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [
+        json.loads(line)
+        for line in rows_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+
+    assert summary["mode"] == (
+        "offline_previous_to_current_carrier_shift_lock_hardening"
+    )
+    assert summary["lock_name"] == "previous_to_current_carrier_shift_lock"
+    assert summary["boundary_law_005b_status"] == (
+        "lead_not_approved_for_generation"
+    )
+    assert summary["prime_emission_status"] == "forbidden"
+    assert summary["surface_count"] == len(rows)
+    assert "all_surfaces_zero_wrong" in summary
+    assert "first_failed_surface" in summary
+
+    record = rows[0]
+    assert {
+        "surface",
+        "candidate_count",
+        "true_candidate_count",
+        "false_candidate_count",
+        "previous_to_current_carrier_shift_lock_true_selected",
+        "previous_to_current_carrier_shift_lock_false_selected",
+        "previous_to_current_carrier_shift_lock_wrong_count",
+        "selection_abstain_count",
+        "selection_accuracy_when_made",
+        "positive_selection_count",
+        "passes_zero_wrong_gate",
+    } <= set(record)
+
+
+def test_boundary_law_005_family_integration_matrix_reports_modes(tmp_path):
+    """005 family matrix should compare A/B modes without generator output."""
+    module = load_module(
+        BOUNDARY_LAW_005_FAMILY_INTEGRATION_MATRIX_PATH,
+        "boundary_law_005_family_integration_matrix",
+    )
+
+    assert (
+        module.main(
+            [
+                "--surfaces",
+                "11..500",
+                "1000..2000",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    rows_path = tmp_path / "boundary_law_005_family_integration_matrix_rows.jsonl"
+    summary_path = (
+        tmp_path / "boundary_law_005_family_integration_matrix_summary.json"
+    )
+    assert rows_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in rows_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [
+        json.loads(line)
+        for line in rows_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+
+    assert summary["mode"] == "offline_boundary_law_005_family_integration_matrix"
+    assert summary["boundary_law_005_status"] == (
+        "candidate_family_not_approved_for_generation"
+    )
+    assert summary["prime_emission_status"] == "forbidden"
+    assert summary["all_rows_hard_gate_passed"] is True
+    assert {row["mode_name"] for row in rows} == {
+        "005A_only",
+        "005B_only",
+        "005A_or_005B",
+        "005A_then_005B",
+    }
+
+    record = rows[0]
+    assert {
+        "mode_name",
+        "surface",
+        "unique_resolved_survivor_count",
+        "true_boundary_rejected_count",
+        "absorption_correct_count",
+        "absorption_wrong_count",
+        "false_resolved_survivor_absorbed_count",
+        "005A_applied_count",
+        "005B_applied_count",
+        "combined_applied_count",
+        "hard_gate_passed",
+    } <= set(record)
+
+
+def test_boundary_law_005b_failure_autopsy_reproduces_anchor_3137(tmp_path):
+    """005B failure autopsy should reproduce the false absorber at anchor 3137."""
+    module = load_module(
+        BOUNDARY_LAW_005B_FAILURE_AUTOPSY_PATH,
+        "boundary_law_005b_failure_autopsy",
+    )
+
+    assert (
+        module.main(
+            [
+                "--anchor",
+                "3137",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    record_path = tmp_path / "boundary_law_005b_failure_autopsy_record.json"
+    summary_path = tmp_path / "boundary_law_005b_failure_autopsy_summary.json"
+    assert record_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in record_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    record = json.loads(record_path.read_text(encoding="utf-8"))
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+
+    assert summary["mode"] == "offline_boundary_law_005b_failure_autopsy"
+    assert summary["failure_reproduced"] is True
+    assert summary["boundary_law_005b_status"] == (
+        "forensic_lead_not_absorption_rule"
+    )
+    assert summary["prime_emission_status"] == "forbidden"
+    assert record["anchor_p"] == 3137
+    assert record["false_absorber_offset"] == 12
+    assert record["actual_boundary_offset"] == 26
+    assert record["actual_boundary_offset"] in record[
+        "absorption_targets_removed_by_false_absorber"
+    ]
+    assert record["candidate_boundary_witnesses"][
+        "false_absorber_extended_positive_witness"
+    ] == 47
+    assert record["candidate_boundary_witnesses"][
+        "actual_boundary_extended_positive_witness"
+    ] is None
+    assert record["what_hardening_probe_missed"][
+        "hardening_target_row_conditions"
+    ]["actual_boundary_resolved_before_absorption"] is False
+
+
+def test_absorption_lock_action_population_audit_reports_coverage(tmp_path):
+    """Action-population audit should compare hardening and integration sets."""
+    module = load_module(
+        ABSORPTION_LOCK_ACTION_POPULATION_AUDIT_PATH,
+        "absorption_lock_action_population_audit",
+    )
+
+    assert (
+        module.main(
+            [
+                "--surfaces",
+                "11..500",
+                "1000..2000",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    rows_path = tmp_path / "absorption_lock_action_population_audit_rows.jsonl"
+    summary_path = (
+        tmp_path / "absorption_lock_action_population_audit_summary.json"
+    )
+    assert rows_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in rows_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [
+        json.loads(line)
+        for line in rows_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    reports = {report["lock_name"]: report for report in summary["lock_reports"]}
+
+    assert summary["mode"] == "offline_absorption_lock_action_population_audit"
+    assert summary["boundary_law_005_status"] == "candidate_grade_only"
+    assert summary["boundary_law_005a_status"] == (
+        "candidate_grade_not_generator_approved"
+    )
+    assert summary["boundary_law_005b_status"] == "quarantined"
+    assert summary["prime_emission_status"] == "forbidden"
+    assert rows
+    assert "005A_higher_divisor_pressure_lock" in reports
+    assert "005B_previous_to_current_carrier_shift_lock" in reports
+    assert reports["005A_higher_divisor_pressure_lock"][
+        "missed_action_candidate_count"
+    ] == 0
+    assert reports["005B_previous_to_current_carrier_shift_lock"][
+        "requires_hardening_expansion"
+    ] is True
+
+    record = rows[0]
+    assert {
+        "lock_name",
+        "hardening_candidate_count",
+        "integration_action_candidate_count",
+        "missed_action_candidate_count",
+        "missed_action_false_absorber_count",
+        "missed_action_true_boundary_unresolved_count",
+        "wrong_absorption_count",
+        "requires_hardening_expansion",
+        "first_missed_action_examples",
+        "first_wrong_absorption_examples",
     } <= set(record)

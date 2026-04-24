@@ -51,6 +51,10 @@ CARRIER_LOCK_PREDICATE_CHOICES = (
     "either",
     "both",
 )
+LOCKED_ABSORPTION_MODE_CHOICES = (
+    "then",
+    "or",
+)
 RULE_FAMILIES = [
     "wheel_closed_rejection",
     "positive_composite_witness_rejection",
@@ -62,6 +66,7 @@ RULE_FAMILIES = [
     "single_hole_positive_witness_closure",
     "carrier_locked_pressure_ceiling_rejection",
     "higher_divisor_locked_absorption_rejection",
+    "previous_carrier_shift_locked_absorption_rejection",
 ]
 
 
@@ -114,6 +119,17 @@ def build_parser() -> argparse.ArgumentParser:
         "--enable-higher-divisor-pressure-locked-absorption",
         action="store_true",
         help="Absorb later unresolved candidates under the higher-divisor lock.",
+    )
+    parser.add_argument(
+        "--enable-previous-carrier-shift-locked-absorption",
+        action="store_true",
+        help="Absorb later unresolved candidates under the previous-carrier shift lock.",
+    )
+    parser.add_argument(
+        "--locked-absorption-mode",
+        choices=LOCKED_ABSORPTION_MODE_CHOICES,
+        default="then",
+        help="Combination mode when both locked absorption flags are enabled.",
     )
     parser.add_argument(
         "--output-dir",
@@ -532,6 +548,43 @@ def higher_divisor_pressure_lock_selected(
     return False
 
 
+def carrier_identity(carrier: dict[str, Any]) -> tuple[Any, ...]:
+    """Return the comparable identity for one legal carrier."""
+    return (
+        carrier["carrier_offset"],
+        carrier["carrier_d"],
+        carrier["carrier_family"],
+    )
+
+
+def previous_carrier_shift_lock_selected(
+    anchor_p: int,
+    previous_anchor_p: int | None,
+    resolved_offset: int,
+    later_unresolved_offsets: list[int],
+    witness_bound: int,
+) -> bool:
+    """Return whether a resolved candidate satisfies the previous-carrier lock."""
+    if previous_anchor_p is None or not later_unresolved_offsets:
+        return False
+    previous_gap_width = anchor_p - previous_anchor_p
+    previous_carrier = first_legal_carrier(
+        previous_anchor_p,
+        previous_gap_width,
+        witness_bound,
+    )
+    current_carrier = first_legal_carrier(
+        anchor_p,
+        resolved_offset,
+        witness_bound,
+    )
+    if previous_carrier["carrier_family"] is None:
+        return False
+    if current_carrier["carrier_family"] is None:
+        return False
+    return carrier_identity(previous_carrier) != carrier_identity(current_carrier)
+
+
 def apply_higher_divisor_locked_absorption(
     anchor_p: int,
     candidate_records: list[dict[str, Any]],
@@ -593,6 +646,166 @@ def apply_higher_divisor_locked_absorption(
     }
 
 
+def apply_previous_carrier_shift_locked_absorption(
+    anchor_p: int,
+    previous_anchor_p: int | None,
+    candidate_records: list[dict[str, Any]],
+    witness_bound: int,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Apply opt-in previous-carrier shift absorption to later unresolved records."""
+    updated_records = [dict(record) for record in candidate_records]
+    absorber_offsets: list[int] = []
+    absorbed_offsets: list[int] = []
+    for record in updated_records:
+        if record["status"] != CANDIDATE_STATUS_RESOLVED_SURVIVOR:
+            continue
+        resolved_offset = int(record["offset"])
+        later_unresolved = [
+            int(candidate["offset"])
+            for candidate in updated_records
+            if candidate["status"] == CANDIDATE_STATUS_UNRESOLVED
+            and int(candidate["offset"]) > resolved_offset
+        ]
+        if not previous_carrier_shift_lock_selected(
+            anchor_p,
+            previous_anchor_p,
+            resolved_offset,
+            later_unresolved,
+            witness_bound,
+        ):
+            continue
+        row_absorbed: list[int] = []
+        for candidate in updated_records:
+            offset = int(candidate["offset"])
+            if candidate["status"] != CANDIDATE_STATUS_UNRESOLVED:
+                continue
+            if offset <= resolved_offset:
+                continue
+            candidate["status"] = CANDIDATE_STATUS_REJECTED
+            candidate["rule_family"] = "previous_carrier_shift_locked_absorption_rejection"
+            candidate["previous_carrier_shift_locked_absorption_rejection"] = True
+            candidate["previous_carrier_shift_locked_absorption_previous_status"] = (
+                CANDIDATE_STATUS_UNRESOLVED
+            )
+            candidate["previous_carrier_shift_locked_absorption_absorber_offset"] = (
+                resolved_offset
+            )
+            candidate["rejection_reasons"] = [
+                *list(candidate["rejection_reasons"]),
+                f"PREVIOUS_CARRIER_SHIFT_LOCKED_ABSORPTION_BY_{resolved_offset}",
+            ]
+            candidate["unresolved_reasons"] = []
+            candidate["unresolved_interior_offsets"] = []
+            row_absorbed.append(offset)
+        if row_absorbed:
+            absorber_offsets.append(resolved_offset)
+            absorbed_offsets.extend(row_absorbed)
+
+    return updated_records, {
+        "enabled": True,
+        "applied": bool(absorber_offsets),
+        "absorber_offsets": absorber_offsets,
+        "absorbed_offsets": absorbed_offsets,
+    }
+
+
+def apply_or_locked_absorption(
+    anchor_p: int,
+    previous_anchor_p: int | None,
+    candidate_records: list[dict[str, Any]],
+    witness_bound: int,
+) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
+    """Apply 005A-or-005B locked absorption to the same pre-absorption state."""
+    updated_records = [dict(record) for record in candidate_records]
+    higher_absorbers: list[int] = []
+    previous_absorbers: list[int] = []
+    higher_absorbed: list[int] = []
+    previous_absorbed: list[int] = []
+    for record in updated_records:
+        if record["status"] != CANDIDATE_STATUS_RESOLVED_SURVIVOR:
+            continue
+        resolved_offset = int(record["offset"])
+        later_unresolved = [
+            int(candidate["offset"])
+            for candidate in updated_records
+            if candidate["status"] == CANDIDATE_STATUS_UNRESOLVED
+            and int(candidate["offset"]) > resolved_offset
+        ]
+        higher_selected = higher_divisor_pressure_lock_selected(
+            anchor_p,
+            resolved_offset,
+            later_unresolved,
+            witness_bound,
+        )
+        previous_selected = previous_carrier_shift_lock_selected(
+            anchor_p,
+            previous_anchor_p,
+            resolved_offset,
+            later_unresolved,
+            witness_bound,
+        )
+        if not (higher_selected or previous_selected):
+            continue
+        row_absorbed: list[int] = []
+        for candidate in updated_records:
+            offset = int(candidate["offset"])
+            if candidate["status"] != CANDIDATE_STATUS_UNRESOLVED:
+                continue
+            if offset <= resolved_offset:
+                continue
+            candidate["status"] = CANDIDATE_STATUS_REJECTED
+            candidate["rule_family"] = (
+                "higher_divisor_locked_absorption_rejection"
+                if higher_selected
+                else "previous_carrier_shift_locked_absorption_rejection"
+            )
+            if higher_selected:
+                candidate["higher_divisor_locked_absorption_rejection"] = True
+                candidate["higher_divisor_locked_absorption_previous_status"] = (
+                    CANDIDATE_STATUS_UNRESOLVED
+                )
+                candidate["higher_divisor_locked_absorption_absorber_offset"] = (
+                    resolved_offset
+                )
+                candidate["rejection_reasons"] = [
+                    *list(candidate["rejection_reasons"]),
+                    f"HIGHER_DIVISOR_LOCKED_ABSORPTION_BY_{resolved_offset}",
+                ]
+            if previous_selected:
+                candidate["previous_carrier_shift_locked_absorption_rejection"] = True
+                candidate["previous_carrier_shift_locked_absorption_previous_status"] = (
+                    CANDIDATE_STATUS_UNRESOLVED
+                )
+                candidate["previous_carrier_shift_locked_absorption_absorber_offset"] = (
+                    resolved_offset
+                )
+                candidate["rejection_reasons"] = [
+                    *list(candidate["rejection_reasons"]),
+                    f"PREVIOUS_CARRIER_SHIFT_LOCKED_ABSORPTION_BY_{resolved_offset}",
+                ]
+            candidate["unresolved_reasons"] = []
+            candidate["unresolved_interior_offsets"] = []
+            row_absorbed.append(offset)
+        if row_absorbed and higher_selected:
+            higher_absorbers.append(resolved_offset)
+            higher_absorbed.extend(row_absorbed)
+        if row_absorbed and previous_selected:
+            previous_absorbers.append(resolved_offset)
+            previous_absorbed.extend(row_absorbed)
+
+    return updated_records, {
+        "enabled": True,
+        "applied": bool(higher_absorbers),
+        "absorber_offsets": higher_absorbers,
+        "absorbed_offsets": higher_absorbed,
+    }, {
+        "enabled": True,
+        "applied": bool(previous_absorbers),
+        "absorber_offsets": previous_absorbers,
+        "absorbed_offsets": previous_absorbed,
+    }
+
+
 def candidate_summary(candidate_records: list[dict[str, Any]]) -> dict[str, Any]:
     """Return candidate lists and status maps after all label-free rules."""
     survivors = [
@@ -643,6 +856,9 @@ def eliminate_candidates(
     enable_carrier_locked_pressure_ceiling: bool = False,
     carrier_lock_predicate: str = "either",
     enable_higher_divisor_pressure_locked_absorption: bool = False,
+    enable_previous_carrier_shift_locked_absorption: bool = False,
+    locked_absorption_mode: str = "then",
+    previous_anchor_p: int | None = None,
 ) -> dict[str, Any]:
     """Run label-free composite exclusion for one anchor."""
     offsets = candidate_offsets(anchor_p, candidate_bound)
@@ -677,9 +893,50 @@ def eliminate_candidates(
         "absorber_offsets": [],
         "absorbed_offsets": [],
     }
-    if enable_higher_divisor_pressure_locked_absorption:
+    previous_absorption_report = {
+        "enabled": enable_previous_carrier_shift_locked_absorption,
+        "applied": False,
+        "absorber_offsets": [],
+        "absorbed_offsets": [],
+    }
+    if (
+        enable_higher_divisor_pressure_locked_absorption
+        and enable_previous_carrier_shift_locked_absorption
+        and locked_absorption_mode == "or"
+    ):
+        (
+            candidate_records,
+            absorption_report,
+            previous_absorption_report,
+        ) = apply_or_locked_absorption(
+            anchor_p,
+            previous_anchor_p,
+            candidate_records,
+            witness_bound,
+        )
+    elif enable_higher_divisor_pressure_locked_absorption:
         candidate_records, absorption_report = apply_higher_divisor_locked_absorption(
             anchor_p,
+            candidate_records,
+            witness_bound,
+        )
+        if enable_previous_carrier_shift_locked_absorption:
+            (
+                candidate_records,
+                previous_absorption_report,
+            ) = apply_previous_carrier_shift_locked_absorption(
+                anchor_p,
+                previous_anchor_p,
+                candidate_records,
+                witness_bound,
+            )
+    elif enable_previous_carrier_shift_locked_absorption:
+        (
+            candidate_records,
+            previous_absorption_report,
+        ) = apply_previous_carrier_shift_locked_absorption(
+            anchor_p,
+            previous_anchor_p,
             candidate_records,
             witness_bound,
         )
@@ -704,6 +961,11 @@ def eliminate_candidates(
             enable_higher_divisor_pressure_locked_absorption
         ),
         "higher_divisor_pressure_locked_absorption": absorption_report,
+        "previous_carrier_shift_locked_absorption_enabled": (
+            enable_previous_carrier_shift_locked_absorption
+        ),
+        "previous_carrier_shift_locked_absorption": previous_absorption_report,
+        "locked_absorption_mode": locked_absorption_mode,
         "witness_bound": witness_bound,
     }
 
@@ -826,6 +1088,17 @@ def rule_family_report(rows: list[dict[str, Any]], rule_family: str) -> dict[str
             ):
                 if (
                     record.get("higher_divisor_locked_absorption_previous_status")
+                    != CANDIDATE_STATUS_REJECTED
+                ):
+                    rejected_offsets.add(offset)
+            elif (
+                rule_family == "previous_carrier_shift_locked_absorption_rejection"
+                and bool(record.get("previous_carrier_shift_locked_absorption_rejection"))
+            ):
+                if (
+                    record.get(
+                        "previous_carrier_shift_locked_absorption_previous_status"
+                    )
                     != CANDIDATE_STATUS_REJECTED
                 ):
                     rejected_offsets.add(offset)
@@ -1018,6 +1291,43 @@ def higher_divisor_locked_absorption_report(
     }
 
 
+def previous_carrier_shift_locked_absorption_report(
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Return attribution counts for the opt-in previous-carrier absorption rule."""
+    applied_count = 0
+    correct_count = 0
+    wrong_count = 0
+    false_resolved_survivor_absorbed_count = 0
+    absorbed_candidate_count = 0
+    for row in rows:
+        report = row["previous_carrier_shift_locked_absorption"]
+        absorber_offsets = [int(offset) for offset in report["absorber_offsets"]]
+        if not absorber_offsets:
+            continue
+        actual = int(row["actual_boundary_offset_label"])
+        for absorber_offset in absorber_offsets:
+            applied_count += 1
+            if absorber_offset == actual:
+                correct_count += 1
+            else:
+                wrong_count += 1
+                false_resolved_survivor_absorbed_count += 1
+        absorbed_candidate_count += len(report["absorbed_offsets"])
+
+    return {
+        "previous_carrier_shift_locked_absorption_applied_count": applied_count,
+        "previous_carrier_shift_locked_absorption_correct_count": correct_count,
+        "previous_carrier_shift_locked_absorption_wrong_count": wrong_count,
+        "previous_carrier_shift_false_resolved_survivor_absorbed_count": (
+            false_resolved_survivor_absorbed_count
+        ),
+        "previous_carrier_shift_locked_absorbed_candidate_count": (
+            absorbed_candidate_count
+        ),
+    }
+
+
 def run_probe(
     start_anchor: int,
     max_anchor: int,
@@ -1027,6 +1337,8 @@ def run_probe(
     enable_carrier_locked_pressure_ceiling: bool = False,
     carrier_lock_predicate: str = "either",
     enable_higher_divisor_pressure_locked_absorption: bool = False,
+    enable_previous_carrier_shift_locked_absorption: bool = False,
+    locked_absorption_mode: str = "then",
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     """Run label-free elimination, then attach labels for reporting."""
     if candidate_bound < 1:
@@ -1037,6 +1349,8 @@ def run_probe(
         raise ValueError("witness_bound must be at least 31")
     if carrier_lock_predicate not in CARRIER_LOCK_PREDICATE_CHOICES:
         raise ValueError(f"unknown carrier lock predicate: {carrier_lock_predicate}")
+    if locked_absorption_mode not in LOCKED_ABSORPTION_MODE_CHOICES:
+        raise ValueError(f"unknown locked absorption mode: {locked_absorption_mode}")
 
     started = time.perf_counter()
     labels = label_offsets(start_anchor, max_anchor, candidate_bound)
@@ -1076,27 +1390,35 @@ def run_probe(
             )
             for anchor_p, label in labels.items()
         ]
-    rows = [
-        attach_label(
-            eliminate_candidates(
-                anchor_p,
-                candidate_bound,
-                enable_single_hole_positive_witness_closure=(
-                    enable_single_hole_positive_witness_closure
+    rows: list[dict[str, Any]] = []
+    previous_anchor_p: int | None = None
+    for anchor_p, label in labels.items():
+        rows.append(
+            attach_label(
+                eliminate_candidates(
+                    anchor_p,
+                    candidate_bound,
+                    enable_single_hole_positive_witness_closure=(
+                        enable_single_hole_positive_witness_closure
+                    ),
+                    witness_bound=witness_bound,
+                    enable_carrier_locked_pressure_ceiling=(
+                        enable_carrier_locked_pressure_ceiling
+                    ),
+                    carrier_lock_predicate=carrier_lock_predicate,
+                    enable_higher_divisor_pressure_locked_absorption=(
+                        enable_higher_divisor_pressure_locked_absorption
+                    ),
+                    enable_previous_carrier_shift_locked_absorption=(
+                        enable_previous_carrier_shift_locked_absorption
+                    ),
+                    locked_absorption_mode=locked_absorption_mode,
+                    previous_anchor_p=previous_anchor_p,
                 ),
-                witness_bound=witness_bound,
-                enable_carrier_locked_pressure_ceiling=(
-                    enable_carrier_locked_pressure_ceiling
-                ),
-                carrier_lock_predicate=carrier_lock_predicate,
-                enable_higher_divisor_pressure_locked_absorption=(
-                    enable_higher_divisor_pressure_locked_absorption
-                ),
-            ),
-            label,
+                label,
+            )
         )
-        for anchor_p, label in labels.items()
-    ]
+        previous_anchor_p = anchor_p
     first_failure_examples = [
         row
         for row in rows
@@ -1119,6 +1441,7 @@ def run_probe(
     closure_report = single_hole_closure_report(rows)
     ceiling_report = carrier_locked_ceiling_report(rows)
     absorption_report = higher_divisor_locked_absorption_report(rows)
+    previous_absorption_report = previous_carrier_shift_locked_absorption_report(rows)
 
     summary = {
         "mode": "offline_composite_exclusion_boundary_probe",
@@ -1135,6 +1458,10 @@ def run_probe(
         "higher_divisor_pressure_locked_absorption_enabled": (
             enable_higher_divisor_pressure_locked_absorption
         ),
+        "previous_carrier_shift_locked_absorption_enabled": (
+            enable_previous_carrier_shift_locked_absorption
+        ),
+        "locked_absorption_mode": locked_absorption_mode,
         "witness_bound": witness_bound,
         "row_count": len(rows),
         **metrics,
@@ -1143,10 +1470,24 @@ def run_probe(
         **closure_report,
         **ceiling_report,
         **absorption_report,
+        **previous_absorption_report,
         "rule_family_reports": rule_reports,
         "first_failure_examples": first_failure_examples,
         "elimination_rule_set": (
-            "composite_exclusion_hd_locked_absorption_v1"
+            "composite_exclusion_hd_previous_locked_absorption_or_v1"
+            if (
+                enable_higher_divisor_pressure_locked_absorption
+                and enable_previous_carrier_shift_locked_absorption
+                and locked_absorption_mode == "or"
+            )
+            else "composite_exclusion_hd_then_previous_locked_absorption_v1"
+            if (
+                enable_higher_divisor_pressure_locked_absorption
+                and enable_previous_carrier_shift_locked_absorption
+            )
+            else "composite_exclusion_previous_carrier_shift_locked_absorption_v1"
+            if enable_previous_carrier_shift_locked_absorption
+            else "composite_exclusion_hd_locked_absorption_v1"
             if enable_higher_divisor_pressure_locked_absorption
             else
             "composite_exclusion_single_hole_carrier_locked_ceiling_v1"
@@ -1199,6 +1540,10 @@ def main(argv: list[str] | None = None) -> int:
         enable_higher_divisor_pressure_locked_absorption=(
             args.enable_higher_divisor_pressure_locked_absorption
         ),
+        enable_previous_carrier_shift_locked_absorption=(
+            args.enable_previous_carrier_shift_locked_absorption
+        ),
+        locked_absorption_mode=args.locked_absorption_mode,
     )
     write_artifacts(rows, summary, args.output_dir)
     return 0
