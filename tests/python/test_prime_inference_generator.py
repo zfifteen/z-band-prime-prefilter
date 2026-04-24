@@ -73,6 +73,7 @@ BOUNDARY_LAW_005B_FAILURE_AUTOPSY_PATH = (
 ABSORPTION_LOCK_ACTION_POPULATION_AUDIT_PATH = (
     MODULE_DIR / "absorption_lock_action_population_audit.py"
 )
+BOUNDARY_LAW_005A_STRESS_PATH = MODULE_DIR / "boundary_law_005a_stress.py"
 
 
 def load_module(path: Path, name: str):
@@ -2211,4 +2212,66 @@ def test_absorption_lock_action_population_audit_reports_coverage(tmp_path):
         "requires_hardening_expansion",
         "first_missed_action_examples",
         "first_wrong_absorption_examples",
+    } <= set(record)
+
+
+def test_boundary_law_005a_stress_reports_hard_gate(tmp_path):
+    """005A stress should report one-axis gate fields without emission output."""
+    module = load_module(
+        BOUNDARY_LAW_005A_STRESS_PATH,
+        "boundary_law_005a_stress",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--candidate-bound",
+                "128",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    rows_path = tmp_path / "boundary_law_005a_stress_rows.jsonl"
+    summary_path = tmp_path / "boundary_law_005a_stress_summary.json"
+    assert rows_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in rows_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [
+        json.loads(line)
+        for line in rows_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    record = rows[0]
+
+    assert summary["mode"] == "offline_boundary_law_005a_one_axis_stress"
+    assert summary["stress_axis"] == "candidate_bound"
+    assert summary["boundary_law_005_status"] == "candidate_grade_only"
+    assert summary["prime_emission_status"] == "forbidden"
+    assert summary["classical_labels_status"] == "external_audit_only"
+    assert record["candidate_bound"] == 128
+    assert record["witness_bound"] == 97
+    assert {
+        "candidate_bound",
+        "witness_bound",
+        "anchor_range",
+        "true_boundary_rejected_count",
+        "absorption_wrong_count",
+        "false_resolved_survivor_absorbed_count",
+        "unique_resolved_survivor_count",
+        "005A_applied_count",
+        "005A_correct_count",
+        "005A_wrong_count",
+        "action_population_match",
+        "first_failure_example",
     } <= set(record)
