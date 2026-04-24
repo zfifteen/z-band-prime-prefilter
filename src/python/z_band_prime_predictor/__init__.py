@@ -9,6 +9,15 @@ from .gpe_boundary_selector import (
     select_next_boundary_prime,
     validate_boundary_selector,
 )
+from .gpe_nlsc_selector import (
+    GPENLSCSelectorRow,
+    GPENLSCSelectorState,
+    GPENLSCSelectorValidation,
+    UndefinedNLSCSelectorBranchError,
+    oracle_nlsc_selector_row,
+    select_d4_nlsc_boundary_prime,
+    validate_d4_nlsc_selector,
+)
 from .gwr_boundary_walk import gwr_next_gap_profile, gwr_next_prime, next_prime_after
 from .predictor import (
     W_d,
@@ -40,7 +49,11 @@ __all__ = [
     "GPEBoundarySelectorRow",
     "GPEBoundarySelectorState",
     "GPEBoundarySelectorValidation",
+    "GPENLSCSelectorRow",
+    "GPENLSCSelectorState",
+    "GPENLSCSelectorValidation",
     "InsufficientBoundarySelectorStateError",
+    "UndefinedNLSCSelectorBranchError",
     "d4_closure_ceiling",
     "d4_gap_profile",
     "divisor_gap_profile",
@@ -54,6 +67,7 @@ __all__ = [
     "li_inverse",
     "next_prime_after",
     "oracle_boundary_selector_row",
+    "oracle_nlsc_selector_row",
     "build_factor_progress_pool",
     "orient_semiprime_anchor",
     "placed_prime_from_seed",
@@ -62,7 +76,9 @@ __all__ = [
     "predict_nth_prime",
     "run_tests",
     "select_next_boundary_prime",
+    "select_d4_nlsc_boundary_prime",
     "select_factor_progress_candidate",
     "seed_hits_d4_corridor",
     "validate_boundary_selector",
+    "validate_d4_nlsc_selector",
 ]
