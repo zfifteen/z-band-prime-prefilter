@@ -185,3 +185,48 @@ closure rule into the eliminator and measures whether:
 - `true_boundary_unresolved_count` decreases;
 - `unique_resolved_survivor_count` increases;
 - `true_boundary_rejected_count` remains `0`.
+
+## Integrated Ablation Result
+
+The closure rule was integrated into the composite-exclusion probe behind an
+explicit flag:
+
+- `--enable-single-hole-positive-witness-closure`
+- `--witness-bound 97`
+
+Surface:
+
+- anchors: `11..10_000`
+- candidate bound: `64`
+
+Before closure:
+
+- `true_boundary_status_counts: {RESOLVED_SURVIVOR: 995, UNRESOLVED: 230}`
+- `unique_resolved_survivor_count: 0`
+- `average_unresolved_count: 8.406530612244898`
+- `average_resolved_survivor_count: 1.0`
+
+After closure:
+
+- `true_boundary_rejected_count: 0`
+- `true_boundary_status_counts: {RESOLVED_SURVIVOR: 1173, UNRESOLVED: 52}`
+- `unique_resolved_survivor_count: 0`
+- `average_unresolved_count: 8.218775510204082`
+- `average_resolved_survivor_count: 1.1877551020408164`
+
+Rule attribution:
+
+- `single_hole_positive_witness_closure_applied_count: 230`
+- `single_hole_positive_witness_true_boundary_closures: 178`
+- `single_hole_positive_witness_false_boundary_closures: 52`
+- `power_closure_subset_count: 13`
+
+The integration produced a real completion gain without violating the safety
+gate:
+
+- the true-boundary unresolved count fell from `230` to `52`;
+- true-boundary rejection stayed at `0`.
+
+It did not create unique resolved boundary certificates. Because `52`
+false-boundary alternatives were also closed, the eliminator still has
+unresolved or competing alternatives and remains fail-closed.

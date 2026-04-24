@@ -30,6 +30,12 @@ COMPOSITE_EXCLUSION_UNRESOLVED_FORENSICS_PATH = (
     MODULE_DIR / "composite_exclusion_unresolved_forensics.py"
 )
 SINGLE_HOLE_CLOSURE_PROBE_PATH = MODULE_DIR / "single_hole_closure_probe.py"
+RESOLVED_SURVIVOR_DOMINANCE_FORENSICS_PATH = (
+    MODULE_DIR / "resolved_survivor_dominance_forensics.py"
+)
+RIGHT_BOUNDARY_PRESSURE_CEILING_PROBE_PATH = (
+    MODULE_DIR / "right_boundary_pressure_ceiling_probe.py"
+)
 
 
 def load_module(path: Path, name: str):
@@ -697,6 +703,50 @@ def test_composite_exclusion_boundary_probe_writes_safe_elimination_artifacts(tm
         } <= set(report)
 
 
+def test_composite_exclusion_probe_integrates_single_hole_closure_flag(tmp_path):
+    """The single-hole closure rule should be explicit and separately attributed."""
+    module = load_module(
+        COMPOSITE_EXCLUSION_PROBE_PATH,
+        "composite_exclusion_boundary_probe_with_closure",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "2000",
+                "--candidate-bound",
+                "64",
+                "--enable-single-hole-positive-witness-closure",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    summary_path = tmp_path / "composite_exclusion_boundary_probe_summary.json"
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["single_hole_positive_witness_closure_enabled"] is True
+    assert summary["witness_bound"] == 97
+    assert summary["before_single_hole_closure_metrics"] is not None
+    assert summary["single_hole_positive_witness_closure_applied_count"] > 0
+    assert summary["single_hole_positive_witness_true_boundary_closures"] > 0
+    assert summary["true_boundary_rejected_count"] == 0
+
+    rule_reports = {
+        report["rule_family"]: report for report in summary["rule_family_reports"]
+    }
+    closure_report = rule_reports["single_hole_positive_witness_closure"]
+    assert closure_report["closure_applied_count"] == summary[
+        "single_hole_positive_witness_closure_applied_count"
+    ]
+
+
 def test_composite_exclusion_eliminator_source_has_no_forbidden_helpers():
     """The eliminator body should not call classical boundary helpers."""
     source = COMPOSITE_EXCLUSION_PROBE_PATH.read_text(encoding="utf-8")
@@ -838,3 +888,160 @@ def test_single_hole_closure_probe_reports_closure_candidates(tmp_path):
             "hole_higher_divisor_pressure",
             "candidate_missing_rule",
         } <= set(record)
+
+
+def test_resolved_survivor_dominance_forensics_reports_rule_outcomes(tmp_path):
+    """Dominance forensics should evaluate label-blind rules after selection."""
+    module = load_module(
+        RESOLVED_SURVIVOR_DOMINANCE_FORENSICS_PATH,
+        "resolved_survivor_dominance_forensics",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "2000",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    records_path = tmp_path / "resolved_survivor_dominance_forensics_records.jsonl"
+    summary_path = tmp_path / "resolved_survivor_dominance_forensics_summary.json"
+    assert records_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in records_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    records = [
+        json.loads(line)
+        for line in records_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["mode"] == "offline_resolved_survivor_dominance_forensics"
+    assert summary["boundary_law_005_status"] == "not_approved"
+    assert summary["true_boundary_rejected_count"] == 0
+    assert "candidate_dominance_observable_counts" in summary
+    assert "dominance_rule_reports" in summary
+
+    report = summary["dominance_rule_reports"][0]
+    assert {
+        "rule_name",
+        "eligible_for_pure_generation",
+        "anchors_tested",
+        "selection_made_count",
+        "selection_correct_count",
+        "selection_wrong_count",
+        "selection_abstain_count",
+        "selection_accuracy",
+        "first_wrong_examples",
+    } <= set(report)
+
+    if records:
+        record = records[0]
+        assert {
+            "anchor_p",
+            "actual_boundary_offset_label",
+            "resolved_survivor_offsets",
+            "true_boundary_resolved_bool",
+            "false_resolved_survivor_offsets",
+            "resolved_survivor_count",
+            "unresolved_count",
+            "rejected_count",
+            "resolved_survivor_metadata",
+        } <= set(record)
+
+
+def test_right_boundary_pressure_ceiling_probe_reports_candidate_ceiling(tmp_path):
+    """Right-boundary ceiling probe should measure safety before any law claim."""
+    module = load_module(
+        RIGHT_BOUNDARY_PRESSURE_CEILING_PROBE_PATH,
+        "right_boundary_pressure_ceiling_probe",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    rows_path = tmp_path / "right_boundary_pressure_ceiling_probe_rows.jsonl"
+    summary_path = tmp_path / "right_boundary_pressure_ceiling_probe_summary.json"
+    assert rows_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in rows_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [
+        json.loads(line)
+        for line in rows_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert rows
+    assert summary["mode"] == "offline_right_boundary_pressure_ceiling_probe"
+    assert summary["boundary_law_005_status"] == "not_approved"
+    assert summary["row_count"] == len(rows)
+    assert "true_boundary_rejected_count" in summary
+    assert "candidate_pressure_ceiling_count" in summary
+    assert "average_candidate_count_before_ceiling" in summary
+    assert "average_candidate_count_after_ceiling" in summary
+    assert "unique_survivor_match_rate" in summary
+
+    record = rows[0]
+    assert {
+        "anchor_p",
+        "carrier_w",
+        "carrier_d",
+        "threat_T",
+        "threat_type",
+        "candidate_count_before_ceiling",
+        "candidate_count_after_ceiling",
+        "survivor_count",
+        "unique_survivor",
+        "actual_boundary_label_after_audit",
+        "true_boundary_before_T",
+        "true_boundary_rejected_count",
+        "failure_reason",
+    } <= set(record)
+
+
+def test_right_boundary_pressure_ceiling_source_has_no_forbidden_helpers():
+    """The candidate ceiling logic should not call classical boundary helpers."""
+    source = RIGHT_BOUNDARY_PRESSURE_CEILING_PROBE_PATH.read_text(encoding="utf-8")
+    ceiling_source = source.split("def certified_divisor_class", 1)[1].split(
+        "def status_counts_below_ceiling",
+        1,
+    )[0]
+    forbidden_tokens = (
+        "isprime",
+        "nextprime",
+        "prevprime",
+        "Miller",
+        "divisor_count",
+        "factorint",
+        "gwr_dni_recursive_walk",
+        "divisor_counts_segment",
+    )
+    for token in forbidden_tokens:
+        assert token not in ceiling_source

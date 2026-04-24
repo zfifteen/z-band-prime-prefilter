@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import statistics
 import time
 from collections import Counter
@@ -24,6 +25,22 @@ SUMMARY_FILENAME = "composite_exclusion_boundary_probe_summary.json"
 ROWS_FILENAME = "composite_exclusion_boundary_probe_rows.jsonl"
 WHEEL_OPEN_RESIDUES_MOD30 = frozenset({1, 7, 11, 13, 17, 19, 23, 29})
 COMPOSITE_WITNESS_FACTORS = (7, 11, 13, 17, 19, 23, 29, 31)
+SINGLE_HOLE_WITNESS_FACTORS = (
+    37,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    83,
+    89,
+    97,
+)
 CANDIDATE_STATUS_RESOLVED_SURVIVOR = "RESOLVED_SURVIVOR"
 CANDIDATE_STATUS_REJECTED = "REJECTED"
 CANDIDATE_STATUS_UNRESOLVED = "UNRESOLVED"
@@ -35,6 +52,7 @@ RULE_FAMILIES = [
     "no_later_simpler_violation_rejection",
     "square_pressure_rejection",
     "carrier_absence_rejection",
+    "single_hole_positive_witness_closure",
 ]
 
 
@@ -60,6 +78,17 @@ def build_parser() -> argparse.ArgumentParser:
         type=int,
         default=64,
         help="Largest candidate boundary offset.",
+    )
+    parser.add_argument(
+        "--enable-single-hole-positive-witness-closure",
+        action="store_true",
+        help="Close one unresolved interior-open slot by positive witness.",
+    )
+    parser.add_argument(
+        "--witness-bound",
+        type=int,
+        default=31,
+        help="Largest factor allowed for opt-in single-hole witness closure.",
     )
     parser.add_argument(
         "--output-dir",
@@ -100,6 +129,28 @@ def bounded_composite_witness(n: int) -> int | None:
     return None
 
 
+def single_hole_positive_witness(n: int, witness_bound: int) -> int | None:
+    """Return an opt-in positive witness for single-hole closure."""
+    for factor in SINGLE_HOLE_WITNESS_FACTORS:
+        if factor > witness_bound:
+            continue
+        if factor < n and n % factor == 0:
+            return factor
+    return None
+
+
+def power_closure_witness(n: int) -> dict[str, int] | None:
+    """Return a direct integer-power witness for n, if one exists."""
+    for exponent in range(2, 7):
+        root = 1 if exponent != 2 else math.isqrt(n)
+        if exponent != 2:
+            while root**exponent < n:
+                root += 1
+        if root > 1 and root**exponent == n:
+            return {"base": root, "exponent": exponent}
+    return None
+
+
 def interior_open_offsets(anchor_p: int, candidate_offset: int) -> list[int]:
     """Return wheel-open interior offsets before a proposed boundary."""
     return [
@@ -109,7 +160,12 @@ def interior_open_offsets(anchor_p: int, candidate_offset: int) -> list[int]:
     ]
 
 
-def classify_candidate(anchor_p: int, candidate_offset: int) -> dict[str, Any]:
+def classify_candidate(
+    anchor_p: int,
+    candidate_offset: int,
+    enable_single_hole_positive_witness_closure: bool,
+    witness_bound: int,
+) -> dict[str, Any]:
     """Return the label-free status for one proposed boundary candidate."""
     candidate = anchor_p + candidate_offset
     witness = bounded_composite_witness(candidate)
@@ -121,6 +177,10 @@ def classify_candidate(anchor_p: int, candidate_offset: int) -> dict[str, Any]:
             "unresolved_reasons": [],
             "unresolved_interior_offsets": [],
             "rule_family": "positive_composite_witness_rejection",
+            "closure_reasons": [],
+            "closure_rule_family": None,
+            "single_hole_positive_witness_closure": False,
+            "power_closure_subset": False,
         }
 
     unresolved_offsets = [
@@ -129,6 +189,37 @@ def classify_candidate(anchor_p: int, candidate_offset: int) -> dict[str, Any]:
         if bounded_composite_witness(anchor_p + offset) is None
     ]
     if unresolved_offsets:
+        if (
+            enable_single_hole_positive_witness_closure
+            and len(unresolved_offsets) == 1
+        ):
+            hole_offset = unresolved_offsets[0]
+            hole_n = anchor_p + hole_offset
+            closure_witness = single_hole_positive_witness(hole_n, witness_bound)
+            if closure_witness is not None:
+                power_witness = power_closure_witness(hole_n)
+                closure_reasons = [
+                    f"SINGLE_HOLE_POSITIVE_WITNESS_FACTOR_{closure_witness}"
+                ]
+                if power_witness is not None:
+                    closure_reasons.append(
+                        "POWER_CLOSURE_"
+                        f"{power_witness['base']}^{power_witness['exponent']}"
+                    )
+                return {
+                    "offset": candidate_offset,
+                    "status": CANDIDATE_STATUS_RESOLVED_SURVIVOR,
+                    "rejection_reasons": [],
+                    "unresolved_reasons": [],
+                    "unresolved_interior_offsets": [],
+                    "rule_family": None,
+                    "closure_reasons": closure_reasons,
+                    "closure_rule_family": "single_hole_positive_witness_closure",
+                    "single_hole_positive_witness_closure": True,
+                    "single_hole_positive_witness_factor": closure_witness,
+                    "single_hole_closed_offset": hole_offset,
+                    "power_closure_subset": power_witness is not None,
+                }
         return {
             "offset": candidate_offset,
             "status": CANDIDATE_STATUS_UNRESOLVED,
@@ -136,6 +227,10 @@ def classify_candidate(anchor_p: int, candidate_offset: int) -> dict[str, Any]:
             "unresolved_reasons": ["UNRESOLVED_INTERIOR_OPEN"],
             "unresolved_interior_offsets": unresolved_offsets,
             "rule_family": "interior_open_unclosed_rejection",
+            "closure_reasons": [],
+            "closure_rule_family": None,
+            "single_hole_positive_witness_closure": False,
+            "power_closure_subset": False,
         }
 
     return {
@@ -145,13 +240,30 @@ def classify_candidate(anchor_p: int, candidate_offset: int) -> dict[str, Any]:
         "unresolved_reasons": [],
         "unresolved_interior_offsets": [],
         "rule_family": None,
+        "closure_reasons": [],
+        "closure_rule_family": None,
+        "single_hole_positive_witness_closure": False,
+        "power_closure_subset": False,
     }
 
 
-def eliminate_candidates(anchor_p: int, candidate_bound: int) -> dict[str, Any]:
+def eliminate_candidates(
+    anchor_p: int,
+    candidate_bound: int,
+    enable_single_hole_positive_witness_closure: bool = False,
+    witness_bound: int = 31,
+) -> dict[str, Any]:
     """Run label-free composite exclusion for one anchor."""
     offsets = candidate_offsets(anchor_p, candidate_bound)
-    candidate_records = [classify_candidate(anchor_p, offset) for offset in offsets]
+    candidate_records = [
+        classify_candidate(
+            anchor_p,
+            offset,
+            enable_single_hole_positive_witness_closure,
+            witness_bound,
+        )
+        for offset in offsets
+    ]
     survivors = [
         int(record["offset"])
         for record in candidate_records
@@ -195,6 +307,10 @@ def eliminate_candidates(anchor_p: int, candidate_bound: int) -> dict[str, Any]:
         "unresolved_reasons_by_candidate": unresolved_reasons,
         "candidate_status_by_offset": candidate_status_by_offset,
         "candidate_status_records": candidate_records,
+        "single_hole_positive_witness_closure_enabled": (
+            enable_single_hole_positive_witness_closure
+        ),
+        "witness_bound": witness_bound,
     }
 
 
@@ -270,6 +386,8 @@ def rule_family_report(rows: list[dict[str, Any]], rule_family: str) -> dict[str
     """Return per-rule-family rejection and ablation metrics."""
     rejected_count = 0
     unresolved_count = 0
+    closure_applied_count = 0
+    power_closure_subset_count = 0
     true_boundary_rejected_count = 0
     survivor_counts_after_rule: list[int] = []
     unique_survivor_count_after_rule = 0
@@ -278,6 +396,7 @@ def rule_family_report(rows: list[dict[str, Any]], rule_family: str) -> dict[str
         actual = int(row["actual_boundary_offset_label"])
         rejected_offsets: set[int] = set()
         unresolved_offsets: set[int] = set()
+        row_closure_applied_count = 0
         for record in row["candidate_status_records"]:
             offset = int(record["offset"])
             if (
@@ -290,10 +409,21 @@ def rule_family_report(rows: list[dict[str, Any]], rule_family: str) -> dict[str
                 and record["status"] == CANDIDATE_STATUS_UNRESOLVED
             ):
                 unresolved_offsets.add(offset)
+            elif (
+                rule_family == "single_hole_positive_witness_closure"
+                and bool(record.get("single_hole_positive_witness_closure"))
+            ):
+                closure_applied_count += 1
+                row_closure_applied_count += 1
+                if bool(record.get("power_closure_subset")):
+                    power_closure_subset_count += 1
 
-        survivors_after_rule = candidate_count - len(rejected_offsets) - len(
-            unresolved_offsets
-        )
+        if rule_family == "single_hole_positive_witness_closure":
+            survivors_after_rule = row_closure_applied_count
+        else:
+            survivors_after_rule = candidate_count - len(rejected_offsets) - len(
+                unresolved_offsets
+            )
         survivor_counts_after_rule.append(survivors_after_rule)
         if survivors_after_rule == 1:
             unique_survivor_count_after_rule += 1
@@ -306,6 +436,8 @@ def rule_family_report(rows: list[dict[str, Any]], rule_family: str) -> dict[str
         "rule_family": rule_family,
         "rejected_count": rejected_count,
         "unresolved_count": unresolved_count,
+        "closure_applied_count": closure_applied_count,
+        "power_closure_subset_count": power_closure_subset_count,
         "true_boundary_rejected_count": true_boundary_rejected_count,
         "average_survivor_count_after_rule": statistics.fmean(
             survivor_counts_after_rule
@@ -315,23 +447,8 @@ def rule_family_report(rows: list[dict[str, Any]], rule_family: str) -> dict[str
     }
 
 
-def run_probe(
-    start_anchor: int,
-    max_anchor: int,
-    candidate_bound: int,
-) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Run label-free elimination, then attach labels for reporting."""
-    if candidate_bound < 1:
-        raise ValueError("candidate_bound must be at least 1")
-    if max_anchor < start_anchor:
-        raise ValueError("max_anchor must be at least start_anchor")
-
-    started = time.perf_counter()
-    labels = label_offsets(start_anchor, max_anchor, candidate_bound)
-    rows = [
-        attach_label(eliminate_candidates(anchor_p, candidate_bound), label)
-        for anchor_p, label in labels.items()
-    ]
+def aggregate_counts(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Return shared summary metrics for labeled eliminator rows."""
     unique_rows = [row for row in rows if int(row["survivor_count"]) == 1]
     unique_resolved_rows = [
         row
@@ -350,21 +467,7 @@ def run_probe(
     unresolved_counts = [int(row["unresolved_count"]) for row in rows]
     rejected_counts = [int(row["rejected_count"]) for row in rows]
     candidate_counts = [int(row["candidate_count"]) for row in rows]
-    first_failure_examples = [
-        row
-        for row in rows
-        if row["failure_reason"] not in (None, "NO_UNIQUE_BOUNDARY")
-    ][:5]
-    rule_reports = [
-        rule_family_report(rows, rule_family) for rule_family in RULE_FAMILIES
-    ]
-
-    summary = {
-        "mode": "offline_composite_exclusion_boundary_probe",
-        "start_anchor": start_anchor,
-        "max_anchor": max_anchor,
-        "candidate_bound": candidate_bound,
-        "row_count": len(rows),
+    return {
         "unique_survivor_count": len(unique_rows),
         "unique_resolved_survivor_count": len(unique_resolved_rows),
         "no_survivor_count": no_survivor_count,
@@ -378,15 +481,128 @@ def run_probe(
         "average_rejected_count": statistics.fmean(rejected_counts),
         "average_unresolved_count": statistics.fmean(unresolved_counts),
         "average_survives_count": statistics.fmean(survivor_counts),
+        "average_resolved_survivor_count": statistics.fmean(survivor_counts),
         "average_survivor_count": statistics.fmean(survivor_counts),
         "survivor_count_distribution": Counter(survivor_counts),
         "unresolved_count_distribution": Counter(unresolved_counts),
         "true_boundary_status_counts": Counter(
             str(row["true_boundary_status"]) for row in rows
         ),
+    }
+
+
+def single_hole_closure_report(rows: list[dict[str, Any]]) -> dict[str, int]:
+    """Return attribution counts for the opt-in single-hole closure rule."""
+    applied_count = 0
+    true_boundary_closures = 0
+    false_boundary_closures = 0
+    power_closure_subset_count = 0
+    for row in rows:
+        actual = int(row["actual_boundary_offset_label"])
+        for record in row["candidate_status_records"]:
+            if not bool(record.get("single_hole_positive_witness_closure")):
+                continue
+            applied_count += 1
+            if bool(record.get("power_closure_subset")):
+                power_closure_subset_count += 1
+            if int(record["offset"]) == actual:
+                true_boundary_closures += 1
+            else:
+                false_boundary_closures += 1
+
+    return {
+        "single_hole_positive_witness_closure_applied_count": applied_count,
+        "single_hole_positive_witness_true_boundary_closures": (
+            true_boundary_closures
+        ),
+        "single_hole_positive_witness_false_boundary_closures": (
+            false_boundary_closures
+        ),
+        "power_closure_subset_count": power_closure_subset_count,
+    }
+
+
+def run_probe(
+    start_anchor: int,
+    max_anchor: int,
+    candidate_bound: int,
+    enable_single_hole_positive_witness_closure: bool = False,
+    witness_bound: int = 31,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Run label-free elimination, then attach labels for reporting."""
+    if candidate_bound < 1:
+        raise ValueError("candidate_bound must be at least 1")
+    if max_anchor < start_anchor:
+        raise ValueError("max_anchor must be at least start_anchor")
+    if witness_bound < max(COMPOSITE_WITNESS_FACTORS):
+        raise ValueError("witness_bound must be at least 31")
+
+    started = time.perf_counter()
+    labels = label_offsets(start_anchor, max_anchor, candidate_bound)
+    baseline_rows: list[dict[str, Any]] = []
+    if enable_single_hole_positive_witness_closure:
+        baseline_rows = [
+            attach_label(
+                eliminate_candidates(
+                    anchor_p,
+                    candidate_bound,
+                    enable_single_hole_positive_witness_closure=False,
+                    witness_bound=max(COMPOSITE_WITNESS_FACTORS),
+                ),
+                label,
+            )
+            for anchor_p, label in labels.items()
+        ]
+    rows = [
+        attach_label(
+            eliminate_candidates(
+                anchor_p,
+                candidate_bound,
+                enable_single_hole_positive_witness_closure=(
+                    enable_single_hole_positive_witness_closure
+                ),
+                witness_bound=witness_bound,
+            ),
+            label,
+        )
+        for anchor_p, label in labels.items()
+    ]
+    first_failure_examples = [
+        row
+        for row in rows
+        if row["failure_reason"] not in (None, "NO_UNIQUE_BOUNDARY")
+    ][:5]
+    rule_reports = [
+        rule_family_report(rows, rule_family) for rule_family in RULE_FAMILIES
+    ]
+    metrics = aggregate_counts(rows)
+    baseline_metrics = (
+        aggregate_counts(baseline_rows)
+        if enable_single_hole_positive_witness_closure
+        else None
+    )
+    closure_report = single_hole_closure_report(rows)
+
+    summary = {
+        "mode": "offline_composite_exclusion_boundary_probe",
+        "start_anchor": start_anchor,
+        "max_anchor": max_anchor,
+        "candidate_bound": candidate_bound,
+        "single_hole_positive_witness_closure_enabled": (
+            enable_single_hole_positive_witness_closure
+        ),
+        "witness_bound": witness_bound,
+        "row_count": len(rows),
+        **metrics,
+        "before_single_hole_closure_metrics": baseline_metrics,
+        **closure_report,
         "rule_family_reports": rule_reports,
         "first_failure_examples": first_failure_examples,
-        "elimination_rule_set": "composite_exclusion_three_status_v1",
+        "elimination_rule_set": (
+            "composite_exclusion_single_hole_closure_v1"
+            if enable_single_hole_positive_witness_closure
+            else "composite_exclusion_three_status_v1"
+        ),
         "boundary_law_005_status": "not_approved",
         "runtime_seconds": time.perf_counter() - started,
     }
@@ -420,6 +636,10 @@ def main(argv: list[str] | None = None) -> int:
         start_anchor=args.start_anchor,
         max_anchor=args.max_anchor,
         candidate_bound=args.candidate_bound,
+        enable_single_hole_positive_witness_closure=(
+            args.enable_single_hole_positive_witness_closure
+        ),
+        witness_bound=args.witness_bound,
     )
     write_artifacts(rows, summary, args.output_dir)
     return 0
