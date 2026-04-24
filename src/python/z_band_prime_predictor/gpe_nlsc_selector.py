@@ -104,6 +104,22 @@ class GPENLSCSelectorValidation:
         return self.observed_next_prime <= self.row.threat_horizon
 
 
+@dataclass(frozen=True)
+class GPENLSCBranchTarget:
+    """One observed Milestone 2 branch and its current selector status."""
+
+    winner_divisor_class: int
+    observed_rows: int
+    selector_name: str | None
+    threat_horizon_name: str | None
+    unresolved_requirement: str | None
+
+    @property
+    def is_resolved(self) -> bool:
+        """Return whether the branch has an exact selector law."""
+        return self.unresolved_requirement is None
+
+
 NLSCSelector = Callable[[int, GPENLSCSelectorState, int, int], int]
 NLSCStateFactory = Callable[[GPENLSCSelectorRow], GPENLSCSelectorState]
 
@@ -191,13 +207,51 @@ def validate_d4_nlsc_selector(
     return rows
 
 
+def audit_nlsc_branch_targets(current_primes: Iterable[int]) -> list[GPENLSCBranchTarget]:
+    """Return observed branch-selector targets on one validation surface."""
+    observed_counts: dict[int, int] = {}
+    for current_prime in current_primes:
+        row = oracle_nlsc_selector_row(current_prime)
+        branch = row.winner_divisor_class
+        observed_counts[branch] = observed_counts.get(branch, 0) + 1
+
+    targets: list[GPENLSCBranchTarget] = []
+    for branch in sorted(observed_counts):
+        if branch == 4:
+            targets.append(
+                GPENLSCBranchTarget(
+                    winner_divisor_class=branch,
+                    observed_rows=observed_counts[branch],
+                    selector_name="select_d4_nlsc_boundary_prime",
+                    threat_horizon_name="S_+(w)",
+                    unresolved_requirement=(
+                        "derive q^+ inside (w, S_+(w)] without boundary_offset state"
+                    ),
+                )
+            )
+            continue
+
+        targets.append(
+            GPENLSCBranchTarget(
+                winner_divisor_class=branch,
+                observed_rows=observed_counts[branch],
+                selector_name=None,
+                threat_horizon_name=None,
+                unresolved_requirement=f"define exact B_{branch}(q, S, w)",
+            )
+        )
+    return targets
+
+
 __all__ = [
+    "GPENLSCBranchTarget",
     "GPENLSCSelectorRow",
     "GPENLSCSelectorState",
     "GPENLSCSelectorValidation",
     "NLSCSelector",
     "NLSCStateFactory",
     "UndefinedNLSCSelectorBranchError",
+    "audit_nlsc_branch_targets",
     "oracle_nlsc_selector_row",
     "select_d4_nlsc_boundary_prime",
     "validate_d4_nlsc_selector",

@@ -15,6 +15,7 @@ from z_band_prime_predictor import (
     GPENLSCSelectorState,
     InsufficientBoundarySelectorStateError,
     UndefinedNLSCSelectorBranchError,
+    audit_nlsc_branch_targets,
     oracle_nlsc_selector_row,
     select_d4_nlsc_boundary_prime,
     validate_d4_nlsc_selector,
@@ -90,3 +91,22 @@ def test_nlsc_selector_reports_unresolved_non_d4_branch():
         assert "d(w)=3" in str(exc)
     else:
         raise AssertionError("non-d4 branch should fail as an unresolved selector target")
+
+
+def test_nlsc_branch_audit_reports_observed_unresolved_targets():
+    """The Milestone 2 audit should expose every observed branch target."""
+    targets = audit_nlsc_branch_targets((3, 5, 11, 29))
+
+    assert [target.winner_divisor_class for target in targets] == [3, 4, 6, 8]
+    assert [target.observed_rows for target in targets] == [1, 1, 1, 1]
+    assert not any(target.is_resolved for target in targets)
+
+    d4_target = next(target for target in targets if target.winner_divisor_class == 4)
+    assert d4_target.selector_name == "select_d4_nlsc_boundary_prime"
+    assert d4_target.threat_horizon_name == "S_+(w)"
+    assert "without boundary_offset state" in str(d4_target.unresolved_requirement)
+
+    d3_target = next(target for target in targets if target.winner_divisor_class == 3)
+    assert d3_target.selector_name is None
+    assert d3_target.threat_horizon_name is None
+    assert d3_target.unresolved_requirement == "define exact B_3(q, S, w)"
