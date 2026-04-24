@@ -2272,6 +2272,7 @@ def test_boundary_law_005a_stress_reports_hard_gate(tmp_path):
         "005A_applied_count",
         "005A_correct_count",
         "005A_wrong_count",
+        "safe_abstain_count",
         "action_population_match",
         "first_failure_example",
     } <= set(record)

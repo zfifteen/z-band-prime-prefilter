@@ -141,6 +141,8 @@ def stress_row(
     )
     true_boundary_rejected_count = int(summary["true_boundary_rejected_count"])
     false_absorbed_count = int(summary["false_resolved_survivor_absorbed_count"])
+    applied_count = int(summary["higher_divisor_locked_absorption_applied_count"])
+    row_count = int(summary["row_count"])
     hard_passed = (
         true_boundary_rejected_count == 0
         and absorption_wrong_count == 0
@@ -153,20 +155,19 @@ def stress_row(
         "anchor_range": surface,
         "start_anchor": start_anchor,
         "max_anchor": max_anchor,
-        "row_count": int(summary["row_count"]),
+        "row_count": row_count,
         "true_boundary_rejected_count": true_boundary_rejected_count,
         "absorption_wrong_count": absorption_wrong_count,
         "false_resolved_survivor_absorbed_count": false_absorbed_count,
         "unique_resolved_survivor_count": int(
             summary["unique_resolved_survivor_count"]
         ),
-        "005A_applied_count": int(
-            summary["higher_divisor_locked_absorption_applied_count"]
-        ),
+        "005A_applied_count": applied_count,
         "005A_correct_count": int(
             summary["higher_divisor_locked_absorption_correct_count"]
         ),
         "005A_wrong_count": absorption_wrong_count,
+        "safe_abstain_count": row_count - applied_count,
         "action_population_match": action_population_match,
         "action_population_missed_count": int(
             audit_report["missed_action_candidate_count"]

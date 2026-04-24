@@ -2,13 +2,14 @@
 
 ## Status
 
-Boundary Law 005A passed two controlled one-axis stress tests.
+Boundary Law 005A passed two controlled one-axis stress tests, the stronger
+candidate-horizon shifted-window stress, and the combined-bound origin stress.
 
 This is offline theorem discovery. Boundary Law 005A remains candidate-grade only. Pure generator emission remains forbidden. Classical labels are external audit only.
 
 ## Configuration
 
-Both stresses used the same base eliminator regime:
+All stresses used the same base eliminator regime:
 
 - single-hole positive witness closure: enabled
 - carrier-locked pressure ceiling: enabled
@@ -82,6 +83,59 @@ The anchor surface did not change:
 | action_population_missed_count | 0 |
 | first_failure_example | null |
 
+## Shifted-Window Stress
+
+The shifted-window stress used the stronger candidate horizon from the first
+stress:
+
+- candidate bound: 128
+- witness bound: 97
+
+It changed only the anchor surface:
+
+- anchors: 100000..200000
+- anchors: 1000000..1100000
+
+Activation was not required. Safe abstention was acceptable.
+
+## Shifted-Window Stress Metrics
+
+| anchor_range | candidate_bound | witness_bound | row_count | true_boundary_rejected_count | absorption_wrong_count | false_resolved_survivor_absorbed_count | action_population_match | action_population_missed_count | 005A_applied_count | 005A_correct_count | 005A_wrong_count | unique_resolved_survivor_count | safe_abstain_count | first_failure_example |
+|---|---:|---:|---:|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|---|
+| 100000..200000 | 128 | 97 | 8392 | 0 | 0 | 0 | true | 0 | 0 | 0 | 0 | 0 | 8392 | null |
+| 1000000..1100000 | 128 | 97 | 7216 | 0 | 0 | 0 | true | 0 | 0 | 0 | 0 | 0 | 7216 | null |
+
+## Combined-Bound Origin Stress
+
+The combined-bound origin stress used both previously passed expansions:
+
+- candidate bound: 128
+- witness bound: 127
+- anchors: 11..1000000
+
+This changed both axes together. It remained an offline stress of the same
+candidate rule, not an emission gate.
+
+## Combined-Bound Origin Stress Metrics
+
+| field | value |
+|---|---:|
+| candidate_bound | 128 |
+| witness_bound | 127 |
+| anchor_range | 11..1000000 |
+| row_count | 78494 |
+| true_boundary_rejected_count | 0 |
+| absorption_wrong_count | 0 |
+| false_resolved_survivor_absorbed_count | 0 |
+| unique_resolved_survivor_count | 36 |
+| 005A_applied_count | 48 |
+| 005A_correct_count | 48 |
+| 005A_wrong_count | 0 |
+| safe_abstain_count | 78446 |
+| action_population_match | true |
+| action_population_missed_count | 0 |
+| first_failure_example | null |
+
 ## Hard Gate
 
 The hard pass condition was:
@@ -93,14 +147,14 @@ false_resolved_survivor_absorbed_count = 0
 action_population_match = true
 ```
 
-Both stresses passed all four requirements.
+All recorded stress rows passed all four requirements.
 
 ## Result
 
 005A remains candidate-grade and is stronger than before:
 
 ```text
-005A: candidate-grade, action-population audited, candidate-bound stress passed, witness-bound stress passed, safe so far, narrow
+005A: candidate-grade, action-population audited, single-axis stresses passed, shifted-window stress passed, combined-bound origin stress passed, safe so far, narrow
 ```
 
 Coverage under the larger candidate horizon improved:
@@ -113,6 +167,15 @@ Coverage under the larger witness basis did not broaden:
 - witness bound 97 integration: 31 applications, 25 unique resolved survivors
 - witness bound 127 stress: 31 applications, 25 unique resolved survivors
 
+The stronger candidate horizon abstained safely on shifted windows:
+
+- 100000..200000: 0 applications, 8392 safe abstentions
+- 1000000..1100000: 0 applications, 7216 safe abstentions
+
+The combined-bound origin stress preserved the larger candidate-bound coverage:
+
+- candidate bound 128, witness bound 127: 48 applications, 36 unique resolved survivors
+
 The rule remains narrow. It is not a complete generator.
 
 ## Why Pure Emission Remains Forbidden
@@ -123,7 +186,7 @@ These stresses do not approve pure generator emission because:
 - the tests are offline
 - labels are still used after action for audit
 - coverage is still narrow
-- shifted-window activation remains sparse from prior evidence
+- shifted-window activation remains absent on the tested shifted windows
 - no pure emission contract has been approved
 
 The pure generator must remain fail-closed.
@@ -143,12 +206,13 @@ One wrong absorption kills generator eligibility for the rule.
 
 ## Next Gate
 
-The next safe gate is a shifted-window stress at the stronger candidate horizon:
+The next safe gate is shifted-window stress under the combined-bound horizon:
 
 ```text
 candidate_bound: 128
-witness_bound: 97
+witness_bound: 127
 anchors: 100000..200000 and 1000000..1100000
 ```
 
-That preserves the witness basis and tests whether the larger candidate horizon remains safe off the origin surface.
+That tests the combined-bound regime off the origin surface. Safe abstention
+remains a pass; wrong absorption remains fatal.
