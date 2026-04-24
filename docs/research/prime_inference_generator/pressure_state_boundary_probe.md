@@ -1,0 +1,125 @@
+# Pressure-State Boundary Probe
+
+The legal ladder collision forensics showed that direct ladder recovery is
+blocked by missing prime-marker structure. The next theorem-search target is a
+different class of observable: pressure states.
+
+The pressure-state probe is offline theorem discovery. It does not change the
+pure generator and does not authorize Boundary Law 005.
+
+## Objective
+
+Find a PGS-native pressure observable that can separate boundary offsets without
+using prime-marker identity, next-prime lookup, future boundary offset, or a
+hidden boundary scan.
+
+## Tested State Families
+
+The initial probe tests:
+
+- `square_pressure_state`
+- `semiprime_pressure_state`
+- `higher_divisor_pressure_state`
+- `threat_schedule_state`
+- `previous_chamber_pressure_state`
+- `carrier_plus_pressure_state`
+
+Every state reports:
+
+- `eligible_for_pure_generation`
+- `row_count`
+- `distinct_state_count`
+- `collision_count`
+- `collision_rate`
+- `first_collision_examples`
+- `zero_collision`
+
+The summary also reports:
+
+- `first_zero_collision_eligible_state_vector`
+
+## Legality Rule
+
+Exact semiprime, exact divisor, and exact threat states are useful theorem
+discovery probes, but they are not automatically legal for pure generation.
+
+A state is ineligible if it uses:
+
+- future boundary offset;
+- current gap width;
+- prime-marker identity or `d = 2`;
+- stop-at-first-prime behavior;
+- `nextprime` or `isprime` as a state feature;
+- exact factorization not available as a PGS-native observable.
+
+Previous-chamber pressure is treated as conditionally legal for recursive
+generation because a prior accepted boundary can carry previous-gap context
+forward. It is not a first-anchor boundary theorem by itself.
+
+## Initial Surface
+
+The first approved surface is:
+
+- anchors: `11..10_000`
+- prefix: `8`
+
+If no eligible zero-collision pressure state appears on that surface, Boundary
+Law 005 remains blocked.
+
+## Initial Result
+
+The first run used anchors `11..10_000` with prefix `8`.
+
+No eligible zero-collision pressure state appeared:
+
+- `first_zero_collision_eligible_state_vector: null`
+
+Collision counts:
+
+- `square_pressure_state`: `268`
+- `previous_chamber_pressure_state`: `30`
+- `carrier_plus_pressure_state`: `224`
+
+The exact semiprime, higher-divisor, and threat-schedule states also collided,
+and they are ineligible as pure-generation states because they use exact
+factorization, `d = 2`, `isprime`, or equivalent non-pure information.
+
+Boundary Law 005 remains blocked.
+
+## Combined-State Result
+
+The next run tested combined previous-chamber states:
+
+- `previous_chamber_plus_square_pressure_state`
+- `previous_chamber_plus_higher_divisor_pressure_state`
+- `previous_chamber_plus_threat_schedule_state`
+- `previous_chamber_plus_square_and_higher_pressure_state`
+- `previous_chamber_plus_square_and_threat_state`
+
+Surfaces:
+
+- anchors `11..10_000`, prefix `8`
+- anchors `11..100_000`, prefixes `8, 12, 16, 24, 32`
+
+The legal candidate did not close:
+
+- `previous_chamber_plus_square_pressure_state`, `11..10_000`, prefix `8`:
+  `224` collision buckets;
+- `previous_chamber_plus_square_pressure_state`, `11..100_000`, prefix `32`:
+  `2056` collision buckets.
+
+The first zero-collision eligible state remains:
+
+- `first_zero_collision_eligible_state_vector: null`
+
+The ineligible exact higher-divisor variants became strong theorem-search
+signals:
+
+- `previous_chamber_plus_higher_divisor_pressure_state`, `11..100_000`,
+  prefix `32`: `0` collisions;
+- `previous_chamber_plus_square_and_higher_pressure_state`, `11..100_000`,
+  prefix `32`: `0` collisions.
+
+Those states are not Boundary Law 005 candidates because they use exact
+divisor/prime-marker internals. They indicate that higher-divisor pressure may
+be the next observable to legalize.

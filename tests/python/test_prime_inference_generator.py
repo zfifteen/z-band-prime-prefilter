@@ -1,0 +1,609 @@
+"""Tests for the PGS Prime Inference Generator Milestone 0 scaffold."""
+
+from __future__ import annotations
+
+import importlib.util
+import json
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[2]
+MODULE_DIR = ROOT / "benchmarks" / "python" / "prime_inference_generator"
+CLI_PATH = MODULE_DIR / "pgs_prime_inference_mvp.py"
+PURE_PATH = MODULE_DIR / "pure_generator.py"
+GATE_PATH = MODULE_DIR / "forbidden_dependency_gate.py"
+TRANSITION_PROBE_PATH = MODULE_DIR / "transition_state_boundary_probe.py"
+COLLISION_FORENSICS_PATH = MODULE_DIR / "legal_ladder_collision_forensics.py"
+PRESSURE_PROBE_PATH = MODULE_DIR / "pressure_state_boundary_probe.py"
+PRESSURE_FORENSICS_PATH = MODULE_DIR / "pressure_collision_forensics.py"
+HIGHER_DIVISOR_FORENSICS_PATH = (
+    MODULE_DIR / "higher_divisor_pressure_forensics.py"
+)
+LEGAL_CANDIDATE_HARDENING_PATH = (
+    MODULE_DIR / "legal_candidate_hardening_probe.py"
+)
+COMPRESSED_STATE_SEARCH_PATH = MODULE_DIR / "compressed_state_search.py"
+
+
+def load_module(path: Path, name: str):
+    """Load one module by file path."""
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"unable to load {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_pure_cli_writes_fail_closed_artifacts(tmp_path):
+    """Pure mode writes LF-terminated trace and summary without validation fields."""
+    module = load_module(CLI_PATH, "pgs_prime_inference_mvp")
+
+    assert module.main(["--mode", "pure", "--anchor-prime", "11", "--count", "5", "--output-dir", str(tmp_path)]) == 0
+
+    trace_path = tmp_path / "pgs_prime_inference_pure_trace.jsonl"
+    summary_path = tmp_path / "pgs_prime_inference_pure_summary.json"
+    assert trace_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in trace_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [json.loads(line) for line in trace_path.read_text(encoding="utf-8").splitlines()]
+    assert len(rows) == 1
+    row = rows[0]
+    assert row["anchor_prime_p"] == 11
+    assert row["inferred_prime_q_hat"] is None
+    assert row["inference_status"] == "failed_closed"
+    assert row["failure_reason"] == "BOUNDARY_LAW_UNAVAILABLE"
+    assert "validated_prime_bool" not in row
+    assert "validation_backend" not in row
+
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["emitted_inferred_count"] == 0
+    assert summary["generation_status"] == "failed_closed"
+    assert summary["failure_reason"] == "BOUNDARY_LAW_UNAVAILABLE"
+    assert summary["generation_failure_count"] == 1
+    assert "confirmed_count" not in summary
+
+
+def test_pure_cli_accepts_only_anchor_11(tmp_path):
+    """Milestone 0 pure mode is intentionally pinned to anchor prime 11."""
+    module = load_module(CLI_PATH, "pgs_prime_inference_mvp_bad_anchor")
+
+    try:
+        module.main(["--mode", "pure", "--anchor-prime", "13", "--count", "1", "--output-dir", str(tmp_path)])
+    except ValueError as exc:
+        assert "only supports anchor prime 11" in str(exc)
+    else:
+        raise AssertionError("pure mode should reject anchors other than 11")
+
+
+def test_audit_reads_existing_jsonl_and_separates_generation_failures(tmp_path):
+    """Audit mode reads the emitted trace and keeps generation failures separate."""
+    module = load_module(CLI_PATH, "pgs_prime_inference_mvp_audit")
+    pure_dir = tmp_path / "pure"
+    audit_dir = tmp_path / "audit"
+
+    assert module.main(["--mode", "pure", "--anchor-prime", "11", "--count", "3", "--output-dir", str(pure_dir)]) == 0
+    trace_path = pure_dir / "pgs_prime_inference_pure_trace.jsonl"
+    assert module.main(["--audit-existing-jsonl", str(trace_path), "--output-dir", str(audit_dir)]) == 0
+
+    summary_path = audit_dir / "pgs_prime_inference_audit_summary.json"
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["generation_failure_count"] == 1
+    assert summary["inferred_count"] == 0
+    assert summary["confirmed_count"] == 0
+    assert summary["validation_failure_count"] == 0
+    assert summary["first_failure_index"] == 1
+    assert summary["first_failed_record"]["failure_type"] == "generation_failure"
+
+
+def test_forbidden_dependency_gate_passes_on_pure_module():
+    """The pure generator path should remain free of forbidden dependencies."""
+    gate = load_module(GATE_PATH, "prime_inference_forbidden_dependency_gate")
+
+    assert gate.forbidden_dependency_violations(PURE_PATH) == []
+
+
+def test_forbidden_dependency_gate_fails_on_synthetic_forbidden_import_and_call(tmp_path):
+    """The gate catches forbidden classical and next-prime dependencies."""
+    gate = load_module(GATE_PATH, "prime_inference_forbidden_dependency_gate_synthetic")
+    fixture = tmp_path / "bad_pure.py"
+    fixture.write_text(
+        "from sympy import nextprime\n"
+        "from z_band_prime_composite_field import divisor_counts_segment\n"
+        "def run(q):\n"
+        "    return nextprime(q) + int(divisor_counts_segment(q, q + 1)[0])\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+    violations = gate.forbidden_dependency_violations(fixture)
+    assert any("forbidden imported name nextprime" in item for item in violations)
+    assert any("forbidden import from z_band_prime_composite_field" in item for item in violations)
+    assert any("forbidden call nextprime" in item for item in violations)
+    assert any("forbidden call divisor_counts_segment" in item for item in violations)
+
+
+def test_pure_generator_source_does_not_import_old_predictor():
+    """The pure path must not import the old recursive predictor walker."""
+    source = PURE_PATH.read_text(encoding="utf-8")
+    assert "gwr_dni_recursive_walk" not in source
+    assert "z_band_prime_predictor" not in source
+    assert "divisor_counts_segment" not in source
+
+
+def test_transition_state_boundary_probe_writes_collision_reports(tmp_path):
+    """The offline theorem-search probe should report state-vector collisions."""
+    module = load_module(TRANSITION_PROBE_PATH, "transition_state_boundary_probe")
+
+    assert (
+        module.main(
+            [
+                "--start-prime",
+                "11",
+                "--max-anchor",
+                "50",
+                "--prefix-len",
+                "6",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    rows_path = tmp_path / "transition_state_boundary_probe_rows.jsonl"
+    summary_path = tmp_path / "transition_state_boundary_probe_summary.json"
+    assert rows_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in rows_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [json.loads(line) for line in rows_path.read_text(encoding="utf-8").splitlines()]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert rows
+    assert summary["mode"] == "offline_theorem_search"
+    assert summary["row_count"] == len(rows)
+    assert summary["state_vectors"]
+
+    first_report = summary["state_vectors"][0]
+    assert {
+        "state_vector",
+        "row_count",
+        "distinct_state_count",
+        "collision_count",
+        "collision_examples",
+        "max_bucket_size",
+        "zero_collision",
+        "uses_boundary_offset",
+        "uses_gap_width",
+        "uses_prime_marker_d2",
+        "uses_stop_at_first_prime",
+        "uses_nextprime_or_isprime",
+        "boundary_offset_within_prefix_rate",
+        "state_contains_boundary_token_rate",
+        "eligible_for_pure_generation",
+        "zero_collision_and_eligible",
+    } <= set(first_report)
+
+    reports = {report["state_vector"]: report for report in summary["state_vectors"]}
+    assert "first_zero_collision_eligible_state_vector" in summary
+    assert reports["carrier_ladder"]["uses_prime_marker_d2"] is True
+    assert reports["carrier_ladder"]["uses_nextprime_or_isprime"] is True
+    assert reports["carrier_ladder"]["eligible_for_pure_generation"] is False
+    assert reports["known_composite_divisor_ladder"]["uses_prime_marker_d2"] is False
+    assert reports["known_composite_divisor_ladder"]["uses_gap_width"] is False
+    assert reports["known_composite_divisor_ladder"]["eligible_for_pure_generation"] is True
+    assert reports["wheel"]["eligible_for_pure_generation"] is True
+
+
+def test_legal_ladder_collision_forensics_writes_required_fields(tmp_path):
+    """Collision forensics should compare legal collisions to contaminated keys."""
+    module = load_module(COLLISION_FORENSICS_PATH, "legal_ladder_collision_forensics")
+
+    assert (
+        module.main(
+            [
+                "--start-prime",
+                "11",
+                "--max-anchor",
+                "500",
+                "--prefix-len",
+                "8",
+                "--limit",
+                "3",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    buckets_path = tmp_path / "legal_ladder_collision_forensics_buckets.jsonl"
+    summary_path = tmp_path / "legal_ladder_collision_forensics_summary.json"
+    assert buckets_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in buckets_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    records = [json.loads(line) for line in buckets_path.read_text(encoding="utf-8").splitlines()]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert records
+    assert summary["mode"] == "offline_collision_forensics"
+    assert summary["state_vector_name"] == "known_composite_divisor_ladder"
+    assert summary["written_collision_bucket_count"] == len(records)
+
+    record = records[0]
+    assert {
+        "state_vector_name",
+        "legal_state_key",
+        "boundary_offsets_observed",
+        "anchors_with_same_legal_state",
+        "contaminated_carrier_ladder_keys",
+        "contaminated_previous_gap_ladder_keys",
+        "difference_between_legal_and_illegal_keys",
+        "candidate_missing_observable",
+    } <= set(record)
+
+
+def test_legal_ladder_collision_forensics_rejects_contaminated_state(tmp_path):
+    """Forensics should not accept contaminated states as legal targets."""
+    module = load_module(
+        COLLISION_FORENSICS_PATH,
+        "legal_ladder_collision_forensics_reject",
+    )
+
+    try:
+        module.main(
+            [
+                "--state-vector",
+                "carrier_ladder",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+    except ValueError as exc:
+        assert "not a legal state vector" in str(exc)
+    else:
+        raise AssertionError("contaminated state vector should be rejected")
+
+
+def test_pressure_state_boundary_probe_reports_legality_and_collisions(tmp_path):
+    """Pressure-state probe should report collisions and per-state eligibility."""
+    module = load_module(PRESSURE_PROBE_PATH, "pressure_state_boundary_probe")
+
+    assert (
+        module.main(
+            [
+                "--start-prime",
+                "11",
+                "--max-anchor",
+                "200",
+                "--prefix-len",
+                "8",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    rows_path = tmp_path / "pressure_state_boundary_probe_rows.jsonl"
+    summary_path = tmp_path / "pressure_state_boundary_probe_summary.json"
+    assert rows_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in rows_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [json.loads(line) for line in rows_path.read_text(encoding="utf-8").splitlines()]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert rows
+    assert summary["mode"] == "offline_pressure_state_theorem_search"
+    assert summary["row_count"] == len(rows)
+    assert "first_zero_collision_eligible_state_vector" in summary
+
+    reports = {report["state_vector_name"]: report for report in summary["state_vectors"]}
+    assert reports["square_pressure_state"]["eligible_for_pure_generation"] is True
+    assert reports["semiprime_pressure_state"]["uses_exact_factorization"] is True
+    assert reports["semiprime_pressure_state"]["eligible_for_pure_generation"] is False
+    assert reports["previous_chamber_pressure_state"]["uses_previous_gap_context"] is True
+    assert (
+        reports["previous_chamber_plus_square_pressure_state"][
+            "eligible_for_pure_generation"
+        ]
+        is True
+    )
+    assert (
+        reports["previous_chamber_plus_higher_divisor_pressure_state"][
+            "eligible_for_pure_generation"
+        ]
+        is False
+    )
+    assert (
+        reports["previous_chamber_plus_threat_schedule_state"][
+            "uses_nextprime_or_isprime"
+        ]
+        is True
+    )
+    assert {
+        "state_vector_name",
+        "eligible_for_pure_generation",
+        "row_count",
+        "distinct_state_count",
+        "collision_count",
+        "collision_rate",
+        "first_collision_examples",
+        "zero_collision",
+    } <= set(next(iter(reports.values())))
+
+
+def test_pressure_collision_forensics_writes_collision_buckets(tmp_path):
+    """Pressure collision forensics should write bucket deltas and summary counts."""
+    module = load_module(PRESSURE_FORENSICS_PATH, "pressure_collision_forensics")
+
+    assert (
+        module.main(
+            [
+                "--start-prime",
+                "11",
+                "--max-anchor",
+                "500",
+                "--prefix-len",
+                "8",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    buckets_path = tmp_path / "pressure_collision_forensics_buckets.jsonl"
+    summary_path = tmp_path / "pressure_collision_forensics_summary.json"
+    assert buckets_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in buckets_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    records = [json.loads(line) for line in buckets_path.read_text(encoding="utf-8").splitlines()]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert records
+    assert summary["mode"] == "offline_pressure_collision_forensics"
+    assert summary["state_vector_name"] == "previous_chamber_pressure_state"
+    assert summary["written_collision_bucket_count"] == len(records)
+    assert "candidate_missing_observable_counts" in summary
+
+    record = records[0]
+    assert {
+        "boundary_offsets_observed",
+        "anchors_by_bucket",
+        "shared_previous_state",
+        "legal_feature_deltas",
+        "candidate_missing_observable",
+    } <= set(record)
+
+
+def test_higher_divisor_pressure_forensics_reports_legalization_candidates(tmp_path):
+    """Higher-divisor forensics should audit contamination and legal candidates."""
+    module = load_module(
+        HIGHER_DIVISOR_FORENSICS_PATH,
+        "higher_divisor_pressure_forensics",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-prime",
+                "11",
+                "--max-anchor",
+                "500",
+                "--prefix-len",
+                "8",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    exact_path = tmp_path / "higher_divisor_pressure_forensics_exact_states.jsonl"
+    candidates_path = tmp_path / "higher_divisor_pressure_forensics_candidates.jsonl"
+    summary_path = tmp_path / "higher_divisor_pressure_forensics_summary.json"
+    assert exact_path.exists()
+    assert candidates_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in exact_path.read_bytes()
+    assert b"\r\n" not in candidates_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    exact_records = [
+        json.loads(line) for line in exact_path.read_text(encoding="utf-8").splitlines()
+    ]
+    candidate_records = [
+        json.loads(line)
+        for line in candidates_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert exact_records
+    assert candidate_records
+    assert summary["mode"] == "offline_higher_divisor_pressure_forensics"
+    assert summary["row_count"] > 0
+    assert "first_zero_collision_eligible_state_vector" in summary
+    assert "minimal_illegal_component" in summary
+
+    exact = {record["state_vector_name"]: record for record in exact_records}
+    audited = exact["previous_chamber_plus_higher_divisor_pressure_state"]
+    assert audited["eligible_for_pure_generation"] is False
+    assert audited["uses_exact_factorization"] is True
+    assert audited["uses_d2_recognition"] is True
+    assert audited["uses_old_walker"] is False
+    assert {
+        "state_vector_name",
+        "collision_count",
+        "eligible_for_pure_generation",
+        "ineligibility_reasons",
+        "uses_exact_factorization",
+        "uses_prime_marker",
+        "uses_future_boundary",
+        "uses_scan_to_first_prime",
+        "uses_d2_recognition",
+        "uses_full_divisor_count",
+        "uses_old_walker",
+        "feature_components",
+        "component_ablation_results",
+        "minimal_illegal_component",
+    } <= set(audited)
+
+    candidates = {
+        record["state_vector_name"]: record for record in candidate_records
+    }
+    small_factor = candidates["small_factor_witness_pressure"]
+    assert small_factor["eligible_for_pure_generation"] is True
+    assert small_factor["uses_prime_marker"] is False
+    assert small_factor["uses_full_divisor_count"] is False
+
+
+def test_legal_candidate_hardening_probe_reports_anti_table_metrics(tmp_path):
+    """Legal candidate hardening should expose leakage and anti-table metrics."""
+    module = load_module(
+        LEGAL_CANDIDATE_HARDENING_PATH,
+        "legal_candidate_hardening_probe",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--prefix-len",
+                "8",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    candidates_path = tmp_path / "legal_candidate_hardening_candidates.jsonl"
+    summary_path = tmp_path / "legal_candidate_hardening_summary.json"
+    assert candidates_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in candidates_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    candidate_records = [
+        json.loads(line)
+        for line in candidates_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["mode"] == "offline_legal_candidate_hardening"
+    assert summary["boundary_law_005_status"] == "not_approved"
+    assert summary["row_count"] > 0
+    assert len(candidate_records) == 3
+
+    record = candidate_records[0]
+    assert {
+        "candidate_name",
+        "eligible_for_pure_generation",
+        "row_count",
+        "distinct_state_count",
+        "collision_count",
+        "collision_rate",
+        "max_bucket_size",
+        "mean_bucket_size",
+        "singleton_bucket_count",
+        "singleton_bucket_rate",
+        "state_entropy_estimate",
+        "uses_anchor_value",
+        "uses_future_boundary",
+        "uses_prime_marker",
+        "uses_full_divisor_count",
+        "uses_exact_factorization",
+        "uses_scan_to_first_prime",
+        "uses_old_walker",
+        "first_collision_examples",
+        "table_like_state",
+        "hardening_gate_status",
+        "passes_hardening_gate",
+    } <= set(record)
+
+    reports = {item["candidate_name"]: item for item in candidate_records}
+    for name in (
+        "multiplicity_pressure_without_primality",
+        "power_signature_pressure",
+        "bounded_composite_witness_pressure",
+    ):
+        assert reports[name]["eligible_for_pure_generation"] is True
+        assert reports[name]["uses_prime_marker"] is False
+        assert reports[name]["uses_full_divisor_count"] is False
+        assert reports[name]["uses_exact_factorization"] is False
+        assert reports[name]["uses_anchor_value"] is False
+        assert reports[name]["passes_hardening_gate"] is False
+        assert reports[name]["hardening_gate_status"] in {
+            "failed_collision_gate",
+            "quarantined_table_like_state",
+        }
+
+
+def test_compressed_state_search_reports_collision_compression_frontier(tmp_path):
+    """Compressed search should report collision and compression gates."""
+    module = load_module(COMPRESSED_STATE_SEARCH_PATH, "compressed_state_search")
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--prefix-len",
+                "8",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    candidates_path = tmp_path / "compressed_state_search_candidates.jsonl"
+    summary_path = tmp_path / "compressed_state_search_summary.json"
+    assert candidates_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in candidates_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    candidate_records = [
+        json.loads(line)
+        for line in candidates_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["mode"] == "offline_compressed_legal_state_search"
+    assert summary["boundary_law_005_status"] == "not_approved"
+    assert summary["row_count"] > 0
+    assert "frontier_survivors" in summary
+    assert len(candidate_records) == 10
+
+    record = candidate_records[0]
+    assert {
+        "candidate_name",
+        "row_count",
+        "distinct_state_count",
+        "distinct_state_ratio",
+        "singleton_bucket_rate",
+        "max_bucket_size",
+        "mean_bucket_size",
+        "collision_count",
+        "collision_rate",
+        "compression_score",
+        "collision_examples",
+        "passes_collision_gate",
+        "passes_compression_gate",
+        "passes_frontier_gate",
+    } <= set(record)
+
+    reports = {item["candidate_name"]: item for item in candidate_records}
+    assert "multiplicity_pressure_histogram" in reports
+    assert "multiplicity_pressure_coarse_counts" in reports
+    assert reports["multiplicity_pressure_histogram"]["compression_score"] >= 0.0

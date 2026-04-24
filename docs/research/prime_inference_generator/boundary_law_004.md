@@ -1,0 +1,261 @@
+# Boundary Law 004: First Boundary-Forcing Predicate
+
+Boundary Laws 001 through 003 tested chamber certification. They did not produce
+a lawful emission because chamber consistency is not boundary force. Boundary
+Law 004 changes the target: identify a predicate that makes the chamber stop.
+
+This note surveys candidate boundary-forcing predicates under the pure
+generation contract. It does not emit. Its status is
+`BOUNDARY_FORCING_REQUIRES_NEW_THEOREM`.
+
+## Name
+
+First Boundary-Forcing Predicate.
+
+The law asks for a deterministic PGS predicate that takes anchor and chamber
+state and returns a unique `q_hat` without primality testing, next-prime lookup,
+or boundary discovery by scanning to `d(n) = 2`.
+
+## Required Predicate Contract
+
+A boundary-forcing predicate must:
+
+- start from an externally supplied anchor prime `p`;
+- use only PGS-computable chamber state;
+- identify a unique boundary offset;
+- distinguish a forced boundary from an admissible candidate;
+- fail closed when the boundary is not unique;
+- emit enough metadata to reproduce the inference.
+
+It must not assume the proposed chamber boundary and then merely verify that the
+interior is coherent.
+
+## Forbidden Mechanisms
+
+Boundary Law 004 rejects any predicate that emits because:
+
+- the boundary is classically known;
+- the candidate is first wheel-open;
+- the proposed chamber is internally coherent;
+- there is no smaller boundary candidate inside the assumed chamber;
+- the old recursive walker finds the boundary;
+- a scan reaches `d(n) = 2`;
+- trial division, sieve generation, Miller-Rabin, `isprime`, or `nextprime`
+  identifies the boundary.
+
+The standard is unchanged: PGS must force `q_hat`; audit only confirms
+afterward.
+
+## Candidate 1: First Post-Carrier Admissible Closure
+
+Statement:
+
+After a GWR carrier is established, the first admissible open offset satisfying
+local closure constraints is forced as the right boundary.
+
+Anchor-13 probe:
+
+- carrier: `w = 14`;
+- divisor class: `d(w) = 4`;
+- later proposed interior points: `15`, `16`;
+- first post-chamber open candidate: `17`.
+
+What it establishes:
+
+- the chamber has a carrier;
+- no smaller boundary inside the proposed chamber survives;
+- local interior closure is coherent.
+
+What remains missing:
+
+- a proof that the first admissible post-carrier closure point must be the
+  boundary;
+- a rule that distinguishes first admissible post-carrier candidate from a
+  later boundary without checking primality.
+
+Status:
+
+`FAILED_CLOSED`
+
+Failure reason:
+
+`FIRST_POST_CARRIER_ADMISSIBILITY_NOT_FORCE`
+
+## Candidate 2: Threat-Margin Closure
+
+Statement:
+
+The boundary must occur before the first later lower-divisor threat overtakes
+the GWR winner.
+
+For a winner `w`, define:
+
+$$T_{<}(w) = \min \{m > w : d(m) < d(w)\}$$
+
+The closure condition is:
+
+$$q < T_{<}(w)$$
+
+What it establishes:
+
+- a valid upper constraint on the boundary when `T_{<}(w)` is known;
+- a no-later-simpler interval in which the boundary must lie;
+- a useful threat margin after a proposed `q_hat` is known.
+
+What remains missing:
+
+- a unique boundary point inside the interval;
+- a way to compute the boundary without searching for primality;
+- a reason that one admissible point in the interval is forced over another.
+
+Status:
+
+`FAILED_CLOSED`
+
+Failure reason:
+
+`THREAT_MARGIN_BOUNDS_INTERVAL_NOT_POINT`
+
+## Candidate 3: DNI Fixed-Point Boundary
+
+Statement:
+
+A boundary occurs where the normalized chamber transition reaches the prime
+fixed-point locus, without classical primality testing.
+
+The desired predicate would map chamber state to a unique offset:
+
+$$B(p, S, w, d(w)) = q_{hat}$$
+
+where `S` is the PGS state and `w` is the active carrier.
+
+What it establishes:
+
+- a plausible form for a true boundary-forcing law;
+- a direct path from normalized chamber state to boundary emission if solved.
+
+What remains missing:
+
+- the actual invariant equation or transition law that returns one offset;
+- proof that the returned offset is unique;
+- a worked anchor where the returned offset is derived without using a known
+  prime boundary.
+
+Status:
+
+`BOUNDARY_FORCING_REQUIRES_NEW_THEOREM`
+
+Failure reason:
+
+`NO_DNI_FIXED_POINT_BOUNDARY_MAP`
+
+## Candidate 4: Recursive Witness Closure
+
+Statement:
+
+Once `d_min` and carrier offset are known, a deterministic witness map returns a
+boundary candidate without calling `nextprime`.
+
+What it establishes:
+
+- a possible implementation shape for a pure boundary selector;
+- a route from interior carrier metadata to a boundary offset.
+
+What remains missing:
+
+- a witness map that is not trained on, derived from, or validated inline by
+  classical boundary discovery;
+- a proof that the witness map returns a unique boundary;
+- evidence that the map is not only replaying known prime gaps.
+
+Status:
+
+`FAILED_CLOSED`
+
+Failure reason:
+
+`NO_PURE_RECURSIVE_WITNESS_MAP`
+
+## Candidate 5: Finite-State Transition Law
+
+Statement:
+
+A reduced gap-type or chamber-state engine predicts the next boundary offset
+from state transitions rather than primality detection.
+
+What it establishes:
+
+- a possible compressed symbolic route to boundary inference;
+- a natural place to encode recurring GWR/DNI chamber regimes.
+
+What remains missing:
+
+- a finite state whose transition output is a boundary offset, not just a gap
+  type or consistency label;
+- exact recovery without classical feedback during generation;
+- a proof that the state transition is deterministic and unique for the active
+  chamber.
+
+Status:
+
+`FAILED_CLOSED`
+
+Failure reason:
+
+`FINITE_STATE_BOUNDARY_OUTPUT_UNPROVED`
+
+## Current Result
+
+No candidate predicate in this note currently forces a boundary.
+
+The strongest supported result is:
+
+PGS chamber certificates can establish interior closure, GWR winners,
+leftmost-minimum carriers, and local no-later-simpler consistency. They do not
+yet imply a unique next boundary.
+
+Status:
+
+`BOUNDARY_FORCING_REQUIRES_NEW_THEOREM`
+
+## Missing Theorem
+
+The missing theorem is a boundary-forcing theorem external to chamber
+certification:
+
+$$\text{PGS chamber state} \Rightarrow \text{unique right boundary offset}$$
+
+For a carrier-bearing chamber, the desired form is:
+
+$$B(p, S, w, d(w)) = q_{hat}$$
+
+where `B` is deterministic, non-classical, and fails when the state is
+ambiguous.
+
+## Emission Rule
+
+Pure mode may emit under `boundary_law_004` only if one candidate predicate is
+upgraded from a certificate or bound into a unique boundary map.
+
+Until then, pure mode must emit:
+
+- `rule_set_version: "boundary_law_004"`
+- `inference_status: "failed_closed"`
+- `failure_reason: "BOUNDARY_FORCING_REQUIRES_NEW_THEOREM"`
+
+## Next Search Direction
+
+The next research task is not another small chamber certificate. It is to search
+for the missing function:
+
+$$B(p, S, w, d(w))$$
+
+The most promising paths are:
+
+- derive a DNI fixed-point boundary map;
+- find a pure recursive witness map that is not classical boundary discovery;
+- prove a finite-state transition law that outputs boundary offsets exactly.
+
+If none of these closes, the result is still clean: GWR/DNI currently describes
+and constrains proposed chambers, but a separate boundary-forcing theorem is
+needed before pure prime inference can emit.
