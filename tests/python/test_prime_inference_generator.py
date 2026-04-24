@@ -48,6 +48,12 @@ UNRESOLVED_ALTERNATIVE_CLOSURE_FORENSICS_PATH = (
 RESOLVED_BOUNDARY_ABSORPTION_SAFETY_PROBE_PATH = (
     MODULE_DIR / "resolved_boundary_absorption_safety_probe.py"
 )
+RESOLVED_BOUNDARY_LOCK_SEPARATOR_PROBE_PATH = (
+    MODULE_DIR / "resolved_boundary_lock_separator_probe.py"
+)
+HIGHER_DIVISOR_PRESSURE_LOCK_HARDENING_PATH = (
+    MODULE_DIR / "higher_divisor_pressure_lock_hardening.py"
+)
 
 
 def load_module(path: Path, name: str):
@@ -807,6 +813,57 @@ def test_composite_exclusion_probe_integrates_carrier_locked_ceiling_flag(tmp_pa
     assert ceiling_report["marginal_rejection_count"] > 0
 
 
+def test_composite_exclusion_probe_integrates_hd_locked_absorption_flag(tmp_path):
+    """Higher-divisor locked absorption should be explicit and attributed."""
+    module = load_module(
+        COMPOSITE_EXCLUSION_PROBE_PATH,
+        "composite_exclusion_boundary_probe_with_hd_locked_absorption",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--candidate-bound",
+                "64",
+                "--enable-single-hole-positive-witness-closure",
+                "--witness-bound",
+                "97",
+                "--enable-carrier-locked-pressure-ceiling",
+                "--carrier-lock-predicate",
+                "unresolved_alternatives_before_threat",
+                "--enable-higher-divisor-pressure-locked-absorption",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    summary_path = tmp_path / "composite_exclusion_boundary_probe_summary.json"
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["higher_divisor_pressure_locked_absorption_enabled"] is True
+    assert summary["boundary_law_005_status"] == "not_approved"
+    assert summary["true_boundary_rejected_count"] == 0
+    assert summary["unique_resolved_survivor_count"] > 0
+    assert summary["higher_divisor_locked_absorption_applied_count"] > 0
+    assert summary["higher_divisor_locked_absorption_correct_count"] > 0
+    assert summary["higher_divisor_locked_absorption_wrong_count"] == 0
+    assert summary["false_resolved_survivor_absorbed_count"] == 0
+
+    rule_reports = {
+        report["rule_family"]: report for report in summary["rule_family_reports"]
+    }
+    absorption_report = rule_reports[
+        "higher_divisor_locked_absorption_rejection"
+    ]
+    assert absorption_report["true_boundary_rejected_count"] == 0
+    assert absorption_report["marginal_rejection_count"] > 0
+
+
 def test_composite_exclusion_eliminator_source_has_no_forbidden_helpers():
     """The eliminator body should not call classical boundary helpers."""
     source = COMPOSITE_EXCLUSION_PROBE_PATH.read_text(encoding="utf-8")
@@ -1404,4 +1461,156 @@ def test_resolved_boundary_absorption_safety_probe_reports_rule_a_gate(tmp_path)
         "would_rule_a_eliminate_true_boundary_candidate",
         "candidate_absorption_status",
         "failure_reason",
+    } <= set(record)
+
+
+def test_resolved_boundary_lock_separator_probe_reports_zero_wrong_gate(tmp_path):
+    """Lock separator forensics should report zero-wrong candidate predicates."""
+    module = load_module(
+        RESOLVED_BOUNDARY_LOCK_SEPARATOR_PROBE_PATH,
+        "resolved_boundary_lock_separator_probe",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    records_path = tmp_path / "resolved_boundary_lock_separator_probe_records.jsonl"
+    summary_path = tmp_path / "resolved_boundary_lock_separator_probe_summary.json"
+    assert records_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in records_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    records = [
+        json.loads(line)
+        for line in records_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert records
+    assert summary["mode"] == "offline_resolved_boundary_lock_separator_probe"
+    assert summary["boundary_law_005_status"] == "not_approved"
+    assert summary["prime_emission_status"] == "forbidden"
+    assert summary["carrier_lock_predicate"] == "unresolved_alternatives_before_threat"
+    assert "candidate_lock_separator_counts" in summary
+    assert "zero_wrong_lock_candidates" in summary
+    assert "lock_predicate_reports" in summary
+
+    report = summary["lock_predicate_reports"][0]
+    assert {
+        "predicate_name",
+        "eligible_for_pure_generation",
+        "resolved_candidate_count",
+        "locked_count",
+        "true_locked_count",
+        "false_locked_count",
+        "selection_made_count",
+        "selection_wrong_count",
+        "selection_abstain_count",
+        "passes_zero_wrong_gate",
+        "first_false_examples",
+    } <= set(report)
+
+    record = records[0]
+    assert {
+        "anchor_p",
+        "resolved_candidate_offset",
+        "resolved_candidate_is_true_label",
+        "actual_boundary_offset_label",
+        "candidate_relation_to_true",
+        "later_unresolved_candidate_count",
+        "absorbs_all_later_unresolved_bool",
+        "would_rule_a_eliminate_true_boundary_candidate",
+        "carrier_offset",
+        "carrier_divisor_count",
+        "carrier_family",
+        "carrier_same_as_true_candidate",
+        "carrier_changes_when_extended_to_true_boundary",
+        "carrier_changes_when_extended_to_next_unresolved",
+        "extension_preserves_carrier",
+        "extension_changes_carrier",
+        "reset_evidence_between_candidate_and_true_boundary",
+        "reset_evidence_between_candidate_and_later_unresolved",
+        "higher_divisor_pressure_between_candidate_and_true",
+        "higher_divisor_pressure_between_candidate_and_later_unresolved",
+        "square_pressure_between_candidate_and_true",
+        "semiprime_pressure_between_candidate_and_true",
+        "single_hole_closure_used",
+        "closure_support_count",
+        "positive_witness_closure_count",
+        "power_closure_count",
+        "previous_chamber_pressure",
+        "previous_gap_width_class",
+    } <= set(record)
+
+
+def test_higher_divisor_pressure_lock_hardening_reports_surface_matrix(tmp_path):
+    """Higher-divisor lock hardening should report staged zero-wrong rows."""
+    module = load_module(
+        HIGHER_DIVISOR_PRESSURE_LOCK_HARDENING_PATH,
+        "higher_divisor_pressure_lock_hardening",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchors",
+                "500",
+                "2000",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    rows_path = tmp_path / "higher_divisor_pressure_lock_hardening_rows.jsonl"
+    summary_path = tmp_path / "higher_divisor_pressure_lock_hardening_summary.json"
+    assert rows_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in rows_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [
+        json.loads(line)
+        for line in rows_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert len(rows) == 2
+    assert summary["mode"] == "offline_higher_divisor_pressure_lock_hardening"
+    assert summary["boundary_law_005_status"] == "not_approved"
+    assert summary["prime_emission_status"] == "forbidden"
+    assert "all_surfaces_zero_wrong" in summary
+
+    record = rows[0]
+    assert {
+        "surface",
+        "true_resolved_candidate_count",
+        "false_resolved_candidate_count",
+        "higher_divisor_pressure_lock_true_selected",
+        "higher_divisor_pressure_lock_false_selected",
+        "higher_divisor_pressure_lock_wrong_count",
+        "selection_abstain_count",
+        "selection_accuracy_when_made",
+        "passes_zero_wrong_gate",
     } <= set(record)

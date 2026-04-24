@@ -61,6 +61,7 @@ RULE_FAMILIES = [
     "carrier_absence_rejection",
     "single_hole_positive_witness_closure",
     "carrier_locked_pressure_ceiling_rejection",
+    "higher_divisor_locked_absorption_rejection",
 ]
 
 
@@ -108,6 +109,11 @@ def build_parser() -> argparse.ArgumentParser:
         choices=CARRIER_LOCK_PREDICATE_CHOICES,
         default="either",
         help="Carrier-lock predicate used when the pressure ceiling flag is on.",
+    )
+    parser.add_argument(
+        "--enable-higher-divisor-pressure-locked-absorption",
+        action="store_true",
+        help="Absorb later unresolved candidates under the higher-divisor lock.",
     )
     parser.add_argument(
         "--output-dir",
@@ -480,6 +486,113 @@ def apply_carrier_locked_pressure_ceiling(
     }
 
 
+def first_legal_carrier(
+    anchor_p: int,
+    candidate_offset: int,
+    witness_bound: int,
+) -> dict[str, Any]:
+    """Return the first legal composite carrier inside a candidate chamber."""
+    for offset in range(1, candidate_offset):
+        certificate = certified_divisor_class(anchor_p + offset, witness_bound)
+        if certificate is None:
+            continue
+        return {
+            "carrier_offset": offset,
+            "carrier_w": anchor_p + offset,
+            "carrier_d": int(certificate["divisor_class"]),
+            "carrier_family": certificate["family"],
+        }
+    return {
+        "carrier_offset": None,
+        "carrier_w": None,
+        "carrier_d": None,
+        "carrier_family": None,
+    }
+
+
+def higher_divisor_pressure_lock_selected(
+    anchor_p: int,
+    resolved_offset: int,
+    later_unresolved_offsets: list[int],
+    witness_bound: int,
+) -> bool:
+    """Return whether a resolved candidate satisfies the higher-divisor lock."""
+    if not later_unresolved_offsets:
+        return False
+    carrier = first_legal_carrier(anchor_p, resolved_offset, witness_bound)
+    carrier_d = carrier["carrier_d"]
+    if carrier_d is None:
+        return False
+    for offset in range(resolved_offset + 1, max(later_unresolved_offsets)):
+        certificate = certified_divisor_class(anchor_p + offset, witness_bound)
+        if certificate is None:
+            continue
+        if int(certificate["divisor_class"]) > int(carrier_d):
+            return True
+    return False
+
+
+def apply_higher_divisor_locked_absorption(
+    anchor_p: int,
+    candidate_records: list[dict[str, Any]],
+    witness_bound: int,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Apply opt-in higher-divisor locked absorption to later unresolved records."""
+    updated_records = [dict(record) for record in candidate_records]
+    absorber_offsets: list[int] = []
+    absorbed_offsets: list[int] = []
+    for record in updated_records:
+        if record["status"] != CANDIDATE_STATUS_RESOLVED_SURVIVOR:
+            continue
+        resolved_offset = int(record["offset"])
+        later_unresolved = [
+            int(candidate["offset"])
+            for candidate in updated_records
+            if candidate["status"] == CANDIDATE_STATUS_UNRESOLVED
+            and int(candidate["offset"]) > resolved_offset
+        ]
+        if not higher_divisor_pressure_lock_selected(
+            anchor_p,
+            resolved_offset,
+            later_unresolved,
+            witness_bound,
+        ):
+            continue
+        row_absorbed: list[int] = []
+        for candidate in updated_records:
+            offset = int(candidate["offset"])
+            if candidate["status"] != CANDIDATE_STATUS_UNRESOLVED:
+                continue
+            if offset <= resolved_offset:
+                continue
+            candidate["status"] = CANDIDATE_STATUS_REJECTED
+            candidate["rule_family"] = "higher_divisor_locked_absorption_rejection"
+            candidate["higher_divisor_locked_absorption_rejection"] = True
+            candidate["higher_divisor_locked_absorption_previous_status"] = (
+                CANDIDATE_STATUS_UNRESOLVED
+            )
+            candidate["higher_divisor_locked_absorption_absorber_offset"] = (
+                resolved_offset
+            )
+            candidate["rejection_reasons"] = [
+                *list(candidate["rejection_reasons"]),
+                f"HIGHER_DIVISOR_LOCKED_ABSORPTION_BY_{resolved_offset}",
+            ]
+            candidate["unresolved_reasons"] = []
+            candidate["unresolved_interior_offsets"] = []
+            row_absorbed.append(offset)
+        if row_absorbed:
+            absorber_offsets.append(resolved_offset)
+            absorbed_offsets.extend(row_absorbed)
+
+    return updated_records, {
+        "enabled": True,
+        "applied": bool(absorber_offsets),
+        "absorber_offsets": absorber_offsets,
+        "absorbed_offsets": absorbed_offsets,
+    }
+
+
 def candidate_summary(candidate_records: list[dict[str, Any]]) -> dict[str, Any]:
     """Return candidate lists and status maps after all label-free rules."""
     survivors = [
@@ -529,6 +642,7 @@ def eliminate_candidates(
     witness_bound: int = 31,
     enable_carrier_locked_pressure_ceiling: bool = False,
     carrier_lock_predicate: str = "either",
+    enable_higher_divisor_pressure_locked_absorption: bool = False,
 ) -> dict[str, Any]:
     """Run label-free composite exclusion for one anchor."""
     offsets = candidate_offsets(anchor_p, candidate_bound)
@@ -557,6 +671,18 @@ def eliminate_candidates(
             witness_bound,
             carrier_lock_predicate,
         )
+    absorption_report = {
+        "enabled": enable_higher_divisor_pressure_locked_absorption,
+        "applied": False,
+        "absorber_offsets": [],
+        "absorbed_offsets": [],
+    }
+    if enable_higher_divisor_pressure_locked_absorption:
+        candidate_records, absorption_report = apply_higher_divisor_locked_absorption(
+            anchor_p,
+            candidate_records,
+            witness_bound,
+        )
     summary = candidate_summary(candidate_records)
 
     return {
@@ -574,6 +700,10 @@ def eliminate_candidates(
         ),
         "carrier_lock_predicate": carrier_lock_predicate,
         "carrier_locked_pressure_ceiling": ceiling_report,
+        "higher_divisor_pressure_locked_absorption_enabled": (
+            enable_higher_divisor_pressure_locked_absorption
+        ),
+        "higher_divisor_pressure_locked_absorption": absorption_report,
         "witness_bound": witness_bound,
     }
 
@@ -687,6 +817,15 @@ def rule_family_report(rows: list[dict[str, Any]], rule_family: str) -> dict[str
             ):
                 if (
                     record.get("carrier_locked_pressure_ceiling_previous_status")
+                    != CANDIDATE_STATUS_REJECTED
+                ):
+                    rejected_offsets.add(offset)
+            elif (
+                rule_family == "higher_divisor_locked_absorption_rejection"
+                and bool(record.get("higher_divisor_locked_absorption_rejection"))
+            ):
+                if (
+                    record.get("higher_divisor_locked_absorption_previous_status")
                     != CANDIDATE_STATUS_REJECTED
                 ):
                     rejected_offsets.add(offset)
@@ -844,6 +983,41 @@ def carrier_locked_ceiling_report(rows: list[dict[str, Any]]) -> dict[str, int]:
     }
 
 
+def higher_divisor_locked_absorption_report(
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Return attribution counts for the opt-in locked absorption rule."""
+    applied_count = 0
+    correct_count = 0
+    wrong_count = 0
+    false_resolved_survivor_absorbed_count = 0
+    absorbed_candidate_count = 0
+    for row in rows:
+        report = row["higher_divisor_pressure_locked_absorption"]
+        absorber_offsets = [int(offset) for offset in report["absorber_offsets"]]
+        if not absorber_offsets:
+            continue
+        actual = int(row["actual_boundary_offset_label"])
+        for absorber_offset in absorber_offsets:
+            applied_count += 1
+            if absorber_offset == actual:
+                correct_count += 1
+            else:
+                wrong_count += 1
+                false_resolved_survivor_absorbed_count += 1
+        absorbed_candidate_count += len(report["absorbed_offsets"])
+
+    return {
+        "higher_divisor_locked_absorption_applied_count": applied_count,
+        "higher_divisor_locked_absorption_correct_count": correct_count,
+        "higher_divisor_locked_absorption_wrong_count": wrong_count,
+        "false_resolved_survivor_absorbed_count": (
+            false_resolved_survivor_absorbed_count
+        ),
+        "higher_divisor_locked_absorbed_candidate_count": absorbed_candidate_count,
+    }
+
+
 def run_probe(
     start_anchor: int,
     max_anchor: int,
@@ -852,6 +1026,7 @@ def run_probe(
     witness_bound: int = 31,
     enable_carrier_locked_pressure_ceiling: bool = False,
     carrier_lock_predicate: str = "either",
+    enable_higher_divisor_pressure_locked_absorption: bool = False,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     """Run label-free elimination, then attach labels for reporting."""
     if candidate_bound < 1:
@@ -876,6 +1051,7 @@ def run_probe(
                     witness_bound=max(COMPOSITE_WITNESS_FACTORS),
                     enable_carrier_locked_pressure_ceiling=False,
                     carrier_lock_predicate=carrier_lock_predicate,
+                    enable_higher_divisor_pressure_locked_absorption=False,
                 ),
                 label,
             )
@@ -894,6 +1070,7 @@ def run_probe(
                     witness_bound=witness_bound,
                     enable_carrier_locked_pressure_ceiling=False,
                     carrier_lock_predicate=carrier_lock_predicate,
+                    enable_higher_divisor_pressure_locked_absorption=False,
                 ),
                 label,
             )
@@ -912,6 +1089,9 @@ def run_probe(
                     enable_carrier_locked_pressure_ceiling
                 ),
                 carrier_lock_predicate=carrier_lock_predicate,
+                enable_higher_divisor_pressure_locked_absorption=(
+                    enable_higher_divisor_pressure_locked_absorption
+                ),
             ),
             label,
         )
@@ -938,6 +1118,7 @@ def run_probe(
     )
     closure_report = single_hole_closure_report(rows)
     ceiling_report = carrier_locked_ceiling_report(rows)
+    absorption_report = higher_divisor_locked_absorption_report(rows)
 
     summary = {
         "mode": "offline_composite_exclusion_boundary_probe",
@@ -951,6 +1132,9 @@ def run_probe(
             enable_carrier_locked_pressure_ceiling
         ),
         "carrier_lock_predicate": carrier_lock_predicate,
+        "higher_divisor_pressure_locked_absorption_enabled": (
+            enable_higher_divisor_pressure_locked_absorption
+        ),
         "witness_bound": witness_bound,
         "row_count": len(rows),
         **metrics,
@@ -958,9 +1142,13 @@ def run_probe(
         "before_carrier_locked_pressure_ceiling_metrics": pre_ceiling_metrics,
         **closure_report,
         **ceiling_report,
+        **absorption_report,
         "rule_family_reports": rule_reports,
         "first_failure_examples": first_failure_examples,
         "elimination_rule_set": (
+            "composite_exclusion_hd_locked_absorption_v1"
+            if enable_higher_divisor_pressure_locked_absorption
+            else
             "composite_exclusion_single_hole_carrier_locked_ceiling_v1"
             if enable_carrier_locked_pressure_ceiling
             else "composite_exclusion_single_hole_closure_v1"
@@ -1008,6 +1196,9 @@ def main(argv: list[str] | None = None) -> int:
             args.enable_carrier_locked_pressure_ceiling
         ),
         carrier_lock_predicate=args.carrier_lock_predicate,
+        enable_higher_divisor_pressure_locked_absorption=(
+            args.enable_higher_divisor_pressure_locked_absorption
+        ),
     )
     write_artifacts(rows, summary, args.output_dir)
     return 0
