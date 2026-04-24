@@ -39,6 +39,9 @@ RIGHT_BOUNDARY_PRESSURE_CEILING_PROBE_PATH = (
 CARRIER_LOCK_CONDITION_PROBE_PATH = (
     MODULE_DIR / "carrier_lock_condition_probe.py"
 )
+RESIDUAL_AFTER_LOCKED_CEILING_FORENSICS_PATH = (
+    MODULE_DIR / "residual_after_locked_ceiling_forensics.py"
+)
 
 
 def load_module(path: Path, name: str):
@@ -1200,3 +1203,65 @@ def test_carrier_lock_condition_source_has_no_forbidden_helpers():
     )
     for token in forbidden_tokens:
         assert token not in predicate_source
+
+
+def test_residual_after_locked_ceiling_forensics_reports_taxonomy(tmp_path):
+    """Residual forensics should classify failures after the strongest safe mode."""
+    module = load_module(
+        RESIDUAL_AFTER_LOCKED_CEILING_FORENSICS_PATH,
+        "residual_after_locked_ceiling_forensics",
+    )
+
+    assert (
+        module.main(
+            [
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--candidate-bound",
+                "64",
+                "--witness-bound",
+                "97",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    records_path = tmp_path / "residual_after_locked_ceiling_forensics_records.jsonl"
+    summary_path = tmp_path / "residual_after_locked_ceiling_forensics_summary.json"
+    assert records_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in records_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    records = [
+        json.loads(line)
+        for line in records_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert records
+    assert summary["mode"] == "offline_residual_after_locked_ceiling_forensics"
+    assert summary["boundary_law_005_status"] == "not_approved"
+    assert summary["carrier_lock_predicate"] == "unresolved_alternatives_before_threat"
+    assert summary["row_count"] == len(records)
+    assert "unique_resolved_survivor_count" in summary
+    assert "true_boundary_rejected_count" in summary
+    assert "true_boundary_unresolved_count" in summary
+    assert "true_boundary_resolved_not_unique_count" in summary
+    assert "average_resolved_survivor_count" in summary
+    assert "average_unresolved_count" in summary
+    assert "residual_failure_pattern_counts" in summary
+
+    record = records[0]
+    assert {
+        "anchor_p",
+        "actual_boundary_offset_label",
+        "resolved_survivor_offsets",
+        "unresolved_candidate_offsets",
+        "rejected_candidate_offsets",
+        "remaining_unresolved_reason_counts",
+        "which_rule_pruned_what",
+    } <= set(record)
