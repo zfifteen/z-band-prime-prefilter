@@ -6,6 +6,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[2]
 MODULE_DIR = ROOT / "benchmarks" / "python" / "prime_inference_generator"
@@ -2780,6 +2782,7 @@ def test_experimental_graph_prime_generator_writes_and_audits(tmp_path):
     assert summary["audit_required"] is True
     assert summary["audit_confirmed"] == len(records)
     assert summary["audit_failed"] == 0
+    assert summary["generator_status"] == "SAFE_ZERO_FAILURE_AUDITED"
     assert summary["production_approved"] is False
     assert summary["cryptographic_use_approved"] is False
     assert audit_summary["confirmed_count"] == len(records)
@@ -2798,11 +2801,17 @@ def test_experimental_graph_prime_generator_writes_and_audits(tmp_path):
 
     for solver_version in ("v3", "risky-v5", "filtered-v5"):
         mode_dir = tmp_path / solver_version
+        research_args = (
+            ["--allow-research-mode"]
+            if solver_version in {"risky-v5", "filtered-v5"}
+            else []
+        )
         assert (
             module.main(
                 [
                     "--solver-version",
                     solver_version,
+                    *research_args,
                     "--start-anchor",
                     "11",
                     "--max-anchor",
@@ -2828,6 +2837,12 @@ def test_experimental_graph_prime_generator_writes_and_audits(tmp_path):
         assert mode_summary["solver_version"] == solver_version
         assert mode_summary["emitted_count"] >= 1
         assert mode_summary["audit_failed"] == 0
+        expected_status = (
+            "RESEARCH_ZERO_FAILURE_AUDITED"
+            if solver_version in {"risky-v5", "filtered-v5"}
+            else "SAFE_ZERO_FAILURE_AUDITED"
+        )
+        assert mode_summary["generator_status"] == expected_status
         assert "filtered_count" in mode_summary
         assert "filter_reason_counts" in mode_summary
 
@@ -2837,6 +2852,7 @@ def test_experimental_graph_prime_generator_writes_and_audits(tmp_path):
             [
                 "--solver-version",
                 "filtered-v5",
+                "--allow-research-mode",
                 "--start-anchor",
                 "10193",
                 "--max-anchor",
@@ -2875,6 +2891,7 @@ def test_experimental_graph_prime_generator_writes_and_audits(tmp_path):
             [
                 "--solver-version",
                 "filtered-v5",
+                "--allow-research-mode",
                 "--start-anchor",
                 "10399",
                 "--max-anchor",
@@ -2903,6 +2920,40 @@ def test_experimental_graph_prime_generator_writes_and_audits(tmp_path):
     assert filtered_semiprime_summary["filter_reason_counts"] == {
         "bounded_composite_witness": 1
     }
+
+    bounded_dir = tmp_path / "v7_bounded"
+    assert (
+        module.main(
+            [
+                "--solver-version",
+                "v7-bounded",
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--candidate-bound",
+                "128",
+                "--witness-bound",
+                "397",
+                "--audit",
+                "--fail-on-audit-failure",
+                "--output-dir",
+                str(bounded_dir),
+            ]
+        )
+        == 0
+    )
+    bounded_summary = json.loads(
+        (
+            bounded_dir / "experimental_graph_prime_generator_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert bounded_summary["solver_version"] == "v7-bounded"
+    assert bounded_summary["emitted_count"] > 0
+    assert bounded_summary["audit_failed"] == 0
+    assert bounded_summary["generator_status"] == "BOUNDED_ZERO_FAILURE_AUDITED"
+    assert bounded_summary["production_approved"] is False
+    assert bounded_summary["cryptographic_use_approved"] is False
 
 
 def test_experimental_graph_prime_generator_prints_dashboard(tmp_path, capsys):
@@ -2940,8 +2991,108 @@ def test_experimental_graph_prime_generator_prints_dashboard(tmp_path, capsys):
     assert "emitted_count:" in output
     assert "audit_confirmed:" in output
     assert "audit_failed: 0" in output
+    assert "generator_status: SAFE_ZERO_FAILURE_AUDITED" in output
     assert "production_approved: false" in output
     assert "cryptographic_use_approved: false" in output
+    assert "records_path:" in output
+    assert "summary_path:" in output
+    assert "audit_summary_path:" in output
+
+
+def test_experimental_graph_prime_generator_requires_research_opt_in(tmp_path):
+    """Quarantined graph modes should require explicit research opt-in."""
+    module = load_module(
+        EXPERIMENTAL_GRAPH_PRIME_GENERATOR_PATH,
+        "experimental_graph_prime_generator_research_guard",
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        module.main(
+            [
+                "--solver-version",
+                "risky-v5",
+                "--start-anchor",
+                "10193",
+                "--max-anchor",
+                "10193",
+                "--candidate-bound",
+                "128",
+                "--witness-bound",
+                "127",
+                "--audit",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+    assert exc_info.value.code == 2
+
+
+def test_experimental_graph_prime_generator_can_fail_on_audit_failure(tmp_path):
+    """Graph generator CLI should expose an optional downstream audit gate."""
+    module = load_module(
+        EXPERIMENTAL_GRAPH_PRIME_GENERATOR_PATH,
+        "experimental_graph_prime_generator_audit_gate",
+    )
+
+    clean_dir = tmp_path / "clean"
+    assert (
+        module.main(
+            [
+                "--solver-version",
+                "v6",
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "500",
+                "--candidate-bound",
+                "128",
+                "--witness-bound",
+                "127",
+                "--audit",
+                "--fail-on-audit-failure",
+                "--output-dir",
+                str(clean_dir),
+            ]
+        )
+        == 0
+    )
+
+    failing_dir = tmp_path / "failing"
+    assert (
+        module.main(
+            [
+                "--solver-version",
+                "risky-v5",
+                "--allow-research-mode",
+                "--start-anchor",
+                "10193",
+                "--max-anchor",
+                "10193",
+                "--candidate-bound",
+                "128",
+                "--witness-bound",
+                "127",
+                "--audit",
+                "--fail-on-audit-failure",
+                "--output-dir",
+                str(failing_dir),
+            ]
+        )
+        == 1
+    )
+
+    audit_summary = json.loads(
+        (
+            failing_dir / "experimental_graph_prime_generator_audit_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert audit_summary["failed_count"] == 1
+    failed_summary = json.loads(
+        (
+            failing_dir / "experimental_graph_prime_generator_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert failed_summary["generator_status"] == "AUDIT_FAILED"
 
 
 def test_witness_horizon_semiprime_analysis_writes_front_metrics(tmp_path):

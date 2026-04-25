@@ -10,6 +10,7 @@ audit over already emitted records.
 The default solver mode is `v6`, the safe repaired graph line. The quarantined
 high-coverage line is exposed as `risky-v5` so its output and failures can be
 measured explicitly. The filtered research line is exposed as `filtered-v5`.
+The bounded high-coverage audited line is exposed as `v7-bounded`.
 
 ## Command
 
@@ -21,6 +22,7 @@ python3 benchmarks/python/prime_inference_generator/experimental_graph_prime_gen
   --candidate-bound 128 \
   --witness-bound 127 \
   --audit \
+  --fail-on-audit-failure \
   --print-dashboard \
   --output-dir output/prime_inference_generator
 ```
@@ -30,11 +32,21 @@ Supported solver versions:
 ```text
 v3
 v6
+v7-bounded
 risky-v5
 filtered-v5
 ```
 
 `v6` is the default.
+
+The quarantined research modes require an explicit acknowledgement:
+
+```text
+--allow-research-mode
+```
+
+This flag is required for `risky-v5` and `filtered-v5`. It is not required for
+`v3` or `v6`.
 
 ## Solver Modes
 
@@ -49,6 +61,21 @@ unresolved_later_domination_target_no_carrier_with_positive_nonboundary_guard
 
 This is the safe repaired relation. It requires positive target non-boundary
 evidence and does not run the old v4 or v5 absence-based propagation.
+
+`v7-bounded` runs the risky-v5 graph internally, then applies the positive
+nonboundary filter with a declared witness horizon. It requires:
+
+```text
+--candidate-bound 128
+--witness-bound >= 397
+--audit
+--fail-on-audit-failure
+```
+
+On the `11..100_000`, `candidate_bound = 128`, `witness_bound = 397` surface,
+it emitted `6039` records, confirmed `6039`, and failed `0` downstream audit
+records. It remains non-production and non-cryptographic, but it is the current
+highest-coverage zero-failure experimental mode.
 
 `risky-v5` runs the quarantined v5 line. It is exposed only for research
 comparison. It includes the old v4 no-carrier/no-active-reset relation that
@@ -101,6 +128,7 @@ audit_required
 audit_confirmed
 audit_failed
 first_failure
+generator_status
 filter_reason_counts
 production_approved: false
 cryptographic_use_approved: false
@@ -115,6 +143,11 @@ experimental_graph_prime_generator_audit_summary.json
 The audit checks first-boundary semantics: `inferred_prime_q_hat` must be the
 first classical prime after `anchor_p`.
 
+When `--fail-on-audit-failure` is supplied with `--audit`, the CLI still writes
+records and summaries, then exits with status `1` if any emitted record fails
+downstream audit. This is intended for generator app and CI workflows. It does
+not change solver logic and does not move validation into generation.
+
 When `--print-dashboard` is supplied, the CLI prints the same generator-facing
 run metrics to stdout:
 
@@ -127,7 +160,23 @@ coverage_rate
 audit_confirmed
 audit_failed
 first_failure
+generator_status
+records_path
+summary_path
+audit_summary_path
 ```
+
+`generator_status` is the app-facing run state:
+
+```text
+AUDIT_NOT_RUN
+SAFE_ZERO_FAILURE_AUDITED
+BOUNDED_ZERO_FAILURE_AUDITED
+RESEARCH_ZERO_FAILURE_AUDITED
+AUDIT_FAILED
+```
+
+Production approval and cryptographic approval remain `false` for every status.
 
 ## Generator Runs
 
@@ -160,6 +209,16 @@ failed_count: 0
 coverage_rate: 0.022632457238214436
 first_failure: null
 
+mode: v7-bounded
+anchors_scanned: 9588
+risky_input_count: 7391
+filtered_count: 1352
+emitted_count: 6039
+confirmed_count: 6039
+failed_count: 0
+coverage_rate: 0.629850
+first_failure: null
+
 mode: risky-v5
 anchors_scanned: 9588
 emitted_count: 7391
@@ -189,7 +248,8 @@ first_failure:
 ```
 
 The generator state is now explicit: v6 is safe and low-coverage on this
-surface, while risky-v5 is high-coverage but fails downstream audit. The
+surface. v7-bounded is high-coverage and zero-failure under its declared
+witness horizon. risky-v5 is high-coverage but fails downstream audit. The
 filtered-v5 positive nonboundary filter blocks the known `10193 -> 10201`
-square failure and the `10399 -> 10403` bounded semiprime failure. It still
-fails audit and remains research-only.
+square failure and the `10399 -> 10403` bounded semiprime failure at lower
+witness horizons. It remains research-only outside the bounded v7 contract.

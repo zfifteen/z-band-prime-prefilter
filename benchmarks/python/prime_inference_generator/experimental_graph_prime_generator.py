@@ -83,7 +83,9 @@ DEFAULT_OUTPUT_DIR = Path("output/prime_inference_generator")
 RECORDS_FILENAME = "experimental_graph_prime_generator_records.jsonl"
 SUMMARY_FILENAME = "experimental_graph_prime_generator_summary.json"
 AUDIT_SUMMARY_FILENAME = "experimental_graph_prime_generator_audit_summary.json"
-SOLVER_VERSIONS = ("v3", "v6", "risky-v5", "filtered-v5")
+SOLVER_VERSIONS = ("v3", "v6", "v7-bounded", "risky-v5", "filtered-v5")
+RESEARCH_SOLVER_VERSIONS = ("risky-v5", "filtered-v5")
+BOUNDED_V7_MIN_WITNESS_BOUND = 397
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -98,6 +100,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--witness-bound", type=int, default=127)
     parser.add_argument("--emit-target", type=int, default=None)
     parser.add_argument("--audit", action="store_true")
+    parser.add_argument("--fail-on-audit-failure", action="store_true")
+    parser.add_argument("--allow-research-mode", action="store_true")
     parser.add_argument("--print-dashboard", action="store_true")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     return parser
@@ -200,7 +204,11 @@ def solve_anchor_for_version(
     relations.extend(
         propagate_unresolved_later_domination_v3(anchor_p, nodes, witness_bound)
     )
-    effective_solver_version = "risky-v5" if solver_version == "filtered-v5" else solver_version
+    effective_solver_version = (
+        "risky-v5"
+        if solver_version in {"filtered-v5", "v7-bounded"}
+        else solver_version
+    )
     if effective_solver_version == "v6":
         relations.extend(
             propagate_unresolved_later_domination_repaired_v4(
@@ -306,7 +314,7 @@ def emit_records(
         )
         if record is None:
             continue
-        if solver_version == "filtered-v5":
+        if solver_version in {"filtered-v5", "v7-bounded"}:
             risky_input_count += 1
             filter_reasons = positive_nonboundary_filter_reasons(
                 int(record["inferred_prime_q_hat"]),
@@ -333,9 +341,10 @@ def emit_records(
                         }
                     )
                 continue
-            record["solver_version"] = "filtered-v5"
+            record["solver_version"] = solver_version
             record["inference_status"] = (
-                "INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_FILTERED_V5"
+                "INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_"
+                + solver_version.upper().replace("-", "_")
             )
             record["filter_status"] = "PASSED_POSITIVE_NONBOUNDARY_FILTER"
             record["filter_reasons"] = []
@@ -364,15 +373,18 @@ def emit_records(
         "abstained_count": abstained_count,
         "coverage_rate": 0.0 if anchors_scanned == 0 else len(records) / anchors_scanned,
         "risky_input_count": risky_input_count
-        if solver_version == "filtered-v5"
+        if solver_version in {"filtered-v5", "v7-bounded"}
         else None,
-        "filtered_count": filtered_count if solver_version == "filtered-v5" else 0,
+        "filtered_count": filtered_count
+        if solver_version in {"filtered-v5", "v7-bounded"}
+        else 0,
         "filter_reason_counts": filter_reason_counts,
         "first_filtered_examples": first_filtered_examples,
         "audit_required": True,
         "audit_confirmed": None,
         "audit_failed": None,
         "first_failure": None,
+        "generator_status": "AUDIT_NOT_RUN",
         "production_approved": False,
         "cryptographic_use_approved": False,
         "runtime_seconds": time.perf_counter() - started,
@@ -409,6 +421,19 @@ def audit_records(records: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def generator_status(summary: dict[str, Any]) -> str:
+    """Return the app-facing run status for the generator summary."""
+    if summary["audit_failed"] is None:
+        return "AUDIT_NOT_RUN"
+    if int(summary["audit_failed"]) > 0:
+        return "AUDIT_FAILED"
+    if summary["solver_version"] == "v7-bounded":
+        return "BOUNDED_ZERO_FAILURE_AUDITED"
+    if summary["solver_version"] in RESEARCH_SOLVER_VERSIONS:
+        return "RESEARCH_ZERO_FAILURE_AUDITED"
+    return "SAFE_ZERO_FAILURE_AUDITED"
+
+
 def write_artifacts(
     records: list[dict[str, Any]],
     summary: dict[str, Any],
@@ -438,7 +463,10 @@ def write_artifacts(
     return paths
 
 
-def dashboard_lines(summary: dict[str, Any]) -> list[str]:
+def dashboard_lines(
+    summary: dict[str, Any],
+    artifact_paths: dict[str, Path] | None = None,
+) -> list[str]:
     """Return concise terminal dashboard lines for one generator run."""
     lines = [
         "PGS experimental graph generator",
@@ -450,6 +478,7 @@ def dashboard_lines(summary: dict[str, Any]) -> list[str]:
         f"audit_required: {str(summary['audit_required']).lower()}",
         f"audit_confirmed: {summary['audit_confirmed']}",
         f"audit_failed: {summary['audit_failed']}",
+        f"generator_status: {summary['generator_status']}",
         "production_approved: false",
         "cryptographic_use_approved: false",
     ]
@@ -457,7 +486,7 @@ def dashboard_lines(summary: dict[str, Any]) -> list[str]:
         lines.append(f"first_failure: {json.dumps(jsonable(summary['first_failure']), sort_keys=True)}")
     else:
         lines.append("first_failure: null")
-    if summary["solver_version"] == "filtered-v5":
+    if summary["solver_version"] in {"filtered-v5", "v7-bounded"}:
         lines.extend(
             [
                 f"risky_input_count: {summary['risky_input_count']}",
@@ -466,17 +495,40 @@ def dashboard_lines(summary: dict[str, Any]) -> list[str]:
                 + json.dumps(jsonable(summary["filter_reason_counts"]), sort_keys=True),
             ]
         )
+    if artifact_paths is not None:
+        for name, path in sorted(artifact_paths.items()):
+            lines.append(f"{name}: {path}")
     return lines
 
 
-def print_dashboard(summary: dict[str, Any]) -> None:
+def print_dashboard(
+    summary: dict[str, Any],
+    artifact_paths: dict[str, Path] | None = None,
+) -> None:
     """Print the terminal dashboard for one generator run."""
-    print("\n".join(dashboard_lines(summary)))
+    print("\n".join(dashboard_lines(summary, artifact_paths)))
 
 
 def main(argv: list[str] | None = None) -> int:
     """Run the experimental graph prime generator."""
-    args = build_parser().parse_args(argv)
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    if (
+        args.solver_version in RESEARCH_SOLVER_VERSIONS
+        and not args.allow_research_mode
+    ):
+        parser.error(
+            "--allow-research-mode is required for risky-v5 and filtered-v5"
+        )
+    if args.solver_version == "v7-bounded":
+        if args.candidate_bound != 128:
+            parser.error("v7-bounded requires --candidate-bound 128")
+        if args.witness_bound < BOUNDED_V7_MIN_WITNESS_BOUND:
+            parser.error("v7-bounded requires --witness-bound >= 397")
+        if not args.audit or not args.fail_on_audit_failure:
+            parser.error(
+                "v7-bounded requires --audit and --fail-on-audit-failure"
+            )
     records, summary = emit_records(
         solver_version=args.solver_version,
         start_anchor=args.start_anchor,
@@ -491,9 +543,16 @@ def main(argv: list[str] | None = None) -> int:
         summary["audit_confirmed"] = audit_summary["confirmed_count"]
         summary["audit_failed"] = audit_summary["failed_count"]
         summary["first_failure"] = audit_summary["first_failure"]
-    write_artifacts(records, summary, audit_summary, args.output_dir)
+        summary["generator_status"] = generator_status(summary)
+    artifact_paths = write_artifacts(records, summary, audit_summary, args.output_dir)
     if args.print_dashboard:
-        print_dashboard(summary)
+        print_dashboard(summary, artifact_paths)
+    if (
+        args.fail_on_audit_failure
+        and audit_summary is not None
+        and int(audit_summary["failed_count"]) > 0
+    ):
+        return 1
     return 0
 
 
