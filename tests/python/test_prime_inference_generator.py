@@ -92,6 +92,9 @@ BOUNDARY_CERTIFICATE_GRAPH_ABSTENTION_ANALYSIS_PATH = (
 BOUNDARY_CERTIFICATE_GRAPH_V4_ABSTENTION_PROFILE_PATH = (
     MODULE_DIR / "boundary_certificate_graph_v4_abstention_profile.py"
 )
+GRAPH_V4_FAILURE_BUG_AUDIT_PATH = (
+    MODULE_DIR / "graph_v4_failure_bug_audit.py"
+)
 
 
 def load_module(path: Path, name: str):
@@ -2852,3 +2855,69 @@ def test_boundary_certificate_graph_v4_abstention_profile_reports_hints(tmp_path
             "why_v3_abstained",
             "candidate_v4_relation_hint",
         } <= set(row)
+
+
+def test_graph_v4_failure_bug_audit_reproduces_anchor_10193(tmp_path):
+    """Graph v4 failure audit should locate the phase that absorbs offset 18."""
+    module = load_module(
+        GRAPH_V4_FAILURE_BUG_AUDIT_PATH,
+        "graph_v4_failure_bug_audit",
+    )
+
+    assert (
+        module.main(
+            [
+                "--anchor",
+                "10193",
+                "--candidate-bound",
+                "128",
+                "--witness-bound",
+                "127",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    record_path = tmp_path / "graph_v4_failure_bug_audit_record.json"
+    summary_path = tmp_path / "graph_v4_failure_bug_audit_summary.json"
+    assert record_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in record_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    record = json.loads(record_path.read_text(encoding="utf-8"))
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["mode"] == "offline_graph_v4_failure_bug_audit"
+    assert summary["reproduce_failure_bool"] is True
+    assert summary["emitted_q_hat"] == 10201
+    assert summary["emitted_offset"] == 8
+    assert summary["actual_next_prime"] == 10211
+    assert summary["actual_boundary_offset"] == 18
+    assert summary["emitted_matches_actual_bool"] is False
+    assert summary["relation_that_absorbed_true_boundary"] == (
+        "unresolved_later_domination_target_no_carrier_reset_discriminator"
+    )
+    assert summary["exact_phase_where_true_boundary_is_lost"] == "after_v4"
+    assert summary["production_approved"] is False
+    assert summary["pure_emission_added"] is False
+    assert summary["solver_rules_changed"] is False
+
+    assert record["true_boundary_in_candidate_set"] is True
+    assert record["emitted_q_hat_factorization"] == {"101": 2}
+    assert record["v4_target_is_true_boundary"] is True
+    assert record["v4_preconditions"]["active_resolved_count"] == 1
+    assert record["v4_preconditions"]["source_single_hole_closure_used"] is False
+    assert record["v4_preconditions"]["target_has_legal_carrier"] is False
+    assert record["v4_preconditions"]["target_no_carrier_reset_status"] == (
+        "NO_ACTIVE_RESET_EVIDENCE"
+    )
+    assert record["bug_checks"]["single_anchor_reproduces_range_failure"] is True
+    assert record["bug_checks"]["candidate_set_contains_true_boundary"] is True
+    assert record["bug_checks"]["true_boundary_absorbed_by_v4"] is True
+    assert record["bug_checks"]["v4_absorbed_resolved_candidate"] is False
+    assert record["bug_checks"]["v4_absorbed_unresolved_true_boundary"] is True
+    assert {"base", "after_005A_R", "after_v1", "after_v2", "after_v3", "after_v4", "after_v5"} <= set(
+        record["phase_snapshots"]
+    )
