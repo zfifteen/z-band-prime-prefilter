@@ -44,7 +44,7 @@ classical labels during solving.
 
 ## v1 Relation
 
-The v1 addition is exactly one relation:
+The v1 addition was one relation:
 
 ```text
 unresolved_later_domination_from_existing_graph_facts
@@ -58,12 +58,29 @@ same-or-lower divisor reset evidence between the source and target.
 The relation abstains when reset evidence is positive or unknown. It does not
 use labels, candidate ranking, 005B, or broad resolved-chamber absorption.
 
+## v2 Relation
+
+The v2 refinement stays inside the same relation family:
+
+```text
+unresolved_later_domination_from_existing_graph_facts_v2
+```
+
+It keeps the resolved-source, nearest-later-unresolved, no-single-hole, and
+carrier-preservation requirements. The controlled expansion is the reset
+check: v2 computes reset evidence over the active candidate graph after
+rejected and absorbed nodes have been removed. It still abstains when the active
+graph contains positive reset evidence or when the reset state is unknown.
+
+This is not broad resolved-chamber absorption. It is a reset-aware active-graph
+refinement of unresolved-later domination.
+
 ## Record Contract
 
 Each emitted JSONL record uses:
 
 - `record_type: PGS_INFERRED_PRIME_EXPERIMENTAL_GRAPH`
-- `inference_status: INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_V1`
+- `inference_status: INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_V2`
 - `production_approved: false`
 - `cryptographic_use_approved: false`
 - `classical_audit_required: true`
@@ -119,6 +136,35 @@ new_relation_wrong_count_after_audit: 0
 
 This is the first graph-solver coverage improvement beyond the 36-record
 005A-R island while keeping downstream audit failures at zero.
+
+## v2 Result
+
+On the same surface:
+
+```text
+graph_solved_count: 130
+graph_abstain_count: 1095
+new_relation_applied_count: 1181
+new_relation_solution_count: 94
+v1_relation_applied_count: 169
+v2_relation_applied_count: 1012
+v2_relation_solution_count: 88
+```
+
+Separate downstream audit:
+
+```text
+audited_count: 130
+confirmed_count: 130
+failed_count: 0
+new_relation_correct_count_after_audit: 94
+new_relation_wrong_count_after_audit: 0
+v2_relation_correct_count_after_audit: 88
+v2_relation_wrong_count_after_audit: 0
+```
+
+This is a generator-facing coverage gain from 42 to 130 solved graph records
+without any downstream audit failures.
 
 ## Failure Handling
 

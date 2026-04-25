@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Abstention analysis for Boundary Certificate Graph Solver v0."""
+"""Abstention analysis for Boundary Certificate Graph Solver."""
 
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ DEFAULT_OUTPUT_DIR = Path("output/prime_inference_generator")
 SUMMARY_FILENAME = "boundary_certificate_graph_abstention_analysis_summary.json"
 ROWS_FILENAME = "boundary_certificate_graph_abstention_analysis_rows.jsonl"
 RULE_SET = "005A-R"
-SOLVER_VERSION = "v1"
+SOLVER_VERSION = "v2"
 TRUE_BOUNDARY_STATUSES = (
     "RESOLVED",
     "UNRESOLVED",

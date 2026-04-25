@@ -110,6 +110,34 @@ The dominant missing pattern remains:
 NEED_UNRESOLVED_LATER_DOMINATION
 ```
 
+## v2 Follow-Up
+
+The v2 refinement kept the same unresolved-later domination family and changed
+only the reset-evidence lens. It evaluates reset evidence over the active
+candidate graph after rejected and absorbed nodes have been removed, while
+still requiring carrier preservation and abstaining on positive or unknown
+reset evidence.
+
+```text
+graph_solved_count: 130
+graph_abstain_count: 1095
+graph_confirmed_count: 130
+graph_failed_count: 0
+v2_relation_correct_count_after_audit: 88
+v2_relation_wrong_count_after_audit: 0
+```
+
+The remaining abstention split is:
+
+```text
+TRUE_BOUNDARY_RESOLVED_BUT_UNRESOLVED_LATER_REMAIN: 1040
+TRUE_BOUNDARY_RESOLVED_WITH_MULTIPLE_RESOLVED_SURVIVORS: 3
+TRUE_BOUNDARY_UNRESOLVED: 52
+```
+
+The dominant missing pattern remains unresolved-later domination, but the
+v2 result shows that active-graph reset awareness is the right refinement path.
+
 ## Interpretation
 
 The main blocker is not false resolved survivors and not candidate-bound
@@ -118,21 +146,20 @@ candidate in most abstentions. It abstains because unresolved candidates after
 that resolved boundary remain live.
 
 The graph still needs a stronger unresolved-later domination discriminator.
-The v1 relation proves that this path can increase coverage, but most later
-unresolved alternatives remain live. Any next relation must stay label-free and
-must not become broad resolved-chamber absorption.
+The v1 and v2 relations prove that this path can increase coverage, but most
+later unresolved alternatives remain live. Any next relation must stay
+label-free and must not become broad resolved-chamber absorption.
 
 ## Next Implementation Step
 
-The next candidate relation should refine unresolved-later domination rather
-than switch to an unrelated signal:
+The next refinement should stay in this family:
 
 ```text
-unresolved_later_domination_from_existing_graph_facts_v2
+unresolved_later_domination_from_existing_graph_facts_v3
 ```
 
 Before integration, define the refinement as a label-free predicate over graph
-facts, then test whether it increases `graph_solved_count` above 42 with:
+facts, then test whether it increases `graph_solved_count` above 130 with:
 
 ```text
 graph_failed_count: 0
