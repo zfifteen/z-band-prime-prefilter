@@ -14,10 +14,14 @@ from typing import Any
 try:
     from .boundary_certificate_graph_solver import (
         active_graph_reset_evidence_status,
+        base_relations,
         candidate_nodes,
         carrier_identity,
+        propagate_005a_r,
+        propagate_unresolved_later_domination,
+        propagate_unresolved_later_domination_v2,
+        propagate_unresolved_later_domination_v3,
         reset_evidence_status,
-        solve_anchor,
     )
     from .composite_exclusion_boundary_probe import (
         CANDIDATE_STATUS_REJECTED,
@@ -34,10 +38,14 @@ except ImportError:  # pragma: no cover - direct script execution
         sys.path.insert(0, str(MODULE_DIR))
     from boundary_certificate_graph_solver import (
         active_graph_reset_evidence_status,
+        base_relations,
         candidate_nodes,
         carrier_identity,
+        propagate_005a_r,
+        propagate_unresolved_later_domination,
+        propagate_unresolved_later_domination_v2,
+        propagate_unresolved_later_domination_v3,
         reset_evidence_status,
-        solve_anchor,
     )
     from composite_exclusion_boundary_probe import (
         CANDIDATE_STATUS_REJECTED,
@@ -154,6 +162,63 @@ def base_row(anchor_p: int, candidate_bound: int, witness_bound: int) -> dict[st
         carrier_lock_predicate="unresolved_alternatives_before_threat",
         enable_higher_divisor_pressure_locked_absorption=False,
     )
+
+
+def solve_anchor_v3(
+    anchor_p: int,
+    candidate_bound: int,
+    witness_bound: int,
+) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    """Solve one anchor with the frozen v3 graph sequence."""
+    row = base_row(anchor_p, candidate_bound, witness_bound)
+    nodes = candidate_nodes(row, witness_bound)
+    relations = base_relations(row)
+    relations.extend(propagate_005a_r(anchor_p, nodes, witness_bound))
+    relations.extend(
+        propagate_unresolved_later_domination(anchor_p, nodes, witness_bound)
+    )
+    relations.extend(
+        propagate_unresolved_later_domination_v2(anchor_p, nodes, witness_bound)
+    )
+    relations.extend(
+        propagate_unresolved_later_domination_v3(anchor_p, nodes, witness_bound)
+    )
+
+    rejected_offsets = [
+        offset
+        for offset, node in sorted(nodes.items())
+        if node["status"] == CANDIDATE_STATUS_REJECTED
+    ]
+    absorbed_offsets = [
+        offset
+        for offset, node in sorted(nodes.items())
+        if bool(node["absorbed"])
+    ]
+    resolved_offsets = [
+        offset
+        for offset, node in sorted(nodes.items())
+        if node["status"] == CANDIDATE_STATUS_RESOLVED_SURVIVOR
+    ]
+    unresolved_offsets = [
+        offset
+        for offset, node in sorted(nodes.items())
+        if node["status"] == CANDIDATE_STATUS_UNRESOLVED
+    ]
+    graph_row = {
+        "anchor_p": anchor_p,
+        "candidate_bound": candidate_bound,
+        "witness_bound": witness_bound,
+        "candidate_offsets": list(row["candidate_offsets"]),
+        "relations": relations,
+        "rejected_offsets": rejected_offsets,
+        "absorbed_offsets": absorbed_offsets,
+        "resolved_offsets_after_solve": resolved_offsets,
+        "unresolved_offsets_after_solve": unresolved_offsets,
+        "solved_bool": len(resolved_offsets) == 1 and not unresolved_offsets,
+    }
+    if not graph_row["solved_bool"]:
+        return None, graph_row
+    return {"boundary_offset": int(resolved_offsets[0])}, graph_row
 
 
 def nodes_after_v3(
@@ -662,7 +727,7 @@ def run_profile(
     graph_failed_count = 0
     anchors = anchor_primes(start_anchor, max_anchor)
     for anchor_p in anchors:
-        record, graph_row = solve_anchor(anchor_p, candidate_bound, witness_bound)
+        record, graph_row = solve_anchor_v3(anchor_p, candidate_bound, witness_bound)
         actual_offset = actual_boundary_offset(anchor_p, candidate_bound)
         if record is not None:
             graph_solved_count += 1

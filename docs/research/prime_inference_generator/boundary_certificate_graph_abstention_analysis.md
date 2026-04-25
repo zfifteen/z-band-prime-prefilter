@@ -180,6 +180,50 @@ The dominant missing pattern remains:
 NEED_UNRESOLVED_LATER_DOMINATION: 959
 ```
 
+## v4 Follow-Up
+
+The v4 refinement stayed inside unresolved-later domination. It added the
+target-no-carrier reset discriminator identified by the v4 abstention profile.
+The relation absorbs only the nearest later unresolved target when the active
+graph has exactly one resolved survivor, the source is not single-hole
+dependent, the target has no legal carrier, and the active graph contains no
+positive reset evidence between source and target.
+
+On the same surface:
+
+```text
+graph_solved_count: 447
+graph_abstain_count: 778
+graph_confirmed_count: 447
+graph_failed_count: 0
+v4_relation_correct_count_after_audit: 236
+v4_relation_wrong_count_after_audit: 0
+```
+
+The remaining abstention split is:
+
+```text
+TRUE_BOUNDARY_RESOLVED_BUT_UNRESOLVED_LATER_REMAIN: 723
+TRUE_BOUNDARY_RESOLVED_WITH_MULTIPLE_RESOLVED_SURVIVORS: 3
+TRUE_BOUNDARY_UNRESOLVED: 52
+```
+
+The true-boundary status split after v4 is:
+
+```text
+RESOLVED: 726
+UNRESOLVED: 52
+REJECTED: 0
+ABSORBED: 0
+NOT_IN_CANDIDATE_SET: 0
+```
+
+The dominant missing pattern remains:
+
+```text
+NEED_UNRESOLVED_LATER_DOMINATION: 723
+```
+
 ## Interpretation
 
 The main blocker is not false resolved survivors and not candidate-bound
@@ -188,9 +232,9 @@ candidate in most abstentions. It abstains because unresolved candidates after
 that resolved boundary remain live.
 
 The graph still needs a stronger unresolved-later domination discriminator.
-The v1, v2, and v3 relations prove that this path can increase coverage, but
-most later unresolved alternatives remain live. Any next relation must stay
-label-free and must not become broad resolved-chamber absorption.
+The v1, v2, v3, and v4 relations prove that this path can increase coverage,
+but most later unresolved alternatives remain live. Any next relation must
+stay label-free and must not become broad resolved-chamber absorption.
 
 ## Next Implementation Step
 
@@ -201,7 +245,7 @@ unresolved_later_domination_from_existing_graph_facts
 ```
 
 Before integration, define the refinement as a label-free predicate over graph
-facts, then test whether it increases `graph_solved_count` above 211 with:
+facts, then test whether it increases `graph_solved_count` above 447 with:
 
 ```text
 graph_failed_count: 0

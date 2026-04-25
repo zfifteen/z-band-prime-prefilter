@@ -105,3 +105,34 @@ The next implementation step should stay inside unresolved-later domination:
 define a target-no-carrier reset discriminator that can absorb a nearest later
 unresolved target only when existing graph facts supply positive legal support.
 If the discriminator cannot be made label-free, it must abstain.
+
+## Implementation Follow-Up
+
+The recommended relation was implemented as:
+
+```text
+unresolved_later_domination_target_no_carrier_reset_discriminator
+```
+
+On anchors `11..10_000` with `candidate_bound = 128` and
+`witness_bound = 127`, Graph Solver v4 produced:
+
+```text
+graph_solved_count: 447
+graph_abstain_count: 778
+v4_relation_applied_count: 6898
+v4_relation_solution_count: 236
+```
+
+Separate downstream audit confirmed:
+
+```text
+audited_count: 447
+confirmed_count: 447
+failed_count: 0
+v4_relation_correct_count_after_audit: 236
+v4_relation_wrong_count_after_audit: 0
+```
+
+The relation remains experimental graph logic. It is not production pure
+emission and does not approve Boundary Law 005 as a final generator law.

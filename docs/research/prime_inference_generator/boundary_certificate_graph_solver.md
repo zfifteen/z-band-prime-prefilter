@@ -96,12 +96,32 @@ fact after the source. The single-resolved-source guard is load-bearing; a
 broader empty-carrier version absorbed true boundaries in abstaining
 multiple-resolved graphs during development and was not retained.
 
+## v4 Relation
+
+The v4 refinement adds one relation inside unresolved-later domination:
+
+```text
+unresolved_later_domination_target_no_carrier_reset_discriminator
+```
+
+It acts only when the active graph has exactly one resolved survivor, that
+source has no single-hole closure dependency, and the target is the nearest
+later unresolved candidate. The target must have no legal carrier under the
+current witness bound. The active graph between source and target must contain
+no positive reset evidence.
+
+This relation does not claim a universal absence of reset. It records that the
+existing active graph has no positive reset evidence for the nearest
+no-carrier unresolved target. It abstains on multiple resolved survivors,
+single-hole-dependent sources, targets with legal carriers, positive reset
+evidence, and unknown preconditions.
+
 ## Record Contract
 
 Each emitted JSONL record uses:
 
 - `record_type: PGS_INFERRED_PRIME_EXPERIMENTAL_GRAPH`
-- `inference_status: INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_V3`
+- `inference_status: INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_V4`
 - `production_approved: false`
 - `cryptographic_use_approved: false`
 - `classical_audit_required: true`
@@ -232,6 +252,52 @@ true_boundary_status_counts:
 Graph v3 is the first solver version to exceed 200 emitted experimental graph
 records on anchors `11..10_000` while preserving zero downstream audit
 failures on the tested surface.
+
+## v4 Result
+
+On the same surface:
+
+```text
+graph_solved_count: 447
+graph_abstain_count: 778
+new_relation_applied_count: 9175
+new_relation_solution_count: 411
+v1_relation_applied_count: 169
+v2_relation_applied_count: 1012
+v2_relation_solution_count: 88
+v3_relation_applied_count: 1096
+v3_relation_solution_count: 81
+v4_relation_applied_count: 6898
+v4_relation_solution_count: 236
+```
+
+Separate downstream audit:
+
+```text
+audited_count: 447
+confirmed_count: 447
+failed_count: 0
+first_failure: null
+new_relation_correct_count_after_audit: 411
+new_relation_wrong_count_after_audit: 0
+v4_relation_correct_count_after_audit: 236
+v4_relation_wrong_count_after_audit: 0
+```
+
+The follow-up abstention analysis found no true-boundary rejection or
+absorption in the remaining graph states:
+
+```text
+true_boundary_status_counts:
+  RESOLVED: 726
+  UNRESOLVED: 52
+  REJECTED: 0
+  ABSORBED: 0
+  NOT_IN_CANDIDATE_SET: 0
+```
+
+Graph v4 increases experimental graph emissions from 211 to 447 on anchors
+`11..10_000` with zero downstream audit failures on the tested surface.
 
 ## Failure Handling
 
