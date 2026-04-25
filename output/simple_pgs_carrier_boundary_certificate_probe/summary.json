@@ -1,0 +1,39 @@
+{
+  "surfaces": [
+    {
+      "surface": "10^12_sampled_256",
+      "pgs_profiled_count": 256,
+      "audit_passed": 151,
+      "audit_failed": 105,
+      "audit_failed_percent": 41.015625
+    },
+    {
+      "surface": "10^15_sampled_256",
+      "pgs_profiled_count": 256,
+      "audit_passed": 108,
+      "audit_failed": 148,
+      "audit_failed_percent": 57.8125
+    },
+    {
+      "surface": "10^18_sampled_256",
+      "pgs_profiled_count": 256,
+      "audit_passed": 105,
+      "audit_failed": 151,
+      "audit_failed_percent": 58.984375
+    },
+    {
+      "surface": "10^5_exact_full",
+      "pgs_profiled_count": 9588,
+      "audit_passed": 9588,
+      "audit_failed": 0,
+      "audit_failed_percent": 0.0
+    },
+    {
+      "surface": "10^6_exact_full",
+      "pgs_profiled_count": 78494,
+      "audit_passed": 78494,
+      "audit_failed": 0,
+      "audit_failed_percent": 0.0
+    }
+  ]
+}

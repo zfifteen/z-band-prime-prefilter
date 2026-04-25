@@ -1,0 +1,11 @@
+certificate_name,low_10^5_coverage,low_10^6_coverage,high_pass_coverage,high_fail_coverage,safe_certified_count,unsafe_certified_count,precision_on_high_probe,pgs_certified_rate_if_required
+carrier_delta_seen_on_low_exact,1.0,1.0,1.0,1.0,364,404,0.4739583333333333,1.0
+signature_seen_on_low_exact,1.0,1.0,0.9972527472527473,1.0,363,404,0.47327249022164275,0.9986979166666666
+gap_residue_seen_on_low_exact,1.0,1.0,1.0,1.0,364,404,0.4739583333333333,1.0
+post_boundary_carrier_density_drop,0.0,0.0,0.0,0.0,0,0,0.0,0.0
+post_boundary_carrier_density_nonincrease,0.0,2.5479654495885034e-05,0.0,0.0,0,0,0.0,0.0
+minimal_d_after_exceeds_before,0.0,0.0,0.0,0.0,0,0,0.0,0.0
+semiprime_lane_exhaustion,0.0,0.0,0.0,0.0,0,0,0.0,0.0
+square_pressure_exclusion,0.8841259908218606,0.962086274110123,1.0,1.0,364,404,0.4739583333333333,1.0
+gap_offset_at_most_30,0.976846057571965,0.9441868168267639,0.8736263736263736,0.8465346534653465,318,342,0.4818181818181818,0.859375
+gap_offset_at_most_60,0.9996871088861077,0.9974775142049074,0.9862637362637363,0.9851485148514851,359,398,0.47424042272126815,0.9856770833333334
