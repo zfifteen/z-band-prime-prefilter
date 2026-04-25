@@ -1,0 +1,28 @@
+{
+  "scales": [
+    {
+      "scale": 1000000000000,
+      "pgs_certified_count": 256,
+      "audit_passed": 151,
+      "audit_failed": 105,
+      "audit_failed_percent": 41.015625,
+      "max_required_divisor_floor": 999999
+    },
+    {
+      "scale": 1000000000000000,
+      "pgs_certified_count": 256,
+      "audit_passed": 108,
+      "audit_failed": 148,
+      "audit_failed_percent": 57.8125,
+      "max_required_divisor_floor": 31622776
+    },
+    {
+      "scale": 1000000000000000000,
+      "pgs_certified_count": 256,
+      "audit_passed": 105,
+      "audit_failed": 151,
+      "audit_failed_percent": 58.984375,
+      "max_required_divisor_floor": 999999999
+    }
+  ]
+}

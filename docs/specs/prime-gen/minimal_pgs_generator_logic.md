@@ -92,6 +92,20 @@ If the available state `S` is sufficient, the generator emits the selected `q`.
 If `S` is insufficient, deterministic fallback arithmetic selects the correct
 `q`, and the generator emits that value.
 
+The current PGS selector is chamber closure v2:
+
+- build chamber offsets through `candidate_bound`;
+- enumerate wheel-admissible proposed boundary offsets in increasing order;
+- reject a proposed boundary if it is visibly closed by chamber arithmetic;
+- close every smaller wheel-admissible offset with a visible chamber reason;
+- emit the first fully closed proposed boundary as PGS-derived in exact mode
+  only when fallback agrees;
+- in high-scale probe mode, emit only PGS-certified rows and count all
+  uncertified anchors as fallback-required.
+
+This converts chamber-certified cases while preserving the total correctness
+contract in exact mode.
+
 ## Stage 5: Emission
 
 Emission is unconditional for accepted anchors.
@@ -110,9 +124,29 @@ The line contains no extra fields. It contains no carrier data, relation
 history, proof object, approval flags, counters, status categories, or hidden
 diagnostics.
 
-Implementations may write sidecar diagnostics keyed by `p`. A sidecar record
-may report whether `q` came from the PGS boundary rule or from fallback
-arithmetic. Sidecar diagnostics are not part of the emitted generator stream.
+The generator script must contain generation logic only. It must not contain
+artifact writing, audit, reporting, command-line orchestration, or classical
+validation helpers.
+
+A separate controller script may write sidecar diagnostics keyed by `p`. A
+sidecar record may report whether `q` came from the PGS boundary rule or from
+fallback arithmetic. Sidecar diagnostics are not part of the emitted generator
+stream.
+
+A separate audit or controller script may also write a fallback-displacement
+report with:
+
+- `anchors_scanned`;
+- `emitted_count`;
+- `audit_confirmed`;
+- `audit_failed`;
+- `pgs_count`;
+- `fallback_count`;
+- `pgs_rate`;
+- `fallback_rate`;
+- `generator_status`;
+- `pgs_by_rule`;
+- `first_failure`.
 
 ## Allowed Arithmetic
 
@@ -156,9 +190,11 @@ Generation must never call these tools:
 - PARI primality checks;
 - sieve-based prime generation.
 
-After emission, a separate downstream audit may use classical validation tools.
-Audit results may confirm or reject emitted records, but they never choose `q`
-inside generation.
+After emission, separate downstream audit code may use classical validation
+tools. Audit code must not live in the generator file. Controller code may
+orchestrate generation, sidecar diagnostics, and downstream audit, but it must
+not move audit decisions back into generation. Audit results may confirm or
+reject emitted records, but they never choose `q` inside generation.
 
 ## Completion Standard
 

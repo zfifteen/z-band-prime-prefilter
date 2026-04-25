@@ -1,0 +1,464 @@
+{
+  "rows": [
+    {
+      "feature": "q_value_mod_30",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "safe_rejection_count": 0,
+      "unsafe_rejection_count": 0,
+      "candidate_rule": "reject if q is not wheel-open relative to p"
+    },
+    {
+      "feature": "right_chamber_first_unclosed_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 6.0,
+        "median": 30.0,
+        "max": 116.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 6.0,
+        "median": 30.0,
+        "max": 120.0
+      },
+      "safe_rejection_count": 123,
+      "unsafe_rejection_count": 102,
+      "candidate_rule": "reject if q has an unresolved right-neighborhood competitor within 6"
+    },
+    {
+      "feature": "right_chamber_first_unclosed_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 6.0,
+        "median": 30.0,
+        "max": 116.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 6.0,
+        "median": 30.0,
+        "max": 120.0
+      },
+      "safe_rejection_count": 206,
+      "unsafe_rejection_count": 189,
+      "candidate_rule": "reject if q has an unresolved right-neighborhood competitor within 12"
+    },
+    {
+      "feature": "right_chamber_first_unclosed_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 6.0,
+        "median": 30.0,
+        "max": 116.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 6.0,
+        "median": 30.0,
+        "max": 120.0
+      },
+      "safe_rejection_count": 279,
+      "unsafe_rejection_count": 240,
+      "candidate_rule": "reject if q has an unresolved right-neighborhood competitor within 18"
+    },
+    {
+      "feature": "right_chamber_first_unclosed_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 6.0,
+        "median": 30.0,
+        "max": 116.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 6.0,
+        "median": 30.0,
+        "max": 120.0
+      },
+      "safe_rejection_count": 355,
+      "unsafe_rejection_count": 308,
+      "candidate_rule": "reject if q has an unresolved right-neighborhood competitor within 30"
+    },
+    {
+      "feature": "carrier_to_q_delta",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 90.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "safe_rejection_count": 7,
+      "unsafe_rejection_count": 0,
+      "candidate_rule": "reject if carrier_to_q_delta was not seen among passing rows"
+    },
+    {
+      "feature": "right_chamber_first_unclosed_delta",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 86.0
+      },
+      "safe_rejection_count": 0,
+      "unsafe_rejection_count": 0,
+      "candidate_rule": "reject if there is no visible right-side unresolved boundary candidate"
+    },
+    {
+      "feature": "q_value_mod_30",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "safe_rejection_count": 57,
+      "unsafe_rejection_count": 51,
+      "candidate_rule": "reject if q_value_mod_30 == 19"
+    },
+    {
+      "feature": "q_value_mod_30",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "safe_rejection_count": 55,
+      "unsafe_rejection_count": 51,
+      "candidate_rule": "reject if q_value_mod_30 == 29"
+    },
+    {
+      "feature": "q_value_mod_30",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "safe_rejection_count": 54,
+      "unsafe_rejection_count": 48,
+      "candidate_rule": "reject if q_value_mod_30 == 1"
+    },
+    {
+      "feature": "q_value_mod_30",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "safe_rejection_count": 53,
+      "unsafe_rejection_count": 45,
+      "candidate_rule": "reject if q_value_mod_30 == 11"
+    },
+    {
+      "feature": "q_value_mod_30",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "safe_rejection_count": 51,
+      "unsafe_rejection_count": 43,
+      "candidate_rule": "reject if q_value_mod_30 == 13"
+    },
+    {
+      "feature": "q_value_mod_30",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "safe_rejection_count": 48,
+      "unsafe_rejection_count": 43,
+      "candidate_rule": "reject if q_value_mod_30 == 23"
+    },
+    {
+      "feature": "q_value_mod_30",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "safe_rejection_count": 46,
+      "unsafe_rejection_count": 40,
+      "candidate_rule": "reject if q_value_mod_30 == 17"
+    },
+    {
+      "feature": "q_value_mod_30",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 1.0,
+        "median": 17.0,
+        "max": 29.0
+      },
+      "safe_rejection_count": 40,
+      "unsafe_rejection_count": 43,
+      "candidate_rule": "reject if q_value_mod_30 == 7"
+    },
+    {
+      "feature": "gap_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 90.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "safe_rejection_count": 47,
+      "unsafe_rejection_count": 41,
+      "candidate_rule": "reject if gap_offset == 6"
+    },
+    {
+      "feature": "gap_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 90.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "safe_rejection_count": 39,
+      "unsafe_rejection_count": 35,
+      "candidate_rule": "reject if gap_offset == 12"
+    },
+    {
+      "feature": "gap_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 90.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "safe_rejection_count": 38,
+      "unsafe_rejection_count": 26,
+      "candidate_rule": "reject if gap_offset == 4"
+    },
+    {
+      "feature": "gap_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 90.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "safe_rejection_count": 37,
+      "unsafe_rejection_count": 27,
+      "candidate_rule": "reject if gap_offset == 2"
+    },
+    {
+      "feature": "gap_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 90.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "safe_rejection_count": 27,
+      "unsafe_rejection_count": 24,
+      "candidate_rule": "reject if gap_offset == 8"
+    },
+    {
+      "feature": "gap_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 90.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "safe_rejection_count": 23,
+      "unsafe_rejection_count": 39,
+      "candidate_rule": "reject if gap_offset == 10"
+    },
+    {
+      "feature": "gap_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 90.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "safe_rejection_count": 22,
+      "unsafe_rejection_count": 26,
+      "candidate_rule": "reject if gap_offset == 18"
+    },
+    {
+      "feature": "gap_offset",
+      "passed_distribution": {
+        "count": 364,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 90.0
+      },
+      "failed_distribution": {
+        "count": 404,
+        "missing": 0,
+        "min": 2.0,
+        "median": 12.0,
+        "max": 80.0
+      },
+      "safe_rejection_count": 20,
+      "unsafe_rejection_count": 22,
+      "candidate_rule": "reject if gap_offset == 14"
+    }
+  ]
+}
