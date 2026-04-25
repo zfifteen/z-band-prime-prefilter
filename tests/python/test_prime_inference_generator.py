@@ -95,6 +95,9 @@ BOUNDARY_CERTIFICATE_GRAPH_V4_ABSTENTION_PROFILE_PATH = (
 GRAPH_V4_FAILURE_BUG_AUDIT_PATH = (
     MODULE_DIR / "graph_v4_failure_bug_audit.py"
 )
+GRAPH_V4_REPAIR_GUARD_PROBE_PATH = (
+    MODULE_DIR / "graph_v4_repair_guard_probe.py"
+)
 
 
 def load_module(path: Path, name: str):
@@ -2921,3 +2924,69 @@ def test_graph_v4_failure_bug_audit_reproduces_anchor_10193(tmp_path):
     assert {"base", "after_005A_R", "after_v1", "after_v2", "after_v3", "after_v4", "after_v5"} <= set(
         record["phase_snapshots"]
     )
+
+
+def test_graph_v4_repair_guard_probe_reports_guard_metrics(tmp_path):
+    """Graph v4 repair probe should test positive guards without solver changes."""
+    module = load_module(
+        GRAPH_V4_REPAIR_GUARD_PROBE_PATH,
+        "graph_v4_repair_guard_probe",
+    )
+
+    assert (
+        module.main(
+            [
+                "--small-max-anchor",
+                "500",
+                "--large-max-anchor",
+                "700",
+                "--candidate-bound",
+                "128",
+                "--witness-bound",
+                "127",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+    rows_path = tmp_path / "graph_v4_repair_guard_probe_rows.jsonl"
+    summary_path = tmp_path / "graph_v4_repair_guard_probe_summary.json"
+    assert rows_path.exists()
+    assert summary_path.exists()
+    assert b"\r\n" not in rows_path.read_bytes()
+    assert b"\r\n" not in summary_path.read_bytes()
+
+    rows = [
+        json.loads(line)
+        for line in rows_path.read_text(encoding="utf-8").splitlines()
+    ]
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary["mode"] == "offline_graph_v4_repair_guard_probe"
+    assert summary["candidate_repaired_relation"] == (
+        "unresolved_later_domination_target_no_carrier_"
+        "with_positive_nonboundary_guard"
+    )
+    assert summary["graph_v4_v5_quarantine_status"] == (
+        "quarantined_outside_last_clean_surface_11_10000"
+    )
+    assert summary["pure_emission_added"] is False
+    assert summary["solver_rules_changed"] is False
+    assert summary["production_approved"] is False
+    assert len(rows) == 6
+
+    row = rows[0]
+    assert {
+        "guard_name",
+        "blocks_anchor_10193_failure_bool",
+        "allowed_v4_absorptions_11_10k",
+        "solved_count_11_10k_if_integrated",
+        "audit_failed_count_11_10k_if_integrated",
+        "allowed_v4_absorptions_11_100k",
+        "solved_count_11_100k_if_integrated",
+        "audit_failed_count_11_100k_if_integrated",
+        "first_failure_if_any",
+        "viable_guard_bool",
+    } <= set(row)
+    assert all(item["blocks_anchor_10193_failure_bool"] for item in rows)
