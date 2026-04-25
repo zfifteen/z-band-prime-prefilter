@@ -2952,8 +2952,40 @@ def test_experimental_graph_prime_generator_writes_and_audits(tmp_path):
     assert bounded_summary["emitted_count"] > 0
     assert bounded_summary["audit_failed"] == 0
     assert bounded_summary["generator_status"] == "BOUNDED_ZERO_FAILURE_AUDITED"
+    assert bounded_summary["sieve_complete_witness_bound"] == 26
+    assert bounded_summary["sieve_complete_witness_met"] is True
     assert bounded_summary["production_approved"] is False
     assert bounded_summary["cryptographic_use_approved"] is False
+    assert module.required_v7_witness_bound(100_000, 128) == 317
+
+
+def test_experimental_graph_prime_generator_rejects_incomplete_v7_bound(tmp_path):
+    """v7-bounded should enforce the surface-specific witness threshold."""
+    module = load_module(
+        EXPERIMENTAL_GRAPH_PRIME_GENERATOR_PATH,
+        "experimental_graph_prime_generator_v7_bound",
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        module.main(
+            [
+                "--solver-version",
+                "v7-bounded",
+                "--start-anchor",
+                "11",
+                "--max-anchor",
+                "100000",
+                "--candidate-bound",
+                "128",
+                "--witness-bound",
+                "316",
+                "--audit",
+                "--fail-on-audit-failure",
+                "--output-dir",
+                str(tmp_path),
+            ]
+        )
+    assert exc_info.value.code == 2
 
 
 def test_experimental_graph_prime_generator_prints_dashboard(tmp_path, capsys):

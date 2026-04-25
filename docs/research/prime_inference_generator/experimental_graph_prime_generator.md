@@ -67,15 +67,16 @@ nonboundary filter with a declared witness horizon. It requires:
 
 ```text
 --candidate-bound 128
---witness-bound >= 397
+--witness-bound >= ceil_sqrt(max_anchor + candidate_bound)
 --audit
 --fail-on-audit-failure
 ```
 
 On the `11..100_000`, `candidate_bound = 128`, `witness_bound = 397` surface,
-it emitted `6039` records, confirmed `6039`, and failed `0` downstream audit
-records. It remains non-production and non-cryptographic, but it is the current
-highest-coverage zero-failure experimental mode.
+the required sieve-complete witness bound is `317`. The run emitted `6039`
+records, confirmed `6039`, and failed `0` downstream audit records. It remains
+non-production and non-cryptographic, but it is the current highest-coverage
+zero-failure experimental mode.
 
 `risky-v5` runs the quarantined v5 line. It is exposed only for research
 comparison. It includes the old v4 no-carrier/no-active-reset relation that

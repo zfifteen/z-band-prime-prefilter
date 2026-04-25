@@ -134,11 +134,12 @@ This mode is safe but sparse.
 `v7-bounded` is the current highest-coverage zero-failure experimental mode.
 
 It runs the risky-v5 graph internally, then applies a label-free positive
-nonboundary filter at a declared witness horizon. It requires:
+nonboundary filter at a surface-specific sieve-complete witness horizon. It
+requires:
 
 ```text
 --candidate-bound 128
---witness-bound >= 397
+--witness-bound >= ceil_sqrt(max_anchor + candidate_bound)
 --audit
 --fail-on-audit-failure
 ```
@@ -153,6 +154,9 @@ confirmed_count: 6039
 failed_count: 0
 generator_status: BOUNDED_ZERO_FAILURE_AUDITED
 ```
+
+For this surface, `ceil_sqrt(max_anchor + candidate_bound) = 317`, so the
+audited `witness_bound = 397` run is above the sieve-complete threshold.
 
 This mode is materially stronger than v6 in coverage, but it remains bounded
 and experimental. It is not pure production emission.
@@ -268,7 +272,7 @@ Still not production-ready:
 
 - production emission remains false;
 - cryptographic use remains false;
-- v7-bounded depends on a declared finite witness horizon;
+- v7-bounded depends on the surface-specific sieve-complete witness threshold;
 - pure recursive generation is not approved;
 - safe coverage outside the declared audited regime remains unclaimed.
 

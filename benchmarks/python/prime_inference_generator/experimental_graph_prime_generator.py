@@ -7,6 +7,7 @@ import argparse
 import json
 import sys
 import time
+from math import isqrt
 from pathlib import Path
 from typing import Any
 
@@ -85,7 +86,19 @@ SUMMARY_FILENAME = "experimental_graph_prime_generator_summary.json"
 AUDIT_SUMMARY_FILENAME = "experimental_graph_prime_generator_audit_summary.json"
 SOLVER_VERSIONS = ("v3", "v6", "v7-bounded", "risky-v5", "filtered-v5")
 RESEARCH_SOLVER_VERSIONS = ("risky-v5", "filtered-v5")
-BOUNDED_V7_MIN_WITNESS_BOUND = 397
+
+
+def ceil_sqrt(value: int) -> int:
+    """Return the least integer whose square is at least value."""
+    root = isqrt(value)
+    if root * root == value:
+        return root
+    return root + 1
+
+
+def required_v7_witness_bound(max_anchor: int, candidate_bound: int) -> int:
+    """Return the sieve-complete witness bound for the requested surface."""
+    return ceil_sqrt(max_anchor + candidate_bound)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -367,6 +380,12 @@ def emit_records(
         "final_anchor_scanned": final_anchor_scanned,
         "candidate_bound": candidate_bound,
         "witness_bound": witness_bound,
+        "sieve_complete_witness_bound": required_v7_witness_bound(
+            max_anchor,
+            candidate_bound,
+        ),
+        "sieve_complete_witness_met": witness_bound
+        >= required_v7_witness_bound(max_anchor, candidate_bound),
         "emit_target": emit_target,
         "anchors_scanned": anchors_scanned,
         "emitted_count": len(records),
@@ -523,8 +542,15 @@ def main(argv: list[str] | None = None) -> int:
     if args.solver_version == "v7-bounded":
         if args.candidate_bound != 128:
             parser.error("v7-bounded requires --candidate-bound 128")
-        if args.witness_bound < BOUNDED_V7_MIN_WITNESS_BOUND:
-            parser.error("v7-bounded requires --witness-bound >= 397")
+        required_witness_bound = required_v7_witness_bound(
+            args.max_anchor,
+            args.candidate_bound,
+        )
+        if args.witness_bound < required_witness_bound:
+            parser.error(
+                "v7-bounded requires --witness-bound >= "
+                f"{required_witness_bound} for this surface"
+            )
         if not args.audit or not args.fail_on_audit_failure:
             parser.error(
                 "v7-bounded requires --audit and --fail-on-audit-failure"
