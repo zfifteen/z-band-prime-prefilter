@@ -224,28 +224,76 @@ The dominant missing pattern remains:
 NEED_UNRESOLVED_LATER_DOMINATION: 723
 ```
 
+## v5 Follow-Up
+
+The v5 refinement stayed inside unresolved-later domination. It re-evaluated
+the v3 empty-source legal-carrier extension after v4 had removed the no-carrier
+nearest blockers. The relation absorbs only the nearest later unresolved
+target when the active graph has exactly one resolved survivor, the source has
+no legal carrier, the source is not single-hole dependent, and the target has
+its first legal carrier after the source.
+
+On the same surface:
+
+```text
+graph_solved_count: 995
+graph_abstain_count: 230
+graph_confirmed_count: 995
+graph_failed_count: 0
+v5_relation_correct_count_after_audit: 548
+v5_relation_wrong_count_after_audit: 0
+```
+
+The remaining abstention split is:
+
+```text
+TRUE_BOUNDARY_RESOLVED_BUT_UNRESOLVED_LATER_REMAIN: 175
+TRUE_BOUNDARY_RESOLVED_WITH_MULTIPLE_RESOLVED_SURVIVORS: 3
+TRUE_BOUNDARY_UNRESOLVED: 52
+```
+
+The true-boundary status split after v5 is:
+
+```text
+RESOLVED: 178
+UNRESOLVED: 52
+REJECTED: 0
+ABSORBED: 0
+NOT_IN_CANDIDATE_SET: 0
+```
+
+The dominant missing pattern remains:
+
+```text
+NEED_UNRESOLVED_LATER_DOMINATION: 175
+NEED_TRUE_BOUNDARY_CLOSURE: 52
+NEED_FALSE_RESOLVED_SURVIVOR_REJECTION: 3
+```
+
 ## Interpretation
 
 The main blocker is not false resolved survivors and not candidate-bound
-coverage. The graph already contains the actual boundary as a resolved
-candidate in most abstentions. It abstains because unresolved candidates after
-that resolved boundary remain live.
+coverage. After v5, the graph solves 995 of 1225 tested anchors with no audit
+failure. In the remaining abstentions, the graph still contains the actual
+boundary as a resolved candidate in 178 rows and leaves it unresolved in 52
+rows.
 
 The graph still needs a stronger unresolved-later domination discriminator.
-The v1, v2, v3, and v4 relations prove that this path can increase coverage,
-but most later unresolved alternatives remain live. Any next relation must
-stay label-free and must not become broad resolved-chamber absorption.
+The v1 through v5 relations prove that this path can increase coverage, but
+175 rows still retain later unresolved alternatives after a resolved true
+boundary. Any next relation must stay label-free and must not become broad
+resolved-chamber absorption.
 
 ## Next Implementation Step
 
-The next refinement should still stay in this family:
+The next refinement should still start from this family:
 
 ```text
 unresolved_later_domination_from_existing_graph_facts
 ```
 
 Before integration, define the refinement as a label-free predicate over graph
-facts, then test whether it increases `graph_solved_count` above 447 with:
+facts, then test whether it increases `graph_solved_count` above 995 with:
 
 ```text
 graph_failed_count: 0

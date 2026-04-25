@@ -116,12 +116,31 @@ no-carrier unresolved target. It abstains on multiple resolved survivors,
 single-hole-dependent sources, targets with legal carriers, positive reset
 evidence, and unknown preconditions.
 
+## v5 Relation
+
+The v5 refinement stays inside unresolved-later domination:
+
+```text
+unresolved_later_domination_post_v4_empty_source_carrier_extension
+```
+
+It is a post-v4 re-evaluation of the v3 empty-source extension pattern. v4
+removes nearest unresolved targets that have no legal carrier and no positive
+active reset evidence. After those blockers are removed, v5 checks the active
+graph again. It acts only when exactly one resolved survivor remains, that
+source has no legal carrier, the source has no single-hole closure dependency,
+and the nearest later unresolved candidate has its first legal carrier after
+the source.
+
+This relation does not add broad resolved-chamber absorption. It acts only on
+the nearest later unresolved candidate and repeats on the active graph.
+
 ## Record Contract
 
 Each emitted JSONL record uses:
 
 - `record_type: PGS_INFERRED_PRIME_EXPERIMENTAL_GRAPH`
-- `inference_status: INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_V4`
+- `inference_status: INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_V5`
 - `production_approved: false`
 - `cryptographic_use_approved: false`
 - `classical_audit_required: true`
@@ -297,6 +316,54 @@ true_boundary_status_counts:
 ```
 
 Graph v4 increases experimental graph emissions from 211 to 447 on anchors
+`11..10_000` with zero downstream audit failures on the tested surface.
+
+## v5 Result
+
+On the same surface:
+
+```text
+graph_solved_count: 995
+graph_abstain_count: 230
+new_relation_applied_count: 15380
+new_relation_solution_count: 959
+v1_relation_applied_count: 169
+v2_relation_applied_count: 1012
+v2_relation_solution_count: 88
+v3_relation_applied_count: 1096
+v3_relation_solution_count: 81
+v4_relation_applied_count: 6898
+v4_relation_solution_count: 784
+v5_relation_applied_count: 6205
+v5_relation_solution_count: 548
+```
+
+Separate downstream audit:
+
+```text
+audited_count: 995
+confirmed_count: 995
+failed_count: 0
+first_failure: null
+new_relation_correct_count_after_audit: 959
+new_relation_wrong_count_after_audit: 0
+v5_relation_correct_count_after_audit: 548
+v5_relation_wrong_count_after_audit: 0
+```
+
+The follow-up abstention analysis found no true-boundary rejection or
+absorption in the remaining graph states:
+
+```text
+true_boundary_status_counts:
+  RESOLVED: 178
+  UNRESOLVED: 52
+  REJECTED: 0
+  ABSORBED: 0
+  NOT_IN_CANDIDATE_SET: 0
+```
+
+Graph v5 increases experimental graph emissions from 447 to 995 on anchors
 `11..10_000` with zero downstream audit failures on the tested surface.
 
 ## Failure Handling

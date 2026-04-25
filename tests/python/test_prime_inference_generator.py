@@ -2621,7 +2621,7 @@ def test_boundary_certificate_graph_solver_writes_and_audits(tmp_path):
     record = records[0]
     assert record["record_type"] == "PGS_INFERRED_PRIME_EXPERIMENTAL_GRAPH"
     assert record["inference_status"] == (
-        "INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_V4"
+        "INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_V5"
     )
     assert record["production_approved"] is False
     assert record["cryptographic_use_approved"] is False
@@ -2647,6 +2647,7 @@ def test_boundary_certificate_graph_solver_writes_and_audits(tmp_path):
         "v2_relation_applied_count",
         "v3_relation_applied_count",
         "v4_relation_applied_count",
+        "v5_relation_applied_count",
     } <= set(record)
     assert "new_relation_applied_count" in summary
     assert "new_relation_solution_count" in summary
@@ -2656,6 +2657,8 @@ def test_boundary_certificate_graph_solver_writes_and_audits(tmp_path):
     assert "v3_relation_solution_count" in summary
     assert "v4_relation_applied_count" in summary
     assert "v4_relation_solution_count" in summary
+    assert "v5_relation_applied_count" in summary
+    assert "v5_relation_solution_count" in summary
 
     assert (
         module.main(
@@ -2683,11 +2686,13 @@ def test_boundary_certificate_graph_solver_writes_and_audits(tmp_path):
     assert "v3_relation_wrong_count_after_audit" in audit_summary
     assert "v4_relation_correct_count_after_audit" in audit_summary
     assert "v4_relation_wrong_count_after_audit" in audit_summary
+    assert "v5_relation_correct_count_after_audit" in audit_summary
+    assert "v5_relation_wrong_count_after_audit" in audit_summary
     assert "validation_backend" in audit_summary
 
 
 def test_boundary_certificate_graph_abstention_analysis_reports_blockers(tmp_path):
-    """Abstention analysis should classify graph solver v0 failures."""
+    """Abstention analysis should classify current graph solver failures."""
     module = load_module(
         BOUNDARY_CERTIFICATE_GRAPH_ABSTENTION_ANALYSIS_PATH,
         "boundary_certificate_graph_abstention_analysis",
