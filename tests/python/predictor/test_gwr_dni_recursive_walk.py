@@ -10,6 +10,11 @@ ROOT = Path(__file__).resolve().parents[3]
 MODULE_PATH = ROOT / "benchmarks" / "python" / "predictor" / "gwr_dni_recursive_walk.py"
 
 
+def offset_calls(q: int, count: int) -> list[tuple[int, int]]:
+    """Return the sequential one-offset divisor segment calls for an anchor."""
+    return [(q + offset, q + offset + 1) for offset in range(1, count + 1)]
+
+
 def load_module():
     """Load the recursive walk script from its file path."""
     spec = importlib.util.spec_from_file_location("gwr_dni_recursive_walk", MODULE_PATH)
@@ -79,8 +84,8 @@ def test_bounded_profile_uses_prefix_lock_witness_without_extended_scan(monkeypa
     original = module.divisor_counts_segment
 
     cases = [
-        (229433, 3, 8, 26, 229459, [(229434, 229446)]),
-        (1026167, 3, 2, 30, 1026197, [(1026168, 1026180)]),
+        (229433, 3, 8, 26, 229459, offset_calls(229433, 12)),
+        (1026167, 3, 2, 30, 1026197, offset_calls(1026167, 12)),
     ]
 
     for q, expected_d, expected_peak, expected_boundary, expected_next_prime, expected_calls in cases:
@@ -104,20 +109,27 @@ def test_bounded_profile_uses_d4_empty_range_witness_without_extended_scan(monke
     """A square-empty bounded tail should recover the d=4 witness without tail scan."""
     module = load_module()
     original = module.divisor_counts_segment
-    calls: list[tuple[int, int]] = []
 
-    def tracked_divisor_counts_segment(start: int, stop: int):
-        calls.append((start, stop))
-        return original(start, stop)
+    cases = [
+        (1000003, 4, 4, 30, 1000033, offset_calls(1000003, 4)),
+        (1300031, 4, 3, 20, 1300051, offset_calls(1300031, 3)),
+    ]
 
-    monkeypatch.setattr(module, "divisor_counts_segment", tracked_divisor_counts_segment)
-    profile = module.bounded_next_gap_profile(1000003)
+    for q, expected_d, expected_peak, expected_boundary, expected_next_prime, expected_calls in cases:
+        calls: list[tuple[int, int]] = []
 
-    assert profile["next_dmin"] == 4
-    assert profile["next_peak_offset"] == 4
-    assert profile["gap_boundary_offset"] == 30
-    assert profile["next_prime"] == 1000033
-    assert calls == [(1000004, 1000016)]
+        def tracked_divisor_counts_segment(start: int, stop: int):
+            calls.append((start, stop))
+            return original(start, stop)
+
+        monkeypatch.setattr(module, "divisor_counts_segment", tracked_divisor_counts_segment)
+        profile = module.bounded_next_gap_profile(q)
+
+        assert profile["next_dmin"] == expected_d
+        assert profile["next_peak_offset"] == expected_peak
+        assert profile["gap_boundary_offset"] == expected_boundary
+        assert profile["next_prime"] == expected_next_prime
+        assert calls == expected_calls
 
 
 def test_bounded_profile_d4_empty_range_still_honors_cutoff_failure(monkeypatch):
@@ -139,7 +151,7 @@ def test_bounded_profile_d4_empty_range_still_honors_cutoff_failure(monkeypatch)
     else:
         raise AssertionError("bounded_next_gap_profile(31397) should fail by cutoff")
 
-    assert calls == [(31398, 31410)]
+    assert calls == offset_calls(31397, 2)
 
 
 def test_compare_transition_rules_small_prime():
@@ -200,7 +212,7 @@ def test_predict_next_gap_bounded_uses_d4_empty_range_without_extended_scan(monk
 
     assert d == 4
     assert off == 4
-    assert calls == [(1000004, 1000016)]
+    assert calls == offset_calls(1000003, 4)
 
 
 def test_dynamic_cutoff_covers_known_counterexample():

@@ -122,9 +122,13 @@ def _scan_prefix_state(current_right_prime: int) -> tuple[int, int, int | None]:
     return best_d, best_offset, None
 
 
-def _bounded_tail_has_no_square(current_right_prime: int, cutoff: int) -> bool:
-    """Return whether the bounded tail [q+13, q+cutoff] contains no square."""
-    lo = current_right_prime + PREFIX_LEN + 1
+def _bounded_tail_from_offset_has_no_square(
+    current_right_prime: int,
+    cutoff: int,
+    start_offset: int,
+) -> bool:
+    """Return whether the bounded tail [q+start_offset, q+cutoff] contains no square."""
+    lo = current_right_prime + start_offset
     hi = current_right_prime + cutoff
     if hi < lo:
         return True
@@ -132,6 +136,46 @@ def _bounded_tail_has_no_square(current_right_prime: int, cutoff: int) -> bool:
     s_lo = math.isqrt(lo - 1) + 1
     s_hi = math.isqrt(hi)
     return s_hi < s_lo
+
+
+def _bounded_tail_has_no_square(current_right_prime: int, cutoff: int) -> bool:
+    """Return whether the bounded tail [q+13, q+cutoff] contains no square."""
+    return _bounded_tail_from_offset_has_no_square(
+        current_right_prime,
+        cutoff,
+        PREFIX_LEN + 1,
+    )
+
+
+def _scan_bounded_prefix_state(
+    current_right_prime: int,
+    cutoff: int,
+) -> tuple[int, int, int | None, int]:
+    """Return the bounded prefix state with adaptive d=4 square-empty termination."""
+    rp = current_right_prime
+    best_d: int | None = None
+    best_offset: int | None = None
+
+    for offset in range(1, PREFIX_LEN + 1):
+        d = int(divisor_counts_segment(rp + offset, rp + offset + 1)[0])
+        if d == 2:
+            if best_d is None or best_offset is None:
+                raise ValueError(f"empty next gap from prime {rp}")
+            return best_d, best_offset, offset, offset
+        if best_d is None or d < best_d or (d == best_d and offset < best_offset):
+            best_d = d
+            best_offset = offset
+        if best_d == 4 and _bounded_tail_from_offset_has_no_square(
+            rp,
+            cutoff,
+            offset + 1,
+        ):
+            return best_d, best_offset, None, offset
+
+    if best_d is None or best_offset is None:
+        raise ValueError(f"empty next gap from prime {rp}")
+
+    return best_d, best_offset, None, PREFIX_LEN
 
 
 def _ensure_trial_primes(limit: int) -> None:
@@ -280,7 +324,9 @@ def bounded_next_gap_profile(current_right_prime: int) -> dict[str, int]:
     """Return the bounded next-gap profile when the prime boundary lies by cutoff."""
     rp = current_right_prime
     cutoff = dynamic_cutoff(rp)
-    best_d, best_offset, prefix_prime_offset = _scan_prefix_state(rp)
+    best_d, best_offset, prefix_prime_offset, scanned_offset = (
+        _scan_bounded_prefix_state(rp, cutoff)
+    )
 
     if prefix_prime_offset is not None:
         return {
@@ -291,7 +337,9 @@ def bounded_next_gap_profile(current_right_prime: int) -> dict[str, int]:
             "next_peak_offset": best_offset,
         }
 
-    if best_d <= 3 or (best_d == 4 and _bounded_tail_has_no_square(rp, cutoff)):
+    if best_d <= 3 or scanned_offset < PREFIX_LEN or (
+        best_d == 4 and _bounded_tail_has_no_square(rp, cutoff)
+    ):
         next_prime_value = int(nextprime(rp + best_offset - 1))
         gap_boundary_offset = next_prime_value - rp
         if gap_boundary_offset > cutoff:
@@ -356,12 +404,16 @@ def predict_next_gap_unbounded(current_right_prime: int) -> tuple[int, int]:
 def predict_next_gap_bounded(current_right_prime: int) -> tuple[int, int]:
     """Return the bounded next-gap lex-min over offsets up to the cutoff."""
     rp = current_right_prime
-    best_d, best_offset, prefix_prime_offset = _scan_prefix_state(rp)
+    cutoff = dynamic_cutoff(rp)
+    best_d, best_offset, prefix_prime_offset, scanned_offset = (
+        _scan_bounded_prefix_state(rp, cutoff)
+    )
     if prefix_prime_offset is not None or best_d <= 3:
         return best_d, best_offset
 
-    cutoff = dynamic_cutoff(rp)
-    if best_d == 4 and _bounded_tail_has_no_square(rp, cutoff):
+    if scanned_offset < PREFIX_LEN or (
+        best_d == 4 and _bounded_tail_has_no_square(rp, cutoff)
+    ):
         return best_d, best_offset
 
     counts = divisor_counts_segment(rp + PREFIX_LEN + 1, rp + cutoff + 1)
