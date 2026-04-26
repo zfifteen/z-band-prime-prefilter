@@ -1,0 +1,11 @@
+key_name,row_count,key_count,repeated_key_count,collision_key_count,rows_in_zero_collision_keys,rows_in_zero_collision_keys_percent,zero_collision_all_rows
+K_seed_mods,388,245,88,80,174,44.845360824742265,False
+K_seed_mods_carrier,388,297,67,61,243,62.628865979381445,False
+K_visible_prefix_2,388,288,71,45,276,71.1340206185567,False
+K_visible_prefix_3,388,372,15,10,368,94.84536082474227,False
+K_visible_prefix_4,388,386,2,1,386,99.48453608247422,False
+K_visible_prefix_8,388,388,0,0,388,100.0,True
+K_gap_prefix_4,388,386,2,2,384,98.96907216494846,False
+K_square_visible_count,388,85,59,59,26,6.701030927835052,False
+K_square_delta_bucket,388,388,0,0,388,100.0,True
+K_locked_full_visible,388,388,0,0,388,100.0,True
