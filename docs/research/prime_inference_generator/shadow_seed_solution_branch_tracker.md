@@ -42,6 +42,7 @@ Promotion requires:
 | [`codex/solution-02-gemini-rst-law`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-02-gemini-rst-law) | `4994dc2` | Rejected | Residual symmetry minimization selects many wrong boundaries. |
 | [`codex/solution-03-meta-frontier-exhaustion`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-03-meta-frontier-exhaustion) | `cba771c` | Rejected | Required mark-stream inputs are absent; materialized proxies are unsafe or abstain. |
 | [`codex/solution-04-deepseek-square-grid-openq`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-04-deepseek-square-grid-openq) | `343616d` | Rejected | The proposed square-grid sequence misses the audited boundary on all 388 shadow rows. |
+| [`codex/solution-05-claude-ssbrl-residue-advance`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-05-claude-ssbrl-residue-advance) | `bfdab74` | Rejected | `q0 + r` never selects the boundary; residue advance repeats the unsafe first-visible-open failure. |
 
 ## Solution 1: Full Chamber State Contract
 
@@ -580,6 +581,95 @@ Limitation:
 This branch rejects the submitted square-grid law at `candidate_bound = 128`.
 It does not rule out a different square-derived coordinate that enumerates the
 ordinary rightward candidate stream rather than the submitted `q_k` sequence.
+
+## Solution 5: Shadow Seed Boundary Recovery Law
+
+Branch:
+[`codex/solution-05-claude-ssbrl-residue-advance`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-05-claude-ssbrl-residue-advance)
+
+Commit: `bfdab74`
+
+Proposed solution:
+
+Use the shadow seed's blocking witness `r` and the chamber residue state at
+`q0`:
+
+```text
+dominant case: q = q0 + r
+general case: advance residues from q0 and select the first unblocked position
+```
+
+The submitted law treats `r`, the active wall primes, and the residue vector at
+`q0` as current chamber-state objects.
+
+Test performed:
+
+The branch tested:
+
+- the audit-only `q0 + r` claim, where `r` is the seed's least factor;
+- the audit-only least-factor progression `q0 + k r`;
+- residue advance using visible prime walls through `10000`;
+- residue advance using all integer walls through `10000`;
+- residue advance using materialized visible witnesses from candidate rows.
+
+Artifacts:
+
+- [probe script](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-05-claude-ssbrl-residue-advance/benchmarks/python/predictor/simple_pgs_solution_05_ssbrl_probe.py)
+- [summary JSON](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-05-claude-ssbrl-residue-advance/output/simple_pgs_solution_05_ssbrl_probe/summary.json)
+- [SSBRL summary CSV](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-05-claude-ssbrl-residue-advance/output/simple_pgs_solution_05_ssbrl_probe/ssbrl_summary.csv)
+- [selection rows](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-05-claude-ssbrl-residue-advance/output/simple_pgs_solution_05_ssbrl_probe/ssbrl_selection_rows.csv)
+- [materialized contract](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-05-claude-ssbrl-residue-advance/output/simple_pgs_solution_05_ssbrl_probe/materialized_contract.csv)
+
+Result:
+
+No rule promoted.
+
+The direct `q0 + r` claim is false on the tested surface. The seed least factor
+is always larger than the boundary distance from the seed:
+
+| Scale | Shadow rows | median `r` | median `q - q0` | `r = q - q0` |
+|---|---:|---:|---:|---:|
+| $10^{12}$ | 102 | 77,377 | 22 | 0 |
+| $10^{15}$ | 141 | 171,629 | 24 | 0 |
+| $10^{18}$ | 145 | 1,023,047 | 28 | 0 |
+
+Residue advance over visible walls has signal, but it is unsafe:
+
+| Scale | Rule family | Correct | Too early | Projected PGS |
+|---|---|---:|---:|---:|
+| $10^{12}$ | visible wall residue advance | 60/102 | 42 | 83.40% |
+| $10^{15}$ | visible wall residue advance | 76/141 | 65 | 73.90% |
+| $10^{18}$ | visible wall residue advance | 69/145 | 76 | 69.60% |
+
+Materialization result:
+
+The exact submitted state is not present in current artifacts.
+
+| Required object | Present |
+|---|---|
+| seed blocking witness `r` in chamber state | false |
+| active wall prime set / `sieve_primes` | false |
+| residue vector at `q0` | false |
+
+Strength:
+
+The proposal is close to a real process model: it treats recovery as a
+rightward continuation of chamber state rather than a flat tag on one
+candidate.
+
+Weakness:
+
+The proposed witness step points in the wrong direction. The least factor of
+the seed is far outside the actual seed-to-boundary distance, so `q0 + r` and
+`q0 + k r` cannot select the boundary under the current chamber window.
+Residue advance without the least-factor step reproduces the known unsafe
+first-visible-open behavior.
+
+Limitation:
+
+This branch rejects the submitted SSBRL against current artifacts. It does not
+rule out a future chamber-state object that records a different blocking phase
+than the seed's least factor.
 
 ## Current Lesson
 
