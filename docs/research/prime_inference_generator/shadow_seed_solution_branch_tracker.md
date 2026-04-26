@@ -45,6 +45,9 @@ Promotion requires:
 | [`codex/solution-05-claude-ssbrl-residue-advance`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-05-claude-ssbrl-residue-advance) | `bfdab74` | Rejected | `q0 + r` never selects the boundary; residue advance repeats the unsafe first-visible-open failure. |
 | [`codex/solution-06-copilot-windowed-stabilization`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-06-copilot-windowed-stabilization) | `fb1f18a` | Rejected | Windowed flux/pressure stabilization abstains on every target row. |
 | [`codex/solution-07-seed-erasure-boundary`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-07-seed-erasure-boundary) | `973b3e3` | Rejected | Literal erasure collapses to first-visible-open; explicit seed-phase walls are unsafe. |
+| `codex/solution-08-seed-pressure-gap` | `uncommitted` | Rejected | Bidirectional right-phase closure selects too early and too late; it adds no safe boundary margin. |
+| `codex/solution-09-seed-distance-closure` | `uncommitted` | Rejected | Seed-distance closure collapses to first-visible-open; the distance predicate is satisfied immediately on every target row. |
+| `codex/solution-10-continued-chamber-ladder` | `uncommitted` | Rejected | Continued-chamber ladders show a weak 4m+2 distance signal but produce audit failures on every tested selector. |
 
 ## Solution 1: Full Chamber State Contract
 
@@ -856,6 +859,246 @@ Limitation:
 This branch rejects the current explicit seed-erasure integrations. It does
 not rule out a future chamber model where `q0` contributes a real stateful
 influence that can be erased and compared.
+
+## Solution 8: Bidirectional Chamber Closure
+
+Branch:
+`codex/solution-08-seed-pressure-gap`
+
+Commit: `uncommitted`
+
+Proposed solution:
+
+Treat each visible-open candidate after `q0` as a proposed right boundary, not
+only as a point in the anchor-framed rightward scan. Earlier visible-open
+impostors that are open from `p` should close from the proposed boundary side
+if the candidate is the real terminal boundary.
+
+The tested selector computes a right-phase defect:
+
+```text
+right_phase_defect(c) =
+  count of earlier anchor-visible-open nodes n
+  whose distance c - n is also right-phase open
+```
+
+The branch tests whether the true boundary is the first visible-open candidate
+with zero defect, the leftmost minimum-defect candidate, or the first candidate
+whose full left-open interior is closed by the right boundary phase.
+
+Test performed:
+
+The probe tested right-boundary phase closure under mod `30` and mod `210` on
+the current high-scale shadow rows:
+
+- `B0_first_visible_open_baseline`;
+- `B1_first_prior_right_closed_mod30`;
+- `B2_min_right_defect_mod30`;
+- `B3_first_two_sided_closed_mod30`;
+- `B4_first_prior_right_closed_mod210`;
+- `B5_min_right_defect_mod210`;
+- `B6_first_two_sided_closed_mod210`.
+
+Artifacts:
+
+- [probe script](../../../benchmarks/python/predictor/simple_pgs_solution_08_bidirectional_chamber_probe.py)
+- [summary JSON](../../../output/simple_pgs_solution_08_bidirectional_chamber_probe/summary.json)
+- [rule report CSV](../../../output/simple_pgs_solution_08_bidirectional_chamber_probe/bidirectional_rule_report.csv)
+- [candidate rows CSV](../../../output/simple_pgs_solution_08_bidirectional_chamber_probe/bidirectional_candidate_rows.csv)
+
+Result:
+
+No rule promoted. The right-phase closure signal is real and measurable, but
+it does not identify the terminal margin. It often chooses a later candidate
+past the true boundary, while still choosing too early on many rows.
+
+| Scale | Rule family | Correct | Too early | Too late | No selection | Projected PGS |
+|---|---|---:|---:|---:|---:|---:|
+| $10^{12}$ | first visible baseline | 60/102 | 42 | 0 | 0 | 83.40% |
+| $10^{12}$ | bidirectional right phase | 24/102 | 18 | 60 | 0 | 69.17% |
+| $10^{15}$ | first visible baseline | 76/141 | 65 | 0 | 0 | 73.90% |
+| $10^{15}$ | bidirectional right phase | 32/141 | 33 | 76 | 0 | 56.22% |
+| $10^{18}$ | first visible baseline | 69/145 | 76 | 0 | 0 | 69.60% |
+| $10^{18}$ | bidirectional right phase | 29/145 | 47 | 68 | 1 | 53.60% |
+
+Strength:
+
+The probe tests a genuinely different chamber interpretation. It asks whether
+the boundary is the first point that closes its own left shadow, rather than
+the first point that remains open from the anchor.
+
+Weakness:
+
+The current right-phase definition has no carrier memory. It can describe a
+balanced interior phase after the real boundary as easily as a terminal
+boundary, which creates many too-late selections.
+
+Limitation:
+
+This branch rejects mod-`30` and mod-`210` right-phase closure as currently
+materialized. It does not rule out a right-boundary state that carries the
+placed seed or GWR carrier as an active term.
+
+## Solution 9: Seed-Distance Closure
+
+Branch:
+`codex/solution-09-seed-distance-closure`
+
+Commit: `uncommitted`
+
+Proposed solution:
+
+Treat each anchor-visible-open candidate after `q0` as a proposed right
+boundary. Require that every prior anchor-visible-open point (including the
+seed itself) is *visibly closed* by the distance to the candidate, using the
+same PGS-visible `closure_reason(0, delta)` predicate (wheel + bounded divisor
+witnesses).
+
+The tested selector is:
+
+```text
+Pick the first anchor-visible-open candidate c after q0
+such that for every prior visible-open node n <= c,
+closure_reason(0, c - n) is not None.
+```
+
+Test performed:
+
+The probe tested the distance-closure gate on the current high-scale shadow
+rows:
+
+- baseline `B0_first_visible_open_baseline`;
+- distance gate `D1_first_seed_distance_closes_all_prior`.
+
+Artifacts:
+
+- [probe script](../../../benchmarks/python/predictor/simple_pgs_solution_09_seed_distance_closure_probe.py)
+- [summary JSON](../../../output/simple_pgs_solution_09_seed_distance_closure_probe/summary.json)
+- [rule report CSV](../../../output/simple_pgs_solution_09_seed_distance_closure_probe/seed_distance_rule_report.csv)
+- [candidate rows CSV](../../../output/simple_pgs_solution_09_seed_distance_closure_probe/seed_distance_candidate_rows.csv)
+
+Result:
+
+No rule promoted. The distance-closure gate does not separate true boundaries
+from visible-open impostors: it is satisfied by the first visible-open
+candidate on every target row, so it collapses to the known first-visible-open
+baseline.
+
+| Scale | Rule family | Correct | Too early | Too late | No selection | Projected PGS |
+|---|---|---:|---:|---:|---:|---:|
+| $10^{12}$ | first visible baseline | 60/102 | 42 | 0 | 0 | 83.40% |
+| $10^{12}$ | seed-distance closure | 60/102 | 42 | 0 | 0 | 83.40% |
+| $10^{15}$ | first visible baseline | 76/141 | 65 | 0 | 0 | 73.90% |
+| $10^{15}$ | seed-distance closure | 76/141 | 65 | 0 | 0 | 73.90% |
+| $10^{18}$ | first visible baseline | 69/145 | 76 | 0 | 0 | 69.60% |
+| $10^{18}$ | seed-distance closure | 69/145 | 76 | 0 | 0 | 69.60% |
+
+Strength:
+
+This probe adds one explicit seed-carried predicate without adding new emitted
+fields or invoking forbidden labels. It tests a concrete two-sided closure
+operator that is stronger than mod-only residue closure.
+
+Weakness:
+
+The closure operator is too weakly correlated with the hidden large-factor
+structure. Empirically, the seed-to-first-visible-open distance is always
+visibly closed (wheel-closed or small-witness-closed), so the gate never
+filters the baseline impostor.
+
+Limitation:
+
+This branch rejects seed-distance closure as materialized by
+`closure_reason(0, delta)` with the current visible divisor bound. It does not
+rule out a carrier-aware state transition that distinguishes the seed from the
+first visible-open candidate.
+
+## Solution 10: Continued-Chamber Ladder
+
+Branch:
+`codex/solution-10-continued-chamber-ladder`
+
+Commit: `uncommitted`
+
+Proposed solution:
+
+Use the Lambert continued-fraction ladder `2, 6, 10, 14, ...` as a post-seed
+correction structure. Materialize the ladder as a deterministic congruence on
+seed-to-candidate distance:
+
+```text
+lambert_step(distance) := distance >= 2 and (distance - 2) mod 4 == 0
+```
+
+The probe tests whether the true boundary tends to lie on this distance ladder
+or on a related ladder in the seed-framed closure prefix count, and whether
+either ladder yields an audit-clean selector on shadow-seed rows.
+
+Test performed:
+
+The probe tested four selectors on the current 388 high-scale shadow rows:
+
+- `first_visible_open` baseline;
+- `first_distance_on_4m_plus_2`;
+- `first_closed_prefix_on_4m_plus_2`;
+- `first_both_ladders`.
+
+Artifacts:
+
+- [probe script](../../../benchmarks/python/predictor/simple_pgs_continued_chamber_probe.py)
+- [summary JSON](../../../output/simple_pgs_continued_chamber_probe/summary.json)
+- [rule report CSV](../../../output/simple_pgs_continued_chamber_probe/rule_report.csv)
+- [q ladder report CSV](../../../output/simple_pgs_continued_chamber_probe/q_ladder_report.csv)
+- [candidate rows CSV](../../../output/simple_pgs_continued_chamber_probe/candidate_rows.csv)
+
+Result:
+
+No rule promoted. Every tested selector that produces nonzero hits also creates
+audit failures. The best-performing continued-chamber rule has substantial
+recall but is unsafe.
+
+Per-scale selector summary:
+
+| Scale | Rule | Correct | Failures | Selected |
+|---|---|---:|---:|---:|
+| $10^{12}$ | `first_distance_on_4m_plus_2` | 41/102 | 32 | 73 |
+| $10^{15}$ | `first_distance_on_4m_plus_2` | 55/141 | 48 | 103 |
+| $10^{18}$ | `first_distance_on_4m_plus_2` | 50/145 | 55 | 105 |
+
+Aggregate across all scales:
+
+| Rule | Correct | Failures |
+|---|---:|---:|
+| `first_distance_on_4m_plus_2` | 146 | 135 |
+| `first_closed_prefix_on_4m_plus_2` | 54 | 53 |
+| `first_both_ladders` | 16 | 10 |
+
+Observed true-boundary membership on the distance ladder:
+
+| Scale | q on 4m+2 distance ladder |
+|---|---:|
+| $10^{12}$ | 59/102 |
+| $10^{15}$ | 78/141 |
+| $10^{18}$ | 76/145 |
+
+Strength:
+
+The ladder property is real and measurable. The true boundary is more likely
+than not to satisfy the `4m+2` distance predicate from the seed on these
+surfaces.
+
+Weakness:
+
+The property is not selective enough to identify the terminal boundary. Many
+visible-open impostors also lie on the ladder, so selecting on ladder
+membership produces audit failures.
+
+Limitation:
+
+This branch rejects the literal Lambert ladder materialization as a boundary
+selector. It does not rule out a seed-carried transition state that uses the
+ladder only as a prior inside a stricter carrier-preservation or reset
+discriminator.
 
 ## Current Lesson
 
