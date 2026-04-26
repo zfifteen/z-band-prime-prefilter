@@ -1,0 +1,15 @@
+scale_exponent,scale,mode,anchors_requested,max_required_divisor_floor,status,skip_reason,anchors_scanned,emitted_count,audit_confirmed,audit_failed,pgs_count,fallback_count,pgs_rate,fallback_rate,first_failure,runtime_seconds
+5,100000,full_surface,9588,316,completed,,9588,9588,9588,0,1222,8366,0.12745098039215685,0.8725490196078431,,0.2547926250845194
+6,1000000,full_surface,78494,999,completed,,78494,78494,78494,0,8167,70327,0.10404616913394654,0.8959538308660534,,5.820890832925215
+7,10000000,near_scale_sample,16,3162,completed,,16,16,16,0,2,14,0.125,0.875,,0.0045813750475645065
+8,100000000,near_scale_sample,16,9999,completed,,16,16,16,0,0,16,0.0,1.0,,0.015329540940001607
+9,1000000000,near_scale_sample,16,31622,completed,,16,16,16,0,0,16,0.0,1.0,,0.04242779198102653
+10,10000000000,near_scale_sample,16,99999,completed,,16,16,16,0,1,15,0.0625,0.9375,,0.14389466703869402
+11,100000000000,near_scale_sample,16,316227,completed,,16,16,16,0,1,15,0.0625,0.9375,,0.38644741591997445
+12,1000000000000,near_scale_sample,16,999999,completed,,16,16,16,0,1,15,0.0625,0.9375,,1.2633820411283523
+13,10000000000000,near_scale_sample,16,3162277,skipped,fallback_divisor_floor_exceeds_budget,0,0,0,0,0,0,,,,0.0
+14,100000000000000,near_scale_sample,16,9999999,skipped,fallback_divisor_floor_exceeds_budget,0,0,0,0,0,0,,,,0.0
+15,1000000000000000,near_scale_sample,16,31622776,skipped,fallback_divisor_floor_exceeds_budget,0,0,0,0,0,0,,,,0.0
+16,10000000000000000,near_scale_sample,16,99999999,skipped,fallback_divisor_floor_exceeds_budget,0,0,0,0,0,0,,,,0.0
+17,100000000000000000,near_scale_sample,16,316227766,skipped,fallback_divisor_floor_exceeds_budget,0,0,0,0,0,0,,,,0.0
+18,1000000000000000000,near_scale_sample,16,999999999,skipped,fallback_divisor_floor_exceeds_budget,0,0,0,0,0,0,,,,0.0
