@@ -1,0 +1,10 @@
+scale,selector,shadow_seed_rows,correct,correct_percent,no_selection,selected_too_early,selected_too_late,audit_failed_if_promoted,emitted_count,projected_pgs_count,projected_pgs_percent,promotion_eligible
+1000000000000,nlsc_locked_offset_missing_margin,102,0,0.0,102,0,0,0,253,151,59.683794466403164,False
+1000000000000,strict_gwr_lock_no_terminal_signal,102,0,0.0,102,0,0,0,253,151,59.683794466403164,False
+1000000000000,weak_visible_closure_with_gwr_lock,102,60,58.82352941176471,0,42,0,42,253,211,83.399209486166,False
+1000000000000000,nlsc_locked_offset_missing_margin,141,0,0.0,141,0,0,0,249,108,43.373493975903614,False
+1000000000000000,strict_gwr_lock_no_terminal_signal,141,0,0.0,141,0,0,0,249,108,43.373493975903614,False
+1000000000000000,weak_visible_closure_with_gwr_lock,141,76,53.90070921985816,0,65,0,65,249,184,73.89558232931726,False
+1000000000000000000,nlsc_locked_offset_missing_margin,145,0,0.0,145,0,0,0,250,105,42.0,False
+1000000000000000000,strict_gwr_lock_no_terminal_signal,145,0,0.0,145,0,0,0,250,105,42.0,False
+1000000000000000000,weak_visible_closure_with_gwr_lock,145,69,47.58620689655172,0,76,0,76,250,174,69.6,False
