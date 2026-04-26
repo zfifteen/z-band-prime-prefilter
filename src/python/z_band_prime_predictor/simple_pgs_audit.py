@@ -10,6 +10,7 @@ from sympy import nextprime
 
 from z_band_prime_predictor.simple_pgs_generator import (
     CHAIN_FALLBACK_SOURCE,
+    CHAIN_HORIZON_CLOSURE_SOURCE,
     FALLBACK_SOURCE,
     PGS_SOURCE,
 )
@@ -52,6 +53,11 @@ def audit_report(
     chain_fallback_count = sum(
         1 for record in diagnostics if record["source"] == CHAIN_FALLBACK_SOURCE
     )
+    chain_horizon_closure_count = sum(
+        1
+        for record in diagnostics
+        if record["source"] == CHAIN_HORIZON_CLOSURE_SOURCE
+    )
     fallback_count = sum(
         1 for record in diagnostics if record["source"] == FALLBACK_SOURCE
     )
@@ -70,6 +76,9 @@ def audit_report(
     pgs_rate = 0.0 if emitted_count == 0 else pgs_count / emitted_count
     chain_fallback_rate = (
         0.0 if emitted_count == 0 else chain_fallback_count / emitted_count
+    )
+    chain_horizon_closure_rate = (
+        0.0 if emitted_count == 0 else chain_horizon_closure_count / emitted_count
     )
     fallback_rate = 0.0 if emitted_count == 0 else fallback_count / emitted_count
     audit_failed = emitted_count - confirmed
@@ -90,12 +99,15 @@ def audit_report(
         "accuracy_status": accuracy_status,
         "pgs_status": pgs_status,
         "pgs_count": pgs_count,
+        "chain_horizon_closure_count": chain_horizon_closure_count,
         "chain_fallback_count": chain_fallback_count,
         "fallback_count": fallback_count,
         "pgs_rate": pgs_rate,
+        "chain_horizon_closure_rate": chain_horizon_closure_rate,
         "chain_fallback_rate": chain_fallback_rate,
         "fallback_rate": fallback_rate,
         "pgs_percent": pgs_rate * 100.0,
+        "chain_horizon_closure_percent": chain_horizon_closure_rate * 100.0,
         "chain_fallback_percent": chain_fallback_rate * 100.0,
         "fallback_percent": fallback_rate * 100.0,
         "generator_status": pgs_status,

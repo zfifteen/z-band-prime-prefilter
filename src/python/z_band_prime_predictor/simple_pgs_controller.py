@@ -30,6 +30,16 @@ def diagnostic_record(
         "chain_limit": fields.get("chain_limit"),
         "chain_position_selected": fields.get("chain_position_selected"),
         "chain_nodes_checked": fields.get("chain_nodes_checked", []),
+        "chain_horizon_closed_nodes": fields.get("chain_horizon_closed_nodes", []),
+        "chain_horizon_closure_witnesses": fields.get(
+            "chain_horizon_closure_witnesses",
+            {},
+        ),
+        "chain_horizon_bound": fields.get("chain_horizon_bound"),
+        "chain_horizon_complete": bool(fields.get("chain_horizon_complete", False)),
+        "chain_horizon_closure_success": bool(
+            fields.get("chain_horizon_closure_success", False)
+        ),
         "chain_fallback_success": bool(fields.get("chain_fallback_success", False)),
         "full_fallback_used": bool(fields.get("full_fallback_used", False)),
     }

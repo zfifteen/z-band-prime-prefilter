@@ -120,12 +120,15 @@ def pgs_probe_report(
         "accuracy_status": "PASS" if report["audit_failed"] == 0 else "FAIL",
         "pgs_status": "FAILING",
         "pgs_count": pgs_certified_count,
+        "chain_horizon_closure_count": 0,
         "chain_fallback_count": 0,
         "fallback_count": fallback_required_count,
         "pgs_rate": pgs_certified_rate,
+        "chain_horizon_closure_rate": 0.0,
         "chain_fallback_rate": 0.0,
         "fallback_rate": fallback_required_rate,
         "pgs_percent": pgs_certified_rate * 100.0,
+        "chain_horizon_closure_percent": 0.0,
         "chain_fallback_percent": 0.0,
         "fallback_percent": fallback_required_rate * 100.0,
         "pgs_certified_count": pgs_certified_count,
@@ -201,7 +204,9 @@ def run_scale(
     diagnostics = diagnostic_records(anchors, candidate_bound=candidate_bound)
     report = audit_report(records, diagnostics)
     fallback_required_count = (
-        int(report["chain_fallback_count"]) + int(report["fallback_count"])
+        int(report["chain_horizon_closure_count"])
+        + int(report["chain_fallback_count"])
+        + int(report["fallback_count"])
     )
     fallback_required_rate = (
         0.0 if not anchors else fallback_required_count / len(anchors)
@@ -269,6 +274,7 @@ def main(argv: list[str] | None = None) -> int:
     for row in rows:
         print(
             "scale={scale} mode={mode} fallback_percent={fallback_percent:.2f}% "
+            "chain_horizon_closure_percent={chain_horizon_closure_percent:.2f}% "
             "chain_fallback_percent={chain_fallback_percent:.2f}% "
             "pgs_percent={pgs_percent:.2f}% audit_failed={audit_failed} "
             "accuracy_status={accuracy_status} pgs_status={pgs_status}".format(**row)

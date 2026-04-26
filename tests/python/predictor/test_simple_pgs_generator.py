@@ -13,7 +13,7 @@ if str(SOURCE_DIR) not in sys.path:
     sys.path.insert(0, str(SOURCE_DIR))
 
 from z_band_prime_predictor.simple_pgs_generator import (  # noqa: E402
-    CHAIN_FALLBACK_SOURCE,
+    CHAIN_HORIZON_CLOSURE_SOURCE,
     FALLBACK_SOURCE,
     PGS_SOURCE,
     emit_record,
@@ -100,11 +100,16 @@ def test_sidecar_diagnostics_report_source_outside_emitted_stream():
     assert records == [{"p": 23, "q": 29}, {"p": 89, "q": 97}]
     assert diagnostics[0]["source"] == PGS_SOURCE
     assert diagnostics[0]["certificate"]["gap_offset"] == 6
-    assert diagnostics[1]["source"] == CHAIN_FALLBACK_SOURCE
+    assert diagnostics[1]["source"] == CHAIN_HORIZON_CLOSURE_SOURCE
     assert diagnostics[1]["chain_seed"] == 91
     assert diagnostics[1]["chain_limit"] == 8
     assert diagnostics[1]["chain_position_selected"] == 1
-    assert diagnostics[1]["chain_fallback_success"] is True
+    assert diagnostics[1]["chain_horizon_closed_nodes"] == []
+    assert diagnostics[1]["chain_horizon_closure_witnesses"] == {}
+    assert diagnostics[1]["chain_horizon_bound"] is None
+    assert diagnostics[1]["chain_horizon_complete"] is True
+    assert diagnostics[1]["chain_horizon_closure_success"] is True
+    assert diagnostics[1]["chain_fallback_success"] is False
     assert diagnostics[1]["full_fallback_used"] is False
     assert diagnostic_record(89)["certificate"]["gap_offset"] == 8
 
@@ -182,6 +187,11 @@ def test_cli_writes_lf_records_and_summary(tmp_path):
             "chain_limit",
             "chain_position_selected",
             "chain_nodes_checked",
+            "chain_horizon_closed_nodes",
+            "chain_horizon_closure_witnesses",
+            "chain_horizon_bound",
+            "chain_horizon_complete",
+            "chain_horizon_closure_success",
             "chain_fallback_success",
             "full_fallback_used",
         }
@@ -246,12 +256,15 @@ def test_audit_cli_writes_report_outside_generator(tmp_path):
         "accuracy_status": "PASS",
         "pgs_status": "PGS_PASS",
         "pgs_count": 2,
+        "chain_horizon_closure_count": 0,
         "chain_fallback_count": 0,
         "fallback_count": 0,
         "pgs_rate": 1.0,
+        "chain_horizon_closure_rate": 0.0,
         "chain_fallback_rate": 0.0,
         "fallback_rate": 0.0,
         "pgs_percent": 100.0,
+        "chain_horizon_closure_percent": 0.0,
         "chain_fallback_percent": 0.0,
         "fallback_percent": 0.0,
         "generator_status": "PGS_PASS",
@@ -274,12 +287,15 @@ def test_audit_report_surfaces_fallback_displacement_metrics():
         "accuracy_status": "PASS",
         "pgs_status": "PGS_PASS",
         "pgs_count": 3,
+        "chain_horizon_closure_count": 0,
         "chain_fallback_count": 0,
         "fallback_count": 0,
         "pgs_rate": 1.0,
+        "chain_horizon_closure_rate": 0.0,
         "chain_fallback_rate": 0.0,
         "fallback_rate": 0.0,
         "pgs_percent": 100.0,
+        "chain_horizon_closure_percent": 0.0,
         "chain_fallback_percent": 0.0,
         "fallback_percent": 0.0,
         "generator_status": "PGS_PASS",
@@ -377,12 +393,15 @@ def test_controller_can_orchestrate_generation_and_audit(tmp_path):
         "accuracy_status": "PASS",
         "pgs_status": "PGS_PASS",
         "pgs_count": 3,
+        "chain_horizon_closure_count": 0,
         "chain_fallback_count": 0,
         "fallback_count": 0,
         "pgs_rate": 1.0,
+        "chain_horizon_closure_rate": 0.0,
         "chain_fallback_rate": 0.0,
         "fallback_rate": 0.0,
         "pgs_percent": 100.0,
+        "chain_horizon_closure_percent": 0.0,
         "chain_fallback_percent": 0.0,
         "fallback_percent": 0.0,
         "generator_status": "PGS_PASS",

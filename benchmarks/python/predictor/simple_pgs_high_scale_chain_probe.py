@@ -21,6 +21,7 @@ from z_band_prime_predictor.simple_pgs_controller import (  # noqa: E402
 )
 from z_band_prime_predictor.simple_pgs_generator import (  # noqa: E402
     CHAIN_FALLBACK_SOURCE,
+    CHAIN_HORIZON_CLOSURE_SOURCE,
     DEFAULT_CHAIN_LIMIT,
     DEFAULT_VISIBLE_DIVISOR_BOUND,
     FALLBACK_SOURCE,
@@ -126,7 +127,7 @@ def probe_anchor(
             return {
                 "p": int(p),
                 "q": candidate,
-                "source": CHAIN_FALLBACK_SOURCE,
+                "source": CHAIN_HORIZON_CLOSURE_SOURCE,
                 "audit_passed": audit_confirms_next_prime(int(p), candidate),
                 "chain_seed": q0,
                 "chain_position_selected": position,
@@ -162,6 +163,9 @@ def scale_summary(
     chain_count = sum(
         1 for row in emitted if row["source"] == CHAIN_FALLBACK_SOURCE
     )
+    chain_horizon_count = sum(
+        1 for row in emitted if row["source"] == CHAIN_HORIZON_CLOSURE_SOURCE
+    )
     fallback_count = sum(1 for row in emitted if row["source"] == FALLBACK_SOURCE)
     unresolved_count = int(sample_size) - len(emitted)
     audit_failed = sum(1 for row in emitted if not bool(row["audit_passed"]))
@@ -179,12 +183,16 @@ def scale_summary(
         if audit_failed == 0 and emitted_count and rate(pgs_count, emitted_count) >= 0.50
         else "FAILING",
         "pgs_count": pgs_count,
+        "chain_horizon_closure_count": chain_horizon_count,
         "chain_fallback_count": chain_count,
         "fallback_count": fallback_count,
         "pgs_rate": rate(pgs_count, emitted_count),
+        "chain_horizon_closure_rate": rate(chain_horizon_count, emitted_count),
         "chain_fallback_rate": rate(chain_count, emitted_count),
         "fallback_rate": rate(fallback_count, emitted_count),
         "pgs_percent": rate(pgs_count, emitted_count) * 100.0,
+        "chain_horizon_closure_percent": rate(chain_horizon_count, emitted_count)
+        * 100.0,
         "chain_fallback_percent": rate(chain_count, emitted_count) * 100.0,
         "fallback_percent": rate(fallback_count, emitted_count) * 100.0,
     }
@@ -270,6 +278,7 @@ def main(argv: list[str] | None = None) -> int:
         print(
             "scale={scale} emitted={emitted_count} unresolved={unresolved_count} "
             "audit_failed={audit_failed} pgs_percent={pgs_percent:.2f}% "
+            "chain_horizon_closure_percent={chain_horizon_closure_percent:.2f}% "
             "chain_fallback_percent={chain_fallback_percent:.2f}% "
             "fallback_percent={fallback_percent:.2f}% "
             "accuracy_status={accuracy_status} pgs_status={pgs_status}".format(**row)

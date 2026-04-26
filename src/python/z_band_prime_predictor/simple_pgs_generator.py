@@ -9,6 +9,7 @@ DEFAULT_CANDIDATE_BOUND = 128
 DEFAULT_CHAIN_LIMIT = 8
 DEFAULT_VISIBLE_DIVISOR_BOUND = 10_000
 PGS_SOURCE = "PGS"
+CHAIN_HORIZON_CLOSURE_SOURCE = "chain_horizon_closure"
 CHAIN_FALLBACK_SOURCE = "chain_fallback"
 FALLBACK_SOURCE = "fallback"
 FALLBACK_REQUIRED_SOURCE = "fallback_required"
@@ -170,6 +171,53 @@ def chain_fallback_result(
     }
 
 
+def chain_horizon_closure_result(
+    p: int,
+    seed_offset: int,
+    candidate_bound: int = DEFAULT_CANDIDATE_BOUND,
+    chain_limit: int = DEFAULT_CHAIN_LIMIT,
+    max_divisor: int | None = DEFAULT_VISIBLE_DIVISOR_BOUND,
+    horizon_bound: int | None = None,
+) -> tuple[int | None, dict[str, object]]:
+    """Return the first chain node not closed by divisor horizon."""
+    chain_offsets = visible_open_chain_offsets(
+        int(p),
+        int(seed_offset),
+        int(candidate_bound),
+        int(chain_limit),
+        max_divisor,
+    )
+    checked_nodes: list[int] = []
+    closed_nodes: list[int] = []
+    closure_witnesses: dict[str, int] = {}
+    selected_position: int | None = None
+    selected_q: int | None = None
+    complete_horizon = horizon_bound is None
+    for position, offset in enumerate(chain_offsets, start=1):
+        candidate = int(p) + int(offset)
+        checked_nodes.append(candidate)
+        witness = divisor_witness(candidate, horizon_bound)
+        if witness is None:
+            selected_position = position
+            selected_q = candidate
+            break
+        closed_nodes.append(candidate)
+        closure_witnesses[str(candidate)] = int(witness)
+    return selected_q, {
+        "chain_seed": int(p) + int(seed_offset),
+        "chain_limit": int(chain_limit),
+        "chain_position_selected": selected_position,
+        "chain_nodes_checked": checked_nodes,
+        "chain_horizon_closed_nodes": closed_nodes,
+        "chain_horizon_closure_witnesses": closure_witnesses,
+        "chain_horizon_bound": horizon_bound,
+        "chain_horizon_complete": complete_horizon,
+        "chain_horizon_closure_success": selected_q is not None,
+        "chain_fallback_success": False,
+        "full_fallback_used": False,
+    }
+
+
 def pgs_gap_certificate(
     p: int,
     gap_offset: int,
@@ -279,18 +327,19 @@ def resolve_q(
             )
             return q0, PGS_SOURCE, certificate
 
-        chain_q, chain_fields = chain_fallback_result(
+        chain_q, chain_fields = chain_horizon_closure_result(
             int(p),
             int(certificate["gap_offset"]),
             candidate_bound,
             DEFAULT_CHAIN_LIMIT,
             DEFAULT_VISIBLE_DIVISOR_BOUND,
+            None,
         )
         chain_certificate = dict(certificate)
         chain_certificate["fallback_agreed"] = False
         chain_certificate.update(chain_fields)
         if chain_q is not None:
-            return chain_q, CHAIN_FALLBACK_SOURCE, chain_certificate
+            return chain_q, CHAIN_HORIZON_CLOSURE_SOURCE, chain_certificate
 
         fallback_q = next_prime_by_trial_division(int(p), candidate_bound)
         chain_certificate["full_fallback_used"] = True
