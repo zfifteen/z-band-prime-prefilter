@@ -1,0 +1,14 @@
+{
+  "input": "/Users/velocityworks/IdeaProjects/prime-gap-structure/output/simple_pgs_shadow_seed_recovery_displacement_probe/candidate_rows.csv",
+  "scales": [
+    1000000000000000,
+    1000000000000000000
+  ],
+  "candidate_bound": 128,
+  "visible_divisor_bound": 10000,
+  "shadow_seed_rows": 286,
+  "ceiling_row_count": 858,
+  "law_row_count": 24,
+  "promotion_eligible_rules": [],
+  "strongest_result": "square_pressure_ceilings_do_not_select_terminal_boundary_safely"
+}
