@@ -479,18 +479,29 @@ Rule X with chamber reset resolved the full decade-window ladder:
 0 candidate-bound misses
 ```
 
-The chamber-reset rule has been promoted into the minimal generator path as
-`pgs_chamber_reset_v1` while preserving the emitted record contract and keeping
-classical labels downstream.
+The chamber-reset rule is now the production selector. The production generator
+uses exact divisor-count GWR/NLSC chamber-reset state instead of the earlier
+first-visible-open shortcut.
 
-Promoted generator check:
+Current production generator check:
 
 ```text
 surface: 11..100000
 candidate_bound: 128
 anchors tested: 9588
 PGS emissions: 9588
-rule_id: pgs_chamber_reset_v1
+fallback emissions: 0
+failed emissions: 0
+```
+
+High-scale production check:
+
+```text
+surface: 256 consecutive prime anchors per decade, 10^8 through 10^18
+candidate_bound: 1024
+anchors tested: 2816
+PGS emissions: 2816
+fallback emissions: 0
 failed emissions: 0
 ```
 

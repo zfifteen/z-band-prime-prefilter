@@ -20,9 +20,13 @@ The result identifies the missing interpretation of the unresolved tail: after
 the first resolved survivor appears, later unresolved candidates are
 post-reset chamber material, not competing boundaries for the original anchor.
 
-The rule has been promoted into the minimal generator path as
-`pgs_chamber_reset_v1`. On the `11..100000`, `candidate_bound = 128` generator
-surface, it emitted `9588 / 9588` records as `PGS` with zero failures.
+The rule is now the production selector. After the GWR/NLSC port, the
+production generator uses exact divisor-count chamber-reset state instead of
+the earlier first-visible-open shortcut. On the `11..100000`,
+`candidate_bound = 128` production generator surface, it emits `9588 / 9588`
+exact records with zero failures and labels all `9588` rows as `PGS`. On the
+`10^8` through `10^18` decade-window production surface, it emits
+`2816 / 2816` exact records with zero failures and zero fallback rows.
 
 This result is documented in:
 

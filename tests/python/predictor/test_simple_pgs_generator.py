@@ -12,19 +12,20 @@ SOURCE_DIR = ROOT / "src" / "python"
 if str(SOURCE_DIR) not in sys.path:
     sys.path.insert(0, str(SOURCE_DIR))
 
+import z_band_prime_predictor.simple_pgs_generator as simple_pgs_generator  # noqa: E402
 from z_band_prime_predictor.simple_pgs_generator import (  # noqa: E402
-    CHAIN_HORIZON_CLOSURE_SOURCE,
     FALLBACK_SOURCE,
     PGS_CHAMBER_RESET_RULE_ID,
+    PGS_GENERATOR_FREEZE_ID,
+    PGS_GENERATOR_VERSION,
     PGS_SOURCE,
-    SHADOW_SEED_RECOVERY_RULE_ID,
-    SHADOW_SEED_RECOVERY_SOURCE,
     emit_record,
     emit_records,
     first_prime_in_chamber,
     has_trial_divisor,
     next_prime_by_trial_division,
     pgs_gap_certificate,
+    pgs_probe_certificate,
 )
 from z_band_prime_predictor.simple_pgs_controller import (  # noqa: E402
     diagnostic_record,
@@ -47,6 +48,12 @@ def test_record_has_only_p_and_q():
     assert record == {"p": 11, "q": 13}
 
 
+def test_generator_freeze_version_is_locked():
+    """The frozen generator iteration should have a stable version id."""
+    assert PGS_GENERATOR_VERSION == "1.0.0"
+    assert PGS_GENERATOR_FREEZE_ID == "pgs_inference_generator_v1_0"
+
+
 def test_emit_records_never_withholds_an_anchor():
     """Every supplied anchor should produce exactly one iprime candidate."""
     anchors = [11, 23, 89]
@@ -58,23 +65,72 @@ def test_emit_records_never_withholds_an_anchor():
 
 
 def test_explicit_boundary_offset_can_emit_q():
-    """A correct deterministic selector result can emit q."""
+    """An explicit offset must not move validation into generation."""
     records = emit_records([23], boundary_offsets={23: 6})
 
     assert records == [{"p": 23, "q": 29}]
 
 
-def test_default_pgs_gap_two_rule_displaces_fallback_when_correct():
-    """The first tiny PGS rule should only count when fallback agrees."""
+def test_pgs_result_is_not_validated_by_fallback_before_labeling():
+    """A PGS-selected row should not require fallback agreement."""
     record = diagnostic_record(11)
     assert record["p"] == 11
     assert record["q"] == 13
     assert record["source"] == PGS_SOURCE
     assert record["certificate"]["rule_id"] == PGS_CHAMBER_RESET_RULE_ID
     assert record["certificate"]["gap_offset"] == 2
-    assert record["certificate"]["fallback_agreed"] is True
+    assert record["certificate"]["fallback_agreed"] is False
     assert diagnostic_record(89)["source"] == PGS_SOURCE
-    assert diagnostic_record(89)["certificate"]["gap_offset"] == 8
+
+
+def test_pgs_source_is_not_prime_validated_by_trial_division(monkeypatch):
+    """Production PGS resolution must not trial-divide the emitted q."""
+    def forbidden_trial_check(_n):
+        raise AssertionError("PGS source must not call trial division")
+
+    monkeypatch.setattr(simple_pgs_generator, "has_trial_divisor", forbidden_trial_check)
+
+    q, source, _certificate = simple_pgs_generator.resolve_q(11)
+
+    assert q == 13
+    assert source == PGS_SOURCE
+
+
+def test_pgs_source_is_not_confirmed_by_trial_division(monkeypatch):
+    """A future trial-free PGS certificate must not be prime-checked inline."""
+    def fake_probe_certificate(_p, _candidate_bound, _max_divisor):
+        return {"q": 13, "rule_id": "trial_free_fixture", "gap_offset": 2}
+
+    def forbidden_trial_check(_n):
+        raise AssertionError("PGS source must not call trial division")
+
+    monkeypatch.setattr(
+        simple_pgs_generator,
+        "pgs_probe_certificate",
+        fake_probe_certificate,
+    )
+    monkeypatch.setattr(
+        simple_pgs_generator,
+        "has_trial_divisor",
+        forbidden_trial_check,
+    )
+
+    q, source, certificate = simple_pgs_generator.resolve_q(11)
+
+    assert q == 13
+    assert source == PGS_SOURCE
+    assert certificate["fallback_agreed"] is False
+
+
+def test_high_scale_false_shadow_candidate_is_rejected_by_gwr_nlsc_state():
+    """The production selector must not emit the old high-scale shadow error."""
+    record = emit_record(1000000033, candidate_bound=1024)
+    certificate = pgs_probe_certificate(1000000033, 1024, 10000)
+
+    assert record == {"p": 1000000033, "q": 1000000087}
+    assert certificate["gap_offset"] == 54
+    assert certificate["carrier_w"] != 1000000033
+    assert certificate["tail_after_reset_offsets"]
 
 
 def test_small_gap_certificate_closes_every_interior_offset():
@@ -103,21 +159,20 @@ def test_sidecar_diagnostics_report_source_outside_emitted_stream():
     assert records == [{"p": 23, "q": 29}, {"p": 89, "q": 97}]
     assert diagnostics[0]["source"] == PGS_SOURCE
     assert diagnostics[0]["certificate"]["gap_offset"] == 6
-    assert diagnostics[1]["source"] == SHADOW_SEED_RECOVERY_SOURCE
-    assert diagnostics[1]["certificate"]["rule_id"] == SHADOW_SEED_RECOVERY_RULE_ID
-    assert diagnostics[1]["certificate"]["gap_offset"] == 8
-    assert diagnostics[1]["chain_seed"] == 91
+    assert diagnostics[1]["source"] == FALLBACK_SOURCE
+    assert diagnostics[1]["certificate"]["full_fallback_used"] is True
+    assert diagnostics[1]["chain_seed"] is None
     assert diagnostics[1]["chain_limit"] == 8
-    assert diagnostics[1]["chain_position_selected"] == 6
-    assert diagnostics[1]["chain_nodes_checked"] == [92, 93, 94, 95, 96, 97]
+    assert diagnostics[1]["chain_position_selected"] is None
+    assert diagnostics[1]["chain_nodes_checked"] == []
     assert diagnostics[1]["chain_horizon_closed_nodes"] == []
     assert diagnostics[1]["chain_horizon_closure_witnesses"] == {}
     assert diagnostics[1]["chain_horizon_bound"] is None
-    assert diagnostics[1]["chain_horizon_complete"] is True
+    assert diagnostics[1]["chain_horizon_complete"] is False
     assert diagnostics[1]["chain_horizon_closure_success"] is False
     assert diagnostics[1]["chain_fallback_success"] is False
-    assert diagnostics[1]["full_fallback_used"] is False
-    assert diagnostic_record(89)["certificate"]["gap_offset"] == 8
+    assert diagnostics[1]["full_fallback_used"] is True
+    assert diagnostic_record(89)["source"] == PGS_SOURCE
 
 
 def test_fallback_tests_all_integer_divisors_to_sqrt():

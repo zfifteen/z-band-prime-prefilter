@@ -1,5 +1,16 @@
 # Minimal PGS Generator Logic
 
+Current frozen production iteration:
+
+```text
+PGS Inference Generator v1.0
+PGS_GENERATOR_VERSION = 1.0.0
+PGS_GENERATOR_FREEZE_ID = pgs_inference_generator_v1_0
+```
+
+Release note:
+[PGS Inference Generator v1.0](../../releases/pgs_inference_generator_v1_0.md).
+
 The generator has one job: start from an accepted anchor prime `p` and emit the
 next prime `q`.
 
@@ -9,7 +20,8 @@ complete enough yet, the generator uses explicit trial-division or factorization
 fallback arithmetic to finish the selection and emits the correct `q`.
 
 With fallback arithmetic allowed, 100% completeness and 100% accuracy are
-minimum requirements.
+minimum requirements. Source accounting is stricter: a row is labeled `PGS`
+only when the PGS selector chose it without fallback completion.
 
 Each emitted line has exactly two fields:
 
@@ -132,17 +144,28 @@ false emissions: 0
 candidate-bound misses: 0
 ```
 
-The rule is promoted into the narrow generator module as
-`pgs_chamber_reset_v1`. The high-scale `10^8` through `10^18` result remains a
-decade-window experiment-harness validation surface.
+The production generator now uses the same exact divisor-count GWR/NLSC
+chamber-reset state as the high-scale decade-window experiment. The generator
+does not count fallback-selected rows as pure `PGS` emissions.
 
-The promoted generator path was audited on `11..100000`,
+The current production generator path was audited on `11..100000`,
 `candidate_bound = 128`:
 
 ```text
 anchors tested: 9588
 PGS emissions: 9588
-rule_id: pgs_chamber_reset_v1
+fallback emissions: 0
+failed emissions: 0
+```
+
+The same production path was audited on the decade-window ladder:
+
+```text
+surface: 256 consecutive prime anchors per decade, 10^8 through 10^18
+candidate_bound: 1024
+anchors tested: 2816
+PGS emissions: 2816
+fallback emissions: 0
 failed emissions: 0
 ```
 
@@ -165,7 +188,7 @@ history, proof object, approval flags, counters, status categories, or hidden
 diagnostics.
 
 The generator script must contain generation logic only. It must not contain
-artifact writing, audit, reporting, command-line orchestration, or classical
+artifact writing, audit, reporting, command-line orchestration, or downstream
 validation helpers.
 
 A separate controller script may write sidecar diagnostics keyed by `p`. A
@@ -173,10 +196,9 @@ sidecar record may report whether `q` came from the PGS boundary rule or from
 fallback arithmetic. Sidecar diagnostics are not part of the emitted generator
 stream.
 
-The generator uses three source labels in sidecar diagnostics:
+The generator uses source labels in sidecar diagnostics:
 
-- `PGS`: the bounded PGS selector chose `q`, and exact fallback arithmetic
-  confirmed that candidate;
+- `PGS`: the bounded PGS selector chose `q` without fallback completion;
 - `chain_fallback`: the bounded PGS selector chose a composite seed, the
   visible-open shadow chain narrowed the repair search, and exact fallback
   arithmetic selected `q` from that chain;
