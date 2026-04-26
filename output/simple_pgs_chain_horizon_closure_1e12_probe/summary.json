@@ -1,0 +1,27 @@
+{
+  "rows": [
+    {
+      "scale": 1000000000000,
+      "sample_size": 256,
+      "emitted_count": 253,
+      "unresolved_count": 3,
+      "unresolved_rate": 0.01171875,
+      "unresolved_percent": 1.171875,
+      "audit_failed": 0,
+      "accuracy_status": "PASS",
+      "pgs_status": "MINIMAL_PASS",
+      "pgs_count": 151,
+      "chain_horizon_closure_count": 102,
+      "chain_fallback_count": 0,
+      "fallback_count": 0,
+      "pgs_rate": 0.5968379446640316,
+      "chain_horizon_closure_rate": 0.4031620553359684,
+      "chain_fallback_rate": 0.0,
+      "fallback_rate": 0.0,
+      "pgs_percent": 59.683794466403164,
+      "chain_horizon_closure_percent": 40.316205533596836,
+      "chain_fallback_percent": 0.0,
+      "fallback_percent": 0.0
+    }
+  ]
+}

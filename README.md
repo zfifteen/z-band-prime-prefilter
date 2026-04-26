@@ -2,10 +2,12 @@
 
 ![Prime Gap Structure hero](docs/assets/prime-gap-structure-hero.jpg)
 
-This repository now carries two major prime-gap results:
+This repository now carries three major prime-gap results:
 
 - a proved local arithmetic winner law inside prime gaps;
 - a frozen hierarchical finite-state engine for reduced prime-gap types.
+- a minimal inferred-prime generator with exact low-scale audited runs and
+  audit-clean high-scale probe runs.
 
 Take the consecutive primes `23` and `29`. The integers between them are
 `24, 25, 26, 27, 28`. Their divisor counts are:
@@ -34,7 +36,7 @@ that minimum is `91`, so `91` wins.
 
 These examples show the local arithmetic choice that anchors the repository.
 
-## Two Headline Results
+## Three Headline Results
 
 - **Gap Winner Rule (GWR):** on the repository's current proof surface, the
   implemented divisor-normalization score picks exactly the leftmost carrier of
@@ -42,6 +44,10 @@ These examples show the local arithmetic choice that anchors the repository.
 - **Prime Gap Generative Engine v1.0:** on the persistent reduced gap-type
   surface, prime-gap types close to a frozen hierarchical finite-state engine
   with a stable `14`-state core.
+- **Minimal PGS Generator:** the restart generator emits one minimal
+  `{"p": ..., "q": ...}` record per accepted anchor, keeps diagnostics outside
+  the emitted stream, and preserves zero audit failures on the current audited
+  surfaces.
 
 ## Gap Winner Rule
 
@@ -95,6 +101,38 @@ See also:
 - [Hierarchical engine paper draft](docs/research/predictor/prime_gap_hierarchical_engine_paper_draft.md)
 - [Engine overview figure](output/gwr_dni_gap_type_engine_v1_overview.png)
 
+## Minimal PGS Generator
+
+The third headline result is the minimal inferred-prime generator. It emits one
+record for each accepted prime anchor:
+
+```json
+{"p": 89, "q": 97}
+```
+
+The emitted stream is deliberately small: exactly `p` and `q`. Source labels,
+diagnostics, certificates, and audit results stay outside the generator output.
+
+On the current audited surfaces, the generator is exact in low-scale full runs
+and remains audit-clean in high-scale probe runs:
+
+- `11..100000`: `9588 / 9588` emitted, `0` audit failures, `100.00%` PGS
+- `11..1000000`: `78494 / 78494` emitted, `0` audit failures, `100.00%` PGS
+- `10^12` exact sample: `256 / 256` emitted, `0` audit failures,
+  `58.98%` PGS, `1.17%` full fallback
+- `10^15` probe: `249 / 256` emitted, `0` audit failures, `43.37%` PGS,
+  `0.00%` full fallback
+- `10^18` probe: `250 / 256` emitted, `0` audit failures, `42.00%` PGS,
+  `0.00%` full fallback
+
+The main generator target is now fallback displacement. Exact-mode correctness
+is protected by deterministic arithmetic, while the research program increases
+the share of emissions derived directly from PGS rules without allowing audit
+failures.
+
+The implementation contract and lower-level mechanism are recorded in
+[Minimal PGS Generator Logic](docs/specs/prime-gen/minimal_pgs_generator_logic.md).
+
 ## Why The Score Exists
 
 The score exists because the repo wants one number per interior composite, so a
@@ -138,11 +176,13 @@ This repository now carries three visible lines of work:
 - the proved GWR theorem and its proof surface;
 - the reduced gap-type engine and pattern results on the persistent reduced
   surface;
-- downstream deterministic DNI-based predictor and prefilter work.
+- the minimal PGS generator and downstream deterministic DNI-based predictor
+  and prefilter work.
 
 The GWR theorem remains the theorem anchor. The gap-type engine is the second
-headline prime-gap result. The recursive walk and deterministic filter are
-downstream deterministic instruments built from the same normalization.
+headline prime-gap result. The minimal PGS generator is the current operational
+inferred-prime generator milestone. The recursive walk and deterministic filter
+are downstream deterministic instruments built from the same normalization.
 
 ## Novel Structures in This Repository
 
@@ -173,6 +213,11 @@ The repository now carries the following named structures and results:
   [docs/releases/prime_gap_generative_engine_v1_0.md](docs/releases/prime_gap_generative_engine_v1_0.md)
   and
   [gwr/findings/gap_type_engine_v1_rulebook.md](gwr/findings/gap_type_engine_v1_rulebook.md).
+- **Minimal PGS Generator:** the restart generator emits exactly `p` and `q`
+  for each accepted prime anchor, with downstream audit and source diagnostics
+  outside the emitted stream. The current audited low-scale surfaces are
+  exact, and the high-scale probe surfaces are audit-clean while the project
+  continues to displace non-PGS bridge work.
 - **No-Later-Simpler-Composite (NLSC) condition:** once the GWR winner
   appears, no later interior composite with strictly smaller divisor count
   precedes the next prime. Zero violations observed through `10^18`.

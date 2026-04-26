@@ -1,0 +1,2 @@
+scale,sample_size,emitted_count,unresolved_count,unresolved_rate,unresolved_percent,audit_failed,accuracy_status,pgs_status,pgs_count,chain_horizon_closure_count,chain_fallback_count,fallback_count,pgs_rate,chain_horizon_closure_rate,chain_fallback_rate,fallback_rate,pgs_percent,chain_horizon_closure_percent,chain_fallback_percent,fallback_percent
+1000000000000,256,253,3,0.01171875,1.171875,0,PASS,MINIMAL_PASS,151,102,0,0,0.5968379446640316,0.4031620553359684,0.0,0.0,59.683794466403164,40.316205533596836,0.0,0.0
