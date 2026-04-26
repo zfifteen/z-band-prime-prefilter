@@ -26,7 +26,8 @@ from z_band_prime_predictor.simple_pgs_generator import (  # noqa: E402
     DEFAULT_VISIBLE_DIVISOR_BOUND,
     FALLBACK_SOURCE,
     PGS_SOURCE,
-    SHADOW_SEED_GWR_RULE_ID,
+    SHADOW_SEED_RECOVERY_RULE_ID,
+    SHADOW_SEED_RECOVERY_SOURCE,
     pgs_probe_certificate,
     visible_open_chain_offsets,
 )
@@ -125,8 +126,8 @@ def probe_anchor(
             return {
                 "p": int(p),
                 "q": candidate,
-                "source": PGS_SOURCE,
-                "rule_id": SHADOW_SEED_GWR_RULE_ID,
+                "source": SHADOW_SEED_RECOVERY_SOURCE,
+                "rule_id": SHADOW_SEED_RECOVERY_RULE_ID,
                 "audit_passed": audit_confirms_next_prime(int(p), candidate),
                 "chain_seed": q0,
                 "chain_position_selected": position,
@@ -187,6 +188,9 @@ def scale_summary(
             continue
         rule_id = str(row.get("rule_id", "unknown_pgs_rule"))
         pgs_by_rule[rule_id] = pgs_by_rule.get(rule_id, 0) + 1
+    shadow_seed_recovery_count = sum(
+        1 for row in emitted if row["source"] == SHADOW_SEED_RECOVERY_SOURCE
+    )
     chain_count = sum(
         1 for row in emitted if row["source"] == CHAIN_FALLBACK_SOURCE
     )
@@ -210,15 +214,22 @@ def scale_summary(
         if audit_failed == 0 and emitted_count and rate(pgs_count, emitted_count) >= 0.50
         else "FAILING",
         "pgs_count": pgs_count,
+        "shadow_seed_recovery_count": shadow_seed_recovery_count,
         "chain_horizon_closure_count": chain_horizon_count,
         "chain_fallback_count": chain_count,
         "fallback_count": fallback_count,
         "pgs_by_rule": pgs_by_rule,
         "pgs_rate": rate(pgs_count, emitted_count),
+        "shadow_seed_recovery_rate": rate(shadow_seed_recovery_count, emitted_count),
         "chain_horizon_closure_rate": rate(chain_horizon_count, emitted_count),
         "chain_fallback_rate": rate(chain_count, emitted_count),
         "fallback_rate": rate(fallback_count, emitted_count),
         "pgs_percent": rate(pgs_count, emitted_count) * 100.0,
+        "shadow_seed_recovery_percent": rate(
+            shadow_seed_recovery_count,
+            emitted_count,
+        )
+        * 100.0,
         "chain_horizon_closure_percent": rate(chain_horizon_count, emitted_count)
         * 100.0,
         "chain_fallback_percent": rate(chain_count, emitted_count) * 100.0,
@@ -306,6 +317,7 @@ def main(argv: list[str] | None = None) -> int:
         print(
             "scale={scale} emitted={emitted_count} unresolved={unresolved_count} "
             "audit_failed={audit_failed} pgs_percent={pgs_percent:.2f}% "
+            "shadow_seed_recovery_percent={shadow_seed_recovery_percent:.2f}% "
             "chain_horizon_closure_percent={chain_horizon_closure_percent:.2f}% "
             "chain_fallback_percent={chain_fallback_percent:.2f}% "
             "fallback_percent={fallback_percent:.2f}% "

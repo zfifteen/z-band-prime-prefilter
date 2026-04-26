@@ -13,6 +13,7 @@ from z_band_prime_predictor.simple_pgs_generator import (
     CHAIN_HORIZON_CLOSURE_SOURCE,
     FALLBACK_SOURCE,
     PGS_SOURCE,
+    SHADOW_SEED_RECOVERY_SOURCE,
 )
 
 
@@ -50,6 +51,11 @@ def audit_report(
                 "actual_q": actual_q,
             }
     pgs_count = sum(1 for record in diagnostics if record["source"] == PGS_SOURCE)
+    shadow_seed_recovery_count = sum(
+        1
+        for record in diagnostics
+        if record["source"] == SHADOW_SEED_RECOVERY_SOURCE
+    )
     chain_fallback_count = sum(
         1 for record in diagnostics if record["source"] == CHAIN_FALLBACK_SOURCE
     )
@@ -74,6 +80,9 @@ def audit_report(
         pgs_by_rule[rule_id] = pgs_by_rule.get(rule_id, 0) + 1
     emitted_count = len(records)
     pgs_rate = 0.0 if emitted_count == 0 else pgs_count / emitted_count
+    shadow_seed_recovery_rate = (
+        0.0 if emitted_count == 0 else shadow_seed_recovery_count / emitted_count
+    )
     chain_fallback_rate = (
         0.0 if emitted_count == 0 else chain_fallback_count / emitted_count
     )
@@ -99,14 +108,17 @@ def audit_report(
         "accuracy_status": accuracy_status,
         "pgs_status": pgs_status,
         "pgs_count": pgs_count,
+        "shadow_seed_recovery_count": shadow_seed_recovery_count,
         "chain_horizon_closure_count": chain_horizon_closure_count,
         "chain_fallback_count": chain_fallback_count,
         "fallback_count": fallback_count,
         "pgs_rate": pgs_rate,
+        "shadow_seed_recovery_rate": shadow_seed_recovery_rate,
         "chain_horizon_closure_rate": chain_horizon_closure_rate,
         "chain_fallback_rate": chain_fallback_rate,
         "fallback_rate": fallback_rate,
         "pgs_percent": pgs_rate * 100.0,
+        "shadow_seed_recovery_percent": shadow_seed_recovery_rate * 100.0,
         "chain_horizon_closure_percent": chain_horizon_closure_rate * 100.0,
         "chain_fallback_percent": chain_fallback_rate * 100.0,
         "fallback_percent": fallback_rate * 100.0,

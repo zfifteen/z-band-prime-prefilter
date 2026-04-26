@@ -9,11 +9,12 @@ DEFAULT_CANDIDATE_BOUND = 128
 DEFAULT_CHAIN_LIMIT = 8
 DEFAULT_VISIBLE_DIVISOR_BOUND = 10_000
 PGS_SOURCE = "PGS"
+SHADOW_SEED_RECOVERY_SOURCE = "shadow_seed_recovery"
 CHAIN_HORIZON_CLOSURE_SOURCE = "chain_horizon_closure"
 CHAIN_FALLBACK_SOURCE = "chain_fallback"
 FALLBACK_SOURCE = "fallback"
 FALLBACK_REQUIRED_SOURCE = "fallback_required"
-SHADOW_SEED_GWR_RULE_ID = "pgs_shadow_seed_gwr_recovery_v1"
+SHADOW_SEED_RECOVERY_RULE_ID = "shadow_seed_trial_recovery_v1"
 WHEEL_OPEN_RESIDUES_MOD30 = frozenset({1, 7, 11, 13, 17, 19, 23, 29})
 
 
@@ -368,14 +369,14 @@ def resolve_q(
         shadow_certificate = dict(certificate)
         shadow_certificate.update(
             {
-                "rule_id": SHADOW_SEED_GWR_RULE_ID,
+                "rule_id": SHADOW_SEED_RECOVERY_RULE_ID,
                 "q": shadow_q,
                 "gap_offset": shadow_q - int(p),
                 "fallback_agreed": True,
             }
         )
         shadow_certificate.update(shadow_fields)
-        return shadow_q, PGS_SOURCE, shadow_certificate
+        return shadow_q, SHADOW_SEED_RECOVERY_SOURCE, shadow_certificate
 
         chain_q, chain_fields = chain_horizon_closure_result(
             int(p),

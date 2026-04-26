@@ -1,24 +1,27 @@
-# Shadow Seed GWR Recovery Solution Report
+# Shadow Seed Recovery Bridge Report
 
 The Minimal PGS Generator blocker was the high-scale semiprime-shadow lane. At
 low scale, chamber closure already emitted the next prime for every tested
 anchor. At high scale, the same chamber rule often selected a composite
 left-side shadow inside the gap. Earlier bridge logic could recover from those
-rows, but it reported them as `chain_horizon_closure`, not as PGS-derived
-emissions.
+rows, but the source accounting did not separate pure PGS selection from
+exact arithmetic recovery.
 
 The implemented solution changes the role of that shadow. The composite
 candidate is no longer treated as a failed answer. It is treated as a placed
 seed inside the current gap. From that seed, the generator performs a
-deterministic rightward recovery and emits the first boundary it reaches. The
-emitted stream remains exactly:
+deterministic rightward recovery and emits the first boundary it reaches. That
+recovery is an operational bridge because the terminal selection still uses
+exact divisor arithmetic. It is not yet a pure PGS boundary rule. The emitted
+stream remains exactly:
 
 ```json
 {"p": 89, "q": 97}
 ```
 
 No source label, confidence field, certificate, or metadata is added to the
-emitted record. Source information stays in the sidecar diagnostics.
+emitted record. Source information stays in the sidecar diagnostics, where the
+bridge is labeled `shadow_seed_recovery`.
 
 ## Blocker
 
@@ -50,10 +53,10 @@ correctly in exact mode. The blocker was source classification:
 composite chamber-closure seed -> bridge/fallback -> correct q
 ```
 
-needed to become:
+became:
 
 ```text
-composite chamber-closure seed -> PGS recovery seed -> correct q
+composite chamber-closure seed -> shadow-seed recovery bridge -> correct q
 ```
 
 ## Failed Intermediate Paths
@@ -79,12 +82,12 @@ ask what the false chamber candidate actually represented. The false candidate
 was a placed interior seed. Once that is true, the right object is not the
 whole chain. The right object is recovery from the seed.
 
-## Implemented Rule
+## Implemented Bridge
 
-The new rule is:
+The new bridge source is:
 
 ```text
-pgs_shadow_seed_gwr_recovery_v1
+shadow_seed_recovery
 ```
 
 It is implemented in
@@ -98,8 +101,8 @@ Generation order is now:
    `pgs_chamber_closure_v2`.
 4. If `q0` is composite, treat `q0` as the shadow seed.
 5. Run `shadow_seed_gwr_recovery_result(p, q0 - p, candidate_bound)`.
-6. Emit the recovered boundary as `PGS` under
-   `pgs_shadow_seed_gwr_recovery_v1`.
+6. Emit the recovered boundary under `shadow_seed_recovery`, with rule id
+   `shadow_seed_trial_recovery_v1`.
 7. Preserve the old chain and full fallback paths as guards after this step.
 
 The important implementation point is that the trigger is generator-visible.
@@ -111,9 +114,10 @@ Generator arithmetic checks q0.
 If q0 is composite, q0 becomes the recovery seed.
 ```
 
-The audit module still validates after emission only.
+The audit module still validates after emission only. The source label is not
+counted as pure `PGS`.
 
-## Why The Rule Works On The Tested Surface
+## Why The Bridge Works On The Tested Surface
 
 A semiprime-shadow row has this observable structure:
 
@@ -146,7 +150,9 @@ recover boundary from placed shadow seed
 
 The probe results show that this recovers every emitted high-scale row without
 needing `chain_horizon_closure`, `chain_fallback`, or full fallback in the
-sampled high-scale probe.
+sampled high-scale probe. The result is operationally strong, but the
+rightward terminal step is still exact arithmetic, so these rows remain bridge
+rows until a label-free PGS replacement is derived.
 
 ## High-Scale Probe Result
 
@@ -155,11 +161,11 @@ The high-scale probe is
 Its committed result summary is
 [`output/simple_pgs_shadow_seed_gwr_solution_probe/summary.json`](../../../output/simple_pgs_shadow_seed_gwr_solution_probe/summary.json).
 
-| Scale | Sample | Emitted | Unresolved | Audit failures | PGS | Chamber closure | Shadow seed recovery | Chain/fallback |
+| Scale | Sample | Emitted | Unresolved | Audit failures | Pure PGS | Chamber closure | Shadow seed recovery | Chain/fallback |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| `10^12` | 256 | 253 | 3 | 0 | 100.00% | 151 | 102 | 0 |
-| `10^15` | 256 | 249 | 7 | 0 | 100.00% | 108 | 141 | 0 |
-| `10^18` | 256 | 250 | 6 | 0 | 100.00% | 105 | 145 | 0 |
+| `10^12` | 256 | 253 | 3 | 0 | 59.68% | 151 | 102 / 40.32% | 0 |
+| `10^15` | 256 | 249 | 7 | 0 | 43.37% | 108 | 141 / 56.63% | 0 |
+| `10^18` | 256 | 250 | 6 | 0 | 42.00% | 105 | 145 / 58.00% | 0 |
 
 The unresolved rows are probe-mode rows where full fallback was deliberately
 disabled. They are not wrong emissions. In exact production mode, the generator
@@ -217,14 +223,15 @@ rightward recovery = boundary recovery
 terminal node search = unnecessary for these rows
 ```
 
-That is the blocker closure. The high-scale lane was not solved by deriving a
-static terminal-node label. It was solved by reinterpreting the shadow as a
-seed with enough positional information to recover the right boundary.
+That is the bridge milestone. The high-scale lane was not solved by deriving a
+static terminal-node label. It was made operationally recoverable by
+reinterpreting the shadow as a seed with enough positional information to
+recover the right boundary through exact arithmetic.
 
 ## Remaining Engineering Work
 
-The implemented rule is a research milestone and an integration-ready recovery
-path. Before crypto-keygen use, two engineering tasks remain:
+The implemented bridge is a research milestone and an integration-ready
+recovery path. Before crypto-keygen use, two engineering tasks remain:
 
 1. Replace the current trial-division hot path in shadow recovery with the
    approved deterministic primality backend for the production wrapper.
@@ -232,6 +239,6 @@ path. Before crypto-keygen use, two engineering tasks remain:
    `candidate_bound=128` should become a dynamic bound in probe mode.
 
 The current result is still strong: on every emitted high-scale sampled row
-through `10^18`, the generator reports `PGS=100.00%`, audit failures are zero,
-and chain/fallback counts are zero.
-
+through `10^18`, audit failures are zero and chain/fallback counts are zero.
+The honest source split is pure chamber-closure PGS plus
+`shadow_seed_recovery` bridge rows.
