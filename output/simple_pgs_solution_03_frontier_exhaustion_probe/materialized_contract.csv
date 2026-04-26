@@ -1,0 +1,4 @@
+required_object,aliases_checked,present,present_field
+W_p,W_p|witness_moduli|witness_moduli_set,False,
+Open(q0),Open(q0)|open_q0|open_residues_at_q0,False,
+S_p(t),S_p|mark_indicator|mark,False,

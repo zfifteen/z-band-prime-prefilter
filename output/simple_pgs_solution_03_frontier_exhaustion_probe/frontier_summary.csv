@@ -1,0 +1,9 @@
+scale,rule_id,shadow_seed_rows,correct,correct_percent,no_selection,selected_too_early,selected_too_late,audit_failed_if_promoted,projected_pgs_count,projected_pgs_percent,promotion_eligible
+1000000000000000,M1_visible_run_all,141,76,53.90070921985816,0,65,0,65,184,73.89558232931726,False
+1000000000000000,M2_visible_run_odd,141,71,50.35460992907801,11,59,0,59,179,71.8875502008032,False
+1000000000000000,M3_witness_run_odd,141,0,0.0,141,0,0,0,108,43.373493975903614,False
+1000000000000000,M4_witness_run_odd_resclosed,141,0,0.0,141,0,0,0,108,43.373493975903614,False
+1000000000000000000,M1_visible_run_all,145,69,47.58620689655172,0,76,0,76,174,69.6,False
+1000000000000000000,M2_visible_run_odd,145,63,43.44827586206896,15,67,0,67,168,67.2,False
+1000000000000000000,M3_witness_run_odd,145,0,0.0,145,0,0,0,105,42.0,False
+1000000000000000000,M4_witness_run_odd_resclosed,145,0,0.0,145,0,0,0,105,42.0,False

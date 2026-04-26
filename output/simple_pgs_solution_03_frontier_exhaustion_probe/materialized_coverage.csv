@@ -1,0 +1,4 @@
+scale,expected_shadow_seed_rows,materialized_candidate_groups,missing_candidate_groups,coverage_percent
+1000000000000,102,0,102,0.0
+1000000000000000,141,141,0,100.0
+1000000000000000000,145,145,0,100.0

@@ -1,0 +1,166 @@
+{
+  "solution_id": "meta_solution_03_shadow_seed_frontier_exhaustion",
+  "generator_changed": false,
+  "materialized_shadow_groups": 286,
+  "selection_rows": 1144,
+  "materialized_coverage": [
+    {
+      "scale": 1000000000000,
+      "expected_shadow_seed_rows": 102,
+      "materialized_candidate_groups": 0,
+      "missing_candidate_groups": 102,
+      "coverage_percent": 0.0
+    },
+    {
+      "scale": 1000000000000000,
+      "expected_shadow_seed_rows": 141,
+      "materialized_candidate_groups": 141,
+      "missing_candidate_groups": 0,
+      "coverage_percent": 100.0
+    },
+    {
+      "scale": 1000000000000000000,
+      "expected_shadow_seed_rows": 145,
+      "materialized_candidate_groups": 145,
+      "missing_candidate_groups": 0,
+      "coverage_percent": 100.0
+    }
+  ],
+  "materialized_contract": [
+    {
+      "required_object": "W_p",
+      "aliases_checked": "W_p|witness_moduli|witness_moduli_set",
+      "present": false,
+      "present_field": ""
+    },
+    {
+      "required_object": "Open(q0)",
+      "aliases_checked": "Open(q0)|open_q0|open_residues_at_q0",
+      "present": false,
+      "present_field": ""
+    },
+    {
+      "required_object": "S_p(t)",
+      "aliases_checked": "S_p|mark_indicator|mark",
+      "present": false,
+      "present_field": ""
+    }
+  ],
+  "summary_rows": [
+    {
+      "scale": 1000000000000000,
+      "rule_id": "M1_visible_run_all",
+      "shadow_seed_rows": 141,
+      "correct": 76,
+      "correct_percent": 53.90070921985816,
+      "no_selection": 0,
+      "selected_too_early": 65,
+      "selected_too_late": 0,
+      "audit_failed_if_promoted": 65,
+      "projected_pgs_count": 184,
+      "projected_pgs_percent": 73.89558232931726,
+      "promotion_eligible": false
+    },
+    {
+      "scale": 1000000000000000,
+      "rule_id": "M2_visible_run_odd",
+      "shadow_seed_rows": 141,
+      "correct": 71,
+      "correct_percent": 50.35460992907801,
+      "no_selection": 11,
+      "selected_too_early": 59,
+      "selected_too_late": 0,
+      "audit_failed_if_promoted": 59,
+      "projected_pgs_count": 179,
+      "projected_pgs_percent": 71.8875502008032,
+      "promotion_eligible": false
+    },
+    {
+      "scale": 1000000000000000,
+      "rule_id": "M3_witness_run_odd",
+      "shadow_seed_rows": 141,
+      "correct": 0,
+      "correct_percent": 0.0,
+      "no_selection": 141,
+      "selected_too_early": 0,
+      "selected_too_late": 0,
+      "audit_failed_if_promoted": 0,
+      "projected_pgs_count": 108,
+      "projected_pgs_percent": 43.373493975903614,
+      "promotion_eligible": false
+    },
+    {
+      "scale": 1000000000000000,
+      "rule_id": "M4_witness_run_odd_resclosed",
+      "shadow_seed_rows": 141,
+      "correct": 0,
+      "correct_percent": 0.0,
+      "no_selection": 141,
+      "selected_too_early": 0,
+      "selected_too_late": 0,
+      "audit_failed_if_promoted": 0,
+      "projected_pgs_count": 108,
+      "projected_pgs_percent": 43.373493975903614,
+      "promotion_eligible": false
+    },
+    {
+      "scale": 1000000000000000000,
+      "rule_id": "M1_visible_run_all",
+      "shadow_seed_rows": 145,
+      "correct": 69,
+      "correct_percent": 47.58620689655172,
+      "no_selection": 0,
+      "selected_too_early": 76,
+      "selected_too_late": 0,
+      "audit_failed_if_promoted": 76,
+      "projected_pgs_count": 174,
+      "projected_pgs_percent": 69.6,
+      "promotion_eligible": false
+    },
+    {
+      "scale": 1000000000000000000,
+      "rule_id": "M2_visible_run_odd",
+      "shadow_seed_rows": 145,
+      "correct": 63,
+      "correct_percent": 43.44827586206896,
+      "no_selection": 15,
+      "selected_too_early": 67,
+      "selected_too_late": 0,
+      "audit_failed_if_promoted": 67,
+      "projected_pgs_count": 168,
+      "projected_pgs_percent": 67.2,
+      "promotion_eligible": false
+    },
+    {
+      "scale": 1000000000000000000,
+      "rule_id": "M3_witness_run_odd",
+      "shadow_seed_rows": 145,
+      "correct": 0,
+      "correct_percent": 0.0,
+      "no_selection": 145,
+      "selected_too_early": 0,
+      "selected_too_late": 0,
+      "audit_failed_if_promoted": 0,
+      "projected_pgs_count": 105,
+      "projected_pgs_percent": 42.0,
+      "promotion_eligible": false
+    },
+    {
+      "scale": 1000000000000000000,
+      "rule_id": "M4_witness_run_odd_resclosed",
+      "shadow_seed_rows": 145,
+      "correct": 0,
+      "correct_percent": 0.0,
+      "no_selection": 145,
+      "selected_too_early": 0,
+      "selected_too_late": 0,
+      "audit_failed_if_promoted": 0,
+      "projected_pgs_count": 105,
+      "projected_pgs_percent": 42.0,
+      "promotion_eligible": false
+    }
+  ],
+  "promotion_eligible": false,
+  "verdict": "rejected",
+  "reason": "The submitted materialized inputs W_p, Open(q0), and S_p(t) are not present in current artifacts. Artifact-native mark-stream proxies do not select the terminal boundary with zero failures."
+}
