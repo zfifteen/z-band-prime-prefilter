@@ -26,7 +26,8 @@ the earlier first-visible-open shortcut. On the `11..100000`,
 `candidate_bound = 128` production generator surface, it emits `9588 / 9588`
 exact records with zero failures and labels all `9588` rows as `PGS`. On the
 `10^8` through `10^18` decade-window production surface, it emits
-`2816 / 2816` exact records with zero failures and zero fallback rows.
+`2816 / 2816` exact records with zero failures. The current `v1.1` generator
+removes the displaced fallback paths from the generator file.
 
 This result is documented in:
 

@@ -15,11 +15,10 @@ from z_band_prime_predictor.simple_pgs_generator import (
 
 def diagnostic_record(
     p: int,
-    boundary_offset: int | None = None,
     candidate_bound: int = DEFAULT_CANDIDATE_BOUND,
 ) -> dict[str, object]:
     """Return one sidecar diagnostic record."""
-    q, source, certificate = resolve_q(int(p), boundary_offset, candidate_bound)
+    q, source, certificate = resolve_q(int(p), candidate_bound)
     fields = certificate if isinstance(certificate, dict) else {}
     return {
         "p": int(p),
@@ -47,13 +46,11 @@ def diagnostic_record(
 
 def diagnostic_records(
     anchors: list[int],
-    boundary_offsets: dict[int, int] | None = None,
     candidate_bound: int = DEFAULT_CANDIDATE_BOUND,
 ) -> list[dict[str, object]]:
     """Return sidecar diagnostics for emitted records."""
-    offsets = {} if boundary_offsets is None else boundary_offsets
     return [
-        diagnostic_record(anchor, offsets.get(anchor), candidate_bound)
+        diagnostic_record(anchor, candidate_bound)
         for anchor in anchors
     ]
 

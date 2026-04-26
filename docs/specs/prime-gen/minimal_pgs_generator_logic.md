@@ -1,27 +1,18 @@
 # Minimal PGS Generator Logic
 
-Current frozen production iteration:
+Current production iteration:
 
 ```text
-PGS Inference Generator v1.0
-PGS_GENERATOR_VERSION = 1.0.0
-PGS_GENERATOR_FREEZE_ID = pgs_inference_generator_v1_0
+PGS Inference Generator v1.1
+PGS_GENERATOR_VERSION = 1.1.0
+PGS_GENERATOR_FREEZE_ID = pgs_inference_generator_v1_1_pgs_only
 ```
 
 Release note:
-[PGS Inference Generator v1.0](../../releases/pgs_inference_generator_v1_0.md).
+[PGS Inference Generator v1.1](../../releases/pgs_inference_generator_v1_1_pgs_only.md).
 
 The generator has one job: start from an accepted anchor prime `p` and emit the
-next prime `q`.
-
-The generator never withholds an answer. If the PGS boundary rule determines
-the next boundary, the generator emits it. If the PGS boundary rule is not
-complete enough yet, the generator uses explicit trial-division or factorization
-fallback arithmetic to finish the selection and emits the correct `q`.
-
-With fallback arithmetic allowed, 100% completeness and 100% accuracy are
-minimum requirements. Source accounting is stricter: a row is labeled `PGS`
-only when the PGS selector chose it without fallback completion.
+next prime `q` selected by the PGS boundary rule.
 
 Each emitted line has exactly two fields:
 
@@ -29,99 +20,49 @@ Each emitted line has exactly two fields:
 {"p": 11, "q": 13}
 ```
 
-`q` is the generator's next-prime output. A separate downstream audit still
-checks every emitted record, but audit is verification after emission, not the
-mechanism that chooses `q`.
+`q` is the generator's PGS-selected next-prime output. A separate downstream
+audit checks every emitted record after emission. Audit is verification, not
+the mechanism that chooses `q`.
 
 ## Stage 1: Anchor
 
-The anchor `p` is the current known prime.
+The anchor `p` is the current accepted prime. The generator accepts `p` as
+input. It does not prove `p` during generation.
 
-The generator accepts `p` as input. It does not prove `p` during generation. The
-input side is responsible for supplying accepted anchors.
-
-For every accepted anchor, the generator emits exactly one record.
+For every resolved anchor, the generator emits exactly one record. If the PGS
+selector does not resolve inside the supplied chamber bound, the generator
+raises `PGSUnresolvedError`. It does not run a backup prime search.
 
 ## Stage 2: Chamber
 
-The initial chamber is the finite interval to the right of `p` that the
-generator inspects while choosing `q`.
+The chamber is the finite interval to the right of `p` inspected by the PGS
+selector.
 
-Inside the chamber, the generator may use PGS structure:
+Inside the chamber, the generator uses:
 
 - offsets from the anchor;
 - wheel-open positions;
-- divisor-class relations;
+- exact divisor-count state;
+- GWR carrier structure;
 - no-later-simpler-composite ceilings;
-- the smallest boundary selector state needed by the current rule.
+- chamber-reset boundary state.
 
 The chamber is not a place to ask a primality oracle which number is prime. It
-is the local arithmetic region where the PGS rule decides the next boundary. If
-the PGS rule does not decide, fallback arithmetic completes the answer.
-
-If the initial chamber does not contain a fallback-accepted `q`, the generator
-expands the chamber by a fixed deterministic rule and continues. Chamber
-expansion is part of fallback completion, not a primality oracle.
-
-The default expansion rule is:
-
-- start with `chamber_width = candidate_bound`;
-- inspect candidates from `p + 1` through `p + chamber_width`;
-- if no `q` is found, double `chamber_width`;
-- repeat until exactly one `q` is emitted.
+is the local arithmetic region where the PGS rule decides the next boundary.
 
 ## Stage 3: Carrier
 
 GWR identifies the simplest leftmost carrier `w` inside the chamber.
 
-The carrier is not the boundary. It is a landmark that helps orient the local
-PGS state.
-
-The rule `q = w + 1` is false as a general rule and is forbidden.
-
-The carrier may contribute its location and divisor class to the boundary rule,
-but it does not by itself authorize the final value of `q`.
+The carrier is not the boundary. It is a landmark that orients the local PGS
+state. The rule `q = w + 1` is false as a general rule and is forbidden.
 
 ## Stage 4: Boundary Rule
 
-The complete generator needs a boundary rule:
-
-$$q = B(p, S, w, d(w))$$
-
-In plain language:
-
-- `p` is the current anchor;
-- `S` is the smallest local state needed to make the boundary choice
-  single-valued;
-- `w` is the GWR carrier;
-- `d(w)` is the divisor class of the carrier;
-- `B` chooses the proposed next boundary `q`.
-
-The main PGS object is the complete form of `B`.
-
-If the available state `S` is sufficient, the generator emits the selected `q`.
-
-If `S` is insufficient, deterministic fallback arithmetic selects the correct
-`q`, and the generator emits that value.
-
-The previous PGS selector was chamber closure v2:
-
-- build chamber offsets through `candidate_bound`;
-- enumerate wheel-admissible proposed boundary offsets in increasing order;
-- reject a proposed boundary if it is visibly closed by chamber arithmetic;
-- close every smaller wheel-admissible offset with a visible chamber reason;
-- emit the first fully closed proposed boundary as PGS-derived in exact mode
-  only when fallback agrees;
-- in high-scale probe mode, emit only PGS-certified rows and count all
-  uncertified anchors as fallback-required.
-
-That selector converted chamber-certified cases while preserving the total
-correctness contract in exact mode.
-
-The current research boundary-rule candidate is Rule X with chamber reset:
+The production boundary rule is Rule X with chamber reset:
 
 - build wheel-open candidate boundary hypotheses;
-- reject candidates with positive composite witnesses;
+- reject candidates with composite divisor-count state;
 - preserve semiprime-shadow landmarks as unresolved landmarks instead of
   promoting them to boundary survivors;
 - lock the GWR carrier only after a resolved survivor exists;
@@ -131,147 +72,60 @@ The current research boundary-rule candidate is Rule X with chamber reset:
 - classify later unresolved candidates as post-reset chamber material;
 - emit `r` as the proposed next boundary.
 
-On the decade-window ladder from `10^8` through `10^18`, using `256`
-consecutive prime anchors per decade and `candidate_bound = 1024`, this
-research rule produced:
+In compact form:
 
-```text
-anchors tested: 2816
-exact matches: 2816
-coverage: 100.000000%
-unresolved: 0
-false emissions: 0
-candidate-bound misses: 0
-```
+$$q = B(p, S, w, d(w))$$
 
-The production generator now uses the same exact divisor-count GWR/NLSC
-chamber-reset state as the high-scale decade-window experiment. The generator
-does not count fallback-selected rows as pure `PGS` emissions.
-
-The current production generator path was audited on `11..100000`,
-`candidate_bound = 128`:
-
-```text
-anchors tested: 9588
-PGS emissions: 9588
-fallback emissions: 0
-failed emissions: 0
-```
-
-The same production path was audited on the decade-window ladder:
-
-```text
-surface: 256 consecutive prime anchors per decade, 10^8 through 10^18
-candidate_bound: 1024
-anchors tested: 2816
-PGS emissions: 2816
-fallback emissions: 0
-failed emissions: 0
-```
+where `S` is the exact divisor-count chamber state needed to make the boundary
+choice single-valued.
 
 ## Stage 5: Emission
 
-Emission is unconditional for accepted anchors.
-
-Correctness is also unconditional. Every emitted `q` must be the actual next
-prime after `p`, whether it came from the PGS boundary rule or from the
-last-resort arithmetic fallback.
-
-For each anchor `p`, the generator emits exactly one line:
+For each resolved anchor `p`, the generator emits exactly one line:
 
 ```json
 {"p": 11, "q": 13}
 ```
 
 The line contains no extra fields. It contains no carrier data, relation
-history, proof object, approval flags, counters, status categories, or hidden
-diagnostics.
+history, proof object, approval flags, counters, status categories, source
+labels, or hidden diagnostics.
 
-The generator script must contain generation logic only. It must not contain
-artifact writing, audit, reporting, command-line orchestration, or downstream
-validation helpers.
+The generator script contains generation logic only. It does not contain
+artifact writing, audit, reporting, command-line orchestration, fallback prime
+search, trial division, or downstream validation helpers.
 
-A separate controller script may write sidecar diagnostics keyed by `p`. A
-sidecar record may report whether `q` came from the PGS boundary rule or from
-fallback arithmetic. Sidecar diagnostics are not part of the emitted generator
-stream.
+Sidecar diagnostics are produced by the controller, not by the emitted stream.
+The current production generator source is always `PGS` when a record is
+emitted.
 
-The generator uses source labels in sidecar diagnostics:
+## Validation Surfaces
 
-- `PGS`: the bounded PGS selector chose `q` without fallback completion;
-- `chain_fallback`: the bounded PGS selector chose a composite seed, the
-  visible-open shadow chain narrowed the repair search, and exact fallback
-  arithmetic selected `q` from that chain;
-- `fallback`: full deterministic fallback selected `q`.
+Low exact production surfaces:
 
-`chain_fallback` is not counted as pure PGS. It is an operational bridge that
-reduces full fallback while the terminal PGS stop rule is still incomplete.
+```text
+11..1000      anchors 164     PGS 164     failures 0
+11..10000     anchors 1225    PGS 1225    failures 0
+11..100000    anchors 9588    PGS 9588    failures 0
+11..1000000   anchors 78494   PGS 78494   failures 0
+```
 
-For `chain_fallback`, sidecar diagnostics report:
+High-scale decade-window surface:
 
-- `chain_seed`;
-- `chain_limit`;
-- `chain_position_selected`;
-- `chain_nodes_checked`;
-- `chain_fallback_success`;
-- `full_fallback_used`.
+```text
+surface: 256 consecutive prime anchors per decade, 10^8 through 10^18
+candidate_bound: 1024
+anchors tested: 2816
+PGS emissions: 2816
+audit failures: 0
+```
 
-A separate audit or controller script may also write a fallback-displacement
-report with:
+## Forbidden Generator Tools
 
-- `anchors_scanned`;
-- `emitted_count`;
-- `audit_confirmed`;
-- `audit_failed`;
-- `accuracy_status`;
-- `pgs_status`;
-- `pgs_count`;
-- `chain_fallback_count`;
-- `fallback_count`;
-- `pgs_rate`;
-- `chain_fallback_rate`;
-- `fallback_rate`;
-- `pgs_by_rule`;
-- `first_failure`.
+Generation must not call or contain:
 
-`accuracy_status` is `PASS` only when downstream audit finds zero failed
-emissions. `pgs_status` measures pure PGS progress only; `chain_fallback` does
-not make the pure PGS status pass.
-
-## Allowed Arithmetic
-
-The preferred path is PGS-derived arithmetic:
-
-- anchor arithmetic;
-- chamber offsets;
-- wheel-open positions;
-- GWR carrier selection;
-- divisor-class relations;
-- no-later-simpler-composite ceilings;
-- boundary selector state.
-
-Trial division or factorization may appear only when no derived PGS rule is
-available to make the generator work. If used, it must be explicit, minimal, and
-documented as temporary last-resort arithmetic. It must not be hidden inside the
-boundary rule or presented as the final PGS solution.
-
-The fallback path is deterministic:
-
-- inspect candidates to the right of `p` in increasing order;
-- reject a candidate when a concrete divisor is found;
-- for candidate `n`, the fallback divisor check is exhausted only when every
-  integer divisor `d` with `2 <= d <= floor(sqrt(n))` has been tested, or when
-  an explicit deterministic factorization routine has returned no nontrivial
-  factor;
-- if any divisor is found, reject `n`;
-- if no divisor exists after the complete check, accept `n` as `q`;
-- emit that accepted candidate as `q`.
-
-This fallback exists to guarantee completeness and accuracy while the PGS
-boundary rule is still incomplete.
-
-Generation must never call these tools:
-
+- trial division;
+- fallback prime search;
 - `isPrime`;
 - Miller-Rabin;
 - `nextprime`;
@@ -280,24 +134,16 @@ Generation must never call these tools:
 - PARI primality checks;
 - sieve-based prime generation.
 
-After emission, separate downstream audit code may use classical validation
-tools. Audit code must not live in the generator file. Controller code may
-orchestrate generation, sidecar diagnostics, and downstream audit, but it must
-not move audit decisions back into generation. Audit results may confirm or
-reject emitted records, but they never choose `q` inside generation.
+Downstream audit may use classical validation after emission. Audit code must
+not live in the generator file and must not choose `q` inside generation.
 
 ## Completion Standard
 
-A complete minimal PGS generator satisfies these conditions:
+A complete PGS-only generator satisfies these conditions on a declared surface:
 
-- every accepted anchor emits exactly one record;
+- every accepted anchor on the surface emits exactly one record;
 - every emitted `q` is the actual next prime after `p`;
 - every record has exactly `p` and `q`;
 - no forbidden tool is used inside generation;
-- fallback arithmetic selects the correct `q` whenever the PGS boundary rule is
-  incomplete;
-- chamber expansion is deterministic and continues until one `q` is found;
+- unresolved cases fail explicitly with `PGSUnresolvedError`;
 - downstream audit checks the emitted records after generation.
-
-The long-term target is a derived PGS boundary rule that makes `B` complete and
-minimizes or removes temporary last-resort trial division and factorization.

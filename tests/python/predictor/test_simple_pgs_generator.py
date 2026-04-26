@@ -14,17 +14,13 @@ if str(SOURCE_DIR) not in sys.path:
 
 import z_band_prime_predictor.simple_pgs_generator as simple_pgs_generator  # noqa: E402
 from z_band_prime_predictor.simple_pgs_generator import (  # noqa: E402
-    FALLBACK_SOURCE,
     PGS_CHAMBER_RESET_RULE_ID,
     PGS_GENERATOR_FREEZE_ID,
     PGS_GENERATOR_VERSION,
+    PGSUnresolvedError,
     PGS_SOURCE,
     emit_record,
     emit_records,
-    first_prime_in_chamber,
-    has_trial_divisor,
-    next_prime_by_trial_division,
-    pgs_gap_certificate,
     pgs_probe_certificate,
 )
 from z_band_prime_predictor.simple_pgs_controller import (  # noqa: E402
@@ -50,8 +46,8 @@ def test_record_has_only_p_and_q():
 
 def test_generator_freeze_version_is_locked():
     """The frozen generator iteration should have a stable version id."""
-    assert PGS_GENERATOR_VERSION == "1.0.0"
-    assert PGS_GENERATOR_FREEZE_ID == "pgs_inference_generator_v1_0"
+    assert PGS_GENERATOR_VERSION == "1.1.0"
+    assert PGS_GENERATOR_FREEZE_ID == "pgs_inference_generator_v1_1_pgs_only"
 
 
 def test_emit_records_never_withholds_an_anchor():
@@ -64,68 +60,55 @@ def test_emit_records_never_withholds_an_anchor():
     assert all(set(record) == {"p", "q"} for record in records)
 
 
-def test_explicit_boundary_offset_can_emit_q():
-    """An explicit offset must not move validation into generation."""
-    records = emit_records([23], boundary_offsets={23: 6})
-
-    assert records == [{"p": 23, "q": 29}]
-
-
 def test_pgs_result_is_not_validated_by_fallback_before_labeling():
-    """A PGS-selected row should not require fallback agreement."""
+    """A PGS-selected row should have no fallback agreement field."""
     record = diagnostic_record(11)
     assert record["p"] == 11
     assert record["q"] == 13
     assert record["source"] == PGS_SOURCE
     assert record["certificate"]["rule_id"] == PGS_CHAMBER_RESET_RULE_ID
     assert record["certificate"]["gap_offset"] == 2
-    assert record["certificate"]["fallback_agreed"] is False
+    assert "fallback_agreed" not in record["certificate"]
     assert diagnostic_record(89)["source"] == PGS_SOURCE
-
-
-def test_pgs_source_is_not_prime_validated_by_trial_division(monkeypatch):
-    """Production PGS resolution must not trial-divide the emitted q."""
-    def forbidden_trial_check(_n):
-        raise AssertionError("PGS source must not call trial division")
-
-    monkeypatch.setattr(simple_pgs_generator, "has_trial_divisor", forbidden_trial_check)
-
-    q, source, _certificate = simple_pgs_generator.resolve_q(11)
-
-    assert q == 13
-    assert source == PGS_SOURCE
 
 
 def test_pgs_source_is_not_confirmed_by_trial_division(monkeypatch):
     """A future trial-free PGS certificate must not be prime-checked inline."""
-    def fake_probe_certificate(_p, _candidate_bound, _max_divisor):
+    def fake_probe_certificate(_p, _candidate_bound):
         return {"q": 13, "rule_id": "trial_free_fixture", "gap_offset": 2}
-
-    def forbidden_trial_check(_n):
-        raise AssertionError("PGS source must not call trial division")
 
     monkeypatch.setattr(
         simple_pgs_generator,
         "pgs_probe_certificate",
         fake_probe_certificate,
     )
-    monkeypatch.setattr(
-        simple_pgs_generator,
-        "has_trial_divisor",
-        forbidden_trial_check,
-    )
 
     q, source, certificate = simple_pgs_generator.resolve_q(11)
 
     assert q == 13
     assert source == PGS_SOURCE
-    assert certificate["fallback_agreed"] is False
+    assert "fallback_agreed" not in certificate
+
+
+def test_pgs_unresolved_raises_without_fallback(monkeypatch):
+    """The PGS-only generator should fail explicitly instead of falling back."""
+    def unresolved(_p, _candidate_bound):
+        return None
+
+    monkeypatch.setattr(simple_pgs_generator, "pgs_probe_certificate", unresolved)
+
+    try:
+        simple_pgs_generator.resolve_q(11)
+    except PGSUnresolvedError as exc:
+        assert "PGS selector did not resolve" in str(exc)
+    else:
+        raise AssertionError("expected PGSUnresolvedError")
 
 
 def test_high_scale_false_shadow_candidate_is_rejected_by_gwr_nlsc_state():
     """The production selector must not emit the old high-scale shadow error."""
     record = emit_record(1000000033, candidate_bound=1024)
-    certificate = pgs_probe_certificate(1000000033, 1024, 10000)
+    certificate = pgs_probe_certificate(1000000033, 1024)
 
     assert record == {"p": 1000000033, "q": 1000000087}
     assert certificate["gap_offset"] == 54
@@ -133,36 +116,18 @@ def test_high_scale_false_shadow_candidate_is_rejected_by_gwr_nlsc_state():
     assert certificate["tail_after_reset_offsets"]
 
 
-def test_small_gap_certificate_closes_every_interior_offset():
-    """A PGS certificate must close every offset before q."""
-    certificate = pgs_gap_certificate(23, 6)
-
-    assert certificate["rule_id"] == "pgs_chamber_closure_v2"
-    assert certificate["p"] == 23
-    assert certificate["q"] == 29
-    assert certificate["gap_offset"] == 6
-    assert certificate["candidate_bound"] == 128
-    assert certificate["closed_offsets_before_q"] == []
-    assert certificate["closure_reason_by_offset"] == {}
-    assert certificate["unclosed_offsets_before_q"] == []
-    assert certificate["carrier_w"] == 23
-    assert certificate["carrier_d"] == 2
-    assert certificate["used_forbidden_tool"] is False
-    assert certificate["fallback_agreed"] is False
-
-
 def test_sidecar_diagnostics_report_source_outside_emitted_stream():
     """Diagnostics may report source without changing emitted records."""
-    records = emit_records([23, 89], boundary_offsets={23: 6, 89: 2})
-    diagnostics = diagnostic_records([23, 89], boundary_offsets={23: 6, 89: 2})
+    records = emit_records([23, 89])
+    diagnostics = diagnostic_records([23, 89])
 
     assert records == [{"p": 23, "q": 29}, {"p": 89, "q": 97}]
     assert diagnostics[0]["source"] == PGS_SOURCE
     assert diagnostics[0]["certificate"]["gap_offset"] == 6
-    assert diagnostics[1]["source"] == FALLBACK_SOURCE
-    assert diagnostics[1]["certificate"]["full_fallback_used"] is True
+    assert diagnostics[1]["source"] == PGS_SOURCE
+    assert diagnostics[1]["certificate"]["gap_offset"] == 8
     assert diagnostics[1]["chain_seed"] is None
-    assert diagnostics[1]["chain_limit"] == 8
+    assert diagnostics[1]["chain_limit"] is None
     assert diagnostics[1]["chain_position_selected"] is None
     assert diagnostics[1]["chain_nodes_checked"] == []
     assert diagnostics[1]["chain_horizon_closed_nodes"] == []
@@ -171,31 +136,7 @@ def test_sidecar_diagnostics_report_source_outside_emitted_stream():
     assert diagnostics[1]["chain_horizon_complete"] is False
     assert diagnostics[1]["chain_horizon_closure_success"] is False
     assert diagnostics[1]["chain_fallback_success"] is False
-    assert diagnostics[1]["full_fallback_used"] is True
-    assert diagnostic_record(89)["source"] == PGS_SOURCE
-
-
-def test_fallback_tests_all_integer_divisors_to_sqrt():
-    """The fallback divisor check should be complete and mechanical."""
-    assert not has_trial_divisor(2)
-    assert has_trial_divisor(49)
-    assert has_trial_divisor(91)
-    assert has_trial_divisor(121)
-    assert not has_trial_divisor(97)
-
-
-def test_fallback_uses_trial_division_next_prime_with_chamber_expansion():
-    """The fallback should return the actual next prime."""
-    assert first_prime_in_chamber(89, 1) is None
-    assert first_prime_in_chamber(89, 8) == 97
-    assert next_prime_by_trial_division(89) == 97
-    assert next_prime_by_trial_division(89, candidate_bound=1) == 97
-    assert emit_record(89) == {"p": 89, "q": 97}
-
-
-def test_bad_boundary_offset_falls_back_to_correct_prime():
-    """An incorrect selector result must not produce a wrong q."""
-    assert emit_records([89], boundary_offsets={89: 2}) == [{"p": 89, "q": 97}]
+    assert diagnostics[1]["full_fallback_used"] is False
 
 
 def test_minimal_summaries_have_only_requested_counts():
@@ -384,12 +325,17 @@ def test_new_generator_does_not_import_old_graph_generator():
 
 
 def test_new_generator_does_not_use_forbidden_classical_tools():
-    """The generator must not call forbidden primality helpers."""
+    """The generator must not contain classical or fallback helpers."""
     source = (
         SOURCE_DIR / "z_band_prime_predictor" / "simple_pgs_generator.py"
     ).read_text(encoding="utf-8")
 
     forbidden_terms = [
+        "trial",
+        "fallback",
+        "has_trial",
+        "divisor_witness",
+        "next_prime",
         "sympy",
         "nextprime",
         "isprime",

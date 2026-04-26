@@ -180,3 +180,24 @@ coverage: PASS
 no-inline-fallback-confirmation contract: PASS
 PGS-purity accounting: PASS
 ```
+
+## PGS-Only Refactor
+
+The next generator iteration removes the displaced code paths entirely:
+
+```text
+PGS_GENERATOR_VERSION = 1.1.0
+PGS_GENERATOR_FREEZE_ID = pgs_inference_generator_v1_1_pgs_only
+```
+
+The generator file no longer contains trial-division helpers, divisor-witness
+search, shadow-seed recovery, chain fallback, or fallback prime search. If the
+PGS selector does not resolve inside the supplied chamber bound, generation
+raises `PGSUnresolvedError` instead of choosing `q` by another method.
+
+Current focused test result:
+
+```text
+pytest -q tests/python/predictor/test_simple_pgs_generator.py
+16 passed
+```

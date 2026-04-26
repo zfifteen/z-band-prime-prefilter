@@ -8,13 +8,11 @@ from pathlib import Path
 
 from sympy import nextprime
 
-from z_band_prime_predictor.simple_pgs_generator import (
-    CHAIN_FALLBACK_SOURCE,
-    CHAIN_HORIZON_CLOSURE_SOURCE,
-    FALLBACK_SOURCE,
-    PGS_SOURCE,
-    SHADOW_SEED_RECOVERY_SOURCE,
-)
+PGS_SOURCE = "PGS"
+SHADOW_SEED_RECOVERY_SOURCE = "shadow_seed_recovery"
+CHAIN_HORIZON_CLOSURE_SOURCE = "chain_horizon_closure"
+CHAIN_FALLBACK_SOURCE = "chain_fallback"
+FALLBACK_SOURCE = "fallback"
 
 
 def audit_summary(records: list[dict[str, int]]) -> dict[str, int]:

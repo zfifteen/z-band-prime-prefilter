@@ -49,7 +49,7 @@ These examples show the local arithmetic choice that anchors the repository.
   `{"p": ..., "q": ...}` record per given prime `p`, keeps diagnostics outside
   the emitted stream, and selects the successor prime `q` from the arithmetic
   consistency of the interval after `p`, rather than by a conventional
-  next-prime search. The current frozen production iteration is `v1.0`.
+  next-prime search. The current production iteration is `v1.1`.
 
 ## Gap Winner Rule
 
@@ -115,8 +115,8 @@ record for each given prime:
 The emitted stream is deliberately small: exactly `p` and `q`. Source labels,
 diagnostics, certificates, and audit results stay outside the generator output.
 
-The frozen production iteration is
-[PGS Inference Generator v1.0](docs/releases/pgs_inference_generator_v1_0.md).
+The current production iteration is
+[PGS Inference Generator v1.1](docs/releases/pgs_inference_generator_v1_1_pgs_only.md).
 
 Conventional prime generation works by scanning candidate numbers and testing
 them until one proves prime. The Prime-Gap Inference Generator is different. It
@@ -136,10 +136,9 @@ the original `p`. They belong to intervals that begin after `q`. That
 distinction turned the remaining not-yet-excluded candidates into evidence
 that the gap had already closed.
 
-Classical arithmetic is kept as deterministic fallback and downstream audit
-support, not as the primary idea of the generator. Probabilistic primality
-tests and oracle-style `nextprime` calls are excluded from generation. A row is
-not labeled `PGS` when fallback was needed to choose it.
+The generator is now PGS-only. Trial division, fallback prime search,
+probabilistic primality tests, and oracle-style `nextprime` calls are excluded
+from generation. Classical validation remains downstream audit after emission.
 
 On the current production generator surface, exact emission is preserved and the
 PGS selector applies exact divisor-count GWR/NLSC chamber-reset state:
@@ -149,7 +148,6 @@ surface: 11..100000
 candidate interval width: 128
 primes tested: 9588
 PGS-labeled emissions: 9588
-fallback emissions: 0
 failed emissions: 0
 incorrect candidates: 0
 coverage: 100.00%
@@ -171,8 +169,8 @@ coverage: 100.00%
 
 The implementation contract and lower-level mechanism are recorded in
 [Generator Logic Specification](docs/specs/prime-gen/minimal_pgs_generator_logic.md).
-The frozen release note is
-[PGS Inference Generator v1.0](docs/releases/pgs_inference_generator_v1_0.md).
+The current release note is
+[PGS Inference Generator v1.1](docs/releases/pgs_inference_generator_v1_1_pgs_only.md).
 The detailed technical note is the
 [logic-engine report](docs/research/prime_inference_generator/rule_x_consistency_collapse_logic_engine.md),
 and the high-scale validation report is
@@ -262,10 +260,10 @@ The repository now carries the following named structures and results:
 - **Prime-Gap Inference Generator:** the generator emits exactly `p` and `q`
   for each given prime `p`, with downstream audit and source diagnostics
   outside the emitted stream. Unlike a conventional prime generator, it selects
-  the successor prime from the arithmetic consistency of the interval after `p`
-  when the PGS rule is complete, instead of labeling a fallback result as
-  structural inference. The current production path has `9588 / 9588` exact
-  PGS emissions with `0` failures on `11..100000`, and
+  the successor prime from the arithmetic consistency of the interval after
+  `p`, without a trial-division or fallback prime-search path inside the
+  generator. The current production path has `9588 / 9588` exact PGS emissions
+  with `0` failures on `11..100000`, and
   `2816 / 2816` exact PGS emissions with `0` incorrect candidates on the `10^8`
   through `10^18` decade-window validation surface.
 - **No-Later-Simpler-Composite (NLSC) condition:** once the GWR winner

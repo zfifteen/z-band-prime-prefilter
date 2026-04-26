@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The PGS Prime Generator implements a deterministic architecture for inferring prime boundaries from Prime Gap Structure (PGS) analysis. Its target inference path applies Gap Winner Rule (GWR), Divisor Normalized Inference (DNI), raw-Z/log-Z scoring, divisor class dominance, absorption locks, carrier-locked pressure ceilings, and no-later-simpler-composite closure. The production generator now labels a row `PGS` only when the boundary is chosen by the exact divisor-count GWR/NLSC chamber-reset selector. When that rule is incomplete, trial division is explicit fallback, and classical validation remains external post-emission audit.
+The PGS Prime Generator implements a deterministic architecture for inferring prime boundaries from Prime Gap Structure (PGS) analysis. Its target inference path applies Gap Winner Rule (GWR), Divisor Normalized Inference (DNI), raw-Z/log-Z scoring, divisor class dominance, absorption locks, carrier-locked pressure ceilings, and no-later-simpler-composite closure. The production generator is now PGS-only: it emits only when the boundary is chosen by the exact divisor-count GWR/NLSC chamber-reset selector. Classical validation remains external post-emission audit.
 
 ## Core Idea
 
