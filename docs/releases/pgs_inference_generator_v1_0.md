@@ -3,6 +3,11 @@
 PGS Inference Generator v1.0 is the frozen reference release for the current
 successor-prime inference generator.
 
+This release is superseded by
+[PGS Inference Generator v1.1](pgs_inference_generator_v1_1_pgs_only.md),
+which removes the displaced trial-division and fallback code paths from the
+generator.
+
 The frozen generator starts from an accepted anchor prime `p` and emits exactly
 one minimal record:
 

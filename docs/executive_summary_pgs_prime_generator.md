@@ -2,81 +2,110 @@
 
 ## Purpose
 
-The PGS Prime Generator implements a deterministic architecture for inferring prime boundaries from Prime Gap Structure (PGS) analysis. Its target inference path applies Gap Winner Rule (GWR), Divisor Normalized Inference (DNI), raw-Z/log-Z scoring, divisor class dominance, absorption locks, carrier-locked pressure ceilings, and no-later-simpler-composite closure. The production generator is now PGS-only: it emits only when the boundary is chosen by the exact divisor-count GWR/NLSC chamber-reset selector. Classical validation remains external post-emission audit.
+The PGS Prime Generator is a deterministic successor-prime inference generator.
+It starts from an accepted prime `p` and emits the next prime `q` as a minimal
+two-field record:
+
+```json
+{"p": 89, "q": 97}
+```
+
+The current production generator is PGS-only. It contains no trial division, no
+fallback prime search, no Miller-Rabin, no sieve generation, no `isprime`, and
+no `nextprime`.
 
 ## Core Idea
 
-Traditional prime generation tests candidates for primality. The PGS Prime Generator inverts this: given a known anchor prime \(p\) and the deterministic arithmetic structure of the subsequent composite gap interior \(I = \{p+1, \dots, q-1\}\), it infers the right boundary \(q\) where PGS rules force uniqueness. The raw-Z score defines carrier dominance:
+Conventional prime generation scans candidate numbers and tests them until one
+is accepted as prime. The PGS generator does not do that.
 
-\[
-Z_{\mathrm{raw}}(n) = n^{1 - d(n)/2}, \quad L(n) = \ln Z_{\mathrm{raw}}(n) = \left(1 - \frac{d(n)}{2}\right) \ln n
-\]
+It examines the finite arithmetic interval immediately to the right of `p`,
+uses exact divisor-count state to orient the local prime-gap structure, and
+selects the next boundary by the GWR/NLSC chamber-reset rule.
 
-where \(d(n)\) is the divisor count. GWR selects the leftmost minimum-\(d(n)\) carrier as the log-Z argmax. Inference proceeds via exclusion of composites, resolution of survivors, and dominance rules ensuring no later lower-divisor threat \(T_<(w)\) overtakes the winner carrier \(w\) before boundary closure.
+The production selector is:
+
+```text
+rule_id: pgs_chamber_reset_v1
+state input: exact divisor-count field
+boundary rule: GWR/NLSC chamber-reset state
+```
+
+If the selector does not resolve inside the supplied chamber bound, the
+generator raises `PGSUnresolvedError`. It does not run a backup prime search.
 
 ## Architecture
 
-The architecture comprises four layers:
+The production generator has one execution path:
 
-1. **Anchor Layer**: Accepts a known prime \(p\) from external seeds or prior emissions.
-2. **PGS Inference Layer**: Scans candidate chambers up to a bound (e.g., 128), applies exclusion rules (positive composite witnesses, interior open unclosed), carrier locks (higher-divisor pressure before threat), absorption (resolved boundary lock separator, unresolved alternatives closure), and ceilings (carrier-locked pressure). Resolves unique survivors via dominance.
-3. **Emission Layer**: Outputs PGS-inferred prime \(q_{\hat{}}\) with metadata: anchor \(p\), gap width, winner carrier \(w\), offset, \(d(w)\), threat margin \(T_<(w) - q_{\hat{}}\), rule set (e.g., 005A-R), inference status.
-4. **External Validation Layer**: Applies SymPy `isprime`, Miller-Rabin, or ECPP post-emission. Reports confirmed/inferred counts without feedback to generation.
+```text
+accepted anchor p -> GWR/NLSC chamber-reset selector -> emit {"p": p, "q": q}
+```
 
-Modes include pure inference (no validation), audit (post-generation check), and debug (diagnostic only).
+The emitted stream contains only `p` and `q`. Source labels, certificates,
+diagnostics, timing, and audit results live outside the emitted stream.
 
-## Key Rules
+Downstream audit validates emitted records after generation. Audit does not
+choose `q` and does not feed back into generation.
 
-- **Gap Winner Rule (GWR)**: The gap interior log-Z argmax is the leftmost minimum-divisor carrier. Proved via hierarchical local dominator theorem and lexicographic raw-Z dominance over exact surfaces to \(10^{12}\).
-- **Divisor Normalized Inference (DNI)**: Structures chamber via wheel-open admissibility and divisor ladders (known-composite only).
-- **No-Later-Simpler-Composite Closure**: Post-GWR carrier \(w\), the boundary precedes any \(m > w\) with \(d(m) < d(w)\).
-- **Boundary Law 005A-R**: Activates on higher-divisor pressure lock without single-hole positive witness closure. Excludes candidates via carrier-locked ceilings (unresolved alternatives before threat) and absorption. Refinement drops non-unique activations, retains 36 unique successes.
-- **Absorption Locks**: Higher-divisor pressure locked absorption rejects false resolved survivors; resolved boundary lock separator prunes via pressure dominance.
-- **Pressure Ceilings**: Carrier lock if higher-divisor/semiprime pressure holds before threat \(T\).
+## Current Production Result
 
-All rules use PGS-native observables: divisor counts via bounded scan, no primality oracles.
+Low exact production surfaces:
 
-## Milestones
+```text
+11..1000      anchors 164     PGS 164     unresolved 0     failures 0
+11..10000     anchors 1225    PGS 1225    unresolved 0     failures 0
+11..100000    anchors 9588    PGS 9588    unresolved 0     failures 0
+11..1000000   anchors 78494   PGS 78494   unresolved 0     failures 0
+```
 
-- **Milestone 1A**: Offline PGS certificate emitter produces 36 boundary certificates via composite exclusion probe, confirming interior closure and GWR winners.
-- **Milestone 1B**: Experimental PGS prime emitter under 005A-R emits 36 PGS-inferred primes from anchor 11, with 100% unique resolution and zero wrongs on surfaces 11–1,100,000 (candidate-bound 128, witness-bound 127).
+High-scale decade-window surface:
 
-Milestone 0 scaffold enforces purity via forbidden-dependency gate, failing closed on `BOUNDARY_LAW_UNAVAILABLE`.
+```text
+surface: 256 consecutive prime anchors per decade, 10^8 through 10^18
+candidate_bound: 1024
+anchors tested: 2816
+PGS emissions: 2816
+unresolved: 0
+audit failures: 0
+```
 
-## Current Status
+## Current Version
 
-The generator achieves experimental readiness. Pure mode emits JSONL traces and summaries with LF endings. Tests validate 36/36 audited inferences on origin surfaces; shifted windows (100k–200k, 1M–1.1M) safe-abstain with zero activations/wrongs. Boundary Law 005A-R passes hardening gates: zero wrongs, absorption safe, unique successes preserved. Production emission forbidden; classical audit mandatory. Purity enforced: no `nextprime`, `isprime`, sieves in inference.
+```text
+PGS_GENERATOR_VERSION = 1.1.0
+PGS_GENERATOR_FREEZE_ID = pgs_inference_generator_v1_1_pgs_only
+```
 
-## Experimental Results
+Release note:
+[PGS Inference Generator v1.1](releases/pgs_inference_generator_v1_1_pgs_only.md).
 
-- **Composite Exclusion Probe**: On 11–1M, average rejected 20.4/candidate-bound-64; unique resolved survivors 48% true boundaries pre-005A-R.
-- **005A-R Refinement**: 48 activations → 36 selected (unique successes), 12 dropped (non-unique); zero wrongs, 114k safe abstains.
-- **Higher-Divisor Lock Hardening**: 1M anchors, zero unsafe absorptions; action population matches hardening profile.
-- **Carrier Lock Probes**: Unresolved-alternatives-before-threat predicate separates safe ceilings (true boundary pre-\(T\)) from resets.
-- **Forensics**: Zero true-boundary rejections; single-hole closures resolve 12% unresolved; pressure states show zero-collision candidates (e.g., square_pressure_state).
-- **Audit**: 36/36 confirmed via SymPy on 005A-R emissions.
+Logic spec:
+[Minimal PGS Generator Logic](specs/prime-gen/minimal_pgs_generator_logic.md).
 
-Surfaces: exact consecutive to 1M+, spot checks to 1.1M.
+## Boundary Rule
+
+The production boundary rule applies these steps:
+
+- build wheel-open candidate boundary hypotheses;
+- reject candidates with composite divisor-count state;
+- preserve semiprime-shadow landmarks as unresolved landmarks;
+- lock the GWR carrier only after a resolved survivor exists;
+- apply the lower-divisor threat ceiling after carrier lock;
+- identify the first resolved survivor;
+- reset the chamber at that survivor;
+- classify later unresolved candidates as post-reset chamber material;
+- emit the resolved survivor as `q`.
 
 ## Non-Goals
 
-- Cryptographic certification without external validation.
-- Miller-Rabin/sieve replacement.
-- Probabilistic filtering or randomization.
-- Factorization or RSA breaking.
-- Infinite-scale unconditional inference (bounds explicit).
-- Widening to non-PGS rules without user request.
+- proving the input anchor `p`;
+- cryptographic certification inside the generator;
+- primality testing inside the generator;
+- trial-division fallback;
+- Miller-Rabin or sieve replacement claims beyond the tested generator surface;
+- theorem claims for every future scale.
 
-## Implications for Prime Generation and Crypto Prefiltering
-
-PGS inference reframes generation as structural prediction, decoupling proposal from proof. For prime generation, it yields auditable traces explaining *why* \(q_{\hat{}}\) via carrier dominance/threat margins, enabling research into gap anatomy. In crypto prefiltering, deterministic rejection of 91% composites (per geodesic prefilter baseline) combines with inference for hybrid pipelines: PGS proposes survivors, Miller-Rabin confirms. End-to-end speedups potential (2x+ observed in related benchmarks) by minimizing probable-prime tests. Security: validated primes indistinguishable from classical; inference accelerates keygen without weakening proofs.
-
-## Future Roadmap
-
-1. Integrate 005A-R into pure MVP: emit from 11, target 10k consecutive confirmed.
-2. Harden carrier locks: audit previous-chamber reset vs. shift on 10M surface.
-3. Compress states: deploy zero-collision vectors (multiplicity_pressure_histogram) for finite-state engine.
-4. Scale benchmarks: 10^7 exact walk, large-anchor spots (10^12+).
-5. Theorem bridge: prove PGS chamber → unique boundary via threat-margin closure.
-6. Ports: Java/C parity with Python vectors.
-7. Deployment: Hybrid prefilter+generator for RSA keygen, measured vs. OpenSSL.
+The current accomplishment is narrower and concrete: the production generator
+now emits exact successor-prime records on the declared test surfaces without
+trial division or fallback search inside the generator.

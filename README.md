@@ -136,9 +136,10 @@ the original `p`. They belong to intervals that begin after `q`. That
 distinction turned the remaining not-yet-excluded candidates into evidence
 that the gap had already closed.
 
-The generator is now PGS-only. Trial division, fallback prime search,
-probabilistic primality tests, and oracle-style `nextprime` calls are excluded
-from generation. Classical validation remains downstream audit after emission.
+The generator is now PGS-only. The production generator contains no trial
+division and no fallback prime search. Probabilistic primality tests,
+Miller-Rabin, sieves, and oracle-style `nextprime` calls are also excluded from
+generation. Classical validation remains downstream audit after emission.
 
 On the current production generator surface, exact emission is preserved and the
 PGS selector applies exact divisor-count GWR/NLSC chamber-reset state:

@@ -490,7 +490,6 @@ surface: 11..100000
 candidate_bound: 128
 anchors tested: 9588
 PGS emissions: 9588
-fallback emissions: 0
 failed emissions: 0
 ```
 
@@ -501,9 +500,12 @@ surface: 256 consecutive prime anchors per decade, 10^8 through 10^18
 candidate_bound: 1024
 anchors tested: 2816
 PGS emissions: 2816
-fallback emissions: 0
 failed emissions: 0
 ```
+
+The current `v1.1` production generator removes the displaced fallback and
+trial-division paths entirely. The generator is PGS-only: unresolved selector
+states raise explicitly instead of invoking another prime-search method.
 
 ## Artifact Links
 
