@@ -40,6 +40,7 @@ Promotion requires:
 | [`codex/solution-01d-grok-gwr-locked-chamber`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01d-grok-gwr-locked-chamber) | `d5d248d` | Rejected | GWR lock alone does not provide the missing boundary offset. |
 | [`codex/solution-01d-gwr-locked-integration`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01d-gwr-locked-integration) | `e81d287` | Not promotable | Fair locked-state integration found no safe replayable boundary-margin key. |
 | [`codex/solution-02-gemini-rst-law`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-02-gemini-rst-law) | `4994dc2` | Rejected | Residual symmetry minimization selects many wrong boundaries. |
+| [`codex/solution-03-meta-frontier-exhaustion`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-03-meta-frontier-exhaustion) | `cba771c` | Rejected | Required mark-stream inputs are absent; materialized proxies are unsafe or abstain. |
 
 ## Solution 1: Full Chamber State Contract
 
@@ -405,6 +406,91 @@ Limitation:
 This branch tested binary closure-state vectors only. It does not rule out a
 more structured residual using richer signed or weighted PGS states, but the
 submitted CSR/Hamming law is not promotable.
+
+## Solution 3: Shadow Seed Frontier Exhaustion
+
+Branch:
+[`codex/solution-03-meta-frontier-exhaustion`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-03-meta-frontier-exhaustion)
+
+Commit: `cba771c`
+
+Proposed solution:
+
+Treat `q0` as an interior seed and use a mark stream from chamber witnesses.
+The rule selects the first unmarked candidate after a contiguous marked run
+that exhausts all open residues at the seed:
+
+```text
+S_p(t) = 1 if t == p mod w for some w in W_p
+q = first unmarked candidate after ResClosed(q0, tk) = Open(q0)
+```
+
+Test performed:
+
+The branch first checked whether the submitted materialized inputs exist, then
+tested artifact-native proxy rules using current candidate rows:
+
+- visible-closure marked run over all materialized candidates;
+- visible-closure marked run over odd candidates;
+- witness-congruence marked run over odd candidates;
+- witness-congruence marked run with residue-exhaustion gating.
+
+Artifacts:
+
+- [probe script](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/benchmarks/python/predictor/simple_pgs_solution_03_frontier_exhaustion_probe.py)
+- [summary JSON](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/output/simple_pgs_solution_03_frontier_exhaustion_probe/summary.json)
+- [materialized contract](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/output/simple_pgs_solution_03_frontier_exhaustion_probe/materialized_contract.csv)
+- [materialized coverage](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/output/simple_pgs_solution_03_frontier_exhaustion_probe/materialized_coverage.csv)
+- [frontier summary](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/output/simple_pgs_solution_03_frontier_exhaustion_probe/frontier_summary.csv)
+
+Materialization result:
+
+The exact submitted inputs are not present in current artifacts.
+
+| Required object | Present |
+|---|---|
+| `W_p` | false |
+| `Open(q0)` | false |
+| `S_p(t)` | false |
+
+The current candidate rows also cover only the $10^{15}$ and $10^{18}$ shadow
+groups:
+
+| Scale | Expected shadow rows | Materialized candidate groups | Coverage |
+|---|---:|---:|---:|
+| $10^{12}$ | 102 | 0 | 0.0% |
+| $10^{15}$ | 141 | 141 | 100.0% |
+| $10^{18}$ | 145 | 145 | 100.0% |
+
+Proxy-rule result:
+
+No executable proxy promoted.
+
+| Scale | Rule | Correct | No selection | Audit failures | Projected PGS |
+|---|---|---:|---:|---:|---:|
+| $10^{15}$ | visible run, all candidates | 76/141 | 0 | 65 | 73.90% |
+| $10^{18}$ | visible run, all candidates | 69/145 | 0 | 76 | 69.60% |
+| $10^{15}$ | visible run, odd candidates | 71/141 | 11 | 59 | 71.89% |
+| $10^{18}$ | visible run, odd candidates | 63/145 | 15 | 67 | 67.20% |
+| $10^{15}$ | witness congruence, odd | 0/141 | 141 | 0 | 43.37% |
+| $10^{18}$ | witness congruence, odd | 0/145 | 145 | 0 | 42.00% |
+
+Strength:
+
+The proposal gives a crisp process-level object: a mark frontier and residue
+exhaustion test, rather than another candidate-local tag.
+
+Weakness:
+
+The exact mark stream inputs are not materialized. The visible-run proxy
+repeats the known too-early failure; the witness-congruence proxy abstains on
+all tested rows.
+
+Limitation:
+
+This branch does not falsify a future implementation that explicitly
+materializes `W_p`, `Open(q0)`, and `S_p(t)`. It rejects the submitted test
+against current artifacts and the tested artifact-native approximations.
 
 ## Current Lesson
 
