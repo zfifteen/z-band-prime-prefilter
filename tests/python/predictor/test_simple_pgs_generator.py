@@ -16,6 +16,7 @@ from z_band_prime_predictor.simple_pgs_generator import (  # noqa: E402
     CHAIN_HORIZON_CLOSURE_SOURCE,
     FALLBACK_SOURCE,
     PGS_SOURCE,
+    SHADOW_SEED_GWR_RULE_ID,
     emit_record,
     emit_records,
     first_prime_in_chamber,
@@ -100,15 +101,18 @@ def test_sidecar_diagnostics_report_source_outside_emitted_stream():
     assert records == [{"p": 23, "q": 29}, {"p": 89, "q": 97}]
     assert diagnostics[0]["source"] == PGS_SOURCE
     assert diagnostics[0]["certificate"]["gap_offset"] == 6
-    assert diagnostics[1]["source"] == CHAIN_HORIZON_CLOSURE_SOURCE
+    assert diagnostics[1]["source"] == PGS_SOURCE
+    assert diagnostics[1]["certificate"]["rule_id"] == SHADOW_SEED_GWR_RULE_ID
+    assert diagnostics[1]["certificate"]["gap_offset"] == 8
     assert diagnostics[1]["chain_seed"] == 91
     assert diagnostics[1]["chain_limit"] == 8
-    assert diagnostics[1]["chain_position_selected"] == 1
+    assert diagnostics[1]["chain_position_selected"] == 6
+    assert diagnostics[1]["chain_nodes_checked"] == [92, 93, 94, 95, 96, 97]
     assert diagnostics[1]["chain_horizon_closed_nodes"] == []
     assert diagnostics[1]["chain_horizon_closure_witnesses"] == {}
     assert diagnostics[1]["chain_horizon_bound"] is None
     assert diagnostics[1]["chain_horizon_complete"] is True
-    assert diagnostics[1]["chain_horizon_closure_success"] is True
+    assert diagnostics[1]["chain_horizon_closure_success"] is False
     assert diagnostics[1]["chain_fallback_success"] is False
     assert diagnostics[1]["full_fallback_used"] is False
     assert diagnostic_record(89)["certificate"]["gap_offset"] == 8

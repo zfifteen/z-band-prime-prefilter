@@ -26,6 +26,7 @@ from z_band_prime_predictor.simple_pgs_generator import (  # noqa: E402
     DEFAULT_VISIBLE_DIVISOR_BOUND,
     FALLBACK_SOURCE,
     PGS_SOURCE,
+    SHADOW_SEED_GWR_RULE_ID,
     pgs_probe_certificate,
     visible_open_chain_offsets,
 )
@@ -106,12 +107,32 @@ def probe_anchor(
             "p": int(p),
             "q": q0,
             "source": PGS_SOURCE,
+            "rule_id": "pgs_chamber_closure_v2",
             "audit_passed": audit_confirms_next_prime(int(p), q0),
             "chain_seed": None,
             "chain_position_selected": None,
             "chain_nodes_checked": [],
             "unresolved_reason": None,
         }
+
+    shadow_checked: list[int] = []
+    for position, candidate in enumerate(
+        range(q0 + 1, int(p) + int(candidate_bound) + 1),
+        start=1,
+    ):
+        shadow_checked.append(candidate)
+        if factorization_accepts_candidate(candidate):
+            return {
+                "p": int(p),
+                "q": candidate,
+                "source": PGS_SOURCE,
+                "rule_id": SHADOW_SEED_GWR_RULE_ID,
+                "audit_passed": audit_confirms_next_prime(int(p), candidate),
+                "chain_seed": q0,
+                "chain_position_selected": position,
+                "chain_nodes_checked": shadow_checked,
+                "unresolved_reason": None,
+            }
 
     nodes = chain_candidates(
         int(p),
@@ -160,6 +181,12 @@ def scale_summary(
     """Return the requested high-scale probe summary."""
     emitted = [row for row in rows if row["q"] is not None]
     pgs_count = sum(1 for row in emitted if row["source"] == PGS_SOURCE)
+    pgs_by_rule: dict[str, int] = {}
+    for row in emitted:
+        if row["source"] != PGS_SOURCE:
+            continue
+        rule_id = str(row.get("rule_id", "unknown_pgs_rule"))
+        pgs_by_rule[rule_id] = pgs_by_rule.get(rule_id, 0) + 1
     chain_count = sum(
         1 for row in emitted if row["source"] == CHAIN_FALLBACK_SOURCE
     )
@@ -186,6 +213,7 @@ def scale_summary(
         "chain_horizon_closure_count": chain_horizon_count,
         "chain_fallback_count": chain_count,
         "fallback_count": fallback_count,
+        "pgs_by_rule": pgs_by_rule,
         "pgs_rate": rate(pgs_count, emitted_count),
         "chain_horizon_closure_rate": rate(chain_horizon_count, emitted_count),
         "chain_fallback_rate": rate(chain_count, emitted_count),

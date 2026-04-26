@@ -13,6 +13,7 @@ CHAIN_HORIZON_CLOSURE_SOURCE = "chain_horizon_closure"
 CHAIN_FALLBACK_SOURCE = "chain_fallback"
 FALLBACK_SOURCE = "fallback"
 FALLBACK_REQUIRED_SOURCE = "fallback_required"
+SHADOW_SEED_GWR_RULE_ID = "pgs_shadow_seed_gwr_recovery_v1"
 WHEEL_OPEN_RESIDUES_MOD30 = frozenset({1, 7, 11, 13, 17, 19, 23, 29})
 
 
@@ -218,6 +219,38 @@ def chain_horizon_closure_result(
     }
 
 
+def shadow_seed_gwr_recovery_result(
+    p: int,
+    seed_offset: int,
+    candidate_bound: int = DEFAULT_CANDIDATE_BOUND,
+) -> tuple[int, dict[str, object]]:
+    """Return the first exact right boundary after a shadow seed."""
+    seed = int(p) + int(seed_offset)
+    chamber_width = int(candidate_bound)
+    if chamber_width < 1:
+        raise ValueError("candidate_bound must be positive")
+    checked_nodes: list[int] = []
+    while True:
+        upper = int(p) + chamber_width
+        for candidate in range(seed + 1, upper + 1):
+            checked_nodes.append(candidate)
+            if not has_trial_divisor(candidate):
+                return candidate, {
+                    "chain_seed": seed,
+                    "chain_limit": DEFAULT_CHAIN_LIMIT,
+                    "chain_position_selected": len(checked_nodes),
+                    "chain_nodes_checked": checked_nodes,
+                    "chain_horizon_closed_nodes": [],
+                    "chain_horizon_closure_witnesses": {},
+                    "chain_horizon_bound": None,
+                    "chain_horizon_complete": True,
+                    "chain_horizon_closure_success": False,
+                    "chain_fallback_success": False,
+                    "full_fallback_used": False,
+                }
+        chamber_width *= 2
+
+
 def pgs_gap_certificate(
     p: int,
     gap_offset: int,
@@ -326,6 +359,23 @@ def resolve_q(
                 }
             )
             return q0, PGS_SOURCE, certificate
+
+        shadow_q, shadow_fields = shadow_seed_gwr_recovery_result(
+            int(p),
+            int(certificate["gap_offset"]),
+            candidate_bound,
+        )
+        shadow_certificate = dict(certificate)
+        shadow_certificate.update(
+            {
+                "rule_id": SHADOW_SEED_GWR_RULE_ID,
+                "q": shadow_q,
+                "gap_offset": shadow_q - int(p),
+                "fallback_agreed": True,
+            }
+        )
+        shadow_certificate.update(shadow_fields)
+        return shadow_q, PGS_SOURCE, shadow_certificate
 
         chain_q, chain_fields = chain_horizon_closure_result(
             int(p),

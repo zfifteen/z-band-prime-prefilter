@@ -1,0 +1,85 @@
+{
+  "rows": [
+    {
+      "scale": 1000000000000,
+      "sample_size": 256,
+      "emitted_count": 253,
+      "unresolved_count": 3,
+      "unresolved_rate": 0.01171875,
+      "unresolved_percent": 1.171875,
+      "audit_failed": 0,
+      "accuracy_status": "PASS",
+      "pgs_status": "MINIMAL_PASS",
+      "pgs_count": 253,
+      "chain_horizon_closure_count": 0,
+      "chain_fallback_count": 0,
+      "fallback_count": 0,
+      "pgs_by_rule": {
+        "pgs_shadow_seed_gwr_recovery_v1": 102,
+        "pgs_chamber_closure_v2": 151
+      },
+      "pgs_rate": 1.0,
+      "chain_horizon_closure_rate": 0.0,
+      "chain_fallback_rate": 0.0,
+      "fallback_rate": 0.0,
+      "pgs_percent": 100.0,
+      "chain_horizon_closure_percent": 0.0,
+      "chain_fallback_percent": 0.0,
+      "fallback_percent": 0.0
+    },
+    {
+      "scale": 1000000000000000,
+      "sample_size": 256,
+      "emitted_count": 249,
+      "unresolved_count": 7,
+      "unresolved_rate": 0.02734375,
+      "unresolved_percent": 2.734375,
+      "audit_failed": 0,
+      "accuracy_status": "PASS",
+      "pgs_status": "MINIMAL_PASS",
+      "pgs_count": 249,
+      "chain_horizon_closure_count": 0,
+      "chain_fallback_count": 0,
+      "fallback_count": 0,
+      "pgs_by_rule": {
+        "pgs_shadow_seed_gwr_recovery_v1": 141,
+        "pgs_chamber_closure_v2": 108
+      },
+      "pgs_rate": 1.0,
+      "chain_horizon_closure_rate": 0.0,
+      "chain_fallback_rate": 0.0,
+      "fallback_rate": 0.0,
+      "pgs_percent": 100.0,
+      "chain_horizon_closure_percent": 0.0,
+      "chain_fallback_percent": 0.0,
+      "fallback_percent": 0.0
+    },
+    {
+      "scale": 1000000000000000000,
+      "sample_size": 256,
+      "emitted_count": 250,
+      "unresolved_count": 6,
+      "unresolved_rate": 0.0234375,
+      "unresolved_percent": 2.34375,
+      "audit_failed": 0,
+      "accuracy_status": "PASS",
+      "pgs_status": "MINIMAL_PASS",
+      "pgs_count": 250,
+      "chain_horizon_closure_count": 0,
+      "chain_fallback_count": 0,
+      "fallback_count": 0,
+      "pgs_by_rule": {
+        "pgs_chamber_closure_v2": 105,
+        "pgs_shadow_seed_gwr_recovery_v1": 145
+      },
+      "pgs_rate": 1.0,
+      "chain_horizon_closure_rate": 0.0,
+      "chain_fallback_rate": 0.0,
+      "fallback_rate": 0.0,
+      "pgs_percent": 100.0,
+      "chain_horizon_closure_percent": 0.0,
+      "chain_fallback_percent": 0.0,
+      "fallback_percent": 0.0
+    }
+  ]
+}
