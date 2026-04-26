@@ -1,0 +1,4 @@
+required_object,materialized_in_current_artifacts,probe_handling
+active wall prime set W,False,tested materialized visible witnesses and visible-bound proxies separately
+closed[1..q0] chamber vector,False,not assumed; no pure-PGS promotion can rely on it from this branch
+square-grid q_k sequence,True,computed directly from p and q0
