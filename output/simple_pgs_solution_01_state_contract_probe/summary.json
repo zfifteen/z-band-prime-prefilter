@@ -1,0 +1,66 @@
+{
+  "solution_id": "grok_solution_01_shadow_seed_boundary_recovery_law",
+  "testable_as_stated": false,
+  "promotion_eligible": false,
+  "transition_operator_available": false,
+  "transition_operator_names_checked": [
+    "PGS_state_transition",
+    "pgs_state_transition",
+    "state_transition",
+    "terminal_closure_signature"
+  ],
+  "required_objects": {
+    "chamber_state": [
+      "chamber_state",
+      "S"
+    ],
+    "gap_signature": [
+      "gap_signature",
+      "gs"
+    ],
+    "pressure_vector": [
+      "pressure_vector"
+    ],
+    "visible_closure_data": [
+      "visible_closure_data",
+      "V"
+    ],
+    "terminal_pattern": [
+      "terminal_pattern",
+      "T"
+    ]
+  },
+  "missing_required_objects_across_tested_artifacts": [
+    "chamber_state",
+    "gap_signature",
+    "pressure_vector",
+    "visible_closure_data",
+    "terminal_pattern"
+  ],
+  "datasets": [
+    {
+      "dataset": "simple_pgs_shadow_seed_gwr_solution_1e5",
+      "path": "output/simple_pgs_shadow_seed_gwr_solution_1e5/diagnostics.jsonl",
+      "rows": 9588,
+      "row_filter": "PGS",
+      "rows_with_all_required_objects": 0
+    },
+    {
+      "dataset": "simple_pgs_shadow_seed_gwr_solution_1e6",
+      "path": "output/simple_pgs_shadow_seed_gwr_solution_1e6/diagnostics.jsonl",
+      "rows": 78494,
+      "row_filter": "PGS",
+      "rows_with_all_required_objects": 0
+    },
+    {
+      "dataset": "simple_pgs_shadow_seed_gwr_solution_probe",
+      "path": "output/simple_pgs_shadow_seed_gwr_solution_probe/rows.jsonl",
+      "rows": 768,
+      "row_filter": "shadow_seed_recovery",
+      "rows_with_all_required_objects": 0
+    }
+  ],
+  "verdict": "not_testable_as_stated",
+  "reason": "The proposed law requires chamber_state S, gap signature gs, pressure_vector, visible_closure_data V, terminal pattern T, and a named PGS state transition operator. Current minimal-generator artifacts do not carry that state contract.",
+  "next_action": "Reject Solution 1 as a drop-in replacement, or ask for the law to be restated using only the current certificate and chain fields. Adding S/gs/V/T would be a new state-capture experiment, not a test of the submitted rule as written."
+}
