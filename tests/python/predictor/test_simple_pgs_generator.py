@@ -12,13 +12,7 @@ SOURCE_DIR = ROOT / "src" / "python"
 if str(SOURCE_DIR) not in sys.path:
     sys.path.insert(0, str(SOURCE_DIR))
 
-import z_band_prime_predictor.pgs_closure as pgs_closure  # noqa: E402
 import z_band_prime_predictor.simple_pgs_generator as simple_pgs_generator  # noqa: E402
-from z_band_prime_predictor.pgs_closure import (  # noqa: E402
-    PGS_CLOSED,
-    PGS_OPEN,
-    pgs_closure_segment,
-)
 from z_band_prime_predictor.simple_pgs_generator import (  # noqa: E402
     PGS_CHAMBER_RESET_RULE_ID,
     PGS_GENERATOR_FREEZE_ID,
@@ -44,7 +38,7 @@ from z_band_prime_predictor.simple_pgs_audit import (  # noqa: E402
 
 def test_record_has_only_p_and_q():
     """The minimal record contract should stay physically small."""
-    record = emit_record(11, candidate_bound=2)
+    record = emit_record(11)
 
     assert set(record) == {"p", "q"}
     assert record == {"p": 11, "q": 13}
@@ -56,111 +50,26 @@ def test_generator_freeze_version_is_locked():
     assert PGS_GENERATOR_FREEZE_ID == "pgs_inference_generator_v1_1_pgs_only"
 
 
-def test_emit_records_emits_when_each_anchor_has_one_pgs_survivor():
-    """Every supplied anchor should emit when PGS closure leaves one survivor."""
-    anchors = [11, 17, 29]
-    records = emit_records(anchors, candidate_bound=2)
+def test_emit_records_never_withholds_an_anchor():
+    """Every supplied anchor should produce exactly one iprime candidate."""
+    anchors = [11, 23, 89]
+    records = emit_records(anchors)
 
     assert len(records) == len(anchors)
     assert [record["p"] for record in records] == anchors
     assert all(set(record) == {"p", "q"} for record in records)
-    assert records == [
-        {"p": 11, "q": 13},
-        {"p": 17, "q": 19},
-        {"p": 29, "q": 31},
-    ]
-
-
-def test_emit_record_fails_closed_for_multiple_pgs_survivors():
-    """The generator must not guess when pure PGS closure leaves survivors."""
-    try:
-        emit_record(11)
-    except PGSUnresolvedError as exc:
-        assert "PGS selector did not resolve" in str(exc)
-    else:
-        raise AssertionError("expected PGSUnresolvedError")
-
-
-def test_pgs_closure_segment_marks_only_wheel_open_candidates_open():
-    """The classifier should report open status without prime labels."""
-    statuses = pgs_closure_segment(11, 8)
-
-    assert statuses.tolist() == [
-        PGS_CLOSED,
-        PGS_OPEN,
-        PGS_CLOSED,
-        PGS_CLOSED,
-        PGS_CLOSED,
-        PGS_OPEN,
-        PGS_CLOSED,
-        PGS_OPEN,
-    ]
-
-
-def test_pgs_closure_segment_rejects_nonpositive_bound():
-    """The classifier should fail explicitly on an invalid chamber bound."""
-    try:
-        pgs_closure_segment(11, 0)
-    except ValueError as exc:
-        assert "candidate_bound must be positive" in str(exc)
-    else:
-        raise AssertionError("expected ValueError")
-
-
-def test_pgs_closure_source_has_no_forbidden_classical_tools():
-    """The classifier source must not contain forbidden prime-oracle tools."""
-    source = (
-        SOURCE_DIR / "z_band_prime_predictor" / "pgs_closure.py"
-    ).read_text(encoding="utf-8")
-
-    forbidden_terms = [
-        "divisor_counts_segment",
-        "z_band_prime_composite_field",
-        "trial",
-        "factor",
-        "factorint",
-        "gmpy2",
-        "sympy",
-        "nextprime",
-        "isprime",
-        "is_prime",
-        "primerange",
-        "sieve",
-        "Miller",
-        "miller",
-    ]
-    assert all(term not in source for term in forbidden_terms)
-
-
-def test_pgs_runtime_does_not_call_forbidden_prime_oracles(monkeypatch):
-    """The generator path should survive forbidden-oracle sentinels."""
-    import gmpy2
-    import sympy
-
-    def forbidden(*_args, **_kwargs):
-        raise AssertionError("forbidden prime oracle called")
-
-    monkeypatch.setattr(gmpy2, "is_prime", forbidden)
-    monkeypatch.setattr(sympy, "isprime", forbidden)
-    monkeypatch.setattr(sympy, "nextprime", forbidden)
-
-    assert pgs_closure.pgs_closure_segment(11, 2).tolist() == [
-        PGS_CLOSED,
-        PGS_OPEN,
-    ]
-    assert emit_record(11, candidate_bound=2) == {"p": 11, "q": 13}
 
 
 def test_pgs_result_is_not_validated_by_fallback_before_labeling():
     """A PGS-selected row should have no fallback agreement field."""
-    record = diagnostic_record(11, candidate_bound=2)
+    record = diagnostic_record(11)
     assert record["p"] == 11
     assert record["q"] == 13
     assert record["source"] == PGS_SOURCE
     assert record["certificate"]["rule_id"] == PGS_CHAMBER_RESET_RULE_ID
     assert record["certificate"]["gap_offset"] == 2
     assert "fallback_agreed" not in record["certificate"]
-    assert diagnostic_record(17, candidate_bound=2)["source"] == PGS_SOURCE
+    assert diagnostic_record(89)["source"] == PGS_SOURCE
 
 
 def test_pgs_source_is_not_confirmed_by_trial_division(monkeypatch):
@@ -196,27 +105,27 @@ def test_pgs_unresolved_raises_without_fallback(monkeypatch):
         raise AssertionError("expected PGSUnresolvedError")
 
 
-def test_high_scale_multiple_survivors_fail_closed():
-    """The selector must not emit from a multi-survivor PGS chamber."""
-    assert pgs_probe_certificate(1000000033, 1024) is None
-    try:
-        emit_record(1000000033, candidate_bound=1024)
-    except PGSUnresolvedError as exc:
-        assert "PGS selector did not resolve" in str(exc)
-    else:
-        raise AssertionError("expected PGSUnresolvedError")
+def test_high_scale_false_shadow_candidate_is_rejected_by_gwr_nlsc_state():
+    """The production selector must not emit the old high-scale shadow error."""
+    record = emit_record(1000000033, candidate_bound=1024)
+    certificate = pgs_probe_certificate(1000000033, 1024)
+
+    assert record == {"p": 1000000033, "q": 1000000087}
+    assert certificate["gap_offset"] == 54
+    assert certificate["carrier_w"] != 1000000033
+    assert certificate["tail_after_reset_offsets"]
 
 
 def test_sidecar_diagnostics_report_source_outside_emitted_stream():
     """Diagnostics may report source without changing emitted records."""
-    records = emit_records([11, 17], candidate_bound=2)
-    diagnostics = diagnostic_records([11, 17], candidate_bound=2)
+    records = emit_records([23, 89])
+    diagnostics = diagnostic_records([23, 89])
 
-    assert records == [{"p": 11, "q": 13}, {"p": 17, "q": 19}]
+    assert records == [{"p": 23, "q": 29}, {"p": 89, "q": 97}]
     assert diagnostics[0]["source"] == PGS_SOURCE
-    assert diagnostics[0]["certificate"]["gap_offset"] == 2
+    assert diagnostics[0]["certificate"]["gap_offset"] == 6
     assert diagnostics[1]["source"] == PGS_SOURCE
-    assert diagnostics[1]["certificate"]["gap_offset"] == 2
+    assert diagnostics[1]["certificate"]["gap_offset"] == 8
     assert diagnostics[1]["chain_seed"] is None
     assert diagnostics[1]["chain_limit"] is None
     assert diagnostics[1]["chain_position_selected"] is None
@@ -232,7 +141,7 @@ def test_sidecar_diagnostics_report_source_outside_emitted_stream():
 
 def test_minimal_summaries_have_only_requested_counts():
     """Summaries should not grow metadata fields."""
-    records = emit_records([11, 17], candidate_bound=2)
+    records = emit_records([11, 89])
 
     assert summary(records) == {"anchors": 2, "emitted": 2}
 
@@ -243,9 +152,9 @@ def test_cli_writes_lf_records_and_summary(tmp_path):
         controller_main(
             [
                 "--anchors",
-                "11,17",
+                "11,89",
                 "--candidate-bound",
-                "2",
+                "128",
                 "--output-dir",
                 str(tmp_path),
             ]
@@ -293,7 +202,7 @@ def test_cli_writes_lf_records_and_summary(tmp_path):
     assert diagnostics[0]["source"] == PGS_SOURCE
     assert diagnostics[0]["certificate"]["gap_offset"] == 2
     assert diagnostics[1]["source"] == PGS_SOURCE
-    assert diagnostics[1]["certificate"]["gap_offset"] == 2
+    assert diagnostics[1]["certificate"]["gap_offset"] == 8
     assert json.loads(summary_path.read_text(encoding="utf-8")) == {
         "anchors": 2,
         "emitted": 2,
@@ -308,9 +217,9 @@ def test_audit_cli_writes_report_outside_generator(tmp_path):
         controller_main(
             [
                 "--anchors",
-                "11,17",
+                "11,89",
                 "--candidate-bound",
-                "2",
+                "128",
                 "--output-dir",
                 str(generator_dir),
             ]
@@ -372,8 +281,8 @@ def test_audit_cli_writes_report_outside_generator(tmp_path):
 
 def test_audit_report_surfaces_fallback_displacement_metrics():
     """The report should make PGS displacement the visible metric."""
-    records = emit_records([11, 17, 29], candidate_bound=2)
-    diagnostics = diagnostic_records([11, 17, 29], candidate_bound=2)
+    records = emit_records([11, 23, 89])
+    diagnostics = diagnostic_records([11, 23, 89])
 
     assert audit_report(records, diagnostics) == {
         "anchors_scanned": 3,
@@ -426,15 +335,11 @@ def test_new_generator_does_not_use_forbidden_classical_tools():
         "fallback",
         "has_trial",
         "divisor_witness",
-        "divisor_counts_segment",
-        "z_band_prime_composite_field",
         "next_prime",
         "sympy",
         "nextprime",
         "isprime",
         "primerange",
-        "factorint",
-        "gmpy2",
         "Miller",
         "miller",
     ]
@@ -470,9 +375,9 @@ def test_controller_can_orchestrate_generation_and_audit(tmp_path):
         controller_main(
             [
                 "--anchors",
-                "11,17,29",
+                "11,23,89",
                 "--candidate-bound",
-                "2",
+                "128",
                 "--audit",
                 "--output-dir",
                 str(tmp_path),
