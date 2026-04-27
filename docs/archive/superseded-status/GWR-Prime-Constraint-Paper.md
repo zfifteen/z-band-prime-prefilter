@@ -21,7 +21,7 @@ $$L(n) = \left(1 - \frac{d(n)}{2}\right)\ln n,$$
 
 which interior number wins?
 
-The Gap Winner Rule (GWR) theorem says that the selected integer is always the first
+The Leftmost Minimum-Divisor Rule (GWR) theorem says that the selected integer is always the first
 interior number with the smallest divisor count that appears in the gap, under
 the recorded BHP/Robin assumptions.
 
@@ -130,7 +130,7 @@ The main theorem studied in this repository is:
 In other words, the first interior number with the smallest divisor count is
 the number that maximizes `L(n)` across the gap under the conditional GWR proof.
 
-This theorem is the **Gap Winner Rule (GWR)**.
+This theorem is the **Leftmost Minimum-Divisor Rule (GWR)**.
 
 ---
 

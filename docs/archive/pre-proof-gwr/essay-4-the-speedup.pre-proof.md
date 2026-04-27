@@ -1,6 +1,6 @@
 # The Prime Number Speedup
 
-*Essay 4 in a series about a pattern hiding inside prime numbers. The first three essays built up the math: the Gap Winner Rule, the Divisor Normalization Identity, and the proof status. This essay is about what happens when you point the same identity at a practical engineering problem.*
+*Essay 4 in a series about a pattern hiding inside prime numbers. The first three essays built up the math: the Leftmost Minimum-Divisor Rule, the Divisor Normalization Identity, and the proof status. This essay is about what happens when you point the same identity at a practical engineering problem.*
 
 ---
 
@@ -69,7 +69,7 @@ The practical path from the identity to the speedup is:
 3. A prefilter based on small-prime divisibility eliminates those integers cheaply.
 4. The remaining candidates are structurally similar to primes, so Miller-Rabin rarely wastes effort.
 
-The Gap Winner Rule is what connects the DNI to prime gap structure. The prefilter is what connects it to cryptographic practice. They are downstream of the same identity.
+The Leftmost Minimum-Divisor Rule is what connects the DNI to prime gap structure. The prefilter is what connects it to cryptographic practice. They are downstream of the same identity.
 
 ---
 
@@ -77,7 +77,7 @@ The Gap Winner Rule is what connects the DNI to prime gap structure. The prefilt
 
 Right now the prefilter is empirically calibrated. The 91% rejection rate comes from measuring how many candidates the prime table eliminates at the tested bit sizes. The speedup is real, but the theoretical claim is "this works at these sizes" rather than "this works for all inputs."
 
-A completed proof of the Gap Winner Rule would change that. It would establish that the DNI fixed-point structure is exact and universal, not just empirically reliable. The prefilter would become a theorem-backed construction: a deterministic screening mechanism with a provable structural basis.
+A completed proof of the Leftmost Minimum-Divisor Rule would change that. It would establish that the DNI fixed-point structure is exact and universal, not just empirically reliable. The prefilter would become a theorem-backed construction: a deterministic screening mechanism with a provable structural basis.
 
 That distinction matters for security-critical applications. A heuristic that performs well in testing is one thing. A heuristic grounded in a proved identity about prime structure is another. The latter is what belongs in cryptographic standards.
 

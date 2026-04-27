@@ -1,8 +1,8 @@
-# Gap Winner Rule Story Skeleton
+# Leftmost Minimum-Divisor Rule Story Skeleton
 
 ## Working Title
 
-**The Gap Winner Rule: how a geometric-looking score collapsed to a simple arithmetic law**
+**The Leftmost Minimum-Divisor Rule: how a geometric-looking score collapsed to a simple arithmetic law**
 
 ## Purpose
 
@@ -84,7 +84,7 @@ selected integer.
 
 ### Points to cover
 
-- define `Gap Winner Rule (GWR)`,
+- define `Leftmost Minimum-Divisor Rule (GWR)`,
 - explain “minimum divisor count, then leftmost” in ordinary language,
 - state the zero-counterexample validation surface.
 
@@ -219,7 +219,7 @@ These are the initial figures to generate after the skeleton is approved.
 When this becomes the full story document:
 
 - begin sections with observable facts before formal interpretation,
-- use `Gap Winner Rule` / `GWR` as the forward name,
+- use `Leftmost Minimum-Divisor Rule` / `GWR` as the forward name,
 - retain the legacy name only where continuity matters,
 - separate theorem-backed statements from empirical robustness statements,
 - do not let caution bury the strongest supported finding,

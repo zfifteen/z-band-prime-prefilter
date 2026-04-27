@@ -123,7 +123,7 @@ The candidate was tested with:
 - `carrier_lock_predicate: unresolved_alternatives_before_threat`
 - `higher_divisor_pressure_locked_absorption: enabled only for integration tests`
 
-Hardening surfaces:
+Rule-refinement surfaces:
 
 - input primes `11..10_000`
 - input primes `11..100_000`
@@ -136,7 +136,7 @@ Integration surfaces:
 - shifted window `100_000..200_000`
 - shifted window `1_000_000..1_100_000`
 
-## Hardening Results
+## Rule-Refinement Results
 
 Higher-divisor pressure lock separator:
 
@@ -150,13 +150,13 @@ The lock remained zero-wrong as the false-resolved candidate pool increased
 from `282` to `46286`.
 
 The selected true count stayed at `31`, so this candidate is narrow. The
-important hardening result is:
+important rule-refinement result is:
 
 ```text
 higher_divisor_pressure_lock_false_selected: 0
 ```
 
-on every staged hardening surface.
+on every staged rule-refinement surface.
 
 ## Integration Results
 
@@ -229,7 +229,7 @@ Before this can touch the pure generator:
 1. Complete a pure-rule dependency audit.
 2. Verify the higher-divisor pressure lock can be computed without forbidden
    helpers.
-3. Expand integration hardening beyond the current abstaining shifted windows.
+3. Expand integration rule refinement beyond the current abstaining shifted windows.
 4. Preserve abstention as the default behavior when the lock does not fire.
 5. Keep pure generation fail-closed unless exactly one endpoint is inferred
    under an approved rule.

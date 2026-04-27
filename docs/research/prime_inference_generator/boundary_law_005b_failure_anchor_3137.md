@@ -77,9 +77,9 @@ The true next prime candidate at offset 26 remained unresolved before absorption
 
 Those offsets are exactly the composite structure that the one-hole closure rule cannot complete.
 
-## What The Hardening Probe Missed
+## What The Rule-Refinement Probe Missed
 
-The hardening probe only evaluated the previous-to-current selected-integer shift lock inside rows where the audited true next prime was already a resolved candidate before absorption.
+The rule-refinement probe only evaluated the previous-to-current selected-integer shift lock inside rows where the audited true next prime was already a resolved candidate before absorption.
 
 At input prime 3137:
 
@@ -89,7 +89,7 @@ At input prime 3137:
 - higher-divisor pressure lock absent at the true next prime: true
 - actual next prime resolved before absorption: false
 
-So this input prime was outside the hardening population. The hardening result was zero-wrong as a selection rule in its target population, but direct integration broadened the operational domain and allowed a false resolved candidate to absorb an unresolved true next prime.
+So this input prime was outside the rule-refinement population. The rule-refinement result was zero-wrong as a selection rule in its target population, but direct integration broadened the operational domain and allowed a false resolved candidate to absorb an unresolved true next prime.
 
 ## Quarantine Conditions
 

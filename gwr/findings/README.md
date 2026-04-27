@@ -1,6 +1,6 @@
 # GWR Findings
 
-This directory is for forward-facing `Gap Winner Rule` theorem notes, proof
+This directory is for forward-facing `Leftmost Minimum-Divisor Rule` theorem notes, proof
 notes, and exact consequence notes.
 
 Use `GWR` in new documents. Retain the legacy name only when a note needs to

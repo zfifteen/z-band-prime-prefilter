@@ -141,7 +141,7 @@ That makes the dominant regime much more concrete.
 
 ### GWR
 
-**Plain language:** Short for `Gap Winner Rule`.
+**Plain language:** Short for `Leftmost Minimum-Divisor Rule`.
 
 **In this repo:** The central prime-gap law being studied.
 

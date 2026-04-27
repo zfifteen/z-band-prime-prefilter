@@ -69,7 +69,7 @@ The previous-to-current selected-integer shift lock hardened as a zero-wrong sel
 
 Those are not the same regime.
 
-The hardening population required the true next prime to already be a resolved candidate with later unresolved alternatives and no active higher-divisor pressure lock. The direct integration path cannot use the true next prime label, so it can fire earlier on false resolved candidates. Input Prime 3137 shows that failure mode explicitly.
+The rule-refinement population required the true next prime to already be a resolved candidate with later unresolved alternatives and no active higher-divisor pressure lock. The direct integration path cannot use the true next prime label, so it can fire earlier on false resolved candidates. Input Prime 3137 shows that failure mode explicitly.
 
 ## Decision
 
@@ -82,13 +82,13 @@ The hardening population required the true next prime to already be a resolved c
 005B direct integration is quarantined:
 
 - previous-to-current selected-integer shift lock
-- hardening lead remains informative
+- rule refinement lead remains informative
 - direct absorption flag is not safe
 - combined 005A/005B modes are not safe
 
 ## Next Gate
 
-005B can only return as an integration candidate if a label-free activation guard reproduces the hardening population without using:
+005B can only return as an integration candidate if a label-free activation guard reproduces the rule-refinement population without using:
 
 - actual next prime labels
 - prime markers

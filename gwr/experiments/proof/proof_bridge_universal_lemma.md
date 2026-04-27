@@ -1,7 +1,7 @@
 # Proof Bridge for the No-Early-Counterexample Condition
 
 This note records the analytic bridge used on the earlier side of the
-`Gap Winner Rule` (`GWR`) proof surface.
+`Leftmost Minimum-Divisor Rule` (`GWR`) proof surface.
 
 ## Status Note
 

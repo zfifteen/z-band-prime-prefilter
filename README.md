@@ -6,7 +6,7 @@ This repository now carries three major prime-gap results:
 
 - a proved local arithmetic selection law inside prime gaps;
 - a frozen hierarchical finite-state model for reduced prime-gap types.
-- a Prime-Gap Inference Generator that infers the successor prime from the
+- a Next-Prime Generator that infers the successor prime from the
   arithmetic structure of the interval after a given prime, instead of scanning
   candidates until a primality test succeeds.
 
@@ -39,21 +39,21 @@ These examples show the local arithmetic choice that input primes the repository
 
 ## Three Headline Results
 
-- **Gap Winner Rule (GWR):** on the repository's current proof surface, the
+- **Leftmost Minimum-Divisor Rule (GWR):** on the repository's current proof surface, the
   implemented divisor-normalization score picks exactly the leftmost interior
   integer with minimum divisor count in every prime gap.
 - **Prime Gap Generative Model v1.0:** on the persistent reduced gap-type
   surface, prime-gap types close to a frozen hierarchical finite-state model
   with a stable `14`-state core.
-- **Prime-Gap Inference Generator:** the generator outputs one two-key
+- **Next-Prime Generator:** the generator outputs one two-key
   `{"p": ..., "q": ...}` record per given prime `p`, keeps diagnostics outside
   the outputted stream, and selects the successor prime `q` from the arithmetic
   consistency of the interval after `p`, rather than by a conventional
   next-prime search. The current production iteration is `v1.1`.
 
-## Gap Winner Rule
+## Leftmost Minimum-Divisor Rule
 
-The **Gap Winner Rule (GWR)** says:
+The **Leftmost Minimum-Divisor Rule (GWR)** says:
 
 1. inside a prime gap, find the smallest divisor count present among the
    interior composites;
@@ -65,7 +65,7 @@ That chosen interior integer is the selected integer of the gap.
 The headline mathematical result carried by the repository is that the
 implemented divisor-normalization score picks exactly that same integer in
 every prime gap. The theorem statement is
-[Gap Winner Rule — Hierarchical Local-Dominator Law](gwr/findings/gwr_hierarchical_local_dominator_theorem.md),
+[Leftmost Minimum-Divisor Rule — Hierarchical Local-Dominator Law](gwr/findings/gwr_hierarchical_local_dominator_theorem.md),
 and the proof surface is summarized in [GWR_PROOF.md](GWR_PROOF.md).
 
 ## Prime Gap Generative Model v1.0
@@ -103,9 +103,9 @@ See also:
 - [Hierarchical model paper draft](docs/research/predictor/prime_gap_hierarchical_engine_paper_draft.md)
 - [Model overview figure](output/gwr_dni_gap_type_engine_v1_overview.png)
 
-## Prime-Gap Inference Generator
+## Next-Prime Generator
 
-The third headline result is the Prime-Gap Inference Generator. It outputs one
+The third headline result is the Next-Prime Generator. It outputs one
 record for each given prime:
 
 ```json
@@ -119,7 +119,7 @@ The current production iteration is
 [PGS Inference Generator v1.1](docs/releases/pgs_inference_generator_v1_1_pgs_only.md).
 
 Conventional prime generation works by scanning candidate numbers and testing
-them until one proves prime. The Prime-Gap Inference Generator is different. It
+them until one proves prime. The Next-Prime Generator is different. It
 starts from a given prime `p`, examines a finite interval to the right of `p`,
 and uses the composite numbers in that interval to infer the successor prime
 `q`.
@@ -220,11 +220,11 @@ This repository now carries three visible lines of work:
 - the proved GWR theorem and its proof surface;
 - the reduced gap-type model and pattern results on the persistent reduced
   surface;
-- the Prime-Gap Inference Generator and downstream deterministic DNI-based
+- the Next-Prime Generator and downstream deterministic DNI-based
   predictor and prefilter work.
 
 The GWR theorem remains the theorem foundation. The gap-type model is the second
-headline prime-gap result. The Prime-Gap Inference Generator is the current
+headline prime-gap result. The Next-Prime Generator is the current
 operational inferred-prime generator milestone. The recursive walk and
 deterministic filter are downstream deterministic instruments built from the
 same normalization.
@@ -233,7 +233,7 @@ same normalization.
 
 The repository now carries the following named structures and results:
 
-- **Gap Winner Rule (GWR):** inside any prime gap, the log-score argmax is
+- **Leftmost Minimum-Divisor Rule (GWR):** inside any prime gap, the log-score argmax is
   exactly the leftmost integer with minimum interior divisor count. On the
   repository's current proof surface, this is a proved universal prime-gap
   maximizer theorem summarized in [GWR_PROOF.md](GWR_PROOF.md) and recorded in
@@ -258,7 +258,7 @@ The repository now carries the following named structures and results:
   [docs/releases/prime_gap_generative_engine_v1_0.md](docs/releases/prime_gap_generative_engine_v1_0.md)
   and
   [gwr/findings/gap_type_engine_v1_rulebook.md](gwr/findings/gap_type_engine_v1_rulebook.md).
-- **Prime-Gap Inference Generator:** the generator outputs exactly `p` and `q`
+- **Next-Prime Generator:** the generator outputs exactly `p` and `q`
   for each given prime `p`, with downstream audit and source diagnostics
   outside the outputted stream. Unlike a conventional prime generator, it selects
   the successor prime from the arithmetic consistency of the interval after
@@ -345,7 +345,7 @@ a prime gap collapses to a simpler arithmetic choice:
 1. minimize the interior divisor count $d(n)$,
 2. among ties, take the leftmost interior integer.
 
-That is the Gap Winner Rule.
+That is the Leftmost Minimum-Divisor Rule.
 
 The formal theorem file expresses this as a hierarchical local-dominator law.
 The proof is closed on the repository's current proof surface: ordered

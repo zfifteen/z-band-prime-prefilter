@@ -1,8 +1,8 @@
-# Executive Summary: PGS Prime Generator
+# Executive Summary: PGS next-prime generator
 
 ## Purpose
 
-The PGS Prime Generator is a deterministic successor-next-prime generator.
+The PGS next-prime generator is a deterministic successor-next-prime generator.
 It starts from an accepted prime `p` and outputs the next prime `q` as a minimal
 two-key record:
 

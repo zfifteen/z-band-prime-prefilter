@@ -1,4 +1,4 @@
-# A Witness-Based Prime Predictor: Constructing p_n from the Prime Number Theorem and the Gap Winner Rule
+# A Witness-Based Prime Predictor: Constructing p_n from the Prime Number Theorem and the Leftmost Minimum-Divisor Rule
 
 **Attribution:** Big D  
 **Repository:** [zfifteen/prime-gap-structure](https://github.com/zfifteen/prime-gap-structure)  
@@ -13,7 +13,7 @@ seed-position caveat; see
 
 ## Abstract
 
-We construct a formula for the n-th prime p_n that is exact, carries zero residual error when a placement condition is satisfied, and is derived from two independent sources: the Prime Number Theorem (PNT) and the Gap Winner Rule (GWR). The formula takes the form
+We construct a formula for the n-th prime p_n that is exact, carries zero residual error when a placement condition is satisfied, and is derived from two independent sources: the Prime Number Theorem (PNT) and the Leftmost Minimum-Divisor Rule (GWR). The formula takes the form
 
     p_n = nextprime( W( S*(n) ) )
 
@@ -29,7 +29,7 @@ The first category is **exact but trivial**. The Willans formula (1964) expresse
 
 The second category is **analytic and approximate**. The Cipolla asymptotic expansion, Riemann-Li inversion, and their descendants estimate p_n from the prime-counting function pi(x) and its inverse. These are useful but carry permanent residual error because the error term is the oscillation of pi(x) - Li(x), which is governed by the nontrivial zeros of the Riemann zeta function and does not vanish at any finite n.
 
-The formula derived here does not fit either category. Its correctness is not circular, and its residual error is zero when a single placement condition holds. The structure that makes this possible comes from the Gap Winner Rule, a finding from the prime-gap-structure repository documenting a local divisor-theoretic law governing the interior structure of prime gaps.
+The formula derived here does not fit either category. Its correctness is not circular, and its residual error is zero when a single placement condition holds. The structure that makes this possible comes from the Leftmost Minimum-Divisor Rule, a finding from the prime-gap-structure repository documenting a local divisor-theoretic law governing the interior structure of prime gaps.
 
 ### 1.1 Scope of This Paper
 
@@ -72,9 +72,9 @@ giving L(a) > L(b). QED.
 
 **Corollary.** Among an ordered set of composites, the L-maximizer is the earliest composite with the smallest divisor count. This is called the **leftmost minimizer**.
 
-### 2.3 The Gap Winner Rule
+### 2.3 The Leftmost Minimum-Divisor Rule
 
-**Definition.** For a prime gap (p, q) with at least one composite interior, the **Gap Winner Rule (GWR)** asserts that the L-score argmax over interior composites is identical to the leftmost minimizer: the leftmost interior composite with minimum divisor count.
+**Definition.** For a prime gap (p, q) with at least one composite interior, the **Leftmost Minimum-Divisor Rule (GWR)** asserts that the L-score argmax over interior composites is identical to the leftmost minimizer: the leftmost interior composite with minimum divisor count.
 
     w = argmax L(n) for p < n < q
       = min{ n in (p,q) : d(n) = d_min(p,q) }
@@ -384,7 +384,7 @@ print(f"d=4 gaps tested: {count}, violations: {len(v)}")  # Expected: 0
 
 ## 9. References
 
-1. Gap Winner Rule. zfifteen/prime-gap-structure, gwr/findings/gap_winner_rule.md.
+1. Leftmost Minimum-Divisor Rule. zfifteen/prime-gap-structure, gwr/findings/gap_winner_rule.md.
    https://github.com/zfifteen/prime-gap-structure/blob/main/gwr/findings/gap_winner_rule.md
 
 2. Closure Constraint Findings. zfifteen/prime-gap-structure, gwr/findings/closure_constraint_findings.md.

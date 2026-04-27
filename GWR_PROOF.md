@@ -1,8 +1,8 @@
 # GWR_PROOF.md
 
-## Gap Winner Rule: Closed Proof Surface
+## Leftmost Minimum-Divisor Rule: Closed Proof Surface
 
-This document records the closed proof surface for the `Gap Winner Rule`
+This document records the closed proof surface for the `Leftmost Minimum-Divisor Rule`
 (`GWR`) and points to the canonical theorem and closure artifacts now used on
 the visible surface of the repository.
 

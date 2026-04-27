@@ -167,7 +167,7 @@ One false selection kills generator eligibility.
 
 ## Next Gate
 
-The next step is not integration. The next step is hardening:
+The next step is not integration. The next step is rule refinement:
 
 ```text
 previous_to_current_carrier_shift_lock

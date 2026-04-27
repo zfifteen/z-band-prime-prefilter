@@ -1,6 +1,6 @@
 # GWR Explainer Static Storyboard
 
-Working title: **The Gap Winner Rule Inside a Prime Gap**
+Working title: **The Leftmost Minimum-Divisor Rule Inside a Prime Gap**
 
 This storyboard is a static mockup pass only. It does not request Manim rendering
 and does not create video assets.

@@ -101,7 +101,7 @@ higher_divisor_pressure_lock
 ```
 
 It selects `31` true resolved endpoints and `0` false resolved candidates.
-That is not Next-Prime Law 005. It is a candidate lock separator worth hardening.
+That is not Next-Prime Law 005. It is a candidate lock separator worth refining.
 
 The observed shape is:
 
@@ -111,7 +111,7 @@ resolved interval
 => absorption is zero-wrong on 11..10_000
 ```
 
-The next test is scale and anti-leakage hardening for this predicate. It must
+The next test is scale and anti-leakage rule refinement for this predicate. It must
 survive larger surfaces and shifted windows before it can become a Next-Prime Law
 005 candidate.
 
@@ -123,5 +123,5 @@ Next-Prime Law 005 is not approved.
 
 Prime output remains forbidden.
 
-The next target is higher-divisor pressure lock hardening, not generator
+The next target is higher-divisor pressure lock rule refinement, not generator
 integration.

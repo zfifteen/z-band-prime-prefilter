@@ -1,4 +1,4 @@
-# Gap Winner Rule
+# Leftmost Minimum-Divisor Rule
 
 ## Statement
 
@@ -15,7 +15,7 @@ $$
 L(n) = \ln Z_{\mathrm{raw}}(n) = \left(1 - \frac{d(n)}{2}\right)\ln(n).
 $$
 
-The Gap Winner Rule (GWR) says the log-score argmax, equivalently the raw-$Z$
+The Leftmost Minimum-Divisor Rule (GWR) says the log-score argmax, equivalently the raw-$Z$
 argmax, is exactly the interior integer selected by this arithmetic order:
 
 1. choose the smallest interior divisor count $d(n)$,
@@ -31,7 +31,7 @@ This rule was first recorded in this repo under the legacy name
 
 Going forward:
 
-- use `Gap Winner Rule` or `GWR` in new prose,
+- use `Leftmost Minimum-Divisor Rule` or `GWR` in new prose,
 - retain the legacy name where existing titles, figure labels, or filenames
   already depend on it.
 

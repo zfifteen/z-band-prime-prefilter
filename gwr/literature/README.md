@@ -1,7 +1,7 @@
 # GWR Literature
 
 This directory is for novelty-search notes, prior-art tracking, and external
-positioning of the `Gap Winner Rule`.
+positioning of the `Leftmost Minimum-Divisor Rule`.
 
 ## Current Status
 
@@ -13,7 +13,7 @@ remains a literature and prior-art question.
 
 The safe current statement is:
 
-`GWR is a proved universal prime-gap winner theorem in this repository, and no matching prior theorem has yet been identified in the literature search done so far.`
+`GWR is a proved universal prime-selected interior integer theorem in this repository, and no matching prior theorem has yet been identified in the literature search done so far.`
 
 ## Intended Contents
 

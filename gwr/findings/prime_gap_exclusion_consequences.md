@@ -238,7 +238,7 @@ divisor composites near the left side of the gap.
 
 The safest way to state the intuition is:
 
-The Gap Winner Rule does not give a global prime-counting law by itself, but it
+The Leftmost Minimum-Divisor Rule does not give a global prime-counting law by itself, but it
 does impose exact local exclusion constraints on prime-gap interiors. In that
 sense, it says not only which interior composite wins, but also which earlier
 equally simple or simpler composites could not occur before it, and which

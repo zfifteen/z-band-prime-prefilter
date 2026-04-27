@@ -1,6 +1,6 @@
 # What Is Built In, And What Prime Gaps Still Have To Explain
 
-When someone first sees the Gap Winner Rule, the natural pushback is that the
+When someone first sees the Leftmost Minimum-Divisor Rule, the natural pushback is that the
 score already prefers numbers with fewer divisors and earlier position, so the
 result should not be very surprising. That criticism gets one thing right and
 one thing wrong. It is right that taking the log does not create a second

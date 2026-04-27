@@ -101,9 +101,9 @@ The Z value of a composite shrinks as its divisors increase. The integer 720 has
 
 ---
 
-## The connection to the Gap Winner Rule
+## The connection to the Leftmost Minimum-Divisor Rule
 
-In Essay 1, the scoring formula for the Gap Winner Rule was:
+In Essay 1, the scoring formula for the Leftmost Minimum-Divisor Rule was:
 
 > score(n) = (1 - d(n)/2) * ln(n)
 
@@ -111,7 +111,7 @@ That is just the natural logarithm of Z(n). The two formulas are the same object
 
 > score(n) = ln(Z(n)) = ln(n^(1 - d(n)/2)) = (1 - d(n)/2) * ln(n)
 
-So the Gap Winner Rule is not using an arbitrary score. It is finding the integer in the gap with the highest Z value, which means the integer closest to the prime fixed point at 1. Among all the composites in a prime gap, the selected integer is the one most similar to a prime under the DNI measure.
+So the Leftmost Minimum-Divisor Rule is not using an arbitrary score. It is finding the integer in the gap with the highest Z value, which means the integer closest to the prime fixed point at 1. Among all the composites in a prime gap, the selected integer is the one most similar to a prime under the DNI measure.
 
 That reframes the whole observation from Essay 1. The rule is not "minimize divisor count and pick the leftmost tie." That is the mechanical selection procedure. The deeper statement is: **inside every prime gap, the integer closest to the prime fixed point under the DNI is always the leftmost minimum-divisor integer.**
 
@@ -131,7 +131,7 @@ That is why it is the right formula for studying prime gaps. The gap between two
 
 ## What comes next
 
-The next essay turns to the proof question. The observation is clean and the formula is natural. But does the Gap Winner Rule hold for every prime gap everywhere, or only in the first billion integers where it has been checked?
+The next essay turns to the proof question. The observation is clean and the formula is natural. But does the Leftmost Minimum-Divisor Rule hold for every prime gap everywhere, or only in the first billion integers where it has been checked?
 
 The short answer is: the proof is mostly written, the remaining piece is a finite local problem, and the structure of that problem is now visible. That is more progress than "we checked a lot of cases." It is the difference between a conjecture and a theorem under construction.
 

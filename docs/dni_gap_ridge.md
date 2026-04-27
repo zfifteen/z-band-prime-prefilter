@@ -90,7 +90,7 @@ The strongest supported reading of this table is that the raw composite score va
 ## Lexicographic Peak Rule
 
 The current repository now promotes the lexicographic peak rule to the proved
-Gap Winner Rule theorem on the repo's current proof surface.
+leftmost minimum-divisor theorem on the repo's current proof surface.
 
 Across the tested regimes, the exact raw-$Z$ peak inside each prime gap matches
 the leftmost minimizer:

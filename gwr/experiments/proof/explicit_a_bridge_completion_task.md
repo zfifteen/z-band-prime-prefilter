@@ -4,7 +4,7 @@
 
 This is an open analytic bridge task.
 
-The current Gap Winner Rule proof surface is closed by the local-dominator,
+The current leftmost minimum-divisor proof surface is closed by the local-dominator,
 local-admissibility, residual-closure, and exact-audit route documented in:
 
 - [`../../../GWR_PROOF.md`](../../../GWR_PROOF.md)

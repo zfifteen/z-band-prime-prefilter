@@ -216,7 +216,7 @@ rule condition.
 ## Status
 
 ```text
-PGS Prime Generator: not complete
+PGS next-prime generator: not complete
 Pure prime output: forbidden
 Milestone 1: still blocked
 005A: candidate-grade, activation-profiled at candidate_bound=128 and witness_bound=127, safe so far, narrow
@@ -254,5 +254,5 @@ candidate_bound: 128
 witness_bound: 127
 ```
 
-It must not be integrated into generation until it passes the same hardening and
+It must not be integrated into generation until it passes the same rule-refinement and
 action-population gates as 005A.

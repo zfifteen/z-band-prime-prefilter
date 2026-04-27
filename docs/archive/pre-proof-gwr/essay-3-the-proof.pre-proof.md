@@ -1,12 +1,12 @@
 # How Close Is the Proof?
 
-*Essay 3 in a series about a pattern hiding inside prime numbers. Essays 1 and 2 introduced the Gap Winner Rule and the Divisor Normalization Identity. This essay is about the proof: what is closed, what is open, and what the remaining problem actually looks like.*
+*Essay 3 in a series about a pattern hiding inside prime numbers. Essays 1 and 2 introduced the Leftmost Minimum-Divisor Rule and the Divisor Normalization Identity. This essay is about the proof: what is closed, what is open, and what the remaining problem actually looks like.*
 
 ---
 
 ## The question on the table
 
-The Gap Winner Rule says: inside every prime gap, the integer with the highest DNI score is always the leftmost integer of the minimum divisor count. Zero exceptions found across 42 million prime gaps through one billion.
+The Leftmost Minimum-Divisor Rule says: inside every prime gap, the integer with the highest DNI score is always the leftmost integer of the minimum divisor count. Zero exceptions found across 42 million prime gaps through one billion.
 
 But "no exceptions found" is not a proof. A pattern that holds for the first billion integers might fail at a trillion, or a quadrillion, or somewhere astronomers cannot yet count to. Mathematics requires certainty, not just a very long run of good luck.
 
@@ -18,7 +18,7 @@ The honest answer is: most of it. The structure of the remaining problem is now 
 
 ## Splitting the problem in two
 
-The Gap Winner Rule makes a claim about every integer in a prime gap. But "every integer" actually splits cleanly into two groups: integers that come after the selected integer, and integers that come before it.
+The Leftmost Minimum-Divisor Rule makes a claim about every integer in a prime gap. But "every integer" actually splits cleanly into two groups: integers that come after the selected integer, and integers that come before it.
 
 These two cases have completely different characters.
 
@@ -113,7 +113,7 @@ The remaining mathematical task is to prove that these windows are structural ce
 
 It is worth being precise about what makes this problem finite.
 
-The original formulation of the proof challenge was phrased as an asymptotic question: for large enough primes, does the Gap Winner Rule hold? That framing required bounding how large "large enough" had to be, which connected to deep and unresolved conjectures about prime gap sizes.
+The original formulation of the proof challenge was phrased as an asymptotic question: for large enough primes, does the Leftmost Minimum-Divisor Rule hold? That framing required bounding how large "large enough" had to be, which connected to deep and unresolved conjectures about prime gap sizes.
 
 The current formulation is different. It is not asking about large primes. It is asking about a finite list of specific divisor-count configurations. Each configuration either can or cannot occur in a prime gap with a selected integer outside the observed window. That is a local question about arithmetic structure, not an asymptotic question about prime distributions.
 
@@ -143,7 +143,7 @@ That is the difference between a conjecture and a theorem under active construct
 
 ## Why this matters beyond the math
 
-A proof of the Gap Winner Rule would establish that prime gaps have deterministic internal structure under the DNI measure. That is a statement about prime numbers that does not appear in the existing literature under any other framing.
+A proof of the Leftmost Minimum-Divisor Rule would establish that prime gaps have deterministic internal structure under the DNI measure. That is a statement about prime numbers that does not appear in the existing literature under any other framing.
 
 It would also complete the theoretical foundation for the cryptographic prefilter described in the next essay. The prefilter already works empirically, producing a 2x speedup in RSA key generation. A completed proof would make it a theorem-backed construction rather than an empirically calibrated heuristic.
 

@@ -1,7 +1,7 @@
 # Closure-Constraint Findings
 
 This note records the current measured closure surface for the
-closure-constraint reading of the Gap Winner Rule.
+closure-constraint reading of the Leftmost Minimum-Divisor Rule.
 
 ## Statement Tested
 

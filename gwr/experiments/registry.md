@@ -1,6 +1,6 @@
 # GWR Experiment Registry
 
-This registry records the currently validated `Gap Winner Rule` (`GWR`)
+This registry records the currently validated `Leftmost Minimum-Divisor Rule` (`GWR`)
 surfaces in one place.
 
 It is an index, not a second source of truth. The executable details and

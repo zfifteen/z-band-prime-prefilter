@@ -9,7 +9,7 @@ remains forbidden.
 ## Status
 
 ```text
-PGS Prime Generator: not complete
+PGS next-prime generator: not complete
 Milestone 1: still blocked
 Milestone 1A: offline diagnostic-record output produced
 Pure prime output: forbidden
@@ -189,5 +189,5 @@ shifted windows:
   1000000..1100000
 ```
 
-That audit must confirm that the hardening population matches the population
+That audit must confirm that the rule-refinement population matches the population
 that can produce diagnostic records. Pure output remains forbidden.

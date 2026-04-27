@@ -1,4 +1,4 @@
-# The Gap Winner Rule
+# The Leftmost Minimum-Divisor Rule
 
 ## How a geometric-looking score collapsed to a simple arithmetic law
 
@@ -51,7 +51,7 @@ leftmost minimum-divisor integer land on the same integer.
 The top-left panel shows the smallest nontrivial eligible gap. The lower panels
 show tighter-margin examples where several interiors compete more closely. Even
 there, the black star marking the log-score maximizer sits exactly on the red ring
-marking the Gap Winner Rule selected integer.
+marking the leftmost minimum-divisor integer.
 
 That identity is the main discovery.
 
@@ -66,7 +66,7 @@ selected by the simple rule:
 1. choose the smallest interior divisor count $d(n)$,
 2. among ties, choose the leftmost interior integer.
 
-That is the Gap Winner Rule (GWR).
+That is the Leftmost Minimum-Divisor Rule (GWR).
 
 The important point is that GWR is not a loose summary. It was first an exact
 identity on the validation ladder, from exact runs at $10^6$ and
@@ -207,7 +207,7 @@ suggests.
 
 The strongest supported statement at this stage is therefore:
 
-The Gap Winner Rule is a proved universal maximizer theorem in this repository,
+The Leftmost Minimum-Divisor Rule is a proved universal maximizer theorem in this repository,
 and it compresses several previously separate-looking observations into one
 selection rule.
 

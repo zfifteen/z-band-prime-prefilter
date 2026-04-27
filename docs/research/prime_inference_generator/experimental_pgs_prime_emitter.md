@@ -10,7 +10,7 @@ is not approved.
 ## Status
 
 ```text
-PGS Prime Generator: experimental mode ready
+PGS next-prime generator: experimental mode ready
 Production pure output: forbidden
 Milestone 1A: complete
 Milestone 1B: experimental inferred output produced

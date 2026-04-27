@@ -1,6 +1,6 @@
 # Prime-Endpoint Placement Finding
 
-This note records a stronger reading of what `Gap Winner Rule` (`GWR`) says
+This note records a stronger reading of what `Leftmost Minimum-Divisor Rule` (`GWR`) says
 about prime gaps.
 
 The usual surface statement is:

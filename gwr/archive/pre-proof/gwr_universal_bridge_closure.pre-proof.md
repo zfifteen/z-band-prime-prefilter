@@ -1,6 +1,6 @@
 # GWR Universal Bridge Closure
 
-This note records the current headline proof result for the `Gap Winner Rule`
+This note records the current headline proof result for the `Leftmost Minimum-Divisor Rule`
 (`GWR`): the no-early-counterexample bridge closes below the repo's exact verified
 finite base under explicit literature constants.
 

@@ -1,5 +1,5 @@
 ```latex
-\begin{theorem}[Gap Winner Rule — Hierarchical Local-Dominator Law]
+\begin{theorem}[Leftmost Minimum-Divisor Rule — Hierarchical Local-Dominator Law]
 Let \(p < q\) be any two consecutive primes with composite interior
 \[
 I = \{p+1, \dots, q-1\}.

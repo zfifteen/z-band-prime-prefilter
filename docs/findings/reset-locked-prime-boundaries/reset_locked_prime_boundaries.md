@@ -25,7 +25,7 @@ I implemented a full sieve-based analysis (SPF + exact d(n) for all n ≤ 2 M, 1
 
 This matches the claim that the rule keeps "almost all true next primes" while catching the false ones.
 
-### Implications for Completing the PGS Prime Generator
+### Implications for Completing the PGS next-prime generator
 This is **not** a replacement for GWR/NLSC — it is their natural evolution and explains *why* NLSC works so reliably.
 
 **Immediate engineering wins**:

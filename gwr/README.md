@@ -1,6 +1,6 @@
-# Gap Winner Rule
+# Leftmost Minimum-Divisor Rule
 
-This subtree is the forward home for the `Gap Winner Rule` (`GWR`).
+This subtree is the forward home for the `Leftmost Minimum-Divisor Rule` (`GWR`).
 
 `GWR` is the preferred name going forward for the rule previously recorded in
 this repo as the `Lexicographic Winner-Take-All Peak Rule`. The legacy name is
@@ -16,7 +16,7 @@ $$
 Z(n) = \left(1 - \frac{d(n)}{2}\right)\ln(n).
 $$
 
-The `Gap Winner Rule` says the raw-$Z$ maximizer is exactly the lexicographic
+The `Leftmost Minimum-Divisor Rule` says the raw-$Z$ maximizer is exactly the lexicographic
 selected integer:
 
 1. minimize the interior divisor count $d(n)$,
@@ -69,6 +69,6 @@ The current validated summaries and reports are:
 
 Use this form on first mention in new artifacts:
 
-`Gap Winner Rule (GWR; legacy: Lexicographic Winner-Take-All Peak Rule)`
+`Leftmost Minimum-Divisor Rule (GWR; legacy: Lexicographic Winner-Take-All Peak Rule)`
 
 After first mention, use `GWR`.

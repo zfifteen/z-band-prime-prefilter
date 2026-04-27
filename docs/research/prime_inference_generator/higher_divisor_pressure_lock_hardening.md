@@ -1,6 +1,6 @@
-# Higher-Divisor Pressure Lock Hardening
+# Higher-Divisor Pressure Lock Rule Refinement
 
-The higher-divisor pressure lock survives the staged zero-wrong hardening
+The higher-divisor pressure lock survives the staged zero-wrong rule refinement
 surface through input primes `11..1_000_000`.
 
 Next-Prime Law 005 is not approved by this note.
@@ -17,24 +17,24 @@ This note hardens that candidate across larger exact surfaces, then records the
 first flagged integration test. The rule remains offline theorem discovery. It
 is not part of pure generation.
 
-## Hardening Instrument
+## Rule-Refinement Instrument
 
 Script:
 
-- `../../../benchmarks/python/prime_inference_generator/higher_divisor_pressure_lock_hardening.py`
+- `../../../benchmarks/python/prime_inference_generator/higher_divisor_pressure_lock_rule refinement.py`
 
 Artifacts:
 
-- `higher_divisor_pressure_lock_hardening_rows.jsonl`
-- `higher_divisor_pressure_lock_hardening_summary.json`
+- `higher_divisor_pressure_lock_rule refinement_rows.jsonl`
+- `higher_divisor_pressure_lock_rule refinement_summary.json`
 
 Command:
 
 ```bash
-python3 benchmarks/python/prime_inference_generator/higher_divisor_pressure_lock_hardening.py --start-anchor 11 --max-anchors 10000 100000 1000000 --candidate-bound 64 --witness-bound 97 --output-dir /tmp/pgs_hd_lock_hardening_1m
+python3 benchmarks/python/prime_inference_generator/higher_divisor_pressure_lock_rule refinement.py --start-anchor 11 --max-anchors 10000 100000 1000000 --candidate-bound 64 --witness-bound 97 --output-dir /tmp/pgs_hd_lock_rule refinement_1m
 ```
 
-## Hardening Result
+## Rule-Refinement Result
 
 | Surface | Rows | True resolved | False resolved | True selected | False selected | Wrong |
 |---|---:|---:|---:|---:|---:|---:|
@@ -43,7 +43,7 @@ python3 benchmarks/python/prime_inference_generator/higher_divisor_pressure_lock
 | `11..1_000_000` | `78494` | `49019` | `46286` | `31` | `0` | `0` |
 
 The selected true count does not grow after the early surface. The important
-hardening result is safety under a much larger false-resolved pool:
+rule-refinement result is safety under a much larger false-resolved pool:
 
 ```text
 higher_divisor_pressure_lock_false_selected: 0
@@ -92,7 +92,7 @@ remaining candidates after unresolved alternatives are absorbed.
 
 The candidate has now passed two separate checks:
 
-- lock-separator hardening through input primes `11..1_000_000`;
+- lock-separator rule refinement through input primes `11..1_000_000`;
 - flagged absorption integration through input primes `11..100_000`.
 
 This is candidate material for Next-Prime Law 005, not approval. The current
@@ -106,7 +106,7 @@ resolved interval
 
 The next artifact should be a candidate law note only if the project lead
 accepts this integration result as enough to draft one. It should remain
-explicitly labeled as a candidate law until a theorem or broader hardening
+explicitly labeled as a candidate law until a theorem or broader rule refinement
 surface is established.
 
 ## Status

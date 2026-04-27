@@ -1,7 +1,7 @@
 # GWR Proof Scripts
 
 This folder is for executable scripts that probe, stress-test, and support
-proof work on the `Gap Winner Rule` (`GWR`).
+proof work on the `Leftmost Minimum-Divisor Rule` (`GWR`).
 
 The current scripts in this folder are research instruments.
 They are not part of the validation registry, and none of them by itself is a

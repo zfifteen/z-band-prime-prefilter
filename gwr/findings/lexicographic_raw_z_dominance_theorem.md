@@ -100,7 +100,7 @@ Then $n_i$ is the unique maximizer of $Z$ on $S$.
 
 In particular, if the interior composites of a prime gap satisfy this ordered
 divisor condition relative to the leftmost minimizer, then the raw-$Z$
-selected integer is exactly the Gap Winner Rule selected integer.
+selected integer is exactly the leftmost minimum-divisor integer.
 
 ## Remark
 

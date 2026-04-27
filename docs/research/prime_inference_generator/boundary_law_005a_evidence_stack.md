@@ -6,7 +6,7 @@ Next-Prime Law 005A is the sole live Next-Prime Law 005 candidate.
 
 Current project status:
 
-- PGS Prime Generator: not complete
+- PGS next-prime generator: not complete
 - Milestone 0: accepted
 - Milestone 1 positive output: blocked
 - pure prime output: forbidden
@@ -69,9 +69,9 @@ Classical labels may be attached only after the rule acts, for audit.
 
 The rule must abstain when the legal higher-divisor pressure lock is absent.
 
-## Hardening Surface
+## Rule-Refinement Surface
 
-005A hardening used:
+005A rule refinement used:
 
 - candidate bound: 64
 - witness bound: 97
@@ -79,7 +79,7 @@ The rule must abstain when the legal higher-divisor pressure lock is absent.
 - selected-integer-locked pressure ceiling: enabled
 - selected-integer-lock predicate: unresolved_alternatives_before_threat
 
-Staged hardening results:
+Staged rule-refinement results:
 
 | surface | true resolved candidates | false resolved candidates | true selected | false selected | wrong |
 |---|---:|---:|---:|---:|---:|
@@ -122,19 +122,19 @@ false_resolved_survivor_absorbed_count: 0
 
 ## Action-Population Audit
 
-005B failed because its hardening population did not cover every candidate it could act on during integration.
+005B failed because its rule-refinement population did not cover every candidate it could act on during integration.
 
 005A passed that audit.
 
 Action-population audit results:
 
-| lock | hardening candidates | integration actions | missed actions | wrong absorptions | true next prime rejected |
+| lock | rule-refinement candidates | integration actions | missed actions | wrong absorptions | true next prime rejected |
 |---|---:|---:|---:|---:|---:|
 | 005A higher_divisor_pressure_lock | 114222 | 31 | 0 | 0 | 0 |
 
 Surface detail:
 
-| surface | hardening candidates | integration actions | missed actions | wrong absorptions | true next prime rejected |
+| surface | rule-refinement candidates | integration actions | missed actions | wrong absorptions | true next prime rejected |
 |---|---:|---:|---:|---:|---:|
 | 11..1000000 | 95305 | 31 | 0 | 0 | 0 |
 | 100000..200000 | 10163 | 0 | 0 | 0 | 0 |

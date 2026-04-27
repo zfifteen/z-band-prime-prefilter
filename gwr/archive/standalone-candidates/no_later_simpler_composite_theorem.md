@@ -139,7 +139,7 @@ That converts the intuition into a measurable object rather than just a slogan.
 
 The safest way to state the candidate is:
 
-If the Gap Winner Rule is the full interior maximizer rule, then the
+If the Leftmost Minimum-Divisor Rule is the full interior maximizer rule, then the
 No-Later-Simpler-Composite condition is an exact corollary. Independently of that,
 the same closure condition can be treated as a standalone theorem candidate
 about prime-gap termination: once the score maximizer appears, the next prime

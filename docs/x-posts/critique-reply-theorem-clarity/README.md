@@ -1,4 +1,4 @@
-# The 'Gap Winner Rule' Explained
+# The 'Leftmost Minimum-Divisor Rule' Explained
 
 I think there is one real terminology issue here, and fixing it makes the
 theorem easier to see. Low-divisor integers are not highly composite numbers in

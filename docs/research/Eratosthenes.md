@@ -133,7 +133,7 @@ $$
 L(n) = \ln Z(n) = \left(1 - \frac{d(n)}{2}\right)\ln n
 $$
 
-which is negative for composites (since $d(n) \geq 4$), negative-approaching-zero for composites with small $d(n)$, and exactly zero for primes ($d(p) = 2$). The primes are the fixed-point locus $Z = 1.0$ of the DNI score function. Every composite in a gap interior receives a score strictly below the prime endpoint -- and the **Gap Winner Rule (GWR)** identifies which composite comes closest.
+which is negative for composites (since $d(n) \geq 4$), negative-approaching-zero for composites with small $d(n)$, and exactly zero for primes ($d(p) = 2$). The primes are the fixed-point locus $Z = 1.0$ of the DNI score function. Every composite in a gap interior receives a score strictly below the prime endpoint -- and the **Leftmost Minimum-Divisor Rule (GWR)** identifies which composite comes closest.
 
 ## The GWR Statement and Its Two-Sided Closure
 

@@ -1,4 +1,4 @@
-# Previous-to-Current Integer Shift Lock Hardening
+# Previous-to-Current Integer Shift Lock Rule Refinement
 
 The previous-to-current selected-integer shift lock remained zero-wrong on all tested
 surfaces and abstained on both shifted windows.
@@ -20,7 +20,7 @@ after the previous endpoint and previous search-interval diagnostic record are a
 
 ## Tested Configuration
 
-The hardening run used:
+The rule-refinement run used:
 
 ```text
 candidate_bound: 64
@@ -53,7 +53,7 @@ The origin-scaled surfaces selected `21` true resolved candidates and `0` false
 resolved candidates. The shifted windows selected `0` candidates and remained
 safe by abstention.
 
-## Hardening Matrix
+## Rule-Refinement Matrix
 
 | Surface | Candidate count | True candidates | False candidates | True selected | False selected | Wrong | Positive selections |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -78,7 +78,7 @@ previous_first_open_transition_lock
 
 Those broader predicates selected many true candidates and many false
 remaining candidates. The integer-shift lock selected far fewer candidates and selected no
-false remaining candidates on this hardening surface.
+false remaining candidates on this rule-refinement surface.
 
 The result supports candidate status:
 

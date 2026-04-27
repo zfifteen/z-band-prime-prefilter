@@ -1,7 +1,7 @@
 # Dominant $d=4$ Arrival-Reduction Findings
 
 This note records the current measured status of the dominant-case reduction
-behind the Gap Winner Rule.
+behind the Leftmost Minimum-Divisor Rule.
 
 ## Statement Tested
 

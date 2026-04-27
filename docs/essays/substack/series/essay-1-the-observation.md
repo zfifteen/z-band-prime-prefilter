@@ -116,7 +116,7 @@ It is the exact ordering rule on the tested surface:
 
 **the highest-scoring interior integer is the leftmost integer of the smallest divisor count present in the gap.**
 
-This is the Gap Winner Rule.
+This is the Leftmost Minimum-Divisor Rule.
 
 ---
 

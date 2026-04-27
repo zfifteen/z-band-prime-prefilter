@@ -106,7 +106,7 @@ the tested origin surface because every selected activation yielded a unique
 resolved candidate after absorption.
 
 This remains a candidate pattern. A future integration gate must verify that
-the refined action population matches the hardening population before any pure
+the refined action population matches the rule-refinement population before any pure
 generation discussion.
 
 ## Falsification Conditions

@@ -1,6 +1,6 @@
-# Legal Candidate Hardening
+# Legal Candidate Rule Refinement
 
-The first legal higher-divisor shadows did not survive the hardening gate.
+The first legal higher-divisor shadows did not survive the rule-refinement gate.
 
 The strongest conflict result belongs to
 `multiplicity_pressure_without_primality`: it has zero conflicts on every
@@ -32,12 +32,12 @@ input prime fingerprint.
 
 Script:
 
-- `benchmarks/python/prime_inference_generator/legal_candidate_hardening_probe.py`
+- `benchmarks/python/prime_inference_generator/legal_candidate_rule refinement_probe.py`
 
 Artifacts:
 
-- `legal_candidate_hardening_summary.json`
-- `legal_candidate_hardening_candidates.jsonl`
+- `legal_candidate_rule refinement_summary.json`
+- `legal_candidate_rule refinement_candidates.jsonl`
 
 Each candidate report records:
 
@@ -62,15 +62,15 @@ Each candidate report records:
 - `uses_old_walker`
 - `first_collision_examples`
 - `table_like_state`
-- `hardening_gate_status`
-- `passes_hardening_gate`
+- `rule refinement_gate_status`
+- `passes_rule refinement_gate`
 
-The hardening gate marks a zero-conflict candidate as quarantined when
+The rule-refinement gate marks a zero-conflict candidate as quarantined when
 `distinct_state_ratio >= 0.95` or `singleton_bucket_rate >= 0.95`.
 
 ## Surfaces
 
-The required hardening surfaces were:
+The required rule-refinement surfaces were:
 
 - input primes `11..100_000`, prefix `32`
 - input primes `11..1_000_000`, prefix `32`
@@ -91,7 +91,7 @@ Rows: `9588`
 | `power_signature_pressure` | `0` | `1.0` | `1.0` | `quarantined_table_like_state` |
 | `bounded_composite_witness_pressure` | `0` | `1.0` | `1.0` | `quarantined_table_like_state` |
 
-Hardening candidates: none.
+Rule-refinement candidates: none.
 
 ### Input Primes 11..1,000,000, Prefix 32
 
@@ -103,7 +103,7 @@ Rows: `78494`
 | `power_signature_pressure` | `8` | `0.99986` | `0.99986` | `failed_collision_gate` |
 | `bounded_composite_witness_pressure` | `2` | `0.999949` | `0.999949` | `failed_collision_gate` |
 
-Hardening candidates: none.
+Rule-refinement candidates: none.
 
 ### Input Primes 11..1,000,000, Prefix 16
 
@@ -115,7 +115,7 @@ Rows: `78494`
 | `power_signature_pressure` | `9` | `0.999834` | `0.999834` | `failed_collision_gate` |
 | `bounded_composite_witness_pressure` | `329` | `0.993668` | `0.993718` | `failed_collision_gate` |
 
-Hardening candidates: none.
+Rule-refinement candidates: none.
 
 ### Input Primes 11..1,000,000, Prefix 64
 
@@ -127,7 +127,7 @@ Rows: `78494`
 | `power_signature_pressure` | `8` | `0.99986` | `0.99986` | `failed_collision_gate` |
 | `bounded_composite_witness_pressure` | `0` | `1.0` | `1.0` | `quarantined_table_like_state` |
 
-Hardening candidates: none.
+Rule-refinement candidates: none.
 
 ### Input primes 100,000..200,000, Prefix 32
 
@@ -139,7 +139,7 @@ Rows: `8392`
 | `power_signature_pressure` | `0` | `1.0` | `1.0` | `quarantined_table_like_state` |
 | `bounded_composite_witness_pressure` | `0` | `1.0` | `1.0` | `quarantined_table_like_state` |
 
-Hardening candidates: none.
+Rule-refinement candidates: none.
 
 ### Input primes 1,000,000..1,100,000, Prefix 32
 
@@ -151,7 +151,7 @@ Rows: `7216`
 | `power_signature_pressure` | `0` | `1.0` | `1.0` | `quarantined_table_like_state` |
 | `bounded_composite_witness_pressure` | `0` | `1.0` | `1.0` | `quarantined_table_like_state` |
 
-Hardening candidates: none.
+Rule-refinement candidates: none.
 
 ## Interpretation
 

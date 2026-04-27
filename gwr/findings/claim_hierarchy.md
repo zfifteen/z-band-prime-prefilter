@@ -1,6 +1,6 @@
 # GWR Claim Hierarchy
 
-This note fixes the claim structure for `Gap Winner Rule` (`GWR`) work in this
+This note fixes the claim structure for `Leftmost Minimum-Divisor Rule` (`GWR`) work in this
 repo so theorem-backed statements, exact corollaries, and empirical
 consequences do not get mixed.
 
@@ -32,7 +32,7 @@ Primary note:
 
 ## 2. Prime-Gap Selected integer Law
 
-**Gap Winner Rule (`GWR`)**
+**Leftmost Minimum-Divisor Rule (`GWR`)**
 
 `GWR` is the proved universal prime-selected interior integer theorem carried by the current
 repo proof surface.

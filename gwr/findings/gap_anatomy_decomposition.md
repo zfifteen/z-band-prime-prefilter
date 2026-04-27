@@ -1,6 +1,6 @@
 # Gap Anatomy Decomposition of GWR
 
-This note records one cleaner reading of the current `Gap Winner Rule` surface.
+This note records one cleaner reading of the current `Leftmost Minimum-Divisor Rule` surface.
 
 The strongest supported finding is:
 
