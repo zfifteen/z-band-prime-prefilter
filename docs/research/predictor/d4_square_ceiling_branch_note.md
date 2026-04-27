@@ -89,7 +89,7 @@ records:
 - zero observed margins `3`, `4`, or `5`,
 - first observed non-floor margin `6`.
 
-The compact terminal certificate from that exact scan is:
+The compact terminal diagnostic record from that exact scan is:
 
 | Terminal margin | Count on exact $10^8$ non-floor surface |
 |---:|---:|
@@ -122,14 +122,14 @@ On the current exact $10^8$ surface, the scan reports:
 - zero cases where $r^2 - 4$ itself is prime on the live composite-`r^2-2`
   branch,
 - terminal margin counts consistent with the non-floor scan,
-- factor certificates for
+- factor witnesses for
   $r^2 - 4$,
   $r^2 - 2$,
   and
   $r^2 - 1$
   on the smallest obstruction rows.
 
-The compact exact branch certificate from that scan is:
+The compact exact branch verification record from that scan is:
 
 | Terminal mode on exact $10^8$ live branch | Count |
 |---|---:|

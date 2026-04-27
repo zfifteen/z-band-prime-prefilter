@@ -165,7 +165,7 @@ These three input primes now line up cleanly:
 - the Meissel-Mertens constant input primes where reciprocal-prime thresholds sit,
 - `FIXED_POINT_V = e^{2}/2` input primes the `DCI` prime fixed-point band,
 - the bridge-load threshold $B(k, w) < 1$ input primes the current `GWR`
-  no-early-spoiler closure certificate.
+  no-early-spoiler closure record.
 
 The shared lesson is that this project advances fastest when it finds the right
 invariant endpoint and then measures ratios against that endpoint.

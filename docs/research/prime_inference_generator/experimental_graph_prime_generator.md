@@ -85,11 +85,11 @@ failed at input prime `10193` on the `11..100_000` surface.
 `filtered-v5` runs the same internal risky-v5 solve, then applies a
 label-free positive disqualification filter before emitting a record. It does
 not emit when `inferred_prime_q_hat` has any of these positive nonboundary
-certificates:
+diagnostic records:
 
 - bounded composite witness;
 - power witness;
-- certified divisor-class nonboundary certificate;
+- certified divisor-class nonnext-prime diagnostic record;
 - wheel-closed status.
 
 Filtered candidates are not written as inferred-prime records. They are

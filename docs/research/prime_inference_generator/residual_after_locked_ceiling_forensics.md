@@ -61,7 +61,7 @@ Residual pattern counts:
 ## Interpretation
 
 The locked ceiling is safe and prunes false candidates, but it does not complete
-the certificate.
+the diagnostic record.
 
 The largest residual class is:
 

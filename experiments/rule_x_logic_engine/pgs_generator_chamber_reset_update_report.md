@@ -2,7 +2,7 @@
 
 ## Result
 
-The minimal PGS generator now emits search-interval-reset PGS certificates under:
+The minimal PGS generator now emits search-interval-reset PGS selection records under:
 
 ```text
 rule_id: pgs_chamber_reset_v1

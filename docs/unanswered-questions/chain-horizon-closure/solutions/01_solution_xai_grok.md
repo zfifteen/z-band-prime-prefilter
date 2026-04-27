@@ -27,7 +27,7 @@ All answers correctly restate the problem and converge on the *exact* experiment
 **Experiment results**: Code review confirms the attractor triad (o2/o4/o6) is already encoded in search-interval closure. Simulation aligns: when multiple wheel-open nodes exist, max_SPF correlates with local residue patterns (wheel_bound proxy). **Finding**: 92 % of gaps in sim would be closed by their proposed H; confirming result likely. Strong but not the most actionable.
 
 **02_asnwer_grok.md** (earlier Grok variant)
-**Strengths**: Accurately maps current generator shape to repo files; highlights existing terminal-certificate miner and ranker/signature rules; claims the falsifying result is “not supported” (correct).
+**Strengths**: Accurately maps current generator shape to repo files; highlights existing terminal-diagnostic-record miner and ranker/signature rules; claims the falsifying result is “not supported” (correct).
 **Weaknesses**: Overstates “existing mining infrastructure” — the repo has related scripts but no explicit least-factor frontier collector yet.
 **Experiment results**: Simulation + code review show the low-exact-terminal-signature rule they mention already captures much of the structure; required_horizon in sim never exceeded candidate_bound-scale. **Finding**: Validates their path-to-pure-PGS (extend miner → replace factorization). Good, but slightly less detailed than later answers.
 

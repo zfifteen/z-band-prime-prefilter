@@ -127,7 +127,7 @@ Previous-search-interval transition compatibility is also not safe:
 - `selection_wrong_count: 168`
 
 The current blocker is not search-interval closure. The blocker is resolved-interval
-dominance. Multiple resolved certificates can coexist, and the tested local
+dominance. Multiple resolved diagnostic records can coexist, and the tested local
 ordering rules do not select the true next prime safely.
 
 ## Status

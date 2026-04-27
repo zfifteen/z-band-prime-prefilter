@@ -176,13 +176,13 @@ Taken together, they suggest something sharper:
 the hard part of the problem is probably not that actual prime gaps are full of
 near-failure patterns that slowly get worse with scale.
 
-Before the explicit bridge certificate, the checked files supported this
+Before the explicit bridge verification record, the checked files supported this
 reading:
 
 many divisor-count patterns remain unresolved on paper, but only a small part
 of them seem able to occur inside actual gaps between consecutive primes.
 
-The bridge certificate now supplies the large-$p$ inequality route for the
+The bridge verification record now supplies the large-$p$ inequality route for the
 headline `GWR` theorem under the recorded BHP/Robin constants. This note remains
 useful as the local-pattern reading of why the exact frontier was so thin.
 
@@ -203,7 +203,7 @@ consecutive primes.
 
 ## Consequences For The Proof Program
 
-Before the bridge certificate, this reading suggested posing the main problem
+Before the bridge verification record, this reading suggested posing the main problem
 less as:
 
 "what inequality eventually defeats the infinite tail?"

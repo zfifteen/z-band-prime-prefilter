@@ -1,7 +1,7 @@
 # Endpoint Forcing Theorem Search
 
 Endpoint Laws 001 through 004 isolate the live blocker for the PGS Prime
-Inference Generator. The pure scaffold is clean. The search-interval certificates are
+Inference Generator. The pure scaffold is clean. The search-interval diagnostic records are
 real. The missing ingredient is a theorem that turns PGS search-interval data into a
 unique next prime.
 
@@ -18,7 +18,7 @@ Milestone 1 remains blocked.
 
 The strongest supported result is:
 
-PGS search-interval certificates can certify interior closure, GWR-selected integers,
+PGS search-interval diagnostic records can certify interior closure, GWR-selected integers,
 leftmost-minimum integers, and local no-later-simpler consistency. They do not
 yet force a unique next prime.
 
@@ -64,13 +64,13 @@ Current status:
 
 Reason:
 
-The selected-integer-lock certificate proves coherence inside a proposed interval. It
+The selected-integer-lock diagnostic record establishes coherence inside a proposed interval. It
 does not prove that the proposed interval must stop at the candidate next prime.
 
 Kill condition:
 
 Two different admissible candidate next primes with internally coherent integer
-certificates kill the unqualified theorem. A surviving version must identify
+diagnostic records refute the unqualified theorem. A surviving version must identify
 which candidate is forced and why.
 
 ## Theorem Family 3: Transition-State Endpoint Theorem

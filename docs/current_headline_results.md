@@ -2,7 +2,7 @@
 
 - **This file is the public proof-status override for `GWR`.** If another file
   still describes the theorem as a bridge-era conditional BHP/Robin result,
-  or still presents the bridge certificate as the proof-critical path, treat
+  or still presents the bridge verification record as the proof-critical path, treat
   that file as historical comparison material unless the same claim is repeated
   here and in [../GWR_PROOF.md](../GWR_PROOF.md).
 - **GWR is proved and closed on the repository's current proof surface.** The
@@ -68,6 +68,6 @@
   [../gwr/archive/pre-proof/README.md](../gwr/archive/pre-proof/README.md).
 - **Bridge-era proof scripts are retained for comparison, not for current
   theorem status.** The current live earlier-side route is the local
-  admissibility program. The bridge certificate and related BHP/Robin notes in
+  admissibility program. The bridge verification record and related BHP/Robin notes in
   `gwr/experiments/proof/` are research comparison material unless explicitly
   cited here as part of the live proof summary.

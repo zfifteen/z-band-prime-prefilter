@@ -12,7 +12,7 @@ produced its graph state, and only for reporting.
 ## Purpose
 
 Candidate-Constraint Graph Solver v0 safely emitted 36 experimental graph
-certificates on input primes `11..10_000`, but did not improve coverage beyond the
+diagnostic records on input primes `11..10_000`, but did not improve coverage beyond the
 005A-R emitter. The abstention analysis identified why the solver stopped and
 which graph relation should be added next.
 

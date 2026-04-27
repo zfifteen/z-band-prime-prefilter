@@ -172,7 +172,7 @@ The repaired relation acts only when all of these graph facts are present:
 - the target has positive non-endpoint evidence.
 
 The positive non-endpoint evidence is label-free. It may come from a bounded
-composite witness, power witness, certified divisor-class certificate,
+composite witness, power witness, certified divisor-class diagnostic record,
 wheel-closed target, independently rejected target, or target position beyond
 a selected selected-integer-locked pressure ceiling.
 
@@ -191,7 +191,7 @@ Each emitted JSONL record uses:
 - `classical_audit_required: true`
 - `classical_audit_status: NOT_RUN`
 
-The inferred value is emitted as an experimental graph certificate. It is not a
+The inferred value is emitted as an experimental graph diagnostic record. It is not a
 production prime-generation result.
 
 ## Audit Endpoint

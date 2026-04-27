@@ -30,11 +30,11 @@ Replace the exact `d(n)=4` oracle in this same handoff with a deterministic low-
 
 ## 2026-04-11 04:08 run
 Mechanism:
-Short-table certified opening-prefix pruning: skip the longest initial wheel-open prefix whose members each have a fixed small-prime divisor certificate, then start classical prime testing at the first uncertified candidate.
+Short-table certified opening-prefix pruning: skip the longest initial wheel-open prefix whose members each have a fixed small-prime factor witness, then start classical prime testing at the first uncertified candidate.
 Why it could help:
 It replaces full candidate primality tests on a guaranteed-composite opening prefix with a short fixed set of modulus checks and avoids full interval divisor-count construction.
 Method:
-Ran one deterministic consecutive-gap sweep through current right prime `< 10^7`, swept fixed certificate tables from `{7}` through primes `<= 47`, and counted baseline wheel-candidate prime tests versus a safe hybrid that prunes only individually certified opening-prefix candidates.
+Ran one deterministic consecutive-gap sweep through current right prime `< 10^7`, swept fixed factor-witness tables from `{7}` through primes `<= 47`, and counted baseline wheel-candidate prime tests versus a safe hybrid that prunes only individually certified opening-prefix candidates.
 What was built or tested:
 An in-shell Python prototype enumerated wheel-open candidates in each exact gap, certified each opening-prefix candidate by divisibility against the fixed table, stopped at the first uncertified candidate, and tallied the remaining full candidate primality tests.
 Result:
@@ -44,7 +44,7 @@ ADVANCE
 Artifacts:
 `docs/research/algorithmic_frontier_hourly.md`; in-shell Python experiment output with the short-table sweep over `{7}` through primes `<= 47` and exact best-table counts `applicable_gaps = 338906`, `saved_tests = 612968`, `overall_reduction_fraction = 0.22986279887005098`.
 Next step:
-Compress the primes-`<= 47` certificate rule into a residue lookup and test the same safe prefix-pruning yield on a higher-scale surface.
+Compress the primes-`<= 47` diagnostic-record rule into a residue lookup and test the same safe prefix-pruning yield on a higher-scale surface.
 
 ## 2026-04-11 05:04 run
 Mechanism:
@@ -74,7 +74,7 @@ Ran one deterministic `100,000`-gap consecutive sweep starting at the first prim
 What was built or tested:
 An in-shell Python prototype precomputed `2,544` state entries, one mask table per prime, OR-ed the `12` masks selected by the current right-prime residues, and recovered the contiguous certified opening prefix by scanning the low bits of the combined mask.
 Result:
-On the same `10^12` surface from `q = 1000000000039`, the residue-mask lookup matched the direct primes-`<= 47` certificate prefix on all `100,000` gaps with `0` mismatches. It therefore reproduced the same hybrid gain exactly: baseline wheel-open candidate tests `736,450`, hybrid tests `644,121`, saved tests `92,329`, overall reduction `12.54%`, and applicable-gap share `50.77%`. The longest certified opening prefix observed was `11`, so the `64`-bit mask left wide headroom on this surface, and the full lookup surface fits in `20,352` bytes at one `uint64` per state.
+On the same `10^12` surface from `q = 1000000000039`, the residue-mask lookup matched the direct primes-`<= 47` factor-witness prefix on all `100,000` gaps with `0` mismatches. It therefore reproduced the same hybrid gain exactly: baseline wheel-open candidate tests `736,450`, hybrid tests `644,121`, saved tests `92,329`, overall reduction `12.54%`, and applicable-gap share `50.77%`. The longest certified opening prefix observed was `11`, so the `64`-bit mask left wide headroom on this surface, and the full lookup surface fits in `20,352` bytes at one `uint64` per state.
 Status:
 ADVANCE
 Artifacts:

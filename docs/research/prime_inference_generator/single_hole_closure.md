@@ -227,6 +227,6 @@ gate:
 - the true-next-prime unresolved count fell from `230` to `52`;
 - true-next-prime rejection stayed at `0`.
 
-It did not create unique resolved next prime certificates. Because `52`
+It did not create unique resolved next prime diagnostic records. Because `52`
 false-endpoint alternatives were also closed, the eliminator still has
 unresolved or competing alternatives and remains fail-closed.

@@ -42,7 +42,7 @@ The production generator has one execution path:
 input prime p -> GWR/NLSC search-interval-reset selector -> emit {"p": p, "q": q}
 ```
 
-The emitted stream contains only `p` and `q`. Source labels, certificates,
+The emitted stream contains only `p` and `q`. Source labels, diagnostic records,
 diagnostics, timing, and audit results live outside the emitted stream.
 
 Downstream audit validates emitted records after generation. Audit does not

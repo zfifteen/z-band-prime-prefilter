@@ -1,4 +1,4 @@
-# Next-Prime Law 003: First Selected-Integer-Bearing Search Interval Certificate
+# Next-Prime Law 003: First Selected-Integer-Bearing Search Interval Diagnostic Record
 
 Next-Prime Law 003 moves the first positive target away from the empty input-prime-11
 search interval. The target is a search interval where PGS has actual interior structure: a
@@ -7,11 +7,11 @@ closure condition that can be inspected without classical endpoint detection.
 
 This note uses the small search interval from input prime `13` to proposed endpoint `17` as
 the first probe. It does not emit yet. It establishes the selected-integer-bearing
-certificate and identifies the remaining uniqueness gap.
+diagnostic record and identifies the remaining uniqueness gap.
 
 ## Name
 
-First Selected-Integer-Bearing Search Interval Certificate.
+First Selected-Integer-Bearing Search Interval Diagnostic Record.
 
 The law asks whether a nonempty search interval with a GWR-compatible selected integer can force
 its right endpoint from PGS structure alone.
@@ -64,7 +64,7 @@ Next-Prime Law 003 must not use:
 The string `17` may appear only as the proposed endpoint in the law probe. It
 must not be used as a known prime.
 
-## Proposed Search Interval Certificate
+## Proposed Search Interval Diagnostic Record
 
 For the proposed interior:
 
@@ -91,12 +91,12 @@ The selection metadata is:
 - `winner_divisor_count: 4`
 - `winner_family: "semiprime"`
 
-This is the first meaningful selected-integer-bearing certificate in the Milestone 1
+This is the first meaningful selected-integer-bearing diagnostic record in the Milestone 1
 sequence.
 
 ## GWR Compatibility
 
-The GWR requirement for the proposed interval is satisfied at the certificate
+The GWR requirement for the proposed interval is satisfied at the diagnostic record
 level:
 
 - every interior point has an explicit composite witness;
@@ -147,7 +147,7 @@ search interval is uniquely forced as the right endpoint.
 
 ## Endpoint Uniqueness Gap
 
-The current certificate still separates three statements:
+The current diagnostic record still separates three statements:
 
 - `14`, `15`, and `16` are composite interior points;
 - `14` is the GWR-compatible leftmost minimum-divisor integer;
@@ -178,7 +178,7 @@ fails to prove that the search interval structure forces the right endpoint.
 
 Pure mode may emit under `boundary_law_003` only when:
 
-1. the proposed interior has deterministic composite certificates;
+1. the proposed interior has deterministic factor witnesss;
 2. the proposed interior has a GWR-compatible selected integer;
 3. later lower-divisor threats are excluded or bounded by PGS structure;
 4. all smaller proposed endpoint positions are closed;
@@ -219,7 +219,7 @@ degeneracy of the input prime-11 case, but it does not by itself solve endpoint
 uniqueness.
 
 The next proof task is to determine whether GWR/DNI plus no-later-simpler
-closure can force a endpoint, or whether the current certificates only validate
+closure can force a endpoint, or whether the current diagnostic records only validate
 proposed intervals after a proposed endpoint has already been chosen.
 
 If the latter is true, the missing theorem is not input prime-specific. It is a

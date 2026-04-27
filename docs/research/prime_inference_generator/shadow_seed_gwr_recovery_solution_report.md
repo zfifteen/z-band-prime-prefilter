@@ -19,7 +19,7 @@ stream remains exactly:
 {"p": 89, "q": 97}
 ```
 
-No source label, confidence field, certificate, or metadata is added to the
+No source label, confidence field, diagnostic record, or metadata is added to the
 emitted record. Source information stays in the sidecar diagnostics, where the
 bridge is labeled `shadow_seed_recovery`.
 
@@ -95,7 +95,7 @@ It is implemented in
 
 Generation order is now:
 
-1. Build the `pgs_chamber_closure_v2` certificate.
+1. Build the `pgs_chamber_closure_v2` diagnostic record.
 2. Let `q0` be the search-interval-closure candidate.
 3. If `q0` passes deterministic divisor checking, emit `q0` as `PGS` under
    `pgs_chamber_closure_v2`.
@@ -212,7 +212,7 @@ The old model was:
 ```text
 shadow = failed candidate
 chain = repair search object
-terminal node = missing certificate
+terminal node = missing diagnostic record
 ```
 
 The new model is:

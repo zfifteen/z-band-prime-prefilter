@@ -144,7 +144,7 @@ history contract:
 
 ```text
 accepted previous endpoint
-accepted previous search-interval certificate
+accepted previous search-interval diagnostic record
 current resolved candidate
 previous-to-current selected-integer shift
 ```

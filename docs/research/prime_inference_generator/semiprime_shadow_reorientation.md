@@ -77,7 +77,7 @@ semiprime shadow detected
 => mark shadow as left-side landmark
 => inspect right-neighborhood search interval
 => search for first lawful right-side endpoint transition
-=> emit only if a label-free rightward certificate is found
+=> emit only if a label-free rightward diagnostic record is found
 ```
 
 ## Candidate Mechanism
@@ -115,7 +115,7 @@ If a endpoint-like candidate has shadow structure,
 and the graph has unresolved candidates to its right,
 then the shadow cannot authorize final emission.
 Instead, the graph must re-open the right-neighborhood and look for a
-right-side endpoint certificate.
+right-side endpoint diagnostic record.
 ```
 
 ## Safety Endpoint

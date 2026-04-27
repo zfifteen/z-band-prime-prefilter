@@ -62,7 +62,7 @@ any label-free positive target evidence is present:
 
 - bounded composite witness;
 - power witness;
-- certified divisor-class certificate;
+- certified divisor-class diagnostic record;
 - wheel-closed target;
 - independently rejected target;
 - target beyond a selected selected-integer-locked pressure ceiling.

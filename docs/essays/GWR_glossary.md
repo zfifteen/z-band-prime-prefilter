@@ -220,7 +220,7 @@ If such a candidate really beat the selected integer, `GWR` would fail on that g
 **Plain language:** A spoiler that appears before the selected integer inside the gap.
 
 **In this repo:** This was the hard direction in the proof program. The
-explicit bridge certificate and closure artifacts now close it on the current
+explicit bridge verification record and closure artifacts now close it on the current
 proof surface.
 
 The right side is easier because later simpler candidates are ruled out by the

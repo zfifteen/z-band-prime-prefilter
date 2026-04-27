@@ -14,7 +14,7 @@ notes:
   every later interior composite,
 - the current live earlier-side route is the local admissibility program in
   [`../findings/prime_gap_admissibility_theorem.md`](../findings/prime_gap_admissibility_theorem.md),
-- the older bridge certificate remains in the folder as historical comparison
+- the older bridge verification record remains in the folder as historical comparison
   material rather than as the proof-critical path.
 
 ## Current Entry Point

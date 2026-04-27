@@ -125,7 +125,7 @@ Most of the unresolved true-next-prime intervals are close to resolution:
 The current resolved survivor is therefore not an inferred next prime. It is a
 candidate with no unresolved interior under the active bounded witness set.
 When the actual next prime is farther right, the true search interval often needs one
-additional legal composite closure certificate before it can compete.
+additional legal composite-closure record before it can compete.
 
 ## Next Lemma Shape
 
@@ -135,7 +135,7 @@ alternative bridge:
 If one candidate is a resolved survivor and another candidate is unresolved
 only because of unclosed wheel-open interior offsets, then either:
 
-- a legal composite closure certificate resolves those offsets; or
+- a legal composite-closure record resolves those offsets; or
 - a domination rule proves the unresolved alternative cannot be the endpoint.
 
 Until that bridge exists, pure generation must fail closed whenever unresolved
@@ -147,5 +147,5 @@ Milestone 1 remains blocked.
 
 Next-Prime Law 005 is not approved.
 
-The next admissible experiment should focus on legal closure certificates for
+The next admissible experiment should focus on legal closure records for
 the unresolved interior offsets, beginning with the `178` one-offset cases.

@@ -33,7 +33,7 @@ src/python/z_band_prime_predictor/simple_pgs_generator.py:51
   next_prime_by_trial_division(p, candidate_bound)
 ```
 
-The PGS certificate path uses trial-division-backed composite witnesses:
+The PGS selection-record path uses trial-division-backed composite witnesses:
 
 ```text
 src/python/z_band_prime_predictor/simple_pgs_generator.py:66
@@ -60,7 +60,7 @@ src/python/z_band_prime_predictor/simple_pgs_generator.py:393
 Therefore, before the fix, `source = "PGS"` meant:
 
 ```text
-PGS certificate selected q0,
+PGS selection record selected q0,
 then trial division confirmed q0,
 then the row was labeled PGS.
 ```

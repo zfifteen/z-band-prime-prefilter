@@ -1,4 +1,4 @@
-**Recommendation: Prioritize the “Shadow-Chain Horizon Law Probe” (ChatGPT‑5) as the primary experiment, because it directly targets the least‑factor frontier and provides the clearest path to a PGS‑only next-prime selection rule.  Supplement this with the meta‑analysis (Meta‑AI) and the terminal‑certificate mining (Grok‑2) to cross‑validate the horizon law and to harden the resulting theorem.**
+**Recommendation: Prioritize the “Shadow-Chain Horizon Law Probe” (ChatGPT‑5) as the primary experiment, because it directly targets the least‑factor frontier and provides the clearest path to a PGS‑only next-prime selection rule.  Supplement this with the meta‑analysis (Meta‑AI) and the terminal‑diagnostic record mining (Grok‑2) to cross‑validate the horizon law and to harden the resulting theorem.**
 
 ---
 
@@ -269,7 +269,7 @@ If these numbers hold, **any** of the candidate horizon functions (H₁ through 
 
 ### 6.2 Medium‑Term Action (Week 2‑3)
 
-3. **Extend the Grok‑2 terminal‑certificate miner** to output the `max_spf` field by default, so that every future probe run automatically populates the frontier dataset.
+3. **Extend the Grok‑2 terminal‑diagnostic record miner** to output the `max_spf` field by default, so that every future probe run automatically populates the frontier dataset.
 
 4. **Implement the Copilot `least_factor_frontier.py` module** as a permanent diagnostic, using the two‑stage factor approach to distinguish small‑PGS‑detectable from large‑horizon cases.
 

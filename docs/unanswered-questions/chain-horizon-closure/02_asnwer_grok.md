@@ -4,11 +4,11 @@
 The Minimal PGS Generator (docs/specs/prime-gen/minimal_pgs_generator_logic.md + supporting probes) exactly matches your description:
 
 - **Search-interval closure** (v2 selector) enumerates wheel-admissible offsets up to `candidate_bound` (default 128, a fixed PGS-local constant), rejects visibly closed candidates via search-interval arithmetic + wheel structure, and emits the first fully closed proposed endpoint when PGS rules suffice.
-- **Semiprime shadows** seed short rightward chains from the initial PGS certificate (`pgs_probe_certificate`).
+- **Semiprime shadows** seed short rightward chains from the initial PGS selection record (`pgs_probe_certificate`).
 - **Chain-horizon closure** walks the visible-open shadow chain nodes, applies closure reasons (`closure_reason(p, offset, visible_divisor_bound)`), and selects the survivor.
 - Downstream audit (separate from generation) confirms **zero failures** on all tested surfaces (exact low-scale + high-scale probes to 10¹⁸).
 
-The generator is therefore **operationally correct and audit-clean** at every scale. The only non-pure-PGS portion is the terminal decision inside `chain_horizon_closure` when the initial PGS certificate proposes a composite seed: it still falls back to deterministic `factorization_accepts_candidate` (trial division up to `√n ≈ √q`) to decide which chain node is prime.
+The generator is therefore **operationally correct and audit-clean** at every scale. The only non-pure-PGS portion is the terminal decision inside `chain_horizon_closure` when the initial PGS selection record proposes a composite seed: it still falls back to deterministic `factorization_accepts_candidate` (trial division up to `√n ≈ √q`) to decide which chain node is prime.
 
 This produces the headline numbers you cited:
 - 10¹⁵ probe: ~43.37 % pure PGS, ~56.63 % chain-horizon bridge.
@@ -39,7 +39,7 @@ All of these scripts operate inside the **fixed `candidate_bound=128`** search i
 **Confirming result** (horizon bounded by a deterministic PGS-visible expression ≪ `√q`) is **strongly suggested** by the architecture and the success of the low-exact-terminal-signature rule (which pulls signatures directly from verified PGS endpoints).
 
 ### Path to the Pure PGS Endpoint Rule
-1. **Extend / run the terminal-certificate miner** (or add a new `least_factor_frontier_miner.py`):
+1. **Extend / run the terminal-diagnostic-record miner** (or add a new `least_factor_frontier_miner.py`):
     - For every chain, compute `required_horizon = max{ spf(n) for false nodes n before true q }`.
     - Output per-chain: `required_horizon`, `p`, `s0`, `chain_length`, `max_delta`, `open_density_prefix`, `residue_vector`, `carrier_d4_offset`, `chamber_width`, etc.
     - Histogram `required_horizon` vs scale and vs each PGS feature. Fit a simple closed-form `H(p, s0, chain_state)` (e.g., `H = 2 × max_chain_gap + residue_dependent_constant`, or `H = visible_divisor_bound_from_GWR_winner_d(n)`, or a small multiple of the search interval’s first-d₄ position).

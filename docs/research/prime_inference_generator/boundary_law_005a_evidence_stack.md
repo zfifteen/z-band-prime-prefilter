@@ -18,7 +18,7 @@ This note is offline theorem discovery. It consolidates evidence for 005A. It do
 
 ## Candidate Statement
 
-A proposed right endpoint has a resolved search-interval certificate. Later proposed intervals remain unresolved because they extend past that resolved candidate.
+A proposed right endpoint has a resolved search-interval diagnostic record. Later proposed intervals remain unresolved because they extend past that resolved candidate.
 
 Next-Prime Law 005A adds one lock condition:
 
@@ -43,7 +43,7 @@ The rule remains candidate-grade. It is not a proof that the resolved survivor i
 - resolved interval status from composite exclusion
 - later unresolved candidate offsets
 - bounded positive composite witnesses
-- bounded legal divisor-class certificates
+- bounded legal divisor-class diagnostic records
 - the first legal integer of the proposed interval
 - divisor class of that integer
 - higher-divisor pressure after the resolved candidate and before later unresolved alternatives

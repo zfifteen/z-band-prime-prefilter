@@ -16,7 +16,7 @@ Current status:
 - Pure emission: forbidden.
 
 Previous-search-interval evidence is history-dependent. A pure generator may use it only
-after the previous endpoint and previous search-interval certificate are already trusted.
+after the previous endpoint and previous search-interval diagnostic record are already trusted.
 
 ## Tested Configuration
 

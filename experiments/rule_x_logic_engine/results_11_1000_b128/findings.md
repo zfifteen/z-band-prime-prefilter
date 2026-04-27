@@ -107,7 +107,7 @@ The next experimental rule should therefore be a selected-integer-lock rule:
 
 ```text
 Once a proposed interval establishes a selected integer, later candidate extensions
-must either preserve that selected integer or provide a legal reset certificate.
+must either preserve that selected integer or provide a legal reset record.
 ```
 
 The next probe should test whether that lock/reset rule eliminates false later

@@ -113,7 +113,7 @@ record for each given prime:
 ```
 
 The emitted stream is deliberately small: exactly `p` and `q`. Source labels,
-diagnostics, certificates, and audit results stay outside the generator output.
+diagnostics, verification records, and audit results stay outside the generator output.
 
 The current production iteration is
 [PGS Inference Generator v1.1](docs/releases/pgs_inference_generator_v1_1_pgs_only.md).

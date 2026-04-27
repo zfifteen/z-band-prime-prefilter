@@ -171,7 +171,7 @@ that ordered-dominance regime?
 
 ## The proof bridge now lands
 
-The former open problem now has a certificate for the main bridge.
+The former open problem now has a verification record for the main bridge.
 
 It is not:
 
@@ -185,7 +185,7 @@ leftmost integer dominates the log-score competition?”
 The answer now has a two-part proof shape: ordered dominance eliminates every
 later candidate after the leftmost minimum-divisor integer, and the
 no-early-spoiler bridge eliminates every earlier higher-divisor candidate. The
-committed certificate puts the analytic bridge threshold below the exact
+committed verification record puts the analytic bridge threshold below the exact
 finite base through $p < 20{,}000{,}001$.
 
 The heatmap below shows where the selected integers actually live on the tested prime-gap

@@ -99,7 +99,7 @@ Risk: overconfident about O(log q) / O(log^2 q)
 
 02_asnwer_grok
 
-This answer is the most overconfident. It says the bridge is “almost certainly” compressible and claims the repo already contains scripts like simple_pgs_recursive_shadow_chain_state_mine.py and simple_pgs_shadow_chain_terminal_certificate_mine.py. A repo search at the referenced commit only found that claim inside the answer file itself, not the actual scripts.  ￼
+This answer is the most overconfident. It says the bridge is “almost certainly” compressible and claims the repo already contains scripts like simple_pgs_recursive_shadow_chain_state_mine.py and simple_pgs_shadow_chain_terminal_diagnostic record_mine.py. A repo search at the referenced commit only found that claim inside the answer file itself, not the actual scripts.  ￼
 
 It also claims “no evidence” that the horizon tracks sqrt(q), which is technically true but too strong. The correct statement is narrower: we do not yet know the least-factor frontier. The pilot shows many false nodes exceed 10000, and many exceed 100000, so the optimistic “small visible horizon” story is not established.
 

@@ -210,7 +210,7 @@ No candidate predicate in this note currently forces a endpoint.
 
 The strongest supported result is:
 
-PGS search-interval certificates can establish interior closure, GWR-selected integers,
+PGS search-interval diagnostic records can establish interior closure, GWR-selected integers,
 leftmost-minimum integers, and local no-later-simpler consistency. They do not
 yet imply a unique next prime.
 
@@ -235,7 +235,7 @@ ambiguous.
 ## Emission Rule
 
 Pure mode may emit under `boundary_law_004` only if one candidate predicate is
-upgraded from a certificate or bound into a unique next-prime map.
+upgraded from a diagnostic record or bound into a unique next-prime map.
 
 Until then, pure mode must emit:
 
@@ -245,7 +245,7 @@ Until then, pure mode must emit:
 
 ## Next Search Direction
 
-The next research task is not another small search-interval certificate. It is to search
+The next research task is not another small search-interval diagnostic record. It is to search
 for the missing function:
 
 $$B(p, S, w, d(w))$$

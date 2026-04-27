@@ -92,7 +92,7 @@ The ceiling also performs real pruning:
 - `unresolved_alternatives_before_threat` prunes `479` false candidates.
 
 The stronger operational predicate is `unresolved_alternatives_before_threat`,
-but it is a certificate-state condition, not a standalone number-theoretic
+but it is a diagnostic-record state condition, not a standalone number-theoretic
 law. The cleaner structural predicate is `higher_divisor_pressure_before_threat`,
 but it applies to only `10` input primes here.
 

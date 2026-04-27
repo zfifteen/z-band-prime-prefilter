@@ -93,7 +93,7 @@ the scan records the tightest direct and ratio-form safety margins for that
 fact.
 
 This scan by itself is the finite base, not the full universal theorem. The
-bridge certificate now supplies the missing large-$p$ step: under BHP's
+bridge verification record now supplies the missing large-$p$ step: under BHP's
 $\theta = 0.525$ and the recorded divisor-function constants, the analytic
 threshold lands below the exact $2 \cdot 10^7$ base.
 

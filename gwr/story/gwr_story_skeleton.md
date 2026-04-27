@@ -19,7 +19,7 @@ The story should move in this order:
 3. present the surprise: the selected integer collapses to a simple arithmetic rule,
 4. show that this one rule explains several separate-looking phenomena,
 5. show the theorem temptation and the correction,
-6. end on the bridge certificate that closes the main mathematical question
+6. end on the bridge verification record that closes the main mathematical question
    under the recorded constants.
 
 ## Section Plan
@@ -162,7 +162,7 @@ plus no larger divisor count implies larger raw-$Z$.
 - optional theorem-support plot or schematic,
 - possibly none if prose is clearer.
 
-## 7. The Bridge Certificate
+## 7. The Bridge Verification Record
 
 ### Purpose
 
@@ -178,7 +178,7 @@ theorem.
 - GWR was empirically exact on the tested surface before proof closure,
 - the unrestricted global theorem is false,
 - the ordered dominance theorem handles the later side,
-- the bridge certificate handles the earlier side under the recorded
+- the bridge verification record handles the earlier side under the recorded
   BHP/Robin constants.
 
 ### Figure needs

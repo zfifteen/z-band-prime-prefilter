@@ -36,7 +36,7 @@ The public proof-facing summary is:
 The live earlier-side route is the local admissibility program plus residual
 class closure and exact no-early-spoiler audit.
 
-Bridge-era BHP/Robin notes and certificate scripts are retained under
+Bridge-era BHP/Robin notes and verification scripts are retained under
 [`experiments/proof/`](./experiments/proof/README.md) as historical comparison
 material. They are not the current proof-critical path for the theorem status
 presented in the repo headline files.

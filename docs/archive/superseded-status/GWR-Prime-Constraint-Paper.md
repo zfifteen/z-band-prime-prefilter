@@ -260,7 +260,7 @@ next prime is allowed to be.
 
 This section records the finite base and stress surface behind the proof chain.
 It is not the whole proof by itself; the universal closure also uses the
-analytic bridge and certificate.
+analytic bridge and verification record.
 
 ### 6.1 The Finite Selected integer Surface
 
@@ -384,7 +384,7 @@ The earlier side is closed by the committed bridge chain:
 - zero earlier spoilers across `1,163,198` prime gaps and `3,349,874` earlier
   candidates;
 - analytic BHP/Robin bridge for the large-$p$ tail;
-- certificate thresholds `102` and `3,544`, both below the exact finite base.
+- verification-record thresholds `102` and `3,544`, both below the exact finite base.
 
 Together, these pieces prove GWR conditionally for all prime gaps under the
 recorded BHP/Robin assumptions.
@@ -495,7 +495,7 @@ The repository has checked this picture on exact finite ranges and checked runs
 at large scale, and those artifacts now feed the finite side of the proof chain.
 
 The later side is elementary. The earlier side is closed by the exact finite
-base plus the BHP/Robin bridge certificate.
+base plus the BHP/Robin bridge verification record.
 
 That is the state of the project in the simplest honest language I know.
 

@@ -1,6 +1,6 @@
-# Offline PGS Certificate Emitter
+# Offline PGS Diagnostic-Record Emitter
 
-The offline certificate emitter produced 36 PGS endpoint certificate records
+The offline diagnostic-record emitter produced 36 PGS endpoint diagnostic records
 from the 005A-R candidate rule. A separate downstream audit confirmed all 36.
 
 This is Milestone 1A evidence. It is not pure generator emission. Pure emission
@@ -11,9 +11,9 @@ remains forbidden.
 ```text
 PGS Prime Generator: not complete
 Milestone 1: still blocked
-Milestone 1A: offline certificate emission produced
+Milestone 1A: offline diagnostic-record output produced
 Pure prime emission: forbidden
-005A-R: candidate-grade refined certificate rule
+005A-R: candidate-grade refined diagnostic-record rule
 005B: quarantined
 ```
 
@@ -64,7 +64,7 @@ Summary:
 | anchor_range | 11..1000000 |
 | candidate_bound | 128 |
 | witness_bound | 127 |
-| certificate_count | 36 |
+| diagnostic record_count | 36 |
 | pure_emission_approved | false |
 | classical_audit_required | true |
 | classical_audit_status | NOT_RUN |
@@ -80,9 +80,9 @@ true_boundary_rejected_count: null
 absorption_wrong_count: null
 ```
 
-## Certificate Record Shape
+## Diagnostic Record Shape
 
-Each certificate record includes:
+Each diagnostic record includes:
 
 ```text
 record_type
@@ -142,8 +142,8 @@ Audit summary:
 | first_failure | null |
 | validation_backend | sympy.primerange_first_boundary |
 
-Classical validation is downstream of certificate emission. It is not used to
-select certificate records.
+Classical validation is downstream of diagnostic-record output. It is not used to
+select diagnostic records.
 
 ## Result
 
@@ -156,7 +156,7 @@ select certificate records.
 pure_emission_approved: false
 ```
 
-This is the first certificate-shaped output of the composite-exclusion path.
+This is the first diagnostic-record output of the composite-exclusion path.
 It is not a proof of the general generator law and it does not approve pure
 prime emission.
 
@@ -173,7 +173,7 @@ kept_non_unique_activations > 0
 action_population_match = false
 ```
 
-One wrong certificate kills generator eligibility for the refinement.
+One wrong diagnostic record kills generator eligibility for the refinement.
 
 ## Next Gate
 
@@ -190,4 +190,4 @@ shifted windows:
 ```
 
 That audit must confirm that the hardening population matches the population
-that can produce certificate records. Pure emission remains forbidden.
+that can produce diagnostic records. Pure emission remains forbidden.

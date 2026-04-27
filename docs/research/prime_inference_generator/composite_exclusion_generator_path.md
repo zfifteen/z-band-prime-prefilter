@@ -4,7 +4,7 @@ Local state-vector search has not produced a compact next-prime-forcing law.
 
 The current evidence is consistent across the failed paths:
 
-- search-interval certificates describe proposed interiors;
+- search-interval diagnostic records describe proposed interiors;
 - GWR/DNI structure identifies selected-integer behavior inside a proposed interval;
 - legal ladder and pressure states can classify local structure;
 - high-resolution legal states can separate labels, but they become

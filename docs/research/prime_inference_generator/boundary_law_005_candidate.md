@@ -46,10 +46,10 @@ endpoints from false resolved survivors before absorption is allowed.
 Candidate statement:
 
 ```text
-If a proposed right endpoint has a fully resolved interval certificate and
+If a proposed right endpoint has a fully resolved interval diagnostic record and
 satisfies the higher-divisor pressure lock, then later unresolved extension
 candidates may be absorbed in the offline eliminator, provided no legal reset
-certificate supersedes the lock.
+record supersedes the lock.
 ```
 
 On the tested surfaces, this candidate rule selected true resolved candidates
@@ -64,12 +64,12 @@ allowed safe absorption of later unresolved alternatives.
 
 The candidate law may use:
 
-- a resolved search-interval certificate already produced by the offline eliminator;
+- a resolved search-interval diagnostic record already produced by the offline eliminator;
 - positive composite witness evidence;
-- legal divisor-class certificates from the bounded witness basis;
+- legal divisor-class diagnostic records from the bounded witness basis;
 - higher-divisor pressure between the resolved candidate and later unresolved
   alternatives;
-- selected-integer metadata computed from legal composite certificates;
+- selected-integer metadata computed from legal factor witnesss;
 - post-run classical labels for offline audit only.
 
 ## Forbidden Evidence

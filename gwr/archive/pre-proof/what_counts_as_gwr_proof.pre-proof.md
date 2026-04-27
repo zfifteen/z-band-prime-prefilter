@@ -50,7 +50,7 @@ The direct mathematical target that replaced this retired gate was:
 - the remaining structural question is the elimination of earlier
   higher-divisor spoilers inside prime gaps.
 
-That question is now addressed by the no-early-spoiler bridge certificate under
+That question is now addressed by the no-early-spoiler bridge verification record under
 the recorded BHP/Robin constants.
 
 No single proof style is imposed by this repo.

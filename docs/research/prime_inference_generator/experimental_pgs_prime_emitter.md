@@ -29,7 +29,7 @@ witness_bound: 127
 input primes: 11..1000000
 ```
 
-The emitted records are generator-facing experimental records, not certificates
+The emitted records are generator-facing experimental records, not diagnostic records
 only:
 
 ```text

@@ -1,26 +1,26 @@
-# Next-Prime Law 002: Minimal Closed Search Interval Certificate
+# Next-Prime Law 002: Minimal Closed Search Interval Diagnostic Record
 
 Next-Prime Law 002 is the next candidate after Next-Prime Law 001 failed to close.
 The change is the standard of evidence. The law does not infer a endpoint from
 first wheel-open admissibility alone. It requires a complete PGS search interval
-certificate that forces the proposed endpoint.
+diagnostic record that forces the proposed endpoint.
 
-This is a design note, not an emitting implementation. If the certificate cannot
+This is a design note, not an emitting implementation. If the diagnostic record cannot
 force a unique endpoint without classical primality lookup, pure mode must remain
 failed closed.
 
 ## Name
 
-Minimal Closed Search Interval Certificate.
+Minimal Closed Search Interval Diagnostic Record.
 
 The law asks whether a proposed endpoint can be emitted only after the generator
-has a closed search-interval certificate for the interval before it and a deterministic
+has a closed search-interval diagnostic record for the interval before it and a deterministic
 reason that no smaller admissible endpoint competes with it.
 
 ## Candidate Contract
 
 Given an input prime `p` and proposed endpoint `q_hat`, Next-Prime Law 002 may
-emit `q_hat` only if it can construct a certificate with:
+emit `q_hat` only if it can construct a diagnostic record with:
 
 - input prime `p`;
 - proposed endpoint `q_hat`;
@@ -64,9 +64,9 @@ Interior compositeness evidence is allowed only when it is a concrete
 deterministic witness for an interior integer. It must not become a search for
 the next prime endpoint.
 
-## Certificate Shape
+## Diagnostic Record Shape
 
-A Next-Prime Law 002 certificate should record:
+A Next-Prime Law 002 diagnostic record should record:
 
 - `anchor_prime_p`;
 - `proposed_boundary_q_hat`;
@@ -84,7 +84,7 @@ A Next-Prime Law 002 certificate should record:
 - `uniqueness_status`;
 - `failure_reason`, if unresolved.
 
-For an empty interval, the certificate must state that no positive-offset integer
+For an empty interval, the diagnostic record must state that no positive-offset integer
 exists before the proposed endpoint and must identify the theorem that turns
 that empty interval into a forced endpoint.
 
@@ -121,7 +121,7 @@ Next-Prime Law 002 has two possible paths:
 - prove an empty-interval base case that forces the first open endpoint;
 - reject this input prime as outside the selected-integer-bearing GWR/DNI regime.
 
-The first path would revive Next-Prime Law 001 with a stronger certificate. The
+The first path would revive Next-Prime Law 001 with a stronger diagnostic record. The
 second path keeps Milestone 1 blocked at input prime `11` and pushes the first
 positive target to a later input prime with a nonempty search interval.
 
@@ -135,12 +135,12 @@ The law must separate three statements:
 
 Only the third statement permits emission.
 
-For input prime `11`, the current certificate proves the first two statements:
+For input prime `11`, the current diagnostic record establishes the first two statements:
 
 - `12` is composite by concrete witness;
 - `13` is the first wheel-open admissible candidate.
 
-It does not prove the third statement. The certificate does not rule out the
+It does not prove the third statement. The diagnostic record does not rule out the
 possibility that the first open candidate is not forced by PGS structure.
 
 ## Current Status
@@ -174,9 +174,9 @@ That implication is stronger than admissibility. It is not proved here.
 
 Pure mode may emit under `boundary_law_002` only when:
 
-1. every interior integer has a deterministic composite certificate;
+1. every interior integer has a deterministic factor witness;
 2. the proposed endpoint comes from a PGS rule rather than a primality oracle;
-3. all smaller candidate next primes are ruled out by the search-interval certificate;
+3. all smaller candidate next primes are ruled out by the search-interval diagnostic record;
 4. a PGS uniqueness theorem forces `q_hat` as the next prime.
 
 Until those four conditions hold, pure mode must emit a failure record.
@@ -189,7 +189,7 @@ If the uniqueness theorem is missing, emit:
 - `inference_status: "failed_closed"`
 - `failure_reason: "MISSING_UNIQUENESS_IMPLICATION"`
 
-If the interior closure certificate itself is incomplete, emit:
+If the interior closure record itself is incomplete, emit:
 
 - `rule_set_version: "boundary_law_002"`
 - `inference_status: "failed_closed"`
