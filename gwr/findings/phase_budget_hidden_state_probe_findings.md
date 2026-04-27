@@ -84,6 +84,6 @@ Score the `d4_low` row as more likely to return the next gap to the odd-semiprim
 
 ## Artifacts
 
-- [phase-budget hidden-state probe](../../benchmarks/python/predictor/gwr_phase_budget_hidden_state_probe.py)
+- [state-budget hidden-state probe](../../benchmarks/python/predictor/gwr_phase_budget_hidden_state_probe.py)
 - [summary JSON](../../output/gwr_phase_budget_hidden_state_probe_summary.json)
 - [strata CSV](../../output/gwr_phase_budget_hidden_state_probe_strata.csv)

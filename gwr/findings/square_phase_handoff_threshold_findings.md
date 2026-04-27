@@ -19,7 +19,7 @@ The probe script is
 and the generated summary JSON is
 [`./generated/square_phase_handoff_threshold_exact_1e6/gwr_square_phase_handoff_threshold_summary.json`](./generated/square_phase_handoff_threshold_exact_1e6/gwr_square_phase_handoff_threshold_summary.json).
 
-![Square-phase handoff exact through 1e6](./generated/square_phase_handoff_threshold_exact_1e6/gwr_square_phase_handoff_threshold_offsets.png)
+![Square-state handoff exact through 1e6](./generated/square_phase_handoff_threshold_exact_1e6/gwr_square_phase_handoff_threshold_offsets.png)
 
 ## Exact Through $10^6$ Surface
 
