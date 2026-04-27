@@ -6,7 +6,7 @@ Milestone 1 resolves the false closure rule:
 
 $$q^+=w+1$$
 
-The GPE must emit the next prime from an explicit next-prime selector instead:
+The GPE must output the next prime from an explicit next-prime selector instead:
 
 $$q^+=B(q,S,w,d(w))$$
 
@@ -53,7 +53,7 @@ Milestone 1 is complete when the repo has:
 - a deterministic validation harness comparing selector output to the exact
   DNI/GWR oracle,
 - regression coverage for the examples above,
-- and no implementation path that emits `winner + 1` as the general endpoint.
+- and no implementation path that outputs `winner + 1` as the general endpoint.
 
 ## Non-Goals
 

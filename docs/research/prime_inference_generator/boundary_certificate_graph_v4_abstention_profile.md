@@ -3,7 +3,7 @@
 ## Status
 
 This is offline graph-solver analysis. It does not add a v4 relation, pure
-production emission, cryptographic approval, 005B, broad resolved-interval
+production output, cryptographic approval, 005B, broad resolved-interval
 absorption, earliest-candidate dominance, or scalar ranking.
 
 Next-Prime Law 005 remains candidate-grade. Classical labels are used only after
@@ -91,7 +91,7 @@ unresolved_later_domination_target_no_carrier_reset_discriminator
 
 This recommendation comes from the dominant observed v3 abstention structure.
 It is not a v4 implementation approval. A v4 relation must still be defined as
-a label-free graph predicate, then audited downstream after graph emission.
+a label-free graph predicate, then audited downstream after graph output.
 
 ## Interpretation
 
@@ -135,4 +135,4 @@ v4_relation_wrong_count_after_audit: 0
 ```
 
 The relation remains experimental graph logic. It is not production pure
-emission and does not approve Next-Prime Law 005 as a final generator law.
+output and does not approve Next-Prime Law 005 as a final generator law.

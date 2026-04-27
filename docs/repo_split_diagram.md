@@ -33,5 +33,5 @@ Start with two repos, not three:
 1. `z-band-prime-prefilter`
 2. `z-band-prime-gap-ridge`
 
-Only split out a shared field/core repo later if both repos actually need to
+Only split out a shared divisor-count/core repo later if both repos actually need to
 version that code independently.

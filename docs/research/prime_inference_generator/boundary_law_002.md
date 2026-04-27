@@ -5,7 +5,7 @@ The change is the standard of evidence. The law does not infer a endpoint from
 first wheel-open admissibility alone. It requires a complete PGS search interval
 diagnostic record that forces the proposed endpoint.
 
-This is a design note, not an emitting implementation. If the diagnostic record cannot
+This is a design note, not an output-producing implementation. If the diagnostic record cannot
 force a unique endpoint without classical primality lookup, pure mode must remain
 failed closed.
 
@@ -13,14 +13,14 @@ failed closed.
 
 Minimal Closed Search Interval Diagnostic Record.
 
-The law asks whether a proposed endpoint can be emitted only after the generator
+The law asks whether a proposed endpoint can be outputted only after the generator
 has a closed search-interval diagnostic record for the interval before it and a deterministic
 reason that no smaller admissible endpoint competes with it.
 
 ## Candidate Contract
 
 Given an input prime `p` and proposed endpoint `q_hat`, Next-Prime Law 002 may
-emit `q_hat` only if it can construct a diagnostic record with:
+output `q_hat` only if it can construct a diagnostic record with:
 
 - input prime `p`;
 - proposed endpoint `q_hat`;
@@ -113,7 +113,7 @@ establish that `13` is forced as the endpoint.
 ## GWR/DNI Relevance
 
 For `p = 11` and `q_hat = 13`, the proposed interior contains no open composite
-integer. The GWR-selected integer fields are null. Therefore the standard GWR-selected integer and
+integer. The GWR-selected integer score functions are null. Therefore the standard GWR-selected integer and
 no-later-simpler closure machinery has no positive integer to operate on.
 
 Next-Prime Law 002 has two possible paths:
@@ -133,7 +133,7 @@ The law must separate three statements:
 - `q_hat` is an admissible candidate next prime;
 - `q_hat` is the unique inferred next prime.
 
-Only the third statement permits emission.
+Only the third statement permits output.
 
 For input prime `11`, the current diagnostic record establishes the first two statements:
 
@@ -145,7 +145,7 @@ possibility that the first open candidate is not forced by PGS structure.
 
 ## Current Status
 
-Next-Prime Law 002 does not yet emit.
+Next-Prime Law 002 does not yet output.
 
 For the input prime-11 probe:
 
@@ -170,32 +170,32 @@ $$12 \text{ closed and } 13 \text{ first open} \Rightarrow 13 \text{ forced as e
 
 That implication is stronger than admissibility. It is not proved here.
 
-## Emission Rule
+## Output Rule
 
-Pure mode may emit under `boundary_law_002` only when:
+Pure mode may output under `boundary_law_002` only when:
 
 1. every interior integer has a deterministic factor witness;
 2. the proposed endpoint comes from a PGS rule rather than a primality oracle;
 3. all smaller candidate next primes are ruled out by the search-interval diagnostic record;
 4. a PGS uniqueness theorem forces `q_hat` as the next prime.
 
-Until those four conditions hold, pure mode must emit a failure record.
+Until those four conditions hold, pure mode must output a failure record.
 
 ## Failure Contract
 
-If the uniqueness theorem is missing, emit:
+If the uniqueness theorem is missing, output:
 
 - `rule_set_version: "boundary_law_002"`
 - `inference_status: "failed_closed"`
 - `failure_reason: "MISSING_UNIQUENESS_IMPLICATION"`
 
-If the interior closure record itself is incomplete, emit:
+If the interior closure record itself is incomplete, output:
 
 - `rule_set_version: "boundary_law_002"`
 - `inference_status: "failed_closed"`
 - `failure_reason: "INCOMPLETE_CHAMBER_CERTIFICATE"`
 
-If a competing smaller admissible search interval remains unresolved, emit:
+If a competing smaller admissible search interval remains unresolved, output:
 
 - `rule_set_version: "boundary_law_002"`
 - `inference_status: "failed_closed"`
@@ -212,5 +212,5 @@ The next search should compare two regimes:
 - selected-integer-bearing input primes, where GWR/DNI and no-later-simpler closure may have
   enough structure to force a endpoint.
 
-The first positive emission should come from whichever regime first supplies a
+The first positive output should come from whichever regime first supplies a
 complete uniqueness bridge without classical endpoint detection.

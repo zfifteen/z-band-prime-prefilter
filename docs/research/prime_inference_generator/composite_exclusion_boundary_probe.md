@@ -10,7 +10,7 @@ The safety result remains intact:
 
 - `true_boundary_rejected_count: 0`
 
-The strengthened accounting also shows why the probe still cannot emit:
+The strengthened accounting also shows why the probe still cannot output:
 
 - `unique_survivor_count: 1225`
 - `unique_resolved_survivor_count: 0`
@@ -24,7 +24,7 @@ Next-Prime Law 005 is not approved by this note.
 
 Build a safe eliminator before a generator.
 
-The probe does not predict the next prime and does not emit inferred primes. It
+The probe does not predict the next prime and does not output inferred primes. It
 constructs a finite wheel-open candidate set for each input prime, applies legal
 candidate statuses, and attaches the classical next-gap label afterward for
 reporting.
@@ -218,9 +218,9 @@ The probe now exposes a stronger structure:
 - the combined status model leaves one resolved survivor per input prime, but every
   input prime still has unresolved alternatives.
 
-The `995` unique-survivor label matches are not generator emissions. They are
+The `995` unique-survivor label matches are not generator outputs. They are
 cases where the single resolved survivor equals the classical label while
-unresolved alternatives remain. Pure generation cannot emit from that state.
+unresolved alternatives remain. Pure generation cannot output from that state.
 
 ## Status
 

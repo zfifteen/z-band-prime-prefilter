@@ -12,7 +12,7 @@ Test the offline hypothesis:
 > $q_2$ is absorbed by $q_1$.
 
 This is Rule A. The probe tests Rule A as forensics only. It does not add a
-generator rule and does not permit prime emission.
+generator rule and does not permit prime output.
 
 ## Measured Mode
 
@@ -109,7 +109,7 @@ Milestone 1 remains blocked.
 
 Next-Prime Law 005 is not approved.
 
-Prime emission remains forbidden.
+Prime output remains forbidden.
 
 The next target is not absorption integration. The next target is a stricter
 selected-integer-lock or reset condition that can make absorption selective.

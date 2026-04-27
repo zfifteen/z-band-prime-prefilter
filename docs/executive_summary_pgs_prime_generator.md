@@ -3,8 +3,8 @@
 ## Purpose
 
 The PGS Prime Generator is a deterministic successor-prime inference generator.
-It starts from an accepted prime `p` and emits the next prime `q` as a minimal
-two-field record:
+It starts from an accepted prime `p` and outputs the next prime `q` as a minimal
+two-key record:
 
 ```json
 {"p": 89, "q": 97}
@@ -27,7 +27,7 @@ The production selector is:
 
 ```text
 rule_id: pgs_chamber_reset_v1
-state input: exact divisor-count field
+state input: exact divisor-count values
 next-prime selection rule: GWR/NLSC search-interval-reset state
 ```
 
@@ -39,13 +39,13 @@ generator raises `PGSUnresolvedError`. It does not run a backup prime search.
 The production generator has one execution path:
 
 ```text
-input prime p -> GWR/NLSC search-interval-reset selector -> emit {"p": p, "q": q}
+input prime p -> GWR/NLSC search-interval-reset selector -> output {"p": p, "q": q}
 ```
 
-The emitted stream contains only `p` and `q`. Source labels, diagnostic records,
-diagnostics, timing, and audit results live outside the emitted stream.
+The outputted stream contains only `p` and `q`. Source labels, diagnostic records,
+diagnostics, timing, and audit results live outside the outputted stream.
 
-Downstream audit validates emitted records after generation. Audit does not
+Downstream audit validates outputted records after generation. Audit does not
 choose `q` and does not feed back into generation.
 
 ## Current Production Result
@@ -65,7 +65,7 @@ High-scale decade-window surface:
 surface: 256 consecutive input primes per decade, 10^8 through 10^18
 candidate_bound: 1024
 input primes tested: 2816
-PGS emissions: 2816
+PGS outputs: 2816
 unresolved: 0
 audit failures: 0
 ```
@@ -95,7 +95,7 @@ The production next-prime selection rule applies these steps:
 - identify the first resolved survivor;
 - reset the search interval at that survivor;
 - classify later unresolved candidates as post-reset search interval material;
-- emit the resolved survivor as `q`.
+- output the resolved survivor as `q`.
 
 ## Non-Goals
 
@@ -107,5 +107,5 @@ The production next-prime selection rule applies these steps:
 - theorem claims for every future scale.
 
 The current accomplishment is narrower and concrete: the production generator
-now emits exact successor-prime records on the declared test surfaces without
+now outputs exact successor-prime records on the declared test surfaces without
 trial division or fallback search inside the generator.

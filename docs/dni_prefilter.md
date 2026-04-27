@@ -127,7 +127,7 @@ The calibration surface remains aligned with the fixed-point locus:
 - `29/29` calibration primes stayed on `Z = 1.0`
 - `0` composite false fixed points
 
-These results describe the production prefilter concern only. The exact invariant derivation and the exact raw composite field studies belong to separate concerns in the repository.
+These results describe the production prefilter concern only. The exact invariant derivation and the exact raw composite score values studies belong to separate concerns in the repository.
 
 ## Reproduction Surface
 

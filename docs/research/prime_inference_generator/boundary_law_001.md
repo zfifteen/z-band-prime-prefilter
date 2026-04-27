@@ -2,11 +2,11 @@
 
 Next-Prime Law 001 is the first candidate law for Milestone 1 of the PGS Prime
 Inference Generator. Its target is deliberately small: produce one lawful
-emission from input prime `11` without classical primality testing or
+output from input prime `11` without classical primality testing or
 next-prime lookup inside the generation loop.
 
 This note is a design note, not a positive result. The law must not be installed
-as an emitting rule until the uniqueness condition below is satisfied by PGS
+as an outputting rule until the uniqueness condition below is satisfied by PGS
 inference rather than by external validation.
 
 ## Name
@@ -62,7 +62,7 @@ this search interval.
 5. Establish that no GWR-selected integer is required when the inferred search interval interior
    contains no admissible open composite integer before the first open offset.
 6. Infer `q_hat = p + first_open_offset`.
-7. Emit `q_hat` only if the next-prime uniqueness condition below is resolved.
+7. Output `q_hat` only if the next-prime uniqueness condition below is resolved.
 
 ## Endpoint Uniqueness Condition
 
@@ -75,12 +75,12 @@ The unresolved distinction is:
 - candidate statement: the first possible open endpoint after `11` is `11 + 2`;
 - next-prime statement: the next prime endpoint inferred by PGS is `11 + 2`.
 
-Next-Prime Law 001 is not accepted as an emitting law until it proves the endpoint
+Next-Prime Law 001 is not accepted as an outputting law until it proves the endpoint
 statement without asking whether `11 + 2` is prime.
 
-## Emitted Metadata
+## Outputted Metadata
 
-If the law resolves the endpoint, pure mode emits:
+If the law resolves the endpoint, pure mode outputs:
 
 - `step_index: 1`
 - `anchor_prime_p: 11`
@@ -102,7 +102,7 @@ no positive-offset open composite integer before the inferred right endpoint.
 
 ## Failure Contract
 
-If the law cannot prove unique next-prime inference, pure mode must emit:
+If the law cannot prove unique next-prime inference, pure mode must output:
 
 - `inference_status: "failed_closed"`
 - `failure_reason: "NO_UNIQUE_BOUNDARY"`
@@ -113,18 +113,18 @@ Milestone 0 behavior silently.
 
 ## Why This Is PGS Inference
 
-The law is PGS inference only if the emitted next-prime value follows from the input prime,
+The law is PGS inference only if the outputted next-prime value follows from the input prime,
 the wheel-closed pre-open interval, and the explicit empty-search-interval closure rule.
-The external audit may later confirm the emitted `q_hat`, but that confirmation
+The external audit may later confirm the outputted `q_hat`, but that confirmation
 cannot participate in the generation step.
 
 ## First Test Input Prime
 
 The first test input prime is `11`.
 
-Milestone 1 succeeds at the first hard target when pure mode emits one
+Milestone 1 succeeds at the first hard target when pure mode outputs one
 `boundary_law_001` record from input prime `11`, and external audit afterward
-confirms that emitted next-prime value.
+confirms that outputted next-prime value.
 
 The stretch target is `N > 1` consecutive inferred next primes. That target
 requires an additional law or a generalized version of this one; this note does
@@ -144,8 +144,8 @@ set is explicitly selected.
 Next-Prime Law 001 fails if:
 
 - the pure path uses a forbidden helper;
-- the rule hardcodes the emitted next-prime value;
+- the rule hardcodes the outputted next-prime value;
 - the rule only identifies a candidate and calls it a endpoint;
-- audit rejects the emitted `q_hat`;
+- audit rejects the outputted `q_hat`;
 - generation and validation become coupled;
 - the rule cannot explain why the endpoint is unique.

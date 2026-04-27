@@ -5,14 +5,14 @@ higher-divisor pressure component is absent. The strongest substitute signal in
 the abstention set is previous-search-interval memory.
 
 This note profiles abstentions from Next-Prime Law 005 Candidate. It does not
-approve a new lock family and does not approve pure generator emission.
+approve a new lock family and does not approve pure generator output.
 
 ## Status
 
 Current status:
 
 - Next-Prime Law 005: preserved as a candidate law.
-- Pure generator emission: forbidden.
+- Pure generator output: forbidden.
 - Milestone 1: blocked for generator output.
 - Probe role: offline near-miss profiling only.
 

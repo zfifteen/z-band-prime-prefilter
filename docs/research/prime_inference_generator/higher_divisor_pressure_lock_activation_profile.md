@@ -5,14 +5,14 @@ the initial input prime surface tested here.
 
 This note profiles the activation regime for Next-Prime Law 005 Candidate:
 Higher-Divisor Locked Resolved-Endpoint Absorption. It does not approve pure
-generator emission.
+generator output.
 
 ## Status
 
 Current status:
 
 - Next-Prime Law 005: candidate-grade offline rule.
-- Pure generator emission: forbidden.
+- Pure generator output: forbidden.
 - Milestone 1: blocked for generator output.
 - Probe role: offline activation profiling only.
 
@@ -153,7 +153,7 @@ The activation profile supports three facts:
    pressure, not candidate closure.
 
 The result preserves the candidate-law status. It does not justify broadening
-the lock, enabling pure emission, or treating shifted-window abstention as
+the lock, enabling pure output, or treating shifted-window abstention as
 next-prime inference.
 
 ## Falsification Condition

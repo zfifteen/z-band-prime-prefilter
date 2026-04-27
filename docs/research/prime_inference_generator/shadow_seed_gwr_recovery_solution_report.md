@@ -1,7 +1,7 @@
 # Shadow Seed Recovery Bridge Report
 
 The Minimal PGS Generator blocker was the high-scale semiprime-shadow lane. At
-low scale, search-interval closure already emitted the next prime for every tested
+low scale, search-interval closure already outputted the next prime for every tested
 input prime. At high scale, the same search-interval rule often selected a composite
 left-side shadow inside the gap. Earlier bridge logic could recover from those
 rows, but the source accounting did not separate pure PGS selection from
@@ -10,9 +10,9 @@ exact arithmetic recovery.
 The implemented solution changes the role of that shadow. The composite
 candidate is no longer treated as a failed answer. It is treated as a placed
 seed inside the current gap. From that seed, the generator performs a
-deterministic rightward recovery and emits the first endpoint it reaches. That
+deterministic rightward recovery and outputs the first endpoint it reaches. That
 recovery is an operational bridge because the terminal selection still uses
-exact divisor arithmetic. It is not yet a pure PGS next-prime selection rule. The emitted
+exact divisor arithmetic. It is not yet a pure PGS next-prime selection rule. The outputted
 stream remains exactly:
 
 ```json
@@ -20,7 +20,7 @@ stream remains exactly:
 ```
 
 No source label, confidence field, diagnostic record, or metadata is added to the
-emitted record. Source information stays in the sidecar diagnostics, where the
+outputted record. Source information stays in the sidecar diagnostics, where the
 bridge is labeled `shadow_seed_recovery`.
 
 ## Blocker
@@ -35,7 +35,7 @@ The restart generator had three relevant stages:
 
 This worked completely on the exact low-scale surfaces:
 
-| Surface | Emitted | Confirmed | Audit failures | PGS | Fallback |
+| Surface | Outputted | Confirmed | Audit failures | PGS | Fallback |
 |---|---:|---:|---:|---:|---:|
 | `11..100000` | 9,588 | 9,588 | 0 | 100.00% | 0.00% |
 | `11..1000000` | 78,494 | 78,494 | 0 | 100.00% | 0.00% |
@@ -46,7 +46,7 @@ were not random misses; they were semiprime-shadow rows. The chain bridge made
 them operationally correct, but the bridge did not solve the PGS displacement
 target because it still depended on a non-PGS terminal decision.
 
-The problem was therefore not coverage. The generator already knew how to emit
+The problem was therefore not coverage. The generator already knew how to output
 correctly in exact mode. The blocker was source classification:
 
 ```text
@@ -97,11 +97,11 @@ Generation order is now:
 
 1. Build the `pgs_chamber_closure_v2` diagnostic record.
 2. Let `q0` be the search-interval-closure candidate.
-3. If `q0` passes deterministic divisor checking, emit `q0` as `PGS` under
+3. If `q0` passes deterministic divisor checking, output `q0` as `PGS` under
    `pgs_chamber_closure_v2`.
 4. If `q0` is composite, treat `q0` as the shadow seed.
 5. Run `shadow_seed_gwr_recovery_result(p, q0 - p, candidate_bound)`.
-6. Emit the recovered endpoint under `shadow_seed_recovery`, with rule id
+6. Output the recovered endpoint under `shadow_seed_recovery`, with rule id
    `shadow_seed_trial_recovery_v1`.
 7. Preserve the old chain and full fallback paths as guards after this step.
 
@@ -114,7 +114,7 @@ Generator arithmetic checks q0.
 If q0 is composite, q0 becomes the recovery seed.
 ```
 
-The audit module still validates after emission only. The source label is not
+The audit module still validates after generation only. The source label is not
 counted as pure `PGS`.
 
 ## Why The Bridge Works On The Tested Surface
@@ -148,7 +148,7 @@ into:
 recover endpoint from placed shadow seed
 ```
 
-The probe results show that this recovers every emitted high-scale row without
+The probe results show that this recovers every outputted high-scale row without
 needing `chain_horizon_closure`, `chain_fallback`, or full fallback in the
 sampled high-scale probe. The result is operationally strong, but the
 rightward terminal step is still exact arithmetic, so these rows remain bridge
@@ -161,14 +161,14 @@ The high-scale probe is
 Its committed result summary is
 [`output/simple_pgs_shadow_seed_gwr_solution_probe/summary.json`](../../../output/simple_pgs_shadow_seed_gwr_solution_probe/summary.json).
 
-| Scale | Sample | Emitted | Unresolved | Audit failures | Pure PGS | Search-interval closure | Shadow seed recovery | Chain/fallback |
+| Scale | Sample | Outputted | Unresolved | Audit failures | Pure PGS | Search-interval closure | Shadow seed recovery | Chain/fallback |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | `10^12` | 256 | 253 | 3 | 0 | 59.68% | 151 | 102 / 40.32% | 0 |
 | `10^15` | 256 | 249 | 7 | 0 | 43.37% | 108 | 141 / 56.63% | 0 |
 | `10^18` | 256 | 250 | 6 | 0 | 42.00% | 105 | 145 / 58.00% | 0 |
 
 The unresolved rows are probe-mode rows where full fallback was deliberately
-disabled. They are not wrong emissions. In exact production mode, the generator
+disabled. They are not wrong outputs. In exact production mode, the generator
 keeps deterministic fallback paths so it does not return unresolved.
 
 ## Exact Low-Scale Result
@@ -178,7 +178,7 @@ The exact low-scale reports are:
 - [`output/simple_pgs_shadow_seed_gwr_solution_1e5/report.json`](../../../output/simple_pgs_shadow_seed_gwr_solution_1e5/report.json)
 - [`output/simple_pgs_shadow_seed_gwr_solution_1e6/report.json`](../../../output/simple_pgs_shadow_seed_gwr_solution_1e6/report.json)
 
-| Surface | Input primes scanned | Emitted | Confirmed | Audit failures | PGS | Fallback | Status |
+| Surface | Input primes scanned | Outputted | Confirmed | Audit failures | PGS | Fallback | Status |
 |---|---:|---:|---:|---:|---:|---:|---|
 | `11..100000` | 9,588 | 9,588 | 9,588 | 0 | 100.00% | 0.00% | `PGS_PASS` |
 | `11..1000000` | 78,494 | 78,494 | 78,494 | 0 | 100.00% | 0.00% | `PGS_PASS` |
@@ -187,7 +187,7 @@ The exact low-scale reports are:
 
 The implementation preserves the minimal generator contract:
 
-- emitted records contain only `p` and `q`;
+- outputted records contain only `p` and `q`;
 - source labels remain sidecar-only;
 - audit remains outside the generator;
 - no old graph generator code is imported;
@@ -238,7 +238,7 @@ recovery path. Before crypto-keygen use, two engineering tasks remain:
 2. Characterize unresolved high-scale probe rows and decide whether
    `candidate_bound=128` should become a dynamic bound in probe mode.
 
-The current result is still strong: on every emitted high-scale sampled row
+The current result is still strong: on every outputted high-scale sampled row
 through `10^18`, audit failures are zero and chain/fallback counts are zero.
 The honest source split is pure search-interval-closure PGS plus
 `shadow_seed_recovery` bridge rows.

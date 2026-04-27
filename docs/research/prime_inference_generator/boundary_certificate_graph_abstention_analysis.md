@@ -2,7 +2,7 @@
 
 ## Status
 
-This is offline graph-solver analysis. It is not pure production emission and
+This is offline graph-solver analysis. It is not pure production output and
 does not approve cryptographic use.
 
 Next-Prime Law 005 remains candidate-grade. Next-Prime Law 005B remains
@@ -11,9 +11,9 @@ produced its graph state, and only for reporting.
 
 ## Purpose
 
-Candidate-Constraint Graph Solver v0 safely emitted 36 experimental graph
+Candidate-Constraint Graph Solver v0 safely outputted 36 experimental graph
 diagnostic records on input primes `11..10_000`, but did not improve coverage beyond the
-005A-R emitter. The abstention analysis identified why the solver stopped and
+005A-R outputter. The abstention analysis identified why the solver stopped and
 which graph relation should be added next.
 
 The accepted v0 graph rules are:
@@ -24,7 +24,7 @@ The accepted v0 graph rules are:
 - 005A-R higher-divisor locked absorption.
 
 The analysis does not add 005B, broad resolved-interval absorption,
-earliest-candidate dominance, scalar ranking, or any new emission path.
+earliest-candidate dominance, scalar ranking, or any new output path.
 
 ## Target Run
 
@@ -44,7 +44,7 @@ graph_failed_count: 0
 ## Dominant Abstention Structure
 
 The graph solver usually has already resolved the true next prime, but it cannot
-emit because later unresolved alternatives remain live.
+output because later unresolved alternatives remain live.
 
 ```text
 TRUE_BOUNDARY_RESOLVED_BUT_UNRESOLVED_LATER_REMAIN: 1137

@@ -115,4 +115,4 @@ Milestone 1 remains blocked.
 
 Next-Prime Law 005 is not approved.
 
-Prime emission remains forbidden.
+Prime output remains forbidden.

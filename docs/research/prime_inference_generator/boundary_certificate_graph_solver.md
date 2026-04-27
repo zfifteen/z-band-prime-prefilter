@@ -3,9 +3,9 @@
 ## Status
 
 The candidate-constraint graph solver is an offline experimental inference
-artifact. It is not production pure emission. It does not approve
+artifact. It is not production pure output. It does not approve
 cryptographic use. Classical validation remains a separate downstream audit
-over records that have already been emitted.
+over records that have already been outputted.
 
 Next-Prime Law 005 remains candidate-grade. The only live rule family used here
 is 005A-R. Next-Prime Law 005B remains quarantined.
@@ -18,7 +18,7 @@ because v4 absorbed the unresolved true next prime at input prime `10193` during
 
 ## Purpose
 
-The previous emitter produced inferred-prime records from a single refined
+The previous outputter produced inferred-prime records from a single refined
 activation rule. The graph solver keeps the same accepted rule set but changes
 the implementation shape:
 
@@ -26,7 +26,7 @@ the implementation shape:
 2. attach accepted PGS facts to each node;
 3. attach rule relations between nodes;
 4. propagate accepted eliminations until stable;
-5. emit only when one resolved candidate remains and no unresolved alternatives
+5. output only when one resolved candidate remains and no unresolved alternatives
    remain.
 
 The solver asks whether the existing PGS facts already force a endpoint when
@@ -182,7 +182,7 @@ alone is not enough to absorb a no-selected-integer unresolved target.
 
 ## Record Contract
 
-Each emitted JSONL record uses:
+Each outputted JSONL record uses:
 
 - `record_type: PGS_INFERRED_PRIME_EXPERIMENTAL_GRAPH`
 - `inference_status: INFERRED_BY_BOUNDARY_CERTIFICATE_GRAPH_V6`
@@ -191,13 +191,13 @@ Each emitted JSONL record uses:
 - `classical_audit_required: true`
 - `classical_audit_status: NOT_RUN`
 
-The inferred value is emitted as an experimental graph diagnostic record. It is not a
+The inferred value is outputted as an experimental graph diagnostic record. It is not a
 production prime-generation result.
 
 ## Audit Endpoint
 
 The solver writes graph records without classical validation. The audit mode
-reads the emitted JSONL later and confirms whether `inferred_prime_q_hat` is
+reads the outputted JSONL later and confirms whether `inferred_prime_q_hat` is
 the first classical prime after `anchor_p`.
 
 Classical validation is therefore downstream evidence, not a rule input.
@@ -205,12 +205,12 @@ Classical validation is therefore downstream evidence, not a rule input.
 ## v0 Result
 
 On input primes `11..10_000` with `candidate_bound = 128` and
-`witness_bound = 127`, v0 emitted 36 experimental graph records.
+`witness_bound = 127`, v0 outputted 36 experimental graph records.
 
 Separate downstream audit confirmed 36/36 records with 0 failures.
 
 This was safe but not a coverage breakthrough. Under the accepted v0 rule set,
-the graph solver was operationally equivalent to the 005A-R emitter on this
+the graph solver was operationally equivalent to the 005A-R outputter on this
 surface.
 
 ## v1 Target
@@ -313,7 +313,7 @@ true_boundary_status_counts:
   NOT_IN_CANDIDATE_SET: 0
 ```
 
-Graph v3 is the first solver version to exceed 200 emitted experimental graph
+Graph v3 is the first solver version to exceed 200 outputted experimental graph
 records on input primes `11..10_000` while preserving zero downstream audit
 failures on the tested surface.
 
@@ -360,7 +360,7 @@ true_boundary_status_counts:
   NOT_IN_CANDIDATE_SET: 0
 ```
 
-Graph v4 increases experimental graph emissions from 211 to 447 on input primes
+Graph v4 increases experimental graph outputs from 211 to 447 on input primes
 `11..10_000` with zero downstream audit failures on the tested surface.
 
 ## v5 Result
@@ -408,7 +408,7 @@ true_boundary_status_counts:
   NOT_IN_CANDIDATE_SET: 0
 ```
 
-Graph v5 increases experimental graph emissions from 447 to 995 on input primes
+Graph v5 increases experimental graph outputs from 447 to 995 on input primes
 `11..10_000` with zero downstream audit failures on the tested surface.
 
 ## v4/v5 Scale Failure
@@ -417,9 +417,9 @@ The `11..100_000` scale run exposed a v4 failure:
 
 ```text
 input_prime_p: 10193
-bad emitted q_hat: 10201
+bad output q_hat: 10201
 actual next prime: 10211
-bad emitted offset: 8
+bad output offset: 8
 actual next prime offset: 18
 relation_that_absorbed_true_boundary: v4
 ```
@@ -479,6 +479,6 @@ of the v4/v5 coverage jump.
 ## Failure Handling
 
 Any audit failure is research evidence and must be recorded directly. It is not
-a hidden error to patch around. A failed graph emission blocks the corresponding
+a hidden error to patch around. A failed graph output blocks the corresponding
 rule composition from generator eligibility until the failure has a structural
 explanation and the full matrix is rerun.

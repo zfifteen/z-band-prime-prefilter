@@ -17,7 +17,7 @@ This is the gap-ridge concern of the DNI. It is the study of where the strongest
 
 ## What Is Being Measured
 
-The field under study is the exact raw DNI field itself,
+The object under study is the exact raw DNI score function itself,
 
 $$
 Z(n) = n^{1 - d(n)/2},
@@ -32,15 +32,15 @@ Two measurements then matter:
 - how far that peak sits from the nearest edge of the gap,
 - which divisor count carries that peak.
 
-The edge-distance question tells us whether the field rises toward the endpoint or toward the midpoint. The selected-divisor-count question tells us which divisor class most often supports the peak. In the current exact runs, the answers are near-edge position and $d(n) = 4$ selected-divisor-count dominance.
+The edge-distance question tells us whether the score rises toward the endpoint or toward the midpoint. The selected-divisor-count question tells us which divisor class most often supports the peak. In the current exact runs, the answers are near-edge position and $d(n) = 4$ selected-divisor-count dominance.
 
 ## Why This Is A Separate Concern
 
 The gap-ridge result is not the same concern as the production prefilter.
 
-The prefilter concern asks how the fixed-point locus is used operationally to remove composite work before Miller-Rabin. The gap-ridge concern asks what structure the exact raw composite field shows inside prime gaps once exact divisor count is available.
+The prefilter concern asks how the fixed-point locus is used operationally to remove composite work before Miller-Rabin. The gap-ridge concern asks what structure the exact raw composite score values show inside prime gaps once exact divisor count is available.
 
-It is also narrower than the full exact raw composite field concern. The broader field concern studies the exact raw composite $Z$ field itself. The gap-ridge concern studies one specific structure within that field: the location and integer attaining the within-gap maximum.
+It is also narrower than the full exact raw composite score-function concern. The broader concern studies the exact raw composite $Z$ score values themselves. The gap-ridge concern studies one specific structure within that score function: the location and integer attaining the within-gap maximum.
 
 ## Exact Method
 
@@ -50,7 +50,7 @@ The method in this repository is deterministic and exact.
 2. Compute exact divisor count $d(n)$ on that interval.
 3. Identify every consecutive prime gap $p < q$ with $q - p \ge 4$.
 4. Restrict attention to the composite interior points $p < n < q$.
-5. Evaluate the raw DNI field $Z(n) = n^{1 - d(n)/2}$ on those interiors.
+5. Evaluate the raw DNI score function $Z(n) = n^{1 - d(n)/2}$ on those interiors.
 6. Within each gap, select the single composite with the largest raw $Z$.
 7. Compare the observed peak position and observed peak integer against exact within-gap baselines induced by the same interior.
 
@@ -60,7 +60,7 @@ $$
 \ln Z(n) = \left(1 - \frac{d(n)}{2}\right)\ln n
 $$
 
-only to preserve the ordering of the exact same raw field without floating-point underflow. The quantity being studied remains raw $Z$.
+only to preserve the ordering of the exact same raw score function without floating-point underflow. The quantity being studied remains raw $Z$.
 
 In the normative Python helpers for this concern, exact divisor counts over intervals are supplied by the exact composite-field path, and the gap-ridge summaries are produced by [the gap-ridge run helpers](../src/python/z_band_prime_gap_ridge/runs.py).
 
@@ -85,7 +85,7 @@ Additional structure from the same run sharpens the picture:
 - right edge wins in $16.0180\%$ of gaps,
 - exact center wins in $9.4245\%$ of gaps.
 
-The strongest supported reading of this table is that the raw composite field does not build a midpoint ridge. It builds a near-edge low-divisor ridge, and that ridge is carried predominantly by $d(n) = 4$ composites.
+The strongest supported reading of this table is that the raw composite score values does not build a midpoint ridge. It builds a near-edge low-divisor ridge, and that ridge is carried predominantly by $d(n) = 4$ composites.
 
 ## Lexicographic Peak Rule
 

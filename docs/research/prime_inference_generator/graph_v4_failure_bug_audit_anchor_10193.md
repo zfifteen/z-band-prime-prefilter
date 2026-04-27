@@ -3,7 +3,7 @@
 ## Status
 
 This is an offline bug audit for the first observed graph v4/v5 scale failure.
-It does not repair the solver, add v6, change graph rules, add pure emission,
+It does not repair the solver, add v6, change graph rules, add pure output,
 or approve production use.
 
 The audit uses classical labels only after the graph state has been produced.
@@ -12,18 +12,18 @@ Those labels are reporting-only.
 ## Observed Failure
 
 The scale run over input primes `11..100_000` with `candidate_bound = 128` and
-`witness_bound = 127` found a failed graph emission at input prime `10193`.
+`witness_bound = 127` found a failed graph output at input prime `10193`.
 
 ```text
 input_prime_p: 10193
-emitted_q_hat: 10201
-emitted_offset: 8
+output_q_hat: 10201
+output_offset: 8
 actual_next_prime: 10211
 actual_boundary_offset: 18
-emitted_matches_actual_bool: false
+output_matches_actual_bool: false
 ```
 
-The emitted value is not the next prime endpoint. It factors as:
+The outputted value is not the next prime endpoint. It factors as:
 
 ```text
 10201 = 101^2
@@ -131,7 +131,7 @@ surface remains:
 input primes: 11..10_000
 candidate_bound: 128
 witness_bound: 127
-graph_v5: 995 emitted / 995 confirmed / 0 failed
+graph_v5: 995 output / 995 confirmed / 0 failed
 ```
 
 The scale surface `11..100_000` is not clean:

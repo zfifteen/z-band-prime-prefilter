@@ -4,7 +4,7 @@
 
 This began as an offline repair probe for the graph v4 scale failure. The
 viable guard has now been integrated as graph v6. The integration does not
-re-enable old v4/v5 as a broad default, add pure production emission, or
+re-enable old v4/v5 as a broad default, add pure production output, or
 integrate 005B.
 
 Classical labels and first-endpoint audit are used only after each candidate

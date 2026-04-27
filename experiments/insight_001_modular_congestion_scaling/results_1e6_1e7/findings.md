@@ -25,7 +25,7 @@ X0 = 1,000,000
 N  = 10,000,000
 ```
 
-The pressure field used:
+The pressure score used these ingredients:
 
 $$H(x)=\lceil\log(x)^2\rceil$$
 
@@ -69,7 +69,7 @@ The stated prediction required major new gaps to occur within `1,000,000`
 integers of a coordinate where local modular saturation reaches a new running
 maximum. The record gap beginning at `4652353` violates that condition.
 
-On this finite domain, the proposed modular pressure field does not provide the
+On this finite domain, the proposed modular pressure score does not provide the
 claimed record-gap locator. The record endpoints also do not concentrate at
 high pressure: their median pressure percentile is approximately `50.13`, not
 above the required `90th` percentile.

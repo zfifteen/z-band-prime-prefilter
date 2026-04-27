@@ -11,17 +11,17 @@ PGS_GENERATOR_FREEZE_ID = pgs_inference_generator_v1_1_pgs_only
 Release note:
 [PGS Inference Generator v1.1](../../releases/pgs_inference_generator_v1_1_pgs_only.md).
 
-The generator has one job: start from an input prime `p` and emit the
+The generator has one job: start from an input prime `p` and output the
 next prime `q` selected by the PGS next-prime selection rule.
 
-Each emitted line has exactly two fields:
+Each outputted line has exactly two keys:
 
 ```json
 {"p": 11, "q": 13}
 ```
 
 `q` is the generator's PGS-selected next-prime output. A separate downstream
-audit checks every emitted record after emission. Audit is verification, not
+audit checks every outputted record after generation. Audit is verification, not
 the mechanism that chooses `q`.
 
 ## Stage 1: Input Prime
@@ -29,7 +29,7 @@ the mechanism that chooses `q`.
 The input prime `p` is the current accepted prime. The generator accepts `p` as
 input. It does not prove `p` during generation.
 
-For every resolved input prime, the generator emits exactly one record. If the PGS
+For every resolved input prime, the generator outputs exactly one record. If the PGS
 selector does not resolve inside the supplied search bound, the generator
 raises `PGSUnresolvedError`. It does not run a backup prime search.
 
@@ -70,7 +70,7 @@ The production next-prime selection rule is Rule X with search-interval reset:
 - identify the first resolved survivor `r`;
 - reset the search interval at `r`;
 - classify later unresolved candidates as post-reset search interval material;
-- emit `r` as the proposed next prime.
+- output `r` as the proposed next prime.
 
 In compact form:
 
@@ -79,15 +79,15 @@ $$q = B(p, S, w, d(w))$$
 where `S` is the exact divisor-count search-interval state needed to make the endpoint
 choice single-valued.
 
-## Stage 5: Emission
+## Stage 5: Output
 
-For each resolved input prime `p`, the generator emits exactly one line:
+For each resolved input prime `p`, the generator outputs exactly one line:
 
 ```json
 {"p": 11, "q": 13}
 ```
 
-The line contains no extra fields. It contains no selected-integer data, relation
+The line contains no extra keys. It contains no selected-integer data, relation
 history, proof object, approval flags, counters, status categories, source
 labels, or hidden diagnostics.
 
@@ -95,9 +95,9 @@ The generator script contains generation logic only. It does not contain
 artifact writing, audit, reporting, command-line orchestration, fallback prime
 search, trial division, or downstream validation helpers.
 
-Sidecar diagnostics are produced by the controller, not by the emitted stream.
+Sidecar diagnostics are produced by the controller, not by the outputted stream.
 The current production generator source is always `PGS` when a record is
-emitted.
+outputted.
 
 ## Validation Surfaces
 
@@ -116,7 +116,7 @@ High-scale decade-window surface:
 surface: 256 consecutive input primes per decade, 10^8 through 10^18
 candidate_bound: 1024
 input primes tested: 2816
-PGS emissions: 2816
+PGS outputs: 2816
 audit failures: 0
 ```
 
@@ -134,16 +134,16 @@ Generation must not call or contain:
 - PARI primality checks;
 - sieve-based prime generation.
 
-Downstream audit may use classical validation after emission. Audit code must
+Downstream audit may use classical validation after generation. Audit code must
 not live in the generator file and must not choose `q` inside generation.
 
 ## Completion Standard
 
 A complete PGS-only generator satisfies these conditions on a declared surface:
 
-- every input prime on the surface emits exactly one record;
-- every emitted `q` is the actual next prime after `p`;
+- every input prime on the surface outputs exactly one record;
+- every outputted `q` is the actual next prime after `p`;
 - every record has exactly `p` and `q`;
 - no forbidden tool is used inside generation;
 - unresolved cases fail explicitly with `PGSUnresolvedError`;
-- downstream audit checks the emitted records after generation.
+- downstream audit checks the outputted records after generation.

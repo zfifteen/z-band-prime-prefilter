@@ -4,7 +4,7 @@ The 005A refinement kept all 36 unique successes, dropped all 12 non-unique
 activations, and selected 0 wrong cases on the tested surfaces.
 
 This is offline theorem discovery. Next-Prime Law 005A-R remains candidate-grade
-only. Pure generator emission remains forbidden. Classical labels are external
+only. Pure generator output remains forbidden. Classical labels are external
 audit only.
 
 ## Candidate Refinement
@@ -90,7 +90,7 @@ horizon:
 005A-R: candidate-grade, all selected origin-surface activations unique, shifted windows safe-abstain, safe so far, narrow
 ```
 
-The result does not approve generator emission. It only shows that the
+The result does not approve generator output. It only shows that the
 single-hole closure filter separated the tested 005A activation population into
 36 selected unique successes and 12 dropped non-unique activations.
 
@@ -138,5 +138,5 @@ surfaces:
 ```
 
 The audit must confirm that the population used to harden 005A-R matches the
-population it can act on during flagged offline integration. Pure emission
+population it can act on during flagged offline integration. Pure output
 remains forbidden.

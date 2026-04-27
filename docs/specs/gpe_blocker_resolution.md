@@ -14,7 +14,7 @@ known left endpoint prime $q$, the exact DNI/GWR oracle recovers:
 
 - the next-gap interior selected integer $w$,
 - the selected divisor-count class $d(w)$,
-- and the right endpoint prime $q^+$ by scanning the divisor field until
+- and the right endpoint prime $q^+$ by scanning the divisor-count values until
   $d(n)=2$.
 
 That is not yet the same as a primality-free generative prime engine. The
@@ -30,7 +30,7 @@ The first small obstruction is:
 - GWR-selected integer: $w=25$,
 - right endpoint prime: $q^+=29$.
 
-So the implementation skeleton cannot emit `winner + 1`.
+So the implementation skeleton cannot output `winner + 1`.
 
 ### Resolution Contract
 
@@ -48,7 +48,7 @@ where:
   the gap interior, candidate sieving lists, or Eratosthenes marking.
 
 This is the first theorem/program target. Until $B$ exists, GPE is not an exact
-prime emitter.
+prime outputter.
 
 ## Blocker 2: NLSC Gives A Ceiling, Not A Selector
 
@@ -94,7 +94,7 @@ example:
 | $73$ | $74$ | $79$ | $6$ |
 
 Both rows have the same reduced selected integer type, but different next-prime offsets.
-Therefore the current reduced state alone cannot emit the exact prime sequence.
+Therefore the current reduced state alone cannot output the exact prime sequence.
 
 ### Resolution Contract
 
@@ -103,7 +103,7 @@ the next-prime selector single-valued: $$B(q,S,w,d(w))$$ must have no collisions
 on the validation surface, and the proof target must explain why the
 collision-free property persists outside the tested surface.
 
-## Blocker 4: Exact DNI Evaluation Currently Uses The Divisor Field
+## Blocker 4: Exact DNI Evaluation Currently Uses Divisor-Count Values
 
 The current exact oracle evaluates divisor counts and detects the endpoint by
 the condition $d(n)=2$.
@@ -115,12 +115,12 @@ requirement of zero traditional primality tests and no candidate sieving lists.
 
 Tier 1 must either:
 
-- compute the selected integer and endpoint by rulebook arithmetic without divisor-field
+- compute the selected integer and endpoint by rulebook arithmetic without divisor-count
   scanning, or
 - remain explicitly outside the zero-test GPE contract.
 
 There is no acceptable hidden path where `find_min_L_in_window` silently
-performs primality or divisor-field scanning while the surrounding engine is
+performs primality or divisor-count scanning while the surrounding engine is
 described as zero-test.
 
 ## Immediate Proof Target

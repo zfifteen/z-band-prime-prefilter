@@ -6,7 +6,7 @@ replacements for `shadow_seed_trial_recovery_v1`.
 The current generator state is honest:
 
 - `pgs_chamber_closure_v2` is the current pure PGS selector.
-- `shadow_seed_recovery` is operationally correct on the tested emitted
+- `shadow_seed_recovery` is operationally correct on the tested outputted
   high-scale samples, but it is not pure PGS because its terminal step uses
   exact divisor arithmetic.
 - A proposed solution is promotable only if it raises pure PGS recovery on the
@@ -24,7 +24,7 @@ The target surface for these branches is the current 388 high-scale
 Promotion requires:
 
 - no generator contamination;
-- no added fields in emitted records;
+- no added fields in outputted records;
 - no primality, factorization, `nextprime`, or full divisor exhaustion inside a
   pure PGS selector;
 - zero audit failures if the rule is promoted;
@@ -156,7 +156,7 @@ the seed is often another right-side impostor.
 
 Limitation:
 
-The rule has high projected PGS coverage only by accepting unsafe emissions.
+The rule has high projected PGS coverage only by accepting unsafe outputs.
 It is not eligible for generator promotion.
 
 ## Solution 1c: GWR Later-Side Closure
@@ -333,7 +333,7 @@ effectively row-unique:
 Strength:
 
 This is the fairest current integration of the GWR-locked idea. It supplies
-additional probe-side state without changing the generator or emitted record
+additional probe-side state without changing the generator or outputted record
 contract.
 
 Weakness:
@@ -739,7 +739,7 @@ The exact submitted state is not present in current artifacts.
 
 | Required object | Present |
 |---|---|
-| per-index emitted / confirmed counts | false |
+| per-index outputted / confirmed counts | false |
 | per-index visible candidate flux | false |
 | per-index search interval pressure | false |
 
@@ -996,7 +996,7 @@ baseline.
 
 Strength:
 
-This probe adds one explicit seed-carried predicate without adding new emitted
+This probe adds one explicit seed-carried predicate without adding new outputted
 fields or invoking forbidden labels. It tests a concrete two-sided closure
 operator that is stronger than mod-only residue closure.
 
@@ -1010,7 +1010,7 @@ filters the baseline impostor.
 Limitation:
 
 This branch rejects seed-distance closure as materialized by
-`closure_reason(0, delta)` with the current visible divisor bound. It does not
+`closure_reason(0, delta)` with the current factor-search bound. It does not
 rule out a integer-aware state transition that distinguishes the seed from the
 first visible-open candidate.
 
@@ -1150,7 +1150,7 @@ failures via both early and late mis-selections.
 Strength:
 
 The integer-threat observable is genuinely PGS-visible and does not use audit
-labels or any exact divisor-field classification. It is a concrete attempt to
+labels or any exact divisor-count classification. It is a concrete attempt to
 turn a post-seed closure witness event into a next-prime-margin marker.
 
 Weakness:

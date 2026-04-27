@@ -198,7 +198,7 @@ Its contract is narrow:
 - if one mismatch appears, the bounded law is false and the first
   counterexample is recorded;
 - if no mismatch appears on a finite surface, the scan certifies exactly that
-  finite surface and emits the extremal-case verification records that any larger claim must
+  finite surface and writes the extremal-case verification records that any larger claim must
   explain.
 
 On the current committed scan through `q <= 10^7`, the exact compare surface

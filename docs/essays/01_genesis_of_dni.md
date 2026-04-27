@@ -23,9 +23,9 @@ corpora in this repository, rejects about `91%` of candidates before
 Miller-Rabin and yields measured deterministic RSA key-generation speedups of
 `2.09x` at `2048` bits and `2.82x` at `4096` bits.
 
-It gives an exact raw field over the integers.
+It gives an exact raw score function over the integers.
 
-Inside prime gaps, that field produces a near-edge ridge whose strongest tested
+Inside prime gaps, that score function produces a near-edge ridge whose strongest tested
 local peaks are overwhelmingly carried by `d(n) = 4` composites.
 
 And on the analytic side, the native generating objects built from the same
@@ -302,7 +302,7 @@ deterministic prime prefilter that removes composite work before Miller-Rabin.
 
 The third is the composite-field concern.
 
-That is the exact raw field over the integers: what the full DNI landscape
+That is the exact raw score function over the integers: what the full DNI landscape
 looks like when you evaluate it directly rather than only using it as a
 prefilter.
 

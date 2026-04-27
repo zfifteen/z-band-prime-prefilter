@@ -1,8 +1,8 @@
 # PGS Prime Inference Generator MVP
 
 The PGS Prime Inference Generator separates prime generation from prime
-validation. The generator emits PGS-inferred primes. It does not certify them.
-Classical validation reads the emitted trace afterward and audits the result.
+validation. The generator outputs PGS-inferred primes. It does not certify them.
+Classical validation reads the outputted trace afterward and audits the result.
 
 This scaffold is not yet a positive prime-inference result; it is the purity
 harness required before adding the first endpoint-inference law.
@@ -13,7 +13,7 @@ Pure generation must not call Miller-Rabin, `nextprime`, `isprime`, `prime`,
 trial-division primality testing, sieve-backed divisor counting, or a helper
 whose job is to find the next prime endpoint.
 
-The pure generation stage records what PGS inference emits. The audit stage
+The pure generation stage records what PGS inference outputs. The audit stage
 records what classical validation confirms. Those two stages are separate code
 paths and separate artifacts.
 
@@ -25,16 +25,16 @@ runs, writes JSONL and summary artifacts, and fails closed with
 helpers.
 
 Milestone 1 is the first positive inference result. Starting from input prime
-`11`, pure mode emits `N` inferred `q_hat` values from a clean PGS next-prime law.
-Only after the emitted JSONL exists does audit mode validate the sequence and
-report `N/N` if every emitted next-prime value is confirmed.
+`11`, pure mode outputs `N` inferred `q_hat` values from a clean PGS next-prime law.
+Only after the outputted JSONL exists does audit mode validate the sequence and
+report `N/N` if every outputted next-prime value is confirmed.
 
 ## Artifact Contract
 
-Pure mode writes one JSONL trace and one JSON summary. Milestone 0 emits no
+Pure mode writes one JSONL trace and one JSON summary. Milestone 0 outputs no
 inferred primes:
 
-- `emitted_inferred_count: 0`
+- `output_inferred_count: 0`
 - `generation_status: "failed_closed"`
 - `failure_reason: "BOUNDARY_LAW_UNAVAILABLE"`
 

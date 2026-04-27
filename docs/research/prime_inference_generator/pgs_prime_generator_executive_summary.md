@@ -4,7 +4,7 @@
 
 The production PGS Prime Inference Generator is now PGS-only.
 
-It starts from an accepted prime `p` and emits the next prime `q` without trial
+It starts from an accepted prime `p` and outputs the next prime `q` without trial
 division, fallback prime search, Miller-Rabin, sieve generation, `isprime`, or
 `nextprime` inside the generator.
 
@@ -36,7 +36,7 @@ High-scale decade-window surface:
 surface: 256 consecutive input primes per decade, 10^8 through 10^18
 candidate_bound: 1024
 input primes tested: 2816
-PGS emissions: 2816
+PGS outputs: 2816
 unresolved: 0
 audit failures: 0
 ```
@@ -57,7 +57,7 @@ Removed from the production generator:
 - divisor-witness search;
 - shadow-seed recovery;
 - chain fallback;
-- inline validation of emitted `q`.
+- inline validation of outputted `q`.
 
 ## Endpoint Rule
 
@@ -65,7 +65,7 @@ The production selector is:
 
 ```text
 rule_id: pgs_chamber_reset_v1
-state input: exact divisor-count field
+state input: exact divisor-count values
 next-prime selection rule: GWR/NLSC search-interval-reset state
 ```
 
@@ -96,6 +96,6 @@ state coherent under GWR and NLSC.
 This is a production-generator result on the declared validation surfaces. It
 is not yet a theorem for every future input prime at every scale.
 
-The current accomplishment is concrete: the generator emits exact
+The current accomplishment is concrete: the generator outputs exact
 successor-prime records on the tested low and high-scale surfaces with no trial
 division or fallback search inside the generator.

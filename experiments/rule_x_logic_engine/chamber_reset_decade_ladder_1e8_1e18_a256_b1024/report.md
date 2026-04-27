@@ -12,12 +12,12 @@ input primes tested: 2816
 exact matches: 2816
 coverage: 100.000000%
 unresolved: 0
-false emissions: 0
+false outputs: 0
 candidate-bound misses: 0
 total runtime: 36.951566 seconds
 ```
 
-The previous Rule X emission rule resolved `513 / 2816` input primes. The
+The previous Rule X output rule resolved `513 / 2816` input primes. The
 search-interval-reset rule converted the remaining `2303` tail cases by classifying
 later unresolved candidates as post-endpoint search interval material.
 
@@ -31,7 +31,7 @@ The search-interval-reset rule is:
 ```text
 r closes the current p search interval.
 Any later unresolved candidate belongs to a later search interval.
-Emit r as q_hat.
+Output r as q_hat.
 ```
 
 The rule does not create the first survivor. It classifies the unresolved tail
@@ -39,7 +39,7 @@ after a survivor has already been resolved.
 
 ## Results By Decade
 
-| Decade | Input primes | Exact matches | Unresolved | False emits | Bound misses | Tail cases | Seconds |
+| Decade | Input primes | Exact matches | Unresolved | False outputs | Bound misses | Tail cases | Seconds |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | `10^8` | `256` | `256` | `0` | `0` | `0` | `195` | `0.334307` |
 | `10^9` | `256` | `256` | `0` | `0` | `0` | `208` | `0.473113` |
@@ -61,7 +61,7 @@ after a survivor has already been resolved.
 | Exact matches | `2816` |
 | Coverage | `100.000000%` |
 | Unresolved | `0` |
-| False emissions | `0` |
+| False outputs | `0` |
 | Candidate-bound misses | `0` |
 | Tail cases converted | `2303` |
 | Tail candidates excluded | `77457` |
@@ -87,7 +87,7 @@ audited coverage.
 This is a decade-window experiment, not exhaustive coverage of every prime
 through `10^18`. Classical labels are used for input prime selection and downstream
 audit in the experiment harness. The next engineering step is promotion into
-the minimal generator path while preserving the two-field emission contract.
+the minimal generator path while preserving the two-key output contract.
 
 ## Artifacts
 

@@ -8,7 +8,7 @@ Next-Prime Law 005 is not approved by this note.
 ## Objective
 
 Classify unresolved alternatives in rows where the true next prime is already
-resolved but cannot be emitted because unresolved alternatives remain live.
+resolved but cannot be outputted because unresolved alternatives remain live.
 
 The measured mode is:
 
@@ -133,6 +133,6 @@ Milestone 1 remains blocked.
 
 Next-Prime Law 005 is not approved.
 
-The current evidence does not support prime emission. The next rule search
+The current evidence does not support prime output. The next rule search
 should target after-true unresolved alternatives, not broader positive witness
 closure.

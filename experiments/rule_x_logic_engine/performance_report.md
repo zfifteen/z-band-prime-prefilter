@@ -52,7 +52,7 @@ unresolved interior hold
 semiprime-shadow landmark hold
 selected-integer lock after resolved survivor
 lower-divisor threat ceiling
-unique resolved survivor emission
+unique resolved survivor output
 ```
 
 ## Timed Scale Ladder

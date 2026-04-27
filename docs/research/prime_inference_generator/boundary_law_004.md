@@ -1,11 +1,11 @@
 # Next-Prime Law 004: First Endpoint-Forcing Predicate
 
 Endpoint Laws 001 through 003 tested search interval certification. They did not produce
-a lawful emission because search-interval consistency is not endpoint force. Endpoint
+a lawful output because search-interval consistency is not endpoint force. Endpoint
 Law 004 changes the target: identify a predicate that makes the search interval stop.
 
 This note surveys candidate next-prime-forcing predicates under the pure
-generation contract. It does not emit. Its status is
+generation contract. It does not output a value. Its status is
 `BOUNDARY_FORCING_REQUIRES_NEW_THEOREM`.
 
 ## Name
@@ -25,14 +25,14 @@ A next-prime-forcing predicate must:
 - identify a unique next-prime offset;
 - distinguish a forced endpoint from an admissible candidate;
 - fail closed when the endpoint is not unique;
-- emit enough metadata to reproduce the inference.
+- output enough metadata to reproduce the inference.
 
 It must not assume the proposed interval endpoint and then merely verify that the
 interior is coherent.
 
 ## Forbidden Mechanisms
 
-Next-Prime Law 004 rejects any predicate that emits because:
+Next-Prime Law 004 rejects any predicate that outputs because:
 
 - the endpoint is classically known;
 - the candidate is first wheel-open;
@@ -132,7 +132,7 @@ where `S` is the PGS state and `w` is the active integer.
 What it establishes:
 
 - a plausible form for a true next-prime-forcing law;
-- a direct path from normalized search-interval state to endpoint emission if solved.
+- a direct path from normalized search-interval state to endpoint output if solved.
 
 What remains missing:
 
@@ -232,12 +232,12 @@ $$B(p, S, w, d(w)) = q_{hat}$$
 where `B` is deterministic, non-classical, and fails when the state is
 ambiguous.
 
-## Emission Rule
+## Output Rule
 
-Pure mode may emit under `boundary_law_004` only if one candidate predicate is
+Pure mode may output under `boundary_law_004` only if one candidate predicate is
 upgraded from a diagnostic record or bound into a unique next-prime map.
 
-Until then, pure mode must emit:
+Until then, pure mode must output:
 
 - `rule_set_version: "boundary_law_004"`
 - `inference_status: "failed_closed"`
@@ -258,4 +258,4 @@ The most promising paths are:
 
 If none of these closes, the result is still clean: GWR/DNI currently describes
 and constrains proposed intervals, but a separate next-prime-forcing theorem is
-needed before pure prime inference can emit.
+needed before pure prime inference can output.

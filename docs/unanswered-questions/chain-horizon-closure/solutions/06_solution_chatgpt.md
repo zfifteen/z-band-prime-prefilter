@@ -13,14 +13,14 @@ Repo-grounded baseline
 The current high-scale operational shape is strong. The repo summary shows:
 
 10^15:
-emitted = 249 / 256
+outputted = 249 / 256
 unresolved = 7
 audit_failed = 0
 PGS = 43.37%
 chain_horizon_closure = 56.63%
 fallback = 0%
 10^18:
-emitted = 250 / 256
+outputted = 250 / 256
 unresolved = 6
 audit_failed = 0
 PGS = 42.00%
@@ -217,7 +217,7 @@ least_factor_maximum.csv
 horizon_law_report.csv
 horizon_law_summary.json
 
-Per false chain node, emit:
+Per false chain node, output:
 
 scale
 input_prime_p

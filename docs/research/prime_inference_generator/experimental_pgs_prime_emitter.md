@@ -1,26 +1,26 @@
-# Experimental PGS Prime Emitter
+# Experimental PGS Prime Outputter
 
-The experimental PGS prime emitter produced 36 inferred next-prime endpoint
+The experimental PGS prime outputter produced 36 inferred next-prime endpoint
 records under 005A-R on input primes 11..1000000. A separate downstream classical
 audit confirmed 36 out of 36.
 
-This is Milestone 1B evidence. It is not production emission. Cryptographic use
+This is Milestone 1B evidence. It is not production output. Cryptographic use
 is not approved.
 
 ## Status
 
 ```text
 PGS Prime Generator: experimental mode ready
-Production pure emission: forbidden
+Production pure output: forbidden
 Milestone 1A: complete
-Milestone 1B: experimental inferred emission produced
-005A-R: candidate-grade refined emission rule
+Milestone 1B: experimental inferred output produced
+005A-R: candidate-grade refined output rule
 005B: quarantined
 ```
 
 ## Rule Set
 
-The emitter uses the 005A-R refined rule:
+The outputter uses the 005A-R refined rule:
 
 ```text
 rule_set: 005A-R
@@ -29,7 +29,7 @@ witness_bound: 127
 input primes: 11..1000000
 ```
 
-The emitted records are generator-facing experimental records, not diagnostic records
+The outputted records are generator-facing experimental records, not diagnostic records
 only:
 
 ```text
@@ -41,7 +41,7 @@ classical_audit_required: true
 classical_audit_status: NOT_RUN
 ```
 
-## Emission Summary
+## Output Summary
 
 | field | value |
 |---|---:|
@@ -50,7 +50,7 @@ classical_audit_status: NOT_RUN
 | anchor_range | 11..1000000 |
 | candidate_bound | 128 |
 | witness_bound | 127 |
-| emitted_count | 36 |
+| outputted_count | 36 |
 | production_approved | false |
 | cryptographic_use_approved | false |
 | classical_audit_required | true |
@@ -58,7 +58,7 @@ classical_audit_status: NOT_RUN
 
 ## Audit Summary
 
-The audit reads the emitted experimental JSONL after emission. It is not part of
+The audit reads the outputted experimental JSONL after generation. It is not part of
 record selection.
 
 | field | value |
@@ -101,12 +101,12 @@ record selection.
 
 ## Supported Claim
 
-The experimental PGS prime emitter produced 36 inferred next-prime endpoint
+The experimental PGS prime outputter produced 36 inferred next-prime endpoint
 records under 005A-R on input primes 11..1000000. A separate downstream classical
 audit confirmed 36 out of 36.
 
 The supported claim is limited to this experimental regime. The result does not
-approve production pure emission, cryptographic use, or validation-free
+approve production pure output, cryptographic use, or validation-free
 operation.
 
 ## Falsification Conditions
@@ -121,7 +121,7 @@ true_boundary_rejected_count > 0
 kept_non_unique_activations > 0
 ```
 
-One failed emitted prime requires immediate autopsy before further expansion.
+One failed outputted prime requires immediate autopsy before further expansion.
 
 ## Next Scale Run
 
@@ -130,19 +130,19 @@ scanned to the 10,000,000 cap.
 
 ```text
 rule_set: 005A-R
-emit_target: 100
+output_target: 100
 candidate_bound: 128
 witness_bound: 127
 anchor_range: 11..10000000
 max_scan_cap: 10000000
 final_anchor_scanned: 9999991
 max_anchor_scanned: 9999991
-emitted_count: 36
+output_count: 36
 reason: EMIT_TARGET_NOT_REACHED
 runtime_seconds: 1775.3614568330813
 ```
 
-The separate downstream audit confirmed all emitted records:
+The separate downstream audit confirmed all outputted records:
 
 ```text
 audited_count: 36
@@ -153,7 +153,7 @@ validation_backend: sympy.primerange_first_boundary
 ```
 
 The run did not increase coverage. Under the current 005A-R rule and fixed
-bounds, the emission island remains the same 36 records through the 10,000,000
+bounds, the output island remains the same 36 records through the 10,000,000
 cap.
 
 The next generator-facing run should therefore add a lawful deduction relation

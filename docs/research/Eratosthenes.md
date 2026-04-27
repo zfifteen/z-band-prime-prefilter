@@ -119,7 +119,7 @@ Now I have all the technical depth needed. Composing the full technical analysis
 
 The repository is executing a four-layer proof architecture. Here is each layer with full technical resolution.
 
-## The Scoring Field: DNI and the Log-Score
+## The Scoring Function: DNI and the Log-Score
 
 The entire construction rests on a single arithmetic identity. The **Divisor Normalization Identity** (DNI) assigns each positive integer the raw-Z value
 
@@ -133,7 +133,7 @@ $$
 L(n) = \ln Z(n) = \left(1 - \frac{d(n)}{2}\right)\ln n
 $$
 
-which is negative for composites (since $d(n) \geq 4$), negative-approaching-zero for composites with small $d(n)$, and exactly zero for primes ($d(p) = 2$). The primes are the fixed-point locus $Z = 1.0$ of the DNI field. Every composite in a gap interior receives a score strictly below the prime endpoint -- and the **Gap Winner Rule (GWR)** identifies which composite comes closest.
+which is negative for composites (since $d(n) \geq 4$), negative-approaching-zero for composites with small $d(n)$, and exactly zero for primes ($d(p) = 2$). The primes are the fixed-point locus $Z = 1.0$ of the DNI score function. Every composite in a gap interior receives a score strictly below the prime endpoint -- and the **Gap Winner Rule (GWR)** identifies which composite comes closest.
 
 ## The GWR Statement and Its Two-Sided Closure
 
@@ -181,7 +181,7 @@ An exact probe through $10^6$ reveals the full selected integer-class breakdown 
 
 ## The Gap Ridge: Edge Enrichment and d=4 Dominance
 
-The DNI field over gap interiors is not uniform. Evaluated exactly up to $10^6$: the gap-local raw-Z maximum lands at edge distance 2 in 43.60% of gaps versus an exact within-gap baseline of 22.19%, a 1.965x enrichment. The $d=4$ class carries the gap-local maximum in 82.90% of gaps versus a baseline of 20.14%, a 4.116x enrichment. Left-edge wins dominate at 74.56% versus right-edge at 16.02% and midpoint at 9.42%. The ridge is not a midpoint feature -- it is a near-left-edge low-divisor structure. Additionally, a residue-mod-30 orientation effect has been documented: the direction of the near-edge ridge depends on the left endpoint prime modulo 30, which connects naturally to Dirichlet character decomposition territory.
+The DNI score function over gap interiors is not uniform. Evaluated exactly up to $10^6$: the gap-local raw-Z maximum lands at edge distance 2 in 43.60% of gaps versus an exact within-gap baseline of 22.19%, a 1.965x enrichment. The $d=4$ class carries the gap-local maximum in 82.90% of gaps versus a baseline of 20.14%, a 4.116x enrichment. Left-edge wins dominate at 74.56% versus right-edge at 16.02% and midpoint at 9.42%. The ridge is not a midpoint feature -- it is a near-left-edge low-divisor structure. Additionally, a residue-mod-30 orientation effect has been documented: the direction of the near-edge ridge depends on the left endpoint prime modulo 30, which connects naturally to Dirichlet character decomposition territory.
 
 ## The Dirichlet-Series Bridge to RH
 
@@ -191,7 +191,7 @@ $$
 \frac{e^2}{2}\frac{K(s)}{D(s)} = -\frac{1}{2}\frac{D'(s)}{D(s)} = -\frac{\zeta'(s)}{\zeta(s)} = \sum_{n \geq 1} \frac{\Lambda(n)}{n^s}
 $$
 
-where $\Lambda(n)$ is the von Mangoldt function -- the classical prime-power detector. This is not a structural resemblance; it is an exact identity. The parameter $v = e^2/2$ is the unique scalar at which the DNI normalization cancels the factor of 2 from differentiating $\zeta(s)^2$, making it the native constant on both the integer-field side and the Dirichlet-series side simultaneously. Under meromorphic continuation, the nontrivial poles of the DNI ratio $R(s) = -({\zeta'}/{\zeta})(s)$ are exactly the nontrivial zeros of $\zeta$. The Riemann Hypothesis is then a pole-placement statement for the continued DNI ratio: all nontrivial poles of $R(s)$ lie on $\operatorname{Re}(s) = 1/2$.
+where $\Lambda(n)$ is the von Mangoldt function -- the classical prime-power detector. This is not a structural resemblance; it is an exact identity. The parameter $v = e^2/2$ is the unique scalar at which the DNI normalization cancels the factor of 2 from differentiating $\zeta(s)^2$, making it the native constant on both the integer-score side and the Dirichlet-series side simultaneously. Under meromorphic continuation, the nontrivial poles of the DNI ratio $R(s) = -({\zeta'}/{\zeta})(s)$ are exactly the nontrivial zeros of $\zeta$. The Riemann Hypothesis is then a pole-placement statement for the continued DNI ratio: all nontrivial poles of $R(s)$ lie on $\operatorname{Re}(s) = 1/2$.
 
 ## The Prefilter Application
 

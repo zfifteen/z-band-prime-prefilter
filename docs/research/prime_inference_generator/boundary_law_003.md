@@ -6,7 +6,7 @@ composite interior, a definable GWR-selected integer, a divisor-count selected i
 closure condition that can be inspected without classical endpoint detection.
 
 This note uses the small search interval from input prime `13` to proposed endpoint `17` as
-the first probe. It does not emit yet. It establishes the selected-integer-bearing
+the first probe. It does not output yet. It establishes the selected-integer-bearing
 diagnostic record and identifies the remaining uniqueness gap.
 
 ## Name
@@ -161,7 +161,7 @@ That implication is stronger than search-interval consistency. It is not proved 
 
 ## Current Status
 
-Next-Prime Law 003 does not yet emit.
+Next-Prime Law 003 does not yet output.
 
 For the input prime-13 probe:
 
@@ -174,9 +174,9 @@ For the input prime-13 probe:
 The law succeeds at finding the first structurally meaningful PGS search interval. It
 fails to prove that the search interval structure forces the right endpoint.
 
-## Emission Rule
+## Output Rule
 
-Pure mode may emit under `boundary_law_003` only when:
+Pure mode may output under `boundary_law_003` only when:
 
 1. the proposed interior has deterministic factor witnesss;
 2. the proposed interior has a GWR-compatible selected integer;
@@ -184,29 +184,29 @@ Pure mode may emit under `boundary_law_003` only when:
 4. all smaller proposed endpoint positions are closed;
 5. a selected-integer-bearing uniqueness theorem forces `q_hat`.
 
-Until those five conditions hold, pure mode must emit a failure record.
+Until those five conditions hold, pure mode must output a failure record.
 
 ## Failure Contract
 
-If the selected integer cannot be established, emit:
+If the selected integer cannot be established, output:
 
 - `rule_set_version: "boundary_law_003"`
 - `inference_status: "failed_closed"`
 - `failure_reason: "NO_GWR_CARRIER"`
 
-If the proposed interior cannot be fully closed, emit:
+If the proposed interior cannot be fully closed, output:
 
 - `rule_set_version: "boundary_law_003"`
 - `inference_status: "failed_closed"`
 - `failure_reason: "INCOMPLETE_CHAMBER_CERTIFICATE"`
 
-If lower-divisor threats remain unresolved, emit:
+If lower-divisor threats remain unresolved, output:
 
 - `rule_set_version: "boundary_law_003"`
 - `inference_status: "failed_closed"`
 - `failure_reason: "UNRESOLVED_THREAT_CLOSURE"`
 
-If the uniqueness theorem is missing, emit:
+If the uniqueness theorem is missing, output:
 
 - `rule_set_version: "boundary_law_003"`
 - `inference_status: "failed_closed"`

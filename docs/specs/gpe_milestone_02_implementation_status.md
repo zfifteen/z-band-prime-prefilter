@@ -30,7 +30,7 @@ square-ceiling margin. The selector also verifies:
 $$w<q^+<S_{+}(w).$$
 
 If $M_{\square}$ is absent, the selector fails explicitly. The NLSC ceiling
-alone is not treated as an exact emission rule, and the $d=4$ branch no longer
+alone is not treated as an exact output rule, and the $d=4$ branch no longer
 uses the generic left-next-prime offset as its selector state.
 
 The implementation also exposes an executable branch-target audit:

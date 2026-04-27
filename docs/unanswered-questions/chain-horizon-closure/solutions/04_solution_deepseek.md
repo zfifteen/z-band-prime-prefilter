@@ -4,7 +4,7 @@
 
 ## 1. Introduction
 
-The `chain_horizon_closure` function is the only component of the Minimal PGS Generator that still relies on deterministic divisor checking.  At the highest probed scales (10¹⁵ and 10¹⁸), about **56–58 %** of the emitted primes pass through this non‑PGS bridge.  The missing mathematical object is a **divisor‑horizon predictor**
+The `chain_horizon_closure` function is the only component of the Minimal PGS Generator that still relies on deterministic divisor checking.  At the highest probed scales (10¹⁵ and 10¹⁸), about **56–58 %** of the outputted primes pass through this non‑PGS bridge.  The missing mathematical object is a **divisor‑horizon predictor**
 
 \[
 H(p, s_0, \text{chain\_state})
@@ -70,7 +70,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 
 **Weaknesses:**
 
-- Overly optimistic about the current state of the mining scripts—none of them yet emit the exact `max_spf` statistic.
+- Overly optimistic about the current state of the mining scripts—none of them yet output the exact `max_spf` statistic.
 - Does not propose a specific functional form for \(H\); the suggested `H = 2 × max_chain_gap + residue_dependent_constant` is vague.
 
 **Simulated experiment:**  Running the proposed extension on the existing probe logs would produce a histogram of `max_spf` values.  Based on the generator’s operational behaviour, we would expect:

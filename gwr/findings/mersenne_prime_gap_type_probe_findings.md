@@ -39,10 +39,10 @@ both adjacent sides collapse to one unique Mersenne-specific gap type.
 
 ## Exact Tractable Surface
 
-The current exact probe uses the repo's divisor-field gap typing directly.
+The current exact probe uses the repo's divisor-count gap typing directly.
 
 That executable path is presently limited by the `int64` segment representation
-used in the exact divisor-field scan, so this note stops at the tractable
+used in the exact divisor-count scan, so this note stops at the tractable
 known Mersenne primes through exponent `61`. This is an implementation-surface
 limit of the current exact probe, not a claim about the mathematics itself.
 

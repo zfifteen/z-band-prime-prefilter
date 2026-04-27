@@ -2,7 +2,7 @@
 
 PGS Inference Generator v1.1 is the PGS-only production iteration.
 
-The generator starts from an input prime `p` and emits exactly one
+The generator starts from an input prime `p` and outputs exactly one
 minimal record when the PGS selector resolves:
 
 ```json
@@ -26,7 +26,7 @@ Version `1.1` removes those paths from the generator. The generator now has one
 execution path:
 
 ```text
-input prime p -> GWR/NLSC search-interval-reset selector -> emit {"p": p, "q": q}
+input prime p -> GWR/NLSC search-interval-reset selector -> output {"p": p, "q": q}
 ```
 
 If the selector does not resolve inside the supplied search bound, generation
@@ -36,9 +36,9 @@ raises `PGSUnresolvedError`. It does not run a backup prime search.
 
 ```text
 rule_id: pgs_chamber_reset_v1
-state input: exact divisor-count field
+state input: exact divisor-count values
 next-prime selection rule: GWR/NLSC search-interval-reset state
-emitted record: p, q only
+output record: p, q only
 ```
 
 The generator file no longer contains:
@@ -48,7 +48,7 @@ The generator file no longer contains:
 - divisor-witness search;
 - shadow-seed recovery;
 - chain fallback;
-- inline validation of emitted `q`.
+- inline validation of outputted `q`.
 
 Downstream audit remains external.
 

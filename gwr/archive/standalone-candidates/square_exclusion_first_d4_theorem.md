@@ -171,7 +171,7 @@ This framing isolates two concrete observables:
 2. first-$d=4$ arrival:
    the location of the earliest interior integer with divisor count $4$.
 
-That makes the dominant regime much easier to analyze than the full score field.
+That makes the dominant regime much easier to analyze than the full score function.
 
 It also gives the proof program a cleaner form:
 

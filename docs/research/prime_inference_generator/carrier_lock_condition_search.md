@@ -3,7 +3,7 @@
 The naive right-endpoint ceiling failed because a later lower-divisor composite
 can reset the active integer instead of proving that the endpoint occurred
 earlier. The selected-integer-lock search found two zero-wrong safety separators on the
-tested surface, but neither is an emission rule.
+tested surface, but neither is an output rule.
 
 Next-Prime Law 005 is not approved by this note.
 
@@ -134,9 +134,9 @@ The inverse observations are not safe:
 
 ## Interpretation
 
-The first separator does not produce a endpoint emission. It says that when
+The first separator does not produce a endpoint output. It says that when
 unresolved alternatives remain before the pressure event, the event has been
-safe as a ceiling on this surface. The generator still cannot emit because the
+safe as a ceiling on this surface. The generator still cannot output because the
 same unresolved alternatives remain to be closed or dominated.
 
 The second separator is more structurally PGS-like: higher-divisor pressure
@@ -155,6 +155,6 @@ Milestone 1 remains blocked.
 Next-Prime Law 005 is not approved.
 
 The right-endpoint squeeze path is still live, but the next step is not prime
-emission. The next step is to harden the two candidate lock predicates on larger
+output. The next step is to harden the two candidate lock predicates on larger
 surfaces and then ask whether they reduce unresolved alternatives enough to
 support unique inference.

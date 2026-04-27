@@ -5,7 +5,7 @@ prime-edge insulation claim was tested and rejected.
 
 ## Finding
 
-Inside prime gaps, the exact raw DNI field has a strong odd-composite
+Inside prime gaps, the exact raw DNI score function has a strong odd-composite
 near-edge ridge, and that ridge is usually carried by semiprime-class
 `d(n)=4` composites.
 

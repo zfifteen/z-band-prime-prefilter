@@ -15,7 +15,7 @@ Do not use fallback confirmation to choose or label q inside the generator.
 
 The pre-fix generator did not satisfy that contract.
 
-It emits correct records, but trial division is still used inside the path that
+It outputs correct records, but trial division is still used inside the path that
 reports `source = "PGS"`.
 
 ## Static Evidence
@@ -43,7 +43,7 @@ src/python/z_band_prime_predictor/simple_pgs_generator.py:76
   witness = divisor_witness(n, max_divisor)
 ```
 
-The promoted PGS emission path also confirms the selected `q` by trial
+The promoted PGS output path also confirms the selected `q` by trial
 division before returning `PGS`:
 
 ```text
@@ -90,8 +90,8 @@ divisor_witness via closure_reason: 43742 calls
 has_trial_divisor via resolve_q: 9588 calls
 ```
 
-No `fallback` source rows were emitted on this surface, yet trial division was
-called on every emitted row.
+No `fallback` source rows were outputted on this surface, yet trial division was
+called on every outputted row.
 
 ## Pre-Fix Contract Status
 
@@ -108,14 +108,14 @@ Separate the paths physically:
 ```text
 PGS path:
   applies only PGS-derived rules;
-  emits source = "PGS" only without trial-division confirmation.
+  outputs source = "PGS" only without trial-division confirmation.
 
 Fallback path:
   runs trial division only after the PGS path returns unresolved;
-  emits source = "fallback" or another non-PGS bridge label.
+  outputs source = "fallback" or another non-PGS bridge label.
 
 Audit path:
-  may use classical tools after emission;
+  may use classical tools after generation;
   must not choose q inside generation.
 ```
 

@@ -8,7 +8,7 @@ This release is superseded by
 which removes the displaced trial-division and fallback code paths from the
 generator.
 
-The frozen generator starts from an input prime `p` and emits exactly
+The frozen generator starts from an input prime `p` and outputs exactly
 one minimal record:
 
 ```json
@@ -32,9 +32,9 @@ The frozen selector is:
 
 ```text
 rule_id: pgs_chamber_reset_v1
-state input: exact divisor-count field
+state input: exact divisor-count values
 next-prime selection rule: GWR/NLSC search-interval-reset state
-emitted record: p, q only
+output record: p, q only
 ```
 
 The generator labels a row `PGS` only when the GWR/NLSC search-interval-reset selector
@@ -63,7 +63,7 @@ The high-scale surface uses `256` consecutive input primes per decade.
 
 ## Trial-Division Audit
 
-On `11..100000` with `candidate_bound = 128`, the production PGS path emitted
+On `11..100000` with `candidate_bound = 128`, the production PGS path outputted
 all `9588` rows as `PGS` with zero audit failures and made zero calls to the
 generator trial-division helpers:
 
@@ -78,7 +78,7 @@ This freezes the source-accounting contract:
 ```text
 PGS means selected by the PGS selector.
 Fallback means selected by fallback arithmetic.
-Downstream audit confirms q after emission.
+Downstream audit confirms q after generation.
 ```
 
 ## Validation Command

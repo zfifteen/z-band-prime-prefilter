@@ -10,7 +10,7 @@ input primes tested: 2816
 window candidate hypotheses: 768077
 classically tested candidates before first prime: 22685
 exact matches: 2816
-false emissions: 0
+false outputs: 0
 candidate-bound misses: 0
 total runtime: 0.280352 seconds
 ```
@@ -28,12 +28,12 @@ p < n <= p + 1024
 n mod 30 in {1, 7, 11, 13, 17, 19, 23, 29}
 ```
 
-It then applies ordinary primality testing from left to right and emits the
+It then applies ordinary primality testing from left to right and outputs the
 first prime candidate as `q`.
 
 ## Results By Decade
 
-| decade | input primes | window candidates | tested candidates | exact matches | false emits | bound misses | seconds | tested/sec |
+| decade | input primes | window candidates | tested candidates | exact matches | false outputs | bound misses | seconds | tested/sec |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | `10^8` | `256` | `69826` | `1204` | `256` | `0` | `0` | `0.018810` | `64008.51` |
 | `10^9` | `256` | `69824` | `1419` | `256` | `0` | `0` | `0.018769` | `75604.06` |
@@ -71,7 +71,7 @@ first prime candidate as `q`.
 | Window candidate hypotheses | `768077` | `768077` |
 | Exact matches | `513` | `2816` |
 | Match rate | `18.217330%` | `100.000000%` |
-| False emissions | `0` | `0` |
+| False outputs | `0` | `0` |
 | Candidate-bound misses | `0` | `0` |
 | Total runtime | `36.020993` seconds | `0.280352` seconds |
 

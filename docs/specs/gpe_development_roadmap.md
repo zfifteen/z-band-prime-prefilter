@@ -6,7 +6,7 @@ development plan for the GWR-DNI Generative Prime Engine.
 
 The requirements are not reduced. Each milestone exists to remove one blocker
 standing between the current exact DNI/GWR oracle and the GPE target contract:
-a deterministic prime emitter driven by the rulebook rather than by traditional
+a deterministic prime outputter driven by the rulebook rather than by traditional
 candidate primality tests.
 
 ## Roadmap Table
@@ -16,13 +16,13 @@ candidate primality tests.
 | 1 | Selected integer is not the endpoint | [Endpoint Selector Requirements](./gpe_milestone_01_boundary_selector_requirements.md) | Replace `winner + 1` with an explicit exact endpoint-selector contract. |
 | 2 | NLSC gives a ceiling, not a selector | [NLSC Selector Requirements](./gpe_milestone_02_nlsc_selector_requirements.md) | Refine the NLSC threat horizon into branch-specific exact next-prime selection. |
 | 3 | Reduced state is not deterministic enough | [State Refinement Requirements](./gpe_milestone_03_state_refinement_requirements.md) | Find the minimal state needed to make the next-prime selector single-valued. |
-| 4 | Exact DNI evaluation uses the divisor field | [Zero-Test Arithmetic Requirements](./gpe_milestone_04_zero_test_arithmetic_requirements.md) | Replace hidden divisor-field or primality-test dependence with rulebook arithmetic. |
+| 4 | Exact DNI evaluation uses the divisor-count values | [Zero-Test Arithmetic Requirements](./gpe_milestone_04_zero_test_arithmetic_requirements.md) | Replace hidden divisor-count or primality-test dependence with rulebook arithmetic. |
 
 ## Development Order
 
 ### Milestone 1: Endpoint Selector Contract
 
-The current skeleton cannot emit `winner + 1`. The first milestone defines the
+The current skeleton cannot output `winner + 1`. The first milestone defines the
 exact function shape:
 
 $$q^+=B(q,S,w,d(w))$$
@@ -56,10 +56,10 @@ auditable state that makes $B(q,S,w,d(w))$ single-valued.
 
 ### Milestone 4: Zero-Test Arithmetic Path
 
-The existing exact oracle reads the divisor field and detects the prime endpoint
+The existing exact oracle reads the divisor-count values and detects the prime endpoint
 with $d(n)=2$. The GPE target forbids hiding that dependency inside a new name.
 
-The fourth milestone replaces the divisor-field dependency with deterministic
+The fourth milestone replaces the divisor-count dependency with deterministic
 rulebook arithmetic, or else marks the remaining dependency as an unresolved
 contract failure.
 
@@ -68,7 +68,7 @@ contract failure.
 The roadmap is complete only when all four milestone requirement documents are
 satisfied together:
 
-- the emitted next-prime value is exact,
+- the outputted next-prime value is exact,
 - the selector is single-valued under the chosen state,
 - the NLSC ceiling is refined into equality,
 - and the implementation path contains no hidden primality test, trial division

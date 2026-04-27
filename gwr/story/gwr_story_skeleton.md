@@ -63,7 +63,7 @@ inside the gap in a smooth way.
 
 - raw-$Z$ depends on both $d(n)$ and $\ln(n)$,
 - visually the selected integer often sits near the left edge,
-- this initially looks like a geometric field effect rather than a simple law.
+- this initially looks like a score-function effect rather than a simple law.
 
 ### Figure needs
 

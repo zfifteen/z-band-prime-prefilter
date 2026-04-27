@@ -4,7 +4,7 @@
 
 This note documents an experimental generator finding from the PGS Prime
 Inference Generator line. It is an offline, audit-backed finding. It is not
-production pure emission, not cryptographic approval, and not a proof that the
+production pure output, not cryptographic approval, and not a proof that the
 current generator is complete.
 
 The finding is reproducible from the generator-facing CLI:
@@ -14,14 +14,14 @@ benchmarks/python/prime_inference_generator/experimental_graph_prime_generator.p
 ```
 
 Classical factorization and first-endpoint validation are used only after
-emission, as downstream audit and failure classification. They are not solver
+output, as downstream audit and failure classification. They are not solver
 inputs.
 
 ## Headline Finding
 
 Filtered risky-v5 failures are not random on the tested surface. After the
 generator filters candidates with positive composite evidence up to the active
-witness bound, the remaining false emissions concentrate at semiprimes whose
+witness bound, the remaining false outputs concentrate at semiprimes whose
 factors sit just beyond that bound.
 
 Observed moving bound:
@@ -48,19 +48,19 @@ The companion note
 [`semiprime_shadow_reorientation.md`](semiprime_shadow_reorientation.md)
 records the stronger right-neighborhood finding: on the `witness_bound = 251`
 surface, the semiprime shadows are left-side landmarks before nearby true
-endpoints, not arbitrary false emissions.
+endpoints, not arbitrary false outputs.
 
 ## Definitions
 
 The witness horizon is the active value of `witness_bound` used by the
 experimental graph generator and its positive nonboundary filter.
 
-A semiprime impostor is a false emitted next-prime value candidate whose emitted value
+A semiprime impostor is a false outputted next-prime value candidate whose outputted value
 is composite with exactly two prime factors, while the generator has not seen
 positive nonboundary evidence for those factors under the current witness
 horizon.
 
-The phenomenon is the observed movement of the first false-emission band as the
+The phenomenon is the observed movement of the first false-output band as the
 witness horizon increases.
 
 ## Generator Configuration
@@ -151,8 +151,8 @@ The same command with `--witness-bound 127` reproduces the lower-horizon run.
 
 ## Failure Factor Analysis
 
-Use this downstream-only script after a generator run. It reads emitted records,
-audits each emitted `inferred_prime_q_hat` against first-endpoint semantics, and
+Use this downstream-only script after a generator run. It reads outputted records,
+audits each outputted `inferred_prime_q_hat` against first-endpoint semantics, and
 factors only the records that fail audit.
 
 ```bash
@@ -221,7 +221,7 @@ failure distribution.
 ```text
 risky_input_count: 7391
 filtered_count: 482
-emitted_count: 6909
+output_count: 6909
 confirmed_count: 6039
 failed_count: 870
 filter_reason_counts:
@@ -238,7 +238,7 @@ first_failure:
 ```text
 risky_input_count: 7391
 filtered_count: 707
-emitted_count: 6684
+output_count: 6684
 confirmed_count: 6039
 failed_count: 645
 filter_reason_counts:
@@ -250,7 +250,7 @@ first_failure:
   factorization: 151 * 163
 ```
 
-First 100 failed emissions after downstream audit:
+First 100 failed outputs after downstream audit:
 
 ```text
 sample_failure_count: 100
@@ -311,7 +311,7 @@ The first ten failures:
 ```text
 risky_input_count: 7391
 filtered_count: 1100
-emitted_count: 6291
+output_count: 6291
 confirmed_count: 6039
 failed_count: 252
 filter_reason_counts:
@@ -323,7 +323,7 @@ first_failure:
   factorization: 199 * 211
 ```
 
-First 100 failed emissions after downstream audit:
+First 100 failed outputs after downstream audit:
 
 ```text
 sample_failure_count: 100
@@ -383,8 +383,8 @@ The first ten failures:
 
 ## Interpretation
 
-The filtered-v5 generator is not making arbitrary false emissions on these
-runs. Its remaining false emissions sit at the moving edge of its positive
+The filtered-v5 generator is not making arbitrary false outputs on these
+runs. Its remaining false outputs sit at the moving edge of its positive
 composite evidence. When the witness bound increases, the earliest failure
 moves to a semiprime whose factors are just above the new bound.
 
@@ -409,8 +409,8 @@ This shows a witness-front effect:
 PGS graph inference + finite witness horizon
 ```
 
-The current generator can emit many correct endpoints, but the risky-v5
-relation also emits semiprime impostors when their factors are beyond the
+The current generator can output many correct endpoints, but the risky-v5
+relation also outputs semiprime impostors when their factors are beyond the
 active witness horizon.
 
 ## Safety Endpoint
@@ -441,11 +441,11 @@ risky-v5:
    filtered-v5`, `--candidate-bound 128`, and the chosen `--witness-bound`.
 2. Use `--audit` so the generator writes the downstream audit summary.
 3. Confirm the summary fields:
-   `risky_input_count`, `filtered_count`, `emitted_count`,
+   `risky_input_count`, `filtered_count`, `output_count`,
    `audit_confirmed`, `audit_failed`, `first_failure`, and
    `filter_reason_counts`.
-4. Run the downstream factor-analysis snippet against the emitted JSONL.
-5. Verify that factorization is used only after emission and audit.
+4. Run the downstream factor-analysis snippet against the outputted JSONL.
+5. Verify that factorization is used only after generation and audit.
 
 ## Next Useful Measurement
 
@@ -459,5 +459,5 @@ witness_bound: 307
 ```
 
 The question is whether `failed_count` continues falling by exposing the next
-semiprime band, and whether the first failed emission continues to move to
+semiprime band, and whether the first failed output continues to move to
 factors just above the active witness horizon.

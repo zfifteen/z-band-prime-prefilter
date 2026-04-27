@@ -293,7 +293,7 @@ Those objects are:
 - early arrival of the `d=4` layer,
 - remaining prime-square slack at closure.
 
-That is a much narrower mechanism than "the whole score field must be searched
+That is a much narrower mechanism than "the whole score function must be searched
 globally."
 
 ### 3. The real hard cases may live in a thin square-adjacent tail

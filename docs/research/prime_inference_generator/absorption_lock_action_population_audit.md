@@ -4,7 +4,7 @@
 
 This is offline theorem discovery.
 
-Next-Prime Law 005 remains candidate-grade only. Pure generator emission remains forbidden. Classical labels are attached only after the tested rule action is computed, for audit and forensics.
+Next-Prime Law 005 remains candidate-grade only. Pure generator output remains forbidden. Classical labels are attached only after the tested rule action is computed, for audit and forensics.
 
 ## Purpose
 
@@ -63,7 +63,7 @@ Locks audited:
 - wrong_absorption_count: 0
 - true_boundary_rejected_count: 0
 
-The 005A hardening population covers every absorber that 005A can trigger in integration on these surfaces. This does not approve generator emission. It preserves 005A as a narrow candidate-grade lock.
+The 005A hardening population covers every absorber that 005A can trigger in integration on these surfaces. This does not approve generator output. It preserves 005A as a narrow candidate-grade lock.
 
 ## 005B Result
 
@@ -92,7 +92,7 @@ The hardening population did not cover this action because the true next prime w
 - zero wrong actions
 - zero true-next-prime rejections
 - narrow coverage
-- no pure emission
+- no pure output
 
 005B remains quarantined:
 

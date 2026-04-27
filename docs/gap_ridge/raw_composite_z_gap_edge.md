@@ -1,8 +1,8 @@
-# Exact Raw Composite Z Field: Gap-Edge Ridge Study
+# Exact Raw Composite Z Score Values: Gap-Edge Ridge Study
 
-This note records one exact-field observation on the natural number line up to `10^6`.
+This note records one exact-score observation on the natural number line up to `10^6`.
 
-The field under study is the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ itself, evaluated with exact divisor count and restricted to composite interiors of prime gaps.
+The object under study is the **Divisor Normalization Identity** (DNI) $Z(n) = n^{1 - d(n)/2}$ itself, evaluated with exact divisor count and restricted to composite interiors of prime gaps.
 
 ## Finding
 
@@ -19,7 +19,7 @@ More precisely:
 - the exact within-gap selected-divisor-count baseline for `d(n) = 4` is `20.1401%`,
 - the resulting selected-divisor-count enrichment is `4.116x`.
 
-The strongest supported interpretation is that the exact raw composite `Z` field forms a near-edge low-divisor ridge inside prime gaps rather than a midpoint ridge.
+The strongest supported interpretation is that the exact raw composite `Z` score values form a near-edge low-divisor ridge inside prime gaps rather than a midpoint ridge.
 
 On the current tested surface, that ridge can be stated more sharply: the
 gap-local raw-`Z` maximum matches the leftmost minimizer obtained by first
@@ -33,14 +33,14 @@ The experiment is deterministic and exact.
 1. Fix the natural-number ceiling at `10^6`.
 2. Compute exact divisor count `d(n)` for every `n <= 10^6`.
 3. Identify every consecutive prime gap `p < q` with `q - p >= 4`.
-4. For every composite interior point `n` with `p < n < q`, evaluate the raw field `Z(n) = n^{1 - d(n)/2}`.
+4. For every composite interior point `n` with `p < n < q`, evaluate the raw score function `Z(n) = n^{1 - d(n)/2}`.
 5. Within each gap, select the single composite with the largest raw `Z`.
 6. Compare that observed peak to the exact baseline induced by the same gap interior:
    - position baseline: each interior position counted once,
    - selected-divisor-count baseline: each interior composite counted once when `d(n) = 4`.
 
 The implementation compares raw `Z` values through the monotone identity
-$\ln Z(n) = (1 - d(n)/2)\ln n$ only to preserve the ordering of the exact same raw field without floating-point underflow. The quantity being studied remains raw `Z`.
+$\ln Z(n) = (1 - d(n)/2)\ln n$ only to preserve the ordering of the exact same raw score function without floating-point underflow. The quantity being studied remains raw `Z`.
 
 ## Result Table
 
@@ -84,7 +84,7 @@ That discrete ordering explains why:
 - edge-distance `2` appears so often as the selected integer location.
 
 This remains an empirical repository result rather than a proof for every
-possible gap, but it is stronger than a descriptive field metaphor alone.
+possible gap, but it is stronger than a descriptive score-function metaphor alone.
 
 ## Reproduction
 

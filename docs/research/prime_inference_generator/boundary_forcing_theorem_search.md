@@ -172,7 +172,7 @@ Output fields:
 
 This does not violate the pure generator contract. It is offline theorem
 search. Any candidate found here must still be turned into a pure next-prime law
-before generation can emit.
+before generation can output a value.
 
 ## Leakage Audit Gate
 
@@ -225,7 +225,7 @@ and not just fitted to classical labels.
 
 ## Current Conclusion
 
-The next work is theorem discovery, not positive emission.
+The next work is theorem discovery, not positive output.
 
 Milestone 1 remains blocked until the project finds a next-prime-forcing theorem:
 

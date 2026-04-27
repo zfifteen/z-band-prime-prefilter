@@ -3,18 +3,18 @@
 ## Status
 
 This note records an offline, audit-backed finding from the PGS Prime
-Inference Generator line. It is not production pure emission. It does not
+Inference Generator line. It is not production pure output. It does not
 approve cryptographic use. It does not authorize factorization inside solver
 logic.
 
 The current use of classical validation and factorization is downstream only:
-first the generator emits records, then the audit classifies failures. Any
+first the generator outputs records, then the audit classifies failures. Any
 future generator rule must replace factorization with a label-free PGS shadow
 detector before it can become solver logic.
 
 ## Core Finding
 
-In the filtered-v5 PGS graph runs, semiprime false emissions are not random
+In the filtered-v5 PGS graph runs, semiprime false outputs are not random
 errors. They appear as deterministic left-side landmarks immediately before the
 true prime endpoint regime.
 
@@ -66,7 +66,7 @@ The current filtered-v5 behavior is:
 
 ```text
 semiprime shadow detected
-=> discard emission
+=> discard output
 => abstain
 ```
 
@@ -77,12 +77,12 @@ semiprime shadow detected
 => mark shadow as left-side landmark
 => inspect right-neighborhood search interval
 => search for first lawful right-side endpoint transition
-=> emit only if a label-free rightward diagnostic record is found
+=> output only if a label-free rightward diagnostic record is found
 ```
 
 ## Candidate Mechanism
 
-When filtered-v5 emits a candidate `s` and downstream audit classifies it as a
+When filtered-v5 outputs a candidate `s` and downstream audit classifies it as a
 semiprime shadow, the graph should treat `s` as a landmark, not as the answer.
 
 Let:
@@ -113,7 +113,7 @@ Possible shape:
 ```text
 If a endpoint-like candidate has shadow structure,
 and the graph has unresolved candidates to its right,
-then the shadow cannot authorize final emission.
+then the shadow cannot authorize final output.
 Instead, the graph must re-open the right-neighborhood and look for a
 right-side endpoint diagnostic record.
 ```
@@ -138,7 +138,7 @@ candidate relation discovery
 Forbidden current use:
 
 ```text
-pure prime emission
+pure prime output
 production approval
 cryptographic approval
 factorization inside solver logic
@@ -147,7 +147,7 @@ classical validation inside generation
 
 ## Next Research Question
 
-Can PGS detect shadow structure without factoring the emitted candidate?
+Can PGS detect shadow structure without factoring the outputted candidate?
 
 The needed future rule is not:
 
@@ -172,5 +172,5 @@ right to recover the endpoint without broad absorption.
 
 The next generator-facing implementation should not put factorization into the
 solver. It should build a deterministic right-neighborhood inspection path over
-already emitted filtered-v5 shadow failures, then look for label-free PGS facts
+already outputted filtered-v5 shadow failures, then look for label-free PGS facts
 that distinguish the true right-side endpoint from the shadow surrogate.

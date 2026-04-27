@@ -24,14 +24,14 @@ the current rule stack produced:
 exact next-prime matches: 2816 / 2816
 coverage: 100.000000%
 unresolved input primes: 0
-false emissions: 0
+false outputs: 0
 candidate-bound misses: 0
 ```
 
 The result is significant because the engine now distinguishes current-search interval
 endpoint evidence from later-search interval tail evidence. Once the first resolved
 survivor appears, later unresolved candidates are assigned to later search intervals
-and no longer block emission for the original input prime.
+and no longer block output for the original input prime.
 
 The earlier semiprime-shadow landmark hold remains necessary. It prevents
 two-factor witness-horizon landmarks from being promoted into false endpoints.
@@ -70,7 +70,7 @@ all impossible proposed intervals are removed;
 the first resolved survivor appears;
 that survivor closes the current search interval;
 later unresolved candidates are assigned to later search intervals;
-the first resolved survivor is emitted as q_hat.
+the first resolved survivor is output as q_hat.
 ```
 
 ## Rule Vocabulary
@@ -116,7 +116,7 @@ An unresolved hold is an abstention state before search-interval reset. A candid
 with unresolved interior positions remains active until a resolved survivor
 closes the current search interval.
 
-Before search-interval reset, unresolved alternatives block emission. After the first
+Before search-interval reset, unresolved alternatives block output. After the first
 resolved survivor, later unresolved alternatives belong to a later search interval and
 do not compete with the current input prime's endpoint.
 
@@ -210,8 +210,8 @@ The current Rule X search-interval-reset stack is:
 8. Identify the first resolved survivor r.
 9. Reset the search interval at r.
 10. Exclude later unresolved candidates as post-reset search-interval material.
-11. Emit r as q_hat.
-12. Audit classically after emission.
+11. Output r as q_hat.
+12. Audit classically after generation.
 ```
 
 The decisive safety rule is step `4`. Before this rule, semiprime-shadow
@@ -221,7 +221,7 @@ the tested `11..100000` surface has zero true-next-prime rejections for witness
 bounds `97` and `127`.
 
 The decisive coverage rule is step `9`. Before this rule, the engine found the
-true next prime as the first resolved survivor but refused to emit when later
+true next prime as the first resolved survivor but refused to output when later
 unresolved tail candidates remained. After search-interval reset, those tail candidates
 are assigned to later search intervals and no longer block the current endpoint.
 
@@ -301,7 +301,7 @@ no witness <= B and n >= next_prime(B)^2
 ```
 
 The candidate remains active but unresolved. It cannot lock the integer and it
-cannot be emitted.
+cannot be outputted.
 
 ## Measured Surface
 
@@ -323,7 +323,7 @@ The aggregate result:
 exact matches: 2816
 coverage: 100.000000%
 unresolved input primes: 0
-false emissions: 0
+false outputs: 0
 candidate-bound misses: 0
 tail cases converted by reset: 2303
 tail candidates excluded by reset: 77457
@@ -332,7 +332,7 @@ total runtime: 36.951566 seconds
 
 Per-decade result:
 
-| Decade | Input primes | Exact matches | Unresolved | False emits | Bound misses |
+| Decade | Input primes | Exact matches | Unresolved | False outputs | Bound misses |
 |---:|---:|---:|---:|---:|---:|
 | `10^8` | `256` | `256` | `0` | `0` | `0` |
 | `10^9` | `256` | `256` | `0` | `0` | `0` |
@@ -387,9 +387,9 @@ label_lock_unique_resolved_match_count = 488
 label_lock_true_boundary_rejected_count = 0
 ```
 
-## Emission Contract
+## Output Contract
 
-The search-interval-reset logic engine may emit when all of these hold:
+The search-interval-reset logic engine may output when all of these hold:
 
 ```text
 first_resolved_survivor exists
@@ -399,14 +399,14 @@ selected-integer lock and lower-divisor threat rules do not reject the survivor
 true-next-prime labels have not been consulted
 ```
 
-Later unresolved candidates do not block emission after search-interval reset:
+Later unresolved candidates do not block output after search-interval reset:
 
 ```text
 p ... first_resolved_survivor ... later_unresolved_tail
-      ^ emit this endpoint       ^ classify as later search-interval material
+      ^ output this endpoint       ^ classify as later search-interval material
 ```
 
-The emitted experimental record should remain minimal if promoted into a
+The outputted experimental record should remain minimal if promoted into a
 generator-style path:
 
 ```json
@@ -475,7 +475,7 @@ Rule X with search-interval reset resolved the full decade-window ladder:
 10^8 through 10^18
 2816 / 2816 exact matches
 0 unresolved
-0 false emissions
+0 false outputs
 0 candidate-bound misses
 ```
 
@@ -489,8 +489,8 @@ Current production generator check:
 surface: 11..100000
 candidate_bound: 128
 input primes tested: 9588
-PGS emissions: 9588
-failed emissions: 0
+PGS outputs: 9588
+failed outputs: 0
 ```
 
 High-scale production check:
@@ -499,8 +499,8 @@ High-scale production check:
 surface: 256 consecutive input primes per decade, 10^8 through 10^18
 candidate_bound: 1024
 input primes tested: 2816
-PGS emissions: 2816
-failed emissions: 0
+PGS outputs: 2816
+failed outputs: 0
 ```
 
 The current `v1.1` production generator removes the displaced fallback and

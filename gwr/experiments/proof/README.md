@@ -48,7 +48,7 @@ $10^9 < p < 5 \times 10^9$.
   deterministic class-only route test that
   - attempts to derive an explicit finite remainder bound from the current
     spoiler reduction,
-  - and emits the exact obstruction family showing that the current reduction
+  - and writes the exact obstruction family showing that the current reduction
     alone does not close the infinite tail.
 - [`large_prime_reducer.py`](./large_prime_reducer.py):
   deterministic proof-pursuit reducer that
@@ -56,7 +56,7 @@ $10^9 < p < 5 \times 10^9$.
     threshold,
   - then tests a fixed-factor large-prime class table against the exact
     earlier-spoiler inequality,
-  - and emits the remaining large-prime divisor classes, if any.
+  - and writes the remaining large-prime divisor classes, if any.
 - [`large_prime_tail_obstruction.py`](./large_prime_tail_obstruction.py):
   deterministic tail-obstruction script that
   - uses the exact family $D = 2^k$ with primorial witnesses,
@@ -80,7 +80,7 @@ $10^9 < p < 5 \times 10^9$.
   - finds the tightest realized case for each selected integer/earlier divisor-class
     pair,
   - ranks those pairs by critical-ratio slack,
-  - and emits the current ratio-form ratio extremum of the no-early-spoiler
+  - and writes the current ratio-form ratio extremum of the no-early-spoiler
     condition.
 - [`large_gap_margin_scan.py`](./large_gap_margin_scan.py):
   exact large-gap extractor that
@@ -93,7 +93,7 @@ $10^9 < p < 5 \times 10^9$.
   exact normalized bridge extractor that
   - rewrites the no-early-spoiler inequality as a dimensionless load,
   - records the maximum realized bridge load on the exact surface,
-  - and emits pair and gap-size extremal cases in that normalized coordinate.
+  - and writes pair and gap-size extremal cases in that normalized coordinate.
 - [`parallel_no_early_spoiler_scan.py`](./parallel_no_early_spoiler_scan.py):
   deterministic segmented scanner that
   - partitions the left-endpoint prime range into fixed-width segments,
@@ -106,7 +106,7 @@ $10^9 < p < 5 \times 10^9$.
   - canonicalizes each exact hard case by the local search interval variables,
   - splits the earlier-side problem into square and square-free branches,
   - records the retained finite residual classes below the high-divisor cutoff,
-  - and emits the proof-facing artifacts for the local admissibility route.
+  - and writes the proof-facing artifacts for the local admissibility route.
 - [`proof_bridge_universal_lemma.md`](./proof_bridge_universal_lemma.md):
   theorem-facing bridge note that
   - derives a non-empirical large-$p$ upper bound for the normalized
@@ -131,7 +131,7 @@ $10^9 < p < 5 \times 10^9$.
   - compares the bounded DNI cutoff rule to the exact unbounded next-gap
     oracle,
   - groups the exact extrema by `(first_open_offset, next_dmin)`,
-  - and emits the branch obstruction rows the cutoff theorem must explain.
+  - and writes the branch obstruction rows the cutoff theorem must explain.
 - [`dni_cutoff_theorem_reduction.md`](./dni_cutoff_theorem_reduction.md):
   theorem-facing reduction note that
   - defines the cutoff theorem precisely,

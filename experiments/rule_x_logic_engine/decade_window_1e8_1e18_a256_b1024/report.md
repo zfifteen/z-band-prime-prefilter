@@ -52,7 +52,7 @@ positive composite witnesses
 unresolved interior holds
 selected-integer lock after resolved survivor
 lower-divisor threat ceiling
-unique resolved survivor emission
+unique resolved survivor output
 downstream audit
 ```
 

@@ -33,7 +33,7 @@ Each candidate `q_hat` proposes a search interval:
 $$I(p, q\_hat) = \{p + 1,\ldots,q\_hat - 1\}$$
 
 The exclusion process rejects a candidate only when legal PGS evidence
-contradicts that proposed interval. It emits a endpoint only if exactly one
+contradicts that proposed interval. It outputs an endpoint only if exactly one
 candidate remains.
 
 If zero or multiple candidates remain, pure generation fails closed.
@@ -46,7 +46,7 @@ Current status:
 
 - `candidate_name: composite_exclusion_generator_path`
 - `boundary_law_005_status: not_approved`
-- `emission_status: FAILED_CLOSED`
+- `output_status: FAILED_CLOSED`
 - `failure_reason: UNTESTED_EXCLUSION_PREDICATE`
 
 ## Allowed Evidence
@@ -62,7 +62,7 @@ The exclusion logic may use:
 - GWR-selected integer structure computed from legal composite evidence;
 - no-later-simpler closure when all ingredients are legal;
 - square and threat pressure when expressed without primality recognition;
-- previous accepted search-interval metadata, if the generator has lawfully emitted the
+- previous accepted search-interval metadata, if the generator has lawfully outputted the
   previous endpoint.
 
 Positive composite evidence is allowed. Absence of a factor must not be treated
@@ -120,10 +120,10 @@ The exclusion process returns one of three outcomes:
 - `NO_SURVIVOR`: every candidate is rejected;
 - `NO_UNIQUE_BOUNDARY`: more than one candidate remains.
 
-Pure generation may emit only on `UNIQUE_SURVIVOR`, and only after the active
+Pure generation may output only on `UNIQUE_SURVIVOR`, and only after the active
 rule set has passed the forbidden-dependency gate.
 
-Milestone 1 still requires external audit after emission.
+Milestone 1 still requires external audit after generation.
 
 ## Offline Probe Shape
 
@@ -175,7 +175,7 @@ The first exploratory success threshold is weaker:
 
 - high `unique_survivor_matches_label_rate`;
 - low `true_boundary_rejected_count`;
-- explicit unresolved cases rather than guessed emissions.
+- explicit unresolved cases rather than guessed outputs.
 
 ## Failure Signals
 
@@ -200,7 +200,7 @@ This is closer to a generator contract:
 
 - generation does not certify primality;
 - generation does not look up the next prime;
-- generation emits only when deterministic PGS rules leave a unique endpoint
+- generation outputs only when deterministic PGS rules leave a unique endpoint
   candidate;
 - validation remains a separate audit.
 

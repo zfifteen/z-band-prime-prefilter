@@ -212,13 +212,13 @@ Derive an exact `delta = 4` sub-condition from the Z-band invariants that certif
 Mechanism:
 Selected integer-grounded tail scan: once the DNI/GWR lex-min localizer has identified the leftmost minimum-divisor integer at offset `omega`, recover the next-prime endpoint by scanning only from `q + omega + 1` forward instead of from `q + 1`.
 Why it could help:
-It removes the left prefix `[q + 1, q + omega]` from the exact divisor-field endpoint search. Because the lex-min integer stays near the left edge on the tested surface, that cuts pure DNI/GWR search width before any classical machinery enters.
+It removes the left prefix `[q + 1, q + omega]` from the exact divisor-count endpoint search. Because the lex-min integer stays near the left edge on the tested surface, that cuts pure DNI/GWR search width before any classical machinery enters.
 Method:
 Deterministic experiment.
 What was built or tested:
-An in-shell Python experiment used `benchmarks/python/predictor/gwr_dni_recursive_walk.py:exact_next_gap_profile` to collect `5,000` consecutive exact next-gap profiles starting at `q = 10000000000037`, then timed the same exact divisor-field endpoint scan twice on that chain: once from `q + 1`, and once from the exact selected integer input prime `q + omega + 1`.
+An in-shell Python experiment used `benchmarks/python/predictor/gwr_dni_recursive_walk.py:exact_next_gap_profile` to collect `5,000` consecutive exact next-gap profiles starting at `q = 10000000000037`, then timed the same exact divisor-count endpoint scan twice on that chain: once from `q + 1`, and once from the exact selected integer input prime `q + omega + 1`.
 Result:
-The selected integer-grounded scan matched the same `5,000` next primes with `0` mismatches. Mean exact gap width was `29.6308`, mean selected-integer offset was `5.9066`, and the exact search width after the selected integer was `23.7242`, so the DNI/GWR input prime removed `19.93%` of the pure endpoint-search width. In the current `64`-wide block implementation that reduced divisor-field reads from `356,736` to `347,264` (`2.66%`) and improved endpoint-scan wall time from `11.0483 s` to `10.7264 s` (`1.0300x`).
+The selected integer-grounded scan matched the same `5,000` next primes with `0` mismatches. Mean exact gap width was `29.6308`, mean selected-integer offset was `5.9066`, and the exact search width after the selected integer was `23.7242`, so the DNI/GWR input prime removed `19.93%` of the pure endpoint-search width. In the current `64`-wide block implementation that reduced divisor-count reads from `356,736` to `347,264` (`2.66%`) and improved endpoint-scan wall time from `11.0483 s` to `10.7264 s` (`1.0300x`).
 Status:
 ADVANCE
 Artifacts:
@@ -266,13 +266,13 @@ Inline the same clipped-divisor tail into the exact recursive walker and re-meas
 Mechanism:
 Current-lex-min clipped divisor classification in the exact DNI/GWR recursive walk: after the fixed 12-offset prefix sets the live minimum divisor class `delta`, classify each later candidate only up to `delta - 1` instead of reading full divisor-count blocks through the endpoint.
 Why it could help:
-Once a candidate with divisor class `delta` is already known, no later value with `d(n) >= delta` can change the lex-min state. That removes unnecessary exact divisor-field work from the pure DNI/GWR next-prime walk itself.
+Once a candidate with divisor class `delta` is already known, no later value with `d(n) >= delta` can change the lex-min state. That removes unnecessary exact divisor-count work from the pure DNI/GWR next-prime walk itself.
 Method:
 sandbox prototype.
 What was built or tested:
 Patched `benchmarks/python/predictor/gwr_dni_recursive_walk.py` so the live unbounded runtime path uses `_exact_next_gap_profile_clipped(...)`, which keeps the existing 12-offset prefix scan and then switches to capped single-candidate classification; measured that path against the old `exact_next_gap_profile(...)` block scan on `1,000` consecutive steps starting at `q = 1000000000039`.
 Result:
-The patched unbounded walk matched the old exact oracle on all `1,000` steps and reached the same final prime `1000000027591`. Wall time fell from `1.5411759580019861 s` to `1.134829582995735 s` for a `1.3580681902330864x` speedup. Exact divisor-field segment reads fell from `69,248` slots to `12,000`, removing `57,248` slots or `82.67097966728281%`, and the live path made only the prefix segment read on the known long-gap input prime `q = 24098209`.
+The patched unbounded walk matched the old exact oracle on all `1,000` steps and reached the same final prime `1000000027591`. Wall time fell from `1.5411759580019861 s` to `1.134829582995735 s` for a `1.3580681902330864x` speedup. Exact divisor-count segment reads fell from `69,248` slots to `12,000`, removing `57,248` slots or `82.67097966728281%`, and the live path made only the prefix segment read on the known long-gap input prime `q = 24098209`.
 Status:
 ADVANCE
 Artifacts:

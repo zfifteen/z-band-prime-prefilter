@@ -1,4 +1,4 @@
-# Exact Raw Composite Z Field: Figure Note
+# Exact Raw Composite Z Score Values: Figure Note
 
 This note collects the rendered figures for the exact raw composite `Z` gap-edge study and states the empirical result directly.
 
@@ -9,7 +9,7 @@ The figures are generated from:
 
 ## Main Result
 
-Across the tested regimes, the exact raw composite field
+Across the tested regimes, the exact raw composite score values
 $$
 Z(n) = n^{1 - d(n)/2}
 $$

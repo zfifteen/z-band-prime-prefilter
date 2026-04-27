@@ -3,7 +3,7 @@
 ## Purpose
 
 Milestone 3 resolves the fact that the current reduced 14-state selected integer type is
-not sufficient to emit the exact next prime.
+not sufficient to output the exact next prime.
 
 The state must be sharpened until the next-prime selector is single-valued:
 

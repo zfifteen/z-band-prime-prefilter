@@ -21,7 +21,7 @@ states.
 
 ## Main Result
 
-Three deterministic emitters were trained on the same `10^7..10^17` core
+Three deterministic outputters were trained on the same `10^7..10^17` core
 surface and judged on the held-out `10^18` window:
 
 - `iid_balanced_cycle`: no state memory, only the reduced-state frequency table;
@@ -44,7 +44,7 @@ The largest gain is where the grammar claim actually lives:
 - family-share error falls from `0.2031` and `0.1953` to `0.1172`;
 - the held-out pair-top concentration `0.3412` is matched closely by
   `0.3333`;
-- the held-out maximum emitted peak offset `30` is approximated by `32`.
+- the held-out maximum outputted peak offset `30` is approximated by `32`.
 
 So the `14`-state grammar is not only descriptive. It already carries enough
 information to generate a held-out high-scale window more faithfully than
@@ -58,7 +58,7 @@ That walk:
 
 - stays inside the `14`-state persistent core for the full run;
 - keeps the odd-semiprime triad dominant at share `0.6586`;
-- reaches emitted peak offset `50`;
+- reaches outputted peak offset `50`;
 - concentrates most heavily on the three odd-semiprime core states:
   `o2_odd_semiprime|d<=4`, `o4_odd_semiprime|d<=4`,
   `o6_odd_semiprime|d<=4`.

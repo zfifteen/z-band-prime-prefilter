@@ -54,7 +54,7 @@ Because the high-scale probes are not downloadable, I replicated the exact logic
     - ratio to $\sqrt{10^{12}}$: **0.0101**
     - ratio to $\sqrt{10^{18}}$: **0.0000101**
 
-Even in the worst simulated case, the required horizon is four orders of magnitude below $\sqrt{q}$ at $10^{12}$, and seven orders below at $10^{18}$. The least-factor maximum does not track $\sqrt{q}$; it tracks the visible divisor bound plus a tiny wheel-dependent offset.
+Even in the worst simulated case, the required horizon is four orders of magnitude below $\sqrt{q}$ at $10^{12}$, and seven orders below at $10^{18}$. The least-factor maximum does not track $\sqrt{q}$; it tracks the factor-search bound plus a tiny wheel-dependent offset.
 
 This matches the repo's operational observation: the chain length is capped at 8 and the offsets are wheel-constrained, so false nodes cannot accumulate large prime factors without violating search-interval closure.
 

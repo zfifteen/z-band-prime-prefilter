@@ -4,7 +4,7 @@ The previous-to-current selected-integer shift lock remained zero-wrong on all t
 surfaces and abstained on both shifted windows.
 
 This note hardens the leading Next-Prime Law 005B candidate. It does not approve
-integration and does not approve pure generator emission.
+integration and does not approve pure generator output.
 
 ## Status
 
@@ -13,7 +13,7 @@ Current status:
 - Next-Prime Law 005A: higher-divisor pressure lock, candidate-grade only.
 - Next-Prime Law 005B lead: previous-to-current selected-integer shift lock.
 - Milestone 1: blocked for generator output.
-- Pure emission: forbidden.
+- Pure output: forbidden.
 
 Previous-search-interval evidence is history-dependent. A pure generator may use it only
 after the previous endpoint and previous search-interval diagnostic record are already trusted.
@@ -86,7 +86,7 @@ The result supports candidate status:
 005B Candidate: Previous-to-Current Selected-Integer Shift Lock
 ```
 
-It does not support pure generator emission.
+It does not support pure generator output.
 
 ## Coverage
 

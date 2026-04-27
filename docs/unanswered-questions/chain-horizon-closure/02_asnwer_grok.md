@@ -3,7 +3,7 @@
 ### Current Operational Shape (Confirmed in Repo)
 The Minimal PGS Generator (docs/specs/prime-gen/minimal_pgs_generator_logic.md + supporting probes) exactly matches your description:
 
-- **Search-interval closure** (v2 selector) enumerates wheel-admissible offsets up to `candidate_bound` (default 128, a fixed PGS-local constant), rejects visibly closed candidates via search-interval arithmetic + wheel structure, and emits the first fully closed proposed endpoint when PGS rules suffice.
+- **Search-interval closure** (v2 selector) enumerates wheel-admissible offsets up to `candidate_bound` (default 128, a fixed PGS-local constant), rejects visibly closed candidates via search-interval arithmetic + wheel structure, and outputs the first fully closed proposed endpoint when PGS rules suffice.
 - **Semiprime shadows** seed short rightward chains from the initial PGS selection record (`pgs_probe_certificate`).
 - **Chain-horizon closure** walks the visible-open shadow chain nodes, applies closure reasons (`closure_reason(p, offset, visible_divisor_bound)`), and selects the survivor.
 - Downstream audit (separate from generation) confirms **zero failures** on all tested surfaces (exact low-scale + high-scale probes to 10¹⁸).
@@ -30,7 +30,7 @@ Parallel backward-law miners (`pgs_semiprime_backward_factor_closure_search.py`,
 All of these scripts operate inside the **fixed `candidate_bound=128`** search interval — a pure PGS-local constant, independent of `√q`.
 
 ### Current Empirical Status (from Code Analysis)
-- No script yet emits the explicit statistic you need: for each chain, compute `max_spf(false_node)` over all false semiprime-shadow nodes before the true terminal, then correlate that **least-factor maximum** against PGS-visible quantities (`p`, seed offset `s0`, chain deltas/gaps, mod-30 residues of nodes, open density before/after, integer `d(w)` or GWR score of the search interval selected integer, search-interval state vector, etc.).
+- No script yet outputs the explicit statistic you need: for each chain, compute `max_spf(false_node)` over all false semiprime-shadow nodes before the true terminal, then correlate that **least-factor maximum** against PGS-visible quantities (`p`, seed offset `s0`, chain deltas/gaps, mod-30 residues of nodes, open density before/after, integer `d(w)` or GWR score of the search interval selected integer, search-interval state vector, etc.).
 - They **do** show that fixed small `visible_divisor_bound` (tens to low hundreds) + the ranker/signature rules already close most structure. `candidate_bound=128` is ample for typical gaps (~log p ≈ 40 at 10¹⁸) while `√q ≈ 10⁹`.
 - Projected PGS gains are material: several rules achieve high `top1_recall` on terminal selection with low audit-failure risk, exactly the conversion you want.
 - No evidence that the required horizon tracks `√q`. All exploration is bounded by the fixed PGS search interval (128) and small divisor visibility bound — the opposite of quadratic dependence.
@@ -51,7 +51,7 @@ All of these scripts operate inside the **fixed `candidate_bound=128`** search i
        if has_visible_divisor(node, horizon):   # only PGS-visible check
            close_as_false(node)
        else:
-           # survivor — emit as PGS-derived q
+           # survivor — output as PGS-derived q
    ```
    (No trial division beyond the small, PGS-derived `horizon`.)
 

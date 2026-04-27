@@ -4,7 +4,7 @@ Previous-search-interval memory produced zero-wrong lock candidates in the abste
 regime left by Next-Prime Law 005A.
 
 This note documents offline theorem discovery only. It does not approve pure
-generator emission and does not integrate a new absorption rule.
+generator output and does not integrate a new absorption rule.
 
 ## Status
 
@@ -14,10 +14,10 @@ Current status:
 - Milestone 1: blocked for generator output.
 - Next-Prime Law 005A: higher-divisor pressure lock, candidate-grade only.
 - Next-Prime Law 005B: previous-search-interval reset lock, candidate lead found.
-- Pure emission: forbidden.
+- Pure output: forbidden.
 
 The previous-search-interval signal is legal for a future pure walk only if the prior
-endpoint has already been emitted and accepted in the generator's trust chain.
+endpoint has already been outputted and accepted in the generator's trust chain.
 In this probe, labels are used only after record construction to classify true
 and false resolved candidates.
 

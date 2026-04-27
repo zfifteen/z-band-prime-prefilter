@@ -42,7 +42,7 @@ d(n), \qquad
 Z(n) = \frac{n}{\exp(v \cdot \kappa(n))}.
 $$
 
-Here $d(n)$ is divisor count, $\kappa(n)$ is the divisor-normalization load, and $Z(n)$ is the resulting normalization field.
+Here $d(n)$ is divisor count, $\kappa(n)$ is the divisor-normalization load, and $Z(n)$ is the resulting normalization score.
 
 At the distinguished normalization scaling parameter
 

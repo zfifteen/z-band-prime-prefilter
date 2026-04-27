@@ -6,7 +6,7 @@ Prime gaps do **not** close merely because "nothing simpler appears later." Inst
 **Formal rule for inference**:
 - Locate GWR-selected integer **w** after input prime **p**.
 - Search forward for the first **reset** T = min{ m > w | d(m) ≤ d(w) }.
-- If T exists within the threat horizon (or a small multiple of log(q)), infer the endpoint shortly after T and emit the PGS-inferred prime.
+- If T exists within the threat horizon (or a small multiple of log(q)), infer the endpoint shortly after T and output the PGS-inferred prime.
 - If no such reset appears before a stricter threat, **fail closed** (RESET_UNCONFIRMED). This is the key filter that would have rejected all 282 false survivors from recent probes.
 
 ### Empirical Validation (up to 2×10⁶)
@@ -31,14 +31,14 @@ This is **not** a replacement for GWR/NLSC — it is their natural evolution and
 **Immediate engineering wins**:
 1. **Reset Confirmation Check** becomes a mandatory early-exit / guard in the Exact Recursive Walker, Bounded Walker, and Threat-Margin Engine (add ~2–3 lines; negligible cost).
 2. In the Finite-State Surface Engine, encode the reset as a required transition after any minimal-divisor state in the 14-state grammar.
-3. **Metadata extension** (Section 10 of the spec): add `reset_dist`, `reset_d`, `reset_found` to every emitted record. This gives full auditability of the "double tap" that locked the endpoint.
+3. **Metadata extension** (Section 10 of the spec): add `reset_dist`, `reset_d`, `reset_found` to every outputted record. This gives full auditability of the "double tap" that locked the endpoint.
 4. **False-positive elimination**: any candidate whose selected integer lacks a reset within, say, 2×log(q) steps is rejected before classical validation. This would have caught all 282 false survivors.
 5. **Earlier, higher-confidence inference**: once selected integer + reset is seen, you can often infer the endpoint with >99% certainty even before full threat-margin closure, speeding up large-search interval walks.
 
 **Theoretical payoff**:
 - Refines "No-Later-Simpler-Composite Closure" into **"Reset-Locked Closure Theorem"** (positive confirmation + negative threat avoidance).
 - Strengthens the link to the Semiprime Wheel Attractor: most resets occur precisely at the dominant d=4 odd-semiprime states.
-- Moves the generator one step closer to the long-term vision: a fully deterministic, structure-driven prime emitter whose only external step is optional classical audit.
+- Moves the generator one step closer to the long-term vision: a fully deterministic, structure-driven prime outputter whose only external step is optional classical audit.
 
 ### Recommended Immediate Actions
 - Add the Reset Confirmation Layer to the inference strategy in `tech_spec_pgs_prime_generator.md`.

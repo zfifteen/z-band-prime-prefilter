@@ -39,7 +39,7 @@ Then ask:
 **Falsifying result**: the required horizon grows like √q (or has no smaller deterministic PGS-visible bound) even though the chain length is capped at 8 and the offsets are rigidly wheel-constrained. In that case the bridge remains operationally excellent but the terminal decision cannot be compressed into a local PGS rule at `candidate_bound=128`.
 
 ### Why this least-factor maximum is the decisive object
-- The visible divisor bound (currently 10 000) already closes everything with small factors.
+- The factor-search bound (currently 10 000) already closes everything with small factors.
 - The false nodes that survive visible closure are exactly the “hard” composites whose SPF > 10 000.
 - Because the chain is short (≤8 nodes) and the candidates are consecutive wheel-open positions inside a tiny search interval (≤128), the numbers are close together (typical spacing ≈ log q).
 - If there is any local arithmetic invariant (from the semiprime shadow’s residue class, the GWR-selected integer’s divisor pattern, the NLSC ceilings, or higher-modulus wheel relations implied by the search-interval state) that forces at least one false node to have a “predictably small” SPF, then `H` drops out immediately.

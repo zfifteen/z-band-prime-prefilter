@@ -8,13 +8,13 @@ Current project status:
 
 - PGS Prime Generator: not complete
 - Milestone 0: accepted
-- Milestone 1 positive emission: blocked
-- pure prime emission: forbidden
+- Milestone 1 positive output: blocked
+- pure prime output: forbidden
 - Next-Prime Law 005A: candidate-grade, action-population audit passed, safe so far, narrow
 - Next-Prime Law 005B: quarantined
-- PGS-inferred prime emission: not approved
+- PGS-inferred prime output: not approved
 
-This note is offline theorem discovery. It consolidates evidence for 005A. It does not approve pure generation, prime emission, or theorem status.
+This note is offline theorem discovery. It consolidates evidence for 005A. It does not approve pure generation, prime output, or theorem status.
 
 ## Candidate Statement
 
@@ -146,7 +146,7 @@ Let $M$ be the missed action candidate count.
 
 $$M = 0$$
 
-This removes the specific population-mismatch risk that killed 005B. It does not approve generator emission.
+This removes the specific population-mismatch risk that killed 005B. It does not approve generator output.
 
 ## Shifted-Window Result
 
@@ -187,7 +187,7 @@ Also quarantine it if a dependency audit finds any forbidden input in the rule c
 
 One wrong case kills generator eligibility for 005A.
 
-## Why Pure Emission Remains Forbidden
+## Why Pure Output Remains Forbidden
 
 005A remains offline and candidate-grade because:
 
@@ -195,8 +195,8 @@ One wrong case kills generator eligibility for 005A.
 - it has narrow coverage
 - shifted windows abstain
 - classical labels are still used after action for audit
-- the pure generator has no approved emission contract
-- no emitted value has been certified as a PGS-inferred prime
+- the pure generator has no approved output contract
+- no outputted value has been certified as a PGS-inferred prime
 - the candidate has not yet passed a controlled expansion stress test
 
 The pure generator must continue to fail closed.

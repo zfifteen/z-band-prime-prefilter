@@ -3,9 +3,9 @@
 ## Status
 
 The experimental graph prime generator is a generator-facing CLI for PGS graph
-inference records. It is not production pure emission. It does not approve
+inference records. It is not production pure output. It does not approve
 cryptographic use. Classical validation is available only as a downstream
-audit over already emitted records.
+audit over already outputted records.
 
 The default solver mode is `v6`, the safe repaired graph line. The quarantined
 high-coverage line is exposed as `risky-v5` so its output and failures can be
@@ -73,7 +73,7 @@ nonboundary filter with a declared witness horizon. It requires:
 ```
 
 On the `11..100_000`, `candidate_bound = 128`, `witness_bound = 317` surface,
-the required sieve-complete witness bound is `317`. The run emitted `6039`
+the required sieve-complete witness bound is `317`. The run outputted `6039`
 records, confirmed `6039`, and failed `0` downstream audit records. It remains
 non-production and non-cryptographic, but it is the current highest-coverage
 zero-failure experimental mode.
@@ -83,8 +83,8 @@ comparison. It includes the old v4 no-selected-integer/no-active-reset relation 
 failed at input prime `10193` on the `11..100_000` surface.
 
 `filtered-v5` runs the same internal risky-v5 solve, then applies a
-label-free positive disqualification filter before emitting a record. It does
-not emit when `inferred_prime_q_hat` has any of these positive nonboundary
+label-free positive disqualification filter before outputting a record. It does
+not output when `inferred_prime_q_hat` has any of these positive nonboundary
 diagnostic records:
 
 - bounded composite witness;
@@ -101,7 +101,7 @@ filter_status: FILTERED_POSITIVE_NONBOUNDARY_CANDIDATE
 
 ## Output Records
 
-Each emitted JSONL record uses:
+Each outputted JSONL record uses:
 
 ```text
 record_type: PGS_INFERRED_PRIME_EXPERIMENTAL_GRAPH
@@ -122,7 +122,7 @@ The generator summary reports:
 ```text
 solver_version
 anchors_scanned
-emitted_count
+output_count
 abstained_count
 coverage_rate
 audit_required
@@ -145,7 +145,7 @@ The audit checks first-endpoint semantics: `inferred_prime_q_hat` must be the
 first classical prime after `anchor_p`.
 
 When `--fail-on-audit-failure` is supplied with `--audit`, the CLI still writes
-records and summaries, then exits with status `1` if any emitted record fails
+records and summaries, then exits with status `1` if any outputted record fails
 downstream audit. This is intended for generator app and CI workflows. It does
 not change solver logic and does not move validation into generation.
 
@@ -155,7 +155,7 @@ run metrics to stdout:
 ```text
 solver_version
 anchors_scanned
-emitted_count
+output_count
 abstained_count
 coverage_rate
 audit_confirmed
@@ -196,7 +196,7 @@ Results:
 ```text
 mode: v3
 anchors_scanned: 9588
-emitted_count: 216
+output_count: 216
 confirmed_count: 216
 failed_count: 0
 coverage_rate: 0.02252816020025031
@@ -204,7 +204,7 @@ first_failure: null
 
 mode: v6
 anchors_scanned: 9588
-emitted_count: 217
+output_count: 217
 confirmed_count: 217
 failed_count: 0
 coverage_rate: 0.022632457238214436
@@ -217,7 +217,7 @@ witness_bound: 317
 sieve_complete_witness_bound: 317
 risky_input_count: 7391
 filtered_count: 1352
-emitted_count: 6039
+output_count: 6039
 confirmed_count: 6039
 failed_count: 0
 coverage_rate: 0.629850
@@ -225,7 +225,7 @@ first_failure: null
 
 mode: risky-v5
 anchors_scanned: 9588
-emitted_count: 7391
+output_count: 7391
 confirmed_count: 6039
 failed_count: 1352
 coverage_rate: 0.7708594075928243
@@ -238,7 +238,7 @@ mode: filtered-v5
 anchors_scanned: 9588
 risky_input_count: 7391
 filtered_count: 482
-emitted_count: 6909
+output_count: 6909
 confirmed_count: 6039
 failed_count: 870
 coverage_rate: 0.7205882352941176

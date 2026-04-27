@@ -6,7 +6,7 @@ H(p, s0, chain_state)
 ```
 that **predicts the divisor horizon** (how far one must search for a small factor) required to close false semiprime-shadow chain nodes before the true next prime, using only PGS-visible state. If such an `H` exists and is provably bounded well below \(\sqrt{q}\) by PGS-visible invariants, the bridge becomes a pure PGS selector.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
-**Why this matters.** Converting the bridge to a PGS-derived rule would move a large fraction of high-scale emissions from deterministic fallback into PGS-derived output (current fallback share ~56–58% at the tested scales). The repository already documents the generator shape, the semiprime wheel attractor, and the current fallback displacement targets.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
+**Why this matters.** Converting the bridge to a PGS-derived rule would move a large fraction of high-scale outputs from deterministic fallback into PGS-derived output (current fallback share ~56–58% at the tested scales). The repository already documents the generator shape, the semiprime wheel attractor, and the current fallback displacement targets.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 ---
 
@@ -46,7 +46,7 @@ that **predicts the divisor horizon** (how far one must search for a small facto
         "horizon": horizon
       }
       ```
-    - Persist records to a compressed NDJSON file for later analysis (one file per decade/scale). Keep diagnostics separate from emitted stream.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
+    - Persist records to a compressed NDJSON file for later analysis (one file per decade/scale). Keep diagnostics separate from outputted stream.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 **3. Sampling strategy.**
 - **Stratified sampling** across gap types: sample input primes from the semiprime wheel attractor types (o2, o4, o6) and from rarer gap types.

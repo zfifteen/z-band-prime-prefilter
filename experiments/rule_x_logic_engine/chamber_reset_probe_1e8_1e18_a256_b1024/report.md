@@ -11,7 +11,7 @@ Across the same `10^8` through `10^18` windows:
 input primes tested: 2816
 old unique Rule X matches: 513
 search-interval-reset exact matches: 2816
-search-interval-reset false emissions: 0
+search-interval-reset false outputs: 0
 candidate-bound misses: 0
 tail cases converted: 2303
 tail candidates excluded by reset: 77457
@@ -37,22 +37,22 @@ then u is not a candidate next prime for p.
 u belongs to a search interval beginning at r or later.
 ```
 
-This changes the emission rule from:
+This changes the output rule from:
 
 ```text
-emit only if exactly one resolved survivor exists and no unresolved tail remains
+output only if exactly one resolved survivor exists and no unresolved tail remains
 ```
 
 to:
 
 ```text
-emit the first resolved survivor;
+output the first resolved survivor;
 exclude later unresolved candidates as post-reset search-interval material
 ```
 
 ## Results By Decade
 
-| decade | input primes | old matches | reset matches | false emits | tail cases | tail candidates | seconds |
+| decade | input primes | old matches | reset matches | false outputs | tail cases | tail candidates | seconds |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | `10^8` | `256` | `61` | `256` | `0` | `195` | `10416` | `0.335062` |
 | `10^9` | `256` | `48` | `256` | `0` | `208` | `9744` | `0.472654` |
@@ -71,19 +71,19 @@ exclude later unresolved candidates as post-reset search-interval material
 The unresolved input primes were not missing the endpoint. They already contained
 the endpoint as the first resolved survivor.
 
-The previous emission rule treated later unresolved candidates as competing
+The previous output rule treated later unresolved candidates as competing
 endpoints. The search-interval-reset test shows that this was too conservative in the
 tested windows. Once the first resolved survivor appears, later unresolved
-candidates are outside the current search interval and should not block emission.
+candidates are outside the current search interval and should not block output.
 
 The measured effect is complete on this decade ladder:
 
 ```text
-513 / 2816  -> old strict no-tail emission
-2816 / 2816 -> search-interval-reset emission
+513 / 2816  -> old strict no-tail output
+2816 / 2816 -> search-interval-reset output
 ```
 
-No false emissions were observed.
+No false outputs were observed.
 
 ## Artifacts
 

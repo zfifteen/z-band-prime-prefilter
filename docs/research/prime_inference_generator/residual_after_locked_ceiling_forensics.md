@@ -95,4 +95,4 @@ Milestone 1 remains blocked.
 Next-Prime Law 005 is not approved.
 
 The next target should be residual unresolved-alternative closure or domination.
-The current evidence does not support prime emission.
+The current evidence does not support prime output.

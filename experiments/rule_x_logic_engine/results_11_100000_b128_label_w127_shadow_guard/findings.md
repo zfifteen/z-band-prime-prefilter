@@ -87,7 +87,7 @@ The complete small-scale rule stack is now:
 4. Hold semiprime-shadow landmarks open instead of treating them as resolved q.
 5. Lock the selected integer only after a resolved survivor exists.
 6. Reject later candidates beyond the first certified lower-divisor threat.
-7. Emit only when exactly one resolved survivor remains and no unresolved
+7. Output only when exactly one resolved survivor remains and no unresolved
    alternatives remain.
 ```
 

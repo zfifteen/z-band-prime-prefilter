@@ -2,13 +2,13 @@
 
 ## Result
 
-The minimal PGS generator now emits search-interval-reset PGS selection records under:
+The minimal PGS generator now outputs search-interval-reset PGS selection records under:
 
 ```text
 rule_id: pgs_chamber_reset_v1
 ```
 
-The emitted generator record remains physically minimal:
+The outputted generator record remains physically minimal:
 
 ```json
 {"p": 11, "q": 13}
@@ -25,9 +25,9 @@ existing deterministic arithmetic is cheap and complete:
 surface: 11..100000
 candidate_bound: 128
 input primes tested: 9588
-PGS emissions: 9588
+PGS outputs: 9588
 rule_id: pgs_chamber_reset_v1
-failed emissions: 0
+failed outputs: 0
 runtime: 0.344686 seconds
 ```
 
@@ -43,7 +43,7 @@ candidate_bound: 1024
 input primes tested: 2816
 exact matches: 2816
 unresolved: 0
-false emissions: 0
+false outputs: 0
 candidate-bound misses: 0
 coverage: 100.000000%
 ```

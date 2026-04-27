@@ -6,7 +6,7 @@ Next-Prime Law 005B is quarantined as an absorption rule.
 
 The failure is reproduced at input prime $p = 3137$. The previous-to-current selected-integer shift lock authorizes a false resolved survivor at offset 12, and that false absorber removes the audited true next prime at offset 26.
 
-Pure generator emission remains forbidden.
+Pure generator output remains forbidden.
 
 ## Observed Failure
 

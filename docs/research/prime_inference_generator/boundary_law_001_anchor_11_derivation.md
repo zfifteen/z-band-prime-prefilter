@@ -6,7 +6,7 @@ evidence, that input prime `11` uniquely closes at offset `2`.
 
 The derivation does not close yet. It establishes the first-open candidate and
 the empty pre-open interval, but it does not derive the next-prime uniqueness step.
-The emission status remains `FAILED_CLOSED`.
+The output status remains `FAILED_CLOSED`.
 
 ## Input prime: p = 11
 
@@ -144,17 +144,17 @@ The unresolved step is the conversion from admissibility to next-prime inference
 - established: `11 + 2` is the first wheel-open admissible candidate;
 - not established: `11 + 2` is the unique PGS-inferred next prime.
 
-Until that conversion is proved, Next-Prime Law 001 must not emit `q_hat = 13` in
+Until that conversion is proved, Next-Prime Law 001 must not output `q_hat = 13` in
 pure mode.
 
-## Emission Status: FAILED_CLOSED
+## Output Status: FAILED_CLOSED
 
-The correct emission status is:
+The correct output status is:
 
 - `rule_set_version: "boundary_law_001"`
 - `inference_status: "failed_closed"`
 - `failure_reason: "NO_UNIQUE_BOUNDARY"`
 
-Milestone 1 positive emission remains blocked. The next proof task is to
+Milestone 1 positive output remains blocked. The next proof task is to
 establish or reject the empty-search-interval closure principle without using classical
 validation or next-prime discovery.

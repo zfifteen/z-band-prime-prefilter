@@ -9,7 +9,7 @@ NLSC gives:
 
 $$q^+ \le T_{<}(w)$$
 
-That is a hard upper endpoint. It is not yet an exact emission rule.
+That is a hard upper endpoint. It is not yet an exact output rule.
 
 ## Required Branch Order
 

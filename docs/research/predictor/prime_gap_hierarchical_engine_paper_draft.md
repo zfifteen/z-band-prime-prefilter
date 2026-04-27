@@ -115,9 +115,9 @@ not as autonomous long-lived regimes.
 ## 4. From Grammar To Generator
 
 The first generative question was whether the persistent `14`-state grammar was
-only descriptive or already strong enough to emit held-out structure.
+only descriptive or already strong enough to output held-out structure.
 
-Three deterministic emitters were trained on the same `10^7..10^17` core
+Three deterministic outputters were trained on the same `10^7..10^17` core
 surface and judged on the held-out `10^18` window:
 
 - `iid_balanced_cycle`
@@ -136,7 +136,7 @@ So the grammar is already generative in a nontrivial sense. It carries enough
 information to reproduce a held-out high-scale window better than weaker
 deterministic baselines do.
 
-The same rotor also emits a `10,000`-row synthetic stream that remains inside
+The same rotor also outputs a `10,000`-row synthetic stream that remains inside
 the persistent core for the full run. That committed synthetic walk is part of
 the release surface:
 

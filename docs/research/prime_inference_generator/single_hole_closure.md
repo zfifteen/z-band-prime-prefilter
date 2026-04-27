@@ -19,7 +19,7 @@ candidate had exactly one unresolved wheel-open interior offset.
 
 This probe asks whether that one hole has a legal closure candidate.
 
-It does not emit primes. It does not add the rule to the generator. It records
+It does not output primes. It does not add the rule to the generator. It records
 closure evidence for the one-hole cases and leaves integration to a later
 ablation step.
 
@@ -163,7 +163,7 @@ The exact offline diagnostics show the holes are:
 - semiprimes with divisor count `4`, or
 - prime squares with divisor count `3`.
 
-This does not make the current generator emit. It identifies the next safe
+This does not make the current generator output. It identifies the next safe
 rule-family candidate:
 
 - extend positive composite witnesses for unresolved interior holes.

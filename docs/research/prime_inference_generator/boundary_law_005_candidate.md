@@ -3,16 +3,16 @@
 Next-Prime Law 005 is a candidate law, not a theorem.
 
 The pure generator must remain fail-closed. This note does not approve prime
-emission.
+output.
 
 ## Status
 
 Current status:
 
 - Milestone 0: accepted.
-- Milestone 1: blocked for pure generator emission.
+- Milestone 1: blocked for pure generator output.
 - Next-Prime Law 005: candidate draft approved.
-- Pure emission: forbidden.
+- Pure output: forbidden.
 
 The current strongest supported claim is:
 
@@ -56,7 +56,7 @@ On the tested surfaces, this candidate rule selected true resolved candidates
 with zero false selections and produced unique resolved survivors under flagged
 integration without rejecting the true next prime.
 
-This does not prove that the emitted candidate is prime. It only states that,
+This does not prove that the outputted candidate is prime. It only states that,
 under the measured offline eliminator, a narrow PGS-native lock condition
 allowed safe absorption of later unresolved alternatives.
 
@@ -186,15 +186,15 @@ The shifted windows passed the safety gate but abstained. They produced no
 wrong absorption and no true-next-prime rejection, but also no applications and no
 unique resolved survivors.
 
-## Why This Is Not Yet Generator Emission
+## Why This Is Not Yet Generator Output
 
 This result is offline eliminator evidence.
 
-It is not pure generator emission because:
+It is not pure generator output because:
 
 - labels are still used after the fact to audit true and false selections;
 - the rule has not been installed into the pure generation path;
-- the pure generator still lacks an approved emission contract;
+- the pure generator still lacks an approved output contract;
 - the candidate has not been proven as a theorem;
 - the required pure-rule dependency audit has not yet been completed;
 - the shifted-window integration runs abstained.

@@ -45,9 +45,9 @@ These examples show the local arithmetic choice that input primes the repository
 - **Prime Gap Generative Engine v1.0:** on the persistent reduced gap-type
   surface, prime-gap types close to a frozen hierarchical finite-state engine
   with a stable `14`-state core.
-- **Prime-Gap Inference Generator:** the generator emits one two-field
+- **Prime-Gap Inference Generator:** the generator outputs one two-key
   `{"p": ..., "q": ...}` record per given prime `p`, keeps diagnostics outside
-  the emitted stream, and selects the successor prime `q` from the arithmetic
+  the outputted stream, and selects the successor prime `q` from the arithmetic
   consistency of the interval after `p`, rather than by a conventional
   next-prime search. The current production iteration is `v1.1`.
 
@@ -105,14 +105,14 @@ See also:
 
 ## Prime-Gap Inference Generator
 
-The third headline result is the Prime-Gap Inference Generator. It emits one
+The third headline result is the Prime-Gap Inference Generator. It outputs one
 record for each given prime:
 
 ```json
 {"p": 89, "q": 97}
 ```
 
-The emitted stream is deliberately small: exactly `p` and `q`. Source labels,
+The outputted stream is deliberately small: exactly `p` and `q`. Source labels,
 diagnostics, verification records, and audit results stay outside the generator output.
 
 The current production iteration is
@@ -139,17 +139,17 @@ that the gap had already closed.
 The generator is now PGS-only. The production generator contains no trial
 division and no fallback prime search. Probabilistic primality tests,
 Miller-Rabin, sieves, and oracle-style `nextprime` calls are also excluded from
-generation. Classical validation remains downstream audit after emission.
+generation. Classical validation remains downstream audit after generation.
 
-On the current production generator surface, exact emission is preserved and the
+On the current production generator surface, exact output is preserved and the
 PGS selector applies exact divisor-count GWR/NLSC search-interval-reset state:
 
 ```text
 surface: 11..100000
 candidate interval width: 128
 primes tested: 9588
-PGS-labeled emissions: 9588
-failed emissions: 0
+PGS-labeled outputs: 9588
+failed outputs: 0
 incorrect candidates: 0
 coverage: 100.00%
 ```
@@ -180,7 +180,7 @@ and the high-scale validation report is
 ## Why The Score Exists
 
 The score exists because the repo wants one number per interior composite, so a
-whole gap can be compared as a single ordered field rather than as a list of
+whole gap can be compared as a single ordered list of score values rather than as a list of
 cases.
 
 Divisor count already tells part of the story: fewer divisors means less
@@ -258,14 +258,14 @@ The repository now carries the following named structures and results:
   [docs/releases/prime_gap_generative_engine_v1_0.md](docs/releases/prime_gap_generative_engine_v1_0.md)
   and
   [gwr/findings/gap_type_engine_v1_rulebook.md](gwr/findings/gap_type_engine_v1_rulebook.md).
-- **Prime-Gap Inference Generator:** the generator emits exactly `p` and `q`
+- **Prime-Gap Inference Generator:** the generator outputs exactly `p` and `q`
   for each given prime `p`, with downstream audit and source diagnostics
-  outside the emitted stream. Unlike a conventional prime generator, it selects
+  outside the outputted stream. Unlike a conventional prime generator, it selects
   the successor prime from the arithmetic consistency of the interval after
   `p`, without a trial-division or fallback prime-search path inside the
-  generator. The current production path has `9588 / 9588` exact PGS emissions
+  generator. The current production path has `9588 / 9588` exact PGS outputs
   with `0` failures on `11..100000`, and
-  `2816 / 2816` exact PGS emissions with `0` incorrect candidates on the `10^8`
+  `2816 / 2816` exact PGS outputs with `0` incorrect candidates on the `10^8`
   through `10^18` decade-window validation surface.
 - **No-Later-Simpler-Composite (NLSC) condition:** once the GWR-selected integer
   appears, no later interior composite with strictly smaller divisor count
@@ -540,9 +540,9 @@ runtime exact DNI evaluation.
 - $29/29$ calibration primes stayed on $Z = 1.0$
 - $0$ composite false fixed points
 
-### Exact Raw Composite Z Field
+### Exact Raw Composite Z Score Values
 
-- This is a separate exact-field concern from the production filter.
+- This is a separate exact score-function concern from the production filter.
 - Up to $10^6$ on the natural number line, the strongest exact raw composite
   $Z$ value inside a prime gap lands at edge-distance $2$ in $43.6006\%$ of
   gaps versus an exact within-gap baseline of $22.1859\%$, and is carried by a

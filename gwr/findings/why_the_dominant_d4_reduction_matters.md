@@ -63,7 +63,7 @@ That is a local exclusion-and-arrival law, not a full gap-wide search story.
 
 The current repo structure is now cleaner:
 
-- the divisor-normalized field defines the score surface,
+- the divisor-normalized score function defines the score surface,
 - GWR gives the proved universal maximizer theorem on the current proof surface,
 - the dominant $d=4$ reduction explains why most of that surface collapses so
   cleanly,
@@ -72,7 +72,7 @@ The current repo structure is now cleaner:
 This is a better scientific shape than one isolated empirical identity. The
 project now has:
 
-- a field,
+- score values,
 - a maximizer rule,
 - a dominant mechanism,
 - and a closure law.

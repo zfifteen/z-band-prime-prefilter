@@ -102,5 +102,5 @@ remainder.
 The executed proof-pursuit script is
 [`finite_remainder_attempt.py`](../experiments/proof/finite_remainder_attempt.py).
 
-It emits a deterministic JSON artifact containing the obstruction family and
+It writes a deterministic JSON artifact containing the obstruction family and
 the status of that narrow class-only route.

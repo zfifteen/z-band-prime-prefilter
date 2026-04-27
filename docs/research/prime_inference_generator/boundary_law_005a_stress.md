@@ -6,7 +6,7 @@ Next-Prime Law 005A passed two controlled one-axis stress tests, the stronger
 candidate-horizon shifted-window stress, the combined-bound origin stress, and
 the combined-bound shifted-window stress.
 
-This is offline theorem discovery. Next-Prime Law 005A remains candidate-grade only. Pure generator emission remains forbidden. Classical labels are external audit only.
+This is offline theorem discovery. Next-Prime Law 005A remains candidate-grade only. Pure generator output remains forbidden. Classical labels are external audit only.
 
 ## Configuration
 
@@ -115,7 +115,7 @@ The combined-bound origin stress used both previously passed expansions:
 - input primes: 11..1000000
 
 This changed both axes together. It remained an offline stress of the same
-candidate rule, not an emission gate.
+candidate rule, not an output gate.
 
 ## Combined-Bound Origin Stress Metrics
 
@@ -203,16 +203,16 @@ The combined-bound horizon also abstained safely on shifted windows:
 
 The rule remains narrow. It is not a complete generator.
 
-## Why Pure Emission Remains Forbidden
+## Why Pure Output Remains Forbidden
 
-These stresses do not approve pure generator emission because:
+These stresses do not approve pure generator output because:
 
 - 005A is still a candidate law, not a theorem
 - the tests are offline
 - labels are still used after action for audit
 - coverage is still narrow
 - shifted-window activation remains absent on the tested shifted windows
-- no pure emission contract has been approved
+- no pure output contract has been approved
 
 The pure generator must remain fail-closed.
 
@@ -241,4 +241,4 @@ witness_bound: 127
 input primes: 11..1000000
 ```
 
-Pure emission remains forbidden.
+Pure output remains forbidden.

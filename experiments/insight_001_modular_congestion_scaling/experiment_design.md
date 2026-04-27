@@ -14,19 +14,19 @@ The falsifiable claim is:
 
 The experiment can conclusively validate or falsify that finite claim on a
 chosen domain `[X0, N]`. It does not prove a universal theorem. It answers the
-direct operational question: does the proposed modular pressure field identify
+direct operational question: does the proposed modular pressure score identify
 the finite regions where the next record-scale gaps actually occur?
 
 The strongest falsification is one counterexample:
 
 > a record or champagne gap whose left endpoint is not within `1,000,000`
-> integers of any new running maximum of the pressure field.
+> integers of any new running maximum of the pressure score.
 
 The strongest finite validation is:
 
 1. every record or champagne gap in `[X0, N]` lies inside the predicted zones;
 2. the predicted zones cover a minority of the searched domain;
-3. the pressure field is computed only from modular residue constraints, not
+3. the pressure score is computed only from modular residue constraints, not
    from prime-gap outcomes.
 
 ## Insight Under Test
@@ -181,7 +181,7 @@ The structural disconfirmation condition is:
 
 $$\text{percentile}(MCS(p)) < 50.$$
 
-One record or champagne gap below the median pressure field is evidence that a
+One record or champagne gap below the median pressure score is evidence that a
 new extreme gap occurred in a high-coprime-density region, contradicting the
 stated disconfirmation criterion.
 
@@ -215,7 +215,7 @@ not added predictive information beyond ordinary small-prime density.
 
 ## Required Artifacts
 
-The implementation should emit three LF-delimited artifacts:
+The implementation should output three LF-delimited artifacts:
 
 1. `pressure_zones.csv`
    - `center`
@@ -266,7 +266,7 @@ If Python's `csv` module is used, set `lineterminator="\n"` explicitly.
 5. Mark running maxima of `MCS(x)` as modular interference zone centers.
 6. Merge `1,000,000`-radius zones.
 7. Join gap events to the merged zone set.
-8. Emit the three artifacts.
+8. Output the three artifacts.
 9. Print the verdict from the primary pass/fail criteria.
 
 The experiment script must not call the Minimal PGS Generator or modify
@@ -281,7 +281,7 @@ below `25%`, and record endpoints have high pressure percentiles.
 
 Interpretation:
 
-The modular congestion field carries finite predictive signal on `[X0, N]`.
+The modular congestion score carries finite predictive signal on `[X0, N]`.
 The next experiment should raise `N` and reduce the zone radius until the first
 miss or the practical selectivity limit is found.
 
@@ -301,7 +301,7 @@ All records are inside predicted zones, but merged coverage is at least `25%`.
 
 Interpretation:
 
-The pressure field did not provide a useful search contraction. It may still
+The pressure score did not provide a useful search contraction. It may still
 describe modular structure, but it does not validate the claimed search
 strategy.
 

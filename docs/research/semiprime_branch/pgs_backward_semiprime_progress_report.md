@@ -79,7 +79,7 @@ walker would operate on:
 - the prime gap immediately before `N`;
 - the prime gap containing `N`;
 - the prime gap immediately after `N`;
-- the exact interior divisor field and `GWR` selected integer in each of those gaps.
+- the exact interior divisor-count values and `GWR` selected integer in each of those gaps.
 
 That orientation artifact closed the first conceptual gap in the program. The
 branch no longer had to speak abstractly about “working backward from the

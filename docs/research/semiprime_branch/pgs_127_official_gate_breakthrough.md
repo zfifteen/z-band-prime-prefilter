@@ -27,7 +27,7 @@ It uses one narrow deterministic path:
 - the committed `127`-bit corpus has `12` known-factor semiprimes
 - the cases are split into `4` `balanced`, `4` `moderate_unbalanced`, and `4`
   `archived_shape`
-- each rung emits one fixed centered four-window lattice around the family
+- each rung outputs one fixed centered four-window lattice around the family
   center
 - local exact recovery uses the repo `PGS` seed contract
   `gwr_predict(seed, d=None)` on deterministic center-out composite seeds

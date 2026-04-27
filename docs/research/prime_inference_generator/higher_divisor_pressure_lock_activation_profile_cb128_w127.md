@@ -5,7 +5,7 @@ on input primes 11..1000000, with 36 unique resolved survivors after absorption 
 0 wrong activations.
 
 This is offline theorem discovery. Next-Prime Law 005A remains candidate-grade
-only. Pure generator emission remains forbidden. Classical labels are external
+only. Pure generator output remains forbidden. Classical labels are external
 audit only.
 
 ## Configuration
@@ -159,8 +159,8 @@ The most common signature was:
 
 All other observed signatures had count 3 or less. The lock does not reduce to
 one repeated pressure signature at this horizon. It most often fires with one
-higher-divisor pressure offset plus a matching semiprime/reset field, but
-several early activations have dense pressure fields.
+higher-divisor pressure offset plus a matching semiprime/reset signal, but
+several early activations have dense pressure scores.
 
 ## Unique Versus Non-Unique Activations
 
@@ -217,7 +217,7 @@ rule condition.
 
 ```text
 PGS Prime Generator: not complete
-Pure prime emission: forbidden
+Pure prime output: forbidden
 Milestone 1: still blocked
 005A: candidate-grade, activation-profiled at candidate_bound=128 and witness_bound=127, safe so far, narrow
 005B: quarantined

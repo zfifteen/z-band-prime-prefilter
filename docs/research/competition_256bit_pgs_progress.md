@@ -749,7 +749,7 @@ Verification:
 
 ```sh
 python3 -m py_compile benchmarks/python/predictor/pgs_geofac_scaleup.py
-pytest tests/python/predictor/test_pgs_geofac_scaleup.py::test_big_int_prime_traversal_emits_unique_primes_at_4096_scale -q
+pytest tests/python/predictor/test_pgs_geofac_scaleup.py::test_big_int_prime_traversal_outputs_unique_primes_at_4096_scale -q
 pytest tests/python/predictor/test_pgs_geofac_scaleup.py::test_pure_pgs_router_is_deterministic_except_timing -q
 ```
 
@@ -939,7 +939,7 @@ Verification:
 
 ```sh
 python3 -m py_compile benchmarks/python/predictor/pgs_geofac_scaleup.py
-pytest tests/python/predictor/test_pgs_geofac_scaleup.py::test_big_int_prime_traversal_emits_unique_primes_at_4096_scale -q
+pytest tests/python/predictor/test_pgs_geofac_scaleup.py::test_big_int_prime_traversal_outputs_unique_primes_at_4096_scale -q
 ```
 
 ### Measured Result
@@ -1120,7 +1120,7 @@ Verification:
 
 ```sh
 python3 -m py_compile benchmarks/python/predictor/pgs_geofac_scaleup.py
-pytest tests/python/predictor/test_pgs_geofac_scaleup.py::test_big_int_prime_traversal_emits_unique_primes_at_4096_scale -q
+pytest tests/python/predictor/test_pgs_geofac_scaleup.py::test_big_int_prime_traversal_outputs_unique_primes_at_4096_scale -q
 ```
 
 ### Measured Result

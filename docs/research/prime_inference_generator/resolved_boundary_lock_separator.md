@@ -121,7 +121,7 @@ Milestone 1 remains blocked.
 
 Next-Prime Law 005 is not approved.
 
-Prime emission remains forbidden.
+Prime output remains forbidden.
 
 The next target is higher-divisor pressure lock hardening, not generator
 integration.

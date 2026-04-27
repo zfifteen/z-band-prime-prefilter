@@ -14,13 +14,13 @@ It says:
 - the structure concerns odd composite interior points,
 - the effect is strongest near the gap edge rather than across the whole edge
   band,
-- the phenomenon is a ridge in the raw DNI field and not a general claim that
+- the phenomenon is a ridge in the raw DNI score function and not a general claim that
   prime-gap edges are globally simple.
 
 ## What Survives
 
 The repository already had a measured and reproducible result for the exact raw
-DNI field on prime-gap interiors:
+DNI score function on prime-gap interiors:
 
 - the gap-local raw-`Z` maximum is strongly enriched at edge distance `2`,
 - that local peak is overwhelmingly carried by `d(n) = 4` composites,
@@ -88,7 +88,7 @@ The surviving structure is narrower:
 - the raw-`Z` selected integer inside a prime gap is strongly pulled toward the first odd
   interior positions,
 - that selected integer is usually carried by a `d(n) = 4` composite,
-- the effect is a local near-edge ridge in the raw DNI field.
+- the effect is a local near-edge ridge in the raw DNI score function.
 
 That is why the narrower name is better.
 
@@ -102,6 +102,6 @@ simple insulation bands.
 
 It did support a narrower and still interesting statement:
 
-inside prime gaps, the exact raw DNI field has a strong odd-composite
+inside prime gaps, the exact raw DNI score function has a strong odd-composite
 near-edge ridge, and that ridge is usually carried by semiprime-class
 `d(n) = 4` composites.

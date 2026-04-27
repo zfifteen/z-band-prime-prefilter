@@ -54,7 +54,7 @@ The modified build is a pure `createRandomPrime()` DCI-prefilter patch:
 The prior no-patch sample-behavior probe at [`bcprov-jdk18on-1.83-source-r1rv83-prime-sample-behavior-seed-byte-42.json`](./bcprov-jdk18on-1.83-source-r1rv83-prime-sample-behavior-seed-byte-42.json) found:
 
 - exact helper fidelity to BC for the first `1024` outputs on both `256`-bit and `2048`-bit panels
-- `0.0` drift on the recorded coarse emitted-prime metrics after adding this exact DCI ladder at the `createRandomPrime()` surface
+- `0.0` drift on the recorded coarse outputted-prime metrics after adding this exact DCI ladder at the `createRandomPrime()` surface
 
 ## Artifacts
 

@@ -62,7 +62,7 @@ tested regime, though it shrank with scale as expected.
 
 ## Plain Reading
 
-The near-edge ridge is not only a visual field effect on the tested surface.
+The near-edge ridge is not only a score-function effect on the tested surface.
 
 Its selected integer is fully determined by a simple arithmetic ordering rule:
 

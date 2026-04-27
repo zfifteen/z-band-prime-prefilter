@@ -24,7 +24,7 @@ Technical-domain mode:
 
 The repo implementation makes the gap very precise. In simple_pgs_generator.py, DEFAULT_VISIBLE_DIVISOR_BOUND = 10000 is used to build the visible-open chain, while chain_horizon_closure_result(..., horizon_bound=None) makes divisor_witness(candidate, horizon_bound) use complete divisor exhaustion up to sqrt(candidate) for the chain node. That is exactly the non-PGS part we need to replace.  ￼
 
-The high-scale bridge result says the operational shape is right: at 10^15, the probe emits 249 / 256 rows with 0 audit failures, 43.37% pure PGS and 56.63% chain_horizon_closure; at 10^18, it emits 250 / 256 rows with 0 audit failures, 42.00% pure PGS and 58.00% chain_horizon_closure.  ￼
+The high-scale bridge result says the operational shape is right: at 10^15, the probe outputs 249 / 256 rows with 0 audit failures, 43.37% pure PGS and 56.63% chain_horizon_closure; at 10^18, it outputs 250 / 256 rows with 0 audit failures, 42.00% pure PGS and 58.00% chain_horizon_closure.  ￼
 
 So the current status is:
 
@@ -51,7 +51,7 @@ Least-Factor Maximum Probe
 
 Create a benchmark that only analyzes chain_horizon_closure rows from 10^12, 10^15, and 10^18. For every chain node before the terminal node, record the least divisor that closes it. For the terminal node, record only that it survived until audit confirmed it. Do not use terminal primality as a feature.
 
-Per false chain node, emit:
+Per false chain node, output:
 
 scale
 input_prime_p

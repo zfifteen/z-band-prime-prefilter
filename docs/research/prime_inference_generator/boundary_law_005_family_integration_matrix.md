@@ -6,7 +6,7 @@ Next-Prime Law 005A remains candidate-grade. Next-Prime Law 005B is not integrat
 
 The flagged offline integration matrix found that 005A remains zero-wrong on the tested surfaces, but direct 005B absorption fails the hard gate on the origin surface. The combined modes inherit the same failure.
 
-Pure generator emission remains forbidden.
+Pure generator output remains forbidden.
 
 ## Configuration
 

@@ -1,9 +1,9 @@
-# Offline PGS Diagnostic-Record Emitter
+# Offline PGS Diagnostic-Record Outputter
 
-The offline diagnostic-record emitter produced 36 PGS endpoint diagnostic records
+The offline diagnostic-record outputter produced 36 PGS endpoint diagnostic records
 from the 005A-R candidate rule. A separate downstream audit confirmed all 36.
 
-This is Milestone 1A evidence. It is not pure generator emission. Pure emission
+This is Milestone 1A evidence. It is not pure generator output. Pure output
 remains forbidden.
 
 ## Status
@@ -12,14 +12,14 @@ remains forbidden.
 PGS Prime Generator: not complete
 Milestone 1: still blocked
 Milestone 1A: offline diagnostic-record output produced
-Pure prime emission: forbidden
+Pure prime output: forbidden
 005A-R: candidate-grade refined diagnostic-record rule
 005B: quarantined
 ```
 
 ## Rule Set
 
-The emitter uses:
+The outputter uses:
 
 ```text
 rule_set: 005A-R
@@ -37,23 +37,23 @@ and the post-absorption candidate set has exactly one resolved survivor
 and no unresolved candidates
 ```
 
-The emitter does not approve pure emission. It writes generator-shaped records
+The outputter does not approve pure output. It writes generator-shaped records
 with:
 
 ```text
 record_type: OFFLINE_PGS_BOUNDARY_CERTIFICATE
 certificate_status: CANDIDATE_CERTIFICATE
-pure_emission_approved: false
+pure_output_approved: false
 classical_audit_status: NOT_RUN
 ```
 
-## Emission Summary
+## Output Summary
 
-The emission pass wrote:
+The output pass wrote:
 
 ```text
 offline_pgs_boundary_certificates.jsonl
-offline_pgs_certificate_emitter_summary.json
+offline_pgs_certificate_outputter_summary.json
 ```
 
 Summary:
@@ -65,12 +65,12 @@ Summary:
 | candidate_bound | 128 |
 | witness_bound | 127 |
 | diagnostic record_count | 36 |
-| pure_emission_approved | false |
+| pure_output_approved | false |
 | classical_audit_required | true |
 | classical_audit_status | NOT_RUN |
 | first_failure_example | null |
 
-The label-dependent counters are unset in the emission summary because
+The label-dependent counters are unset in the output summary because
 classical audit has not run at that stage:
 
 ```text
@@ -87,7 +87,7 @@ Each diagnostic record includes:
 ```text
 record_type
 certificate_status
-pure_emission_approved
+pure_output_approved
 classical_audit_status
 input_prime_p
 candidate_q_hat
@@ -111,7 +111,7 @@ absorption_wrong_count
 true_boundary_rejected_count
 ```
 
-The emitted records set:
+The outputted records set:
 
 ```text
 single_hole_closure_used: false
@@ -126,7 +126,7 @@ has been run.
 
 ## Downstream Audit
 
-The audit pass reads the emitted JSONL and writes:
+The audit pass reads the outputted JSONL and writes:
 
 ```text
 offline_pgs_certificate_audit_summary.json
@@ -153,12 +153,12 @@ select diagnostic records.
 36 OFFLINE_PGS_BOUNDARY_CERTIFICATE records
 36 downstream audit confirmations
 0 downstream audit failures
-pure_emission_approved: false
+pure_output_approved: false
 ```
 
 This is the first diagnostic-record output of the composite-exclusion path.
 It is not a proof of the general generator law and it does not approve pure
-prime emission.
+prime output.
 
 ## Falsification Conditions
 
@@ -177,7 +177,7 @@ One wrong diagnostic record kills generator eligibility for the refinement.
 
 ## Next Gate
 
-The next safe gate is an action-population audit for 005A-R as an emitter rule:
+The next safe gate is an action-population audit for 005A-R as an outputter rule:
 
 ```text
 rule_set: 005A-R
@@ -190,4 +190,4 @@ shifted windows:
 ```
 
 That audit must confirm that the hardening population matches the population
-that can produce diagnostic records. Pure emission remains forbidden.
+that can produce diagnostic records. Pure output remains forbidden.
