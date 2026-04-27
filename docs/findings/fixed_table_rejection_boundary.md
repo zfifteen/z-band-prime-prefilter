@@ -99,7 +99,7 @@ then consuming the small-factor layer with a table.
 
 The fixed-table path remains valuable. It rejects composites only on concrete
 factor discovery and preserves the public deterministic contract. The finding
-is narrower: table depth is not the frontier for a new rejection regime.
+is narrower: table depth is not the limiting obstruction for a new rejection regime.
 
 ## Falsifier
 

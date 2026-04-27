@@ -12,13 +12,13 @@ that **predicts the divisor horizon** (how far one must search for a small facto
 
 ### Concrete experimental objective
 
-**Primary experiment.** *Mine the least-factor frontier of false chain nodes and test whether its maximum (over many input primes) admits a deterministic upper bound expressible in PGS-visible quantities (input prime \(p\), shadow seed \(s_0\), chain gaps, residues, search-interval state).* If the frontier’s maximum scales like \(\sqrt{q}\) with no smaller PGS-visible bound, the bridge cannot be compressed into a purely local PGS rule at `candidate_bound=128`. If the frontier is bounded by a much smaller deterministic expression built from PGS-visible state, that expression is the missing `H`.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
+**Primary experiment.** *Mine the least-factor maximum of false chain nodes and test whether its maximum (over many input primes) admits a deterministic upper bound expressible in PGS-visible quantities (input prime \(p\), shadow seed \(s_0\), chain gaps, residues, search-interval state).* If the least-factor maximum scales like \(\sqrt{q}\) with no smaller PGS-visible bound, the bridge cannot be compressed into a purely local PGS rule at `candidate_bound=128`. If the least-factor maximum is bounded by a much smaller deterministic expression built from PGS-visible state, that expression is the missing `H`.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 **Operational definition.** For each false chain node \(n\) in a chain seeded by a semiprime shadow:
 - compute the **least factor** \(f(n)\) (smallest prime divisor),
 - compute the **horizon** \(h(n) = f(n)\) (or equivalently the search bound needed to detect compositeness),
 - record the chain-state tuple \((p, s_0, \text{chain gaps}, \text{residues}, \text{search-interval state})\) and \(h(n)\).
-  The **least-factor frontier** for an input prime is \(\max_{n \in \text{false chain nodes}} h(n)\). We want to know whether that max is bounded by a PGS-visible function \(H(p,s_0,\text{chain_state}) \ll \sqrt{q}\).   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
+  The **least-factor maximum** for an input prime is \(\max_{n \in \text{false chain nodes}} h(n)\). We want to know whether that max is bounded by a PGS-visible function \(H(p,s_0,\text{chain_state}) \ll \sqrt{q}\).   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 ---
 
@@ -27,7 +27,7 @@ that **predicts the divisor horizon** (how far one must search for a small facto
 **1. Locate and extend the generator instrumentation.**
 - **Files to inspect and extend:** the minimal PGS generator logic and the chain closure code paths in `src/python` and the benchmark generator scripts. The repo documents the generator logic and the chain-horizon closure step; instrument the code where `chain_horizon_closure` currently calls deterministic divisor checks.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
-**2. Add a least-factor frontier logger.**
+**2. Add a least-factor maximum logger.**
 - For each input prime run (or for a large probe sample at high scale), when a semiprime shadow seeds a chain:
     - Walk the chain nodes that are *false* (i.e., not the true next prime).
     - For each false node \(n\), compute `least_factor = smallest_prime_divisor(n)` and `horizon = least_factor`.
@@ -67,7 +67,7 @@ that **predicts the divisor horizon** (how far one must search for a small facto
 
 ### Hypotheses to test and PGS-visible invariants to try
 
-**Candidate PGS-visible invariants** to correlate with the frontier maximum:
+**Candidate PGS-visible invariants** to correlate with the maximum observed least factorimum:
 - **Input prime size** \(p\) and **gap length** \(q-p\).
 - **Shadow seed \(s_0\)**: its residue class modulo small primes; whether it is semiprime with repeated factor or distinct factors.
 - **Chain gaps sequence**: the vector of step sizes between chain nodes (small gaps may force small factors).
@@ -81,24 +81,24 @@ that **predicts the divisor horizon** (how far one must search for a small facto
 4. **Wheel-limited bound**: \(H \le\) largest prime in the wheel that still allows the chain node to be composite given its residue pattern.
 5. **Input prime-gap combined bound**: \(H \le C \cdot \min(\log q, \text{gap length})\).
 
-Fit these forms to the collected frontier data and measure **false-negative rate** (cases where the bound underestimates the true frontier) and **tightness** (ratio of bound to observed frontier). If any deterministic expression using only PGS-visible inputs yields a tight bound with near-zero false negatives, that expression is a candidate `H`.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
+Fit these forms to the collected least-factor data and measure **false-negative rate** (cases where the bound underestimates the true least-factor maximum) and **tightness** (ratio of bound to observed least-factor maximum). If any deterministic expression using only PGS-visible inputs yields a tight bound with near-zero false negatives, that expression is a candidate `H`.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 ---
 
 ### Statistical analysis and decision criteria
 
 **Metrics to compute.**
-- **Max frontier** per scale and per gap-type.
-- **Empirical CDF** of frontier values.
+- **Maximum least factor** per scale and per gap-type.
+- **Empirical CDF** of least-factor values.
 - **Tail behavior**: fit tail to power-law or sub-polynomial forms; test whether tail mass beyond any candidate PGS-bound is negligible.
-- **False-negative rate** for each candidate `H` (fraction of input primes where observed frontier > `H`).
+- **False-negative rate** for each candidate `H` (fraction of input primes where observed least-factor maximum > `H`).
 - **Compression gain**: fraction of previously fallback-decided input primes that would be decided by `H` alone.
 
 **Decision thresholds.**
-- **Falsification:** if the frontier’s empirical maximum grows like \(\sqrt{q}\) (or shows no smaller PGS-bound) and candidate `H` expressions have non-negligible false-negative rates at high scales, conclude the bridge is not compressible into a pure local PGS rule at `candidate_bound=128`.
+- **Falsification:** if the least-factor maximum’s empirical maximum grows like \(\sqrt{q}\) (or shows no smaller PGS-bound) and candidate `H` expressions have non-negligible false-negative rates at high scales, conclude the bridge is not compressible into a pure local PGS rule at `candidate_bound=128`.
 - **Confirmation:** if a deterministic `H(p,s_0,chain_state)` built from PGS-visible quantities yields **zero** or vanishingly small false-negative rate across sampled scales (and is provably computable from the PGS state), treat that as the missing theorem and integrate it into `chain_horizon_closure`. Aim for a bound significantly smaller than \(\sqrt{q}\) (e.g., polylogarithmic or a small power of \(\log q\)).   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
-**Statistical rigor.** Use bootstrap confidence intervals on the maximum and tail quantiles; report the 95% upper CI for the frontier maximum per scale. If the CI for the maximum lies well below \(\sqrt{q}\) and matches a candidate `H`, that strengthens the positive claim.
+**Statistical rigor.** Use bootstrap confidence intervals on the maximum and tail quantiles; report the 95% upper CI for the maximum observed least factorimum per scale. If the CI for the maximum lies well below \(\sqrt{q}\) and matches a candidate `H`, that strengthens the positive claim.
 
 ---
 
@@ -106,18 +106,18 @@ Fit these forms to the collected frontier data and measure **false-negative rate
 
 **If a candidate `H` is found:**
 1. **Implement `H` as a pure PGS rule** inside `chain_horizon_closure` so the closure decision uses only PGS-visible state and `H` to decide which chain node survives. Add a deterministic fallback only as a safety net for audit runs (but not used in PGS-mode).
-2. **Unit tests:** add tests in `tests/` that replay input primes where the frontier was near the bound and verify the PGS-only decision matches the audited deterministic decision.
+2. **Unit tests:** add tests in `tests/` that replay input primes where the least-factor maximum was near the bound and verify the PGS-only decision matches the audited deterministic decision.
 3. **Benchmark:** re-run the probe runs at \(10^{12},10^{15},10^{18}\) and measure the new PGS-derived share. Expect a sharp reduction in fallback share if `H` is effective. Document results in the repo’s `output/` and update the generator release notes.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 **If no candidate `H` is found:**
-- Conclude the high-scale bridge requires nonlocal arithmetic (divisor exhaustion) for correctness at `candidate_bound=128`. The generator remains operationally good but not compressible into a pure local PGS rule. Document the negative result and the empirical frontier growth (this is a valuable negative theorem).   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
+- Conclude the high-scale bridge requires nonlocal arithmetic (divisor exhaustion) for correctness at `candidate_bound=128`. The generator remains operationally good but not compressible into a pure local PGS rule. Document the negative result and the empirical least-factor growth (this is a valuable negative theorem).   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 ---
 
 ### Practical next steps you can run now
 
 1. **Add the collector module** `src/python/analysis/least_factor_frontier.py` and hook it into the probe generator path. Use the repo’s benchmark harness to run a stratified probe at `10^15` and `10^18`.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
-2. **Run a pilot** with `B = 2^20` and collect ~10k chain records across gap types. Produce the empirical CDF and tail plot of frontier values.
+2. **Run a pilot** with `B = 2^20` and collect ~10k chain records across gap types. Produce the empirical CDF and tail plot of least-factor values.
 3. **Fit candidate `H` forms** (polylog, residue-limited, wheel-limited) and compute false-negative rates and 95% CI for maxima.
 4. **Report back** the pilot outputs (summary table + tail plot). If you paste the pilot NDJSON or summary, I will analyze it and propose the tightest candidate `H` and the exact code patch to replace the fallback in `chain_horizon_closure`.
 

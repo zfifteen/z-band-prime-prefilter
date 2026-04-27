@@ -19,7 +19,7 @@ This produces the headline numbers you cited:
 The repo’s benchmark scripts (`benchmarks/python/predictor/`) are purpose-built for exactly the experiment you propose:
 
 - `simple_pgs_recursive_shadow_chain_state_mine.py` — recursively mines shadow-chain states (prefix + sub-chains), records delta vectors, mod-30 residues, closure vectors (`closure_vector_between`), open densities, ranker mappings (`ranker_b/c/d`), and hidden-obstruction proxies. It evaluates six termination rules and projects PGS-conversion rates.
-- `simple_pgs_shadow_chain_terminal_certificate_mine.py` — the closest match to “mine the least-factor frontier of false chain nodes”. It ingests chain-fallback probe rows, annotates every visible-open node with:
+- `simple_pgs_shadow_chain_terminal_certificate_mine.py` — the closest match to “mine the least-factor maximum of false chain nodes”. It ingests chain-fallback probe rows, annotates every visible-open node with:
     - PGS-visible state: offsets, prefix/suffix deltas, mod-30 / mod-6 residues, closure/open counts before & after the node, `visible_boundary_score` (4-tuple penalizing opens before the node and rewarding closure after), local signatures, ranker scores.
     - Ground-truth label `is_terminal_for_audit_only` (matches true `q`).
 - False nodes = all non-terminal nodes before the true `q`.
@@ -30,7 +30,7 @@ Parallel backward-law miners (`pgs_semiprime_backward_factor_closure_search.py`,
 All of these scripts operate inside the **fixed `candidate_bound=128`** search interval — a pure PGS-local constant, independent of `√q`.
 
 ### Current Empirical Status (from Code Analysis)
-- No script yet emits the explicit statistic you need: for each chain, compute `max_spf(false_node)` over all false semiprime-shadow nodes before the true terminal, then correlate that **least-factor frontier** against PGS-visible quantities (`p`, seed offset `s0`, chain deltas/gaps, mod-30 residues of nodes, open density before/after, integer `d(w)` or GWR score of the search interval selected integer, search-interval state vector, etc.).
+- No script yet emits the explicit statistic you need: for each chain, compute `max_spf(false_node)` over all false semiprime-shadow nodes before the true terminal, then correlate that **least-factor maximum** against PGS-visible quantities (`p`, seed offset `s0`, chain deltas/gaps, mod-30 residues of nodes, open density before/after, integer `d(w)` or GWR score of the search interval selected integer, search-interval state vector, etc.).
 - They **do** show that fixed small `visible_divisor_bound` (tens to low hundreds) + the ranker/signature rules already close most structure. `candidate_bound=128` is ample for typical gaps (~log p ≈ 40 at 10¹⁸) while `√q ≈ 10⁹`.
 - Projected PGS gains are material: several rules achieve high `top1_recall` on terminal selection with low audit-failure risk, exactly the conversion you want.
 - No evidence that the required horizon tracks `√q`. All exploration is bounded by the fixed PGS search interval (128) and small divisor visibility bound — the opposite of quadratic dependence.
@@ -60,6 +60,6 @@ All of these scripts operate inside the **fixed `candidate_bound=128`** search i
 4. **Expected outcome**: the 56–58 % bridge collapses into PGS-derived output, pushing overall PGS fraction well above 90 % (or 100 % if search interval rules are also tightened). The generator becomes a **pure local PGS selector** at the fixed `candidate_bound=128`.
 
 ### Bottom Line
-The repo has already done the hard empirical work: the generator is correct, the mining tools exist and are running on exactly the false-chain-node frontier, and the structural invariants (deltas, residues, closure vectors, low-exact-terminal signatures, GWR-selected integers) are rich enough to support a small deterministic `H`. The only remaining step is to **explicitly mine and publish the least-factor frontier statistics** (max spf of false nodes vs PGS state) and close the loop with a derived horizon law.
+The repo has already done the hard empirical work: the generator is correct, the mining tools exist and are running on exactly the false-chain-node least-factor maximum, and the structural invariants (deltas, residues, closure vectors, low-exact-terminal signatures, GWR-selected integers) are rich enough to support a small deterministic `H`. The only remaining step is to **explicitly mine and publish the least-factor maximum statistics** (max spf of false nodes vs PGS state) and close the loop with a derived horizon law.
 
 That single derivation converts the last major non-PGS bridge into a theorem-level PGS next-prime selection rule — exactly the “missing theorem” you identified. The infrastructure is there; the confirming result is the expected outcome.

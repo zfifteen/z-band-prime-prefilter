@@ -63,7 +63,7 @@ composite search-interval-closure seed -> shadow-seed recovery bridge -> correct
 
 Several probes clarified what was not the solution.
 
-The horizon-law probe measured the least-factor frontier of false pre-terminal
+The horizon-law probe measured the least-factor maximum of false pre-terminal
 chain nodes. No tested simple law closed every false node across `10^12`,
 `10^15`, and `10^18` while materially beating the square-root comparator.
 

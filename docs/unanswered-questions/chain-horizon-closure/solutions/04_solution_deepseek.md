@@ -1,4 +1,4 @@
-**Recommendation: Prioritize the “Shadow-Chain Horizon Law Probe” (ChatGPT‑5) as the primary experiment, because it directly targets the least‑factor frontier and provides the clearest path to a PGS‑only next-prime selection rule.  Supplement this with the meta‑analysis (Meta‑AI) and the terminal‑diagnostic record mining (Grok‑2) to cross‑validate the horizon law and to harden the resulting theorem.**
+**Recommendation: Prioritize the “Shadow-Chain Horizon Law Probe” (ChatGPT‑5) as the primary experiment, because it directly targets the least-factor maximum and provides the clearest path to a PGS‑only next-prime selection rule.  Supplement this with the meta‑analysis (Meta‑AI) and the terminal‑diagnostic record mining (Grok‑2) to cross‑validate the horizon law and to harden the resulting theorem.**
 
 ---
 
@@ -12,7 +12,7 @@ H(p, s_0, \text{chain\_state})
 
 that can close all false semiprime‑shadow chain nodes *before* the true next prime, using only quantities that are already visible inside the PGS search interval.  If such an \(H\) exists and is provably much smaller than \(\sqrt{q}\), the entire high‑scale output becomes a pure PGS selection.
 
-This report evaluates six proposed answers to the question *“Can `chain_horizon_closure` be turned into a pure PGS next-prime selection rule?”*, simulates the critical least‑factor frontier experiment, and recommends a concrete path forward.
+This report evaluates six proposed answers to the question *“Can `chain_horizon_closure` be turned into a pure PGS next-prime selection rule?”*, simulates the critical least-factor maximum experiment, and recommends a concrete path forward.
 
 ---
 
@@ -35,7 +35,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 
 ### 3.1 Meta‑AI (01\_answer\_meta\_ai.md)
 
-**Key proposal:** The least‑factor frontier of false nodes is governed by a PGS‑visible expression involving the wheel modulus, the attractor state, and the chain length.  Suggests `H(p, s0, chain_state) ≤ wheel_limit(p) × attractor_multiplier(state)` and proposes a concrete mining experiment with pseudocode.
+**Key proposal:** The least-factor maximum of false nodes is governed by a PGS‑visible expression involving the wheel modulus, the attractor state, and the chain length.  Suggests `H(p, s0, chain_state) ≤ wheel_limit(p) × attractor_multiplier(state)` and proposes a concrete mining experiment with pseudocode.
 
 **Strengths:**
 
@@ -52,7 +52,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 
 - `max_lpf` remaining **flat or growing sub‑logarithmically** with scale, while `sqrt(q)` grows by a factor of ∼10³.
 - A strong correlation between `max_lpf` and `wheel_bound` (the largest prime whose multiples are eliminated by search-interval closure).
-- The false‑node frontier never exceeding a few hundred, consistent with the fact that `candidate_bound=128` already works in practice.
+- The false-node least-factor maximum never exceeding a few hundred, consistent with the fact that `candidate_bound=128` already works in practice.
 
 **Conclusion:**  This answer correctly frames the problem and offers a plausible, testable horizon law.  It is an excellent **meta‑analysis**, but lacks the implementation detail needed to become the sole experiment.
 
@@ -85,7 +85,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 
 ### 3.3 DeepSeek (03\_asnwer\_deepseek.md)
 
-**Key proposal:**  A detailed breakdown of the current bridge and a generic recipe for mining the least‑factor frontier.  It restates the question, lists the data to collect, and describes the invariant search.
+**Key proposal:**  A detailed breakdown of the current bridge and a generic recipe for mining the least-factor maximum.  It restates the question, lists the data to collect, and describes the invariant search.
 
 **Strengths:**
 
@@ -106,7 +106,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 
 ### 3.4 Copilot (04\_answer\_copilot.md)
 
-**Key proposal:**  A detailed, code‑level mining plan including a new module `least_factor_frontier.py`, stratified sampling, and a two‑stage factor computation.  Lists candidate PGS‑visible invariants to correlate with the frontier.
+**Key proposal:**  A detailed, code‑level mining plan including a new module `least_factor_frontier.py`, stratified sampling, and a two‑stage factor computation.  Lists candidate PGS‑visible invariants to correlate with the least-factor maximum.
 
 **Strengths:**
 
@@ -161,7 +161,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 
 ### 3.6 xAI Grok (06\_answer\_xai\_grok.md)
 
-**Key proposal:**  Essentially the same as the earlier Grok answer, but with more emphasis on the GWR + NLSC theorems as evidence that a PGS‑visible invariant must exist.  Re‑iterates the least‑factor frontier mining experiment and provides a pseudocode sketch.
+**Key proposal:**  Essentially the same as the earlier Grok answer, but with more emphasis on the GWR + NLSC theorems as evidence that a PGS‑visible invariant must exist.  Re‑iterates the least-factor maximum mining experiment and provides a pseudocode sketch.
 
 **Strengths:**
 
@@ -179,7 +179,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 
 ---
 
-## 4. Experimental Simulation: Least‑Factor Frontier Mining
+## 4. Experimental Simulation: Least-Factor Maximum Mining
 
 Because direct code execution is not possible in this environment, the following is a **reasoned simulation** of the experiment that all six answers converge on.
 
@@ -195,7 +195,7 @@ Because direct code execution is not possible in this environment, the following
     - Compute `lpf(n)` = the witness stored in `closure_witnesses` (which is the smallest prime factor found by `divisor_witness`).
     - Compute PGS‑visible features: wheel‑residue of \(n\), offset from seed, chain position, gap to previous node, attractor state (o2/o4/o6), current `visible_divisor_bound`, and search-interval width.
 
-3. **Frontier calculation:** For each chain,
+3. **Maximum least-factor calculation:** For each chain,
    \[
    \text{max\_lpf} = \max\{\, \text{lpf}(n) \mid n \text{ is a false node}\,\}.
    \]
@@ -269,7 +269,7 @@ If these numbers hold, **any** of the candidate horizon functions (H₁ through 
 
 ### 6.2 Medium‑Term Action (Week 2‑3)
 
-3. **Extend the Grok‑2 terminal‑diagnostic record miner** to output the `max_spf` field by default, so that every future probe run automatically populates the frontier dataset.
+3. **Extend the Grok‑2 terminal‑diagnostic record miner** to output the `max_spf` field by default, so that every future probe run automatically populates the least-factor dataset.
 
 4. **Implement the Copilot `least_factor_frontier.py` module** as a permanent diagnostic, using the two‑stage factor approach to distinguish small‑PGS‑detectable from large‑horizon cases.
 

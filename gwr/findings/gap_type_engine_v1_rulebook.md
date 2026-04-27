@@ -66,7 +66,7 @@ The rules below are arranged from the fast core to the slow controller.
 
 15. **Higher-divisor event-lock law**. A higher-divisor-triggered event lock is
     the cleanest current long-horizon controller family. `L = 3` gives the
-    best balanced frontier with pooled-window concentration L1 `0.0150` and
+    best balanced operating profile with pooled-window concentration L1 `0.0150` and
     full-walk three-step `0.5564`. `L = 6` gives the best event-lock
     stationary profile with full-walk three-step `0.6278`.
 

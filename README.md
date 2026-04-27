@@ -91,7 +91,7 @@ The frozen `v1.0` engine has three layers:
 Its reference operating profiles are:
 
 - local fidelity: pooled-window concentration L1 `0.0116`
-- balanced frontier: pooled-window concentration L1 `0.0150`,
+- balanced operating profile: pooled-window concentration L1 `0.0150`,
   full-walk three-step concentration `0.5564`
 - long-horizon study: full-walk three-step concentration `0.6278`
 

@@ -17,7 +17,7 @@ Those coordinates are:
 - normalized ratio-form tightness, where the spoiler ratio can approach its
   threshold even though the absolute score margin remains comfortably positive.
 
-The current repository already records both frontiers separately. This note
+The current repository already records both extremal cases separately. This note
 states the split explicitly, records the direct exact examples that rule out an
 over-strong uniform high-class margin claim, and gives a cleaner next
 decomposition for the earlier side.
@@ -27,7 +27,7 @@ decomposition for the earlier side.
 The strongest supported reading is:
 
 all genuine earlier-side score danger is concentrated in a low-class local
-search interval, while the current high-class frontier is only ratio-tight, not
+search interval, while the current high-class extremal case is only ratio-tight, not
 score-tight.
 
 In ordinary language:
@@ -84,7 +84,7 @@ or, equivalently, through the bridge load
 
 $$B(k,w) = \frac{\frac{\ln w}{\ln k} - 1}{\frac{\delta}{d_{\min} - 2}}.$$
 
-The current ratio frontier recorded in
+The current ratio extremum recorded in
 [`no_early_spoiler_ratio_frontier_findings.md`](./no_early_spoiler_ratio_frontier_findings.md)
 is led instead by adjacent higher divisor classes such as:
 
@@ -102,7 +102,7 @@ The exact current leader is:
 - critical-ratio margin about `0.0714285168`,
 - direct margin about `14.7263794181`.
 
-So the ratio frontier is not led by the same population that controls the
+So the ratio extremum is not led by the same population that controls the
 direct-score minimum.
 
 The current evidence therefore already separates:
@@ -302,7 +302,7 @@ The live repository now supports a sharper reading:
 
 - low-class cases control direct score danger,
 - higher adjacent classes control ratio-form tightness,
-- and those are different frontiers.
+- and those are different extremal cases.
 
 That does not weaken the current `GWR` proof surface.
 

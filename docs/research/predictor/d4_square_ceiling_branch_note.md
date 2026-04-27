@@ -61,7 +61,7 @@ The current exact branch surface is now split into two deterministic regimes.
 
 ### Floor Package
 
-The floor frontier scan in
+The floor extremum scan in
 [`../../../output/d4_square_threat_frontier_summary.json`](../../../output/d4_square_threat_frontier_summary.json)
 records:
 

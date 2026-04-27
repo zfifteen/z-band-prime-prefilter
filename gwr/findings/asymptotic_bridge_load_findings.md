@@ -55,7 +55,7 @@ use?
 This normalized surface is the finite base for the bridge closure because it
 isolates the universal proof target in one number.
 
-The ratio-frontier and large-gap scans already showed:
+The ratio-extremum and large-gap scans already showed:
 
 - the hardest ratio-form cases live in tiny gap-4 configurations,
 - the largest gaps are not the hard regime.
@@ -63,7 +63,7 @@ The ratio-frontier and large-gap scans already showed:
 The bridge-load scan packages that same fact into the exact normalized
 quantity that the analytic bridge keeps below `1`.
 
-It also sharpens the frontier picture in one important way:
+It also sharpens the extremal case picture in one important way:
 
 - the smallest raw critical-ratio margin comes from the higher-class pair
   `(30, 32)`,

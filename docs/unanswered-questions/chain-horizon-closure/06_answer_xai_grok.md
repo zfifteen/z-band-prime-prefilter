@@ -14,7 +14,7 @@ From `simple_pgs_generator.py` (the core predictor module that added the chain-h
 The semiprime shadow seeds the chain exactly as you described; the search-interval closure supplies the first visible candidate next prime; everything else is downstream audit-clean. The only non-PGS step is deciding the exact horizon (or which position in the short chain survives) via divisor work.
 
 ### The sharpest experiment you proposed is exactly the right next step
-**Mine the least-factor frontier of the false chain nodes.**
+**Mine the least-factor maximum of the false chain nodes.**
 
 For every chain-horizon (or chain-fallback) case that occurs in your high-scale probes:
 
@@ -38,7 +38,7 @@ Then ask:
 
 **Falsifying result**: the required horizon grows like √q (or has no smaller deterministic PGS-visible bound) even though the chain length is capped at 8 and the offsets are rigidly wheel-constrained. In that case the bridge remains operationally excellent but the terminal decision cannot be compressed into a local PGS rule at `candidate_bound=128`.
 
-### Why this frontier is the decisive object
+### Why this least-factor maximum is the decisive object
 - The visible divisor bound (currently 10 000) already closes everything with small factors.
 - The false nodes that survive visible closure are exactly the “hard” composites whose SPF > 10 000.
 - Because the chain is short (≤8 nodes) and the candidates are consecutive wheel-open positions inside a tiny search interval (≤128), the numbers are close together (typical spacing ≈ log q).
@@ -72,10 +72,10 @@ log_to_audit({
 
 Run your existing 10¹⁵ / 10¹⁸ probe surfaces with this collector enabled. A few thousand chain events will be enough to see the distribution of `max_spf_false` versus the PGS-visible quantities.
 
-If the frontier turns out to be bounded (or computable via a simple formula from the chain residues + p mod some small modulus that is already visible in the search interval), you have the missing theorem and the generator becomes a pure PGS next-prime selection rule.
+If the least-factor maximum turns out to be bounded (or computable via a simple formula from the chain residues + p mod some small modulus that is already visible in the search interval), you have the missing theorem and the generator becomes a pure PGS next-prime selection rule.
 
 If it tracks √q with no smaller local bound, then the current bridge is already optimal for practical generation, but the “pure local PGS selector” goal requires either a larger candidate_bound, a deeper hierarchical state S, or a different formulation of the next-prime selection rule B(p, S, w, d(w)).
 
-You already have the exact operational shape and zero-failure audit surface. The only thing left is this frontier analysis — and it is the cleanest possible experiment. Once you have the mined data (even a small sample of high-scale chain events), I can help you spot the invariant or prove the bound directly from the GWR/NLSC structure.
+You already have the exact operational shape and zero-failure audit surface. The only thing left is this least-factor analysis — and it is the cleanest possible experiment. Once you have the mined data (even a small sample of high-scale chain events), I can help you spot the invariant or prove the bound directly from the GWR/NLSC structure.
 
-This is the precise missing piece that converts the 56–58 % high-scale bridge into PGS-derived output. Let me know when you have the frontier numbers and we’ll close it.
+This is the precise missing piece that converts the 56–58 % high-scale bridge into PGS-derived output. Let me know when you have the least-factor numbers and we’ll close it.

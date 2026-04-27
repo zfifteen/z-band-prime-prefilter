@@ -313,7 +313,7 @@ on one common scale.
 **In this repo:** Bridge load is normalized because it divides the realized
 danger by the critical amount that would be needed for failure.
 
-## Surface And Frontier Terms
+## Surface And Extremal-Case Terms
 
 ### Surface
 
@@ -327,7 +327,7 @@ Examples:
 
 - exact through-`2 × 10^7` surface,
 - deterministic even-band surface through `10^18`,
-- ratio-frontier surface.
+- ratio-extremum surface.
 
 ### Exact Surface
 
@@ -355,15 +355,15 @@ to violating the target rule.
 When a note says “danger surface,” it means the region of the scan where the
 cases look closest to becoming spoilers or failures.
 
-### Frontier
+### Extremal Case
 
 **Plain language:** The edge of the measured surface where the hardest cases
 live.
 
-**In this repo:** “Frontier” means the nearest observed cases to failure or to
+**In this repo:** “Extremal case” means the nearest observed cases to failure or to
 some target bound.
 
-### Frontier Leaders
+### Extremal Cases
 
 **Plain language:** The specific cases at the front of that hard edge.
 
@@ -371,7 +371,7 @@ some target bound.
 
 Example:
 
-- a pair like `(30, 32)` may lead the ratio frontier because it comes closest
+- a pair like `(30, 32)` may lead the ratio extremum because it comes closest
   to the spoiler threshold among the measured class pairs.
 
 ### Motif
@@ -379,13 +379,13 @@ Example:
 **Plain language:** A small repeating local pattern.
 
 **In this repo:** “Tiny motifs” usually means small gap structures such as
-gap-`4` or gap-`6` cases that keep reappearing at the frontier.
+gap-`4` or gap-`6` cases that keep reappearing among the extremal cases.
 
 ### Gap-4 Motif
 
 **Plain language:** A hard case living in a prime gap of length `4`.
 
-**In this repo:** Several frontier notes report that the hardest observed exact
+**In this repo:** Several extremal-case notes report that the hardest observed exact
 cases live in tiny gap-`4` configurations rather than in the largest gaps.
 
 ### Hard Regime
@@ -478,7 +478,7 @@ prime gap, not just on paper in class-only algebra.
 
 **Plain language:** Actually observed in the measured scans.
 
-**In this repo:** “Realized frontier” means the hardest cases that actually
+**In this repo:** “Realized extremal case” means the hardest cases that actually
 occurred in the artifact surface.
 
 ### Class-Only
@@ -602,7 +602,7 @@ statements are exact corollaries of `GWR`.
 When a note feels unreadable, try this translation rule:
 
 - “surface” means “the cases we measured,”
-- “frontier” means “the hardest measured cases,”
+- “extremal case” means “the hardest measured cases,”
 - “spoiler” means “a candidate that could beat the selected integer,”
 - “bridge load” means “how close that candidate comes,”
 - “closure” means “whether the next prime arrives in time,”

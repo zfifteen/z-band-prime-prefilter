@@ -1,6 +1,6 @@
-# No-Early-Spoiler Ratio Frontier Findings
+# No-Early-Spoiler Ratio Extremum Findings
 
-This note records the executed pair-frontier extraction from
+This note records the executed pair-extremum extraction from
 [`no_early_spoiler_ratio_frontier.py`](../experiments/proof/no_early_spoiler_ratio_frontier.py).
 
 The input surface is the exact no-early-spoiler condition against the true
@@ -15,10 +15,10 @@ ratio-form spoiler inequality?
 
 ## Strongest Supported Result
 
-On the full exact surface through $2 \cdot 10^7$, the critical-ratio frontier
+On the full exact surface through $2 \cdot 10^7$, the critical-ratio extremum
 is not led by the familiar low-divisor cases.
 
-The current top ratio-form frontier pairs are:
+The current top ratio-form extremal pairs are:
 
 1. selected divisor-count class `30`, earlier class `32`,
 2. selected divisor-count class `15`, earlier class `16`,
@@ -33,7 +33,7 @@ $$\frac{d(k) - 2}{d_{\min} - 2}$$
 
 already sits close to $1$.
 
-## Exact Frontier Leader
+## Exact Extremal Case
 
 The current exact leader is the pair
 
@@ -51,12 +51,12 @@ to zero.
 
 ## Current Reading
 
-This frontier shifts the research picture in one clear way:
+This extremal case shifts the research picture in one clear way:
 
 the no-early-spoiler problem is not currently tightening first in the small
 selected divisor-count classes.
 
-The exact frontier is instead led by adjacent or near-adjacent higher divisor
+The exact extremum is instead led by adjacent or near-adjacent higher divisor
 classes where the ratio threshold is closest to $1$. That makes the next proof
 target more concrete:
 

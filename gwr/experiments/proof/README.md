@@ -67,7 +67,7 @@ $10^9 < p < 5 \times 10^9$.
   exact prime-gap admissibility scan that
   - takes each actual earlier spoiler candidate before the `GWR` selected integer,
   - finds the first later interior composite that beats it exactly,
-  - and records the offset law and per-class offset frontier.
+  - and records the offset law and per-class offset extremal case.
 - [`no_early_spoiler_margin_scan.py`](./no_early_spoiler_margin_scan.py):
   exact no-early-spoiler scan that
   - compares every earlier interior candidate directly to the actual `GWR`
@@ -76,11 +76,11 @@ $10^9 < p < 5 \times 10^9$.
   - and records the smallest critical-ratio slack in the exact spoiler
     inequality.
 - [`no_early_spoiler_ratio_frontier.py`](./no_early_spoiler_ratio_frontier.py):
-  exact pair-frontier extractor that
+  exact pair-extremal-case extractor that
   - finds the tightest realized case for each selected integer/earlier divisor-class
     pair,
   - ranks those pairs by critical-ratio slack,
-  - and emits the current ratio-form frontier of the no-early-spoiler
+  - and emits the current ratio-form ratio extremum of the no-early-spoiler
     condition.
 - [`large_gap_margin_scan.py`](./large_gap_margin_scan.py):
   exact large-gap extractor that
@@ -93,7 +93,7 @@ $10^9 < p < 5 \times 10^9$.
   exact normalized bridge extractor that
   - rewrites the no-early-spoiler inequality as a dimensionless load,
   - records the maximum realized bridge load on the exact surface,
-  - and emits pair and gap-size frontiers in that normalized coordinate.
+  - and emits pair and gap-size extremal cases in that normalized coordinate.
 - [`parallel_no_early_spoiler_scan.py`](./parallel_no_early_spoiler_scan.py):
   deterministic segmented scanner that
   - partitions the left-endpoint prime range into fixed-width segments,
@@ -102,7 +102,7 @@ $10^9 < p < 5 \times 10^9$.
   - and provides the straight execution path for extending the finite GWR base
   beyond the current $10^9$ surface.
 - [`prime_gap_admissibility_frontier.py`](./prime_gap_admissibility_frontier.py):
-  deterministic local-frontier extractor that
+  deterministic local-extremal-case extractor that
   - canonicalizes each exact hard case by the local search interval variables,
   - splits the earlier-side problem into square and square-free branches,
   - records the retained finite residual classes below the high-divisor cutoff,
@@ -127,7 +127,7 @@ $10^9 < p < 5 \times 10^9$.
   committed certificate artifact recording the evaluated constants and closure
   status for the $2 \cdot 10^7$ finite base.
 - [`dni_cutoff_branch_frontier.py`](./dni_cutoff_branch_frontier.py):
-  exact branch-frontier extractor that
+  exact branch-extremal-case extractor that
   - compares the bounded DNI cutoff rule to the exact unbounded next-gap
     oracle,
   - groups the exact extrema by `(first_open_offset, next_dmin)`,
@@ -140,6 +140,6 @@ $10^9 < p < 5 \times 10^9$.
     empirical persuasion.
 - [`dni_cutoff_branch_reduction.md`](./dni_cutoff_branch_reduction.md):
   branch-obstruction note that
-  - reads the exact branch frontier,
+  - reads the exact branch extremum,
   - identifies which branch families actually carry the theorem pressure,
   - and records the current reduction target for the symbolic tail proof.

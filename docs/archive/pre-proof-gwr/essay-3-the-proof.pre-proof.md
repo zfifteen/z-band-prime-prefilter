@@ -60,7 +60,7 @@ The selected integer *u* with 4 divisors has score -ln(u). So the question reduc
 
 Since k > p (every interior composite is greater than the left endpoint prime), it is enough to ask whether p^(3/2) > p + 128. This holds for every prime p ≥ 31. The finitely many gaps with p < 31 can be checked directly by hand.
 
-The "128" is not arbitrary. It is the measured exact frontier: on both the 20-million scan and the billion-scale scan, every hard case in this branch has the selected integer arriving within the first 128 positions after the left endpoint. The scan confirms this ceiling with zero exceptions.
+The "128" is not arbitrary. It is the measured exact extremum: on both the 20-million scan and the billion-scale scan, every hard case in this branch has the selected integer arriving within the first 128 positions after the left endpoint. The scan confirms this ceiling with zero exceptions.
 
 So once the first 4-divisor integer appears within 128 positions, the earlier side is closed for that gap. Closed. Fully proved.
 
@@ -76,7 +76,7 @@ This is where the proof currently stands.
 
 ## What the remaining 18 classes look like
 
-The most recent computational run examined the billion-scale frontier carefully and found something important: the score inequality for every one of the 18 classes is already resolved. For each class, there is an explicit inequality showing that if the selected integer is close enough to the earlier candidate, the selected integer wins. The arithmetic is done.
+The most recent computational run examined the billion-scale extremal case carefully and found something important: the score inequality for every one of the 18 classes is already resolved. For each class, there is an explicit inequality showing that if the selected integer is close enough to the earlier candidate, the selected integer wins. The arithmetic is done.
 
 What is not yet done is a universal structural argument for why the selected integer is always close enough.
 

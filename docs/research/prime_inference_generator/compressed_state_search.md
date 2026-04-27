@@ -2,7 +2,7 @@
 
 The first compression search did not produce a Next-Prime Law 005 candidate.
 
-The result is a clean frontier:
+The result is a clean obstruction:
 
 - zero-collision compressed states still have no bucket reuse;
 - states with measurable compression introduce endpoint-offset collisions.
@@ -76,7 +76,7 @@ walker.
 
 ## Surface
 
-The first frontier run used:
+The first obstruction scan used:
 
 - input primes: `11..100_000`
 - prefix: `32`
@@ -84,7 +84,7 @@ The first frontier run used:
 
 ## Result
 
-No candidate passed the frontier gate.
+No candidate passed the obstruction gate.
 
 Summary:
 

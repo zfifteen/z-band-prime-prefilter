@@ -103,7 +103,7 @@ split:
 - $d_{\min}(q)=4$,
 - $d_{\min}(q)\ge 6$.
 
-This second split is not a cosmetic classification. The exact frontier surface
+This second split is not a cosmetic classification. The exact extremal-case surface
 shows that the obstruction profile changes materially across these classes.
 
 ## 5. Computational Role
@@ -121,14 +121,14 @@ The relevant executable artifacts are:
   [`../../../benchmarks/python/predictor/gwr_dni_recursive_walk.py`](../../../benchmarks/python/predictor/gwr_dni_recursive_walk.py),
 - the first-counterexample scan in
   [`../../../benchmarks/python/predictor/gwr_dni_cutoff_counterexample_scan.py`](../../../benchmarks/python/predictor/gwr_dni_cutoff_counterexample_scan.py),
-- the branch frontier extractor in
+- the branch extremal-case extractor in
   [`./dni_cutoff_branch_frontier.py`](./dni_cutoff_branch_frontier.py).
 
 The counterexample scan answers:
 
 - is the cutoff theorem already false on the tested finite range?
 
-The branch frontier answers:
+The branch extremum answers:
 
 - which branch and divisor-class families are currently closest to the cutoff?
 

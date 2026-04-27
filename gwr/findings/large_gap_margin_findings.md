@@ -9,7 +9,7 @@ The target is narrow:
   exact prime gaps on the current surface,
 - and record the worst realized margin for each exact gap size.
 
-This is the direct companion to the pair-frontier artifact. The pair frontier
+This is the direct companion to the pair-extremal-case artifact. The pair extremal case
 identifies which divisor-class pairs get closest to the ratio-form threshold.
 This large-gap artifact asks whether the largest actual prime gaps are where
 the no-early-spoiler condition tightens.
@@ -28,9 +28,9 @@ On the exact through-$2 \cdot 10^7$ surface:
 - the extractor records the top `100` largest such gaps exactly.
 
 On that large-gap surface, the largest gaps do not lead the ratio-form
-frontier.
+extremal case.
 
-The current frontier leaders already come from tiny gap-4 cases. The large-gap
+The current extremal cases already come from tiny gap-4 cases. The large-gap
 surface therefore supports the same reading in a different coordinate system:
 
 - the hardest realized ratio-form cases are not the largest prime gaps,
@@ -45,22 +45,22 @@ about `0.9999998973`, at the gap `(3851459, 3851587)` of length `128`, with:
 - earlier candidate `3851467`,
 - earlier class `d = 6`.
 
-By contrast, the global gap-size frontier leader remains the gap-4 pair
+By contrast, the global gap-size extremal case remains the gap-4 pair
 
 $$ (d_{\min}, d(k)) = (30, 32). $$
 
 with critical-ratio margin about `0.0714285168`.
 
 So even the worst realized margin among the largest exact gaps sits far above
-the current global frontier.
+the current global extremal case.
 
 ## Current Reading
 
-This artifact is the exact gap-geometry companion to the ratio-frontier note.
+This artifact is the exact gap-geometry companion to the ratio-extremum note.
 
 Together the two executed surfaces say:
 
-- the global ratio frontier is led by higher adjacent divisor-class pairs such
+- the global ratio extremum is led by higher adjacent divisor-class pairs such
   as `(30, 32)`, `(15, 16)`, and `(22, 24)`,
 - and those leaders are realized in tiny gap-4 configurations, not in the
   largest gaps on the current exact surface.

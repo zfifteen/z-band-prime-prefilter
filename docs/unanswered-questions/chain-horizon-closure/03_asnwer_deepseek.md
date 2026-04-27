@@ -13,7 +13,7 @@ This means the high-scale terminal decision is not yet predominantly PGS-derived
 The goal is to replace this deterministic fallback with a function `H(p, s0, chain_state)` that predicts the necessary divisor horizon. This horizon would be the minimum divisor bound needed to close all false semiprime-shadow chain nodes, allowing the true next prime to be identified using only PGS-visible quantities. The missing theorem is whether such a horizon can be derived from PGS structure alone.
 
 ### 3. Proposed Approach to Derive the Horizon Law
-Your suggestion to "mine the least-factor frontier of false chain nodes" is apt. The key is to analyze the pattern of divisor witnesses for the false chain nodes that are closed during the chain-horizon process. The steps would be:
+Your suggestion to "mine the least-factor maximum of false chain nodes" is apt. The key is to analyze the pattern of divisor witnesses for the false chain nodes that are closed during the chain-horizon process. The steps would be:
 
 1.  **Data Collection**: For each generator step where `chain_horizon_closure` is invoked, record:
     - The input prime `p`.
@@ -22,7 +22,7 @@ Your suggestion to "mine the least-factor frontier of false chain nodes" is apt.
     - The specific divisor witness `w` that closed each false node.
     - The PGS-visible state at the time of the chain (gap offsets, residues modulo 30, search-interval state, etc.).
 
-2.  **Frontier Mining**: Identify the maximum divisor witness required across all false chain nodes for each step. This is the "least-factor frontier" you mentioned. The question is whether this maximum `w_max` can be bounded by a function of PGS-visible parameters, such as:
+2.  **Least-Factor Mining**: Identify the maximum divisor witness required across all false chain nodes for each step. This is the "least-factor maximum" you mentioned. The question is whether this maximum `w_max` can be bounded by a function of PGS-visible parameters, such as:
     - The input prime `p` or its logarithm.
     - The seed offset or the gap from the input prime to the seed.
     - The residue classes of the nodes in the chain.

@@ -47,7 +47,7 @@ This is much more plausible than proving primality directly.
 
 The immediate experiment should be:
 
-Least-Factor Frontier Probe
+Least-Factor Maximum Probe
 
 Create a benchmark that only analyzes chain_horizon_closure rows from 10^12, 10^15, and 10^18. For every chain node before the terminal node, record the least divisor that closes it. For the terminal node, record only that it survived until audit confirmed it. Do not use terminal primality as a feature.
 
@@ -119,7 +119,7 @@ or if no PGS-visible state predicts them better than a generic factor search,
 then chain_horizon_closure is operationally good but not locally compressible
 at candidate_bound = 128.
 
-But I would not jump straight to pessimism. The semiprime-shadow behavior already suggests the least-factor frontier may be structured: earlier witness-horizon runs showed failures appearing just beyond active witness bounds, and the new chain data says false nodes repeat the same hidden-obstruction object. That means the required horizon may be a moving frontier tied to the chain state, not sqrt(q).
+But I would not jump straight to pessimism. The semiprime-shadow behavior already suggests the least-factor maximum may be structured: earlier witness-horizon runs showed failures appearing just beyond active witness bounds, and the new chain data says false nodes repeat the same hidden-obstruction object. That means the required horizon may be a moving bound tied to the chain state, not sqrt(q).
 
 Next instruction:
 
@@ -140,7 +140,7 @@ chain_limit = 8
 
 Primary output:
 
-least_factor_frontier.csv
+least_factor_maximum.csv
 horizon_law_report.csv
 horizon_law_summary.json
 
@@ -158,6 +158,6 @@ Already established: chain-horizon closure operationally removes high-scale semi
 
 Main blocker: the current chain horizon uses complete divisor checking, not a derived PGS horizon.
 
-Smallest next action: mine the least-factor frontier of false chain nodes and fit candidate H(p, s0, chain_state) laws.
+Smallest next action: mine the least-factor maximum of false chain nodes and fit candidate H(p, s0, chain_state) laws.
 
 Expected achievement: either identify the missing deterministic horizon law or prove that this bridge is not locally compressible under the current search-interval state.

@@ -51,7 +51,7 @@ language than those input primes.
   Hierarchical and local-arrival reading of the gap interior.
 - [earlier_side_two_coordinate_split_findings.md](./earlier_side_two_coordinate_split_findings.md):
   Refinement showing that direct-score danger and ratio-form tightness are
-  different earlier-side frontiers and should not be collapsed into one scalar
+  different earlier-side extremal cases and should not be collapsed into one scalar
   bridge load.
 - [gap_type_catalog_through_1e18.md](./gap_type_catalog_through_1e18.md):
   Deterministic catalog of the distinct exact gap types visible on the exact
@@ -74,11 +74,11 @@ language than those input primes.
   engine closes further, while the stationary long-horizon re-entry law
   remains the missing piece.
 - [gap_type_long_horizon_controller_findings.md](./gap_type_long_horizon_controller_findings.md):
-  Deterministic long-horizon controller search showing the current frontier
+  Deterministic long-horizon controller search showing the current research target
   between local-window fidelity and stationary-walk concentration.
 - [gap_type_engine_v1_freeze.md](./gap_type_engine_v1_freeze.md):
   Frozen `v1.0` definition of the hierarchical gap-type engine, including the
-  reference operating profiles and the current frontier endpoint.
+  reference operating profiles and the current target endpoint.
 - [gap_type_engine_v1_rulebook.md](./gap_type_engine_v1_rulebook.md):
   Minimal readable rulebook for the frozen `v1.0` engine on the persistent
   `14`-state reduced surface.

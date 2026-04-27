@@ -23,7 +23,7 @@ stationary three-step concentration to `0.6278` and, in a stronger but less
 locally faithful family, to `0.6840`. The resulting picture is a hierarchical
 finite-state engine with three layers: a fast `14`-state core grammar, a
 scheduler layer, and a slower reset controller. The current surface therefore
-supports a generative claim together with an explicit tradeoff frontier between
+supports a generative claim together with an explicit tradeoff curve between
 local fidelity and long-horizon re-entry.
 
 ## 1. Observable Surface
@@ -185,7 +185,7 @@ families were tested:
 - fatigue-debt controllers that build slow reset pressure between
   higher-divisor events.
 
-The result is a clean frontier rather than a single magic setting.
+The result is a clean tradeoff curve rather than a single magic setting.
 
 ### Local-best long-horizon profile
 
@@ -208,7 +208,7 @@ The result is a clean frontier rather than a single magic setting.
 - pooled-window concentration L1: `0.1378`
 - full-walk three-step concentration: `0.6840`
 
-This frontier is part of the result. One controller family preserves the local
+This tradeoff curve is part of the result. One controller family preserves the local
 branching structure. A different setting sharpens the stationary walk more
 aggressively. That split is evidence for a genuine hierarchy in the engine
 rather than a defect in an otherwise flat model.
@@ -220,7 +220,7 @@ The present engine is frozen with three reference operating profiles.
 | Profile | Setting | Pooled L1 | Full-walk 3-step |
 |---|---|---:|---:|
 | Local fidelity | `hybrid_lag2_mod8_reset_nontriad_scheduler` | `0.0116` | `0.4907` |
-| Balanced frontier | event-lock `L = 3` | `0.0150` | `0.5564` |
+| Balanced operating profile | event-lock `L = 3` | `0.0150` | `0.5564` |
 | Long-horizon study | event-lock `L = 6` | `0.0614` | `0.6278` |
 
 This freeze is operational, not rhetorical. It states which setting should be
@@ -228,7 +228,7 @@ used for which scientific purpose.
 
 - Use the local fidelity profile for short-window comparison and the main local
   closure claim.
-- Use the balanced frontier profile when one deterministic setting is needed
+- Use the balanced operating profile profile when one deterministic setting is needed
   that remains close to both objectives.
 - Use the long-horizon study profile when the stationary walk is the target.
 

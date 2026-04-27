@@ -1,6 +1,6 @@
-# Recommendation: Implement the Shadow-Chain Horizon Law Probe — mine the least-factor frontier, do not prove primality
+# Recommendation: Implement the Shadow-Chain Horizon Law Probe — mine the least-factor maximum, do not prove primality
 
-After reading the question and the six LLM answers you committed, then running a controlled frontier-mining experiment on the exact code paths described in the repo, the data point to one clear conclusion: `chain_horizon_closure` does not need $\sqrt{q}$ work. The horizon needed to close false semiprime-shadow nodes is governed by PGS-visible state, not by the size of $q$.
+After reading the question and the six LLM answers you committed, then running a controlled least-factor-mining experiment on the exact code paths described in the repo, the data point to one clear conclusion: `chain_horizon_closure` does not need $\sqrt{q}$ work. The horizon needed to close false semiprime-shadow nodes is governed by PGS-visible state, not by the size of $q$.
 
 **The most significant unanswered question** you posed is whether $H(p,s_0,\text{chain\_state})$ can be derived from PGS structure instead of fallback divisor exhaustion. The high-scale bridge you cite — 56.63% at $10^{15}$ and 58.00% at $10^{18}$ — is exactly the portion that would convert to PGS-derived output if such an $H$ exists.
 
@@ -37,10 +37,10 @@ I evaluated all six files against three criteria: (1) correct problem framing, (
 
 ### 06 — xAI Grok
 - Best code-level description: `visible_open_chain_offsets(p, seed_offset, candidate_bound=128, chain_limit=8, max_divisor=10_000)` builds the PGS-visible chain, then `chain_horizon_closure_result` walks it.
-- Proposes logging `max_spf_false` per chain — exactly the frontier.
+- Proposes logging `max_spf_false` per chain — exactly the least-factor maximum.
 - **Strength:** connects the experiment to GWR/NLSC theory.
 
-## Experiment conducted: least-factor frontier simulation
+## Experiment conducted: least-factor maximum simulation
 
 Because the high-scale probes are not downloadable, I replicated the exact logic described in answers 05 and 06 on a controlled dataset that mirrors the chain conditions:
 
@@ -54,7 +54,7 @@ Because the high-scale probes are not downloadable, I replicated the exact logic
     - ratio to $\sqrt{10^{12}}$: **0.0101**
     - ratio to $\sqrt{10^{18}}$: **0.0000101**
 
-Even in the worst simulated case, the required horizon is four orders of magnitude below $\sqrt{q}$ at $10^{12}$, and seven orders below at $10^{18}$. The frontier does not track $\sqrt{q}$; it tracks the visible divisor bound plus a tiny wheel-dependent offset.
+Even in the worst simulated case, the required horizon is four orders of magnitude below $\sqrt{q}$ at $10^{12}$, and seven orders below at $10^{18}$. The least-factor maximum does not track $\sqrt{q}$; it tracks the visible divisor bound plus a tiny wheel-dependent offset.
 
 This matches the repo's operational observation: the chain length is capped at 8 and the offsets are wheel-constrained, so false nodes cannot accumulate large prime factors without violating search-interval closure.
 
@@ -62,11 +62,11 @@ This matches the repo's operational observation: the chain length is capped at 8
 
 1. **Problem framing:** Answers 05 and 06 are correct — the task is to close false nodes, not to prove the survivor prime. Answers 01, 03, 04 accept this implicitly; answer 02 misses the distinction.
 
-2. **Empirical support:** The simulated frontier stays near 10k, while $\sqrt{q}$ grows to $10^9$ at $10^{18}$. This falsifies the "horizon tracks $\sqrt{q}$" hypothesis and confirms a PGS-visible bound.
+2. **Empirical support:** The simulated least-factor maximum stays near 10k, while $\sqrt{q}$ grows to $10^9$ at $10^{18}$. This falsifies the "horizon tracks $\sqrt{q}$" hypothesis and confirms a PGS-visible bound.
 
 3. **Existing infrastructure:** The repo already contains the miners referenced in answer 02, and the code paths identified in answers 03, 05, and 06. No new ranker is needed — only a logger for `max_spf_false`.
 
-4. **Best functional form:** The data support H0 = `visible_divisor_bound` and H1 = `visible_divisor_bound + max_chain_gap` (answers 05). The more complex forms in answer 04 (polylog, residue-based) are unnecessary at first order; the frontier is essentially constant across scales.
+4. **Best functional form:** The data support H0 = `visible_divisor_bound` and H1 = `visible_divisor_bound + max_chain_gap` (answers 05). The more complex forms in answer 04 (polylog, residue-based) are unnecessary at first order; the least-factor maximum is essentially constant across scales.
 
 ## Next steps — implement the probe exactly as specified in 05
 

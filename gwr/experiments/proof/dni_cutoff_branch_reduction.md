@@ -3,27 +3,27 @@
 This note records the exact branch obstruction picture for the cutoff theorem.
 
 It is not a proof of the theorem. It identifies which branch families actually
-carry the frontier on the current exact surface, and therefore which symbolic
+carry the extremal cases on the current exact surface, and therefore which symbolic
 lemmas are worth proving.
 
-The branch frontier artifact used here is:
+The branch extremal-case artifact used here is:
 
 - summary:
   [`../../../output/gwr_proof/dni_cutoff_branch_frontier_1e6.json`](../../../output/gwr_proof/dni_cutoff_branch_frontier_1e6.json)
-- frontier rows:
+- extremal rows:
   [`../../../output/gwr_proof/dni_cutoff_branch_frontier_1e6_rows.csv`](../../../output/gwr_proof/dni_cutoff_branch_frontier_1e6_rows.csv)
 
 That artifact scans every consecutive prime gap whose current right prime is at
 most $10^6$ and records the exact branch extrema.
 
-## 1. What The Exact Branch Frontier Says
+## 1. What The Exact Branch Extremal Cases Show
 
 On the exact through-$10^6$ surface:
 
 - tested gaps: $78{,}494$,
 - branch count: $74$,
 - no cutoff counterexample occurred,
-- the global frontier branch is $(o(q),d_{\min})=(4,3)$ with
+- the global extremal branch is $(o(q),d_{\min})=(4,3)$ with
   $E(q)=48$ and cutoff utilization $48/60=0.8$.
 
 The branchwise maxima that matter are:
@@ -41,7 +41,7 @@ The branchwise maxima that matter are:
 | $o(q)=2,\ d_{\min}=6$ | $12$ | $0.2727273$ |
 | every branch with $d_{\min}\ge 8$ | $\le 8$ | $\le 0.1590909$ |
 
-So the exact frontier is not led by the high-divisor remainder.
+So the exact extremum is not led by the high-divisor remainder.
 
 It is led overwhelmingly by the square branch:
 
@@ -122,12 +122,12 @@ The correct target is:
 prove that every such branch reaches its lex-min integer very early, with a
 uniform bound far below the cutoff.
 
-The exact $10^6$ branch frontier suggests that this remainder should be a small
+The exact $10^6$ branch extremum suggests that this remainder should be a small
 local-combinatorial lemma, not the main asymptotic obstruction.
 
-## 5. What The Frontier Rows Are For
+## 5. What The Extremal Rows Are For
 
-The frontier CSV records each new exact extremum together with:
+The extremal-case CSV records each new exact extremum together with:
 
 - $(o(q), d_{\min})$,
 - the exact peak offset,
@@ -138,7 +138,7 @@ That means the proof does not have to reason from scratch about all prime gaps.
 It has to explain why the specific extremal ladders appearing in those rows
 cannot continue past the branch cutoffs.
 
-So the frontier is not another benchmark report. It is the obstruction list for
+So the extremal case is not another benchmark report. It is the obstruction list for
 the theorem.
 
 ## 6. Current Safe Conclusion
@@ -146,7 +146,7 @@ the theorem.
 The strongest safe conclusion at this stage is:
 
 - the bounded walker theorem has been reduced to one offset theorem;
-- the exact branch frontier through $10^6$ shows that the proof should focus
+- the exact branch extremum through $10^6$ shows that the proof should focus
   first on the $d_{\min}=3$ square branch, especially $o(q)=4$;
 - the high-divisor remainder is not the main obstruction and should be treated
   as a small-slack local remainder rather than as the dominant tail.

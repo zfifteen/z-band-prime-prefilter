@@ -59,7 +59,7 @@ The local admissibility note also closes the square-free first-$d=4$ branch
 once the first interior integer with $d(n)=4$ arrives inside the fixed early window
 $K = 128$.
 
-The committed admissibility frontier artifacts keep that window explicit on the
+The committed admissibility extremal-case artifacts keep that window explicit on the
 exact through-$2 \cdot 10^7$ surface and on the retained $5 \cdot 10^9$
 checkpoint surface:
 
@@ -81,11 +81,11 @@ The latest retained summary reports:
 - `all_requested_classes_closed = true`
 - `requested_residual_classes = [10, 14, 18, 20, 22, 26, 27, 28, 30, 36, 40, 42, 44, 50, 52, 54, 56, 60]`
 - the only newly surfaced unsupported class on the retained $5 \cdot 10^9$
-  frontier was `34`
+  extremal value was `34`
 - that class is discharged below the committed exact no-counterexample ceiling
   `p < 5,000,000,000`
 
-So no requested residual class remains open on the retained proof frontier.
+So no requested residual class remains open on the retained proof obstruction list.
 
 ### 5. Exact Audit Surface
 
@@ -123,7 +123,7 @@ The visible proof chain is:
 2. exact later-side closure by lexicographic raw-$Z$ dominance;
 3. exact earlier-side square closure;
 4. exact square-free early-arrival closure on the committed admissibility
-   frontier;
+   extremal case;
 5. residual low-class closure by the committed residual-class artifacts;
 6. exact no-spoiler audit through $p < 5 \cdot 10^9$ plus square-adjacent
    stress coverage at $10^{12}$.

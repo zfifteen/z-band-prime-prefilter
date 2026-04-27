@@ -198,7 +198,7 @@ Its contract is narrow:
 - if one mismatch appears, the bounded law is false and the first
   counterexample is recorded;
 - if no mismatch appears on a finite surface, the scan certifies exactly that
-  finite surface and emits the frontier verification records that any larger claim must
+  finite surface and emits the extremal-case verification records that any larger claim must
   explain.
 
 On the current committed scan through `q <= 10^7`, the exact compare surface
@@ -221,7 +221,7 @@ The square branch now has two direct instruments:
 The retained direct square search through `p <= 10^8` is:
 
 - [../../../output/gwr_proof/square_branch_dynamic_cutoff_search_1e8/square_branch_dynamic_cutoff_search_summary.json](../../../output/gwr_proof/square_branch_dynamic_cutoff_search_1e8/square_branch_dynamic_cutoff_search_summary.json)
-- [../../../output/gwr_proof/square_branch_dynamic_cutoff_search_1e8/square_branch_dynamic_cutoff_search_frontier.csv](../../../output/gwr_proof/square_branch_dynamic_cutoff_search_1e8/square_branch_dynamic_cutoff_search_frontier.csv)
+- [../../../output/gwr_proof/square_branch_dynamic_cutoff_search_1e8/square_branch_dynamic_cutoff_search_extremal case.csv](../../../output/gwr_proof/square_branch_dynamic_cutoff_search_1e8/square_branch_dynamic_cutoff_search_frontier.csv)
 
 That search tested `5,761,454` odd prime squares, found no dynamic-cutoff
 counterexample on that finite surface, and recorded maximum square-branch
@@ -344,10 +344,10 @@ After this step, on the tested surface, the project now has:
 - an exact local next-prime recovery rule;
 - a no-skip sequential prime walk.
 
-So the remaining open problem is no longer whether the DNI/GWR mechanism can
+So the remaining extremal case is no longer whether the DNI/GWR mechanism can
 support an exact next-prime walk. On the tested surface, it does.
 
-The remaining open problem is narrower:
+The remaining extremal case is narrower:
 
 - whether the dynamic bounded cutoff
   $C(q) = \max(64, \lceil 0.5 \cdot \log(q)^2 \rceil)$ is universal,

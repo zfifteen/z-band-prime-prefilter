@@ -30,7 +30,7 @@ The missing object $H(p, s_0, \text{chain\_state})$ is the prediction: how far d
 
 Because search-interval closure is wheel-based, any candidate that reaches chain seeding has already passed a small-prime sieve. In your production filter you gate on concrete factor tables; in the generator the same idea appears as "wheel-open positions."
 
-That suggests the least-factor frontier of false nodes is not governed by $\sqrt{q}$ but by the current wheel primorial. Concretely:
+That suggests the least-factor maximum of false nodes is not governed by $\sqrt{q}$ but by the current wheel primorial. Concretely:
 
 - let $W(p)$ be the largest prime whose multiples are eliminated by search-interval closure at input prime $p$ (from the code this is at least 7, and grows slowly with the search-interval state)
 - any false shadow node $n$ must satisfy $\text{lpf}(n) > W(p)$, otherwise it would never have been admitted
@@ -42,7 +42,7 @@ $$H(p, s_0, \text{chain\_state}) \le f(\text{wheel\_modulus}, \text{attractor\_p
 
 and in practice $H$ would be $O(\log q)$ or $O(\log^2 q)$, matching your dynamic cutoff shape, not $O(\sqrt{q})$.
 
-The sharp test is exactly what you wrote: mine the least-factor frontier.
+The sharp test is exactly what you wrote: mine the least-factor maximum.
 
 ## The mining experiment — concrete steps
 
@@ -53,7 +53,7 @@ You do not need another ranker. You need a table of false nodes from your $10^{1
     - chain_state (sequence of gap-types, residues mod 30/210, search-interval id)
     - for each false node $n_i$: compute $\text{lpf}(n_i)$ by trial division stopping at first factor
 
-2. **Build the frontier.** For each $p$, define:
+2. **Build the least-factor maximum.** For each $p$, define:
    $$H_{\text{obs}}(p) = \max_i \text{lpf}(n_i)$$
 
 3. **Join PGS-visible predictors:**
@@ -68,7 +68,7 @@ You do not need another ranker. You need a table of false nodes from your $10^{1
     - Null (falsifying): $H_{\text{obs}} \sim c\sqrt{q}$
     - PGS (confirming): $H_{\text{obs}} \le a\cdot W(p)^b$ or $H_{\text{obs}} \le \alpha C(q) + \beta$
 
-If the PGS model caps the frontier with $R^2 > 0.9$ and residuals stay below, say, 128 across $10^{12}$ to $10^{18}$, you have the law.
+If the PGS model bounds the least-factor maximum with $R^2 > 0.9$ and residuals stay below, say, 128 across $10^{12}$ to $10^{18}$, you have the law.
 
 I can sketch the analysis loop you would run on your logs:
 
@@ -96,7 +96,7 @@ Then fit:
 
 ## What confirming looks like
 
-If the frontier is PGS-bounded, you will see:
+If the least-factor maximum is PGS-bounded, you will see:
 
 - $H_{\text{obs}}$ stays flat across decades while $\sqrt{q}$ grows by $10^3$ from $10^{12}$ to $10^{18}$
 - $H_{\text{obs}}$ correlates with wheel_bound and attractor state, not with $q$
@@ -114,4 +114,4 @@ If $H_{\text{obs}}$ tracks $\sqrt{q}$ with no tighter PGS envelope, then the sem
 
 ---
 
-If you can export the chain logs from your $10^{15}$ and $10^{18}$ probes (even just the tuples $p, s_0\_type, \text{lpf\_max}$), I will run the frontier mine and plot $H_{\text{obs}}$ vs $\sqrt{q}$ vs $C(q)$ vs wheel_bound for you. That plot is the decision point for whether $H$ is derivable from PGS structure.
+If you can export the chain logs from your $10^{15}$ and $10^{18}$ probes (even just the tuples $p, s_0\_type, \text{lpf\_max}$), I will run the least-factor mine and plot $H_{\text{obs}}$ vs $\sqrt{q}$ vs $C(q)$ vs wheel_bound for you. That plot is the decision point for whether $H$ is derivable from PGS structure.

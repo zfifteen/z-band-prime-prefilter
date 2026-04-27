@@ -415,7 +415,7 @@ This branch tested binary closure-state vectors only. It does not rule out a
 more structured residual using richer signed or weighted PGS states, but the
 submitted CSR/Hamming law is not promotable.
 
-## Solution 3: Shadow Seed Frontier Exhaustion
+## Solution 3: Shadow Seed Extremal-Case Exhaustion
 
 Branch:
 [`codex/solution-03-meta-frontier-exhaustion`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-03-meta-frontier-exhaustion)
@@ -449,7 +449,7 @@ Artifacts:
 - [summary JSON](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/output/simple_pgs_solution_03_frontier_exhaustion_probe/summary.json)
 - [materialized contract](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/output/simple_pgs_solution_03_frontier_exhaustion_probe/materialized_contract.csv)
 - [materialized coverage](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/output/simple_pgs_solution_03_frontier_exhaustion_probe/materialized_coverage.csv)
-- [frontier summary](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/output/simple_pgs_solution_03_frontier_exhaustion_probe/frontier_summary.csv)
+- [summary CSV](https://github.com/zfifteen/prime-gap-structure/blob/codex/solution-03-meta-frontier-exhaustion/output/simple_pgs_solution_03_frontier_exhaustion_probe/frontier_summary.csv)
 
 Materialization result:
 
@@ -485,7 +485,7 @@ No executable proxy promoted.
 
 Strength:
 
-The proposal gives a crisp process-level object: a mark frontier and residue
+The proposal gives a crisp process-level object: a mark boundary and residue
 exhaustion test, rather than another candidate-local tag.
 
 Weakness:

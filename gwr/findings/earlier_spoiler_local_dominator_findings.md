@@ -46,7 +46,7 @@ quickly:
 So the earlier-spoiler mechanism is not surviving deep into the gap on the
 tested exact surface. It is being killed locally.
 
-## Divisor-Class Frontier
+## Divisor-Class Extremal Case
 
 The strongest structural result in the current run is this:
 

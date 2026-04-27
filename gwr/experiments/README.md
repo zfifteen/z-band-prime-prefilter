@@ -7,7 +7,7 @@ Rule`.
 
 - [`proof/`](./proof/):
   scripts and artifacts behind the proved GWR theorem, including the
-  admissibility frontier, residual-class closure runs, and the older bridge
+  admissibility obstruction list, residual-class closure runs, and the older bridge
   certificate retained as historical comparison.
 
 ## Current Validation Entry Points

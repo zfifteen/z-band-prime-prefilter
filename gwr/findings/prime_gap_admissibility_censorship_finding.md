@@ -184,7 +184,7 @@ of them seem able to occur inside actual gaps between consecutive primes.
 
 The bridge verification record now supplies the large-$p$ inequality route for the
 headline `GWR` theorem under the recorded BHP/Robin constants. This note remains
-useful as the local-pattern reading of why the exact frontier was so thin.
+useful as the local-pattern reading of why the exact extremal value was so thin.
 
 That is the central claim of this note.
 
@@ -215,7 +215,7 @@ actually contain?"
 
 That changes the research posture in several concrete ways.
 
-### 1. The hard local frontier should be searched as a small-pattern problem
+### 1. The hard local extremal case should be searched as a small-pattern problem
 
 The current hardest checked cases already point toward:
 

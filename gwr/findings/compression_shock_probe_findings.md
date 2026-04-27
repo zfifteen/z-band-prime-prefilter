@@ -9,7 +9,7 @@ This is real compression, not just machine bloat.
 - candidate id: `current_winner_parity+previous_reduced_state`
 - source commit: `da9c68df629401549a63d7a4e643884d0e789ae9`
 
-## Frontier
+## Extremal Case
 
 - `first_order_rotor`: states `14`, pooled L1 `0.0317`, three-step `0.3114`
 - `hidden_state_augmented_rotor`: states `167`, pooled L1 `0.0284`, three-step `0.3479`

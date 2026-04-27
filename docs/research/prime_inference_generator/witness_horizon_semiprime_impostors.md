@@ -24,7 +24,7 @@ generator filters candidates with positive composite evidence up to the active
 witness bound, the remaining false emissions concentrate at semiprimes whose
 factors sit just beyond that bound.
 
-Observed moving frontier:
+Observed moving bound:
 
 ```text
 witness_bound = 127:

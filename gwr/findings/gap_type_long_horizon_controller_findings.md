@@ -52,7 +52,7 @@ The exact artifacts are:
 
 The strongest supported result is:
 
-The long-horizon controller frontier is now explicit, and it shows a real
+The long-horizon controller extremal case is now explicit, and it shows a real
 tradeoff rather than a completed engine.
 
 One controller reaches the pooled-window target. A different controller reaches
@@ -124,7 +124,7 @@ So the fatigue model can drive the stationary walk even harder than the
 event-lock controller, but it does so by distorting the local-window surface
 too strongly.
 
-That is not a completion result. It is a frontier result.
+That is not a completion result. It is a target-setting result.
 
 ## What This Means
 
@@ -183,4 +183,4 @@ deterministic controller simultaneously achieves:
 - pooled-window concentration L1 below `0.015`, and
 - full-walk three-step concentration above `0.62`.
 
-The present long-horizon result is therefore a frontier, not a closure.
+The present long-horizon result is therefore a extremal case, not a closure.

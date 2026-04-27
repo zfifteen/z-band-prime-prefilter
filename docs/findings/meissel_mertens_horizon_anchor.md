@@ -137,7 +137,7 @@ than unlimited closure.
 In the current repo, those scans already serve three exact jobs:
 
 - they establish the finite base,
-- they measure the tight spoiler and ratio frontiers,
+- they measure the tight spoiler and ratio extremums,
 - they normalize the asymptotic bridge target into one bridge-load quantity.
 
 That is why the proof-facing artifacts now converge on explicit bridge
@@ -154,7 +154,7 @@ and
 So the horizon picture points to the same conclusion as the current executed
 `GWR` artifacts:
 
-- exact computation supplies the finite base and exposes the hard frontier,
+- exact computation supplies the finite base and exposes the hard extremal case,
 - universal closure comes from a normalized local law with explicit constants,
   not from scale escalation by itself.
 

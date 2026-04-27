@@ -1,11 +1,11 @@
-Recommendation: implement the least-factor frontier probe now. Do not promote any H law yet.
+Recommendation: implement the least-factor maximum probe now. Do not promote any H law yet.
 
 The best answer is 05_answer_chatgpt, with useful support from 03_answer_deepseek, 04_answer_copilot, and 06_answer_xai_grok. The central reason: the right theorem target is not “prove the terminal node is prime.” The right theorem target is “derive a PGS-visible horizon that closes every false shadow-chain node before the terminal next prime.” That matches the actual repo gap: chain_horizon_closure_result(..., horizon_bound=None) still lets divisor_witness fall through to complete divisor exhaustion, while DEFAULT_VISIBLE_DIVISOR_BOUND = 10000 only builds the visible-open chain.  ￼
 
 The current unanswered question is framed correctly: can chain_horizon_closure become pure PGS by deriving H(p, s0, chain_state) rather than using fallback divisor exhaustion?  ￼ The answer after review and pilot testing is:
 
 Possible, but unproven.
-The next experiment must mine least-factor frontiers.
+The next experiment must mine least-factor maximums.
 No proposed answer currently supplies the actual horizon law.
 
 Repo-grounded baseline
@@ -66,7 +66,7 @@ scale	max known least factor	median known least factor	p95 known least factor
 10^15	93,911	47,293	49,549
 10^18	34,381	16,477	16,477
 
-This already rules out the smallest naive horizons. The current visible bound 10000 closed none of the false nodes in the pilot. The dynamic 0.5 log(q)^2 horizon also closed none. Several false nodes required more than 100000, so the frontier is not trivially small.
+This already rules out the smallest naive horizons. The current visible bound 10000 closed none of the false nodes in the pilot. The dynamic 0.5 log(q)^2 horizon also closed none. Several false nodes required more than 100000, so the least-factor maximum is not trivially small.
 
 Candidate horizon laws tested in the pilot
 
@@ -80,7 +80,7 @@ visible + prefix_lcm_gaps capped at 1e6	0	33	0.00%
 fixed 100000	13	33	39.39%
 fixed 1000000	13	33	39.39% in this bounded run, because the collection only searched divisors to 100000
 
-The pilot does not say the horizon tracks sqrt(q). It only says the obvious low horizons do not close the false chain nodes. The decisive next step is a full least-factor frontier run, not another ranker.
+The pilot does not say the horizon tracks sqrt(q). It only says the obvious low horizons do not close the false chain nodes. The decisive next step is a full least-factor maximum run, not another ranker.
 
 Answer-by-answer evaluation
 
@@ -88,7 +88,7 @@ Answer-by-answer evaluation
 
 Meta’s answer gets the main experiment right: mine H_obs = max least prime factor over false chain nodes, then compare it against sqrt(q), C(q), wheel/residue-state variables, and chain state. It also correctly frames semiprime-shadow nodes as structured, not random.  ￼
 
-Where it overreaches: it predicts the frontier might be well under 200–300. My bounded pilot does not support that. I saw known least factors up to 93,911, and many false nodes had no divisor under 100,000. That does not kill compressibility, but it kills the “tiny horizon” optimism.
+Where it overreaches: it predicts the least-factor maximum might be well under 200–300. My bounded pilot does not support that. I saw known least factors up to 93,911, and many false nodes had no divisor under 100,000. That does not kill compressibility, but it kills the “tiny horizon” optimism.
 
 Experiment verdict:
 
@@ -101,7 +101,7 @@ Risk: overconfident about O(log q) / O(log^2 q)
 
 This answer is the most overconfident. It says the bridge is “almost certainly” compressible and claims the repo already contains scripts like simple_pgs_recursive_shadow_chain_state_mine.py and simple_pgs_shadow_chain_terminal_diagnostic record_mine.py. A repo search at the referenced commit only found that claim inside the answer file itself, not the actual scripts.  ￼
 
-It also claims “no evidence” that the horizon tracks sqrt(q), which is technically true but too strong. The correct statement is narrower: we do not yet know the least-factor frontier. The pilot shows many false nodes exceed 10000, and many exceed 100000, so the optimistic “small visible horizon” story is not established.
+It also claims “no evidence” that the horizon tracks sqrt(q), which is technically true but too strong. The correct statement is narrower: we do not yet know the least-factor maximum. The pilot shows many false nodes exceed 10000, and many exceed 100000, so the optimistic “small visible horizon” story is not established.
 
 Experiment verdict:
 
@@ -109,7 +109,7 @@ Core direction: partly right
 Infrastructure claims: not supported by repo search
 Confidence level: too high
 Usefulness: low to moderate
-Actionable part: add explicit least-factor frontier miner
+Actionable part: add explicit least-factor maximum miner
 
 03_asnwer_deepseek
 
@@ -126,7 +126,7 @@ Usefulness: high as a sanity check
 
 04_answer_copilot
 
-Copilot gives the most detailed engineering plan: add a least-factor frontier logger, run stratified probes, test polylog, residue-based, wheel-limited, and input prime-gap combined bounds.  ￼
+Copilot gives the most detailed engineering plan: add a least-factor maximum logger, run stratified probes, test polylog, residue-based, wheel-limited, and input prime-gap combined bounds.  ￼
 
 The pilot directly supports Copilot’s caution. Simple polylog and low wheel-like bounds did not close the false chain nodes. A fixed 100000 bound only closed a lower-bound 39.39% of false nodes in the pilot. This means the full collector is necessary before any theorem claim.
 
@@ -142,7 +142,7 @@ Caution: keep prime tables / wheel-sieved division strictly in probe or audit co
 
 This is the best conceptual answer. It sharpens the target: do not try to prove the terminal node prime; instead derive a horizon that closes all false pre-terminal chain nodes.  ￼
 
-That distinction survives the pilot. The false-node closure frontier is the right object. The tested toy laws from that answer, such as visible, 0.5 log², visible + max gap, and prefix-gap expressions, failed on the pilot, but the experimental frame remains the strongest.
+That distinction survives the pilot. The false-node closure least-factor maximum is the right object. The tested toy laws from that answer, such as visible, 0.5 log², visible + max gap, and prefix-gap expressions, failed on the pilot, but the experimental frame remains the strongest.
 
 Experiment verdict:
 
@@ -168,7 +168,7 @@ Synthesis
 
 All serious answers converge on the same next experiment:
 
-Mine the least-factor frontier of false shadow-chain nodes.
+Mine the least-factor maximum of false shadow-chain nodes.
 
 The differences are in confidence. Meta, Grok, and xAI are too optimistic about how small or obvious H will be. DeepSeek and Copilot are more sober. ChatGPT’s answer gives the cleanest theorem formulation.
 
@@ -180,7 +180,7 @@ It does not say:
 
 No PGS-visible H exists.
 
-The frontier may still be governed by a deterministic expression, but it is not simply:
+The least-factor maximum may still be governed by a deterministic expression, but it is not simply:
 
 10000
 0.5 log(q)^2
@@ -213,7 +213,7 @@ chain_limit = 8
 
 Primary artifacts:
 
-least_factor_frontier.csv
+least_factor_maximum.csv
 horizon_law_report.csv
 horizon_law_summary.json
 
@@ -269,4 +269,4 @@ Do not promote chain_horizon_closure to pure PGS.
 
 Do not chase another ranker.
 
-Implement the least-factor frontier miner and let the data decide whether H(p, s0, chain_state) exists. The strongest formulation is from 05_answer_chatgpt; the strongest engineering plan is from 04_answer_copilot; the safest implementation diagnosis is from 03_answer_deepseek.
+Implement the least-factor maximum miner and let the data decide whether H(p, s0, chain_state) exists. The strongest formulation is from 05_answer_chatgpt; the strongest engineering plan is from 04_answer_copilot; the safest implementation diagnosis is from 03_answer_deepseek.

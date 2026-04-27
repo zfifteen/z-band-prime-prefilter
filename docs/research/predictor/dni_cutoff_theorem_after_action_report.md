@@ -47,7 +47,7 @@ false.
 The user did not ask for:
 
 - more benchmark surfaces,
-- more frontier extraction for its own sake,
+- more extremal-case extraction for its own sake,
 - more theorem-reduction notes,
 - or more “proof setup.”
 
@@ -105,7 +105,7 @@ I did not check that early.
 Instead I continued producing:
 
 - theorem reduction notes,
-- branch frontier notes,
+- branch extremum notes,
 - proof-program framing,
 - and other support artifacts.
 
@@ -255,7 +255,7 @@ These facts remain true:
   consecutive surface through $10^6$;
 - the theorem-reduction note correctly states what would have been needed if
   the theorem were true;
-- the branch frontier artifact correctly identified the square branch as the
+- the branch extremal-case artifact correctly identified the square branch as the
   live obstruction family.
 
 What fails is the leap from “survives the tested surface” to “is the right

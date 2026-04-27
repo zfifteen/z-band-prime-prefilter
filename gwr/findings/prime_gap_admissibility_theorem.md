@@ -27,7 +27,7 @@ The fixed search-interval model used in the admissibility extractor is:
 - uniform high-divisor bucket $d(k) \ge 64$,
 - exact low-class residual set $\{4, 6, 8, 12, 16, 24, 32, 48\}$.
 
-The admissibility frontier artifacts are:
+The admissibility extremal-case artifacts are:
 
 - [../../output/gwr_proof/prime_gap_admissibility_frontier_2e7.json](../../output/gwr_proof/prime_gap_admissibility_frontier_2e7.json)
 - [../../output/gwr_proof/prime_gap_admissibility_frontier_5e9_checkpoints_current.json](../../output/gwr_proof/prime_gap_admissibility_frontier_5e9_checkpoints_current.json)
@@ -68,7 +68,7 @@ $$
 That follows because earlier composites must have $d(k) \ge 5$, so
 $L(k) \le -\frac{3}{2}\ln k$, while $L(u) = -\ln u$.
 
-The committed frontier artifacts keep the early window explicit, and on both
+The committed extremal-case artifacts keep the early window explicit, and on both
 current proof surfaces they record
 
 $$
@@ -97,9 +97,9 @@ Those artifacts report:
 - `all_requested_classes_closed = true`,
 - requested residual classes
   `[10, 14, 18, 20, 22, 26, 27, 28, 30, 36, 40, 42, 44, 50, 52, 54, 56, 60]`
-  fully closed on the retained proof frontier,
+  fully closed on the retained proof obstruction list,
 - the only newly surfaced unsupported class on the retained
-  $5 \cdot 10^9$ frontier was `34`,
+  $5 \cdot 10^9$ extremal value was `34`,
 - class `34` discharged immediately below the exact no-counterexample ceiling
   `p < 5,000,000,000`.
 
