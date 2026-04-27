@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
-from z_band_prime_composite_field import divisor_counts_segment
+from z_band_prime_predictor.pgs_closure import (
+    PGS_OPEN,
+    pgs_closure_segment,
+)
 
 
 DEFAULT_CANDIDATE_BOUND = 128
@@ -10,119 +13,36 @@ PGS_GENERATOR_VERSION = "1.1.0"
 PGS_GENERATOR_FREEZE_ID = "pgs_inference_generator_v1_1_pgs_only"
 PGS_SOURCE = "PGS"
 PGS_CHAMBER_RESET_RULE_ID = "pgs_chamber_reset_v1"
-WHEEL_OPEN_RESIDUES_MOD30 = frozenset({1, 7, 11, 13, 17, 19, 23, 29})
-STATUS_REJECTED = "REJECTED"
-STATUS_RESOLVED_SURVIVOR = "RESOLVED_SURVIVOR"
-STATUS_UNRESOLVED = "UNRESOLVED"
 
 
 class PGSUnresolvedError(RuntimeError):
     """Raised when the PGS selector does not resolve inside the chamber."""
 
 
-def admissible_offsets(p: int, candidate_bound: int) -> list[int]:
-    """Return wheel-open boundary offsets inside the chamber."""
-    return [
-        offset
-        for offset in range(1, int(candidate_bound) + 1)
-        if (int(p) + offset) % 30 in WHEEL_OPEN_RESIDUES_MOD30
-    ]
-
-
 def pgs_chamber_reset_state_certificate(
     p: int,
     candidate_bound: int = DEFAULT_CANDIDATE_BOUND,
 ) -> dict[str, object] | None:
-    """Return the first GWR/NLSC chamber-reset survivor."""
+    """Return a certificate only when pure PGS closure leaves one survivor."""
     p = int(p)
     candidate_bound = int(candidate_bound)
     if candidate_bound < 1:
         raise ValueError("candidate_bound must be positive")
 
-    counts = [
-        int(value)
-        for value in divisor_counts_segment(p + 1, p + candidate_bound + 1)
+    statuses = pgs_closure_segment(p, candidate_bound)
+    open_offsets = [
+        offset
+        for offset, status in enumerate(statuses, start=1)
+        if int(status) == PGS_OPEN
     ]
-    offset_set = set(admissible_offsets(p, candidate_bound))
-    candidate_states: list[dict[str, object]] = []
-    carrier_offset: int | None = None
-    carrier_d: int | None = None
-    unresolved_count = 0
-
-    for offset, divisor_count in enumerate(counts, start=1):
-        n = p + offset
-        if offset in offset_set:
-            if divisor_count > 2:
-                status = STATUS_REJECTED
-            elif unresolved_count > 0:
-                status = STATUS_UNRESOLVED
-            else:
-                status = STATUS_RESOLVED_SURVIVOR
-            candidate_states.append(
-                {
-                    "offset": offset,
-                    "n": n,
-                    "status": status,
-                    "carrier_offset": carrier_offset,
-                    "carrier_d": carrier_d,
-                }
-            )
-
-        if divisor_count > 2:
-            if carrier_d is None or divisor_count < carrier_d:
-                carrier_offset = offset
-                carrier_d = divisor_count
-        else:
-            unresolved_count += 1
-
-    lock_carrier_offset: int | None = None
-    lock_carrier_d: int | None = None
-    for state in candidate_states:
-        if (
-            state["status"] == STATUS_RESOLVED_SURVIVOR
-            and state["carrier_offset"] is not None
-        ):
-            lock_carrier_offset = int(state["carrier_offset"])
-            lock_carrier_d = int(state["carrier_d"])
-            break
-
-    threat_offset: int | None = None
-    if lock_carrier_offset is not None and lock_carrier_d is not None:
-        for offset in range(lock_carrier_offset + 1, candidate_bound + 1):
-            divisor_count = counts[offset - 1]
-            if divisor_count > 2 and divisor_count < lock_carrier_d:
-                threat_offset = offset
-                break
-
-    active: list[dict[str, object]] = []
-    resolved: list[dict[str, object]] = []
-    unresolved: list[dict[str, object]] = []
-    rejected_offsets: list[int] = []
-    for state in candidate_states:
-        final_status = str(state["status"])
-        offset = int(state["offset"])
-        if threat_offset is not None and offset > threat_offset:
-            final_status = STATUS_REJECTED
-        if final_status == STATUS_REJECTED:
-            rejected_offsets.append(offset)
-            continue
-        active.append(state)
-        if final_status == STATUS_RESOLVED_SURVIVOR:
-            resolved.append(state)
-        else:
-            unresolved.append(state)
-
-    if not resolved:
+    if len(open_offsets) != 1:
         return None
 
-    first = resolved[0]
-    gap_offset = int(first["offset"])
-    carrier_offset = first["carrier_offset"]
-    carrier_w = None if carrier_offset is None else p + int(carrier_offset)
-    tail_after_reset = [
-        int(state["offset"])
-        for state in unresolved
-        if int(state["offset"]) > gap_offset
+    gap_offset = int(open_offsets[0])
+    rejected_offsets = [
+        offset
+        for offset, status in enumerate(statuses, start=1)
+        if int(status) != PGS_OPEN and offset < gap_offset
     ]
     return chamber_reset_fields(
         {
@@ -134,16 +54,16 @@ def pgs_chamber_reset_state_certificate(
             "closed_offsets_before_q": rejected_offsets,
             "closure_reason_by_offset": {},
             "unclosed_offsets_before_q": [],
-            "active_count": len(active),
-            "resolved_count": len(resolved),
-            "unresolved_count": len(unresolved),
-            "tail_after_reset_offsets": tail_after_reset,
-            "all_unresolved_after_reset": len(tail_after_reset) == len(unresolved),
-            "carrier_w": carrier_w,
-            "carrier_d": first["carrier_d"],
-            "lock_carrier_offset": lock_carrier_offset,
-            "lock_carrier_d": lock_carrier_d,
-            "lower_d_threat_offset": threat_offset,
+            "active_count": len(open_offsets),
+            "resolved_count": 1,
+            "unresolved_count": 0,
+            "tail_after_reset_offsets": [],
+            "all_unresolved_after_reset": True,
+            "carrier_w": None,
+            "carrier_d": None,
+            "lock_carrier_offset": None,
+            "lock_carrier_d": None,
+            "lower_d_threat_offset": None,
             "used_forbidden_tool": False,
         }
     )
