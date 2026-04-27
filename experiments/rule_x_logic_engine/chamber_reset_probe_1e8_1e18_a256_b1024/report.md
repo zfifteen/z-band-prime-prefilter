@@ -1,8 +1,8 @@
-# Chamber-Reset Probe: 10^8 Through 10^18
+# Search Interval-Reset Probe: 10^8 Through 10^18
 
 ## Executive Summary
 
-The chamber-reset hypothesis closed the unresolved-tail gap on the decade
+The search-interval-reset hypothesis closed the unresolved-tail gap on the decade
 ladder.
 
 Across the same `10^8` through `10^18` windows:
@@ -10,17 +10,17 @@ Across the same `10^8` through `10^18` windows:
 ```text
 input primes tested: 2816
 old unique Rule X matches: 513
-chamber-reset exact matches: 2816
-chamber-reset false emissions: 0
+search-interval-reset exact matches: 2816
+search-interval-reset false emissions: 0
 candidate-bound misses: 0
 tail cases converted: 2303
 tail candidates excluded by reset: 77457
 ```
 
 Every previously unresolved input prime had one resolved survivor followed by a
-later unresolved tail. Under the chamber-reset rule, the first resolved
-survivor closes the current chamber, so later unresolved candidates are
-assigned to later chambers and excluded from the current input prime's endpoint
+later unresolved tail. Under the search-interval-reset rule, the first resolved
+survivor closes the current search interval, so later unresolved candidates are
+assigned to later search intervals and excluded from the current input prime's endpoint
 choice.
 
 ## Tested Rule
@@ -28,13 +28,13 @@ choice.
 For an input prime `p`, let `r` be the first resolved survivor under the
 existing Rule X stack.
 
-The tested chamber-reset rule is:
+The tested search-interval-reset rule is:
 
 ```text
 If r is resolved before any later unresolved candidate u,
 then u is not a candidate next prime for p.
 
-u belongs to a chamber beginning at r or later.
+u belongs to a search interval beginning at r or later.
 ```
 
 This changes the emission rule from:
@@ -47,7 +47,7 @@ to:
 
 ```text
 emit the first resolved survivor;
-exclude later unresolved candidates as post-reset chamber material
+exclude later unresolved candidates as post-reset search-interval material
 ```
 
 ## Results By Decade
@@ -72,15 +72,15 @@ The unresolved input primes were not missing the endpoint. They already containe
 the endpoint as the first resolved survivor.
 
 The previous emission rule treated later unresolved candidates as competing
-endpoints. The chamber-reset test shows that this was too conservative in the
+endpoints. The search-interval-reset test shows that this was too conservative in the
 tested windows. Once the first resolved survivor appears, later unresolved
-candidates are outside the current chamber and should not block emission.
+candidates are outside the current search interval and should not block emission.
 
 The measured effect is complete on this decade ladder:
 
 ```text
 513 / 2816  -> old strict no-tail emission
-2816 / 2816 -> chamber-reset emission
+2816 / 2816 -> search-interval-reset emission
 ```
 
 No false emissions were observed.

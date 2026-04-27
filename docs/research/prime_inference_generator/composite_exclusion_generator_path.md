@@ -4,8 +4,8 @@ Local state-vector search has not produced a compact next-prime-forcing law.
 
 The current evidence is consistent across the failed paths:
 
-- chamber certificates describe proposed interiors;
-- GWR/DNI structure identifies selected-integer behavior inside a proposed chamber;
+- search-interval certificates describe proposed interiors;
+- GWR/DNI structure identifies selected-integer behavior inside a proposed interval;
 - legal ladder and pressure states can classify local structure;
 - high-resolution legal states can separate labels, but they become
   table-like;
@@ -28,12 +28,12 @@ For an input prime `p`, define a finite candidate set:
 
 $$Q_B(p) = \{p + k : 0 < k \le B,\ p + k \text{ is wheel-open}\}$$
 
-Each candidate `q_hat` proposes a chamber:
+Each candidate `q_hat` proposes a search interval:
 
 $$I(p, q\_hat) = \{p + 1,\ldots,q\_hat - 1\}$$
 
 The exclusion process rejects a candidate only when legal PGS evidence
-contradicts that proposed chamber. It emits a endpoint only if exactly one
+contradicts that proposed interval. It emits a endpoint only if exactly one
 candidate remains.
 
 If zero or multiple candidates remain, pure generation fails closed.
@@ -62,7 +62,7 @@ The exclusion logic may use:
 - GWR-selected integer structure computed from legal composite evidence;
 - no-later-simpler closure when all ingredients are legal;
 - square and threat pressure when expressed without primality recognition;
-- previous accepted chamber metadata, if the generator has lawfully emitted the
+- previous accepted search-interval metadata, if the generator has lawfully emitted the
   previous endpoint.
 
 Positive composite evidence is allowed. Absence of a factor must not be treated
@@ -95,19 +95,19 @@ not part of the elimination state.
 
 For each `q_hat` in `Q_B(p)`, form the proposed interior `I(p, q_hat)`.
 
-Reject `q_hat` if any legal rule proves the proposed chamber invalid:
+Reject `q_hat` if any legal rule proves the proposed interval invalid:
 
 1. An interior wheel-open offset has a concrete composite witness inconsistent
-   with being an open candidate next prime under the proposed chamber model.
+   with being an open candidate next prime under the proposed search-interval model.
 2. A required interior position remains unresolved when the rule requires full
-   legal closure of the chamber interior.
-3. The chamber lacks a valid GWR-selected integer when the active exclusion model
+   legal closure of the search interval interior.
+3. The search interval lacks a valid GWR-selected integer when the active exclusion model
    requires one.
 4. A legal lower-divisor or lower-complexity threat appears after the proposed
    integer and before the proposed endpoint.
-5. Square, power, or threat pressure contradicts the proposed chamber closure.
+5. Square, power, or threat pressure contradicts the proposed search-interval closure.
 6. A smaller admissible candidate remains unresolved under the same evidence.
-7. A deterministic PGS chamber rule rejects the proposed transition.
+7. A deterministic PGS search-interval rule rejects the proposed transition.
 
 The first implementation should keep the rule set small. A candidate should
 remain unresolved rather than be rejected by a weak or informal rule.

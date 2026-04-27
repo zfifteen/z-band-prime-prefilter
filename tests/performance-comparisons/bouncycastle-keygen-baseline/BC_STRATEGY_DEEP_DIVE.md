@@ -79,7 +79,7 @@ Ordered patch candidates:
 4. Deprioritize the later `gcd(e, p - 1)` path.
    For `e = 65537`, BC already checks `p.mod(e)` earlier. The probe measured `0` rejections at both stages, and the later gcd path is not the first place to look for keygen speed.
 
-5. Keep the gap-ridge line as a second phase.
+5. Keep the gap-ridge line as a second stage.
    If we later open the earlier candidate loop, the repo's lexicographic and residue findings may help candidate ordering or candidate bias. They should not be the first BC patch while the earlier deterministic screens remain untested.
 
 This round therefore narrows the strategy sharply. The repo's measured win does not port to BC by adding a deeper factor table after `createRandomPrime()`. The next serious BC work should move earlier than that stage or change the distribution of candidates entering it.

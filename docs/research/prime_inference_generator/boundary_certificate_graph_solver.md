@@ -45,7 +45,7 @@ pipeline:
 - unresolved-later domination from existing graph facts.
 - repaired no-selected-integer target domination with positive non-endpoint evidence.
 
-It does not use 005B, broad resolved-chamber absorption, earliest-candidate
+It does not use 005B, broad resolved-interval absorption, earliest-candidate
 dominance, scalar ranking, prime-marker identity, `nextprime`, `isprime`, or
 classical labels during solving.
 
@@ -58,12 +58,12 @@ unresolved_later_domination_from_existing_graph_facts
 ```
 
 It absorbs only the nearest later unresolved candidate after a resolved source
-when the source has no single-hole closure dependency, the target chamber
+when the source has no single-hole closure dependency, the target search interval
 preserves the same first legal integer, and the existing graph facts contain no
 same-or-lower divisor reset evidence between the source and target.
 
 The relation abstains when reset evidence is positive or unknown. It does not
-use labels, candidate ranking, 005B, or broad resolved-chamber absorption.
+use labels, candidate ranking, 005B, or broad resolved-interval absorption.
 
 ## v2 Relation
 
@@ -79,7 +79,7 @@ check: v2 computes reset evidence over the active candidate graph after
 rejected and absorbed nodes have been removed. It still abstains when the active
 graph contains positive reset evidence or when the reset state is unknown.
 
-This is not broad resolved-chamber absorption. It is a reset-aware active-graph
+This is not broad resolved-interval absorption. It is a reset-aware active-graph
 refinement of unresolved-later domination.
 
 ## v3 Relation
@@ -98,7 +98,7 @@ active graph.
 
 This relation does not say there is no reset in the number-theoretic sense. It
 says the existing active graph has one resolved source, that source is an
-empty-selected-integer chamber, and the next unresolved extension has a positive integer
+empty-selected-integer search interval, and the next unresolved extension has a positive integer
 fact after the source. The single-resolved-source guard is load-bearing; a
 broader empty-selected-integer version absorbed true next primes in abstaining
 multiple-resolved graphs during development and was not retained.
@@ -146,7 +146,7 @@ source has no legal integer, the source has no single-hole closure dependency,
 and the nearest later unresolved candidate has its first legal integer after
 the source.
 
-This relation does not add broad resolved-chamber absorption. It acts only on
+This relation does not add broad resolved-interval absorption. It acts only on
 the nearest later unresolved candidate and repeats on the active graph.
 
 Graph v5 inherits the v4 failure because it depends on the v4 no-selected-integer

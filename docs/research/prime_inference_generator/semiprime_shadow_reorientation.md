@@ -75,7 +75,7 @@ The future generator-facing behavior to investigate is:
 ```text
 semiprime shadow detected
 => mark shadow as left-side landmark
-=> inspect right-neighborhood chamber
+=> inspect right-neighborhood search interval
 => search for first lawful right-side endpoint transition
 => emit only if a label-free rightward certificate is found
 ```

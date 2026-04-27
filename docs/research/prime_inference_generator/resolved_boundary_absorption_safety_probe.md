@@ -1,6 +1,6 @@
 # Resolved Next Prime Absorption Safety Probe
 
-Resolved-chamber absorption is not selective on the tested surface.
+Resolved-interval absorption is not selective on the tested surface.
 
 Next-Prime Law 005 is not approved by this note.
 
@@ -8,7 +8,7 @@ Next-Prime Law 005 is not approved by this note.
 
 Test the offline hypothesis:
 
-> If $q_1$ is a resolved chamber endpoint and $q_2 > q_1$ is unresolved, then
+> If $q_1$ is a resolved interval endpoint and $q_2 > q_1$ is unresolved, then
 > $q_2$ is absorbed by $q_1$.
 
 This is Rule A. The probe tests Rule A as forensics only. It does not add a
@@ -93,8 +93,8 @@ The fatal counts are:
 - `would_rule_a_select_false_resolved_survivor_count: 282`
 - `would_rule_a_eliminate_true_boundary_candidate_count: 104`
 
-Those counts reject direct resolved-chamber absorption as a generator rule. A
-locally resolved chamber cannot absorb later unresolved alternatives unless an
+Those counts reject direct resolved-interval absorption as a generator rule. A
+locally resolved interval cannot absorb later unresolved alternatives unless an
 additional legal lock condition separates true resolved endpoints from false
 resolved survivors.
 

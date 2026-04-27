@@ -201,9 +201,9 @@ $$0 \leq \Delta \leq 1{,}000{,}000.$$
 If most successful hits use centers after the gap, the metric is explanatory
 but not predictive.
 
-### Phase-Blind Control
+### Residue-Alignment-Blind Control
 
-Compute a phase-blind pressure:
+Compute a residue-alignment-blind pressure:
 
 $$MCS_0(x) = k(x)\frac{W(x)}{\phi(W(x))}.$$
 
@@ -305,9 +305,9 @@ The pressure field did not provide a useful search contraction. It may still
 describe modular structure, but it does not validate the claimed search
 strategy.
 
-### Outcome D: Phase-Blind Equivalence
+### Outcome D: Residue-Alignment-Blind Equivalence
 
-The phase-blind control performs as well as the local `MCS` metric.
+The residue-alignment-blind control performs as well as the local `MCS` metric.
 
 Interpretation:
 
@@ -319,7 +319,7 @@ The signal is explainable by ordinary average coprime density.
 The design attacks these failure modes directly:
 
 1. **Monotone pressure artifact.** Running maxima alone may occur near the far
-   right edge because `log(x)` grows. The phase-blind control detects this.
+   right edge because `log(x)` grows. The residue-alignment-blind control detects this.
 2. **Vacuous coverage.** A `10^6` radius around too many centers may cover most
    of the domain. The `25%` coverage cap prevents that from counting as a pass.
 3. **Post-hoc trend fitting.** Champagne status uses a fixed $\log(p)^2$
@@ -337,7 +337,7 @@ The design attacks these failure modes directly:
 | Any champagne miss | `falsified_champagne_miss` |
 | Coverage >= `25%` | `not_predictive_coverage_too_large` |
 | Record median pressure percentile < `90` | `not_predictive_pressure_rank_low` |
-| Phase-blind control matches local MCS | `not_distinguished_from_average_density` |
+| Residue-alignment-blind control matches local MCS | `not_distinguished_from_average_density` |
 | All primary criteria pass | `finite_validated` |
 
 ## Exact Claim Limit

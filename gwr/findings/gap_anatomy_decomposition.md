@@ -172,7 +172,7 @@ of magnitude.
 That is why the current surface looks less like "a long global score contest"
 and more like "an early low-divisor arrival that usually never gets overturned."
 
-## Square Phase
+## Prime-Square Interval State
 
 In the dominant `d=4` regime, the first strictly simpler class is `d=3`, and
 that class occurs exactly at prime squares.
@@ -194,11 +194,11 @@ $$M_{\square}(w, q) = \Sigma_{+}(w) - q,$$
 
 the closure margin left after the right prime arrives.
 
-The current session probes show that this square phase changes the closure
+The current session probes show that this prime-square interval state changes the closure
 slack dramatically even when the overall scale and the first-`d=4` arrival
 pattern barely change.
 
-### Same Scale, Different Square Phase
+### Same Scale, Different Prime-Square Interval State
 
 At scale about $10^{12}$:
 
@@ -211,11 +211,11 @@ At scale about $10^{12}$:
 The first-`d=4` offset distribution barely moved between those two windows.
 The sharp change was in how close the whole window sat to the next prime square.
 
-That is what "square phase" means here.
+That is what "prime-square interval state" means here.
 
 It is not scale.
 It is not the general density of `d=4` integers.
-It is the gap's location inside the current prime-square chamber.
+It is the gap's location inside the current prime-square search interval.
 
 ## NLCT as a Quantified Consequence of Square Exclusion
 
@@ -252,7 +252,7 @@ Among the `58,303` exact `d=4` selected integer gaps through $10^6$:
 - only about `0.45%` of these gaps had margin `<= 20`.
 
 So on that exact probe, most `d=4` gaps were not close to failure. They closed
-with substantial square-phase slack.
+with substantial prime-square slack.
 
 ### Exploratory Pre-Square Window Near $10^{12}$
 
@@ -263,7 +263,7 @@ On the matched window ending at $1000003^2$:
 - only `28 / 56,792` `d=4` selected integer gaps had margin `<= 1000`,
 - only about `1.76 \times 10^{-5}` had margin `<= 100`.
 
-So even in a deliberately dangerous square-phase placement, the genuinely tight
+So even in a deliberately dangerous prime-square interval placement, the genuinely tight
 `d=4` cases remained very thin.
 
 This is why the dominant `d=4` version of `NLCT` currently looks more like a
@@ -291,7 +291,7 @@ Those objects are:
 
 - absence of the `d=3` layer,
 - early arrival of the `d=4` layer,
-- remaining square-phase slack at closure.
+- remaining prime-square slack at closure.
 
 That is a much narrower mechanism than "the whole score field must be searched
 globally."
@@ -315,7 +315,7 @@ The gap-anatomy quantities in this note are different in kind:
 
 - $\delta_{\min}(p, q)$,
 - first-arrival offsets $A_{\delta}(p, q)$,
-- square phase $\Phi_{\square}(w)$,
+- prime-square interval state $\Phi_{\square}(w)$,
 - and closure margin $M_{\square}(w, q)$.
 
 These are local admissibility variables for prime-gap interiors.
@@ -337,7 +337,7 @@ The leading picture is:
 - the selected integer is the first integer of the smallest divisor class present,
 - the dominant `d=4` regime is driven by early `d=4` arrival once the `d=3`
   layer is absent,
-- and the dominant `NLCT` margin is controlled mainly by square phase.
+- and the dominant `NLCT` margin is controlled mainly by prime-square interval state.
 
 That is not a separate prime-distribution theorem on its own.
 It does identify a cleaner set of local observables and a narrower mechanism

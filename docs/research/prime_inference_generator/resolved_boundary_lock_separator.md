@@ -7,7 +7,7 @@ Next-Prime Law 005 is not approved by this note.
 
 ## Objective
 
-Resolved-chamber absorption alone failed because true resolved endpoints and
+Resolved-interval absorption alone failed because true resolved endpoints and
 false resolved survivors both absorb later unresolved alternatives.
 
 This probe asks whether any legal lock/reset feature separates true resolved
@@ -106,7 +106,7 @@ That is not Next-Prime Law 005. It is a candidate lock separator worth hardening
 The observed shape is:
 
 ```text
-resolved chamber
+resolved interval
 + higher-divisor pressure between the candidate and later unresolved alternatives
 => absorption is zero-wrong on 11..10_000
 ```

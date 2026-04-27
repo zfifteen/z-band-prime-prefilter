@@ -123,9 +123,9 @@ which means positive composite evidence cannot be expected to close them.
 The blocker is now post-endpoint alternative elimination:
 
 - pressure ceilings that cut off after-true alternatives earlier;
-- extension or absorption logic that marks post-endpoint chambers as dominated;
+- extension or absorption logic that marks post-endpoint intervals as dominated;
 - a legal rule that prevents later unresolved alternatives from staying live
-  after the true next prime chamber is already resolved.
+  after the true next-prime interval is already resolved.
 
 ## Status
 

@@ -46,7 +46,7 @@ This is a bounded pilot, not a full theorem result. It tests whether small, obvi
 
 For each sampled input prime, I rebuilt:
 
-PGS chamber-closure candidate q0
+PGS search-interval-closure candidate q0
 visible-open shadow chain
 terminal chain node if one was prime
 false pre-terminal nodes
@@ -86,7 +86,7 @@ Answer-by-answer evaluation
 
 01_answer_meta_ai
 
-Meta’s answer gets the main experiment right: mine H_obs = max least prime factor over false chain nodes, then compare it against sqrt(q), C(q), wheel/phase variables, and chain state. It also correctly frames semiprime-shadow nodes as structured, not random.  ￼
+Meta’s answer gets the main experiment right: mine H_obs = max least prime factor over false chain nodes, then compare it against sqrt(q), C(q), wheel/residue-state variables, and chain state. It also correctly frames semiprime-shadow nodes as structured, not random.  ￼
 
 Where it overreaches: it predicts the frontier might be well under 200–300. My bounded pilot does not support that. I saw known least factors up to 93,911, and many false nodes had no divisor under 100,000. That does not kill compressibility, but it kills the “tiny horizon” optimism.
 

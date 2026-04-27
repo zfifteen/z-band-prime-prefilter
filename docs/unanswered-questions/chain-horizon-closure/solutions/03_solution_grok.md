@@ -10,7 +10,7 @@ I read the committed question (00_question.md) and all six potential answers in 
 
 - Sampled 120 input primes across scales 10³–10⁶ (feasible proxy for high-scale behavior).
 - Simulated semiprime-shadow seeding + visible-open chains inside `candidate_bound=128`.
-- Used small `visible_divisor_bound=64` (PGS-local chamber value) to model the realistic high-scale regime where visible closure does **not** catch every false node.
+- Used small `visible_divisor_bound=64` (PGS-local search interval value) to model the realistic high-scale regime where visible closure does **not** catch every false node.
 - Computed true **least-factor frontier** = max SPF of pre-terminal false nodes.
 - Tested **every proposed H form** from all six LLM answers head-to-head.
 - Metrics: frontier distribution, frontier/√q ratio, bounding success rate, tightness.
@@ -24,7 +24,7 @@ I read the committed question (00_question.md) and all six potential answers in 
 This is a **strong confirming result** for the missing theorem. Below is the per-answer analysis + experiment results.
 
 ### 1. Meta AI (01_answer_meta_ai.md) — Strongest Theoretical Framing
-**Analysis**: Excellent. Correctly identifies that false shadow nodes are already wheel-sieved, so their LPF cannot exceed the current wheel primorial W(p) (slow-growing). Proposes `H = wheel_limit(p) × attractor_multiplier(phase)` or `C(q)`. Provides clear pseudocode for the exact mining experiment (record lpf_max, join to PGS features: attractor type, core_state, C(q), residues). Distinguishes null (√q) vs PGS model.
+**Analysis**: Excellent. Correctly identifies that false shadow nodes are already wheel-sieved, so their LPF cannot exceed the current wheel primorial W(p) (slow-growing). Proposes `H = wheel_limit(p) × attractor_multiplier(state)` or `C(q)`. Provides clear pseudocode for the exact mining experiment (record lpf_max, join to PGS features: attractor type, core_state, C(q), residues). Distinguishes null (√q) vs PGS model.
 
 **Experiment results**:
 - Meta_AI_Cq bounded frontier in 80.83% of cases, avg H/√q = 0.767.
@@ -32,7 +32,7 @@ This is a **strong confirming result** for the missing theorem. Below is the per
 - **Verdict**: Best high-level derivation. The wheel + attractor + C(q) form is directly implementable and matches the repo’s existing dynamic cutoff logic (`square_branch_gap_audit.py`).
 
 ### 2. Grok (02_asnwer_grok.md) — Most Practical & Infrastructure-Aware
-**Analysis**: My own prior response. Correctly maps the repo’s existing mining scripts (`simple_pgs_recursive_shadow_chain_state_mine.py`, `simple_pgs_shadow_chain_terminal_certificate_mine.py`, pgs_semiprime_backward_* miners) as already doing 80% of the work. Proposes concrete `H` forms (2×max_chain_gap + residue_constant; visible_divisor_bound from GWR-selected integer). Emphasizes fixed `candidate_bound=128` chamber makes everything local. Notes projected PGS gain to >90%.
+**Analysis**: My own prior response. Correctly maps the repo’s existing mining scripts (`simple_pgs_recursive_shadow_chain_state_mine.py`, `simple_pgs_shadow_chain_terminal_certificate_mine.py`, pgs_semiprime_backward_* miners) as already doing 80% of the work. Proposes concrete `H` forms (2×max_chain_gap + residue_constant; visible_divisor_bound from GWR-selected integer). Emphasizes fixed `candidate_bound=128` search interval makes everything local. Notes projected PGS gain to >90%.
 
 **Experiment results**:
 - Grok_2maxgap_residue: 80.83% bounding rate, **best tightness** (avg H/√q = **0.0707** — the smallest ratio of any proposal).
@@ -64,11 +64,11 @@ This is a **strong confirming result** for the missing theorem. Below is the per
 - **Verdict**: Most actionable short-term. H1 (visible + max_gap) is the simplest drop-in replacement and performed reliably.
 
 ### 6. xAI Grok (06_answer_xai_grok.md) — Best Diagnosis of Current Code
-**Analysis**: Accurately cites the exact functions (`visible_open_chain_offsets`, `chain_horizon_closure_result`, `divisor_witness`, `DEFAULT_VISIBLE_DIVISOR_BOUND=10000`). Notes chain length ≤8 and wheel/chamber constraints. Proposes logging `max_spf_false` + full PGS state and testing chamber-derived bounds.
+**Analysis**: Accurately cites the exact functions (`visible_open_chain_offsets`, `chain_horizon_closure_result`, `divisor_witness`, `DEFAULT_VISIBLE_DIVISOR_BOUND=10000`). Notes chain length ≤8 and wheel/search interval constraints. Proposes logging `max_spf_false` + full PGS state and testing search interval-derived bounds.
 
 **Experiment results**:
 - xAI_chamber_derived: 80.83% bounding, avg ratio 0.735.
-- **Verdict**: Most faithful to the committed codebase at b731383e. The chamber-derived form aligns with existing `visible_divisor_bound` usage.
+- **Verdict**: Most faithful to the committed codebase at b731383e. The search interval-derived form aligns with existing `visible_divisor_bound` usage.
 
 ### Cross-Answer Synthesis & Experiment Takeaways
 - **Universal strength**: Every answer correctly identifies the same experiment (mine least-factor frontier of false nodes) and reaches the same conclusion (confirming result is expected).

@@ -30,7 +30,7 @@ The hard gate fails because the true next prime candidate at offset 26 is remove
 
 ## Why 005B Fired
 
-The previous chamber is $3121 \to 3137$, with gap width 16.
+The previous search interval is $3121 \to 3137$, with gap width 16.
 
 Its first legal integer is:
 
@@ -84,7 +84,7 @@ The hardening probe only evaluated the previous-to-current selected-integer shif
 At input prime 3137:
 
 - previous row available: true
-- previous chamber signal present: true
+- previous search interval signal present: true
 - later unresolved alternatives after the true next prime: true
 - higher-divisor pressure lock absent at the true next prime: true
 - actual next prime resolved before absorption: false
@@ -102,7 +102,7 @@ Both are structural and label-free at this input prime. Neither is approved as a
 
 ## Decision
 
-005B remains useful as forensic evidence that previous-chamber memory matters. It is not sufficient to authorize absorption.
+005B remains useful as forensic evidence that previous-search-interval memory matters. It is not sufficient to authorize absorption.
 
 The live status is:
 

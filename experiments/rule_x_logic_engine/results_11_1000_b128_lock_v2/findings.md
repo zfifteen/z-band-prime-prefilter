@@ -44,7 +44,7 @@ candidate hypotheses: 5562
 
 ### Structural GWR/NLSC Consistency
 
-Each candidate chamber may choose its own GWR-selected integer. This layer still rejects
+Each proposed interval may choose its own GWR-selected integer. This layer still rejects
 no candidates.
 
 ```text
@@ -70,7 +70,7 @@ rule_x_true_boundary_rejected_count = 107
 ### Survivor-Integer Lock Oracle
 
 This rule waits until the candidate next prime itself survives exact
-non-composite screening, then locks that candidate chamber's integer. The first
+non-composite screening, then locks that proposed interval's integer. The first
 later lower-divisor composite becomes a pressure ceiling.
 
 This is an oracle contrast, not a production-legal generator rule, because it
@@ -84,7 +84,7 @@ survivor_lock_true_boundary_rejected_count = 0
 
 ## Reset Transitions
 
-The run found `208` selected-integer transitions as candidate chambers extended
+The run found `208` selected-integer transitions as proposed intervals extended
 rightward.
 
 Of these, `44` transitions occurred before the actual next prime. These are the

@@ -15,7 +15,7 @@ on where the consecutive primes at the endpoints are allowed to sit.
 In the dominant `d=4` regime, that endpoint reading becomes especially
 concrete:
 
-- the selected integer starts a square-phase clock,
+- the selected integer starts a prime-square interval clock,
 - and the next prime must arrive before the next prime square after the
   selected integer.
 
@@ -95,7 +95,7 @@ opened and before it closed.
 So the gap endpoints are constrained by the admissibility of the interior
 divisor profile, not only by abstract gap length.
 
-## The Dominant `d=4` Square-Phase Clock
+## The Dominant `d=4` Prime-Square Interval Clock
 
 The note
 [`dominant_d4_arrival_reduction_findings.md`](./dominant_d4_arrival_reduction_findings.md)
@@ -143,7 +143,7 @@ Those two quantities immediately give a third observable:
 
 $$U_{\square}(w, q) = \frac{q - w}{S_{+}(w) - w}.$$
 
-This is the **square-phase utilization** of the right endpoint.
+This is the **prime-square interval utilization** of the right endpoint.
 
 Interpretation:
 
@@ -151,7 +151,7 @@ Interpretation:
   horizon,
 - `U_square < 1` means the prime arrives before the next prime-square threat,
 - very small `U_square` means the prime uses only a tiny fraction of the
-  available square-phase budget.
+  available prime-square interval budget.
 
 Under the dominant `d=4` specialization of that closure consequence,
 
@@ -170,11 +170,11 @@ already records the needed means:
 - zero observed closure violations on the documented surface.
 
 Subtracting those two committed means gives the mean selected integer-to-prime distance
-$q - w$, and therefore the mean square-phase utilization.
+$q - w$, and therefore the mean prime-square interval utilization.
 
 On the documented surface, the dominant `d=4` regime gives:
 
-| Regime | Mean threat distance | Mean selected integer-to-prime distance | Mean square-phase utilization |
+| Regime | Mean threat distance | Mean selected integer-to-prime distance | Mean prime-square interval utilization |
 |---|---:|---:|---:|
 | exact $10^6$ | `5869.60` | `12.07` | `2.06e-3` |
 | even $10^8$ | `89705.62` | `14.97` | `1.67e-4` |
@@ -260,7 +260,7 @@ The present note says something more specific:
 - once the selected integer is fixed, the same interior structure yields direct
   constraints on where the endpoint primes are allowed to sit,
 - and in the dominant `d=4` regime those constraints are naturally measured by
-  a square-phase utilization ratio.
+  a prime-square interval utilization ratio.
 
 So the admissibility note is about which interior patterns are realizable at
 all.
@@ -274,7 +274,7 @@ This finding does **not** claim:
 - that `GWR` is already proved universally,
 - that the right endpoint is uniquely forced among all hypothetical prime
   placements,
-- that the mean square-phase utilization controls every individual gap,
+- that the mean prime-square interval utilization controls every individual gap,
 - or that the observed tiny utilization values already constitute a theorem.
 
 The exact supported statement is narrower:
@@ -291,7 +291,7 @@ The safest strong statement is:
 `GWR`, if true as a prime-gap law, does not merely rank composites inside a
 gap. It constrains where the consecutive endpoint primes are allowed to occur.
 
-In the dominant `d=4` regime, the selected integer starts a square-phase clock, and the
+In the dominant `d=4` regime, the selected integer starts a prime-square interval clock, and the
 next prime must appear before the next prime square after that selected integer. On the
 current documented surface, the next prime uses only a tiny mean fraction of
-that available square-phase budget.
+that available prime-square interval budget.

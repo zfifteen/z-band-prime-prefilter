@@ -21,17 +21,17 @@ is accepted as prime. The PGS generator does not do that.
 
 It examines the finite arithmetic interval immediately to the right of `p`,
 uses exact divisor-count state to orient the local prime-gap structure, and
-selects the next prime by the GWR/NLSC chamber-reset rule.
+selects the next prime by the GWR/NLSC search-interval-reset rule.
 
 The production selector is:
 
 ```text
 rule_id: pgs_chamber_reset_v1
 state input: exact divisor-count field
-next-prime selection rule: GWR/NLSC chamber-reset state
+next-prime selection rule: GWR/NLSC search-interval-reset state
 ```
 
-If the selector does not resolve inside the supplied chamber bound, the
+If the selector does not resolve inside the supplied search bound, the
 generator raises `PGSUnresolvedError`. It does not run a backup prime search.
 
 ## Architecture
@@ -39,7 +39,7 @@ generator raises `PGSUnresolvedError`. It does not run a backup prime search.
 The production generator has one execution path:
 
 ```text
-input prime p -> GWR/NLSC chamber-reset selector -> emit {"p": p, "q": q}
+input prime p -> GWR/NLSC search-interval-reset selector -> emit {"p": p, "q": q}
 ```
 
 The emitted stream contains only `p` and `q`. Source labels, certificates,
@@ -93,8 +93,8 @@ The production next-prime selection rule applies these steps:
 - lock the GWR-selected integer only after a resolved survivor exists;
 - apply the lower-divisor threat ceiling after integer lock;
 - identify the first resolved survivor;
-- reset the chamber at that survivor;
-- classify later unresolved candidates as post-reset chamber material;
+- reset the search interval at that survivor;
+- classify later unresolved candidates as post-reset search interval material;
 - emit the resolved survivor as `q`.
 
 ## Non-Goals

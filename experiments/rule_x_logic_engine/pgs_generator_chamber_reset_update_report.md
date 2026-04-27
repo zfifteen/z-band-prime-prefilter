@@ -1,8 +1,8 @@
-# PGS Generator Chamber-Reset Update Report
+# PGS Generator Search Interval-Reset Update Report
 
 ## Result
 
-The minimal PGS generator now emits chamber-reset PGS certificates under:
+The minimal PGS generator now emits search-interval-reset PGS certificates under:
 
 ```text
 rule_id: pgs_chamber_reset_v1
@@ -33,7 +33,7 @@ runtime: 0.344686 seconds
 
 ## High-Scale Rule Validation
 
-The chamber-reset rule was separately validated in the decade-window experiment
+The search-interval-reset rule was separately validated in the decade-window experiment
 through `10^18`:
 
 ```text

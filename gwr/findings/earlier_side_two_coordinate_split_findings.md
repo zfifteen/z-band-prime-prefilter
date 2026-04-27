@@ -27,7 +27,7 @@ decomposition for the earlier side.
 The strongest supported reading is:
 
 all genuine earlier-side score danger is concentrated in a low-class local
-chamber, while the current high-class frontier is only ratio-tight, not
+search interval, while the current high-class frontier is only ratio-tight, not
 score-tight.
 
 In ordinary language:
@@ -208,7 +208,7 @@ lemma.
 
 It already closes the earlier side through a different architecture:
 
-1. the low-class local admissibility chamber closes the genuine score-danger
+1. the low-class local admissibility search interval closes the genuine score-danger
    regime;
 2. the residual low-class closure artifacts discharge the remaining requested
    low-class surface;
@@ -231,7 +231,7 @@ does.
 The current evidence suggests a cleaner proof-facing decomposition of the
 earlier side:
 
-### 1. Low-Class Chamber
+### 1. Low-Class Search Interval
 
 Use the existing local admissibility theorem and the residual low-class closure
 artifacts for the only regime where absolute score danger is real.
@@ -306,5 +306,5 @@ The live repository now supports a sharper reading:
 
 That does not weaken the current `GWR` proof surface.
 
-It explains why the current proof closes through a local chamber and exact
+It explains why the current proof closes through a local search interval and exact
 audit route rather than through one global analytic inequality.

@@ -36,7 +36,7 @@ structure.
 ---
 
 The second result is the scheduler. A lag-2 scheduler plus a small periodic
-phase closes the local `256`-window surface to pooled L1 `0.0116`.
+periodic correction closes the local `256`-window surface to pooled L1 `0.0116`.
 
 That is not a vague match. It reproduces the pooled concentration triple
 

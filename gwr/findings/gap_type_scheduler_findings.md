@@ -32,9 +32,9 @@ The new probe tests three deterministic models on the same persistent
 1. `second_order_rotor`
    The existing baseline with no explicit scheduler.
 2. `mod_cycle_scheduler`
-   A simple `8`-phase global counter.
+   A simple `8`-state global counter.
 3. `lag2_state_scheduler`
-   A finite scheduler whose phase is the reduced state two steps back. In
+   A finite scheduler whose state is the reduced state two steps back. In
    ordinary language, the core grammar keeps one more remembered core symbol.
 
 The exact summary is in
@@ -76,7 +76,7 @@ the tested finite schedulers.
 
 ## Why The Modulo Scheduler Matters
 
-The simple `8`-phase global cycle is not the best model, but it is important.
+The simple `8`-state global cycle is not the best model, but it is important.
 
 Its pooled window concentrations are:
 
@@ -120,14 +120,14 @@ First, the `lag2_state_scheduler` says that the next transition depends not
 only on the current pair of core states, but also on which core state the walk
 occupied two steps earlier. That is a concrete finite-memory law.
 
-Second, the `8`-phase modulo scheduler says that a very small global rhythm can
+Second, the `8`-state modulo scheduler says that a very small global rhythm can
 recover most of the same pooled-window structure. That points to local epoch
 control rather than an unstructured stationary process.
 
 Together those results sharpen the working architecture:
 
 1. a fast local grammar on the persistent `14`-state core;
-2. a finite scheduler that controls local window phase;
+2. a finite scheduler that controls local window state;
 3. a still-missing reset law that decides how one local regime hands off to
    the next over long horizons.
 
@@ -143,4 +143,4 @@ higher-order concentration gap.
 What is not yet supported is the stronger stationary claim that one unreset
 million-step walk fully reproduces the same concentration surface. The new data
 shows exactly where that remaining gap lives: in long-horizon re-entry and
-phase-reset behavior.
+state-reset behavior.

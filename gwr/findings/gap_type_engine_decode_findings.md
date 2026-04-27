@@ -135,7 +135,7 @@ So the present evidence says:
 
 ## Reading
 
-This phase produces a clean split between what is already supported and what
+This stage produces a clean split between what is already supported and what
 must come next.
 
 Supported:

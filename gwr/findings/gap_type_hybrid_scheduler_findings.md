@@ -31,8 +31,8 @@ deterministic models:
 
 Here:
 
-- `mod8` means the scheduler carries an explicit `8`-phase counter;
-- `reset_hdiv` resets that phase when a higher-divisor state arrives;
+- `mod8` means the scheduler carries an explicit `8`-state counter;
+- `reset_hdiv` resets that state when a higher-divisor state arrives;
 - `reset_nontriad` resets it whenever the walk leaves the Semiprime Wheel
   Attractor.
 
@@ -100,9 +100,9 @@ Not yet supported:
 - that the current finite hybrid also reproduces the long-horizon stationary
   re-entry law.
 
-## The 8-Phase Question
+## The 8-State Question
 
-The `8`-phase controller is good, but the current reduced-state surface does
+The `8`-state controller is good, but the current reduced-state surface does
 not isolate it as uniquely privileged.
 
 Two cycle sweeps matter here.
@@ -120,7 +120,7 @@ cycle in the same range is `2`, with:
 - full-walk three-step: `0.4917`
 
 So the current evidence does support a **small periodic controller**, but it
-does not yet support a unique arithmetic lock-in to an `8`-phase controller.
+does not yet support a unique arithmetic lock-in to an `8`-state controller.
 
 That is an important narrowing:
 
@@ -169,7 +169,7 @@ themselves higher-divisor reset states.
 That is the clean arithmetic reading:
 
 - reset-adjacent context may help prepare a maximal gap;
-- the maximal gap itself is not simply “the higher-divisor phase.”
+- the maximal gap itself is not simply “the higher-divisor state.”
 
 ## Current Claim
 

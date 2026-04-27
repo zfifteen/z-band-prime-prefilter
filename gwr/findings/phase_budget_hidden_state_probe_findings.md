@@ -1,4 +1,4 @@
-# Phase-Budget Hidden-State Probe Findings
+# State-Budget Hidden-State Probe Findings
 
 The strongest supported claim on the retained `10^12..10^18` catalog window surface is:
 
@@ -12,9 +12,9 @@ On this pooled surface, the three-value label
 
 beats current selected integer parity as a next-triad predictor, and it still adds pooled signal after parity and previous reduced state are already present.
 
-## Phase-Budget Definition
+## State-Budget Definition
 
-For current `d = 4` rows, compute square-phase utilization
+For current `d = 4` rows, compute prime-square interval utilization
 
 $$U_{\square}(w, q) = \frac{q - w}{S_{+}(w) - w}.$$
 
@@ -32,12 +32,12 @@ Rows below that median are labeled `d4_low`. Rows at or above it are labeled `d4
 
 - baseline log loss: `0.599308`
 - parity gain: `0.014128`
-- phase-budget gain: `0.027771`
+- state-budget gain: `0.027771`
 - parity + previous-state gain: `0.108789`
-- previous-state + phase-budget gain: `0.120587`
-- parity + previous-state + phase-budget gain: `0.131856`
+- previous-state + state-budget gain: `0.120587`
+- parity + previous-state + state-budget gain: `0.131856`
 
-So the phase-budget label does two distinct things on the retained surface:
+So the state-budget label does two distinct things on the retained surface:
 
 - by itself it beats parity by `0.013642` pooled log-loss gain;
 - when appended to the current parity-plus-previous-state model, it adds `0.023067` more pooled gain.

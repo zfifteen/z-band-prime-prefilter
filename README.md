@@ -142,7 +142,7 @@ Miller-Rabin, sieves, and oracle-style `nextprime` calls are also excluded from
 generation. Classical validation remains downstream audit after emission.
 
 On the current production generator surface, exact emission is preserved and the
-PGS selector applies exact divisor-count GWR/NLSC chamber-reset state:
+PGS selector applies exact divisor-count GWR/NLSC search-interval-reset state:
 
 ```text
 surface: 11..100000

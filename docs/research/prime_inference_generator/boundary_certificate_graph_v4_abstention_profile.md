@@ -3,7 +3,7 @@
 ## Status
 
 This is offline graph-solver analysis. It does not add a v4 relation, pure
-production emission, cryptographic approval, 005B, broad resolved-chamber
+production emission, cryptographic approval, 005B, broad resolved-interval
 absorption, earliest-candidate dominance, or scalar ranking.
 
 Next-Prime Law 005 remains candidate-grade. Classical labels are used only after

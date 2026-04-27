@@ -4,7 +4,7 @@ The most significant unanswered question is:
 
 Right now the generator has the correct operational shape:
 
-- chamber closure finds the first visible candidate next prime;
+- search-interval closure finds the first visible candidate next prime;
 - semiprime shadows seed a short rightward chain;
 - chain-horizon closure closes false chain nodes;
 - downstream audit confirms zero failures on tested surfaces.
@@ -28,7 +28,7 @@ into PGS-derived output, or at least sharply reduce it.
 
 The sharpest next experiment is not another ranker. It is:
 
-**Mine the least-factor frontier of false chain nodes and determine whether its maximum is governed by a PGS-visible invariant of the input prime, shadow seed, chain gaps, residues, or chamber state.**
+**Mine the least-factor frontier of false chain nodes and determine whether its maximum is governed by a PGS-visible invariant of the input prime, shadow seed, chain gaps, residues, or search-interval state.**
 
 Falsifying result: if the required horizon tracks `sqrt(q)` with no smaller PGS-visible bound, then the bridge is operationally good but not compressible into a pure local PGS rule at `candidate_bound=128`.
 

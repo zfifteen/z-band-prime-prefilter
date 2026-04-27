@@ -1,4 +1,4 @@
-# Next-Prime Law 001: First Open Chamber Closure
+# Next-Prime Law 001: First Open Search-Interval Closure
 
 Next-Prime Law 001 is the first candidate law for Milestone 1 of the PGS Prime
 Inference Generator. Its target is deliberately small: produce one lawful
@@ -11,18 +11,18 @@ inference rather than by external validation.
 
 ## Name
 
-First Open Chamber Closure.
+First Open Search-Interval Closure.
 
-The chamber after input prime `11` has one closed integer before the first wheel-open
+The search interval after input prime `11` has one closed integer before the first wheel-open
 offset. Next-Prime Law 001 asks whether that first open offset can be inferred as
-the right endpoint from PGS chamber structure alone.
+the right endpoint from PGS search-interval structure alone.
 
 ## Allowed Inputs
 
 - `anchor_prime_p = 11`
 - deterministic mod-30 wheel residues
 - first wheel-open even offset after the input prime
-- PGS chamber metadata derived without primality testing
+- PGS search-interval metadata derived without primality testing
 - rule-set version `boundary_law_001`
 
 For the first input prime:
@@ -49,24 +49,24 @@ The law must not use:
 
 The law may compute `q_hat = p + first_open_offset` only if the rule has first
 established that the first open offset is the unique PGS-inferred next prime for
-this chamber.
+this search interval.
 
 ## Candidate Inference Steps
 
 1. Read input prime `p = 11`.
 2. Compute the first wheel-open even offset after `p` under the mod-30 wheel.
-3. Record the pre-open chamber segment from offsets `1` through
+3. Record the pre-open interval segment from offsets `1` through
    `first_open_offset - 1`.
 4. Verify that every pre-open integer is wheel-closed by deterministic
    divisibility against the wheel basis.
-5. Establish that no GWR-selected integer is required when the inferred chamber interior
+5. Establish that no GWR-selected integer is required when the inferred search interval interior
    contains no admissible open composite integer before the first open offset.
 6. Infer `q_hat = p + first_open_offset`.
 7. Emit `q_hat` only if the next-prime uniqueness condition below is resolved.
 
 ## Endpoint Uniqueness Condition
 
-For input prime `11`, the rule must show from PGS chamber metadata alone that the
+For input prime `11`, the rule must show from PGS search-interval metadata alone that the
 first wheel-open position is the right endpoint rather than merely the first
 admissible candidate next prime.
 
@@ -97,7 +97,7 @@ If the law resolves the endpoint, pure mode emits:
 - `inference_status: "inferred"`
 - `failure_reason: null`
 
-The null selection fields are intentional for this first input prime. The chamber has
+The null selection fields are intentional for this first input prime. The search interval has
 no positive-offset open composite integer before the inferred right endpoint.
 
 ## Failure Contract
@@ -114,7 +114,7 @@ Milestone 0 behavior silently.
 ## Why This Is PGS Inference
 
 The law is PGS inference only if the emitted next-prime value follows from the input prime,
-the wheel-closed pre-open chamber, and the explicit empty-chamber closure rule.
+the wheel-closed pre-open interval, and the explicit empty-search-interval closure rule.
 The external audit may later confirm the emitted `q_hat`, but that confirmation
 cannot participate in the generation step.
 

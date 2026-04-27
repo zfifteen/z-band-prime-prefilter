@@ -1,4 +1,4 @@
-# Single-Hole Chamber Closure
+# Single-Hole Search-Interval Closure
 
 The single-hole probe found legal closure candidates for every one-hole
 unresolved true-next-prime case on the tested surface.

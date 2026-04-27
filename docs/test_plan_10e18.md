@@ -56,9 +56,9 @@ The regime ladder must be recognized consistently by:
 Fast pytest should cover the shape of that ladder without attempting real
 `10^18` interval analysis.
 
-## Phase Split
+## Stage Split
 
-### Phase 1: Band Coverage Through `10^18`
+### Stage 1: Band Coverage Through `10^18`
 
 - expand the shared sampled-scale defaults through `10^18`,
 - make all gap-ridge CLIs inherit that shared ladder,
@@ -66,13 +66,13 @@ Fast pytest should cover the shape of that ladder without attempting real
 - keep exact full runs capped at `10^7`,
 - keep smoke tests on tiny custom scales so ordinary pytest remains fast.
 
-### Phase 2: High-Scale Execution Infrastructure
+### Stage 2: High-Scale Execution Infrastructure
 
 - completed: implement a deterministic segmented factor and prime supply suitable for `10^18`-class windows,
 - completed: preserve exact interval semantics for divisor counts,
 - completed: make the high-scale execution path auditable and deterministic.
 
-### Phase 3: Committed `10^18` Artifacts
+### Stage 3: Committed `10^18` Artifacts
 
 - completed: run the higher-band raw gap-edge, lexicographic, and composite-structure campaigns with the new engine,
 - completed: regenerate the main `10^18`-grade artifacts,

@@ -15,8 +15,8 @@ Current status:
 - Milestone 1: blocked for generator output.
 - Pure emission: forbidden.
 
-Previous-chamber evidence is history-dependent. A pure generator may use it only
-after the previous endpoint and previous chamber certificate are already trusted.
+Previous-search-interval evidence is history-dependent. A pure generator may use it only
+after the previous endpoint and previous search-interval certificate are already trusted.
 
 ## Tested Configuration
 
@@ -31,7 +31,7 @@ higher_divisor_locked_absorption: disabled
 previous_to_current_carrier_shift_lock: selector only
 ```
 
-The lock was evaluated on the previous-chamber near-miss target population:
+The lock was evaluated on the previous-search-interval near-miss target population:
 
 ```text
 true next prime is resolved

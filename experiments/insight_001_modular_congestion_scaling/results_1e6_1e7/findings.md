@@ -47,10 +47,10 @@ prime constraint.
 | Merged predicted zones | `1` |
 | Predicted-zone coverage | `0.1674619813931132` |
 | Record median MCS percentile | `50.12783887468457` |
-| Phase-blind control hit rate | `1.0` |
-| Phase-blind coverage | `0.9859832237796418` |
+| Residue-alignment-blind control hit rate | `1.0` |
+| Residue-alignment-blind coverage | `0.9859832237796418` |
 
-The phase-blind control hit every tested record only because its zones covered
+The residue-alignment-blind control hit every tested record only because its zones covered
 `98.59832237796418%` of the domain. That control is not a useful search
 contraction.
 

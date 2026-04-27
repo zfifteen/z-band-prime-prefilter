@@ -409,7 +409,7 @@ The next precise questions are:
 2. Can the repository's deterministic factor gating now be profitably inserted earlier, inside or before the new upper-band helper rather than after BC's existing `createRandomPrime()` path?
 3. Can the distributional consequences of the earlier resampling rule be characterized precisely enough for a stronger semantic claim than the present performance result?
 
-Those are next-phase questions. They do not weaken the result already established here.
+Those are next-stage questions. They do not weaken the result already established here.
 
 # Reproduction
 

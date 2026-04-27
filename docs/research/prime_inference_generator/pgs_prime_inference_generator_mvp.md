@@ -13,8 +13,8 @@ Pure generation must not call Miller-Rabin, `nextprime`, `isprime`, `prime`,
 trial-division primality testing, sieve-backed divisor counting, or a helper
 whose job is to find the next prime endpoint.
 
-The pure generation phase records what PGS inference emits. The audit phase
-records what classical validation confirms. Those two phases are separate code
+The pure generation stage records what PGS inference emits. The audit stage
+records what classical validation confirms. Those two stages are separate code
 paths and separate artifacts.
 
 ## Milestones

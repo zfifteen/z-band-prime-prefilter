@@ -1,8 +1,8 @@
 # Next-Prime Law 004: First Endpoint-Forcing Predicate
 
-Endpoint Laws 001 through 003 tested chamber certification. They did not produce
-a lawful emission because chamber consistency is not endpoint force. Endpoint
-Law 004 changes the target: identify a predicate that makes the chamber stop.
+Endpoint Laws 001 through 003 tested search interval certification. They did not produce
+a lawful emission because search-interval consistency is not endpoint force. Endpoint
+Law 004 changes the target: identify a predicate that makes the search interval stop.
 
 This note surveys candidate next-prime-forcing predicates under the pure
 generation contract. It does not emit. Its status is
@@ -12,7 +12,7 @@ generation contract. It does not emit. Its status is
 
 First Endpoint-Forcing Predicate.
 
-The law asks for a deterministic PGS predicate that takes input prime and chamber
+The law asks for a deterministic PGS predicate that takes input prime and search interval
 state and returns a unique `q_hat` without primality testing, next-prime lookup,
 or next-prime discovery by scanning to `d(n) = 2`.
 
@@ -21,13 +21,13 @@ or next-prime discovery by scanning to `d(n) = 2`.
 A next-prime-forcing predicate must:
 
 - start from an externally supplied input prime `p`;
-- use only PGS-computable chamber state;
+- use only PGS-computable search-interval state;
 - identify a unique next-prime offset;
 - distinguish a forced endpoint from an admissible candidate;
 - fail closed when the endpoint is not unique;
 - emit enough metadata to reproduce the inference.
 
-It must not assume the proposed chamber endpoint and then merely verify that the
+It must not assume the proposed interval endpoint and then merely verify that the
 interior is coherent.
 
 ## Forbidden Mechanisms
@@ -36,8 +36,8 @@ Next-Prime Law 004 rejects any predicate that emits because:
 
 - the endpoint is classically known;
 - the candidate is first wheel-open;
-- the proposed chamber is internally coherent;
-- there is no smaller candidate next prime inside the assumed chamber;
+- the proposed interval is internally coherent;
+- there is no smaller candidate next prime inside the assumed search interval;
 - the old recursive walker finds the endpoint;
 - a scan reaches `d(n) = 2`;
 - trial division, sieve generation, Miller-Rabin, `isprime`, or `nextprime`
@@ -58,12 +58,12 @@ Input-prime-13 probe:
 - integer: `w = 14`;
 - divisor class: `d(w) = 4`;
 - later proposed interior points: `15`, `16`;
-- first post-chamber open candidate: `17`.
+- first post-search interval open candidate: `17`.
 
 What it establishes:
 
-- the chamber has a integer;
-- no smaller endpoint inside the proposed chamber survives;
+- the search interval has a integer;
+- no smaller endpoint inside the proposed interval survives;
 - local interior closure is coherent.
 
 What remains missing:
@@ -120,10 +120,10 @@ Failure reason:
 
 Statement:
 
-A endpoint occurs where the normalized chamber transition reaches the prime
+A endpoint occurs where the normalized search interval transition reaches the prime
 fixed-point locus, without classical primality testing.
 
-The desired predicate would map chamber state to a unique offset:
+The desired predicate would map search-interval state to a unique offset:
 
 $$B(p, S, w, d(w)) = q_{hat}$$
 
@@ -132,7 +132,7 @@ where `S` is the PGS state and `w` is the active integer.
 What it establishes:
 
 - a plausible form for a true next-prime-forcing law;
-- a direct path from normalized chamber state to endpoint emission if solved.
+- a direct path from normalized search-interval state to endpoint emission if solved.
 
 What remains missing:
 
@@ -180,13 +180,13 @@ Failure reason:
 
 Statement:
 
-A reduced gap-type or chamber-state engine predicts the next prime offset
+A reduced gap-type or search interval-state engine predicts the next prime offset
 from state transitions rather than primality detection.
 
 What it establishes:
 
 - a possible compressed symbolic route to next-prime inference;
-- a natural place to encode recurring GWR/DNI chamber regimes.
+- a natural place to encode recurring GWR/DNI search interval regimes.
 
 What remains missing:
 
@@ -194,7 +194,7 @@ What remains missing:
   type or consistency label;
 - exact recovery without classical feedback during generation;
 - a proof that the state transition is deterministic and unique for the active
-  chamber.
+  search interval.
 
 Status:
 
@@ -210,7 +210,7 @@ No candidate predicate in this note currently forces a endpoint.
 
 The strongest supported result is:
 
-PGS chamber certificates can establish interior closure, GWR-selected integers,
+PGS search-interval certificates can establish interior closure, GWR-selected integers,
 leftmost-minimum integers, and local no-later-simpler consistency. They do not
 yet imply a unique next prime.
 
@@ -220,12 +220,12 @@ Status:
 
 ## Missing Theorem
 
-The missing theorem is a next-prime-forcing theorem external to chamber
+The missing theorem is a next-prime-forcing theorem external to search interval
 certification:
 
-$$\text{PGS chamber state} \Rightarrow \text{unique right endpoint offset}$$
+$$\text{PGS search-interval state} \Rightarrow \text{unique right endpoint offset}$$
 
-For a selected-integer-bearing chamber, the desired form is:
+For a selected-integer-bearing search interval, the desired form is:
 
 $$B(p, S, w, d(w)) = q_{hat}$$
 
@@ -245,7 +245,7 @@ Until then, pure mode must emit:
 
 ## Next Search Direction
 
-The next research task is not another small chamber certificate. It is to search
+The next research task is not another small search-interval certificate. It is to search
 for the missing function:
 
 $$B(p, S, w, d(w))$$
@@ -257,5 +257,5 @@ The most promising paths are:
 - prove a finite-state transition law that outputs next-prime offsets exactly.
 
 If none of these closes, the result is still clean: GWR/DNI currently describes
-and constrains proposed chambers, but a separate next-prime-forcing theorem is
+and constrains proposed intervals, but a separate next-prime-forcing theorem is
 needed before pure prime inference can emit.

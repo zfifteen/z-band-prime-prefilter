@@ -11,7 +11,7 @@ For one exact oracle row, the implemented surface records:
 - exact right endpoint $q^+$ from the existing oracle,
 - the branch horizon $S_{+}(w)$ when $d(w)=4$,
 - the square-ceiling margin $S_{+}(w)-q^+$,
-- and square-phase utilization $(q^+-w)/(S_{+}(w)-w)$ as a measured ratio.
+- and prime-square interval utilization $(q^+-w)/(S_{+}(w)-w)$ as a measured ratio.
 
 The implementation lives in
 [`../../src/python/z_band_prime_predictor/gpe_nlsc_selector.py`](../../src/python/z_band_prime_predictor/gpe_nlsc_selector.py).

@@ -47,7 +47,7 @@ The earlier `v1.0` generator had already displaced fallback on the audited
 production surfaces, but the code still carried explicit last-resort paths.
 
 The `v1.1` generator removes those paths from the generator file. If the PGS
-selector does not resolve inside the supplied chamber bound, generation raises
+selector does not resolve inside the supplied search bound, generation raises
 `PGSUnresolvedError` instead of choosing `q` by another method.
 
 Removed from the production generator:
@@ -66,16 +66,16 @@ The production selector is:
 ```text
 rule_id: pgs_chamber_reset_v1
 state input: exact divisor-count field
-next-prime selection rule: GWR/NLSC chamber-reset state
+next-prime selection rule: GWR/NLSC search-interval-reset state
 ```
 
-The key chamber-reset interpretation is:
+The key search-interval-reset interpretation is:
 
 After the first resolved survivor appears, later unresolved candidates are
-post-reset chamber material, not competing endpoints for the original input prime.
+post-reset search interval material, not competing endpoints for the original input prime.
 
 That converts the remaining candidate set into a consistency-collapse problem:
-the endpoint is the first resolved survivor that leaves the earlier chamber
+the endpoint is the first resolved survivor that leaves the earlier search interval
 state coherent under GWR and NLSC.
 
 ## Repository Links

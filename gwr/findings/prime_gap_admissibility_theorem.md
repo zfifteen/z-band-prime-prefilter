@@ -20,7 +20,7 @@ This note records the closure of the earlier flank.
 
 ## Local Model
 
-The fixed chamber model used in the admissibility extractor is:
+The fixed search-interval model used in the admissibility extractor is:
 
 - wheel modulus $W = 30030$,
 - early window $K = 128$,

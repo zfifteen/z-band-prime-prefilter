@@ -7,9 +7,9 @@ next-prime inference from an input prime `p`.
 
 It does not score candidate primes. It does not search until the next prime. It
 builds candidate next-prime hypotheses and eliminates the hypotheses whose
-proposed chambers contradict available PGS evidence.
+proposed intervals contradict available PGS evidence.
 
-On the current high-scale chamber-reset surface:
+On the current high-scale search-interval-reset surface:
 
 ```text
 decade windows: 10^8 through 10^18
@@ -28,15 +28,15 @@ false emissions: 0
 candidate-bound misses: 0
 ```
 
-The result is significant because the engine now distinguishes current-chamber
-endpoint evidence from later-chamber tail evidence. Once the first resolved
-survivor appears, later unresolved candidates are assigned to later chambers
+The result is significant because the engine now distinguishes current-search interval
+endpoint evidence from later-search interval tail evidence. Once the first resolved
+survivor appears, later unresolved candidates are assigned to later search intervals
 and no longer block emission for the original input prime.
 
 The earlier semiprime-shadow landmark hold remains necessary. It prevents
 two-factor witness-horizon landmarks from being promoted into false endpoints.
-The chamber-reset rule then closes the remaining coverage gap by classifying
-later unresolved tails as post-endpoint chamber material.
+The search-interval-reset rule then closes the remaining coverage gap by classifying
+later unresolved tails as post-endpoint search interval material.
 
 ## Core Object
 
@@ -52,24 +52,24 @@ The experiment uses `H = 128` and wheel-open residues modulo `30`:
 1, 7, 11, 13, 17, 19, 23, 29
 ```
 
-Each candidate `c = p + h` defines a proposed chamber:
+Each candidate `c = p + h` defines a proposed interval:
 
 $$I(p, c) = \{p+1, p+2, \dots, c-1\}.$$
 
 The engine asks one question:
 
 ```text
-If c were the next prime endpoint, can the proposed chamber remain consistent
+If c were the next prime endpoint, can the proposed interval remain consistent
 with the current PGS evidence?
 ```
 
-The endpoint is inferred by consistency collapse followed by chamber reset:
+The endpoint is inferred by consistency collapse followed by search-interval reset:
 
 ```text
-all impossible candidate chambers are removed;
+all impossible proposed intervals are removed;
 the first resolved survivor appears;
-that survivor closes the current chamber;
-later unresolved candidates are assigned to later chambers;
+that survivor closes the current search interval;
+later unresolved candidates are assigned to later search intervals;
 the first resolved survivor is emitted as q_hat.
 ```
 
@@ -102,9 +102,9 @@ position remains unresolved. Absence of a witness is not primality evidence.
 A candidate is a resolved survivor when:
 
 1. the candidate itself has no positive composite witness;
-2. all wheel-open interior positions in its proposed chamber are closed by
+2. all wheel-open interior positions in its proposed interval are closed by
    positive composite evidence;
-3. the proposed chamber contains a integer available to the rule stack;
+3. the proposed interval contains a integer available to the rule stack;
 4. no active rule rejects the candidate.
 
 Resolved survivor does not mean "proved prime" in the mathematical sense. It
@@ -112,12 +112,12 @@ means "not eliminated by the label-free finite rule stack."
 
 ### Unresolved Hold
 
-An unresolved hold is an abstention state before chamber reset. A candidate
+An unresolved hold is an abstention state before search-interval reset. A candidate
 with unresolved interior positions remains active until a resolved survivor
-closes the current chamber.
+closes the current search interval.
 
-Before chamber reset, unresolved alternatives block emission. After the first
-resolved survivor, later unresolved alternatives belong to a later chamber and
+Before search-interval reset, unresolved alternatives block emission. After the first
+resolved survivor, later unresolved alternatives belong to a later search interval and
 do not compete with the current input prime's endpoint.
 
 ### Semiprime-Shadow Landmark
@@ -143,7 +143,7 @@ it is cleared by additional evidence.
 
 ### Integer Lock
 
-Each proposed chamber has a GWR-style integer: the leftmost known composite in
+Each proposed interval has a GWR-style integer: the leftmost known composite in
 the proposed interior with minimum divisor count among known composites.
 
 The integer is not locked merely because it appears. The engine locks a integer
@@ -152,7 +152,7 @@ only after a resolved survivor exists.
 In logic-puzzle language:
 
 ```text
-the chamber story cannot become binding until the proposed endpoint has earned
+the search-interval account cannot become binding until the proposed endpoint has earned
 resolved-survivor status.
 ```
 
@@ -170,9 +170,9 @@ ceiling.
 
 The engine rejects later candidate next primes that extend beyond this threat.
 
-### Chamber Reset
+### Search-Interval Reset
 
-A chamber reset occurs at the first resolved survivor `r` after input prime `p`.
+A search-interval reset occurs at the first resolved survivor `r` after input prime `p`.
 
 The observable state is:
 
@@ -186,8 +186,8 @@ candidate.
 The reset rule is:
 
 ```text
-once r is resolved, r closes the p-chamber;
-later unresolved candidates u are post-reset chamber material;
+once r is resolved, r closes the p search interval;
+later unresolved candidates u are post-reset search-interval material;
 u is not a competing endpoint for input prime p.
 ```
 
@@ -197,19 +197,19 @@ the later tail. It does not create the first survivor.
 
 ## Rule Stack
 
-The current Rule X chamber-reset stack is:
+The current Rule X search-interval-reset stack is:
 
 ```text
 1. Build wheel-open candidate next-prime hypotheses.
 2. Reject candidate composites with positive composite witnesses.
-3. Hold candidate chambers with unresolved wheel-open interiors.
+3. Hold proposed intervals with unresolved wheel-open interiors.
 4. Hold semiprime-shadow landmarks open instead of treating them as resolved q.
 5. Lock the selected integer only after a resolved survivor exists.
 6. Find the first certified lower-divisor threat after the locked selected integer.
 7. Reject candidate next primes beyond that threat.
 8. Identify the first resolved survivor r.
-9. Reset the chamber at r.
-10. Exclude later unresolved candidates as post-reset chamber material.
+9. Reset the search interval at r.
+10. Exclude later unresolved candidates as post-reset search-interval material.
 11. Emit r as q_hat.
 12. Audit classically after emission.
 ```
@@ -222,13 +222,13 @@ bounds `97` and `127`.
 
 The decisive coverage rule is step `9`. Before this rule, the engine found the
 true next prime as the first resolved survivor but refused to emit when later
-unresolved tail candidates remained. After chamber reset, those tail candidates
-are assigned to later chambers and no longer block the current endpoint.
+unresolved tail candidates remained. After search-interval reset, those tail candidates
+are assigned to later search intervals and no longer block the current endpoint.
 
 ## Why GWR/NLSC Alone Did Not Collapse Candidates
 
-GWR and NLSC are interior consistency laws. If each candidate chamber is allowed
-to choose its own integer from scratch, every proposed chamber can often remain
+GWR and NLSC are interior consistency laws. If each proposed interval is allowed
+to choose its own integer from scratch, every proposed interval can often remain
 internally coherent.
 
 The initial structural-only run showed:
@@ -305,9 +305,9 @@ cannot be emitted.
 
 ## Measured Surface
 
-### Chamber-Reset Decade Ladder
+### Search Interval-Reset Decade Ladder
 
-The chamber-reset rule was rerun on the same high-scale decade ladder used for
+The search-interval-reset rule was rerun on the same high-scale decade ladder used for
 the previous Rule X and classical comparisons:
 
 ```text
@@ -364,7 +364,7 @@ The `317` run is a finite full-witness control for this surface because
 false endpoint promotion is removed by complete small-scale witness coverage.
 
 The semiprime-shadow landmark hold gives the same zero true-rejection safety
-without full witness coverage, at the cost of holding more candidate chambers
+without full witness coverage, at the cost of holding more proposed intervals
 unresolved.
 
 ### Current Best Guarded Runs
@@ -389,7 +389,7 @@ label_lock_true_boundary_rejected_count = 0
 
 ## Emission Contract
 
-The chamber-reset logic engine may emit when all of these hold:
+The search-interval-reset logic engine may emit when all of these hold:
 
 ```text
 first_resolved_survivor exists
@@ -399,11 +399,11 @@ selected-integer lock and lower-divisor threat rules do not reject the survivor
 true-next-prime labels have not been consulted
 ```
 
-Later unresolved candidates do not block emission after chamber reset:
+Later unresolved candidates do not block emission after search-interval reset:
 
 ```text
 p ... first_resolved_survivor ... later_unresolved_tail
-      ^ emit this endpoint       ^ classify as later chamber material
+      ^ emit this endpoint       ^ classify as later search-interval material
 ```
 
 The emitted experimental record should remain minimal if promoted into a
@@ -434,7 +434,7 @@ candidate-elimination path described above.
 ## Relation To Existing Artifacts
 
 This artifact supersedes the loose "Rule X" brainstorming label with a precise
-candidate-elimination and chamber-reset rule stack.
+candidate-elimination and search-interval-reset rule stack.
 
 It is related to these earlier lines of work:
 
@@ -448,9 +448,9 @@ The first new contribution is the semiprime-shadow landmark hold before integer
 lock. It prevents unresolved two-factor landmarks from being promoted to
 endpoint survivors.
 
-The second new contribution is chamber reset at the first resolved survivor.
+The second new contribution is search-interval reset at the first resolved survivor.
 It converts the later unresolved tail from apparent endpoint competition into
-post-endpoint chamber structure.
+post-endpoint search interval structure.
 
 ## Current Status
 
@@ -462,14 +462,14 @@ the documented `11..100000`, `candidate_bound = 128` surface for
 true_boundary_rejected_count = 0
 ```
 
-Before chamber reset, it did not resolve every input prime:
+Before search-interval reset, it did not resolve every input prime:
 
 ```text
 witness_bound = 97:  311 / 9588 exact unique matches
 witness_bound = 127: 488 / 9588 exact unique matches
 ```
 
-Rule X with chamber reset resolved the full decade-window ladder:
+Rule X with search-interval reset resolved the full decade-window ladder:
 
 ```text
 10^8 through 10^18
@@ -479,8 +479,8 @@ Rule X with chamber reset resolved the full decade-window ladder:
 0 candidate-bound misses
 ```
 
-The chamber-reset rule is now the production selector. The production generator
-uses exact divisor-count GWR/NLSC chamber-reset state instead of the earlier
+The search-interval-reset rule is now the production selector. The production generator
+uses exact divisor-count GWR/NLSC search-interval-reset state instead of the earlier
 first-visible-open shortcut.
 
 Current production generator check:
@@ -517,9 +517,9 @@ states raise explicitly instead of invoking another prime-search method.
   [../../../experiments/rule_x_logic_engine/results_11_100000_b128_label_w127_shadow_guard/summary.json](../../../experiments/rule_x_logic_engine/results_11_100000_b128_label_w127_shadow_guard/summary.json)
 - Guarded findings:
   [../../../experiments/rule_x_logic_engine/results_11_100000_b128_label_w127_shadow_guard/findings.md](../../../experiments/rule_x_logic_engine/results_11_100000_b128_label_w127_shadow_guard/findings.md)
-- Chamber-reset probe script:
+- Search-interval-reset probe script:
   [../../../experiments/rule_x_logic_engine/run_chamber_reset_probe.py](../../../experiments/rule_x_logic_engine/run_chamber_reset_probe.py)
-- Chamber-reset decade ladder summary:
+- Search-interval-reset decade ladder summary:
   [../../../experiments/rule_x_logic_engine/chamber_reset_decade_ladder_1e8_1e18_a256_b1024/summary.json](../../../experiments/rule_x_logic_engine/chamber_reset_decade_ladder_1e8_1e18_a256_b1024/summary.json)
-- Chamber-reset probe report:
+- Search-interval-reset probe report:
   [../../../experiments/rule_x_logic_engine/chamber_reset_probe_1e8_1e18_a256_b1024/report.md](../../../experiments/rule_x_logic_engine/chamber_reset_probe_1e8_1e18_a256_b1024/report.md)

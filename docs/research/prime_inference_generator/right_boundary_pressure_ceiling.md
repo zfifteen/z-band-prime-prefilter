@@ -121,7 +121,7 @@ The audited next prime is:
 - actual next prime offset: `16`
 
 So the proposed ceiling would exclude the true next prime. The later lower-divisor
-event is not proof that the chamber ended before it. In this case it can act as
+event is not proof that the search interval ended before it. In this case it can act as
 a selected-integer reset.
 
 ## Interpretation
@@ -135,8 +135,8 @@ The probe shows the missing condition:
   prove that the first certified composite was the locked GWR-selected integer.
 
 Without a selected-integer-lock predicate, lower-divisor pressure is not a safe ceiling.
-It can describe a transition in the interior chamber rather than a contradiction
-with the chamber.
+It can describe a transition in the interior search interval rather than a contradiction
+with the search interval.
 
 ## Status
 
@@ -146,6 +146,6 @@ Next-Prime Law 005 is not approved.
 
 The next theorem target is a selected-integer-lock condition:
 
-If PGS evidence establishes that a integer $w$ is the active chamber integer,
+If PGS evidence establishes that a integer $w$ is the active search interval integer,
 then the first later certified lower-divisor composite gives a right-endpoint
 ceiling. Without that lock, the event is only pressure evidence.

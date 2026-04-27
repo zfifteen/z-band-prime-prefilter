@@ -1,8 +1,8 @@
-# Next-Prime Law 002: Minimal Closed Chamber Certificate
+# Next-Prime Law 002: Minimal Closed Search Interval Certificate
 
 Next-Prime Law 002 is the next candidate after Next-Prime Law 001 failed to close.
 The change is the standard of evidence. The law does not infer a endpoint from
-first wheel-open admissibility alone. It requires a complete PGS chamber
+first wheel-open admissibility alone. It requires a complete PGS search interval
 certificate that forces the proposed endpoint.
 
 This is a design note, not an emitting implementation. If the certificate cannot
@@ -11,10 +11,10 @@ failed closed.
 
 ## Name
 
-Minimal Closed Chamber Certificate.
+Minimal Closed Search Interval Certificate.
 
 The law asks whether a proposed endpoint can be emitted only after the generator
-has a closed chamber certificate for the interval before it and a deterministic
+has a closed search-interval certificate for the interval before it and a deterministic
 reason that no smaller admissible endpoint competes with it.
 
 ## Candidate Contract
@@ -25,10 +25,10 @@ emit `q_hat` only if it can construct a certificate with:
 - input prime `p`;
 - proposed endpoint `q_hat`;
 - interior `I = {p + 1, ..., q_hat - 1}`;
-- verified chamber closure for every integer in `I`;
-- GWR-compatible selected integer data, or an explicit empty-chamber base case;
+- verified search-interval closure for every integer in `I`;
+- GWR-compatible selected integer data, or an explicit empty-interval base case;
 - no-later-simpler closure for the active selected-integer regime;
-- no unresolved competing chamber with smaller admissible endpoint;
+- no unresolved competing search interval with smaller admissible endpoint;
 - an explicit reason `q_hat` is forced rather than merely allowed.
 
 If any field is missing or unresolved, the law fails closed.
@@ -39,10 +39,10 @@ If any field is missing or unresolved, the law fails closed.
 - a proposed endpoint supplied by a PGS rule, not by a primality oracle;
 - deterministic wheel arithmetic;
 - deterministic composite witnesses for interior values;
-- PGS selected-integer metadata inside the proposed chamber;
+- PGS selected-integer metadata inside the proposed interval;
 - GWR/DNI ordering of interior integers;
-- no-later-simpler threat metadata when the chamber has a selected integer;
-- a named empty-chamber base case, if such a base case is proved.
+- no-later-simpler threat metadata when the search interval has a selected integer;
+- a named empty-interval base case, if such a base case is proved.
 
 ## Forbidden Inputs
 
@@ -84,9 +84,9 @@ A Next-Prime Law 002 certificate should record:
 - `uniqueness_status`;
 - `failure_reason`, if unresolved.
 
-For an empty chamber, the certificate must state that no positive-offset integer
+For an empty interval, the certificate must state that no positive-offset integer
 exists before the proposed endpoint and must identify the theorem that turns
-that empty chamber into a forced endpoint.
+that empty interval into a forced endpoint.
 
 ## Input prime-11 Probe
 
@@ -107,7 +107,7 @@ The integer `12` has concrete composite witnesses from the wheel basis:
 - `12 = 2 * 6`
 - `12 = 3 * 4`
 
-This establishes that the chamber interior before `13` is closed. It does not
+This establishes that the search interval interior before `13` is closed. It does not
 establish that `13` is forced as the endpoint.
 
 ## GWR/DNI Relevance
@@ -118,12 +118,12 @@ no-later-simpler closure machinery has no positive integer to operate on.
 
 Next-Prime Law 002 has two possible paths:
 
-- prove an empty-chamber base case that forces the first open endpoint;
+- prove an empty-interval base case that forces the first open endpoint;
 - reject this input prime as outside the selected-integer-bearing GWR/DNI regime.
 
 The first path would revive Next-Prime Law 001 with a stronger certificate. The
 second path keeps Milestone 1 blocked at input prime `11` and pushes the first
-positive target to a later input prime with a nonempty chamber.
+positive target to a later input prime with a nonempty search interval.
 
 ## Competing Endpoint Requirement
 
@@ -156,13 +156,13 @@ For the input prime-11 probe:
 - `failure_reason: "MISSING_UNIQUENESS_IMPLICATION"`
 
 The law improves the evidence standard over Next-Prime Law 001, but the same
-mathematical bridge remains missing for the empty-chamber case.
+mathematical bridge remains missing for the empty-interval case.
 
 ## Exact Missing Theorem
 
 The missing theorem is:
 
-$$\text{closed minimal chamber plus first open candidate} \Rightarrow \text{forced next prime}$$
+$$\text{closed minimal search interval plus first open candidate} \Rightarrow \text{forced next prime}$$
 
 For input prime `11`, this reduces to:
 
@@ -176,7 +176,7 @@ Pure mode may emit under `boundary_law_002` only when:
 
 1. every interior integer has a deterministic composite certificate;
 2. the proposed endpoint comes from a PGS rule rather than a primality oracle;
-3. all smaller candidate next primes are ruled out by the chamber certificate;
+3. all smaller candidate next primes are ruled out by the search-interval certificate;
 4. a PGS uniqueness theorem forces `q_hat` as the next prime.
 
 Until those four conditions hold, pure mode must emit a failure record.
@@ -195,7 +195,7 @@ If the interior closure certificate itself is incomplete, emit:
 - `inference_status: "failed_closed"`
 - `failure_reason: "INCOMPLETE_CHAMBER_CERTIFICATE"`
 
-If a competing smaller admissible chamber remains unresolved, emit:
+If a competing smaller admissible search interval remains unresolved, emit:
 
 - `rule_set_version: "boundary_law_002"`
 - `inference_status: "failed_closed"`
@@ -208,7 +208,7 @@ non-classical uniqueness theorem, not more admissibility evidence.
 
 The next search should compare two regimes:
 
-- empty-chamber input primes, where a first-open closure theorem would be needed;
+- empty-interval input primes, where a first-open closure theorem would be needed;
 - selected-integer-bearing input primes, where GWR/DNI and no-later-simpler closure may have
   enough structure to force a endpoint.
 

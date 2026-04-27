@@ -56,7 +56,7 @@ Because the high-scale probes are not downloadable, I replicated the exact logic
 
 Even in the worst simulated case, the required horizon is four orders of magnitude below $\sqrt{q}$ at $10^{12}$, and seven orders below at $10^{18}$. The frontier does not track $\sqrt{q}$; it tracks the visible divisor bound plus a tiny wheel-dependent offset.
 
-This matches the repo's operational observation: the chain length is capped at 8 and the offsets are wheel-constrained, so false nodes cannot accumulate large prime factors without violating chamber closure.
+This matches the repo's operational observation: the chain length is capped at 8 and the offsets are wheel-constrained, so false nodes cannot accumulate large prime factors without violating search-interval closure.
 
 ## Synthesis of findings
 

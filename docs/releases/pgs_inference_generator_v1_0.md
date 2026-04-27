@@ -33,11 +33,11 @@ The frozen selector is:
 ```text
 rule_id: pgs_chamber_reset_v1
 state input: exact divisor-count field
-next-prime selection rule: GWR/NLSC chamber-reset state
+next-prime selection rule: GWR/NLSC search-interval-reset state
 emitted record: p, q only
 ```
 
-The generator labels a row `PGS` only when the GWR/NLSC chamber-reset selector
+The generator labels a row `PGS` only when the GWR/NLSC search-interval-reset selector
 chooses the endpoint. Trial-division fallback remains present as an explicit
 last-resort path, but it is not used on the frozen validation surfaces and is
 not counted as `PGS`.

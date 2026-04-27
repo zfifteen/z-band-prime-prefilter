@@ -21,7 +21,7 @@ The frozen engine has three layers.
 
 1. **Core grammar**: a persistent `14`-state reduced alphabet built on
    `open_family|d_bucket`.
-2. **Scheduler layer**: a lag-2 transition law with a small periodic phase.
+2. **Scheduler layer**: a lag-2 transition law with a small periodic correction.
 3. **Long-horizon controller**: a deterministic reset mechanism triggered by
    higher-divisor events.
 
@@ -113,7 +113,7 @@ So the right current statement is:
 
 There is a real small periodic controller on the reduced surface, but the
 current evidence does not privilege `8` as a unique arithmetic law. The frozen
-engine therefore keeps `8` as the working hybrid phase while recording `11`
+engine therefore keeps `8` as the working hybrid state while recording `11`
 and `2` as the strongest competing periodic signals on the current sweep.
 
 ## Record Reset Signature

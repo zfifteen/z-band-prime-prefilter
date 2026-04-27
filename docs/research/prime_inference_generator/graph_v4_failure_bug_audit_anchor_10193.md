@@ -47,9 +47,9 @@ The failure is not explained by range-order state leakage, missing true
 candidate next prime generation, or an audit that checks only primality. The
 single-input prime graph reaches the same false result.
 
-## Phase Location
+## Stage Location
 
-The true next prime offset `18` has this status by phase:
+The true next prime offset `18` has this status by stage:
 
 ```text
 base: UNRESOLVED
@@ -117,7 +117,7 @@ The likely cause is:
 unsafe_v4_relation_active_graph_reset_too_permissive
 ```
 
-This is not currently classified as an implementation bug. The phase snapshots
+This is not currently classified as an implementation bug. The stage snapshots
 show the code doing what v4 says to do. The problem is that the v4 relation's
 legal preconditions are insufficient at input prime `10193`.
 

@@ -28,7 +28,7 @@ frontier.
   `o2_odd_semiprime|d<=4`,
   `o4_odd_semiprime|d<=4`,
   `o6_odd_semiprime|d<=4`
-- lag-2 scheduler plus periodic phase
+- lag-2 scheduler plus periodic state
 - higher-divisor-triggered long-horizon reset controller
 
 ## Release Artifacts

@@ -1,8 +1,8 @@
-# Chamber-Reset Decade Ladder: 10^8 Through 10^18
+# Search Interval-Reset Decade Ladder: 10^8 Through 10^18
 
 ## Executive Summary
 
-Rule X with chamber reset produced full coverage on the decade-window ladder.
+Rule X with search-interval reset produced full coverage on the decade-window ladder.
 
 ```text
 decades: 10^8 through 10^18
@@ -18,19 +18,19 @@ total runtime: 36.951566 seconds
 ```
 
 The previous Rule X emission rule resolved `513 / 2816` input primes. The
-chamber-reset rule converted the remaining `2303` tail cases by classifying
-later unresolved candidates as post-endpoint chamber material.
+search-interval-reset rule converted the remaining `2303` tail cases by classifying
+later unresolved candidates as post-endpoint search interval material.
 
 ## Tested Rule
 
 For an input prime `p`, let `r` be the first resolved survivor under the
 existing Rule X stack.
 
-The chamber-reset rule is:
+The search-interval-reset rule is:
 
 ```text
-r closes the current p-chamber.
-Any later unresolved candidate belongs to a later chamber.
+r closes the current p search interval.
+Any later unresolved candidate belongs to a later search interval.
 Emit r as q_hat.
 ```
 
@@ -72,14 +72,14 @@ after a survivor has already been resolved.
 The unresolved input primes were not missing the endpoint. They already contained
 the endpoint as the first resolved survivor.
 
-The chamber-reset rule resolves the remaining ambiguity:
+The search-interval-reset rule resolves the remaining ambiguity:
 
 ```text
 p ... first_resolved_survivor ... later_unresolved_tail
-      ^ current endpoint         ^ later chamber material
+      ^ current endpoint         ^ later search-interval material
 ```
 
-Within this decade-window regime, Rule X plus chamber reset reaches complete
+Within this decade-window regime, Rule X plus search-interval reset reaches complete
 audited coverage.
 
 ## Scope

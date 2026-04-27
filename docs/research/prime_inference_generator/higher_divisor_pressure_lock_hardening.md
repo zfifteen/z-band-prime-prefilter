@@ -99,9 +99,9 @@ This is candidate material for Next-Prime Law 005, not approval. The current
 candidate shape is:
 
 ```text
-resolved chamber
+resolved interval
 + higher-divisor pressure lock
-=> later unresolved extension chambers may be absorbed
+=> later unresolved extension intervals may be absorbed
 ```
 
 The next artifact should be a candidate law note only if the project lead

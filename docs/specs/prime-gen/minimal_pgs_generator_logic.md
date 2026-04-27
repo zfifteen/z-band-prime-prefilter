@@ -30,36 +30,36 @@ The input prime `p` is the current accepted prime. The generator accepts `p` as
 input. It does not prove `p` during generation.
 
 For every resolved input prime, the generator emits exactly one record. If the PGS
-selector does not resolve inside the supplied chamber bound, the generator
+selector does not resolve inside the supplied search bound, the generator
 raises `PGSUnresolvedError`. It does not run a backup prime search.
 
-## Stage 2: Chamber
+## Stage 2: Search Interval
 
-The chamber is the finite interval to the right of `p` inspected by the PGS
+The search interval is the finite interval to the right of `p` inspected by the PGS
 selector.
 
-Inside the chamber, the generator uses:
+Inside the search interval, the generator uses:
 
 - offsets from the input prime;
 - wheel-open positions;
 - exact divisor-count state;
 - GWR-selected integer structure;
 - no-later-simpler-composite ceilings;
-- chamber-reset next-prime state.
+- search-interval-reset next-prime state.
 
-The chamber is not a place to ask a primality oracle which number is prime. It
+The search interval is not a place to ask a primality oracle which number is prime. It
 is the local arithmetic region where the PGS rule decides the next prime.
 
 ## Stage 3: Integer
 
-GWR identifies the simplest leftmost integer `w` inside the chamber.
+GWR identifies the simplest leftmost integer `w` inside the search interval.
 
 The integer is not the endpoint. It is a landmark that orients the local PGS
 state. The rule `q = w + 1` is false as a general rule and is forbidden.
 
 ## Stage 4: Endpoint Rule
 
-The production next-prime selection rule is Rule X with chamber reset:
+The production next-prime selection rule is Rule X with search-interval reset:
 
 - build wheel-open candidate next-prime hypotheses;
 - reject candidates with composite divisor-count state;
@@ -68,15 +68,15 @@ The production next-prime selection rule is Rule X with chamber reset:
 - lock the GWR-selected integer only after a resolved survivor exists;
 - apply the lower-divisor threat ceiling after integer lock;
 - identify the first resolved survivor `r`;
-- reset the chamber at `r`;
-- classify later unresolved candidates as post-reset chamber material;
+- reset the search interval at `r`;
+- classify later unresolved candidates as post-reset search interval material;
 - emit `r` as the proposed next prime.
 
 In compact form:
 
 $$q = B(p, S, w, d(w))$$
 
-where `S` is the exact divisor-count chamber state needed to make the endpoint
+where `S` is the exact divisor-count search-interval state needed to make the endpoint
 choice single-valued.
 
 ## Stage 5: Emission

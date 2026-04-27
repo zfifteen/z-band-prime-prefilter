@@ -3,17 +3,17 @@
 ## Executive Summary
 
 The tiny logic engine collapses every tested input prime to the true next prime
-when exact chamber closure is allowed, but GWR/NLSC structural consistency
+when exact search-interval closure is allowed, but GWR/NLSC structural consistency
 alone eliminates zero candidate next primes.
 
 This is the key result:
 
 ```text
-GWR/NLSC consistency annotates candidate chambers.
+GWR/NLSC consistency annotates proposed intervals.
 It does not, by itself, reject false candidate next primes.
 ```
 
-Exact chamber closure produced one survivor for every input prime:
+Exact search-interval closure produced one survivor for every input prime:
 
 ```text
 exact_unique_match_count = 164 / 164
@@ -41,7 +41,7 @@ The engine records two layers.
 
 ### Structural Layer
 
-For each hypothetical chamber `(p, candidate_q)`, the engine:
+For each hypothetical interval `(p, candidate_q)`, the engine:
 
 1. finds the GWR-selected integer inside the proposed interior;
 2. checks whether any later interior composite has lower divisor count than
@@ -50,14 +50,14 @@ For each hypothetical chamber `(p, candidate_q)`, the engine:
 
 This layer rejected no candidates.
 
-### Exact Chamber Layer
+### Exact Search Interval Layer
 
-For each hypothetical chamber, the engine also applies exact small-scale
+For each hypothetical interval, the engine also applies exact small-scale
 closure facts:
 
 1. reject the candidate if `candidate_q` is composite;
 2. reject the candidate if a prime appears inside `(p, candidate_q)`;
-3. keep the candidate only if the proposed chamber is exactly closed.
+3. keep the candidate only if the proposed interval is exactly closed.
 
 This layer left exactly one survivor for every input prime, and every survivor was
 the audited next prime.
@@ -85,14 +85,14 @@ offset = 8
 ```
 
 The structural layer keeps every wheel-open candidate because each proposed
-chamber can choose its own internally consistent GWR-selected integer.
+search interval can choose its own internally consistent GWR-selected integer.
 
 The exact layer keeps only offset `8`.
 
 Later candidate `101` at offset `12` is rejected because `97` appears inside
-the proposed chamber. Later candidate `119` at offset `30` is rejected because
+the proposed interval. Later candidate `119` at offset `30` is rejected because
 the candidate itself is composite and because earlier primes appear inside the
-proposed chamber.
+proposed interval.
 
 ## Interpretation
 
@@ -100,13 +100,13 @@ The experiment supports the user's framing that the right object is a logic
 engine. It also identifies the missing rule precisely.
 
 The existing GWR/NLSC rules do not create contradiction unless the integer is
-already fixed across candidate extensions. If every candidate chamber is free
-to choose a new integer, all candidate chambers remain structurally coherent.
+already fixed across candidate extensions. If every proposed interval is free
+to choose a new integer, all proposed intervals remain structurally coherent.
 
 The next experimental rule should therefore be a selected-integer-lock rule:
 
 ```text
-Once a candidate chamber establishes a selected integer, later candidate extensions
+Once a proposed interval establishes a selected integer, later candidate extensions
 must either preserve that selected integer or provide a legal reset certificate.
 ```
 

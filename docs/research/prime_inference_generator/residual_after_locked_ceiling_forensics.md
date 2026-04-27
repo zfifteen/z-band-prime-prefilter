@@ -85,7 +85,7 @@ The smallest residual class has:
 
 - true next prime still unresolved.
 
-Those rows are chamber-completion failures. They need additional legal closure
+Those rows are search-interval-completion failures. They need additional legal closure
 evidence before any dominance rule can help.
 
 ## Status

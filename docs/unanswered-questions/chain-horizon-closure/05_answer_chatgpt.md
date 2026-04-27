@@ -160,4 +160,4 @@ Main blocker: the current chain horizon uses complete divisor checking, not a de
 
 Smallest next action: mine the least-factor frontier of false chain nodes and fit candidate H(p, s0, chain_state) laws.
 
-Expected achievement: either identify the missing deterministic horizon law or prove that this bridge is not locally compressible under the current chamber state.
+Expected achievement: either identify the missing deterministic horizon law or prove that this bridge is not locally compressible under the current search-interval state.

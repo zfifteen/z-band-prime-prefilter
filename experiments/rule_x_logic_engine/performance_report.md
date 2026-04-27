@@ -68,7 +68,7 @@ unique resolved survivor emission
 | `5000000` | `256` | `2239` | `348509` | `23655109` | `74934` | `0` | `43.619785` | `7989.70` | `542302.29` |
 | `10000000` | `256` | `3163` | `664575` | `45108041` | `140984` | `0` | `85.368115` | `7784.82` | `528394.49` |
 
-## Phase Timing
+## Stage Timing
 
 | max input prime | setup seconds | evaluation seconds | write seconds |
 |---:|---:|---:|---:|
@@ -88,7 +88,7 @@ The speed is real for the summary engine. The largest run evaluated
 artifacts.
 
 The main cost is candidate evaluation. Setup grows with the sieve, divisor
-table, and witness table, but evaluation remains the dominant phase. Artifact
+table, and witness table, but evaluation remains the dominant stage. Artifact
 writing is small compared with evaluation.
 
 The throughput drop after `10^6` is expected because the ladder raises

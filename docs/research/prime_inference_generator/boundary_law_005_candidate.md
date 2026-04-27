@@ -25,15 +25,15 @@ true-next-prime rejections and zero wrong absorptions.
 
 ## Problem Statement
 
-Composite exclusion can safely reject some impossible chambers, but safe
+Composite exclusion can safely reject some impossible search intervals, but safe
 rejection alone did not force a unique endpoint.
 
-Resolved-chamber absorption alone also failed. It absorbed later unresolved
+Resolved-interval absorption alone also failed. It absorbed later unresolved
 alternatives for true resolved endpoints, but it also absorbed later
 alternatives for false resolved survivors. Therefore:
 
 ```text
-resolved chamber => absorbs extensions
+resolved interval => absorbs extensions
 ```
 
 is false as a next-prime law.
@@ -46,7 +46,7 @@ endpoints from false resolved survivors before absorption is allowed.
 Candidate statement:
 
 ```text
-If a proposed right endpoint has a fully resolved chamber certificate and
+If a proposed right endpoint has a fully resolved interval certificate and
 satisfies the higher-divisor pressure lock, then later unresolved extension
 candidates may be absorbed in the offline eliminator, provided no legal reset
 certificate supersedes the lock.
@@ -64,7 +64,7 @@ allowed safe absorption of later unresolved alternatives.
 
 The candidate law may use:
 
-- a resolved chamber certificate already produced by the offline eliminator;
+- a resolved search-interval certificate already produced by the offline eliminator;
 - positive composite witness evidence;
 - legal divisor-class certificates from the bounded witness basis;
 - higher-divisor pressure between the resolved candidate and later unresolved

@@ -52,7 +52,7 @@ A state is ineligible if it uses:
 - `nextprime` or `isprime` as a state feature;
 - exact factorization not available as a PGS-native observable.
 
-Previous-chamber pressure is treated as conditionally legal for recursive
+Previous-search-interval pressure is treated as conditionally legal for recursive
 generation because a prior accepted endpoint can carry previous-gap context
 forward. It is not a first-input prime endpoint theorem by itself.
 
@@ -88,7 +88,7 @@ Next-Prime Law 005 remains blocked.
 
 ## Combined-State Result
 
-The next run tested combined previous-chamber states:
+The next run tested combined previous-search-interval states:
 
 - `previous_chamber_plus_square_pressure_state`
 - `previous_chamber_plus_higher_divisor_pressure_state`

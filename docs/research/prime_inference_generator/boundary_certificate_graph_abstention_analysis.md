@@ -23,7 +23,7 @@ The accepted v0 graph rules are:
 - selected-integer-locked pressure ceiling;
 - 005A-R higher-divisor locked absorption.
 
-The analysis does not add 005B, broad resolved-chamber absorption,
+The analysis does not add 005B, broad resolved-interval absorption,
 earliest-candidate dominance, scalar ranking, or any new emission path.
 
 ## Target Run
@@ -282,7 +282,7 @@ The graph still needs a stronger unresolved-later domination discriminator.
 The v1 through v5 relations prove that this path can increase coverage, but
 175 rows still retain later unresolved alternatives after a resolved true
 endpoint. Any next relation must stay label-free and must not become broad
-resolved-chamber absorption.
+resolved-interval absorption.
 
 ## Next Implementation Step
 

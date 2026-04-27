@@ -16,7 +16,7 @@ Is this candidate prime?
 
 The PGS Prime Inference Generator asks:
 
-Given a known prime endpoint and the deterministic structure of the following composite chamber, where is the next prime endpoint inferred to be?
+Given a known prime endpoint and the deterministic structure of the following composite search interval, where is the next prime endpoint inferred to be?
 
 This inverts the usual workflow.
 
@@ -123,7 +123,7 @@ This preserves the conceptual distinction between:
 Given an input prime p, the generator attempts to produce an inferred next prime q_hat such that:
 
 1. q_hat > p
-2. All integers between p and q_hat are treated as inferred composite interior under the PGS chamber model.
+2. All integers between p and q_hat are treated as inferred composite interior under the PGS search-interval model.
 3. The interior contains a GWR-compatible selected integer structure.
 4. The inferred integer satisfies the active deterministic rule set.
 5. No-later-simpler-composite closure holds under the active inference model.
@@ -174,7 +174,7 @@ Minimum input:
 Optional input:
 
 * maximum search horizon,
-* maximum chamber width,
+* maximum search-interval width,
 * divisor-class budget,
 * selected-integer-family restrictions,
 * threat-margin reporting level,
@@ -216,7 +216,7 @@ In audit mode, append:
 The initial design should use the repo’s existing deterministic components in the following conceptual order:
 
 1. Start from known prime p.
-2. Build or scan the candidate chamber immediately to the right of p using PGS-compatible structure.
+2. Build or scan the proposed interval immediately to the right of p using PGS-compatible structure.
 3. Identify admissible composite integers and their divisor classes.
 4. Locate the earliest minimum-divisor integer according to GWR logic.
 5. Use no-later-simpler-composite closure to infer the right endpoint before any later simpler composite threat.
@@ -240,7 +240,7 @@ Best for:
 
 12.2 Bounded Walker Engine
 
-Uses a bounded chamber rule such as a cutoff based on log-scale growth.
+Uses a bounded search-interval rule such as a cutoff based on log-scale growth.
 
 Best for:
 
@@ -252,7 +252,7 @@ Must emit explicit failure if the inferred next prime cannot be uniquely resolve
 
 12.3 Threat-Margin Engine
 
-Uses lower-divisor threat margins to infer safe closure of the chamber.
+Uses lower-divisor threat margins to infer safe closure of the search interval.
 
 Best for:
 
@@ -286,7 +286,7 @@ The number satisfies the active deterministic inference rule set and is emitted 
 
 Level 2: PGS-Inferred + Internally Consistent
 
-The inference record satisfies all available PGS metadata checks: GWR-selected integer, closure, threat-margin, and chamber consistency.
+The inference record satisfies all available PGS metadata checks: GWR-selected integer, closure, threat-margin, and search-interval consistency.
 
 Level 3: Classically Validated Prime
 
@@ -319,8 +319,8 @@ Metrics:
 * first failure index,
 * average inference time,
 * median inference time,
-* maximum chamber width,
-* average chamber width,
+* maximum search-interval width,
+* average search-interval width,
 * metadata completeness rate.
 
 Success threshold:
@@ -348,7 +348,7 @@ Metrics:
 * validated recall,
 * first failure index per input prime,
 * inference time per step,
-* chamber width,
+* search-interval width,
 * threat-margin distribution.
 
 Success threshold:

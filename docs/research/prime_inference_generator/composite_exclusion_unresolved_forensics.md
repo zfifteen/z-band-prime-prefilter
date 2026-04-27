@@ -7,7 +7,7 @@ missing-evidence pattern:
 
 - unclosed wheel-open interior evidence;
 - insufficient bounded composite witness coverage;
-- chamber closure not certified;
+- search-interval closure not certified;
 - unresolved alternatives not dominated by the resolved survivor.
 
 Next-Prime Law 005 is not approved by this note.
@@ -115,16 +115,16 @@ Resolved-survivor to actual-endpoint delta:
 The `230` unresolved true-next-prime cases are not scattered. They all fail for
 the same structural reason:
 
-- the proposed true-next-prime chamber contains one or more wheel-open interior
+- the proposed true-next-prime search interval contains one or more wheel-open interior
   offsets that the active bounded witness set cannot close.
 
-Most of the unresolved true-next-prime chambers are close to resolution:
+Most of the unresolved true-next-prime intervals are close to resolution:
 
 - `178 / 230` have exactly one unresolved interior offset.
 
 The current resolved survivor is therefore not an inferred next prime. It is a
 candidate with no unresolved interior under the active bounded witness set.
-When the actual next prime is farther right, the true chamber often needs one
+When the actual next prime is farther right, the true search interval often needs one
 additional legal composite closure certificate before it can compete.
 
 ## Next Lemma Shape

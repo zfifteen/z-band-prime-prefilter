@@ -1,7 +1,7 @@
 # Resolved Survivor Dominance Forensics
 
-The integrated eliminator now resolves more true-next-prime chambers, but it also
-creates competing resolved false-endpoint chambers. The dominance forensics test
+The integrated eliminator now resolves more true-next-prime search intervals, but it also
+creates competing resolved false-endpoint search intervals. The dominance forensics test
 shows that no tested ordering rule is safe.
 
 Next-Prime Law 005 is not approved by this note.
@@ -122,11 +122,11 @@ GWR-selected-divisor-count dominance has some signal, but it is not safe:
 
 - `selection_wrong_count: 20`
 
-Previous-chamber transition compatibility is also not safe:
+Previous-search-interval transition compatibility is also not safe:
 
 - `selection_wrong_count: 168`
 
-The current blocker is not chamber closure. The blocker is resolved-chamber
+The current blocker is not search-interval closure. The blocker is resolved-interval
 dominance. Multiple resolved certificates can coexist, and the tested local
 ordering rules do not select the true next prime safely.
 
@@ -138,4 +138,4 @@ Next-Prime Law 005 is not approved.
 
 The next admissible work should focus on why the false earlier resolved
 survivor remains structurally plausible. A safe dominance rule must either
-reject that earlier chamber or abstain, never select it incorrectly.
+reject that earlier search interval or abstain, never select it incorrectly.

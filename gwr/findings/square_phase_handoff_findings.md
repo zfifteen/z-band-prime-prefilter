@@ -1,18 +1,18 @@
-# Square-Phase Underuse Predicts Next-Triad Return
+# Prime-Square Interval Underuse Predicts Next-Triad Return
 
 This note records a new one-step handoff finding for the `d = 4` selected integer
 surface.
 
 The strongest supported result is:
 
-current `d = 4` square-phase utilization is not only a endpoint observable of
+current `d = 4` prime-square interval utilization is not only a endpoint observable of
 the current gap. It is also a next-gap handoff variable.
 
 When current `d = 4` gaps are matched by the same local selected integer geometry, the
 lower-utilization half returns the next gap to the odd-semiprime triad more
 often than the higher-utilization half does.
 
-Here square-phase utilization means
+Here prime-square interval utilization means
 
 $$U_{\square}(w, q) = \frac{q - w}{S_{+}(w) - w},$$
 
@@ -125,7 +125,7 @@ budget before closing. The next gap then starts closer to the same square
 threat horizon and leaks more often into non-triad or higher-divisor states.
 
 So the next-gap handoff is not only a finite-state memory problem. It also
-depends on how much of the current square phase was actually consumed before
+depends on how much of the current prime-square interval state was actually consumed before
 closure.
 
 ## Decision Rule
@@ -141,10 +141,10 @@ exact baseline and the pooled high-scale windows.
 ## Scope
 
 This is a bounded transition claim on the current executed catalog surface. It
-does not claim that square-phase utilization alone closes the full scheduler
+does not claim that prime-square interval utilization alone closes the full scheduler
 problem, and it does not claim a universal theorem for all gap families.
 
 What it does show is narrower and stronger:
 
-pointwise square-phase utilization carries real one-step transition signal that
+pointwise prime-square interval utilization carries real one-step transition signal that
 survives current local-geometry controls.

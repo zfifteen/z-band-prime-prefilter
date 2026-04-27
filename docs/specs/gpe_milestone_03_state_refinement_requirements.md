@@ -31,7 +31,7 @@ possible, including:
 - current residue and wheel-open offset,
 - previous reduced state,
 - lag-2 scheduler state,
-- square-phase utilization for $d(w)=4$,
+- prime-square interval utilization for $d(w)=4$,
 - controller lock state,
 - and any explicitly derived modular constraint needed by the selector.
 

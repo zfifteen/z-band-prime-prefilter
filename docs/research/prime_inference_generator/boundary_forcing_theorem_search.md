@@ -1,13 +1,13 @@
 # Endpoint Forcing Theorem Search
 
 Endpoint Laws 001 through 004 isolate the live blocker for the PGS Prime
-Inference Generator. The pure scaffold is clean. The chamber certificates are
-real. The missing ingredient is a theorem that turns PGS chamber data into a
+Inference Generator. The pure scaffold is clean. The search-interval certificates are
+real. The missing ingredient is a theorem that turns PGS search-interval data into a
 unique next prime.
 
 The theorem search target is:
 
-$$PGS\ chamber\ data \Rightarrow unique\ next\ endpoint$$
+$$PGS\ search interval\ data \Rightarrow unique\ next\ endpoint$$
 
 No candidate in this note is installed as a generator rule. The work here is
 offline theorem discovery.
@@ -18,7 +18,7 @@ Milestone 1 remains blocked.
 
 The strongest supported result is:
 
-PGS chamber certificates can certify interior closure, GWR-selected integers,
+PGS search-interval certificates can certify interior closure, GWR-selected integers,
 leftmost-minimum integers, and local no-later-simpler consistency. They do not
 yet force a unique next prime.
 
@@ -29,7 +29,7 @@ generation law.
 
 Claim form:
 
-$$closed\ preopen\ chamber \Rightarrow first\ wheel-open\ candidate\ is\ endpoint$$
+$$closed\ preopen\ search interval \Rightarrow first\ wheel-open\ candidate\ is\ endpoint$$
 
 This is the theorem family behind Next-Prime Law 001 and the empty input-prime-11
 probe.
@@ -64,8 +64,8 @@ Current status:
 
 Reason:
 
-The selected-integer-lock certificate proves coherence inside a proposed chamber. It
-does not prove that the proposed chamber must stop at the candidate next prime.
+The selected-integer-lock certificate proves coherence inside a proposed interval. It
+does not prove that the proposed interval must stop at the candidate next prime.
 
 Kill condition:
 
@@ -83,7 +83,7 @@ Here `S(p)` is a PGS state vector computed from allowed local or recursive
 structure around input prime `p`, and `g(p)` is the next prime offset.
 
 This is the most promising family because endpoint force may live between
-chambers rather than inside one proposed chamber.
+search intervals rather than inside one proposed interval.
 
 Current status:
 
@@ -92,7 +92,7 @@ Current status:
 Reason:
 
 The right object may be a deterministic transition state, not a self-certifying
-chamber. A candidate state vector must map to one next-gap width on tested
+search interval. A candidate state vector must map to one next-gap width on tested
 surfaces before it can become a theorem candidate.
 
 Kill condition:

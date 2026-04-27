@@ -10,7 +10,7 @@ The `chain_horizon_closure` function is the only component of the Minimal PGS Ge
 H(p, s_0, \text{chain\_state})
 \]
 
-that can close all false semiprime‑shadow chain nodes *before* the true next prime, using only quantities that are already visible inside the PGS chamber.  If such an \(H\) exists and is provably much smaller than \(\sqrt{q}\), the entire high‑scale output becomes a pure PGS selection.
+that can close all false semiprime‑shadow chain nodes *before* the true next prime, using only quantities that are already visible inside the PGS search interval.  If such an \(H\) exists and is provably much smaller than \(\sqrt{q}\), the entire high‑scale output becomes a pure PGS selection.
 
 This report evaluates six proposed answers to the question *“Can `chain_horizon_closure` be turned into a pure PGS next-prime selection rule?”*, simulates the critical least‑factor frontier experiment, and recommends a concrete path forward.
 
@@ -22,7 +22,7 @@ This report evaluates six proposed answers to the question *“Can `chain_horizo
 
 The operational shape is already correct:
 
-1. **Chamber closure** finds the first visible candidate next prime.
+1. **Search-interval closure** finds the first visible candidate next prime.
 2. **Semiprime shadows** seed a short rightward chain.
 3. **Chain‑horizon closure** closes false chain nodes.
 4. **Downstream audit** confirms zero failures on all tested surfaces.
@@ -35,7 +35,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 
 ### 3.1 Meta‑AI (01\_answer\_meta\_ai.md)
 
-**Key proposal:** The least‑factor frontier of false nodes is governed by a PGS‑visible expression involving the wheel modulus, the attractor phase, and the chain length.  Suggests `H(p, s0, chain_state) ≤ wheel_limit(p) × attractor_multiplier(phase)` and proposes a concrete mining experiment with pseudocode.
+**Key proposal:** The least‑factor frontier of false nodes is governed by a PGS‑visible expression involving the wheel modulus, the attractor state, and the chain length.  Suggests `H(p, s0, chain_state) ≤ wheel_limit(p) × attractor_multiplier(state)` and proposes a concrete mining experiment with pseudocode.
 
 **Strengths:**
 
@@ -51,7 +51,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 **Simulated experiment:**  If the mining loop described in lines 58‑66 of the answer were executed on the 10¹⁵ and 10¹⁸ probe data, we would expect to see:
 
 - `max_lpf` remaining **flat or growing sub‑logarithmically** with scale, while `sqrt(q)` grows by a factor of ∼10³.
-- A strong correlation between `max_lpf` and `wheel_bound` (the largest prime whose multiples are eliminated by chamber closure).
+- A strong correlation between `max_lpf` and `wheel_bound` (the largest prime whose multiples are eliminated by search-interval closure).
 - The false‑node frontier never exceeding a few hundred, consistent with the fact that `candidate_bound=128` already works in practice.
 
 **Conclusion:**  This answer correctly frames the problem and offers a plausible, testable horizon law.  It is an excellent **meta‑analysis**, but lacks the implementation detail needed to become the sole experiment.
@@ -76,7 +76,7 @@ However, the terminal decision inside `chain_horizon_closure_result` still calls
 **Simulated experiment:**  Running the proposed extension on the existing probe logs would produce a histogram of `max_spf` values.  Based on the generator’s operational behaviour, we would expect:
 
 - The 99.9 % ile of `max_spf` to be **well under 200**.
-- A clear upper envelope determined by the wheel‑open residue class and the attractor phase.
+- A clear upper envelope determined by the wheel‑open residue class and the attractor state.
 - No dependence on \(\sqrt{q}\) beyond the trivial fact that \(q\) grows with scale.
 
 **Conclusion:**  This answer is **operationally the closest to a ready‑to‑run experiment**.  It should be executed first, but it needs to be combined with a more rigorous hypothesis‑testing framework.
@@ -193,7 +193,7 @@ Because direct code execution is not possible in this environment, the following
 
 2. **Feature extraction:** For each false node \(n\):
     - Compute `lpf(n)` = the witness stored in `closure_witnesses` (which is the smallest prime factor found by `divisor_witness`).
-    - Compute PGS‑visible features: wheel‑residue of \(n\), offset from seed, chain position, gap to previous node, attractor phase (o2/o4/o6), current `visible_divisor_bound`, and chamber width.
+    - Compute PGS‑visible features: wheel‑residue of \(n\), offset from seed, chain position, gap to previous node, attractor state (o2/o4/o6), current `visible_divisor_bound`, and search-interval width.
 
 3. **Frontier calculation:** For each chain,
    \[
@@ -224,9 +224,9 @@ Because direct code execution is not possible in this environment, the following
 **Rationale for these numbers:**
 
 - The `visible_divisor_bound` of 10,000 already closes **most** false nodes.  Only “hard” composites with SPF > 10,000 survive visible closure.
-- Because the chain is short (≤ 8 nodes) and the offsets are consecutive wheel‑open positions within a 128‑wide chamber, the numbers are close together (typical spacing ≈ log q).
+- Because the chain is short (≤ 8 nodes) and the offsets are consecutive wheel‑open positions within a 128‑wide search interval, the numbers are close together (typical spacing ≈ log q).
 - The semiprime‑shadow attractor forces the false nodes to be odd semiprimes with divisor count ≤ 4, strongly restricting their factor structure.
-- The GWR + NLSC laws already guarantee that the “simplest” composite in any local window has a rigidly positioned factor structure visible from chamber arithmetic.
+- The GWR + NLSC laws already guarantee that the “simplest” composite in any local window has a rigidly positioned factor structure visible from search-interval arithmetic.
 - Therefore, the worst‑case SPF among false chain nodes is expected to be **bounded by a small multiple of the wheel‑visible limit**, likely in the range 100‑300.
 
 If these numbers hold, **any** of the candidate horizon functions (H₁ through H₆) that incorporate the maximum chain gap will be sufficient, and the non‑PGS portion drops to **0 %** at all scales.
@@ -281,7 +281,7 @@ If the simulated experiment is confirmed, the winning horizon law will take the 
 H(p, s_0, \text{chain\_state}) = \max\Bigl(\text{visible\_divisor\_bound},\; \text{visible\_divisor\_bound} + k \cdot \text{max\_chain\_gap}\Bigr)
 \]
 
-with \(k \in \{1, 2\}\).  This expression is **entirely PGS‑visible**: the `visible_divisor_bound` is a fixed constant (10,000), and the `max_chain_gap` is computed from the wheel‑open offsets already in the chamber.  Substituting this \(H\) for `horizon_bound=None` in `chain_horizon_closure_result` would convert the current 56–58 % non‑PGS bridge into **100 % PGS‑derived output** at all scales.
+with \(k \in \{1, 2\}\).  This expression is **entirely PGS‑visible**: the `visible_divisor_bound` is a fixed constant (10,000), and the `max_chain_gap` is computed from the wheel‑open offsets already in the search interval.  Substituting this \(H\) for `horizon_bound=None` in `chain_horizon_closure_result` would convert the current 56–58 % non‑PGS bridge into **100 % PGS‑derived output** at all scales.
 
 ---
 

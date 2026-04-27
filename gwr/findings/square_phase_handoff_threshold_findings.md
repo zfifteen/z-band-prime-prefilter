@@ -1,4 +1,4 @@
-# Square-Phase Handoff Threshold Findings
+# Square-State Handoff Threshold Findings
 
 The strongest supported claim from the new exact probe is:
 

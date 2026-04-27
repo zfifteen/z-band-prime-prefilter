@@ -35,7 +35,7 @@ Promotion requires:
 | Branch | Commit | Status | Main result |
 |---|---:|---|---|
 | [`codex/solution-01-grok-shadow-state-contract`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01-grok-shadow-state-contract) | `c7a0456` | Rejected | Required state objects are absent from current artifacts. |
-| [`codex/solution-01b-grok-reinvoke-closure`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01b-grok-reinvoke-closure) | `e07d776` | Rejected | Re-invoking chamber closure from `q0` selects too early on many rows. |
+| [`codex/solution-01b-grok-reinvoke-closure`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01b-grok-reinvoke-closure) | `e07d776` | Rejected | Re-invoking search-interval closure from `q0` selects too early on many rows. |
 | [`codex/solution-01c-grok-gwr-later-side-closure`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01c-grok-gwr-later-side-closure) | `56d131f` | Rejected as drop-in | Existing GWR/NLSC selectors do not select a endpoint from only `p` and `q0`. |
 | [`codex/solution-01d-grok-gwr-locked-chamber`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01d-grok-gwr-locked-chamber) | `d5d248d` | Rejected | GWR lock alone does not provide the missing next-prime offset. |
 | [`codex/solution-01d-gwr-locked-integration`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01d-gwr-locked-integration) | `e81d287` | Not promotable | Fair locked-state integration found no safe replayable next-prime-margin key. |
@@ -44,13 +44,13 @@ Promotion requires:
 | [`codex/solution-04-deepseek-square-grid-openq`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-04-deepseek-square-grid-openq) | `343616d` | Rejected | The proposed square-grid sequence misses the audited endpoint on all 388 shadow rows. |
 | [`codex/solution-05-claude-ssbrl-residue-advance`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-05-claude-ssbrl-residue-advance) | `bfdab74` | Rejected | `q0 + r` never selects the endpoint; residue advance repeats the unsafe first-visible-open failure. |
 | [`codex/solution-06-copilot-windowed-stabilization`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-06-copilot-windowed-stabilization) | `fb1f18a` | Rejected | Windowed flux/pressure stabilization abstains on every target row. |
-| [`codex/solution-07-seed-erasure-endpoint`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-07-seed-erasure-boundary) | `973b3e3` | Rejected | Literal erasure collapses to first-visible-open; explicit seed-phase walls are unsafe. |
-| `codex/solution-08-seed-pressure-gap` | `uncommitted` | Rejected | Bidirectional right-phase closure selects too early and too late; it adds no safe endpoint margin. |
+| [`codex/solution-07-seed-erasure-endpoint`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-07-seed-erasure-boundary) | `973b3e3` | Rejected | Literal erasure collapses to first-visible-open; explicit seed-offset residue constraints are unsafe. |
+| `codex/solution-08-seed-pressure-gap` | `uncommitted` | Rejected | Bidirectional right-residue closure selects too early and too late; it adds no safe endpoint margin. |
 | `codex/solution-09-seed-distance-closure` | `uncommitted` | Rejected | Seed-distance closure collapses to first-visible-open; the distance predicate is satisfied immediately on every target row. |
-| `codex/solution-10-continued-chamber-ladder` | `uncommitted` | Rejected | Continued-chamber ladders show a weak 4m+2 distance signal but produce audit failures on every tested selector. |
+| `codex/solution-10-continued-chamber-ladder` | `uncommitted` | Rejected | Continued-search interval ladders show a weak 4m+2 distance signal but produce audit failures on every tested selector. |
 | `codex/solution-11-carrier-threat-margin` | `uncommitted` | Rejected | Low-witness post-seed “threat” appears on every row but is too early; selecting the last visible-open before it abstains often and creates audit failures. |
 
-## Solution 1: Full Chamber State Contract
+## Solution 1: Full Search Interval State Contract
 
 Branch:
 [`codex/solution-01-grok-shadow-state-contract`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01-grok-shadow-state-contract)
@@ -59,9 +59,9 @@ Commit: `c7a0456`
 
 Proposed solution:
 
-Compute the endpoint from a full chamber state:
+Compute the endpoint from a full search-interval state:
 
-- `S`, the chamber state;
+- `S`, the search-interval state;
 - `gs`, a gap signature;
 - `V`, visible closure data;
 - `T`, a canonical terminal pattern;
@@ -93,7 +93,7 @@ The solution is not testable as stated against the current minimal generator.
 
 Strength:
 
-The proposal identifies a plausible missing object: a richer chamber-state
+The proposal identifies a plausible missing object: a richer search interval-state
 transition system could, in principle, carry the next-prime state.
 
 Weakness:
@@ -107,7 +107,7 @@ This branch does not falsify the mathematical idea. It rejects the submitted
 implementation contract because the current generator artifacts cannot execute
 it.
 
-## Solution 1b: Reinvoke Chamber Closure From `q0`
+## Solution 1b: Reinvoke Search-Interval Closure From `q0`
 
 Branch:
 [`codex/solution-01b-grok-reinvoke-closure`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01b-grok-reinvoke-closure)
@@ -116,7 +116,7 @@ Commit: `e07d776`
 
 Proposed solution:
 
-Restart the existing chamber-closure procedure from the shadow seed:
+Restart the existing search-interval-closure procedure from the shadow seed:
 
 ```python
 q = chamber_closure(p, start=q0)
@@ -126,7 +126,7 @@ Test performed:
 
 The branch tested two literal interpretations:
 
-- re-input prime chamber closure at `q0`;
+- re-input prime search-interval closure at `q0`;
 - keep input prime `p` and restart closure after `q0`.
 
 Artifacts:
@@ -147,7 +147,7 @@ Both interpretations selected too early on many high-scale rows.
 
 Strength:
 
-The rule is minimal and uses only current chamber machinery.
+The rule is minimal and uses only current search interval machinery.
 
 Weakness:
 
@@ -217,7 +217,7 @@ Limitation:
 The missing variable remains the exact next-prime offset or square-ceiling
 margin.
 
-## Solution 1d: GWR-Locked Chamber
+## Solution 1d: GWR-Locked Search Interval
 
 Branch:
 [`codex/solution-01d-grok-gwr-locked-chamber`](https://github.com/zfifteen/prime-gap-structure/tree/codex/solution-01d-grok-gwr-locked-chamber)
@@ -226,7 +226,7 @@ Commit: `d5d248d`
 
 Proposed solution:
 
-Add a probe-only `gwr_winner=q0` lock and resume chamber enumeration with the
+Add a probe-only `gwr_winner=q0` lock and resume search interval enumeration with the
 shadow seed fixed as the selected integer:
 
 ```python
@@ -284,7 +284,7 @@ Commit: `e81d287`
 
 Proposed integration:
 
-Give the locked-chamber idea a fairer test by computing visible locked-state
+Give the locked-search interval idea a fairer test by computing visible locked-state
 features outside the generator, then mining whether any state key determines
 the missing terminal margin.
 
@@ -339,7 +339,7 @@ contract.
 Weakness:
 
 The tested visible keys either do not replay or replay with audit failures.
-Row-unique keys describe individual chambers but do not generalize into a
+Row-unique keys describe individual search intervals but do not generalize into a
 next-prime-margin law.
 
 Limitation:
@@ -371,7 +371,7 @@ The branch regenerated closure-state vectors from current PGS-visible logic
 using `closure_reason(...)`. It tested:
 
 - the literal fixed `128`-integer pre-shadow vector;
-- a chamber-native prefix vector from `p` into `q0`;
+- a search interval-native prefix vector from `p` into `q0`;
 - all integer candidates;
 - visible-open candidate domains only.
 
@@ -424,7 +424,7 @@ Commit: `cba771c`
 
 Proposed solution:
 
-Treat `q0` as an interior seed and use a mark stream from chamber witnesses.
+Treat `q0` as an interior seed and use a mark stream from search interval witnesses.
 The rule selects the first unmarked candidate after a contiguous marked run
 that exhausts all open residues at the seed:
 
@@ -514,7 +514,7 @@ Generate the square-ceiling grid rooted at `p` and `q0`:
 $$q_k = ceil((floor(sqrt(p q0)) + k)^2 / p)$$
 
 Then select the first `q_k > q0` that remains open under the same active wall
-set `W` used by chamber closure:
+set `W` used by search-interval closure:
 
 ```text
 openQ(x) = true if x mod w != 0 for every w in W
@@ -559,7 +559,7 @@ The exact submitted inputs are not present in current artifacts.
 | Required object | Present |
 |---|---|
 | active wall prime set `W` | false |
-| `closed[1..q0]` chamber vector | false |
+| `closed[1..q0]` search interval vector | false |
 | square-grid `q_k` sequence | computable from `p` and `q0` |
 
 Candidate-row materialization is also incomplete for the lower high-scale
@@ -574,7 +574,7 @@ surface:
 Strength:
 
 The proposal is compact and falsifiable. It names a specific candidate stream
-and a specific chamber-openness predicate.
+and a specific search interval-openness predicate.
 
 Weakness:
 
@@ -597,7 +597,7 @@ Commit: `bfdab74`
 
 Proposed solution:
 
-Use the shadow seed's blocking witness `r` and the chamber residue state at
+Use the shadow seed's blocking witness `r` and the search-interval residue state at
 `q0`:
 
 ```text
@@ -606,7 +606,7 @@ general case: advance residues from q0 and select the first unblocked position
 ```
 
 The submitted law treats `r`, the active wall primes, and the residue vector at
-`q0` as current chamber-state objects.
+`q0` as current search interval-state objects.
 
 Test performed:
 
@@ -653,28 +653,28 @@ The exact submitted state is not present in current artifacts.
 
 | Required object | Present |
 |---|---|
-| seed blocking witness `r` in chamber state | false |
+| seed blocking witness `r` in search-interval state | false |
 | active wall prime set / `sieve_primes` | false |
 | residue vector at `q0` | false |
 
 Strength:
 
 The proposal is close to a real process model: it treats recovery as a
-rightward continuation of chamber state rather than a flat tag on one
+rightward continuation of search-interval state rather than a flat tag on one
 candidate.
 
 Weakness:
 
 The proposed witness step points in the wrong direction. The least factor of
 the seed is far outside the actual seed-to-next-prime distance, so `q0 + r` and
-`q0 + k r` cannot select the endpoint under the current chamber window.
+`q0 + k r` cannot select the endpoint under the current search interval window.
 Residue advance without the least-factor step reproduces the known unsafe
 first-visible-open behavior.
 
 Limitation:
 
 This branch rejects the submitted SSBRL against current artifacts. It does not
-rule out a future chamber-state object that records a different blocking phase
+rule out a future search interval-state object that records a different blocking state
 than the seed's least factor.
 
 ## Solution 6: Windowed Flux/Pressure Stabilization
@@ -690,7 +690,7 @@ Select the terminal next prime as the first rightward index after `q0` where a
 PGS-visible recovery state stabilizes. The proposed recovery state uses:
 
 - visible candidate flux;
-- chamber-closure pressure;
+- search-interval-closure pressure;
 - a window width `W = max(128, floor(log(p)^2))`;
 - a stability gap `G = ceil(W / 8)`.
 
@@ -741,7 +741,7 @@ The exact submitted state is not present in current artifacts.
 |---|---|
 | per-index emitted / confirmed counts | false |
 | per-index visible candidate flux | false |
-| per-index chamber pressure | false |
+| per-index search interval pressure | false |
 
 Strength:
 
@@ -771,7 +771,7 @@ Commit: `973b3e3`
 Proposed solution:
 
 Treat the true next prime as the first visible-open candidate after `q0` where
-the rightward chamber trace no longer depends on the placed shadow seed.
+the rightward search interval trace no longer depends on the placed shadow seed.
 
 ```text
 seed_erasure_defect(c) =
@@ -784,12 +784,12 @@ or the first stable minimum if zero is too strict.
 
 Test performed:
 
-The current chamber does not materialize a placed-seed influence term. The
+The current search interval does not materialize a placed-seed influence term. The
 branch therefore tested three concrete interpretations:
 
 - literal re-input prime identity, where no explicit seed influence exists;
-- seed-offset phase wall, using the visible offset `q0 - p`;
-- candidate-margin phase wall, using the visible margin `c - q0`.
+- seed-offset residue constraint, using the visible offset `q0 - p`;
+- candidate-margin residue constraint, using the visible margin `c - q0`.
 
 Each interpretation was tested with trace windows `128` and `64`.
 
@@ -804,7 +804,7 @@ Artifacts:
 Result:
 
 No rule promoted. The literal interpretation collapses to the known
-first-visible-open selector. The explicit seed-phase integrations select many
+first-visible-open selector. The explicit seed-offset residue integrations select many
 wrong endpoints.
 
 Window `128`:
@@ -812,28 +812,28 @@ Window `128`:
 | Scale | Rule | Correct | Too early | Too late | Projected PGS |
 |---|---|---:|---:|---:|---:|
 | $10^{12}$ | literal identity | 60/102 | 42 | 0 | 83.40% |
-| $10^{12}$ | seed-offset phase | 35/102 | 23 | 44 | 73.52% |
-| $10^{12}$ | candidate-margin phase | 30/102 | 19 | 53 | 71.54% |
+| $10^{12}$ | seed-offset residue | 35/102 | 23 | 44 | 73.52% |
+| $10^{12}$ | candidate-margin residue | 30/102 | 19 | 53 | 71.54% |
 | $10^{15}$ | literal identity | 76/141 | 65 | 0 | 73.90% |
-| $10^{15}$ | seed-offset phase | 55/141 | 38 | 48 | 65.46% |
-| $10^{15}$ | candidate-margin phase | 36/141 | 36 | 69 | 57.83% |
+| $10^{15}$ | seed-offset residue | 55/141 | 38 | 48 | 65.46% |
+| $10^{15}$ | candidate-margin residue | 36/141 | 36 | 69 | 57.83% |
 | $10^{18}$ | literal identity | 69/145 | 76 | 0 | 69.60% |
-| $10^{18}$ | seed-offset phase | 45/145 | 48 | 52 | 60.00% |
-| $10^{18}$ | candidate-margin phase | 31/145 | 49 | 65 | 54.40% |
+| $10^{18}$ | seed-offset residue | 45/145 | 48 | 52 | 60.00% |
+| $10^{18}$ | candidate-margin residue | 31/145 | 49 | 65 | 54.40% |
 
 Window `64`:
 
 | Scale | Rule | Correct | Too early | Too late | Projected PGS |
 |---|---|---:|---:|---:|---:|
 | $10^{12}$ | literal identity | 60/102 | 42 | 0 | 83.40% |
-| $10^{12}$ | seed-offset phase | 36/102 | 28 | 38 | 73.91% |
-| $10^{12}$ | candidate-margin phase | 37/102 | 28 | 37 | 74.31% |
+| $10^{12}$ | seed-offset residue | 36/102 | 28 | 38 | 73.91% |
+| $10^{12}$ | candidate-margin residue | 37/102 | 28 | 37 | 74.31% |
 | $10^{15}$ | literal identity | 76/141 | 65 | 0 | 73.90% |
-| $10^{15}$ | seed-offset phase | 40/141 | 40 | 61 | 59.44% |
-| $10^{15}$ | candidate-margin phase | 42/141 | 46 | 53 | 60.24% |
+| $10^{15}$ | seed-offset residue | 40/141 | 40 | 61 | 59.44% |
+| $10^{15}$ | candidate-margin residue | 42/141 | 46 | 53 | 60.24% |
 | $10^{18}$ | literal identity | 69/145 | 76 | 0 | 69.60% |
-| $10^{18}$ | seed-offset phase | 51/145 | 46 | 48 | 62.40% |
-| $10^{18}$ | candidate-margin phase | 46/145 | 59 | 40 | 60.40% |
+| $10^{18}$ | seed-offset residue | 51/145 | 46 | 48 | 62.40% |
+| $10^{18}$ | candidate-margin residue | 46/145 | 59 | 40 | 60.40% |
 
 Materialization result:
 
@@ -841,7 +841,7 @@ The required seed-erasure object is not present in current artifacts.
 
 | Required object | Present |
 |---|---|
-| literal seed-erasure trace in current chamber state | false |
+| literal seed-erasure trace in current search-interval state | false |
 | placed-seed influence term | false |
 
 Strength:
@@ -852,16 +852,16 @@ mathematically invisible.
 
 Weakness:
 
-The tested seed-phase integrations are not safe selectors. They either reduce
+The tested seed-offset residue integrations are not safe selectors. They either reduce
 to the first-visible-open failure or produce mixed early and late errors.
 
 Limitation:
 
 This branch rejects the current explicit seed-erasure integrations. It does
-not rule out a future chamber model where `q0` contributes a real stateful
+not rule out a future search-interval model where `q0` contributes a real stateful
 influence that can be erased and compared.
 
-## Solution 8: Bidirectional Chamber Closure
+## Solution 8: Bidirectional Search-Interval Closure
 
 Branch:
 `codex/solution-08-seed-pressure-gap`
@@ -875,21 +875,21 @@ only as a point in the input prime-framed rightward scan. Earlier visible-open
 impostors that are open from `p` should close from the proposed endpoint side
 if the candidate is the real terminal next prime.
 
-The tested selector computes a right-phase defect:
+The tested selector computes a right-residue defect:
 
 ```text
 right_phase_defect(c) =
   count of earlier input-prime-visible-open nodes n
-  whose distance c - n is also right-phase open
+  whose distance c - n is also right-residue open
 ```
 
 The branch tests whether the true next prime is the first visible-open candidate
 with zero defect, the leftmost minimum-defect candidate, or the first candidate
-whose full left-open interior is closed by the right endpoint phase.
+whose full left-open interior is closed by the right endpoint residue.
 
 Test performed:
 
-The probe tested right-endpoint phase closure under mod `30` and mod `210` on
+The probe tested right-endpoint residue closure under mod `30` and mod `210` on
 the current high-scale shadow rows:
 
 - `B0_first_visible_open_baseline`;
@@ -909,34 +909,34 @@ Artifacts:
 
 Result:
 
-No rule promoted. The right-phase closure signal is real and measurable, but
+No rule promoted. The right-residue closure signal is real and measurable, but
 it does not identify the terminal margin. It often chooses a later candidate
 past the true next prime, while still choosing too early on many rows.
 
 | Scale | Rule family | Correct | Too early | Too late | No selection | Projected PGS |
 |---|---|---:|---:|---:|---:|---:|
 | $10^{12}$ | first visible baseline | 60/102 | 42 | 0 | 0 | 83.40% |
-| $10^{12}$ | bidirectional right phase | 24/102 | 18 | 60 | 0 | 69.17% |
+| $10^{12}$ | bidirectional right residue | 24/102 | 18 | 60 | 0 | 69.17% |
 | $10^{15}$ | first visible baseline | 76/141 | 65 | 0 | 0 | 73.90% |
-| $10^{15}$ | bidirectional right phase | 32/141 | 33 | 76 | 0 | 56.22% |
+| $10^{15}$ | bidirectional right residue | 32/141 | 33 | 76 | 0 | 56.22% |
 | $10^{18}$ | first visible baseline | 69/145 | 76 | 0 | 0 | 69.60% |
-| $10^{18}$ | bidirectional right phase | 29/145 | 47 | 68 | 1 | 53.60% |
+| $10^{18}$ | bidirectional right residue | 29/145 | 47 | 68 | 1 | 53.60% |
 
 Strength:
 
-The probe tests a genuinely different chamber interpretation. It asks whether
+The probe tests a genuinely different search interval interpretation. It asks whether
 the endpoint is the first point that closes its own left shadow, rather than
 the first point that remains open from the input prime.
 
 Weakness:
 
-The current right-phase definition has no integer memory. It can describe a
-balanced interior phase after the real next prime as easily as a terminal
+The current right-residue definition has no integer memory. It can describe a
+balanced interior residue after the real next prime as easily as a terminal
 endpoint, which creates many too-late selections.
 
 Limitation:
 
-This branch rejects mod-`30` and mod-`210` right-phase closure as currently
+This branch rejects mod-`30` and mod-`210` right-residue closure as currently
 materialized. It does not rule out a right-endpoint state that carries the
 placed seed or GWR-selected integer as an active term.
 
@@ -1014,7 +1014,7 @@ This branch rejects seed-distance closure as materialized by
 rule out a integer-aware state transition that distinguishes the seed from the
 first visible-open candidate.
 
-## Solution 10: Continued-Chamber Ladder
+## Solution 10: Continued-Search Interval Ladder
 
 Branch:
 `codex/solution-10-continued-chamber-ladder`
@@ -1055,7 +1055,7 @@ Artifacts:
 Result:
 
 No rule promoted. Every tested selector that produces nonzero hits also creates
-audit failures. The best-performing continued-chamber rule has substantial
+audit failures. The best-performing continued-search-interval rule has substantial
 recall but is unsafe.
 
 Per-scale selector summary:
@@ -1171,7 +1171,7 @@ small divisor witness.
 
 The strongest common finding across these branches is:
 
-`q0` is useful as a placed interior seed, but neither visible chamber restart,
+`q0` is useful as a placed interior seed, but neither visible search interval restart,
 GWR later-side dominance, nor a locked selected integer condition currently determines
 the next-prime offset.
 

@@ -110,7 +110,7 @@ bounded composite witness from:
 - `7, 11, 13, 17, 19, 23, 29, 31`
 
 The eliminator does not treat absence of a witness as primality evidence. If no
-witness is found and the proposed chamber has unresolved wheel-open interior
+witness is found and the proposed interval has unresolved wheel-open interior
 positions, the candidate is `UNRESOLVED`.
 
 The eliminator does not use:
@@ -213,7 +213,7 @@ The probe now exposes a stronger structure:
 
 - bounded positive witnesses reduce the average candidate count from `16.75` to
   `9.41`;
-- interior-open accounting prevents unresolved chambers from being counted as
+- interior-open accounting prevents unresolved intervals from being counted as
   closed;
 - the combined status model leaves one resolved survivor per input prime, but every
   input prime still has unresolved alternatives.

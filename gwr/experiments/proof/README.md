@@ -103,7 +103,7 @@ $10^9 < p < 5 \times 10^9$.
   beyond the current $10^9$ surface.
 - [`prime_gap_admissibility_frontier.py`](./prime_gap_admissibility_frontier.py):
   deterministic local-frontier extractor that
-  - canonicalizes each exact hard case by the local chamber variables,
+  - canonicalizes each exact hard case by the local search interval variables,
   - splits the earlier-side problem into square and square-free branches,
   - records the retained finite residual classes below the high-divisor cutoff,
   - and emits the proof-facing artifacts for the local admissibility route.

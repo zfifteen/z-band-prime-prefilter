@@ -188,7 +188,7 @@ Combined with the original validation surface of 4,423,459 gaps (up to sampled w
 |:-----|:------------|
 | `z_band_prime_composite_field.py` | Segmented divisor-count sieve (replacement for missing import) |
 | `lexi_validation_runs.py` | All validation logic: lexicographic comparison, window builders, experiments A-D |
-| `output/phase1_reproduction.json` | Phase 1 reproduction of runs.py at 10^6 |
+| `output/phase1_reproduction.json` | Stage 1 reproduction of runs.py at 10^6 |
 | `output/experiment_a.json` | Experiment A results (5M exact) |
 | `output/experiment_a_10m.json` | Experiment A results (10M exact) |
 | `output/experiment_b.json` | Experiment B results (sampled 10^8 through 10^12, 3 modes) |
@@ -221,7 +221,7 @@ python -c "from lexi_validation_runs import run_experiment_d; run_experiment_d()
 
 | Experiment | Runtime |
 |:-----------|--------:|
-| Phase 1 (10^6 reproduction) | ~1s |
+| Stage 1 (10^6 reproduction) | ~1s |
 | Experiment A (5M exact) | ~6s |
 | Experiment A (10M exact) | ~12s |
 | Experiment B (5 scales, 3 modes) | ~4 min |

@@ -1,8 +1,8 @@
 # Shadow Seed Recovery Bridge Report
 
 The Minimal PGS Generator blocker was the high-scale semiprime-shadow lane. At
-low scale, chamber closure already emitted the next prime for every tested
-input prime. At high scale, the same chamber rule often selected a composite
+low scale, search-interval closure already emitted the next prime for every tested
+input prime. At high scale, the same search-interval rule often selected a composite
 left-side shadow inside the gap. Earlier bridge logic could recover from those
 rows, but the source accounting did not separate pure PGS selection from
 exact arithmetic recovery.
@@ -28,7 +28,7 @@ bridge is labeled `shadow_seed_recovery`.
 The restart generator had three relevant stages:
 
 1. `pgs_chamber_closure_v2` selected the first wheel-open offset whose smaller
-   admissible offsets were closed by visible chamber evidence.
+   admissible offsets were closed by visible search interval evidence.
 2. If that selected value was prime, the row was counted as `PGS`.
 3. If that selected value was composite, the generator used a chain bridge or
    fallback path to preserve correctness.
@@ -50,13 +50,13 @@ The problem was therefore not coverage. The generator already knew how to emit
 correctly in exact mode. The blocker was source classification:
 
 ```text
-composite chamber-closure seed -> bridge/fallback -> correct q
+composite search-interval-closure seed -> bridge/fallback -> correct q
 ```
 
 became:
 
 ```text
-composite chamber-closure seed -> shadow-seed recovery bridge -> correct q
+composite search-interval-closure seed -> shadow-seed recovery bridge -> correct q
 ```
 
 ## Failed Intermediate Paths
@@ -78,7 +78,7 @@ That was a real diagnostic improvement, but the half-square-root closure was a
 generic two-sided divisor-search comparator, not a PGS next-prime law.
 
 The decisive shift was to stop asking which chain node looked terminal and to
-ask what the false chamber candidate actually represented. The false candidate
+ask what the false search interval candidate actually represented. The false candidate
 was a placed interior seed. Once that is true, the right object is not the
 whole chain. The right object is recovery from the seed.
 
@@ -96,7 +96,7 @@ It is implemented in
 Generation order is now:
 
 1. Build the `pgs_chamber_closure_v2` certificate.
-2. Let `q0` be the chamber-closure candidate.
+2. Let `q0` be the search-interval-closure candidate.
 3. If `q0` passes deterministic divisor checking, emit `q0` as `PGS` under
    `pgs_chamber_closure_v2`.
 4. If `q0` is composite, treat `q0` as the shadow seed.
@@ -109,7 +109,7 @@ The important implementation point is that the trigger is generator-visible.
 It does not depend on downstream audit:
 
 ```text
-PGS chamber closure selects q0.
+PGS search-interval closure selects q0.
 Generator arithmetic checks q0.
 If q0 is composite, q0 becomes the recovery seed.
 ```
@@ -128,7 +128,7 @@ p < q0 < q
 where:
 
 - `p` is the input prime;
-- `q0` is the chamber-selected composite shadow;
+- `q0` is the search-interval-selected composite shadow;
 - `q` is the true next prime after `p`.
 
 The old interpretation treated `q0` as a wrong terminal answer. The new
@@ -161,7 +161,7 @@ The high-scale probe is
 Its committed result summary is
 [`output/simple_pgs_shadow_seed_gwr_solution_probe/summary.json`](../../../output/simple_pgs_shadow_seed_gwr_solution_probe/summary.json).
 
-| Scale | Sample | Emitted | Unresolved | Audit failures | Pure PGS | Chamber closure | Shadow seed recovery | Chain/fallback |
+| Scale | Sample | Emitted | Unresolved | Audit failures | Pure PGS | Search-interval closure | Shadow seed recovery | Chain/fallback |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | `10^12` | 256 | 253 | 3 | 0 | 59.68% | 151 | 102 / 40.32% | 0 |
 | `10^15` | 256 | 249 | 7 | 0 | 43.37% | 108 | 141 / 56.63% | 0 |
@@ -240,5 +240,5 @@ recovery path. Before crypto-keygen use, two engineering tasks remain:
 
 The current result is still strong: on every emitted high-scale sampled row
 through `10^18`, audit failures are zero and chain/fallback counts are zero.
-The honest source split is pure chamber-closure PGS plus
+The honest source split is pure search-interval-closure PGS plus
 `shadow_seed_recovery` bridge rows.

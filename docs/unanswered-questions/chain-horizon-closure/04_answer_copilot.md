@@ -12,12 +12,12 @@ that **predicts the divisor horizon** (how far one must search for a small facto
 
 ### Concrete experimental objective
 
-**Primary experiment.** *Mine the least-factor frontier of false chain nodes and test whether its maximum (over many input primes) admits a deterministic upper bound expressible in PGS-visible quantities (input prime \(p\), shadow seed \(s_0\), chain gaps, residues, chamber state).* If the frontier’s maximum scales like \(\sqrt{q}\) with no smaller PGS-visible bound, the bridge cannot be compressed into a purely local PGS rule at `candidate_bound=128`. If the frontier is bounded by a much smaller deterministic expression built from PGS-visible state, that expression is the missing `H`.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
+**Primary experiment.** *Mine the least-factor frontier of false chain nodes and test whether its maximum (over many input primes) admits a deterministic upper bound expressible in PGS-visible quantities (input prime \(p\), shadow seed \(s_0\), chain gaps, residues, search-interval state).* If the frontier’s maximum scales like \(\sqrt{q}\) with no smaller PGS-visible bound, the bridge cannot be compressed into a purely local PGS rule at `candidate_bound=128`. If the frontier is bounded by a much smaller deterministic expression built from PGS-visible state, that expression is the missing `H`.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 **Operational definition.** For each false chain node \(n\) in a chain seeded by a semiprime shadow:
 - compute the **least factor** \(f(n)\) (smallest prime divisor),
 - compute the **horizon** \(h(n) = f(n)\) (or equivalently the search bound needed to detect compositeness),
-- record the chain-state tuple \((p, s_0, \text{chain gaps}, \text{residues}, \text{chamber state})\) and \(h(n)\).
+- record the chain-state tuple \((p, s_0, \text{chain gaps}, \text{residues}, \text{search-interval state})\) and \(h(n)\).
   The **least-factor frontier** for an input prime is \(\max_{n \in \text{false chain nodes}} h(n)\). We want to know whether that max is bounded by a PGS-visible function \(H(p,s_0,\text{chain_state}) \ll \sqrt{q}\).   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 ---
@@ -72,7 +72,7 @@ that **predicts the divisor horizon** (how far one must search for a small facto
 - **Shadow seed \(s_0\)**: its residue class modulo small primes; whether it is semiprime with repeated factor or distinct factors.
 - **Chain gaps sequence**: the vector of step sizes between chain nodes (small gaps may force small factors).
 - **Residue pattern** of chain nodes modulo the wheel base (the repo uses wheel-open positions).
-- **Chamber state**: local divisor-class counts, presence/absence of squares, and the local DNI scores for early chain nodes.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
+- **Search-interval state**: local divisor-class counts, presence/absence of squares, and the local DNI scores for early chain nodes.   [github.com](https://github.com/zfifteen/prime-gap-structure/blob/a1c6a7938c4cd9a234f0508f570ede4513084431/)
 
 **Concrete functional forms to try for \(H\)** (fit and test):
 1. **Linear in log**: \(H \le C \cdot \log(q)^a\). Try \(a=1,2\) and small constants \(C\).

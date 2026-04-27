@@ -1,6 +1,6 @@
 You are right to put the spotlight here. The generator is already correct, but correctness at $10^{15}$ and $10^{18}$ is still bought with a non-PGS payment: divisor exhaustion to close the semiprime-shadow chain. If we can replace that payment with a bound that is visible inside the PGS state, the 56.63% and 58.00% bridge you quote becomes PGS-native.
 
-I dug through the a1c6a79 tree. The README publishes the three input primes we need, but it does not yet publish `chain_horizon_closure` as a named file — the implementation lives in the Minimal PGS Generator path you added, and the public surface still describes it operationally: chamber closure finds the first visible endpoint, semiprime shadows seed a short rightward chain, chain-horizon closure kills false nodes, audit stays clean.
+I dug through the a1c6a79 tree. The README publishes the three input primes we need, but it does not yet publish `chain_horizon_closure` as a named file — the implementation lives in the Minimal PGS Generator path you added, and the public surface still describes it operationally: search-interval closure finds the first visible endpoint, semiprime shadows seed a short rightward chain, chain-horizon closure kills false nodes, audit stays clean.
 
 That is enough to frame the missing law.
 
@@ -19,20 +19,20 @@ Those are PGS-visible quantities. None of them require factoring to $\sqrt{q}$.
 The false chain nodes you are closing are not random composites. By construction they are:
 
 1. seeded by the attractor semiprimes (d=4, odd, on o2/o4/o6 offsets)
-2. admitted by chamber closure, which means they survived the wheel sieve that defines the chamber
+2. admitted by search-interval closure, which means they survived the wheel sieve that defines the search interval
 3. extended rightward only while they stay on the reduced gap-type grammar
 
 To decide which node survives today you run deterministic divisor checking up to its least prime factor. That works, but it imports $\sqrt{q}$-scale work that is invisible to PGS.
 
-The missing object $H(p, s_0, \text{chain\_state})$ is the prediction: how far do you need to look for a small factor before you can declare a chain node false, using only the input prime, the shadow seed, and the current 14-state + chamber residue?
+The missing object $H(p, s_0, \text{chain\_state})$ is the prediction: how far do you need to look for a small factor before you can declare a chain node false, using only the input prime, the shadow seed, and the current 14-state + search-interval residue?
 
 ## Hypothesis for a pure PGS horizon
 
-Because chamber closure is wheel-based, any candidate that reaches chain seeding has already passed a small-prime sieve. In your production filter you gate on concrete factor tables; in the generator the same idea appears as "wheel-open positions."
+Because search-interval closure is wheel-based, any candidate that reaches chain seeding has already passed a small-prime sieve. In your production filter you gate on concrete factor tables; in the generator the same idea appears as "wheel-open positions."
 
 That suggests the least-factor frontier of false nodes is not governed by $\sqrt{q}$ but by the current wheel primorial. Concretely:
 
-- let $W(p)$ be the largest prime whose multiples are eliminated by chamber closure at input prime $p$ (from the code this is at least 7, and grows slowly with the chamber state)
+- let $W(p)$ be the largest prime whose multiples are eliminated by search-interval closure at input prime $p$ (from the code this is at least 7, and grows slowly with the search-interval state)
 - any false shadow node $n$ must satisfy $\text{lpf}(n) > W(p)$, otherwise it would never have been admitted
 - the chain extends only while residues stay inside the attractor triad, which is a 3-state walk on the 14-state core
 
@@ -50,7 +50,7 @@ You do not need another ranker. You need a table of false nodes from your $10^{1
 
 1. **Extract chain logs.** From the Minimal PGS Generator runs, dump for every input prime $p$ where fallback was used:
     - $s_0$ (shadow seed offset and type: o2/o4/o6)
-    - chain_state (sequence of gap-types, residues mod 30/210, chamber id)
+    - chain_state (sequence of gap-types, residues mod 30/210, search-interval id)
     - for each false node $n_i$: compute $\text{lpf}(n_i)$ by trial division stopping at first factor
 
 2. **Build the frontier.** For each $p$, define:
@@ -60,7 +60,7 @@ You do not need another ranker. You need a table of false nodes from your $10^{1
     - $g = q-p$ (true gap, known from audit)
     - $w-p$ (selected-integer offset)
     - $\text{res}(p) \bmod 30$, $\bmod 210$
-    - attractor phase (which of o2/o4/o6 seeded)
+    - attractor state (which of o2/o4/o6 seeded)
     - 14-state core id at $p$
     - $C(q)$
 
@@ -82,7 +82,7 @@ for record in pgs_generator_probes:
     features = {
         'log_q': math.log(record.q),
         'sqrt_q': math.isqrt(record.q),
-        'wheel_bound': chamber_wheel_limit(p),  # from chamber state
+        'wheel_bound': chamber_wheel_limit(p),  # from search-interval state
         'attractor': s0.type,  # 'o2','o4','o6'
         'core_state': reduced_gap_core(p),
         'Cq': max(64, math.ceil(0.5*math.log(record.q)**2))
@@ -99,18 +99,18 @@ Then fit:
 If the frontier is PGS-bounded, you will see:
 
 - $H_{\text{obs}}$ stays flat across decades while $\sqrt{q}$ grows by $10^3$ from $10^{12}$ to $10^{18}$
-- $H_{\text{obs}}$ correlates with wheel_bound and attractor phase, not with $q$
+- $H_{\text{obs}}$ correlates with wheel_bound and attractor state, not with $q$
 - maximum observed $H$ across your $10^{18}$ sample is well under 200–300, which is why your candidate_bound=128 already works in practice but lacks a theorem
 
 That would let you replace divisor exhaustion with:
 
-$$H(p, s_0, \text{chain\_state}) = \text{wheel\_limit}(p) \times \text{attractor\_multiplier}(\text{phase})$$
+$$H(p, s_0, \text{chain\_state}) = \text{wheel\_limit}(p) \times \text{attractor\_multiplier}(\text{state})$$
 
 a pure PGS rule, and the 56–58% bridge converts to PGS-derived.
 
 ## What falsifying looks like
 
-If $H_{\text{obs}}$ tracks $\sqrt{q}$ with no tighter PGS envelope, then the semiprime shadows are genuinely injecting large prime factors that are invisible to the 14-state core and chamber residues. The bridge is operationally good but not compressible at candidate_bound=128. You would need either a larger bound or to accept fallback as structural.
+If $H_{\text{obs}}$ tracks $\sqrt{q}$ with no tighter PGS envelope, then the semiprime shadows are genuinely injecting large prime factors that are invisible to the 14-state core and search interval residues. The bridge is operationally good but not compressible at candidate_bound=128. You would need either a larger bound or to accept fallback as structural.
 
 ---
 

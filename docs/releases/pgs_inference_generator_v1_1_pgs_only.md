@@ -26,10 +26,10 @@ Version `1.1` removes those paths from the generator. The generator now has one
 execution path:
 
 ```text
-input prime p -> GWR/NLSC chamber-reset selector -> emit {"p": p, "q": q}
+input prime p -> GWR/NLSC search-interval-reset selector -> emit {"p": p, "q": q}
 ```
 
-If the selector does not resolve inside the supplied chamber bound, generation
+If the selector does not resolve inside the supplied search bound, generation
 raises `PGSUnresolvedError`. It does not run a backup prime search.
 
 ## Frozen Selector
@@ -37,7 +37,7 @@ raises `PGSUnresolvedError`. It does not run a backup prime search.
 ```text
 rule_id: pgs_chamber_reset_v1
 state input: exact divisor-count field
-next-prime selection rule: GWR/NLSC chamber-reset state
+next-prime selection rule: GWR/NLSC search-interval-reset state
 emitted record: p, q only
 ```
 

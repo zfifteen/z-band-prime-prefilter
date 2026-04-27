@@ -34,7 +34,7 @@ The summary records:
 
 The next state family should be selected from the repeated missing observables,
 not guessed. If the collisions are mostly separated by current legal ladder or
-square pressure, the next probe should combine those with previous-chamber
+square pressure, the next probe should combine those with previous-search-interval
 state. If they require exact semiprime or exact divisor pressure, the result is
 useful but not yet pure-eligible.
 

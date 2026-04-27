@@ -2,7 +2,7 @@
 
 The higher-divisor pressure lock abstains mostly because the required
 higher-divisor pressure component is absent. The strongest substitute signal in
-the abstention set is previous-chamber memory.
+the abstention set is previous-search-interval memory.
 
 This note profiles abstentions from Next-Prime Law 005 Candidate. It does not
 approve a new lock family and does not approve pure generator emission.
@@ -60,7 +60,7 @@ The best next lock-family candidate by raw support is:
 previous_chamber_reset_lock
 ```
 
-This is a profiling result only. It does not mean the previous-chamber signal
+This is a profiling result only. It does not mean the previous-search-interval signal
 is selective or safe.
 
 ## Surface Summary
@@ -90,7 +90,7 @@ higher-divisor pressure lock itself did not activate there.
 
 The selected-integer-family result is important. Most near-misses do not have the same
 integer regime as the activating Next-Prime Law 005 cases. Many are resolved at
-small offsets before a legal integer exists in the chamber.
+small offsets before a legal integer exists in the search interval.
 
 ## Pressure Substitute Counts
 
@@ -129,12 +129,12 @@ The near-miss profile supports four facts:
 
 1. The higher-divisor lock abstains because the required pressure component is
    absent, not because the true next prime is usually unresolved.
-2. Previous-chamber memory is present in most abstaining true-next-prime rows.
+2. Previous-search-interval memory is present in most abstaining true-next-prime rows.
 3. Most abstentions are outside the activating selected-integer-family regime.
 4. Square and semiprime pressure are real but sparse in this near-miss set.
 
 The next candidate should not be a broad version of Next-Prime Law 005. The next
-test should isolate previous-chamber memory as a lock separator and ask whether
+test should isolate previous-search-interval memory as a lock separator and ask whether
 it selects true resolved endpoints without selecting false resolved survivors.
 
 ## Next Gate
@@ -152,7 +152,7 @@ false_locked_count == 0
 true_locked_count > 0
 ```
 
-If previous-chamber memory selects false resolved survivors, it is rejected as
+If previous-search-interval memory selects false resolved survivors, it is rejected as
 nonselective. If it passes, it becomes an adjacent candidate lock family. Until
 then, it is only the best next family by near-miss support.
 

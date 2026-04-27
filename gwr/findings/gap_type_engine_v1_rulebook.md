@@ -53,11 +53,11 @@ The rules below are arranged from the fast core to the slow controller.
 12. **Lag-2 scheduler law**. A lag-2 finite scheduler is enough to cut the
     pooled-window concentration error to `0.0201`, which is the first clean
     closure of the higher-order gap beyond the plain second-order rotor.
-13. **Periodic phase law**. A small periodic controller is real on this
+13. **Periodic-state law**. A small periodic controller is real on this
     surface. The working hybrid uses cycle `8`, the best plain modulo cycle in
     the current reduced sweep is `11`, and the best higher-divisor reset cycle
     in that sweep is `2`.
-14. **Local reset law**. Resetting the hybrid phase when the walk leaves the
+14. **Local reset law**. Resetting the hybrid state when the walk leaves the
     attractor gives the current best local engine,
     `hybrid_lag2_mod8_reset_nontriad_scheduler`, with pooled-window
     concentration L1 `0.0116`.

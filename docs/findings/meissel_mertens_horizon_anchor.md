@@ -71,7 +71,7 @@ That is a `log log` law in total compute.
 ## Why the Constant Is an Input prime
 
 The threshold ladder is not fixed only by the double exponential. It is also
-positioned by the additive phase $B_{1}$.
+positioned by the additive offset $B_{1}$.
 
 Changing $B_{1}$ by $\Delta$ rescales the threshold by
 
@@ -83,7 +83,7 @@ At the `Exceeds 5` horizon:
   `0.319`,
 - a shift of `+0.10` moves it down by about a factor of `1.09e-5`.
 
-So the Meissel-Mertens constant is not a decorative offset. It is the phase
+So the Meissel-Mertens constant is not a decorative offset. It is the offset
 input prime that places the entire accessibility ladder.
 
 ## Implication for DCI

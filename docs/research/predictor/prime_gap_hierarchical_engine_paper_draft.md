@@ -17,7 +17,7 @@ process and is not captured well by a simple first-order chain. Instead, it
 closes to a persistent `14`-state grammar whose dominant object is a triad of
 odd-semiprime lanes at first-open offsets `2`, `4`, and `6`. We call that
 triad the **Semiprime Wheel Attractor**. A deterministic lag-2 scheduler plus
-a small periodic phase closes the local `256`-window concentration surface to
+a small periodic correction closes the local `256`-window concentration surface to
 pooled L1 `0.0116`. Higher-divisor-triggered controllers then raise the
 stationary three-step concentration to `0.6278` and, in a stronger but less
 locally faithful family, to `0.6840`. The resulting picture is a hierarchical
@@ -152,7 +152,7 @@ The first successful closure beyond the plain rotor came from a lag-2
 scheduler. On the sampled `256`-window surface, that model reduced pooled
 concentration L1 to `0.0201`.
 
-The next step added a small periodic phase. The best local hybrid profile was
+The next step added a small periodic correction. The best local hybrid profile was
 
 - `hybrid_lag2_mod8_reset_nontriad_scheduler`
 - pooled-window concentration L1 `0.0116`

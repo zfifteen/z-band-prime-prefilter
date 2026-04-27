@@ -33,7 +33,7 @@ This is **not** a replacement for GWR/NLSC — it is their natural evolution and
 2. In the Finite-State Surface Engine, encode the reset as a required transition after any minimal-divisor state in the 14-state grammar.
 3. **Metadata extension** (Section 10 of the spec): add `reset_dist`, `reset_d`, `reset_found` to every emitted record. This gives full auditability of the "double tap" that locked the endpoint.
 4. **False-positive elimination**: any candidate whose selected integer lacks a reset within, say, 2×log(q) steps is rejected before classical validation. This would have caught all 282 false survivors.
-5. **Earlier, higher-confidence inference**: once selected integer + reset is seen, you can often infer the endpoint with >99% certainty even before full threat-margin closure, speeding up large-chamber walks.
+5. **Earlier, higher-confidence inference**: once selected integer + reset is seen, you can often infer the endpoint with >99% certainty even before full threat-margin closure, speeding up large-search interval walks.
 
 **Theoretical payoff**:
 - Refines "No-Later-Simpler-Composite Closure" into **"Reset-Locked Closure Theorem"** (positive confirmation + negative threat avoidance).
@@ -44,7 +44,7 @@ This is **not** a replacement for GWR/NLSC — it is their natural evolution and
 - Add the Reset Confirmation Layer to the inference strategy in `tech_spec_pgs_prime_generator.md`.
 - Re-run the 10⁷ benchmark with the new guard (expect zero regressions + elimination of any edge-case false positives).
 - Update the generator output schema and the three engine variants.
-- Classify the rare large-gap exceptions (they may reveal additional terminal conditions such as square-phase or higher-divisor attractors).
+- Classify the rare large-gap exceptions (they may reveal additional terminal conditions such as prime-square interval or higher-divisor attractors).
 
 I have produced a polished technical report that documents the hypothesis, the validation data, the proposed implementation changes, and the connection back to the existing proved results (GWR, NLSC, Semiprime Wheel, 14-state engine).
 

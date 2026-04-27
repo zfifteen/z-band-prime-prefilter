@@ -5,7 +5,7 @@ is not to show that `13` is prime. The target is to show, using only allowed PGS
 evidence, that input prime `11` uniquely closes at offset `2`.
 
 The derivation does not close yet. It establishes the first-open candidate and
-the empty pre-open chamber, but it does not derive the next-prime uniqueness step.
+the empty pre-open interval, but it does not derive the next-prime uniqueness step.
 The emission status remains `FAILED_CLOSED`.
 
 ## Input prime: p = 11
@@ -35,7 +35,7 @@ The allowed evidence is:
 - arithmetic in the fixed mod-30 wheel;
 - deterministic divisibility by the wheel basis for pre-open positions;
 - the absence of a positive-offset open integer before offset `2`;
-- Next-Prime Law 001 as a proposed empty-chamber closure rule.
+- Next-Prime Law 001 as a proposed empty-search-interval closure rule.
 
 For input prime `11`, the mod-30 residue is:
 
@@ -67,9 +67,9 @@ This derivation does not use:
 The expression `q_hat = 13` appears only because `13 = 11 + 2`. It is not used
 as a known prime.
 
-## Chamber Model Before Endpoint
+## Search Interval Model Before Endpoint
 
-Before the candidate next prime at offset `2`, the chamber contains one integer:
+Before the candidate next prime at offset `2`, the search interval contains one integer:
 
 $$I_{pre} = \{12\}$$
 
@@ -80,7 +80,7 @@ $$12 \equiv 12 \pmod{30}$$
 Residue `12` is divisible by `2` and by `3` in the wheel basis. Therefore `12`
 is not an admissible open candidate next prime and not an open GWR-selected integer.
 
-The pre-open chamber has no positive-offset open composite integer.
+The pre-open interval has no positive-offset open composite integer.
 
 ## First-Open Offset Logic
 
@@ -103,7 +103,7 @@ inside a prime-gap interior. DNI and no-later-simpler closure use that integer
 to constrain where the right endpoint must arrive before a later lower-divisor
 threat overtakes the selected integer.
 
-For the proposed input prime-11 chamber ending at offset `2`, there is no positive
+For the proposed input prime-11 search interval ending at offset `2`, there is no positive
 open composite integer before the candidate next prime. The selection fields are
 therefore null:
 
@@ -112,9 +112,9 @@ therefore null:
 - `winner_divisor_count: null`
 - `winner_family: "empty_pre_open_chamber"`
 
-This empty-chamber state is not the standard GWR-selected integer regime. Next-Prime Law
-001 would need to define a lawful base case: if the pre-open chamber is closed
-and contains no admissible integer, the first open position closes the chamber.
+This empty-search-interval state is not the standard GWR-selected integer regime. Next-Prime Law
+001 would need to define a lawful base case: if the pre-open interval is closed
+and contains no admissible integer, the first open position closes the search interval.
 
 That base case is the exact mathematical content still needed.
 
@@ -127,13 +127,13 @@ The current derivation rules out competing endpoints before offset `2`:
 - no open integer exists before the first open offset.
 
 The current derivation does not rule out the possibility that the first open
-position is only a candidate and that the chamber continues to a later endpoint.
-Ruling that out would require an empty-chamber closure principle stronger than
+position is only a candidate and that the search interval continues to a later endpoint.
+Ruling that out would require an empty-search-interval closure principle stronger than
 wheel admissibility.
 
 The missing implication is:
 
-$$\text{first open candidate after an empty pre-open chamber} \Rightarrow \text{unique right endpoint}$$
+$$\text{first open candidate after an empty pre-open interval} \Rightarrow \text{unique right endpoint}$$
 
 That implication is not yet established by PGS structure in this note.
 
@@ -156,5 +156,5 @@ The correct emission status is:
 - `failure_reason: "NO_UNIQUE_BOUNDARY"`
 
 Milestone 1 positive emission remains blocked. The next proof task is to
-establish or reject the empty-chamber closure principle without using classical
+establish or reject the empty-search-interval closure principle without using classical
 validation or next-prime discovery.

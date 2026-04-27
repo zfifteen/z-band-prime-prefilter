@@ -91,7 +91,7 @@ new split:
 - the first non-floor margin is therefore residue-dependent.
 
 That is a stricter statement than “the branch seems to jump from `2` to `6`.”
-It says the jump is not one branch. It is a residue-gated phase split.
+It says the jump is not one branch. It is a residue-gated state split.
 
 ## Decision Rule
 

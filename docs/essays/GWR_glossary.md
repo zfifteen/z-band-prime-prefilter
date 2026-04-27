@@ -436,7 +436,7 @@ dangerous later threat.
 **In this repo:** In the `d=4` case this is `S_+(w) - q`.
 Positive means the prime arrived in time.
 
-### Square-Phase Clock
+### Prime-Square Interval Clock
 
 **Plain language:** The countdown from a `d=4` selected integer to the next prime square.
 
@@ -447,7 +447,7 @@ Since the next simpler composite class after `d=4` is `d=3`, and `d=3`
 corresponds exactly to prime squares, the next prime square acts like the next
 possible “tick” of a simpler threat.
 
-### Square-Phase Utilization
+### Prime-Square Interval Utilization
 
 **Plain language:** How much of the available prime-square clock gets used
 before the next prime arrives.

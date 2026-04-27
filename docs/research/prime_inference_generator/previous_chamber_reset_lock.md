@@ -1,6 +1,6 @@
-# Previous-Chamber Reset Lock Probe
+# Previous-Search-Interval Reset Lock Probe
 
-Previous-chamber memory produced zero-wrong lock candidates in the abstention
+Previous-search-interval memory produced zero-wrong lock candidates in the abstention
 regime left by Next-Prime Law 005A.
 
 This note documents offline theorem discovery only. It does not approve pure
@@ -13,10 +13,10 @@ Current status:
 - Milestone 0: accepted.
 - Milestone 1: blocked for generator output.
 - Next-Prime Law 005A: higher-divisor pressure lock, candidate-grade only.
-- Next-Prime Law 005B: previous-chamber reset lock, candidate lead found.
+- Next-Prime Law 005B: previous-search-interval reset lock, candidate lead found.
 - Pure emission: forbidden.
 
-The previous-chamber signal is legal for a future pure walk only if the prior
+The previous-search-interval signal is legal for a future pure walk only if the prior
 endpoint has already been emitted and accepted in the generator's trust chain.
 In this probe, labels are used only after record construction to classify true
 and false resolved candidates.
@@ -57,7 +57,7 @@ false_candidate_count: 7722
 previous_chamber_signal_count: 50941
 ```
 
-Three previous-chamber predicates passed the zero-wrong gate:
+Three previous-search-interval predicates passed the zero-wrong gate:
 
 ```text
 previous_to_current_carrier_shift_lock: true 21, false 0, wrong 0
@@ -79,7 +79,7 @@ previous_to_current_carrier_shift_lock
 | `100_000..200_000` | `8392` | `4212` | `4941` |
 | `1_000_000..1_100_000` | `7216` | `2858` | `3368` |
 
-The previous-chamber signal appears in both shifted windows. Unlike the
+The previous-search-interval signal appears in both shifted windows. Unlike the
 higher-divisor pressure lock, this family does not simply abstain on shifted
 windows.
 
@@ -113,7 +113,7 @@ Operationally, this predicate selects a resolved candidate only when:
 
 ```text
 later unresolved alternatives exist
-previous chamber has a legal selected integer
+previous search interval has a legal selected integer
 current candidate has a legal selected integer
 previous selected-integer identity != current selected-integer identity
 ```
@@ -123,14 +123,14 @@ and `0` false resolved survivors.
 
 ## Interpretation
 
-The near-miss profile said previous-chamber memory was the dominant adjacent
+The near-miss profile said previous-search-interval memory was the dominant adjacent
 signal. This probe shows that raw previous memory is too broad, but a narrow
 integer-reset form is selective on the tested surface.
 
 The result supports a candidate family:
 
 ```text
-005B: Previous-Chamber Selected Integer-Shift Reset Lock
+005B: Previous-Search-Interval Selected Integer-Shift Reset Lock
 ```
 
 This is still candidate material only. It is not a theorem and not a generator
@@ -138,18 +138,18 @@ rule.
 
 ## Pure-Rule Dependency Caveat
 
-Previous-chamber evidence is available to a pure generator only if the previous
+Previous-search-interval evidence is available to a pure generator only if the previous
 endpoint is already trusted. A pure implementation would need an explicit
 history contract:
 
 ```text
 accepted previous endpoint
-accepted previous chamber certificate
+accepted previous search-interval certificate
 current resolved candidate
 previous-to-current selected-integer shift
 ```
 
-Without that prior-endpoint trust chain, previous-chamber memory is offline
+Without that prior-endpoint trust chain, previous-search-interval memory is offline
 evidence, not pure-generation evidence.
 
 ## Falsification Condition

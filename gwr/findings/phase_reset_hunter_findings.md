@@ -1,8 +1,8 @@
-# Phase-Reset Hunter Findings
+# State-Reset Hunter Findings
 
 The best reset law over the `hidden_state_augmented_rotor` base recipe is `reset_on_odd_winner` with pooled-window concentration L1 `0.0196`, three-step concentration `0.3970`, and reset-signature gain `0.7611`.
 
-Parity behaves like a genuine phase kick on this surface.
+Parity behaves like a genuine state shift on this surface.
 
 ## Rule Table
 
@@ -21,4 +21,4 @@ Parity behaves like a genuine phase kick on this surface.
 - [summary JSON](../../output/gwr_phase_reset_hunter_summary.json)
 - [rules CSV](../../output/gwr_phase_reset_hunter_rules.csv)
 - [history JSONL](../../output/gwr_phase_reset_hunter_history.jsonl)
-- ![Phase reset overview](../../output/gwr_phase_reset_hunter_overview.png)
+- ![State reset overview](../../output/gwr_phase_reset_hunter_overview.png)

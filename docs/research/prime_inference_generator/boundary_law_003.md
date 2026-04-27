@@ -1,19 +1,19 @@
-# Next-Prime Law 003: First Selected-Integer-Bearing Chamber Certificate
+# Next-Prime Law 003: First Selected-Integer-Bearing Search Interval Certificate
 
 Next-Prime Law 003 moves the first positive target away from the empty input-prime-11
-chamber. The target is a chamber where PGS has actual interior structure: a
+search interval. The target is a search interval where PGS has actual interior structure: a
 composite interior, a definable GWR-selected integer, a divisor-count selected integer, and a
 closure condition that can be inspected without classical endpoint detection.
 
-This note uses the small chamber from input prime `13` to proposed endpoint `17` as
+This note uses the small search interval from input prime `13` to proposed endpoint `17` as
 the first probe. It does not emit yet. It establishes the selected-integer-bearing
 certificate and identifies the remaining uniqueness gap.
 
 ## Name
 
-First Selected-Integer-Bearing Chamber Certificate.
+First Selected-Integer-Bearing Search Interval Certificate.
 
-The law asks whether a nonempty chamber with a GWR-compatible selected integer can force
+The law asks whether a nonempty search interval with a GWR-compatible selected integer can force
 its right endpoint from PGS structure alone.
 
 ## Target Probe
@@ -30,7 +30,7 @@ The proposed interior is:
 
 $$I = \{14, 15, 16\}$$
 
-This chamber is small enough to audit by hand and large enough to contain
+This search interval is small enough to audit by hand and large enough to contain
 nontrivial selected-integer structure.
 
 ## Allowed Inputs
@@ -64,7 +64,7 @@ Next-Prime Law 003 must not use:
 The string `17` may appear only as the proposed endpoint in the law probe. It
 must not be used as a known prime.
 
-## Proposed Chamber Certificate
+## Proposed Search Interval Certificate
 
 For the proposed interior:
 
@@ -76,7 +76,7 @@ the concrete composite witnesses are:
 - `15 = 3 * 5`, so `d(15) = 4`;
 - `16 = 2^4`, so `d(16) = 5`.
 
-The minimum divisor class inside the proposed chamber is:
+The minimum divisor class inside the proposed interval is:
 
 $$d_{min} = 4$$
 
@@ -96,7 +96,7 @@ sequence.
 
 ## GWR Compatibility
 
-The GWR requirement for the proposed chamber is satisfied at the certificate
+The GWR requirement for the proposed interval is satisfied at the certificate
 level:
 
 - every interior point has an explicit composite witness;
@@ -104,12 +104,12 @@ level:
 - the minimum divisor class is `4`;
 - the leftmost minimum-divisor integer is `14`.
 
-This proves that the proposed chamber has coherent GWR structure. It does not
-by itself prove that the chamber endpoint is forced at `17`.
+This proves that the proposed interval has coherent GWR structure. It does not
+by itself prove that the search interval endpoint is forced at `17`.
 
 ## No-Later-Simpler Closure
 
-Inside the proposed chamber after the selected integer:
+Inside the proposed interval after the selected integer:
 
 - `15` has divisor count `4`, not lower than the selected integer;
 - `16` has divisor count `5`, not lower than the selected integer.
@@ -122,7 +122,7 @@ The local no-later-simpler status is:
 - `threat_margin: null`
 
 This is an interior closure statement. It does not yet rule out a lower-divisor
-threat after `17` if the chamber were allowed to continue.
+threat after `17` if the search interval were allowed to continue.
 
 ## Competing Endpoint Analysis
 
@@ -134,16 +134,16 @@ Earlier positive offsets are:
 - offset `2`: `15`, closed by concrete composite witness;
 - offset `3`: `16`, closed by concrete composite witness.
 
-Therefore no smaller candidate next prime remains inside the proposed chamber.
+Therefore no smaller candidate next prime remains inside the proposed interval.
 
 This establishes:
 
 - the proposed interior is closed;
-- the proposed chamber has a GWR-selected integer;
-- no smaller offset in the proposed chamber can be the endpoint.
+- the proposed interval has a GWR-selected integer;
+- no smaller offset in the proposed interval can be the endpoint.
 
 It does not establish that the first position after the closed selected-integer-bearing
-chamber is uniquely forced as the right endpoint.
+search interval is uniquely forced as the right endpoint.
 
 ## Endpoint Uniqueness Gap
 
@@ -151,13 +151,13 @@ The current certificate still separates three statements:
 
 - `14`, `15`, and `16` are composite interior points;
 - `14` is the GWR-compatible leftmost minimum-divisor integer;
-- `17` is the first candidate after the closed proposed chamber.
+- `17` is the first candidate after the closed proposed interval.
 
 The missing implication is:
 
-$$\text{closed selected-integer-bearing chamber with no later simpler interior threat} \Rightarrow \text{forced next prime}$$
+$$\text{closed selected-integer-bearing search interval with no later simpler interior threat} \Rightarrow \text{forced next prime}$$
 
-That implication is stronger than chamber consistency. It is not proved here.
+That implication is stronger than search-interval consistency. It is not proved here.
 
 ## Current Status
 
@@ -171,8 +171,8 @@ For the input prime-13 probe:
 - `inference_status: "failed_closed"`
 - `failure_reason: "MISSING_CARRIER_BOUNDARY_UNIQUENESS"`
 
-The law succeeds at finding the first structurally meaningful PGS chamber. It
-fails to prove that the chamber structure forces the right endpoint.
+The law succeeds at finding the first structurally meaningful PGS search interval. It
+fails to prove that the search interval structure forces the right endpoint.
 
 ## Emission Rule
 
@@ -214,13 +214,13 @@ If the uniqueness theorem is missing, emit:
 
 ## Next Search Direction
 
-Next-Prime Law 003 shows that moving to a selected-integer-bearing chamber fixes the
+Next-Prime Law 003 shows that moving to a selected-integer-bearing search interval fixes the
 degeneracy of the input prime-11 case, but it does not by itself solve endpoint
 uniqueness.
 
 The next proof task is to determine whether GWR/DNI plus no-later-simpler
 closure can force a endpoint, or whether the current certificates only validate
-candidate chambers after a proposed endpoint has already been chosen.
+proposed intervals after a proposed endpoint has already been chosen.
 
 If the latter is true, the missing theorem is not input prime-specific. It is a
-general bridge from chamber consistency to next-prime inference.
+general bridge from search-interval consistency to next-prime inference.
