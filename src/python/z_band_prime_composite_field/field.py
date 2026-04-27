@@ -4,11 +4,55 @@ from __future__ import annotations
 
 import math
 
-import gmpy2
 import numpy as np
 
 
 SEGMENT_SIZE = 1_000_000
+
+
+def _integer_cube_root(value: int) -> tuple[int, bool]:
+    """Return floor cube root and exactness for one non-negative integer."""
+    root = int(round(value ** (1.0 / 3.0)))
+    while (root + 1) ** 3 <= value:
+        root += 1
+    while root**3 > value:
+        root -= 1
+    return root, root**3 == value
+
+
+def _strong_composite_witness(n: int, base: int, odd_part: int, shifts: int) -> bool:
+    """Return True when one Miller-Rabin base proves compositeness."""
+    value = pow(base, odd_part, n)
+    if value == 1 or value == n - 1:
+        return False
+    for _ in range(shifts - 1):
+        value = (value * value) % n
+        if value == n - 1:
+            return False
+    return True
+
+
+def _has_no_composite_witness(n: int) -> bool:
+    """Return True when deterministic bases find no composite witness."""
+    if n < 2:
+        return False
+    small_basis = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37)
+    for base in small_basis:
+        if n == base:
+            return True
+        if n % base == 0:
+            return False
+
+    odd_part = n - 1
+    shifts = 0
+    while odd_part % 2 == 0:
+        odd_part //= 2
+        shifts += 1
+
+    for base in small_basis:
+        if _strong_composite_witness(n, base, odd_part, shifts):
+            return False
+    return True
 
 
 def _small_primes(limit: int) -> np.ndarray:
@@ -56,8 +100,7 @@ def divisor_counts_segment(lo: int, hi: int) -> np.ndarray:
     values = np.arange(lo, hi, dtype=np.int64)
     residual = values.copy()
     divisor_count = np.ones(size, dtype=np.uint32)
-    cube_root_limit, exact = gmpy2.iroot(hi - 1, 3)
-    cube_root_limit = int(cube_root_limit)
+    cube_root_limit, exact = _integer_cube_root(hi - 1)
     if not exact and (cube_root_limit + 1) ** 3 <= hi - 1:
         cube_root_limit += 1
 
@@ -85,16 +128,15 @@ def divisor_counts_segment(lo: int, hi: int) -> np.ndarray:
         if remainder == 1:
             continue
 
-        remainder_mpz = gmpy2.mpz(int(remainder))
-        if gmpy2.is_prime(remainder_mpz):
+        remainder_int = int(remainder)
+        if _has_no_composite_witness(remainder_int):
             divisor_count[index] *= 2
             continue
 
-        if gmpy2.is_square(remainder_mpz):
-            root = gmpy2.isqrt(remainder_mpz)
-            if gmpy2.is_prime(root):
-                divisor_count[index] *= 3
-                continue
+        root = math.isqrt(remainder_int)
+        if root * root == remainder_int and _has_no_composite_witness(root):
+            divisor_count[index] *= 3
+            continue
 
         divisor_count[index] *= 4
 
