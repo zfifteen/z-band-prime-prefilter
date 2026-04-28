@@ -279,3 +279,21 @@ Artifacts:
 `benchmarks/python/predictor/gwr_dni_recursive_walk.py`; `tests/python/predictor/test_gwr_dni_recursive_walk.py`; `docs/research/algorithmic_frontier_hourly.md`; measured output with `baseline_elapsed = 1.5411759580019861`, `fast_elapsed = 1.134829582995735`, `speedup = 1.3580681902330864`, `baseline_segment_slots = 69248`, `fast_prefix_segment_slots = 12000`, and `saved_segment_fraction = 0.8267097966728281`.
 Next step:
 Thread the same clipped divisor classifier into the standalone exact endpoint walk and measure the same `10^12` chain.
+
+## 2026-04-28 daily run
+Mechanism:
+Partial divisor-field localization via the `delta = 4` square-empty bounded-tail predicate, exercised on an independent 7-digit prime where the locked selected integer occurs at offset `7`.
+Why it could help:
+Once the prefix has exposed a `d(n) = 4` selected integer and the bounded tail contains no square, no later square branch can undercut the locked divisor class before the dynamic cutoff. The endpoint can then be recovered from the selected integer witness without constructing `extended_counts`.
+Method:
+Ran the live `benchmarks/python/predictor/gwr_dni_recursive_walk.py:bounded_next_gap_profile` path on `q = 1411219` while tracking every `divisor_counts_segment` call.
+What was built or tested:
+The regression was added to `tests/python/predictor/test_gwr_dni_recursive_walk.py` under the existing d=4 empty-range witness test. The measured prefix counts are `[24, 32, 8, 12, 32, 12, 4, 12, 24, 4, 16, 4]`, so the first locked `delta = 4` state is at offset `7`.
+Result:
+The live bounded walker recovered the exact next prime `1411243` with `next_dmin = 4`, `next_peak_offset = 7`, and `gap_boundary_offset = 24`. Because the current implementation checks the square-empty bounded tail during prefix scanning, the shortcut fired after exactly `7` one-offset divisor-count calls and made no `extended_counts` call. Against the canonical bounded scan to the endpoint, that removes `17` divisor-count operations; against a full 12-offset prefix followed by the same predicate, it removes the same `12` extended operations reported by the sandbox prototype.
+Status:
+ADVANCE
+Artifacts:
+`benchmarks/python/predictor/gwr_dni_recursive_walk.py`; `tests/python/predictor/test_gwr_dni_recursive_walk.py`; in-shell verification output for `q = 1411219` with `cutoff = 101`, `calls = 7`, and exact recovered endpoint `1411243`.
+Next step:
+Measure the d=4 square-empty shortcut share on a fixed consecutive-prime surface and separate early-prefix firings from post-prefix firings.

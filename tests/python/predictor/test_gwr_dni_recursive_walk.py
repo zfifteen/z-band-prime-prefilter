@@ -113,6 +113,7 @@ def test_bounded_profile_uses_d4_empty_range_witness_without_extended_scan(monke
     cases = [
         (1000003, 4, 4, 30, 1000033, offset_calls(1000003, 4)),
         (1300031, 4, 3, 20, 1300051, offset_calls(1300031, 3)),
+        (1411219, 4, 7, 24, 1411243, offset_calls(1411219, 7)),
     ]
 
     for q, expected_d, expected_peak, expected_boundary, expected_next_prime, expected_calls in cases:
