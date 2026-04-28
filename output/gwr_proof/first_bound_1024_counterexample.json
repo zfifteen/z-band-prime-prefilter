@@ -1,0 +1,56 @@
+{
+  "rule_id": "pgs_chamber_reset_v1",
+  "claim": "candidate_bound_1024_universal_theorem_false",
+  "scope": {
+    "generator_version": "1.1.0",
+    "candidate_bound": 1024,
+    "input_domain": "prime p >= 5"
+  },
+  "external_gap_source": {
+    "source_type": "prime_gap_first_occurrence_table",
+    "source_url": "https://raw.githubusercontent.com/primegap-list-project/prime-gap-list/master/allgaps.sql",
+    "selection_rule": "earliest certified conventional first-occurrence gap with gap > 1024",
+    "earliest_entry": {
+      "p": 1693182318746371,
+      "q": 1693182318747503,
+      "gap": 1132,
+      "is_maximal_gap": true,
+      "discoverer": "Be.Nyman",
+      "year": 1999,
+      "merit": 32.2825,
+      "digits": 16
+    }
+  },
+  "local_exact_verification": {
+    "p_is_prime": true,
+    "q_is_prime": true,
+    "interior_prime_exists": false
+  },
+  "generator_check": {
+    "bound_1024_emit_record_result": {
+      "status": "PGSUnresolvedError",
+      "message": "PGS selector did not resolve p=1693182318746371 within bound=1024"
+    },
+    "gap_sized_chamber_emit_record_result": {
+      "status": "record",
+      "record": {
+        "p": 1693182318746371,
+        "q": 1693182318747503
+      }
+    },
+    "gap_sized_chamber_certificate": {
+      "gap_offset": 1132,
+      "resolved_count": 1,
+      "unresolved_count": 0,
+      "carrier_d": 4,
+      "lock_carrier_offset": 6,
+      "lower_d_threat_offset": null
+    }
+  },
+  "interpretation": {
+    "obstruction_type": "bound_only",
+    "wrong_first_survivor_counterexample": false,
+    "selection_rule_failure_inside_true_gap": false,
+    "next_live_question": "Which larger fixed chamber bound, if any, is intended as a theorem target?"
+  }
+}

@@ -105,6 +105,102 @@ def test_pgs_unresolved_raises_without_fallback(monkeypatch):
         raise AssertionError("expected PGSUnresolvedError")
 
 
+def test_universal_theorem_fails_at_p_two_and_three():
+    """The current wheel-open chamber excludes the next primes 3 and 5."""
+    for anchor in (2, 3):
+        try:
+            emit_record(anchor, candidate_bound=32)
+        except PGSUnresolvedError as exc:
+            assert f"p={anchor}" in str(exc)
+        else:
+            raise AssertionError("expected PGSUnresolvedError")
+
+    assert emit_record(5, candidate_bound=32) == {"p": 5, "q": 7}
+
+
+def test_first_prime_inside_the_chamber_is_emitted_on_small_exact_pairs():
+    """Once the true gap is inside the chamber, the selector emits that endpoint."""
+    exact_pairs = [
+        (5, 7),
+        (7, 11),
+        (11, 13),
+        (13, 17),
+        (17, 19),
+        (19, 23),
+        (23, 29),
+        (29, 31),
+    ]
+
+    for p, q in exact_pairs:
+        gap = q - p
+        assert emit_record(p, candidate_bound=gap) == {"p": p, "q": q}
+        assert pgs_probe_certificate(p, gap)["gap_offset"] == gap
+
+
+def test_chamber_resolution_is_exactly_gap_coverage_for_p_at_least_five():
+    """For p >= 5, the rule resolves exactly when the chamber reaches the true gap."""
+    exact_pairs = [
+        (5, 7),
+        (11, 13),
+        (23, 29),
+        (89, 97),
+        (1357201, 1357333),
+        (1693182318746371, 1693182318747503),
+    ]
+
+    for p, q in exact_pairs:
+        gap = q - p
+        assert pgs_probe_certificate(p, gap - 1) is None
+
+        try:
+            emit_record(p, candidate_bound=gap - 1)
+        except PGSUnresolvedError as exc:
+            assert str(exc) == (
+                f"PGS selector did not resolve p={p} within bound={gap - 1}"
+            )
+        else:
+            raise AssertionError("expected PGSUnresolvedError")
+
+        certificate = pgs_probe_certificate(p, gap)
+        assert certificate is not None
+        assert certificate["q"] == q
+        assert certificate["gap_offset"] == gap
+        assert emit_record(p, candidate_bound=gap) == {"p": p, "q": q}
+
+
+def test_default_bound_128_fails_at_first_gap_132_obstruction():
+    """The first gap above the default chamber must stay unresolved at bound 128."""
+    p = 1357201
+    q = 1357333
+
+    try:
+        emit_record(p)
+    except PGSUnresolvedError as exc:
+        assert str(exc) == "PGS selector did not resolve p=1357201 within bound=128"
+    else:
+        raise AssertionError("expected PGSUnresolvedError")
+
+    assert emit_record(p, candidate_bound=q - p) == {"p": p, "q": q}
+
+
+def test_bound_1024_fails_at_first_certified_gap_1132_obstruction():
+    """The documented 1024-chamber obstruction must remain unresolved at bound 1024."""
+    p = 1693182318746371
+    q = 1693182318747503
+
+    try:
+        emit_record(p, candidate_bound=1024)
+    except PGSUnresolvedError as exc:
+        assert (
+            str(exc)
+            == "PGS selector did not resolve p=1693182318746371 within bound=1024"
+        )
+    else:
+        raise AssertionError("expected PGSUnresolvedError")
+
+    assert emit_record(p, candidate_bound=q - p) == {"p": p, "q": q}
+
+
 def test_high_scale_false_shadow_candidate_is_rejected_by_gwr_nlsc_state():
     """The production selector must not emit the old high-scale shadow error."""
     record = emit_record(1000000033, candidate_bound=1024)

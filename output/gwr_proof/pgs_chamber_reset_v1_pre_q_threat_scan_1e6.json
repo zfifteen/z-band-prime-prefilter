@@ -1,0 +1,31 @@
+{
+  "rule_id": "pgs_chamber_reset_v1",
+  "claim": "pre_q_lower_divisor_threat_scan_gap_sized_chambers",
+  "scope": {
+    "generator_version": "1.1.0",
+    "input_domain": "prime p >= 5",
+    "scan_hi_inclusive": 1000000,
+    "chamber_rule": "candidate_bound = q - p",
+    "divisor_count_state": "exact"
+  },
+  "results": {
+    "checked_prime_pairs": 78495,
+    "gap_sized_failure_count": 0,
+    "pre_q_threat_count": 0,
+    "first_gap_sized_failure": null,
+    "first_pre_q_threat": null,
+    "max_gap_pair": {
+      "p": 492113,
+      "q": 492227,
+      "gap": 114
+    },
+    "max_gap": 114,
+    "max_gap_minus_threat_offset": null,
+    "min_gap_minus_threat_offset": null
+  },
+  "interpretation": {
+    "supported_finding": "No gap-sized chamber failure and no pre-q lower-divisor threat were found on the exact prime-input surface p <= 10^6.",
+    "not_proved": "This does not prove the theorem for all prime inputs p >= 5.",
+    "live_obstruction": "Find p >= 5 with lower_d_threat_offset < gap_offset, or prove that branch impossible."
+  }
+}

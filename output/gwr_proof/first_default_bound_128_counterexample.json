@@ -1,0 +1,44 @@
+{
+  "rule_id": "pgs_chamber_reset_v1",
+  "claim": "default_candidate_bound_128_universal_theorem_false",
+  "scope": {
+    "generator_version": "1.1.0",
+    "candidate_bound": 128,
+    "input_domain": "prime p >= 5"
+  },
+  "exact_prime_pair_scan": {
+    "scan_hi": 10000000,
+    "earlier_gap_strictly_above_bound_count": 0,
+    "first_gap_strictly_above_bound": {
+      "p": 1357201,
+      "q": 1357333,
+      "gap": 132
+    }
+  },
+  "generator_check": {
+    "default_emit_record_result": {
+      "status": "PGSUnresolvedError",
+      "message": "PGS selector did not resolve p=1357201 within bound=128"
+    },
+    "gap_sized_chamber_emit_record_result": {
+      "status": "record",
+      "record": {
+        "p": 1357201,
+        "q": 1357333
+      }
+    },
+    "gap_sized_chamber_certificate": {
+      "gap_offset": 132,
+      "resolved_count": 1,
+      "unresolved_count": 0,
+      "carrier_d": 4,
+      "lock_carrier_offset": 2,
+      "lower_d_threat_offset": null
+    }
+  },
+  "interpretation": {
+    "obstruction_type": "bound_only",
+    "wrong_first_survivor_counterexample": false,
+    "next_live_question": "Does the intended larger chamber bound always contain the true next prime on the claimed regime?"
+  }
+}
